@@ -1,0 +1,25 @@
+{
+ "_about": "Copied from flowra-content-engine/assets (the media robot records them on the demo site). Only demo data, never a customer's.",
+ "clips": [
+  {
+   "id": "optimize-to-striking-distance",
+   "mp4": "flowra-optimize-to-striking-distance.mp4",
+   "shows": "10-second clip: the Optimize hub's report cards (Content Decay Map, Keyword Cannibalization, Striking Distance Keywords, Featured Snippet Opportunities, SEO Testing and Change Tracking); the pointer moves across them and opens Striking Distance Keywords, which loads a table of queries in positions 4 to 20 with their potential extra clicks.",
+   "topics": [
+    "striking distance",
+    "SEO quick wins",
+    "keywords on page two"
+   ]
+  },
+  {
+   "id": "share-link-branding",
+   "mp4": "flowra-share-link-branding.mp4",
+   "shows": "9-second clip: Analytics Settings, the pointer clicks New link under Client sharing and the new client report link form opens, with the label, report period, 30-day expiry switch and agency branding fields (name, logo, accent colour).",
+   "topics": [
+    "client reporting",
+    "white label SEO report",
+    "agency reporting"
+   ]
+  }
+ ]
+}

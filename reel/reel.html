@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Flowra reel</title>
+<!--
+  One reel, drawn from data: window.REEL = { script, timeline, clips } is set
+  before load (src/render.ts). Every frame is a pure function of t (seconds):
+  window.render(t) returns a promise that resolves once the frame is drawn.
+  1080x1920. Instagram covers the top ~200px, the bottom ~380px and a strip
+  on the right with its own buttons, so everything that matters sits inside
+  x 80..960, y 230..1540.
+-->
+<style>
+  @font-face { font-family: "Space Grotesk"; src: url("assets/SpaceGrotesk.woff2") format("woff2"); font-weight: 300 700; }
+  @font-face { font-family: "Public Sans"; src: url("assets/PublicSans.woff2") format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "IBM Plex Mono"; src: url("assets/PlexMono500.woff2") format("woff2"); font-weight: 500; }
+  :root { --ink: #0f172a; --muted: #5e6b7f; --accent: #e6650f; --deep: #99430a; --loss: #dc2626; --win: #15803d; --line: #e2e6ec; --peach: #fdba8c; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #ffffff; }
+  body { font-family: "Public Sans", sans-serif; color: var(--ink); }
+  .abs { position: absolute; }
+  .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+  .disp { font-family: "Space Grotesk", sans-serif; font-weight: 700; letter-spacing: -0.03em; }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #ffffff; }
+  .grid { inset: 0; background-image: linear-gradient(#eef1f5 2px, transparent 2px), linear-gradient(90deg, #eef1f5 2px, transparent 2px); background-size: 90px 90px; background-position: -2px -2px; }
+  #glow { width: 1600px; height: 1600px; left: -300px; top: 1100px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(230,101,15,.24) 0%, rgba(230,101,15,.08) 40%, rgba(230,101,15,0) 68%); }
+  #bar { left: 0; top: 0; height: 10px; width: 1080px; background: var(--accent); transform-origin: 0 0; }
+
+  .beat { inset: 0; opacity: 0; }
+  .kick { left: 80px; top: 250px; font-size: 30px; letter-spacing: .14em; text-transform: uppercase; color: var(--deep); display: flex; gap: 14px; align-items: center; }
+  .kick i { width: 18px; height: 18px; border-radius: 5px; background: var(--accent); display: block; }
+  .text { left: 80px; width: 860px; line-height: 1.04; }
+  .text em { font-style: normal; color: var(--accent); }
+  .w { display: inline-block; opacity: 0; will-change: transform, opacity; }
+
+  /* hook: navy panel, wipes up when the hook ends */
+  .hook { background: #0f172a; }
+  .hook .hgrid { inset: 0; opacity: .5; background-image: linear-gradient(rgba(255,255,255,.05) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.05) 2px, transparent 2px); background-size: 90px 90px; }
+  .hook .text { color: #ffffff; top: 520px; }
+  .hook .text em { color: var(--peach); }
+  .hook .kick { color: rgba(255,255,255,.7); }
+
+  .point .text { top: 420px; }
+  .step .num { left: 80px; top: 380px; width: 150px; height: 150px; border-radius: 40px; background: var(--accent); color: #fff; font-size: 104px; display: flex; align-items: center; justify-content: center; }
+  .step .of { left: 256px; top: 430px; font-size: 32px; color: var(--muted); }
+  .step .text { top: 600px; }
+  .stamp { left: 80px; top: 380px; font-size: 64px; padding: 10px 30px; border: 6px solid currentColor; border-radius: 18px; letter-spacing: .06em; }
+  .myth .stamp { color: var(--loss); }
+  .fact .stamp { color: var(--win); }
+  .myth .text, .fact .text { top: 540px; }
+  .strike { left: 70px; height: 12px; background: var(--loss); border-radius: 6px; transform-origin: 0 50%; opacity: .9; }
+  .clip .text { top: 380px; }
+  .clip .card { left: 40px; width: 1000px; height: 625px; border-radius: 24px; overflow: hidden; border: 3px solid var(--line); background: #fff;
+    box-shadow: 0 40px 80px rgba(15,23,42,.14), 0 8px 18px rgba(15,23,42,.06); }
+  .clip .card img { width: 1000px; height: 625px; display: block; transform-origin: 30% 35%; }
+  .clip .tag { left: 44px; font-size: 28px; color: var(--muted); }
+
+  .outro .lock { left: 0; right: 0; height: 170px; display: flex; justify-content: center; align-items: center; gap: 30px; }
+  .outro .spark { width: 170px; height: 170px; }
+  .outro .word { font-size: 170px; line-height: 1; }
+  .outro .text { left: 110px; width: 860px; text-align: center; }
+  .outro .url { left: 0; right: 0; text-align: center; font-size: 48px; color: var(--deep); }
+
+  /* captions */
+  #cap { left: 540px; top: 1360px; transform-origin: 50% 50%; max-width: 860px; padding: 20px 34px 24px; border-radius: 26px;
+    background: rgba(15,23,42,.92); color: #fff; font-size: 60px; font-weight: 800; line-height: 1.12; text-align: center; white-space: nowrap; opacity: 0; }
+  #cap span { display: inline-block; margin: 0 .12em; }
+  #cap span.on { color: #ffb37a; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="abs grid"></div>
+  <div class="abs" id="glow"></div>
+  <div id="beats"></div>
+  <div class="abs" id="cap"></div>
+  <div class="abs" id="bar"></div>
+</div>
+<script>
+  const R = window.REEL;
+  const c01 = (v) => Math.max(0, Math.min(1, v));
+  const p = (t, a, d) => c01((t - a) / d);
+  const outCubic = (x) => 1 - Math.pow(1 - x, 3);
+  const inCubic = (x) => x * x * x;
+  const inOutCubic = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+  const outBack = (x, k = 1.7) => 1 + (k + 1) * Math.pow(x - 1, 3) + k * Math.pow(x - 1, 2);
+  const tf = (el, o, x = 0, y = 0, s = 1, r = 0) => { el.style.opacity = o; el.style.transform = `translate(${x}px, ${y}px) scale(${s}) rotate(${r}deg)`; };
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const SPARK = `<svg class="spark" viewBox="0 0 48 48"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f0ac4f"/><stop offset="40%" stop-color="#ee7176"/><stop offset="70%" stop-color="#c05aa0"/><stop offset="100%" stop-color="#5461c8"/></linearGradient></defs><path d="M24 2 C25.2 16.5 27.5 22 44 24 C28 25.5 25.2 30.5 24 42 C22.8 30.5 20.5 25.5 6 24 C20.5 22 22.8 16.5 24 2 Z" fill="url(#g)" stroke="#231a10" stroke-width="1.8" stroke-linejoin="round"/></svg>`;
+
+  // "*words*" are the emphasis. Each word is its own span so it can pop in;
+  // punctuation stays glued to the word before it.
+  function words(show) {
+    const out = [];
+    let em = false;
+    for (const part of show.split(/(\*)/)) {
+      if (part === "*") { em = !em; continue; }
+      const lead = part.match(/^[,.:;!?)]+/);
+      if (lead && out.length) out[out.length - 1] = out[out.length - 1].replace(/<\/(em|span)>$/, `${esc(lead[0])}</$1>`);
+      for (const w of part.slice(lead ? lead[0].length : 0).split(/\s+/).filter(Boolean)) out.push(em ? `<em class="w">${esc(w)}</em>` : `<span class="w">${esc(w)}</span>`);
+    }
+    return out.join(" ");
+  }
+
+  // Largest size (from the list) at which the text fits the box.
+  function fit(el, maxH, sizes) {
+    for (const s of sizes) { el.style.fontSize = s + "px"; if (el.scrollHeight <= maxH) return s; }
+    return sizes[sizes.length - 1];
+  }
+
+  const steps = R.script.beats.filter((b) => b.kind === "step").length;
+  const els = R.script.beats.map((b, i) => {
+    const tl = R.timeline.beats[i];
+    const el = document.createElement("div");
+    el.className = `abs beat ${b.kind}`;
+    const kick = R.script.kicker ? `<div class="abs kick mono"><i></i>${esc(R.script.kicker)}</div>` : "";
+    let inner = "";
+    if (b.kind === "hook") inner = `<div class="abs hgrid"></div>${kick}<div class="abs text disp">${words(b.show)}</div>`;
+    else if (b.kind === "step") inner = `${kick}<div class="abs num disp">${b.n ?? ""}</div><div class="abs of mono">Step ${b.n ?? ""} of ${steps}</div><div class="abs text disp">${words(b.show)}</div>`;
+    else if (b.kind === "myth") inner = `${kick}<div class="abs stamp disp">MYTH</div><div class="abs text disp">${words(b.show)}</div><div class="abs strike"></div>`;
+    else if (b.kind === "fact") inner = `${kick}<div class="abs stamp disp">FACT</div><div class="abs text disp">${words(b.show)}</div>`;
+    else if (b.kind === "clip") inner = `${kick}<div class="abs text disp">${words(b.show)}</div><div class="abs card"><img alt="" /></div><div class="abs tag mono">Real Flowra screen, demo site</div>`;
+    else if (b.kind === "outro") inner = `<div class="abs lock">${SPARK}<div class="word disp">Flowra</div></div><div class="abs text disp">${words(b.show)}</div><div class="abs url mono">useflowra.com</div>`;
+    else inner = `${kick}<div class="abs text disp">${words(b.show)}</div>`;
+    el.innerHTML = inner;
+    document.getElementById("beats").appendChild(el);
+    return { b, tl, el, text: el.querySelector(".text"), ws: [...el.querySelectorAll(".w")] };
+  });
+
+  // Each beat's content is sized to fit, then centred in the space between
+  // the kicker (y 300) and the captions (y 1330).
+  const TOP = 330, BOTTOM = 1290;
+  function centre(parts) {
+    const h = parts.reduce((a, [, height, gap]) => a + height + gap, 0);
+    let y = Math.round(TOP + (BOTTOM - TOP - h) / 2);
+    for (const [el, height, gap] of parts) { el.style.top = y + "px"; y += height + gap; }
+    return y;
+  }
+  function layout() {
+    for (const e of els) {
+      const k = e.b.kind, q = (s) => e.el.querySelector(s);
+      if (k === "hook") { fit(e.text, 760, [140, 128, 116, 104, 94]); centre([[e.text, e.text.scrollHeight, 0]]); }
+      else if (k === "outro") {
+        fit(e.text, 200, [72, 64, 56, 50]);
+        centre([[q(".lock"), 170, 90], [e.text, e.text.scrollHeight, 60], [q(".url"), 60, 0]]);
+      } else if (k === "clip") {
+        fit(e.text, 250, [84, 76, 68, 60]);
+        centre([[e.text, e.text.scrollHeight, 50], [q(".card"), 625, 24], [q(".tag"), 40, 0]]);
+      } else if (k === "step") {
+        fit(e.text, 560, [120, 108, 98, 88, 78]);
+        centre([[q(".num"), 150, 60], [e.text, e.text.scrollHeight, 0]]);
+        q(".of").style.top = parseInt(q(".num").style.top) + 52 + "px";
+      } else if (k === "myth" || k === "fact") {
+        fit(e.text, 560, [112, 100, 90, 80, 72]);
+        centre([[q(".stamp"), 104, 60], [e.text, e.text.scrollHeight, 0]]);
+        if (k === "myth") {
+          const s = q(".strike");
+          s.style.top = e.text.offsetTop + e.text.scrollHeight / 2 - 6 + "px";
+          s.style.width = Math.min(880, e.text.scrollWidth + 20) + "px";
+        }
+      } else { fit(e.text, 640, [124, 112, 100, 90, 80]); centre([[e.text, e.text.scrollHeight, 0]]); }
+    }
+  }
+
+  const cap = document.getElementById("cap");
+  let capKey = "";
+  function captions(t) {
+    let chunk = null, beatEnd = 0;
+    for (const b of R.timeline.beats) {
+      b.chunks.forEach((c, i) => {
+        const until = i + 1 < b.chunks.length ? b.chunks[i + 1].start : b.end - 0.15;
+        if (t >= c.start && t < until) { chunk = c; beatEnd = until; }
+      });
+    }
+    if (!chunk) { cap.style.opacity = 0; return; }
+    const key = chunk.start + "";
+    if (key !== capKey) {
+      cap.innerHTML = chunk.words.map((w) => `<span>${esc(w)}</span>`).join("");
+      capKey = key;
+      cap.style.transform = "none";
+      for (const s of [60, 54, 48, 44]) { cap.style.fontSize = s + "px"; if (cap.offsetWidth <= 860) break; }
+    }
+    let on = 0;
+    chunk.wordStarts.forEach((s, i) => { if (t >= s) on = i; });
+    [...cap.children].forEach((s, i) => s.classList.toggle("on", i === on));
+    const k = outBack(p(t, chunk.start, 0.14), 2);
+    cap.style.opacity = c01(p(t, chunk.start, 0.06));
+    cap.style.transform = `translate(-50%, 0) scale(${0.9 + 0.1 * k})`;
+  }
+
+  const clipImg = {};
+  window.render = async function (t) {
+    const D = R.timeline.duration;
+    document.getElementById("bar").style.transform = `scaleX(${c01(t / D)})`;
+    document.getElementById("glow").style.transform = `scale(${1 + 0.05 * Math.sin((t / 2.4) * Math.PI * 2)})`;
+    const loads = [];
+    els.forEach((e, i) => {
+      const { tl, el, ws, b } = e;
+      const last = i === els.length - 1;
+      const visible = t >= tl.start - 0.3 && (last || t < tl.end + 0.4);
+      el.style.display = visible ? "block" : "none";
+      if (!visible) return;
+      const a = tl.start - (i === 0 ? 0.25 : 0.05);
+      if (b.kind === "hook") {
+        // the panel is there from the first frame; it wipes up as the next beat starts
+        const wipe = inOutCubic(p(t, tl.end - 0.1, 0.4));
+        el.style.opacity = 1;
+        el.style.transform = `translateY(${-1920 * wipe}px)`;
+        el.style.zIndex = 5;
+      } else {
+        const fin = outCubic(p(t, a, 0.3));
+        const fout = last ? 0 : inCubic(p(t, tl.end - 0.2, 0.22));
+        tf(el, fin * (1 - fout), 0, 30 * (1 - fin) - 40 * fout);
+      }
+      ws.forEach((w, j) => {
+        const k = p(t, a + 0.08 + j * 0.055, 0.32);
+        tf(w, c01(k * 2.2), 0, 38 * (1 - outBack(k, 1.6)));
+      });
+      const kick = el.querySelector(".kick");
+      if (kick) tf(kick, c01(p(t, a, 0.3)), 0, 16 * (1 - outCubic(p(t, a, 0.3))));
+      if (b.kind === "step") {
+        const k = p(t, a, 0.4);
+        tf(el.querySelector(".num"), c01(k * 2), 0, 0, 0.5 + 0.5 * outBack(k, 2.4), -12 * (1 - outCubic(k)));
+        tf(el.querySelector(".of"), c01(p(t, a + 0.15, 0.3)));
+      }
+      if (b.kind === "myth" || b.kind === "fact") {
+        const k = p(t, a + 0.05, 0.35);
+        tf(el.querySelector(".stamp"), c01(k * 2), 0, 0, 1.6 - 0.6 * outBack(k, 1.4), b.kind === "myth" ? -4 : 3);
+      }
+      if (b.kind === "myth") {
+        const k = outCubic(p(t, tl.spokenEnd - 0.1, 0.35));
+        const s = el.querySelector(".strike");
+        s.style.opacity = k > 0 ? 0.9 : 0;
+        s.style.transform = `scaleX(${k})`;
+      }
+      if (b.kind === "clip") {
+        const card = el.querySelector(".card");
+        const k = outCubic(p(t, a + 0.15, 0.5));
+        tf(card, k, 0, 120 * (1 - k), 0.94 + 0.06 * k);
+        tf(el.querySelector(".tag"), c01(p(t, a + 0.5, 0.3)));
+        const c = R.clips[b.clip];
+        if (c) {
+          const f = Math.max(1, Math.min(c.count, 1 + Math.floor(Math.max(0, t - a - 0.15) * c.fps)));
+          const src = `${c.dir}/${String(f).padStart(4, "0")}.jpg`;
+          const img = card.querySelector("img");
+          // a slow push in, so the small desktop screen reads better on a phone
+          img.style.transform = `scale(${1 + 0.18 * inOutCubic(p(t, a + 0.6, Math.max(1, e.tl.end - a - 0.8)))})`;
+          if (clipImg[b.clip] !== src) { clipImg[b.clip] = src; img.src = src; loads.push(img.decode().catch(() => {})); }
+        }
+      }
+      if (b.kind === "outro") {
+        const k = p(t, a, 0.6);
+        tf(el.querySelector(".lock"), c01(k * 2), 0, 0, 0.7 + 0.3 * outBack(k));
+        el.querySelector(".spark").style.transform = `rotate(${-120 * (1 - outCubic(k))}deg)`;
+        tf(el.querySelector(".url"), c01(p(t, a + 0.5, 0.35)), 0, 20 * (1 - outCubic(p(t, a + 0.5, 0.35))));
+      }
+    });
+    captions(t);
+    await Promise.all(loads);
+  };
+
+  window.ready = document.fonts.ready.then(() => { layout(); return window.render(0); }).then(() => true);
+</script>
+</body>
+</html>

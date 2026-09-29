@@ -1,0 +1,21 @@
+{
+  "name": "flowra-social",
+  "private": true,
+  "type": "module",
+  "description": "Flowra's social agent: writes, voices and renders short vertical videos, posts drafts to Slack for approval.",
+  "scripts": {
+    "make": "tsx src/cli.ts make",
+    "status": "tsx src/cli.ts status",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "engines": { "node": ">=22" },
+  "dependencies": {
+    "playwright": "^1.63.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
