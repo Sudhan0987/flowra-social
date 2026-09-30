@@ -8,9 +8,17 @@
     "status": "tsx src/cli.ts status",
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.1",
+    "esbuild": "^0.28.2",
     "playwright": "^1.63.0",
+    "react": "19.3",
+    "react-dom": "19.3",
+    "three": "^0.186.1",
     "zod": "^4.6.5"
   },
   "devDependencies": {
