@@ -1,0 +1,541 @@
+{
+ "duration": 34.739,
+ "beats": [
+  {
+   "start": 0.25,
+   "spokenEnd": 5.199,
+   "end": 5.549,
+   "chunks": [
+    {
+     "text": "Your best page can",
+     "start": 0.25,
+     "end": 1.137,
+     "words": [
+      "Your",
+      "best",
+      "page",
+      "can"
+     ],
+     "wordStarts": [
+      0.25,
+      0.483,
+      0.717,
+      0.95
+     ]
+    },
+    {
+     "text": "slide for months,",
+     "start": 1.137,
+     "end": 2.258,
+     "words": [
+      "slide",
+      "for",
+      "months,"
+     ],
+     "wordStarts": [
+      1.137,
+      1.511,
+      1.76
+     ]
+    },
+    {
+     "text": "and Search Console won't",
+     "start": 2.258,
+     "end": 3.425,
+     "words": [
+      "and",
+      "Search",
+      "Console",
+      "won't"
+     ],
+     "wordStarts": [
+      2.258,
+      2.445,
+      2.771,
+      3.145
+     ]
+    },
+    {
+     "text": "alert you when its",
+     "start": 3.425,
+     "end": 4.312,
+     "words": [
+      "alert",
+      "you",
+      "when",
+      "its"
+     ],
+     "wordStarts": [
+      3.425,
+      3.705,
+      3.892,
+      4.125
+     ]
+    },
+    {
+     "text": "clicks slip.",
+     "start": 4.312,
+     "end": 5.199,
+     "words": [
+      "clicks",
+      "slip."
+     ],
+     "wordStarts": [
+      4.312,
+      4.79
+     ]
+    }
+   ]
+  },
+  {
+   "start": 5.549,
+   "spokenEnd": 12.611,
+   "end": 12.911,
+   "chunks": [
+    {
+     "text": "Open Performance,",
+     "start": 5.549,
+     "end": 6.672,
+     "words": [
+      "Open",
+      "Performance,"
+     ],
+     "wordStarts": [
+      5.549,
+      5.861
+     ]
+    },
+    {
+     "text": "then Search results.",
+     "start": 6.672,
+     "end": 7.934,
+     "words": [
+      "then",
+      "Search",
+      "results."
+     ],
+     "wordStarts": [
+      6.672,
+      6.972,
+      7.393
+     ]
+    },
+    {
+     "text": "Click the date filter,",
+     "start": 7.934,
+     "end": 9.29,
+     "words": [
+      "Click",
+      "the",
+      "date",
+      "filter,"
+     ],
+     "wordStarts": [
+      7.934,
+      8.288,
+      8.524,
+      8.819
+     ]
+    },
+    {
+     "text": "choose Compare,",
+     "start": 9.29,
+     "end": 10.319,
+     "words": [
+      "choose",
+      "Compare,"
+     ],
+     "wordStarts": [
+      9.29,
+      9.741
+     ]
+    },
+    {
+     "text": "then last three months",
+     "start": 10.319,
+     "end": 11.395,
+     "words": [
+      "then",
+      "last",
+      "three",
+      "months"
+     ],
+     "wordStarts": [
+      10.319,
+      10.553,
+      10.787,
+      11.067
+     ]
+    },
+    {
+     "text": "to previous period.",
+     "start": 11.395,
+     "end": 12.611,
+     "words": [
+      "to",
+      "previous",
+      "period."
+     ],
+     "wordStarts": [
+      11.395,
+      11.577,
+      12.124
+     ]
+    }
+   ]
+  },
+  {
+   "start": 12.911,
+   "spokenEnd": 17.54,
+   "end": 17.84,
+   "chunks": [
+    {
+     "text": "Scroll down to the",
+     "start": 12.911,
+     "end": 13.79,
+     "words": [
+      "Scroll",
+      "down",
+      "to",
+      "the"
+     ],
+     "wordStarts": [
+      12.911,
+      13.235,
+      13.466,
+      13.605
+     ]
+    },
+    {
+     "text": "table and open the",
+     "start": 13.79,
+     "end": 14.67,
+     "words": [
+      "table",
+      "and",
+      "open",
+      "the"
+     ],
+     "wordStarts": [
+      13.79,
+      14.068,
+      14.253,
+      14.485
+     ]
+    },
+    {
+     "text": "Pages tab.",
+     "start": 14.67,
+     "end": 15.457,
+     "words": [
+      "Pages",
+      "tab."
+     ],
+     "wordStarts": [
+      14.67,
+      15.099
+     ]
+    },
+    {
+     "text": "You'll get a Clicks",
+     "start": 15.457,
+     "end": 16.383,
+     "words": [
+      "You'll",
+      "get",
+      "a",
+      "Clicks"
+     ],
+     "wordStarts": [
+      15.457,
+      15.781,
+      15.966,
+      16.059
+     ]
+    },
+    {
+     "text": "Difference column.",
+     "start": 16.383,
+     "end": 17.54,
+     "words": [
+      "Difference",
+      "column."
+     ],
+     "wordStarts": [
+      16.383,
+      17.053
+     ]
+    }
+   ]
+  },
+  {
+   "start": 17.84,
+   "spokenEnd": 22.661,
+   "end": 22.961,
+   "chunks": [
+    {
+     "text": "Sort that column so",
+     "start": 17.84,
+     "end": 18.733,
+     "words": [
+      "Sort",
+      "that",
+      "column",
+      "so"
+     ],
+     "wordStarts": [
+      17.84,
+      18.063,
+      18.286,
+      18.599
+     ]
+    },
+    {
+     "text": "the biggest drops sit",
+     "start": 18.733,
+     "end": 19.715,
+     "words": [
+      "the",
+      "biggest",
+      "drops",
+      "sit"
+     ],
+     "wordStarts": [
+      18.733,
+      18.911,
+      19.268,
+      19.536
+     ]
+    },
+    {
+     "text": "on top.",
+     "start": 19.715,
+     "end": 20.34,
+     "words": [
+      "on",
+      "top."
+     ],
+     "wordStarts": [
+      19.715,
+      19.949
+     ]
+    },
+    {
+     "text": "That's your fix list,",
+     "start": 20.34,
+     "end": 21.59,
+     "words": [
+      "That's",
+      "your",
+      "fix",
+      "list,"
+     ],
+     "wordStarts": [
+      20.34,
+      20.738,
+      21.022,
+      21.249
+     ]
+    },
+    {
+     "text": "already in order.",
+     "start": 21.59,
+     "end": 22.661,
+     "words": [
+      "already",
+      "in",
+      "order."
+     ],
+     "wordStarts": [
+      21.59,
+      22.066,
+      22.245
+     ]
+    }
+   ]
+  },
+  {
+   "start": 22.961,
+   "spokenEnd": 30.513,
+   "end": 30.813,
+   "chunks": [
+    {
+     "text": "Why those first?",
+     "start": 22.961,
+     "end": 23.926,
+     "words": [
+      "Why",
+      "those",
+      "first?"
+     ],
+     "wordStarts": [
+      22.961,
+      23.188,
+      23.529
+     ]
+    },
+    {
+     "text": "They lost the most",
+     "start": 23.926,
+     "end": 24.723,
+     "words": [
+      "They",
+      "lost",
+      "the",
+      "most"
+     ],
+     "wordStarts": [
+      23.926,
+      24.136,
+      24.346,
+      24.514
+     ]
+    },
+    {
+     "text": "clicks,",
+     "start": 24.723,
+     "end": 25.311,
+     "words": [
+      "clicks,"
+     ],
+     "wordStarts": [
+      24.723
+     ]
+    },
+    {
+     "text": "so they have the",
+     "start": 25.311,
+     "end": 26.024,
+     "words": [
+      "so",
+      "they",
+      "have",
+      "the"
+     ],
+     "wordStarts": [
+      25.311,
+      25.437,
+      25.646,
+      25.856
+     ]
+    },
+    {
+     "text": "most to win back.",
+     "start": 26.024,
+     "end": 27.031,
+     "words": [
+      "most",
+      "to",
+      "win",
+      "back."
+     ],
+     "wordStarts": [
+      26.024,
+      26.304,
+      26.472,
+      26.695
+     ]
+    },
+    {
+     "text": "Click one,",
+     "start": 27.031,
+     "end": 27.744,
+     "words": [
+      "Click",
+      "one,"
+     ],
+     "wordStarts": [
+      27.031,
+      27.42
+     ]
+    },
+    {
+     "text": "open the Queries tab,",
+     "start": 27.744,
+     "end": 28.919,
+     "words": [
+      "open",
+      "the",
+      "Queries",
+      "tab,"
+     ],
+     "wordStarts": [
+      27.744,
+      28.011,
+      28.225,
+      28.652
+     ]
+    },
+    {
+     "text": "and see which searches",
+     "start": 28.919,
+     "end": 29.884,
+     "words": [
+      "and",
+      "see",
+      "which",
+      "searches"
+     ],
+     "wordStarts": [
+      28.919,
+      29.087,
+      29.255,
+      29.506
+     ]
+    },
+    {
+     "text": "slipped.",
+     "start": 29.884,
+     "end": 30.513,
+     "words": [
+      "slipped."
+     ],
+     "wordStarts": [
+      29.884
+     ]
+    }
+   ]
+  },
+  {
+   "start": 30.813,
+   "spokenEnd": 33.139,
+   "end": 34.739,
+   "chunks": [
+    {
+     "text": "Follow for one Search",
+     "start": 30.813,
+     "end": 31.879,
+     "words": [
+      "Follow",
+      "for",
+      "one",
+      "Search"
+     ],
+     "wordStarts": [
+      30.813,
+      31.152,
+      31.346,
+      31.54
+     ]
+    },
+    {
+     "text": "Console fix a week.",
+     "start": 31.879,
+     "end": 33.139,
+     "words": [
+      "Console",
+      "fix",
+      "a",
+      "week."
+     ],
+     "wordStarts": [
+      31.879,
+      32.383,
+      32.635,
+      32.761
+     ]
+    }
+   ]
+  }
+ ]
+}

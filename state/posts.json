@@ -1,1 +1,16 @@
-{ "posts": [] }
+{
+ "posts": [
+  {
+   "id": "r001-find-decaying-pages",
+   "status": "draft",
+   "topic": "Find the pages quietly losing traffic, in Search Console, in under a minute",
+   "format": "fix",
+   "madeAt": "2026-09-30T15:41:53.297Z",
+   "seconds": 35,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1790782912.921789"
+   }
+  }
+ ]
+}

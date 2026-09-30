@@ -1,0 +1,50 @@
+{
+ "title": "45-second fix: find pages quietly losing clicks",
+ "beats": [
+  {
+   "kind": "hook",
+   "say": "Your best page can slide for months, and Search Console won't alert you when its clicks slip.",
+   "show": "Traffic loss is *quiet*. No alert."
+  },
+  {
+   "kind": "step",
+   "say": "Open Performance, then Search results. Click the date filter, choose Compare, then last three months to previous period.",
+   "show": "Compare *last 3 months* to previous period",
+   "n": 1
+  },
+  {
+   "kind": "step",
+   "say": "Scroll down to the table and open the Pages tab. You'll get a Clicks Difference column.",
+   "show": "*Pages* tab, *Clicks Difference* column",
+   "n": 2
+  },
+  {
+   "kind": "step",
+   "say": "Sort that column so the biggest drops sit on top. That's your fix list, already in order.",
+   "show": "Biggest drops on top: *fix these first*",
+   "n": 3
+  },
+  {
+   "kind": "point",
+   "say": "Why those first? They lost the most clicks, so they have the most to win back. Click one, open the Queries tab, and see which searches slipped.",
+   "show": "Most clicks lost, *most to win back*"
+  },
+  {
+   "kind": "outro",
+   "say": "Follow for one Search Console fix a week.",
+   "show": "Follow for *one fix a week*"
+  }
+ ],
+ "caption": "Search Console won't alert you when a page's clicks slip. Here's how to find those pages in under a minute.\n\n1. Search Console, Performance, Search results.\n2. Date filter, Compare tab, \"Compare last 3 months to previous period\".\n3. Scroll to the table and open the Pages tab.\n4. Sort the Clicks Difference column so the biggest drops are on top.\n5. Work down from the top: those pages lost the most clicks, so they have the most to win back.\n\nBonus: click a page, then open the Queries tab to see which searches it stopped winning.\n\nWhat's the first thing you check when a page starts slipping?",
+ "hashtags": [
+  "#seo",
+  "#googlesearchconsole",
+  "#contentdecay",
+  "#contentmarketing",
+  "#seotips"
+ ],
+ "id": "r001-find-decaying-pages",
+ "format": "fix",
+ "kicker": "The 45-second fix",
+ "topic": "Find the pages quietly losing traffic, in Search Console, in under a minute"
+}
