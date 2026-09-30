@@ -1,0 +1,694 @@
+{
+ "duration": 46.873,
+ "beats": [
+  {
+   "start": 0.25,
+   "spokenEnd": 4.965,
+   "end": 5.265,
+   "chunks": [
+    {
+     "text": "We invited ChatGPT's",
+     "start": 0.25,
+     "end": 1.35,
+     "words": [
+      "We",
+      "invited",
+      "ChatGPT's"
+     ],
+     "wordStarts": [
+      0.25,
+      0.407,
+      0.826
+     ]
+    },
+    {
+     "text": "crawler into our",
+     "start": 1.35,
+     "end": 2.241,
+     "words": [
+      "crawler",
+      "into",
+      "our"
+     ],
+     "wordStarts": [
+      1.35,
+      1.769,
+      2.031
+     ]
+    },
+    {
+     "text": "website.",
+     "start": 2.241,
+     "end": 3.026,
+     "words": [
+      "website."
+     ],
+     "wordStarts": [
+      2.241
+     ]
+    },
+    {
+     "text": "It got thrown out",
+     "start": 3.026,
+     "end": 3.969,
+     "words": [
+      "It",
+      "got",
+      "thrown",
+      "out"
+     ],
+     "wordStarts": [
+      3.026,
+      3.184,
+      3.393,
+      3.76
+     ]
+    },
+    {
+     "text": "at the door.",
+     "start": 3.969,
+     "end": 4.965,
+     "words": [
+      "at",
+      "the",
+      "door."
+     ],
+     "wordStarts": [
+      3.969,
+      4.199,
+      4.505
+     ]
+    }
+   ]
+  },
+  {
+   "start": 5.265,
+   "spokenEnd": 8.593,
+   "end": 8.893,
+   "chunks": [
+    {
+     "text": "Our robots.txt said it",
+     "start": 5.265,
+     "end": 6.424,
+     "words": [
+      "Our",
+      "robots.txt",
+      "said",
+      "it"
+     ],
+     "wordStarts": [
+      5.265,
+      5.466,
+      6.021,
+      6.273
+     ]
+    },
+    {
+     "text": "plainly:",
+     "start": 6.424,
+     "end": 7.181,
+     "words": [
+      "plainly:"
+     ],
+     "wordStarts": [
+      6.424
+     ]
+    },
+    {
+     "text": "every bot is welcome.",
+     "start": 7.181,
+     "end": 8.593,
+     "words": [
+      "every",
+      "bot",
+      "is",
+      "welcome."
+     ],
+     "wordStarts": [
+      7.181,
+      7.566,
+      7.823,
+      8.015
+     ]
+    }
+   ]
+  },
+  {
+   "start": 8.893,
+   "spokenEnd": 13.287,
+   "end": 13.587,
+   "chunks": [
+    {
+     "text": "But every page it",
+     "start": 8.893,
+     "end": 9.881,
+     "words": [
+      "But",
+      "every",
+      "page",
+      "it"
+     ],
+     "wordStarts": [
+      8.893,
+      9.112,
+      9.442,
+      9.717
+     ]
+    },
+    {
+     "text": "asked for got the",
+     "start": 9.881,
+     "end": 10.87,
+     "words": [
+      "asked",
+      "for",
+      "got",
+      "the"
+     ],
+     "wordStarts": [
+      9.881,
+      10.211,
+      10.431,
+      10.65
+     ]
+    },
+    {
+     "text": "same reply.",
+     "start": 10.87,
+     "end": 11.859,
+     "words": [
+      "same",
+      "reply."
+     ],
+     "wordStarts": [
+      10.87,
+      11.282
+     ]
+    },
+    {
+     "text": "429.",
+     "start": 11.859,
+     "end": 12.463,
+     "words": [
+      "429."
+     ],
+     "wordStarts": [
+      11.859
+     ]
+    },
+    {
+     "text": "Go away.",
+     "start": 12.463,
+     "end": 13.287,
+     "words": [
+      "Go",
+      "away."
+     ],
+     "wordStarts": [
+      12.463,
+      12.738
+     ]
+    }
+   ]
+  },
+  {
+   "start": 13.587,
+   "spokenEnd": 17.619,
+   "end": 17.919,
+   "chunks": [
+    {
+     "text": "Meanwhile,",
+     "start": 13.587,
+     "end": 14.294,
+     "words": [
+      "Meanwhile,"
+     ],
+     "wordStarts": [
+      13.587
+     ]
+    },
+    {
+     "text": "Claude's crawler,",
+     "start": 14.294,
+     "end": 15.292,
+     "words": [
+      "Claude's",
+      "crawler,"
+     ],
+     "wordStarts": [
+      14.294,
+      14.793
+     ]
+    },
+    {
+     "text": "Perplexity's and",
+     "start": 15.292,
+     "end": 15.998,
+     "words": [
+      "Perplexity's",
+      "and"
+     ],
+     "wordStarts": [
+      15.292,
+      15.832
+     ]
+    },
+    {
+     "text": "Google's all walked",
+     "start": 15.998,
+     "end": 16.83,
+     "words": [
+      "Google's",
+      "all",
+      "walked"
+     ],
+     "wordStarts": [
+      15.998,
+      16.372,
+      16.539
+     ]
+    },
+    {
+     "text": "straight in.",
+     "start": 16.83,
+     "end": 17.619,
+     "words": [
+      "straight",
+      "in."
+     ],
+     "wordStarts": [
+      16.83,
+      17.376
+     ]
+    }
+   ]
+  },
+  {
+   "start": 17.919,
+   "spokenEnd": 25.919,
+   "end": 26.219,
+   "chunks": [
+    {
+     "text": "The block wasn't on",
+     "start": 17.919,
+     "end": 18.965,
+     "words": [
+      "The",
+      "block",
+      "wasn't",
+      "on"
+     ],
+     "wordStarts": [
+      17.919,
+      18.128,
+      18.442,
+      18.808
+     ]
+    },
+    {
+     "text": "our site.",
+     "start": 18.965,
+     "end": 19.802,
+     "words": [
+      "our",
+      "site."
+     ],
+     "wordStarts": [
+      18.965,
+      19.3
+     ]
+    },
+    {
+     "text": "It was at our",
+     "start": 19.802,
+     "end": 20.534,
+     "words": [
+      "It",
+      "was",
+      "at",
+      "our"
+     ],
+     "wordStarts": [
+      19.802,
+      19.958,
+      20.168,
+      20.325
+     ]
+    },
+    {
+     "text": "web host's edge,",
+     "start": 20.534,
+     "end": 21.736,
+     "words": [
+      "web",
+      "host's",
+      "edge,"
+     ],
+     "wordStarts": [
+      20.534,
+      20.817,
+      21.312
+     ]
+    },
+    {
+     "text": "and it matched one",
+     "start": 21.736,
+     "end": 22.73,
+     "words": [
+      "and",
+      "it",
+      "matched",
+      "one"
+     ],
+     "wordStarts": [
+      21.736,
+      21.945,
+      22.102,
+      22.521
+     ]
+    },
+    {
+     "text": "tiny thing:",
+     "start": 22.73,
+     "end": 23.671,
+     "words": [
+      "tiny",
+      "thing:"
+     ],
+     "wordStarts": [
+      22.73,
+      23.122
+     ]
+    },
+    {
+     "text": "the version number in",
+     "start": 23.671,
+     "end": 24.821,
+     "words": [
+      "the",
+      "version",
+      "number",
+      "in"
+     ],
+     "wordStarts": [
+      23.671,
+      23.88,
+      24.298,
+      24.664
+     ]
+    },
+    {
+     "text": "GPTBot's name.",
+     "start": 24.821,
+     "end": 25.919,
+     "words": [
+      "GPTBot's",
+      "name."
+     ],
+     "wordStarts": [
+      24.821,
+      25.48
+     ]
+    }
+   ]
+  },
+  {
+   "start": 26.219,
+   "spokenEnd": 32.598,
+   "end": 32.898,
+   "chunks": [
+    {
+     "text": "Same robot,",
+     "start": 26.219,
+     "end": 27.045,
+     "words": [
+      "Same",
+      "robot,"
+     ],
+     "wordStarts": [
+      26.219,
+      26.563
+     ]
+    },
+    {
+     "text": "same second.",
+     "start": 27.045,
+     "end": 27.917,
+     "words": [
+      "same",
+      "second."
+     ],
+     "wordStarts": [
+      27.045,
+      27.381
+     ]
+    },
+    {
+     "text": "Change the one to",
+     "start": 27.917,
+     "end": 28.743,
+     "words": [
+      "Change",
+      "the",
+      "one",
+      "to"
+     ],
+     "wordStarts": [
+      27.917,
+      28.238,
+      28.422,
+      28.606
+     ]
+    },
+    {
+     "text": "a two,",
+     "start": 28.743,
+     "end": 29.34,
+     "words": [
+      "a",
+      "two,"
+     ],
+     "wordStarts": [
+      28.743,
+      28.914
+     ]
+    },
+    {
+     "text": "and the door opens.",
+     "start": 29.34,
+     "end": 30.533,
+     "words": [
+      "and",
+      "the",
+      "door",
+      "opens."
+     ],
+     "wordStarts": [
+      29.34,
+      29.578,
+      29.817,
+      30.115
+     ]
+    },
+    {
+     "text": "That's a rule,",
+     "start": 30.533,
+     "end": 31.497,
+     "words": [
+      "That's",
+      "a",
+      "rule,"
+     ],
+     "wordStarts": [
+      30.533,
+      30.983,
+      31.111
+     ]
+    },
+    {
+     "text": "not a rate limit.",
+     "start": 31.497,
+     "end": 32.598,
+     "words": [
+      "not",
+      "a",
+      "rate",
+      "limit."
+     ],
+     "wordStarts": [
+      31.497,
+      31.741,
+      31.864,
+      32.17
+     ]
+    }
+   ]
+  },
+  {
+   "start": 32.898,
+   "spokenEnd": 40.386,
+   "end": 40.686,
+   "chunks": [
+    {
+     "text": "So if ChatGPT never",
+     "start": 32.898,
+     "end": 34.096,
+     "words": [
+      "So",
+      "if",
+      "ChatGPT",
+      "never"
+     ],
+     "wordStarts": [
+      32.898,
+      33.078,
+      33.257,
+      33.737
+     ]
+    },
+    {
+     "text": "seems to find you,",
+     "start": 34.096,
+     "end": 35.594,
+     "words": [
+      "seems",
+      "to",
+      "find",
+      "you,"
+     ],
+     "wordStarts": [
+      34.096,
+      34.569,
+      34.805,
+      35.2
+     ]
+    },
+    {
+     "text": "test it.",
+     "start": 35.594,
+     "end": 36.492,
+     "words": [
+      "test",
+      "it."
+     ],
+     "wordStarts": [
+      35.594,
+      36.093
+     ]
+    },
+    {
+     "text": "Request your homepage as",
+     "start": 36.492,
+     "end": 37.99,
+     "words": [
+      "Request",
+      "your",
+      "homepage",
+      "as"
+     ],
+     "wordStarts": [
+      36.492,
+      36.971,
+      37.271,
+      37.81
+     ]
+    },
+    {
+     "text": "GPTBot and check the",
+     "start": 37.99,
+     "end": 39.248,
+     "words": [
+      "GPTBot",
+      "and",
+      "check",
+      "the"
+     ],
+     "wordStarts": [
+      37.99,
+      38.409,
+      38.649,
+      39.008
+     ]
+    },
+    {
+     "text": "status code.",
+     "start": 39.248,
+     "end": 40.386,
+     "words": [
+      "status",
+      "code."
+     ],
+     "wordStarts": [
+      39.248,
+      39.861
+     ]
+    }
+   ]
+  },
+  {
+   "start": 40.686,
+   "spokenEnd": 45.273,
+   "end": 46.873,
+   "chunks": [
+    {
+     "text": "Follow for one fix",
+     "start": 40.686,
+     "end": 41.896,
+     "words": [
+      "Follow",
+      "for",
+      "one",
+      "fix"
+     ],
+     "wordStarts": [
+      40.686,
+      41.132,
+      41.387,
+      41.641
+     ]
+    },
+    {
+     "text": "a week.",
+     "start": 41.896,
+     "end": 42.788,
+     "words": [
+      "a",
+      "week."
+     ],
+     "wordStarts": [
+      41.896,
+      42.119
+     ]
+    },
+    {
+     "text": "Free SEO tools at",
+     "start": 42.788,
+     "end": 43.935,
+     "words": [
+      "Free",
+      "SEO",
+      "tools",
+      "at"
+     ],
+     "wordStarts": [
+      42.788,
+      43.107,
+      43.361,
+      43.744
+     ]
+    },
+    {
+     "text": "useflowra.com.",
+     "start": 43.935,
+     "end": 45.273,
+     "words": [
+      "useflowra.com."
+     ],
+     "wordStarts": [
+      43.935
+     ]
+    }
+   ]
+  }
+ ]
+}

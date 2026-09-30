@@ -98,6 +98,40 @@ def place(buf, sig, t, g=1.0):
         buf[i:j] += sig[: j - i] * g
 
 
+def sfx(kind, rng):
+    """Short effects in the same soft palette as the music."""
+    def n(sec):
+        return int(SR * sec)
+    t = lambda sec: np.arange(n(sec)) / SR
+    if kind == "pop":
+        x = t(0.18); return np.sin(2 * np.pi * (700 + 900 * np.exp(-x / 0.02)) * x) * env(len(x), 0.002, 0.05) * 0.6
+    if kind == "bonk":
+        x = t(0.45); f = 110 + 260 * np.exp(-x / 0.05)
+        return (np.sin(2 * np.pi * np.cumsum(f) / SR) * env(len(x), 0.002, 0.14) + 0.25 * lowpass(rng.standard_normal(len(x)), 900) * env(len(x), 0.001, 0.03))
+    if kind == "boing":
+        x = t(0.55); f = 260 + 260 * (1 - np.exp(-x / 0.12)) + 30 * np.sin(2 * np.pi * 18 * x)
+        return np.sin(2 * np.pi * np.cumsum(f) / SR) * env(len(x), 0.004, 0.22) * 0.7
+    if kind == "whoosh":
+        x = t(0.5); w = lowpass(rng.standard_normal(len(x)), 1800) * np.sin(np.pi * np.linspace(0, 1, len(x))) ** 2
+        return w * 0.8
+    if kind == "slam":
+        x = t(0.5); th = np.sin(2 * np.pi * np.cumsum(60 + 90 * np.exp(-x / 0.03)) / SR) * env(len(x), 0.001, 0.12)
+        return th + 0.4 * lowpass(rng.standard_normal(len(x)), 1200) * env(len(x), 0.001, 0.04)
+    if kind == "ding":
+        x = t(1.2); return (np.sin(2 * np.pi * 1320 * x) + 0.4 * np.sin(2 * np.pi * 2640 * x) * np.exp(-x / 0.2)) * env(len(x), 0.002, 0.45) * 0.45
+    if kind == "buzz":
+        x = t(0.45); sq = np.sign(np.sin(2 * np.pi * 140 * x)); return lowpass(sq, 1400) * env(len(x), 0.004, 0.25) * 0.35
+    if kind == "type":
+        out = np.zeros(n(0.9))
+        for k in range(12):
+            c = rng.standard_normal(n(0.012)); c = (c - lowpass(c, 3000)) * env(len(c), 0.0005, 0.003)
+            i = int(k * 0.07 * SR); out[i:i + len(c)] += c[: len(out) - i] * (0.5 + 0.3 * rng.random())
+        return out
+    if kind == "step":
+        x = t(0.08); return lowpass(rng.standard_normal(len(x)), 500) * env(len(x), 0.001, 0.02) * 0.6
+    raise ValueError(f"unknown sfx {kind}")
+
+
 def music_bed(dur, beat_starts, seed):
     """A quiet, steady bed: pad chords, soft bass pulse, light hats, at 100 BPM.
     The progression is picked by the seed so reels don't all sound the same."""
@@ -174,7 +208,7 @@ def main():
     for beat, c in zip(script["beats"], clips):
         start, spoken = t, len(c) / SR
         end = start + spoken + GAP.get(beat["kind"], DEFAULT_GAP)
-        beats.append({"start": round(start, 3), "spokenEnd": round(start + spoken, 3), "end": round(end, 3), "chunks": chunks(beat["say"], start, start + spoken)})
+        beats.append({"start": round(start, 3), "spokenEnd": round(start + spoken, 3), "end": round(end, 3), "chunks": chunks(beat.get("caption", beat["say"]), start, start + spoken)})
         t = end
     dur = t + TAIL
     beats[-1]["end"] = round(dur, 3)
@@ -185,6 +219,12 @@ def main():
         place(vo, c, b["start"])
     vo = vo / (np.max(np.abs(vo)) + 1e-9) * 0.92
 
+    fx = np.zeros(n)
+    rng_fx = np.random.default_rng(3)
+    for beat, b in zip(script["beats"], beats):
+        for e in beat.get("sfx", []):
+            place(fx, sfx(e["kind"], rng_fx), b["start"] + e["at"], e.get("gain", 1.0))
+
     bed = music_bed(dur, [b["start"] for b in beats], sum(map(ord, script.get("id", "x"))))
     bed = bed / (np.max(np.abs(bed)) + 1e-9)
     # Duck the bed under the voice: follow the voice's loudness, smoothed.
@@ -192,7 +232,7 @@ def main():
     level = np.convolve(np.abs(vo), np.ones(win) / win, mode="same")
     level = np.convolve(level, np.ones(win * 3) / (win * 3), mode="same")
     duck = 1 - 0.7 * np.minimum(1, level / 0.05)
-    mix = vo + bed * 0.16 * duck
+    mix = vo + bed * 0.16 * duck + fx * 0.22
     mix = mix / (np.max(np.abs(mix)) + 1e-9) * 0.9
 
     st = np.stack([mix, np.concatenate([np.zeros(10), mix[:-10]])], axis=1)

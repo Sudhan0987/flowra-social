@@ -1,0 +1,186 @@
+{
+ "id": "s001-gptbot-bounced",
+ "format": "story",
+ "kicker": "",
+ "title": "We invited ChatGPT's crawler in. Our host threw it out.",
+ "topic": "GPTBot blocked at the web host's edge while robots.txt allowed it",
+ "beats": [
+  {
+   "kind": "scene",
+   "scene": "hook",
+   "say": "We invited ChatGPT's crawler into our website. It got thrown out at the door.",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "step"
+    },
+    {
+     "at": 0.6,
+     "kind": "step"
+    },
+    {
+     "at": 1.0,
+     "kind": "step"
+    },
+    {
+     "at": 1.4,
+     "kind": "step"
+    },
+    {
+     "at": 2.6,
+     "kind": "slam"
+    },
+    {
+     "at": 3.1,
+     "kind": "bonk"
+    },
+    {
+     "at": 3.2,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "kind": "scene",
+   "scene": "robots",
+   "say": "Our robots file said it plainly: every bot is welcome.",
+   "caption": "Our robots.txt said it plainly: every bot is welcome.",
+   "sfx": [
+    {
+     "at": 0.4,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.3,
+     "kind": "pop"
+    },
+    {
+     "at": 2.6,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "kind": "scene",
+   "scene": "denied",
+   "say": "But every page it asked for got the same reply. Four twenty nine. Go away.",
+   "caption": "But every page it asked for got the same reply. 429. Go away.",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "bonk"
+    },
+    {
+     "at": 1.5,
+     "kind": "bonk"
+    },
+    {
+     "at": 2.5,
+     "kind": "bonk"
+    },
+    {
+     "at": 3.6,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "kind": "scene",
+   "scene": "others",
+   "say": "Meanwhile, Claude's crawler, Perplexity's and Google's all walked straight in.",
+   "sfx": [
+    {
+     "at": 0.8,
+     "kind": "pop"
+    },
+    {
+     "at": 1.8,
+     "kind": "pop"
+    },
+    {
+     "at": 2.8,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "kind": "scene",
+   "scene": "rule",
+   "say": "The block wasn't on our site. It was at our web host's edge, and it matched one tiny thing: the version number in GPTBot's name.",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "whoosh"
+    },
+    {
+     "at": 3.6,
+     "kind": "pop"
+    },
+    {
+     "at": 6.2,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "kind": "scene",
+   "scene": "flip",
+   "say": "Same robot, same second. Change the one to a two, and the door opens. That's a rule, not a rate limit.",
+   "sfx": [
+    {
+     "at": 1.9,
+     "kind": "boing"
+    },
+    {
+     "at": 2.7,
+     "kind": "ding"
+    },
+    {
+     "at": 3.0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "kind": "scene",
+   "scene": "test",
+   "say": "So if ChatGPT never seems to find you, test it. Request your homepage as GPTBot and check the status code.",
+   "caption": "So if ChatGPT never seems to find you, test it. Request your homepage as GPTBot and check the status code.",
+   "sfx": [
+    {
+     "at": 2.2,
+     "kind": "type"
+    },
+    {
+     "at": 4.4,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "kind": "outro",
+   "scene": "outro",
+   "say": "Follow for one fix a week. Free SEO tools at useflowra.com.",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.7,
+     "kind": "ding"
+    }
+   ]
+  }
+ ],
+ "caption": "We invited ChatGPT's crawler in. Our web host threw it out.\n\nOur robots.txt allowed every bot. But every real page answered GPTBot with HTTP 429, while ClaudeBot, PerplexityBot and Googlebot got straight in.\n\nThe cause: a rule at our host's edge matching GPTBot/1.x. Same request with GPTBot/2.2 in the same second: 200.\n\nTest yours: request your homepage with GPTBot's user agent and check the status code. A 429 or 403 means ChatGPT can't read you, whatever your robots.txt says.\n\nHas your host ever blocked a crawler without telling you?",
+ "hashtags": [
+  "#seo",
+  "#aisearch",
+  "#chatgpt",
+  "#technicalseo",
+  "#webdev"
+ ],
+ "template": "scenes/gptbot.html",
+ "posterAt": 3.55
+}

@@ -4,3 +4,9 @@ drafts/*/reel.mp4
 drafts/*/poster.jpg
 drafts/*/work/
 drafts/*/stills/
+.venv/
+samples/*/audio.wav
+samples/*/reel.mp4
+samples/*/poster.jpg
+samples/*/work/
+samples/*/stills/

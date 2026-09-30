@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>GPTBot bounced</title>
+<!--
+  Story reel: "We invited ChatGPT's crawler in. Our host threw it out."
+  Every frame is a pure function of t (window.render). Scene timings come
+  from window.REEL.timeline (the voice), so the picture follows the words.
+  The world (street, building, characters) sits in one SVG group moved by a
+  camera; overlays (stamps, panels, terminal, captions) are in screen space.
+  Instagram covers the top ~200px, the bottom ~380px and a strip on the right.
+-->
+<style>
+  @font-face { font-family: "Space Grotesk"; src: url("../assets/SpaceGrotesk.woff2") format("woff2"); font-weight: 300 700; }
+  @font-face { font-family: "Public Sans"; src: url("../assets/PublicSans.woff2") format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "IBM Plex Mono"; src: url("../assets/PlexMono500.woff2") format("woff2"); font-weight: 500; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #f4efe6; }
+  body { font-family: "Public Sans", sans-serif; color: #211b16; }
+  svg { position: absolute; left: 0; top: 0; }
+  .disp { font-family: "Space Grotesk", sans-serif; font-weight: 700; }
+  .mono { font-family: "IBM Plex Mono", monospace; font-weight: 500; }
+  #cap { position: absolute; left: 540px; top: 1400px; max-width: 880px; padding: 20px 34px 24px; border-radius: 26px;
+    background: rgba(33,27,22,.93); color: #fff; font-size: 58px; font-weight: 800; line-height: 1.12; text-align: center; white-space: nowrap; opacity: 0; }
+  #cap span { display: inline-block; margin: 0 .12em; }
+  #cap span.on { color: #ffb37a; }
+  #bar { position: absolute; left: 0; top: 0; height: 10px; width: 1080px; background: #e0663a; transform-origin: 0 0; }
+</style>
+</head>
+<body>
+<svg id="svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="2" fill="#e6dccb" /></pattern>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f1e6" /><stop offset="1" stop-color="#efe5d4" /></linearGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#sky)" />
+  <rect width="1080" height="1920" fill="url(#dots)" opacity=".7" />
+  <g id="world"></g>
+  <g id="overlay"></g>
+</svg>
+<div id="cap"></div>
+<div id="bar"></div>
+<script>
+const R = window.REEL;
+const B = R.timeline.beats;
+const S = (i) => B[i].start, E = (i) => B[i].end;
+const NS = "http://www.w3.org/2000/svg";
+const c01 = (v) => Math.max(0, Math.min(1, v));
+const p = (t, a, d) => c01((t - a) / d);
+const outCubic = (x) => 1 - Math.pow(1 - x, 3);
+const inCubic = (x) => x * x * x;
+const io = (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2);
+const outBack = (x, k = 1.7) => 1 + (k + 1) * Math.pow(x - 1, 3) + k * Math.pow(x - 1, 2);
+const lerp = (a, b, k) => a + (b - a) * k;
+const INK = "#211b16", PAPER = "#fbf7ef", ORANGE = "#e0663a", RED = "#c9352b", GREEN = "#2f8f5b", TEAL = "#2f8f83", YELLOW = "#f2b441";
+
+function el(parent, tag, attrs = {}, text) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (text != null) e.textContent = text;
+  parent.appendChild(e);
+  return e;
+}
+const g = (parent, attrs) => el(parent, "g", attrs);
+function place(node, x, y, s = 1, r = 0, o = 1, sx) {
+  node.setAttribute("transform", `translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${r.toFixed(2)}) scale(${(sx ?? s).toFixed(4)} ${s.toFixed(4)})`);
+  node.setAttribute("opacity", c01(o).toFixed(3));
+}
+
+// ---------- the world ----------
+const world = document.getElementById("world");
+const overlay = document.getElementById("overlay");
+const GROUND = 1150;
+
+// street
+el(world, "rect", { x: -1200, y: GROUND, width: 3600, height: 900, fill: "#e7dcc8" });
+el(world, "rect", { x: -1200, y: GROUND - 6, width: 3600, height: 12, fill: INK, rx: 6 });
+for (let i = 0; i < 14; i++) el(world, "rect", { x: -1100 + i * 260, y: GROUND + 110, width: 130, height: 14, rx: 7, fill: "#d6c8ae" });
+// far hills and a sun, for depth
+el(world, "circle", { cx: 180, cy: 620, r: 90, fill: "#f6d9a6" });
+el(world, "path", { d: `M -600 ${GROUND} Q -250 860 150 ${GROUND - 60} T 900 ${GROUND - 30} T 1800 ${GROUND}`, fill: "#e9dcc4" });
+
+// the building: useflowra.com
+const bld = g(world, {});
+el(bld, "rect", { x: 540, y: 660, width: 480, height: 490, rx: 14, fill: PAPER, stroke: INK, "stroke-width": 7 });
+el(bld, "rect", { x: 575, y: 600, width: 410, height: 88, rx: 16, fill: INK });
+el(bld, "text", { x: 780, y: 658, "text-anchor": "middle", fill: "#fff", "font-size": 40, class: "disp" }, "useflowra.com");
+for (let i = 0; i < 8; i++) el(bld, "path", { d: `M ${540 + i * 60} 700 h 60 v 48 q -30 18 -60 0 z`, fill: i % 2 ? PAPER : ORANGE, stroke: INK, "stroke-width": 5 });
+el(bld, "rect", { x: 575, y: 800, width: 90, height: 110, rx: 10, fill: "#cfe3e0", stroke: INK, "stroke-width": 6 });
+el(bld, "rect", { x: 895, y: 800, width: 90, height: 110, rx: 10, fill: "#cfe3e0", stroke: INK, "stroke-width": 6 });
+// doorway (dark inside) and the door itself, hinged on its left edge
+el(bld, "rect", { x: 690, y: 905, width: 150, height: 245, rx: 10, fill: "#3a2f27", stroke: INK, "stroke-width": 7 });
+const doorHinge = g(bld, {});
+const door = el(doorHinge, "rect", { x: 0, y: 0, width: 150, height: 245, rx: 10, fill: ORANGE, stroke: INK, "stroke-width": 7 });
+el(doorHinge, "circle", { cx: 122, cy: 128, r: 9, fill: INK });
+const siteOk = g(bld, {});
+el(siteOk, "circle", { cx: 0, cy: 0, r: 44, fill: GREEN, stroke: INK, "stroke-width": 6 });
+el(siteOk, "path", { d: "M -20 2 l 13 14 l 27 -30", fill: "none", stroke: "#fff", "stroke-width": 10, "stroke-linecap": "round", "stroke-linejoin": "round" });
+el(world, "rect", { x: 700, y: GROUND - 8, width: 130, height: 22, rx: 8, fill: "#c9b48f", stroke: INK, "stroke-width": 4 });
+
+// robots.txt sign on a post
+const sign = g(world, {});
+el(sign, "rect", { x: -6, y: -330, width: 12, height: 330, fill: INK, rx: 6 });
+const board = g(sign, {});
+el(board, "rect", { x: -120, y: -110, width: 240, height: 150, rx: 14, fill: "#fff", stroke: INK, "stroke-width": 6 });
+el(board, "text", { x: -96, y: -64, "font-size": 30, class: "disp", fill: INK }, "robots.txt");
+el(board, "text", { x: -96, y: -24, "font-size": 21, class: "mono", fill: "#5c5047" }, "User-agent: *");
+el(board, "text", { x: -96, y: 10, "font-size": 21, class: "mono", fill: GREEN }, "Allow: /");
+const welcome = g(sign, {});
+el(welcome, "rect", { x: -92, y: -24, width: 184, height: 48, rx: 24, fill: GREEN, stroke: INK, "stroke-width": 4 });
+el(welcome, "text", { x: 0, y: 10, "text-anchor": "middle", "font-size": 26, class: "disp", fill: "#fff" }, "WELCOME!");
+
+// a robot character; returns handles for animating it
+function robot(parent, color, tag) {
+  const root = g(parent, {});
+  const body = g(root, {});
+  const legL = el(body, "rect", { x: -32, y: -46, width: 22, height: 46, rx: 9, fill: INK });
+  const legR = el(body, "rect", { x: 10, y: -46, width: 22, height: 46, rx: 9, fill: INK });
+  const torso = g(body, {});
+  el(torso, "rect", { x: -52, y: -140, width: 104, height: 100, rx: 22, fill: color, stroke: INK, "stroke-width": 6 });
+  const armL = el(torso, "rect", { x: -70, y: -128, width: 20, height: 62, rx: 10, fill: color, stroke: INK, "stroke-width": 5 });
+  const armR = el(torso, "rect", { x: 50, y: -128, width: 20, height: 62, rx: 10, fill: color, stroke: INK, "stroke-width": 5 });
+  el(torso, "rect", { x: -44, y: -118, width: 88, height: 30, rx: 7, fill: "#fff", stroke: INK, "stroke-width": 3 });
+  const tagText = el(torso, "text", { x: 0, y: -97, "text-anchor": "middle", "font-size": tag.length > 11 ? 12 : 15, class: "mono", fill: INK }, tag);
+  const head = g(body, {});
+  el(head, "line", { x1: 0, y1: -222, x2: 0, y2: -250, stroke: INK, "stroke-width": 6, "stroke-linecap": "round" });
+  const bulb = el(head, "circle", { cx: 0, cy: -256, r: 11, fill: YELLOW, stroke: INK, "stroke-width": 5 });
+  el(head, "rect", { x: -58, y: -226, width: 116, height: 90, rx: 26, fill: INK });
+  el(head, "rect", { x: -46, y: -214, width: 92, height: 66, rx: 18, fill: "#2d3a3a" });
+  const eyeL = el(head, "ellipse", { cx: -20, cy: -184, rx: 10, ry: 12, fill: "#9ff0e2" });
+  const eyeR = el(head, "ellipse", { cx: 20, cy: -184, rx: 10, ry: 12, fill: "#9ff0e2" });
+  const mouth = el(head, "path", { d: "M -14 -162 q 14 10 28 0", fill: "none", stroke: "#9ff0e2", "stroke-width": 5, "stroke-linecap": "round" });
+  return { root, body, legL, legR, armL, armR, head, eyeL, eyeR, mouth, bulb, tagText, torso };
+}
+// pose a robot: walking phase, mood (1 happy, 0 flat, -1 sad), blink
+function pose(r, { walk = 0, moving = false, mood = 1, t = 0, wave = 0, lean = 0 }) {
+  const sw = moving ? Math.sin(walk * Math.PI * 2) : 0;
+  r.legL.setAttribute("transform", `rotate(${(sw * 22).toFixed(1)} -21 -46)`);
+  r.legR.setAttribute("transform", `rotate(${(-sw * 22).toFixed(1)} 21 -46)`);
+  const bob = moving ? Math.abs(Math.sin(walk * Math.PI * 2)) * -8 : Math.sin(t * 2.2) * 2;
+  r.body.setAttribute("transform", `translate(0 ${bob.toFixed(1)}) rotate(${lean.toFixed(1)} 0 -20)`);
+  r.armL.setAttribute("transform", `rotate(${(-sw * 25).toFixed(1)} -60 -124)`);
+  r.armR.setAttribute("transform", `rotate(${(wave ? -150 + Math.sin(t * 14) * 25 : sw * 25).toFixed(1)} 60 -124)`);
+  const blink = (t % 3.1) < 0.12 ? 0.15 : 1;
+  r.eyeL.setAttribute("ry", (12 * blink).toFixed(1));
+  r.eyeR.setAttribute("ry", (12 * blink).toFixed(1));
+  const m = mood * 10;
+  r.mouth.setAttribute("d", `M -14 ${(-162 - m * 0.3).toFixed(1)} q 14 ${m.toFixed(1)} 28 0`);
+  r.bulb.setAttribute("fill", mood < 0 ? "#9b8f84" : YELLOW);
+}
+
+// the bouncer (the web host's edge)
+const bouncer = g(world, {});
+const bBody = g(bouncer, {});
+el(bBody, "rect", { x: -62, y: -90, width: 48, height: 90, rx: 14, fill: "#2b241f" });
+el(bBody, "rect", { x: 14, y: -90, width: 48, height: 90, rx: 14, fill: "#2b241f" });
+el(bBody, "rect", { x: -100, y: -350, width: 200, height: 275, rx: 46, fill: INK });
+el(bBody, "path", { d: "M -30 -350 L 0 -300 L 30 -350 Z", fill: "#fff" });
+el(bBody, "text", { x: 0, y: -236, "text-anchor": "middle", "font-size": 30, class: "disp", fill: "#fff" }, "WEB HOST");
+const bArms = el(bBody, "rect", { x: -108, y: -206, width: 216, height: 50, rx: 25, fill: "#3a312a", stroke: INK, "stroke-width": 4 });
+el(bBody, "rect", { x: -58, y: -460, width: 116, height: 118, rx: 40, fill: "#c98d64", stroke: INK, "stroke-width": 6 });
+el(bBody, "rect", { x: -52, y: -420, width: 104, height: 28, rx: 12, fill: INK });
+const bMouth = el(bBody, "path", { d: "M -20 -372 h 40", stroke: INK, "stroke-width": 6, "stroke-linecap": "round" });
+const card = g(bouncer, {});
+el(card, "rect", { x: -80, y: -60, width: 160, height: 110, rx: 14, fill: "#fff", stroke: RED, "stroke-width": 8 });
+el(card, "text", { x: 0, y: 26, "text-anchor": "middle", "font-size": 70, class: "disp", fill: RED }, "429");
+el(card, "rect", { x: -8, y: 50, width: 16, height: 80, rx: 8, fill: "#3a312a" });
+
+// the other crawlers (true: all returned 200 in our tests)
+const others = [
+  { r: robot(world, "#d97757", "ClaudeBot"), name: "ClaudeBot" },
+  { r: robot(world, "#3b73c9", "PerplexityBot"), name: "PerplexityBot" },
+  { r: robot(world, "#e9b949", "Googlebot"), name: "Googlebot" },
+];
+const checks = others.map(() => {
+  const c = g(world, {});
+  el(c, "circle", { r: 30, fill: GREEN, stroke: INK, "stroke-width": 5 });
+  el(c, "path", { d: "M -13 1 l 9 10 l 18 -20", fill: "none", stroke: "#fff", "stroke-width": 8, "stroke-linecap": "round", "stroke-linejoin": "round" });
+  return c;
+});
+// our hero
+const gpt = robot(world, TEAL, "GPTBot/1.2");
+// a small rain cloud for the sad moment
+const cloud = g(world, {});
+el(cloud, "path", { d: "M -60 0 a 30 30 0 0 1 20 -45 a 38 38 0 0 1 70 -5 a 28 28 0 0 1 30 50 z", fill: "#9aa7ad", stroke: INK, "stroke-width": 5 });
+const drops = [-35, 0, 35].map((x) => el(cloud, "rect", { x, y: 14, width: 7, height: 22, rx: 3.5, fill: "#6d8fa6" }));
+// page requests that bounce off the door
+const pages = ["/", "/blog", "/pricing"].map((label) => {
+  const pg = g(world, {});
+  el(pg, "path", { d: "M -34 -44 h 46 l 22 22 v 66 h -68 z", fill: "#fff", stroke: INK, "stroke-width": 5 });
+  el(pg, "text", { x: 0, y: 12, "text-anchor": "middle", "font-size": 18, class: "mono", fill: INK }, label);
+  const x = g(pg, {});
+  el(x, "path", { d: "M -26 -26 L 26 26 M 26 -26 L -26 26", stroke: RED, "stroke-width": 11, "stroke-linecap": "round" });
+  return { pg, x };
+});
+
+// ---------- overlays (screen space) ----------
+function panel(parent) { return g(parent, {}); }
+// a paper scrim that quiets the world while a panel is up
+const scrim = el(overlay, "rect", { x: 0, y: 0, width: 1080, height: 1920, fill: "#f4efe6", opacity: 0 });
+// hook title, only during the hook
+const hookTitle = panel(overlay);
+el(hookTitle, "rect", { x: 150, y: 262, width: 780, height: 168, rx: 30, fill: "#fbf7ef", stroke: "#211b16", "stroke-width": 6 });
+el(hookTitle, "text", { x: 540, y: 330, "text-anchor": "middle", "font-size": 64, class: "disp", fill: INK }, "ChatGPT's crawler");
+el(hookTitle, "text", { x: 540, y: 405, "text-anchor": "middle", "font-size": 64, class: "disp", fill: RED }, "got kicked out.");
+
+// big 429 stamp
+const stamp = panel(overlay);
+el(stamp, "rect", { x: -250, y: -120, width: 500, height: 240, rx: 30, fill: "rgba(255,255,255,.92)", stroke: RED, "stroke-width": 16 });
+el(stamp, "text", { x: 0, y: 42, "text-anchor": "middle", "font-size": 150, class: "disp", fill: RED }, "429");
+el(stamp, "text", { x: 0, y: 96, "text-anchor": "middle", "font-size": 34, class: "mono", fill: RED }, "TOO MANY REQUESTS");
+
+// the bouncer's list
+const list = panel(overlay);
+el(list, "rect", { x: -300, y: -250, width: 600, height: 470, rx: 26, fill: "#c6a57b", stroke: INK, "stroke-width": 8 });
+el(list, "rect", { x: -90, y: -276, width: 180, height: 60, rx: 16, fill: "#8b8f94", stroke: INK, "stroke-width": 6 });
+el(list, "rect", { x: -260, y: -200, width: 520, height: 390, rx: 12, fill: "#fff", stroke: INK, "stroke-width": 4 });
+el(list, "text", { x: 0, y: -130, "text-anchor": "middle", "font-size": 40, class: "disp", fill: INK }, "DO NOT ADMIT");
+el(list, "line", { x1: -200, y1: -105, x2: 200, y2: -105, stroke: "#e2d8c6", "stroke-width": 4 });
+const listA = el(list, "text", { x: 0, y: -10, "font-size": 64, class: "mono", fill: INK }, "GPTBot/");
+const listDigit = el(list, "text", { x: 0, y: -10, "font-size": 64, class: "mono", fill: RED }, "1");
+const listB = el(list, "text", { x: 0, y: -10, "font-size": 64, class: "mono", fill: INK }, ".x");
+const listRing = el(list, "ellipse", { cx: 0, cy: -30, rx: 32, ry: 46, fill: "none", stroke: RED, "stroke-width": 7 });
+el(list, "text", { x: 0, y: 100, "text-anchor": "middle", "font-size": 30, class: "mono", fill: "#8a7d72" }, "everyone else: come in");
+
+// GPTBot's name tag, big
+const tag = panel(overlay);
+el(tag, "rect", { x: -330, y: -110, width: 660, height: 220, rx: 30, fill: "#fff", stroke: INK, "stroke-width": 9 });
+el(tag, "text", { x: -290, y: -58, "font-size": 30, class: "mono", fill: "#8a7d72" }, "HELLO, my name is");
+const tagA = el(tag, "text", { x: 0, y: 62, "font-size": 96, class: "mono", fill: INK }, "GPTBot/");
+const digitBox = g(tag, {});
+const tagDigit = el(digitBox, "text", { x: 0, y: 0, "text-anchor": "middle", "font-size": 96, class: "mono" }, "1");
+const tagB = el(tag, "text", { x: 0, y: 62, "font-size": 96, class: "mono", fill: INK }, ".2");
+let digitX = 0;
+
+// the paired test result
+const pair = panel(overlay);
+function chip(parent, x, label, code, color) {
+  const c = g(parent, { transform: `translate(${x} 0)` });
+  el(c, "rect", { x: -225, y: -110, width: 450, height: 220, rx: 28, fill: "#fff", stroke: INK, "stroke-width": 7 });
+  el(c, "text", { x: 0, y: -40, "text-anchor": "middle", "font-size": 40, class: "mono", fill: INK }, label);
+  el(c, "rect", { x: -120, y: 0, width: 240, height: 84, rx: 42, fill: color });
+  el(c, "text", { x: 0, y: 58, "text-anchor": "middle", "font-size": 56, class: "disp", fill: "#fff" }, code);
+  return c;
+}
+const chipA = chip(pair, -245, "GPTBot/1.2", "429", RED);
+const chipB = chip(pair, 245, "GPTBot/2.2", "200", GREEN);
+el(pair, "text", { x: 0, y: 190, "text-anchor": "middle", "font-size": 34, class: "mono", fill: "#5c5047" }, "same computer, same second");
+
+// the terminal
+const term = panel(overlay);
+el(term, "rect", { x: -470, y: -260, width: 940, height: 520, rx: 30, fill: "#1b1714", stroke: INK, "stroke-width": 6 });
+el(term, "rect", { x: -470, y: -260, width: 940, height: 70, rx: 30, fill: "#2c2622" });
+["#e5645a", "#f2b441", "#58b86f"].forEach((c, i) => el(term, "circle", { cx: -420 + i * 38, cy: -225, r: 12, fill: c }));
+const cmd = ["$ curl -I -A \"GPTBot/1.2\"", "    https://yoursite.com"];
+const cmdLines = cmd.map((_, i) => el(term, "text", { x: -420, y: -120 + i * 60, "font-size": 40, class: "mono", fill: "#e8e2d9" }, ""));
+const cursor = el(term, "rect", { x: 0, y: -150, width: 22, height: 40, fill: "#e8e2d9" });
+const resp = el(term, "text", { x: -420, y: 40, "font-size": 64, class: "disp", fill: "#ff7a6b" }, "HTTP/2 429");
+const hint = el(term, "text", { x: -420, y: 150, "font-size": 34, class: "mono", fill: "#a89e92" }, "200 = fine.  403 or 429 = blocked.");
+
+// outro lockup
+const outro = panel(overlay);
+el(outro, "path", { d: "M 24 2 C 25.2 16.5 27.5 22 44 24 C 28 25.5 25.2 30.5 24 42 C 22.8 30.5 20.5 25.5 6 24 C 20.5 22 22.8 16.5 24 2 Z", transform: "translate(-330 -150) scale(3.4)", fill: ORANGE, stroke: INK, "stroke-width": 1.8, "stroke-linejoin": "round" });
+el(outro, "text", { x: 60, y: -40, "text-anchor": "middle", "font-size": 150, class: "disp", fill: INK }, "Flowra");
+el(outro, "text", { x: 0, y: 70, "text-anchor": "middle", "font-size": 50, class: "disp", fill: ORANGE }, "One fix a week");
+el(outro, "text", { x: 0, y: 140, "text-anchor": "middle", "font-size": 40, class: "mono", fill: "#8a4f06" }, "useflowra.com");
+const outroBot = robot(outro, TEAL, "GPTBot/2.2");
+
+// ---------- camera ----------
+// focus point (world) and zoom, eased between keys; the focus lands at screen (540, 760)
+function camAt(t) {
+  const keys = [
+    [0, 520, 900, 1.28], [S(0) + 2.2, 640, 880, 1.45], [S(0) + 2.9, 640, 880, 1.45], [S(0) + 3.4, 480, 880, 1.3],
+    [S(1) + 0.05, 480, 880, 1.3], [S(1) + 0.7, 360, 860, 2.0],
+    [S(2) - 0.1, 360, 860, 2.0], [S(2) + 0.45, 690, 890, 1.65],
+    [S(3) - 0.1, 690, 890, 1.65], [S(3) + 0.5, 520, 900, 1.2],
+    [S(4) + 0.1, 520, 900, 1.2], [S(4) + 0.6, 760, 820, 1.6],
+    [S(5) + 2.6, 760, 820, 1.6], [S(5) + 3.2, 640, 900, 1.35],
+    [S(6), 640, 900, 1.35], [S(6) + 0.5, 600, 950, 1.1],
+  ];
+  let a = keys[0], b = keys[keys.length - 1];
+  for (let i = 0; i < keys.length - 1; i++) if (t >= keys[i][0] && t < keys[i + 1][0]) { a = keys[i]; b = keys[i + 1]; break; }
+  if (t >= keys[keys.length - 1][0]) a = b;
+  const k = a === b ? 1 : io(c01((t - a[0]) / (b[0] - a[0])));
+  return [lerp(a[1], b[1], k), lerp(a[2], b[2], k), lerp(a[3], b[3], k)];
+}
+
+// ---------- captions ----------
+const cap = document.getElementById("cap");
+let capKey = "";
+const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+function captions(t) {
+  let chunk = null;
+  for (const b of B) b.chunks.forEach((c, i) => {
+    const until = i + 1 < b.chunks.length ? b.chunks[i + 1].start : b.end - 0.15;
+    if (t >= c.start && t < until) chunk = c;
+  });
+  if (!chunk) { cap.style.opacity = 0; return; }
+  if (chunk.start + "" !== capKey) {
+    cap.innerHTML = chunk.words.map((w) => `<span>${esc(w)}</span>`).join("");
+    capKey = chunk.start + "";
+    cap.style.transform = "none";
+    for (const s of [58, 52, 46, 42]) { cap.style.fontSize = s + "px"; if (cap.offsetWidth <= 880) break; }
+  }
+  let on = 0;
+  chunk.wordStarts.forEach((s, i) => { if (t >= s) on = i; });
+  [...cap.children].forEach((s, i) => s.classList.toggle("on", i === on));
+  cap.style.opacity = c01(p(t, chunk.start, 0.06));
+  cap.style.transform = `translate(-50%, 0) scale(${0.92 + 0.08 * outBack(p(t, chunk.start, 0.14), 2)})`;
+}
+
+// ---------- the frame ----------
+window.render = async function (t) {
+  document.getElementById("bar").style.transform = `scaleX(${c01(t / R.timeline.duration)})`;
+  const [fx, fy, fs] = camAt(t);
+  world.setAttribute("transform", `translate(${(540 - fx * fs).toFixed(2)} ${(760 - fy * fs).toFixed(2)}) scale(${fs.toFixed(4)})`);
+
+  // defaults, then each scene overrides what it needs
+  let gx = 260, gy = GROUND, gs = 1.25, gr = 0, go = 1, walk = 0, moving = false, mood = 1, lean = 0, wave = 0;
+  let bx = 765, bo = 0, bArmsUp = 0, cardUp = 0, doorOpen = 0, bMood = 0;
+  let cloudO = 0, siteO = 0;
+  const h0 = S(0), h1 = S(1), h2 = S(2), h3 = S(3), h4 = S(4), h5 = S(5), h6 = S(6), h7 = S(7);
+
+  // 1. hook: walks up, bouncer appears, launch
+  if (t < h1) {
+    const w = p(t, h0 - 0.25, 2.3);
+    gx = lerp(-160, 600, outCubic(w) * 0.2 + w * 0.8); walk = t * 1.7; moving = w < 1;
+    doorOpen = p(t, h0 + 2.0, 0.25) * (1 - p(t, h0 + 3.6, 0.3));
+    bo = p(t, h0 + 2.1, 0.15); bx = 765; cardUp = p(t, h0 + 2.35, 0.2);
+    const fly = p(t, h0 + 2.85, 1.15);
+    if (t > h0 + 2.85) {
+      gx = lerp(600, 190, outCubic(fly)); gy = GROUND - Math.sin(Math.PI * fly) * 330; gr = -540 * outCubic(fly); moving = false; mood = -1;
+    }
+    if (fly >= 1) { gr = 0; gy = GROUND; lean = -18 * (1 - p(t, h0 + 4.0, 0.5)); }
+    mood = t > h0 + 2.4 ? -1 : 1;
+  }
+  // 2. robots.txt: gets up, reads the sign, delighted
+  else if (t < h2) {
+    const w = p(t, h1 + 0.2, 1.1);
+    gx = lerp(190, 300, io(w)); walk = t * 1.7; moving = w > 0 && w < 1; mood = p(t, h1 + 2.5, 0.2) > 0 ? 1 : 0;
+    wave = t > h1 + 2.6 ? 1 : 0;
+  }
+  // 3. denied three times
+  else if (t < h3) {
+    const arrive = p(t, h2, 0.4);
+    gx = lerp(300, 610, io(arrive)); moving = arrive < 1; walk = t * 1.7;
+    bo = 1; bx = 765; mood = 0;
+    for (let k = 0; k < 3; k++) {
+      const a = h2 + 0.5 + k;
+      const hit = p(t, a - 0.12, 0.12), back = p(t, a, 0.5);
+      if (t > a - 0.12 && t < a + 0.6) {
+        cardUp = hit * (1 - back);
+        gx = 610 - 90 * Math.sin(Math.PI * back); gy = GROUND - 60 * Math.sin(Math.PI * back); lean = -14 * Math.sin(Math.PI * back); mood = -1;
+      }
+    }
+    if (t > h2 + 3.4) { mood = -1; gx = 600; }
+    bMood = 0;
+  }
+  // 4. everyone else walks in
+  else if (t < h4) {
+    gx = 250; mood = -1; cloudO = p(t, h3 + 0.2, 0.3);
+    bo = 1; bx = lerp(765, 905, io(p(t, h3 + 0.3, 0.4)));
+    doorOpen = p(t, h3 + 0.4, 0.3);
+  }
+  // 5. the rule at the edge
+  else if (t < h5) {
+    gx = 520; mood = -1; bo = 1; bx = 765;
+    siteO = p(t, h4 + 0.3, 0.3) * (1 - p(t, h4 + 1.9, 0.3));
+  }
+  // 6. flip the digit, door opens, walks in
+  else if (t < h6) {
+    bo = 1; mood = p(t, h5 + 1.9, 0.1) > 0 ? 1 : -1;
+    const open = p(t, h5 + 2.7, 0.3);
+    bx = lerp(765, 905, io(open)); doorOpen = open;
+    const w = p(t, h5 + 2.9, 1.3);
+    gx = lerp(520, 765, io(w)); moving = w > 0 && w < 1; walk = t * 1.7;
+    go = 1 - p(t, h5 + 4.0, 0.25);
+  }
+  // 7. test it yourself: GPTBot beside the terminal, on the street
+  else if (t < h7) {
+    gx = 250; go = p(t, h6 + 0.2, 0.3); mood = 0; wave = 0; bo = 1; bx = 765;
+  }
+  // 8. outro
+  else { gx = 540; mood = 1; wave = 1; bo = 0; go = 1; }
+
+  if (t >= h7) { place(outroBot.root, 0, 560, 1.4, 0, 1); pose(outroBot, { t, mood: 1, wave: 1 }); }
+  // world: characters
+  place(gpt.root, gx, gy, gs, gr, go);
+  pose(gpt, { walk, moving, mood, t, wave, lean });
+  place(bouncer, bx, GROUND, 1, 0, bo);
+  bMouth.setAttribute("d", bMood > 0 ? "M -20 -374 q 20 12 40 0" : "M -20 -372 h 40");
+  place(card, lerp(-40, -150, outBack(cardUp, 1.4)), lerp(-190, -330, outBack(cardUp, 1.4)), 1, lerp(-10, -8, cardUp), cardUp > 0.02 ? 1 : 0);
+  doorHinge.setAttribute("transform", `translate(690 905) scale(${(1 - 0.85 * doorOpen).toFixed(3)} 1)`);
+  place(siteOk, 780, 780, 0.6 + 0.4 * outBack(siteO), 0, siteO);
+  place(cloud, gx, gy - 400, 1, 0, cloudO);
+  drops.forEach((d, i) => d.setAttribute("transform", `translate(0 ${((t * 90 + i * 17) % 40).toFixed(1)})`));
+
+  // sign: board pops on the robots beat, welcome stamp after
+  const sPop = t >= h1 ? outBack(p(t, h1 + 1.05, 0.35), 2) : 1;
+  place(sign, 400, GROUND, 1, 0, 1);
+  place(board, 0, -390, lerp(0.6, 1, sPop), lerp(-6, -2, sPop), 1);
+  const wel = t >= h1 && t < h2 + 0.3 ? outBack(p(t, h1 + 2.35, 0.3), 2.2) : 0;
+  place(welcome, 0, -300, wel, -8, wel > 0.01 ? 1 : 0);
+
+  // the three page requests during "denied"
+  pages.forEach((pg, k) => {
+    const a = h2 + 0.5 + k;
+    const on = t > a - 0.3 && t < h3;
+    const fly = p(t, a - 0.3, 0.3);
+    place(pg.pg, lerp(560, 720, fly) - (t > a ? 120 + 40 * k : 0) * p(t, a, 0.4), lerp(900, 860, fly) - 170 - (t > a ? 30 * k : 0), 1.1, (t > a ? -12 : 0), on ? 1 : 0);
+    place(pg.x, 0, 0, outBack(p(t, a, 0.25), 2.4), 0, t > a ? 1 : 0);
+  });
+
+  // the other crawlers walk in one by one
+  others.forEach((o, k) => {
+    const a = h3 + 0.2 + k * 1.0;
+    const w = p(t, a, 1.1);
+    const inside = p(t, a + 1.0, 0.3);
+    const vis = t >= h3 && t < h4 ? 1 - inside : 0;
+    place(o.r.root, lerp(-120, 765, io(w)), GROUND, 1.05, 0, vis);
+    pose(o.r, { walk: t * 1.8 + k * 0.3, moving: w > 0 && w < 1, mood: 1, t });
+    const ck = p(t, h3 + 0.8 + k, 0.3);
+    place(checks[k], 765 + (k - 1) * 110, 840, outBack(ck, 2.4), 0, t >= h3 && t < h4 ? ck : 0);
+  });
+
+  // overlays
+  place(hookTitle, 0, lerp(-30, 0, outCubic(p(t, 0, 0.4))), 1, 0, (t < h1 - 0.1 ? 1 : 0) * (t === 0 ? 1 : p(t, 0, 0.3) || 1) * (1 - p(t, h1 - 0.3, 0.25)));
+  const st = t >= h2 + 3.5 && t < h3 + 0.1 ? outBack(p(t, h2 + 3.55, 0.3), 2) : 0;
+  place(stamp, 540, 420, lerp(1.8, 1, st), -8, st > 0.01 ? c01(st) * (1 - p(t, h3 - 0.25, 0.25)) : 0);
+  const lst = t >= h4 && t < h5 ? outBack(p(t, h4 + 3.5, 0.4), 1.4) * (1 - p(t, h4 + 5.9, 0.3)) : 0;
+  place(list, 540, 640, 0.7 + 0.3 * lst, -2, lst);
+  listRing.setAttribute("stroke-dasharray", "300");
+  listRing.setAttribute("stroke-dashoffset", (300 * (1 - p(t, h4 + 4.4, 0.6))).toFixed(1));
+  const tg = (t >= h4 + 5.9 && t < h5 + 2.9) ? outBack(p(t, h4 + 6.0, 0.35), 1.6) * (1 - p(t, h5 + 2.6, 0.3)) : 0;
+  place(tag, 540, 620, 0.7 + 0.3 * tg, 2, tg);
+  // the digit flips like a split-flap: 1 (red) to 2 (green)
+  const flip = p(t, h5 + 1.75, 0.35);
+  const second = flip > 0.5;
+  tagDigit.textContent = second ? "2" : "1";
+  tagDigit.setAttribute("fill", second ? GREEN : RED);
+  digitBox.setAttribute("transform", `translate(${digitX.toFixed(1)} 62) scale(1 ${Math.abs(Math.cos(flip * Math.PI)).toFixed(3)})`);
+  const pr = t >= h5 + 4.1 && t < h6 + 0.1 ? outBack(p(t, h5 + 4.2, 0.35), 1.6) : 0;
+  place(pair, 540, 600, 0.8 + 0.2 * pr, 0, pr * (1 - p(t, h6 - 0.25, 0.25)));
+  place(chipA, -245, 0, 1, 0, 1); place(chipB, 245, 0, outBack(p(t, h5 + 4.6, 0.35), 2), 0, p(t, h5 + 4.6, 0.1));
+
+  // terminal: slides up, types the command, shows the answer
+  const tm = t >= h6 && t < h7 ? outCubic(p(t, h6 + 0.3, 0.5)) * (1 - p(t, h7 - 0.3, 0.3)) : 0;
+  place(term, 540, lerp(900, 640, tm), 1, 0, tm);
+  const typed = Math.floor(p(t, h6 + 2.2, 0.85) * (cmd[0].length + cmd[1].length));
+  cmdLines[0].textContent = cmd[0].slice(0, typed);
+  cmdLines[1].textContent = cmd[1].slice(0, Math.max(0, typed - cmd[0].length));
+  const line = typed > cmd[0].length ? 1 : 0;
+  const len = (line ? cmdLines[1] : cmdLines[0]).getComputedTextLength?.() ?? 0;
+  cursor.setAttribute("x", (-420 + len + 6).toFixed(1));
+  cursor.setAttribute("y", (-150 + line * 60).toFixed(1));
+  cursor.setAttribute("opacity", t < h6 + 4.3 && Math.floor(t * 2.5) % 2 === 0 ? 1 : 0);
+  resp.setAttribute("opacity", p(t, h6 + 4.4, 0.08));
+  resp.setAttribute("transform", `translate(0 ${(20 * (1 - outBack(p(t, h6 + 4.4, 0.3), 2))).toFixed(1)})`);
+  hint.setAttribute("opacity", p(t, h6 + 5.4, 0.3));
+
+  const oo = t >= h7 ? outBack(p(t, h7 + 0.1, 0.5), 1.4) : 0;
+  place(outro, 540, 560, 0.8 + 0.2 * oo, 0, c01(oo * 1.5));
+  scrim.setAttribute("opacity", (Math.max(c01(lst), c01(tg), c01(pr), c01(tm)) * 0.9 + c01(oo) * 0.97).toFixed(3));
+
+  captions(t);
+};
+
+// lay out the pieces of text that change, once the fonts are in
+function layout() {
+  const row = (parts, y) => {
+    const w = parts.map((x) => x.getComputedTextLength());
+    let x = -w.reduce((a, b) => a + b, 0) / 2;
+    return parts.map((node, i) => { const at = x; node.setAttribute("x", at.toFixed(1)); x += w[i]; return [at, w[i]]; });
+  };
+  const [, [lx, lw]] = row([listA, listDigit, listB]);
+  listRing.setAttribute("cx", (lx + lw / 2).toFixed(1));
+  tagDigit.setAttribute("text-anchor", "start");
+  const [, [dx, dw]] = row([tagA, tagDigit, tagB]);
+  tagDigit.setAttribute("text-anchor", "middle");
+  tagDigit.setAttribute("x", "0");
+  digitX = dx + dw / 2;
+}
+window.ready = document.fonts.ready.then(() => { layout(); return window.render(0); }).then(() => true);
+</script>
+</body>
+</html>

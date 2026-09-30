@@ -43,13 +43,14 @@ export async function render(dir: string, stills?: number[]): Promise<{ mp4: str
   const timeline = JSON.parse(readFileSync(path.join(dir, "timeline.json"), "utf8")) as Timeline;
   const clips = clipFrames(dir, script);
 
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({ args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"] });
   try {
     const page = await browser.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: 1 });
     const errors: string[] = [];
     page.on("pageerror", (e) => errors.push(e.message));
     await page.addInitScript((data) => { (window as unknown as { REEL: unknown }).REEL = data; }, { script, timeline, clips });
-    await page.goto("file://" + path.join(ROOT, "reel/reel.html"));
+    // A script may name its own scene page (reel/scenes/<name>.html); the default is the kinetic template.
+    await page.goto("file://" + path.join(ROOT, "reel", (script as Script & { template?: string }).template ?? "reel.html"));
     await page.evaluate(() => (window as unknown as { ready: Promise<boolean> }).ready);
     if (errors.length) throw new Error(`The reel page failed: ${errors.join("; ")}`);
     const draw = (t: number) => page.evaluate((t) => (window as unknown as { render: (t: number) => Promise<void> }).render(t), t);
@@ -69,7 +70,8 @@ export async function render(dir: string, stills?: number[]): Promise<{ mp4: str
     const n = Math.ceil(timeline.duration * FPS);
     const hook = timeline.beats[0];
     for (let i = 0; i < n; i++) {
-      await draw(i === 0 ? Math.min(hook.spokenEnd, hook.end - 0.15) : i / FPS);
+      const posterAt = (script as Script & { posterAt?: number }).posterAt;
+      await draw(i === 0 ? posterAt ?? Math.min(hook.spokenEnd, hook.end - 0.15) : i / FPS);
       await page.screenshot({ path: path.join(frames, `${String(i).padStart(5, "0")}.jpg`), type: "jpeg", quality: 92 });
       if (i % 150 === 0) console.log(`frame ${i}/${n}`);
     }
