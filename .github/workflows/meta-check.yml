@@ -1,0 +1,17 @@
+name: Check Meta connection
+on: workflow_dispatch
+permissions: {}
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: What the token can see (never prints the token)
+        env:
+          T: ${{ secrets.META_ACCESS_TOKEN }}
+        run: |
+          set -e
+          G=https://graph.facebook.com/v23.0
+          [ -n "$T" ] || { echo "META_ACCESS_TOKEN is empty"; exit 1; }
+          echo "== who"; curl -s "$G/me?fields=id,name&access_token=$T" | jq '{id,name,error:.error.message}'
+          echo "== token"; curl -s "$G/debug_token?input_token=$T&access_token=$T" | jq '.data | {app_id,application,type,is_valid,expires_at,scopes,error:.error.message}'
+          echo "== pages and instagram"; curl -s "$G/me/accounts?fields=id,name,instagram_business_account%7Bid,username%7D&access_token=$T" | jq '{pages:[.data[]? | {id,name,instagram:.instagram_business_account}], error:.error.message}'
