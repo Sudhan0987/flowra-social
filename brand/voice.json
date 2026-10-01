@@ -1,0 +1,20 @@
+{
+  "_about": "Floey's two approved voices (Sudhan, 2026-10-01: 'both the voices are really great, save both, we will use based on preference'). Pick per reel with FLOEY_ENGINE=kokoro|chatterbox; the default is chatterbox when .venv-cb is installed. Both start from the same voice: af_heart blended 0.82 with af_bella 0.18, lifted about 1.2 semitones.",
+  "presets": {
+    "kokoro": {
+      "name": "Floey (clean)",
+      "engine": "Kokoro-82M via kokoro_onnx",
+      "how": "blend + pitch lift + presence EQ; each line's emotion sets pitch, pace and the pause after it",
+      "good_for": "fast runs, explainers, GitHub runners",
+      "sample": "~/Desktop/Flowra/Social Reels (test drafts)/8-FIRST-REEL-meet-floey-v3.mp4"
+    },
+    "chatterbox": {
+      "name": "Floey (acted)",
+      "engine": "Chatterbox (MIT) with brand/mascot/floey-ref.wav as the voice reference",
+      "how": "acts each line in Floey's voice; emotion sets exaggeration and cfg (brand/mascot/floey_cb.py)",
+      "good_for": "story moments, hooks, endings, anything that needs feeling",
+      "sample": "~/Desktop/Flowra/Social Reels (test drafts)/9-FIRST-REEL-meet-floey-v3-CHATTERBOX-voice.mp4"
+    }
+  },
+  "emotions": ["ominous", "worried", "curious", "warm", "bright", "determined", "proud", "excited", "playful"]
+}

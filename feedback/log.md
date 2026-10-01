@@ -2,6 +2,10 @@
 
 Newest first. Each entry: date, what Sudhan said (close to his words), and what changed.
 
+## 2026-10-01 (evening)
+- **Both voices are great; save both and pick by preference.** Saved as presets in brand/voice.json.
+- Profile picture: Floey small, perched on the logo; the logo stays the focus.
+
 ## 2026-10-01
 - **End card text overflowed its box.** Fixed: the box is sized to the measured text. Rule: text never overflows.
 - **"Voice good, add more emotional depth."** Each line now carries an emotion that shapes delivery. Rule added.

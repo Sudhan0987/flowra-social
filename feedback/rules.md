@@ -20,7 +20,7 @@ a rule here. Never break a rule here to follow a generic best practice.
 - **Animation explains, captions carry the words.** Never put the spoken sentence on screen as a text card; show it happening.
 
 ## Voice and sound
-- **Floey's voice is af_heart based** (Sudhan likes it) with her personal touch; every line carries an emotion that matches the moment (worried, curious, excited, proud, playful). Why: Sudhan asked for more emotional depth.
+- **Floey has two approved voices** (brand/voice.json): "clean" (Kokoro) and "acted" (Chatterbox), both from the same af_heart-based Floey voice. Both are approved; choose per reel (acted for story-heavy reels). Every line carries an emotion that matches the moment. Why: Sudhan loved both and wants to choose by preference.
 - **Every action has its own sound,** panned to where it happens. No silent actions.
 
 ## Design
