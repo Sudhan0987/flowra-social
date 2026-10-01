@@ -26,6 +26,7 @@ a rule here. Never break a rule here to follow a generic best practice.
 ## Design
 - **Text never overflows its box.** Measure text; size boxes to it. Why: the end card overflowed in reel 000.
 - **Keep the Flowra logo intact and recognisable.** The logo (the spark) and the character (Floey) are separate: never merge them, recolour the logo or hide it behind Floey. Why: people must know which is the logo and which is the character.
+- **When Floey sits on the logo, she perches on the spark's left arm like a bird on a branch,** arriving sideways and facing the camera once seated. Never on the top point, never covering the spark. Why: Sudhan asked for it on the profile picture and the site nav.
 - **Check every still at phone size before rendering the full reel.**
 
 ## Quality bar
