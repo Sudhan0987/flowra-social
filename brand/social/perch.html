@@ -1,0 +1,42 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../mascot/hum.js"></script>
+<script src="../mascot/floey.js"></script>
+<style>html,body{margin:0;background:#1f1810}svg{display:block}</style>
+</head><body>
+<svg id="stage" width="1080" height="1080" viewBox="0 0 1080 1080"></svg>
+<script>
+// The Flowra logo stays still and is the subject. Floey flies in from outside,
+// brakes, and lands on the top point of the spark; the camera never follows her.
+// The last frame is the profile picture.
+const C = HUM.colors, DUR = 4.2;
+const L = { x: 540, y: 600, R: 330 };
+const k = L.R * 0.16;
+const spark = `M${L.x},${L.y - L.R} Q${L.x + k},${L.y - k} ${L.x + L.R},${L.y} Q${L.x + k},${L.y + k} ${L.x},${L.y + L.R} Q${L.x - k},${L.y + k} ${L.x - L.R},${L.y} Q${L.x - k},${L.y - k} ${L.x},${L.y - L.R}Z`;
+const K = 0.6; // Floey is small: the logo is the hero
+// perched: her feet (local 163, 261) rest on the spark's top point
+const perch = { x: L.x - 3 * K, y: L.y - L.R - 6 - (261 - 150) * K };
+const F = FLOEY.create({ x: 1320, y: -160, facing: 1, scale: K, mood: "determined" });
+F.dart(0.75, perch.x + 120, perch.y - 90, 0.5)
+ .land(1.55, perch.x, perch.y, 0.42)
+ .mood(2.05, "happy").look(2.3, 0.6, 0.1).mood(2.9, "hello").look(3.0, 0.9, 0);
+const W = { glow: 0 };
+const wt = gsap.timeline({ paused: true }).to(W, { glow: 1, duration: 0.35, ease: "power2.out" }, 1.97).to(W, { glow: 0, duration: 0.8, ease: "power2.in" }, 2.32);
+
+window.render = (t) => {
+  wt.seek(t, false);
+  document.getElementById("stage").innerHTML = `<defs>
+    <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f28a6c"/><stop offset=".55" stop-color="#e2667e"/><stop offset="1" stop-color="#c25aa0"/></linearGradient>
+    <radialGradient id="bg" cx=".5" cy=".55" r=".6"><stop offset="0" stop-color="#3a2a3e"/><stop offset="1" stop-color="#1f1810"/></radialGradient>
+    <filter id="sticker" x="-30%" y="-30%" width="160%" height="160%"><feMorphology in="SourceAlpha" operator="dilate" radius="${7 / K * 0.6}" result="d"/><feFlood flood-color="#f6efe3"/><feComposite in2="d" operator="in" result="o"/><feMerge><feMergeNode in="o"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <path d="${spark}" fill="url(#lg)" stroke="#f6efe3" stroke-width="28" stroke-linejoin="round"/>
+  ${W.glow > 0 ? [-1, 0, 1].map((i) => `<g opacity="${W.glow}">${HUM.spark(L.x + i * (46 + W.glow * 30), L.y - L.R + 10 - Math.abs(i) * 6 - W.glow * 20 - (i === 0 ? 30 : 0), 10 + W.glow * 4, "#f2b247")}</g>`).join("") : ""}
+  <g filter="url(#sticker)">${F.trail(t)}${F.svg(t)}</g>`;
+};
+window.DURATION = DUR;
+window.render(0);
+</script></body></html>
