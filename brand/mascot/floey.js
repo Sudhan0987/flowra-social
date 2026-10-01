@@ -152,6 +152,19 @@
         cue(t + 0.12, "pluck");
         return F;
       },
+      /** Eat what she is holding: head back, two chomps, a gulp (cheeks puff), a happy wiggle. */
+      eat(t) {
+        tw(t, { tilt: -26, duration: 0.12, ease: "power2.out" });
+        for (let i = 0; i < 2; i++) { tw(t + 0.14 + i * 0.16, { beakAdd: 0.55, duration: 0.05 }); tw(t + 0.19 + i * 0.16, { beakAdd: 0, duration: 0.07 }); cue(t + 0.14 + i * 0.16, "chomp"); }
+        set("hold", t + 0.3, null);
+        events.push({ t: t + 0.3, type: "eaten" });
+        tw(t + 0.46, { tilt: 0, puff: 0.45, sy: 1.06, duration: 0.12, ease: "power2.out" });
+        tw(t + 0.58, { puff: 0, sy: 1, duration: 0.3, ease: "elastic.out(1,.4)" });
+        cue(t + 0.46, "gulp");
+        set("mood", t + 0.5, "happy");
+        tw(t + 0.62, { rot: 7, duration: 0.07, yoyo: true, repeat: 3, ease: "sine.inOut" });
+        return F;
+      },
       /** Flick the held item away: wind up, snap the head, let go. The scene animates the flight. */
       toss(t, dir = 1) {
         tw(t, { tilt: 18 * dir, duration: 0.12, ease: "power1.in" });

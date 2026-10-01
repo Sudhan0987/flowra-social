@@ -176,13 +176,25 @@ def zipoff(d=0.32):
     return (air + sweep(500, 2200, dd) * 0.15 * np.clip(x / d, 0, 1)) * 0.9
 
 
+def chomp():
+    d = 0.07
+    crunch = bp(noise(d), 1500, 6000) * np.abs(lowpass(noise(d), 300)) * 4
+    return (crunch + sweep(900, 400, d) * 0.4) * env(int(SR * d), 0.001, 0.025) * 0.8
+
+
+def gulp():
+    d = 0.22
+    x = T(d)
+    return sweep(420, 140, d) * env(len(x), 0.01, 0.09) * 0.8 + lowpass(noise(d), 300) * env(len(x), 0.005, 0.05) * 0.3
+
+
 SOUNDS = {"chip": lambda c: chip(c.get("n", 3)), "zip": lambda c: zip_(c.get("d", 0.3)), "brrt": lambda c: brrt(), "tk": lambda c: tk(),
           "rustle": lambda c: rustle(c.get("n", 1)), "lick": lambda c: lick(), "pluck": lambda c: pluck(), "flick": lambda c: flick(),
           "sip": lambda c: sip(), "shimmer": lambda c: shimmer(), "bloom": lambda c: bloom(), "tap": lambda c: tap(), "flutter": lambda c: flutter(),
           "shake": lambda c: shake(), "swish": lambda c: swish(), "ting": lambda c: ting(), "reverse": lambda c: reverse(c.get("d", 0.6)),
-          "zipoff": lambda c: zipoff(c.get("d", 0.32))}
+          "zipoff": lambda c: zipoff(c.get("d", 0.32)), "chomp": lambda c: chomp(), "gulp": lambda c: gulp()}
 GAIN = {"chip": 0.8, "zip": 0.7, "brrt": 0.6, "tk": 0.8, "rustle": 1.8, "lick": 1.5, "pluck": 0.8, "flick": 0.7, "sip": 0.8, "shimmer": 0.7,
-        "bloom": 0.8, "tap": 1.1, "flutter": 0.6, "shake": 1.2, "swish": 0.5, "ting": 0.6, "reverse": 0.6, "zipoff": 0.8}
+        "bloom": 0.8, "tap": 1.1, "flutter": 0.6, "shake": 1.2, "swish": 0.5, "ting": 0.6, "reverse": 0.6, "zipoff": 0.8, "chomp": 1.0, "gulp": 1.0}
 
 
 def pan_gains(x):
@@ -243,17 +255,26 @@ FLOEY_PITCH = 1.072
 FLOEY_SPEED = 1.04
 
 
-def floey_voice(k, line, plain=False):
+# delivery per emotion (from voice-acting research: worry and sadness lower,
+# slower, longer pauses; joy and excitement higher, faster, brighter)
+#            pitch   pace   pause after (s)
+EMOTION = {"ominous": (0.975, 0.94, 0.35), "worried": (0.985, 0.96, 0.3), "curious": (1.005, 1.0, 0.15), "warm": (1.0, 1.0, 0.15),
+           "bright": (1.015, 1.03, 0.1), "determined": (1.0, 1.02, 0.1), "proud": (1.01, 1.0, 0.15), "excited": (1.025, 1.07, 0.05), "playful": (1.02, 1.0, 0.1)}
+
+
+def floey_voice(k, line, plain=False, emotion="warm"):
     import subprocess, tempfile
     if plain:
         v, sr = k.create(speakable(line), voice="af_heart", speed=1.08, lang="en-us")
         return np.interp(np.arange(int(len(v) * SR / sr)) / SR, np.arange(len(v)) / sr, v)
     style = sum(k.get_voice_style(n) * w for n, w in FLOEY_BLEND)
-    v, sr = k.create(speakable(line), voice=style, speed=FLOEY_SPEED, lang="en-us")
+    ep, es, _ = EMOTION.get(emotion, EMOTION["warm"])
+    v, sr = k.create(speakable(line), voice=style, speed=FLOEY_SPEED * es, lang="en-us")
     with tempfile.TemporaryDirectory() as d:
         a, b = os.path.join(d, "a.wav"), os.path.join(d, "b.wav")
         sf.write(a, v, sr)
-        filt = (f"asetrate={int(sr * FLOEY_PITCH)},aresample={SR},atempo={1 / FLOEY_PITCH:.5f},"
+        pitch = FLOEY_PITCH * ep
+        filt = (f"asetrate={int(sr * pitch)},aresample={SR},atempo={1 / pitch:.5f},"
                 "highpass=f=90,equalizer=f=4200:t=q:w=1.2:g=2.5,equalizer=f=250:t=q:w=1:g=-1.5,"
                 "acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120")
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", a, "-af", filt, "-ac", "1", b], check=True)
@@ -268,9 +289,18 @@ def kokoro():
                   espeak_config=EspeakConfig(lib_path=os.environ.get("ESPEAK_LIB"), data_path=os.environ.get("ESPEAK_DATA")))
 
 
-def voice(line_id, line, outdir):
-    v = floey_voice(kokoro(), line)
-    sf.write(os.path.join(outdir, f"{line_id}.wav"), v, SR)
+def voice(line_id, line, outdir, emotion="warm"):
+    """Chatterbox (acted, in Floey's voice) when its environment is installed, else Kokoro with emotional delivery."""
+    cb = os.path.join(os.path.dirname(__file__), "..", "..", ".venv-cb", "bin", "python")
+    ref = os.path.join(os.path.dirname(__file__), "floey-ref.wav")
+    out = os.path.join(outdir, f"{line_id}.wav")
+    if os.environ.get("FLOEY_ENGINE", "chatterbox") == "chatterbox" and os.path.exists(cb) and os.path.exists(ref):
+        import subprocess
+        subprocess.run([cb, os.path.join(os.path.dirname(__file__), "floey_cb.py"), ref, out, emotion, speakable(line)], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        v, _ = sf.read(out)
+    else:
+        v = floey_voice(kokoro(), line, emotion=emotion)
+    sf.write(out, v, SR)
     step = SR // 30
     m = [float(np.sqrt(np.mean(v[i:i + step] ** 2))) for i in range(0, len(v), step)]
     peak = max(m) or 1
@@ -317,7 +347,7 @@ def mix(cues_path, outdir, dur):
 
 if __name__ == "__main__":
     if sys.argv[1] == "voice":
-        voice(sys.argv[2], sys.argv[3], sys.argv[4])
+        voice(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5] if len(sys.argv) > 5 else "warm")
     elif sys.argv[1] == "compare":
         compare(sys.argv[2], sys.argv[3])
     else:

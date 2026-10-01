@@ -1,0 +1,53 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Public+Sans:wght@500;700&display=swap" rel="stylesheet">
+<script src="../mascot/hum.js"></script>
+<style>
+  html,body{margin:0;background:#fff;font-family:"Public Sans",sans-serif}
+  svg{display:block}
+  #sheet{width:1500px;padding:40px;background:#f6f6f6}
+  .row{display:flex;gap:40px;align-items:center;margin-bottom:34px}
+  .lab{width:300px;font:700 26px "Space Grotesk";color:#1f1810}
+  .lab span{display:block;font:500 17px "Public Sans";color:#6b5f52;margin-top:6px}
+  .c{border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px #ddd}
+  .feed{display:flex;align-items:center;gap:12px;background:#fff;padding:10px 16px;border-radius:12px;font:700 18px "Public Sans"}
+</style></head><body>
+<svg id="p1" width="1080" height="1080" viewBox="0 0 1080 1080"></svg>
+<svg id="p2" width="1080" height="1080" viewBox="0 0 1080 1080"></svg>
+<svg id="p3" width="1080" height="1080" viewBox="0 0 1080 1080"></svg>
+<div id="sheet"></div>
+<script>
+const C = HUM.colors;
+const grad = `<linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f28a6c"/><stop offset=".55" stop-color="#e2667e"/><stop offset="1" stop-color="#c25aa0"/></linearGradient>
+  <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#c25aa0" stop-opacity=".55"/><stop offset=".6" stop-color="#8466d9" stop-opacity=".18"/><stop offset="1" stop-color="#8466d9" stop-opacity="0"/></radialGradient>
+  <filter id="sticker" x="-20%" y="-20%" width="140%" height="140%"><feMorphology in="SourceAlpha" operator="dilate" radius="9" result="d"/><feFlood flood-color="#f6efe3"/><feComposite in2="d" operator="in" result="o"/><feMerge><feMergeNode in="o"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <radialGradient id="warm" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#fff3dd"/><stop offset="1" stop-color="#f6e6f0"/></radialGradient>`;
+// the logo exactly as the app icon draws it: a concave four-point spark, cream outline, on ink
+const logoSpark = (cx, cy, R, sw) => { const k = R * 0.16; return `<path d="M${cx},${cy - R} Q${cx + k},${cy - k} ${cx + R},${cy} Q${cx + k},${cy + k} ${cx},${cy + R} Q${cx - k},${cy + k} ${cx - R},${cy} Q${cx - k},${cy - k} ${cx},${cy - R}Z" fill="url(#lg)" stroke="#f6efe3" stroke-width="${sw}" stroke-linejoin="round"/>`; };
+const appIcon = (x, y, s) => `<g transform="translate(${x} ${y})"><rect x="${-s / 2}" y="${-s / 2}" width="${s}" height="${s}" rx="${s * 0.23}" fill="${C.ink}" stroke="#ffffff" stroke-width="${s * 0.05}"/>${logoSpark(0, 0, s * 0.27, s * 0.035)}</g>`;
+const floey = (o) => HUM.svg({ mood: "happy", wing: "blur", wingPhase: 0.3, crest: 0.9, feet: false, ...o });
+
+// P1: Floey is the face; the logo is a badge in the corner (like a verified mark), never touched
+document.getElementById("p1").innerHTML = `<defs>${grad}</defs><rect width="1080" height="1080" fill="url(#warm)"/>
+  <circle cx="540" cy="540" r="460" fill="url(#glow)" opacity=".7"/>
+  ${[[230, 270, 26], [860, 230, 20], [250, 760, 18]].map(([x, y, r]) => HUM.spark(x, y, r, "#f2b247")).join("")}
+  <g transform="translate(560 560) scale(2.6) translate(-160 -150)">${floey({ beak: 0.18, look: -0.2 })}</g>
+  ${appIcon(790, 800, 200)}`;
+
+// P2: the logo is the face (exactly the app icon); Floey hovers beside it, clearly separate, looking at it
+document.getElementById("p2").innerHTML = `<defs>${grad}</defs><rect width="1080" height="1080" fill="${C.ink}"/>
+  <circle cx="470" cy="590" r="430" fill="url(#glow)"/>
+  ${logoSpark(455, 610, 285, 26)}
+  <g filter="url(#sticker)"><g transform="translate(790 335) scale(1.32) translate(-160 -150)">${floey({ mood: "hello", look: 0.5, crest: 1, wing: "up" })}</g></g>`;
+
+// P3: Floey carries the logo badge in her beak like a little flag: character and logo side by side, both whole
+document.getElementById("p3").innerHTML = `<defs>${grad}</defs><rect width="1080" height="1080" fill="url(#warm)"/>
+  <circle cx="540" cy="540" r="470" fill="url(#glow)" opacity=".6"/>
+  <g transform="translate(640 470) scale(2.2) translate(-160 -150)">${floey({ mood: "happy", beak: 0.0 })}</g>
+  <path d="M396,555 C380,600 360,640 330,676" stroke="${C.ink}" stroke-width="7" fill="none" stroke-linecap="round"/>
+  ${appIcon(310, 760, 230)}`;
+
+// preview sheet: each option at full size, at feed size (110 px circle) and in a comment row (40 px)
+const opts = [["p1", "Floey + logo badge", "Floey is the face people remember; the exact logo sits in the corner like a seal."], ["p2", "Logo + Floey", "The logo is the face, untouched; Floey hovers beside it."], ["p3", "Floey carries the logo", "Floey holds the logo badge like a flag: both whole, clearly separate."]];
+document.getElementById("sheet").innerHTML = opts.map(([id, l, d]) => { const src = "data:image/svg+xml;utf8," + encodeURIComponent(new XMLSerializer().serializeToString(document.getElementById(id))); return `<div class="row"><div class="lab">${l}<span>${d}</span></div><img class="c" src="${src}" width="320" height="320"><img class="c" src="${src}" width="110" height="110"><div class="feed"><img class="c" src="${src}" width="40" height="40">useflowra</div></div>`; }).join("");
+</script></body></html>

@@ -22,13 +22,14 @@ const browser = await chromium.launch(); // SVG scenes need no WebGL; the softwa
 if (!lines.length) {
   const probe = await browser.newPage();
   await probe.goto("file://" + path.resolve(scene));
-  lines.push(...((await probe.evaluate(() => (window as any).LINES)) ?? []));
+  lines.push(...((await probe.evaluate(() => (window as any).LINES)) ?? []));  // [id, text, emotion?]
   await probe.close();
 }
 const mouths: Record<string, number[]> = {};
-for (const [id, line] of lines) {
+for (const [id, line] of lines as string[][]) {
   const said = path.join(OUT, `${id}.txt`);
-  if (!existsSync(path.join(OUT, `${id}.mouth.json`)) || !existsSync(said) || readFileSync(said, "utf8") !== line) { writeFileSync(said, line); execFileSync(py, [snd, "voice", id, line, OUT], { stdio: "inherit", env }); }
+  const emotion = (lines.find((l) => l[0] === id) as string[])[2] ?? "warm", key = `${emotion}|${line}|${env.FLOEY_ENGINE ?? "chatterbox"}`;
+  if (!existsSync(path.join(OUT, `${id}.mouth.json`)) || !existsSync(said) || readFileSync(said, "utf8") !== key) { execFileSync(py, [snd, "voice", id, line, OUT, emotion], { stdio: "inherit", env }); writeFileSync(said, key); }
   mouths[id] = JSON.parse(readFileSync(path.join(OUT, `${id}.mouth.json`), "utf8"));
 }
 

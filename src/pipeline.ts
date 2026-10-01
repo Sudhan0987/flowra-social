@@ -21,6 +21,7 @@ const HOUSE = [
   "Flowra is an SEO tool for content teams and agencies: it connects Google Search Console, GA4 and WordPress, finds pages losing traffic or close to page one, helps fix and publish them, and measures whether the change worked.",
   "Never the em dash or en dash. No invented statistics, customers or results: a number is either sourced, from Flowra's own verified findings, or clearly framed as an example.",
   "Product claims only from the facts file. Never a customer's data. Never mock or name a competitor unkindly; never name a company in a negative story unless the facts file says it may be named.",
+  "Sudhan's standing rules (from his feedback; they override generic advice):\n" + read("feedback/rules.md"),
 ].join("\n");
 
 // ---------- 1. research ----------
@@ -193,7 +194,7 @@ export async function finalTest(id: string): Promise<{ pass: boolean; problems: 
   times.forEach((t, i) => execFileSync("ffmpeg", ["-v", "error", "-y", "-ss", t.toFixed(2), "-i", path.join(dir, "reel.mp4"), "-frames:v", "1", "-vf", "scale=540:-1", path.join(frames, `${String(i).padStart(2, "0")}.jpg`)]));
   const list = readdirSync(frames).filter((f) => f.endsWith(".jpg")).sort().map((f) => path.join(frames, f));
   const v = await askJson({
-    system: "You are the final reviewer of a short animated reel before it goes to the founder. Be strict: reject anything a viewer would notice. Check: does the first frame make you want to watch; is every frame readable on a phone; is anything clipped, overlapping, off-screen or empty; does the picture match what the voice says at that moment; is any claim untrue or unsourced; does the ending lead back to the start. Minor polish is not a reason to fail; real problems are.",
+    system: "You are the final reviewer of a short animated reel before it goes to the founder. Be strict: reject anything a viewer would notice. Check: does the first frame make you want to watch; is every frame readable on a phone; is anything clipped, overlapping, off-screen or empty; does the picture match what the voice says at that moment; is any claim untrue or unsourced; does the ending lead back to the start. Minor polish is not a reason to fail; real problems are.\n\nAlso fail any break of Sudhan's standing rules:\n" + read("feedback/rules.md"),
     prompt: `The script:\n${JSON.stringify(story.beats, null, 1)}\n\nOpen these frames in order (each is 1/12 of the reel):\n${list.join("\n")}\n\nPass or fail it, and list every real problem with the frame number.`,
     schema: Verdict,
     readFiles: true,
