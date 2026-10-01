@@ -207,7 +207,7 @@ def main():
     beats = []
     for beat, c in zip(script["beats"], clips):
         start, spoken = t, len(c) / SR
-        end = start + spoken + GAP.get(beat["kind"], DEFAULT_GAP)
+        end = start + spoken + GAP.get(beat.get("kind", beat.get("role")), DEFAULT_GAP)
         beats.append({"start": round(start, 3), "spokenEnd": round(start + spoken, 3), "end": round(end, 3), "chunks": chunks(beat.get("caption", beat["say"]), start, start + spoken)})
         t = end
     dur = t + TAIL

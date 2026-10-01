@@ -1,0 +1,270 @@
+{
+ "style": "Warm-paper noir: flat colour, 5-7 unit ink outlines, rounded shapes; dim slate-blue interrogation room and dawn-blue office cut by one hot orange accent (lamp light, chart line, doorway); recurring cast = rumpled-blazer detective, gear-headed trench-coat suspect, and a pair of chart lines (red clicks, pale impressions) treated as evidence.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "Dim interrogation room: detective in rumpled blazer under a single hanging lamp, metal table, a white chart card with two lines in her hand",
+   "action": "She slides the two-line chart card across the table; card skids, anticipates with a small wind-up, overshoots and settles with a paper flutter; lamp swings from the push-in",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.45,
+     "kind": "slam"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.8,
+   "shot": "wide",
+   "camera": "pan",
+   "subject": "Behind the observation glass: gear-headed suspect in a trench coat, handcuffs on wrists, open door glowing at frame right",
+   "action": "Cuffs spring open and drop out of frame, the gear-head straightens, shrugs directly at camera, then strolls out through the bright doorway",
+   "onScreenData": "CLEARED",
+   "sfx": [
+    {
+     "at": 2.05,
+     "kind": "ding"
+    },
+    {
+     "at": 3,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "wide",
+   "camera": "whip",
+   "subject": "Whip-wipe leftward into the BEFORE side: same detective at a cluttered dawn desk, cold blue window light, monitor glowing, coffee cups, ringing phone",
+   "action": "The interrogation room streaks off left, the dawn desk streaks in and lands with a small settle; she slumps forward as the phone starts hopping on the desk",
+   "onScreenData": "MON 06:12",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 2.6,
+   "shot": "close",
+   "camera": "shake",
+   "subject": "Her monitor filling frame: a red line falling off the right edge of a chart, her silhouetted shoulder, phone buzzing in the corner of frame",
+   "action": "The red line drops another step, the phone rattles the desk and shakes the whole frame once, she pinches the bridge of her nose",
+   "onScreenData": "TRAFFIC -41%",
+   "sfx": [
+    {
+     "at": 2.85,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 5,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Through the office window: a small mob with pitchforks and signs crowding the gear-headed suspect in the street, detective watching from inside",
+   "action": "Pitchforks jab upward in unison, the gear-head raises both hands and backs into the crowd, her reflection in the glass shakes its head",
+   "onScreenData": "SPAM UPDATE",
+   "sfx": [
+    {
+     "at": 5.35,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 7.6,
+   "shot": "insert",
+   "camera": "push-in",
+   "subject": "Wall calendar, corkboard texture, pins scattered across many earlier days, one far-later day ringed in red marker",
+   "action": "Camera pushes in as pins pop in one by one across the early weeks, then the red circle draws itself last, well after the pins",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 7.95,
+     "kind": "pop"
+    },
+    {
+     "at": 8.5,
+     "kind": "pop"
+    },
+    {
+     "at": 9.4,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "extreme-close",
+   "camera": "static",
+   "subject": "Her two hands over a second chart, pinching a glowing pale line (impressions) free of it like evidence tape",
+   "action": "She peels the pale line up out of the chart, it stretches and wobbles with follow-through, then she carries it out of frame toward the clicks chart",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 2.3,
+   "shot": "medium",
+   "camera": "pull-out",
+   "subject": "The clicks chart on the table, pale impressions line lowering onto it; three suspect silhouettes lining up against a height chart in the background",
+   "action": "The pale line settles over the red line, the gap between them flares open like a fingerprint under UV and throws hard light across the three waiting suspects",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.65,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "Police lineup: three suspects side by side against a height chart, hard overhead light, detective's silhouette at frame edge",
+   "action": "The three shuffle into place and freeze, a beam of chart-light sweeps slowly along the row",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.15,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 2.2,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "Suspect number one, folded out of a search-result snippet (title bar for a face), stepping forward under a flat-topped line",
+   "action": "The flat line locks overhead while the red line slides down beneath it; the snippet-suspect steps forward and its title bar flickers grey",
+   "onScreenData": "FLAT / -38%",
+   "sfx": [
+    {
+     "at": 2.55,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 4.6,
+   "shot": "medium",
+   "camera": "shake",
+   "subject": "Middle suspect: nervous figure clutching a five-item checklist, both chart lines tumbling down behind it",
+   "action": "Both lines tumble together and slam into the lower frame, the light snaps onto the middle suspect, the checklist rattles and five boxes tick in fast",
+   "onScreenData": "5",
+   "sfx": [
+    {
+     "at": 4.9,
+     "kind": "slam"
+    },
+    {
+     "at": 5.6,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 7.2,
+   "shot": "wide",
+   "camera": "drift",
+   "subject": "Third suspect: an empty hood with nothing inside, its section of the lineup dark and vacant",
+   "action": "Both lines vanish off the chart, a tumbleweed rolls past the empty hood, dust settles in the abandoned spotlight",
+   "onScreenData": "0",
+   "sfx": [
+    {
+     "at": 7.4,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 8.8,
+   "shot": "medium",
+   "camera": "pan",
+   "subject": "Front desk of the station: gear-headed suspect signing a clipboard, exit door ajar behind it, detective watching from the corridor",
+   "action": "It scrawls a signature, taps the pen down, tips an imaginary hat and walks out; the door swings and settles",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 9.2,
+     "kind": "type"
+    },
+    {
+     "at": 10,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Clean bright corkboard, detective's hands pressing the two-line chart card into place at the right end",
+   "action": "She lines the card up, presses the pin home with a small wind-up, and lets the card rock once and settle straight",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.45,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 2.2,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "The whole corkboard: a long ribbon of past monthly chart cards stretching sideways out of frame, both lines running through every one",
+   "action": "Camera pulls out fast and the ribbon of months unspools left, the paired lines joining card to card into one continuous read",
+   "onScreenData": "16 MONTHS",
+   "sfx": [
+    {
+     "at": 2.4,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 4.4,
+   "shot": "medium",
+   "camera": "drift",
+   "subject": "The interrogation room, lights lifting to warm: detective capping her pen, the empty chair, the open door the gear-head left through",
+   "action": "She caps the pen with a click, the chair slides itself back under the table, and the camera drifts past her toward the bright open door",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.7,
+     "kind": "ding"
+    },
+    {
+     "at": 5.4,
+     "kind": "step"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}

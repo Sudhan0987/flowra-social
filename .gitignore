@@ -10,3 +10,15 @@ samples/*/reel.mp4
 samples/*/poster.jpg
 samples/*/work/
 samples/*/stills/
+
+# rendered output
+brand/mascot/out/
+brand/mascot/motion.wav
+brand/mascot/motion-mouth.json
+drafts/*/stills/
+drafts/*/qa/
+drafts/*/*.mp4
+drafts/*/*.wav
+drafts/*/poster.jpg
+.DS_Store
+__pycache__/

@@ -1,0 +1,882 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>The algorithm walked free</title>
+<!--
+  Story reel r002: "It probably wasn't the spam update."
+  A warm-paper noir. Six small sets stand side by side in one world; the
+  camera (KIT.camera) cuts, pans, whips and pushes between them, so every
+  panel of storyboard.json is a framing rather than a new page.
+
+      set A  interrogation room      x     0   (panels 0, 1, 15)
+      set B  dawn office (BEFORE)    x  4300   (panels 2, 3, 4, 5)
+      set C  evidence table          x  7200   (panels 6, 7)
+      set D  police lineup           x  9900   (panels 8, 9, 10, 11)
+      set E  front desk              x 12400   (panel 12)
+      set F  corkboard, 16 months    x 15400   (panels 13, 14)
+
+  Every set is built to fill a 9:16 frame: something overhead, the action in
+  the middle band, a foreground edge across the bottom. Every frame is a pure
+  function of t. On-screen words carry only the one piece of data a panel
+  names, and the chart shapes are drawn examples, never measurements.
+-->
+<style>
+  @font-face { font-family: "Space Grotesk"; src: url("../../reel/assets/SpaceGrotesk.woff2") format("woff2"); font-weight: 300 700; }
+  @font-face { font-family: "Public Sans"; src: url("../../reel/assets/PublicSans.woff2") format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "IBM Plex Mono"; src: url("../../reel/assets/PlexMono500.woff2") format("woff2"); font-weight: 500; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #26333f; }
+  body { font-family: "Public Sans", sans-serif; color: #211b16; }
+  svg { position: absolute; left: 0; top: 0; }
+</style>
+</head>
+<body>
+<svg id="svg" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script src="../../reel/kit/kit.js"></script>
+<script>
+const K = window.KIT;
+const { el, g, place, p, c01, lerp, ease, noise } = K;
+const C = K.color;
+const INK = C.ink, RED = C.red, ORANGE = C.orange, GREEN = C.green, PAPER = C.paper;
+const PALE = "#5f93ad";          // the impressions line
+const SLATE = "#35485c", SLATE_D = "#22323f", SLATE_L = "#4c6479";
+const DAWN = "#3f5872", DAWN_D = "#2a3d51";
+const BOARD = "#c9a86f";         // corkboard and calendar backing
+
+const svg = document.getElementById("svg");
+const stage = K.stage(svg);
+const world = stage.world, overlay = stage.overlay;
+
+// ---------- panel clock (absolute seconds: beat start + storyboard `at`) ----------
+const T = {
+  p0: 0.25, p1: 2.05,
+  p2: 3.651, p3: 6.251, p4: 8.651, p5: 11.251,
+  p6: 14.297, p7: 16.597,
+  p8: 19.035, p9: 21.235, p10: 23.635, p11: 26.235, p12: 27.835,
+  p13: 29.468, p14: 31.668, p15: 33.868,
+  end: 36.189,
+};
+
+// ---------- the chart lines, as drawn example shapes ----------
+const CLICKS_FALL  = [0.84, 0.88, 0.82, 0.86, 0.80, 0.83, 0.74, 0.58, 0.40, 0.28, 0.20, 0.16];
+const IMPR_FLAT    = [0.86, 0.90, 0.87, 0.90, 0.86, 0.89, 0.87, 0.90, 0.86, 0.88, 0.85, 0.88];
+const IMPR_FALL    = [0.88, 0.85, 0.87, 0.83, 0.80, 0.70, 0.55, 0.42, 0.32, 0.25, 0.19, 0.15];
+const CLICKS_FALL2 = [0.80, 0.77, 0.79, 0.74, 0.71, 0.60, 0.45, 0.33, 0.23, 0.17, 0.12, 0.09];
+const GONE_I       = [0.78, 0.81, 0.76, 0.79, 0.68, 0.30, 0.07, 0.05, 0.05, 0.05, 0.05, 0.05];
+const GONE_C       = [0.62, 0.64, 0.60, 0.62, 0.52, 0.20, 0.01, 0.00, 0.00, 0.00, 0.00, 0.00];
+
+// ---------- little builders ----------
+// The evidence card: red clicks over pale impressions, and the gap between.
+// The plot runs up from y = -16; the card's own box is drawn around it.
+function chartCard(parent, clicks, impr, o = {}) {
+  const w = o.w ?? 700, h = o.h ?? 320, lw = o.lw ?? 14, sw = o.sw ?? 8;
+  const top = o.label ? h + 104 : h + 36;
+  const bot = o.legend ? 74 : 34;
+  const root = g(parent);
+  el(root, "rect", { x: -w / 2 - 26, y: -top, width: w + 52, height: top + bot, rx: 22, fill: o.paper ?? PAPER, stroke: INK, "stroke-width": sw });
+  if (o.label) {
+    el(root, "rect", { x: -w / 2, y: -top + 22, width: o.label.length * 25 + 44, height: 60, rx: 16, fill: o.labelColor ?? INK });
+    el(root, "text", { x: -w / 2 + 22, y: -top + 66, "font-size": 38, "font-family": "Space Grotesk", "font-weight": 700, fill: "#fff" }, o.label);
+  }
+  for (let i = 1; i < 4; i++) el(root, "line", { x1: -w / 2, x2: w / 2, y1: -h + (i * h) / 4, y2: -h + (i * h) / 4, stroke: "#e6dccb", "stroke-width": 3 });
+  const pts = (vals) => vals.map((v, i) => [-w / 2 + (i * w) / (vals.length - 1), -16 - v * (h - 34)]);
+  const dOf = (q) => q.map((a, i) => `${i ? "L" : "M"} ${a[0].toFixed(1)} ${a[1].toFixed(1)}`).join(" ");
+  const cp = pts(clicks), ip = pts(impr);
+  const gapFill = el(root, "path", { d: dOf(ip) + " " + cp.slice().reverse().map((a) => `L ${a[0].toFixed(1)} ${a[1].toFixed(1)}`).join(" ") + " Z", fill: "#7fd6c8", opacity: 0 });
+  const iGlow = el(root, "path", { d: dOf(ip), fill: "none", stroke: "#9fe4dd", "stroke-width": lw + 18, "stroke-linecap": "round", "stroke-linejoin": "round", opacity: 0 });
+  const iLine = el(root, "path", { d: dOf(ip), fill: "none", stroke: PALE, "stroke-width": lw, "stroke-linecap": "round", "stroke-linejoin": "round" });
+  const cLine = el(root, "path", { d: dOf(cp), fill: "none", stroke: RED, "stroke-width": lw, "stroke-linecap": "round", "stroke-linejoin": "round" });
+  // The legend is drawn per line and each key only shows once its own line is
+  // on the chart, so the card never names a line the viewer cannot see.
+  let cKey = null, iKey = null;
+  if (o.legend) {
+    cKey = g(root);
+    el(cKey, "rect", { x: -w / 2, y: 22, width: 46, height: 14, rx: 7, fill: RED });
+    el(cKey, "text", { x: -w / 2 + 60, y: 42, "font-size": 31, "font-family": "IBM Plex Mono", fill: "#5c5047" }, "clicks");
+    iKey = g(root);
+    el(iKey, "rect", { x: -w / 2 + 224, y: 22, width: 46, height: 14, rx: 7, fill: PALE });
+    el(iKey, "text", { x: -w / 2 + 284, y: 42, "font-size": 31, "font-family": "IBM Plex Mono", fill: "#5c5047" }, "impressions");
+  }
+  let lc = 0, li = 0;
+  return {
+    root, gapFill,
+    draw(k, ki) {
+      if (!lc) { lc = cLine.getTotalLength(); li = iLine.getTotalLength(); cLine.setAttribute("stroke-dasharray", lc.toFixed(1)); iLine.setAttribute("stroke-dasharray", li.toFixed(1)); iGlow.setAttribute("stroke-dasharray", li.toFixed(1)); }
+      cLine.setAttribute("stroke-dashoffset", (lc * (1 - c01(k))).toFixed(1));
+      const q = c01(ki == null ? k : ki);
+      iLine.setAttribute("stroke-dashoffset", (li * (1 - q)).toFixed(1));
+      iGlow.setAttribute("stroke-dashoffset", (li * (1 - q)).toFixed(1));
+      iLine.setAttribute("opacity", q > 0.005 ? 1 : 0);
+      if (cKey) cKey.setAttribute("opacity", c01(k) > 0.02 ? 1 : 0);
+      if (iKey) iKey.setAttribute("opacity", c01((q - 0.02) * 4).toFixed(3));
+    },
+    gap(k) { gapFill.setAttribute("opacity", (0.72 * c01(k)).toFixed(3)); iGlow.setAttribute("opacity", (0.8 * c01(k)).toFixed(3)); },
+  };
+}
+
+// the suspect: a gear head in a trench coat
+function gearHead(parent) {
+  const root = g(parent), body = g(root);
+  const legL = el(body, "rect", { x: -32, y: -74, width: 26, height: 74, rx: 11, fill: "#2b241f" });
+  const legR = el(body, "rect", { x: 6, y: -74, width: 26, height: 74, rx: 11, fill: "#2b241f" });
+  el(body, "path", { d: "M -62 -232 q 2 -26 24 -30 h 76 q 22 4 24 30 v 166 q -62 18 -124 0 z", fill: "#c9a06a", stroke: INK, "stroke-width": 6 });
+  el(body, "path", { d: "M -22 -262 l 22 44 l 22 -44", fill: "none", stroke: INK, "stroke-width": 6, "stroke-linejoin": "round" });
+  el(body, "rect", { x: -64, y: -152, width: 128, height: 20, rx: 10, fill: "#a8814f", stroke: INK, "stroke-width": 4 });
+  el(body, "circle", { cx: 40, cy: -142, r: 7, fill: INK });
+  const armL = el(body, "rect", { x: -80, y: -224, width: 24, height: 106, rx: 12, fill: "#c9a06a", stroke: INK, "stroke-width": 5 });
+  const armR = el(body, "rect", { x: 56, y: -224, width: 24, height: 106, rx: 12, fill: "#c9a06a", stroke: INK, "stroke-width": 5 });
+  const gear = g(body);
+  for (let i = 0; i < 8; i++) el(gear, "rect", { x: -13, y: -70, width: 26, height: 24, rx: 5, fill: "#8e9aa2", stroke: INK, "stroke-width": 5, transform: `rotate(${i * 45})` });
+  el(gear, "circle", { r: 54, fill: "#a7b3ba", stroke: INK, "stroke-width": 6 });
+  el(gear, "circle", { r: 15, fill: SLATE_D });
+  const face = g(gear);
+  const eyeL = el(face, "ellipse", { cx: -22, cy: -14, rx: 9, ry: 11, fill: INK });
+  const eyeR = el(face, "ellipse", { cx: 22, cy: -14, rx: 9, ry: 11, fill: INK });
+  const mouth = el(face, "path", { d: "M -16 20 q 16 10 32 0", fill: "none", stroke: INK, "stroke-width": 5, "stroke-linecap": "round" });
+  const cuffs = g(body);
+  el(cuffs, "circle", { cx: -26, cy: -142, r: 20, fill: "none", stroke: "#c3ced5", "stroke-width": 9 });
+  el(cuffs, "circle", { cx: 26, cy: -142, r: 20, fill: "none", stroke: "#c3ced5", "stroke-width": 9 });
+  const link = el(cuffs, "rect", { x: -9, y: -148, width: 18, height: 12, rx: 6, fill: "#c3ced5" });
+  const r = { root, body, armL, armR, gear, cuffs };
+  r.pose = function ({ t = 0, walk = 0, moving = false, shrug = 0, cuffed = 0, mood = 0, tip = 0, hands = 0, drop = 0 } = {}) {
+    const sw = moving ? Math.sin(walk * Math.PI * 2) : 0;
+    legL.setAttribute("transform", `rotate(${(sw * 20).toFixed(1)} -19 -74)`);
+    legR.setAttribute("transform", `rotate(${(-sw * 20).toFixed(1)} 19 -74)`);
+    const bob = moving ? Math.abs(Math.sin(walk * Math.PI * 2)) * -7 : Math.sin(t * 1.9) * 2;
+    body.setAttribute("transform", `translate(0 ${(bob - 18 * shrug).toFixed(1)})`);
+    const up = hands ? 150 : tip ? 104 : shrug ? 70 : 0;
+    armL.setAttribute("transform", `rotate(${(up ? up : -sw * 22).toFixed(1)} -68 -220)`);
+    armR.setAttribute("transform", `rotate(${(up ? -up : sw * 22).toFixed(1)} 68 -220)`);
+    gear.setAttribute("transform", `translate(0 -300) rotate(${(t * 22).toFixed(1)})`);
+    face.setAttribute("transform", `rotate(${(-t * 22).toFixed(1)})`);
+    mouth.setAttribute("d", mood > 0 ? "M -16 16 q 16 16 32 0" : mood < 0 ? "M -16 26 q 16 -12 32 0" : "M -16 22 h 32");
+    [eyeL, eyeR].forEach((e) => e.setAttribute("ry", t % 3.3 < 0.12 ? 2 : 11));
+    const sp = c01(1 - cuffed);
+    link.setAttribute("opacity", (1 - sp).toFixed(2));
+    cuffs.setAttribute("opacity", ((cuffed > 0.02 || drop > 0) ? 1 - c01((drop - 0.6) / 0.4) : 0).toFixed(3));
+    cuffs.setAttribute("transform", `translate(${(-30 * ease.in(c01(drop))).toFixed(1)} ${(240 * ease.in(c01(drop))).toFixed(1)}) rotate(${(80 * c01(drop)).toFixed(1)} 0 -142)`);
+  };
+  return r;
+}
+
+// a hand: a palm and a pinching thumb, for the close-ups
+function hand(parent, flip = 1) {
+  const root = g(parent);
+  const inner = g(root, { transform: `scale(${flip} 1)` });
+  el(inner, "path", { d: "M -78 34 q -16 -50 10 -72 q 28 -22 68 -16 l 58 10 q 28 6 26 30 q -2 22 -28 22 l -32 -2 q 32 8 32 28 q 0 20 -30 18 l -104 -4 z", fill: C.skin, stroke: INK, "stroke-width": 7, "stroke-linejoin": "round" });
+  el(inner, "path", { d: "M -34 -34 q 28 6 50 24", fill: "none", stroke: "#a6704a", "stroke-width": 6, "stroke-linecap": "round" });
+  el(inner, "path", { d: "M -78 34 q -32 6 -46 -16", fill: "none", stroke: INK, "stroke-width": 7, "stroke-linecap": "round" });
+  return { root };
+}
+
+// suspect one: folded out of a search result
+function snippetSuspect(parent) {
+  const root = g(parent), body = g(root);
+  el(body, "rect", { x: -28, y: -82, width: 24, height: 82, rx: 10, fill: "#3a312a" });
+  el(body, "rect", { x: 4, y: -82, width: 24, height: 82, rx: 10, fill: "#3a312a" });
+  el(body, "rect", { x: -72, y: -222, width: 144, height: 146, rx: 16, fill: "#fff", stroke: INK, "stroke-width": 6 });
+  el(body, "text", { x: 0, y: -188, "text-anchor": "middle", "font-size": 22, "font-family": "IBM Plex Mono", fill: "#5c8a4f" }, "yoursite");
+  el(body, "rect", { x: -54, y: -168, width: 108, height: 10, rx: 5, fill: "#ddd3c2" });
+  el(body, "rect", { x: -54, y: -146, width: 80, height: 10, rx: 5, fill: "#ddd3c2" });
+  el(body, "rect", { x: -54, y: -124, width: 96, height: 10, rx: 5, fill: "#ddd3c2" });
+  const armL = el(body, "rect", { x: -92, y: -208, width: 22, height: 92, rx: 11, fill: "#ece4d6", stroke: INK, "stroke-width": 5 });
+  const armR = el(body, "rect", { x: 70, y: -208, width: 22, height: 92, rx: 11, fill: "#ece4d6", stroke: INK, "stroke-width": 5 });
+  const head = g(body);
+  el(head, "rect", { x: -68, y: -340, width: 136, height: 112, rx: 18, fill: "#fff", stroke: INK, "stroke-width": 6 });
+  const title = el(head, "rect", { x: -52, y: -320, width: 104, height: 24, rx: 12, fill: "#2b4ea2" });
+  const title2 = el(head, "rect", { x: -52, y: -288, width: 68, height: 24, rx: 12, fill: "#2b4ea2" });
+  el(head, "circle", { cx: -22, cy: -252, r: 7, fill: INK });
+  el(head, "circle", { cx: 22, cy: -252, r: 7, fill: INK });
+  const r = { root, body, armL, armR };
+  r.pose = function ({ t = 0, walk = 0, moving = false, flicker = 0 } = {}) {
+    const sw = moving ? Math.sin(walk * Math.PI * 2) : 0;
+    body.setAttribute("transform", `translate(0 ${(moving ? Math.abs(Math.sin(walk * Math.PI * 2)) * -7 : Math.sin(t * 2) * 1.5).toFixed(1)})`);
+    armL.setAttribute("transform", `rotate(${(-sw * 18).toFixed(1)} -81 -204)`);
+    armR.setAttribute("transform", `rotate(${(sw * 18).toFixed(1)} 81 -204)`);
+    const grey = flicker > 0.5 && Math.floor(t * 7) % 2 === 0;
+    [title, title2].forEach((n) => n.setAttribute("fill", grey ? "#9aa7ad" : "#2b4ea2"));
+  };
+  return r;
+}
+
+// suspect three: an empty hood
+function hoodSuspect(parent) {
+  const root = g(parent), sway = g(root);
+  el(sway, "path", { d: "M -90 0 q -8 -152 28 -222 q 26 -52 62 -52 q 36 0 62 52 q 36 70 28 222 z", fill: "#5b4e43", stroke: INK, "stroke-width": 7, "stroke-linejoin": "round" });
+  el(sway, "path", { d: "M -60 -234 q 22 -62 60 -62 q 38 0 60 62 q -18 52 -60 52 q -42 0 -60 -52 z", fill: "#121920", stroke: INK, "stroke-width": 7, "stroke-linejoin": "round" });
+  el(sway, "path", { d: "M -90 -8 h 180", stroke: INK, "stroke-width": 7, "stroke-linecap": "round" });
+  return { root, pose: ({ t = 0 } = {}) => sway.setAttribute("transform", `rotate(${(Math.sin(t * 1.3) * 1.1).toFixed(2)} 0 0)`) };
+}
+
+// A clipboard with five empty boxes. The board and its five rows exist from the
+// moment the lineup forms, so the middle suspect is legible on first read; the
+// count and the ticks are the later reveal, when the voice reaches "five causes".
+function checklist(parent) {
+  const root = g(parent);
+  el(root, "rect", { x: -100, y: -132, width: 200, height: 254, rx: 12, fill: "#fff", stroke: INK, "stroke-width": 6 });
+  el(root, "rect", { x: -38, y: -152, width: 76, height: 28, rx: 9, fill: "#8b8f94", stroke: INK, "stroke-width": 5 });
+  const count = g(root);
+  el(count, "text", { x: -76, y: -60, "font-size": 80, "font-family": "Space Grotesk", "font-weight": 700, fill: ORANGE }, "5");
+  el(count, "text", { x: -18, y: -68, "font-size": 27, "font-family": "IBM Plex Mono", fill: "#5c5047" }, "causes");
+  const head = el(root, "rect", { x: -78, y: -104, width: 130, height: 13, rx: 6.5, fill: "#c7bca8" });
+  el(root, "line", { x1: -78, y1: -42, x2: 78, y2: -42, stroke: "#e2d8c6", "stroke-width": 4 });
+  const ticks = [];
+  for (let i = 0; i < 5; i++) {
+    const y = -12 + i * 28;
+    el(root, "rect", { x: -78, y: y - 14, width: 28, height: 28, rx: 7, fill: "#f4efe6", stroke: INK, "stroke-width": 4 });
+    el(root, "rect", { x: -38, y: y - 6, width: 112, height: 11, rx: 5.5, fill: "#ddd3c2" });
+    ticks.push(el(root, "path", { d: `M -71 ${y} l 8 9 l 16 -19`, fill: "none", stroke: GREEN, "stroke-width": 7, "stroke-linecap": "round", "stroke-linejoin": "round" }));
+  }
+  count.setAttribute("opacity", 0);
+  return {
+    root,
+    // k 0..1: the "5 causes" heading swaps in for the plain ruled line
+    reveal(k) { count.setAttribute("opacity", c01(k).toFixed(3)); head.setAttribute("opacity", (1 - c01(k * 2)).toFixed(3)); },
+    tick: (k) => ticks.forEach((n, i) => n.setAttribute("opacity", p(k, i * 0.13, 0.1).toFixed(2))),
+  };
+}
+
+function pitchforkFigure(parent, shirt) {
+  const root = g(parent);
+  const fork = g(root);
+  el(fork, "rect", { x: -8, y: -430, width: 16, height: 430, rx: 8, fill: "#8a6a45", stroke: INK, "stroke-width": 5 });
+  el(fork, "path", { d: "M -38 -430 v -66 M 0 -430 v -80 M 38 -430 v -66 M -38 -430 h 76", fill: "none", stroke: "#78868f", "stroke-width": 15, "stroke-linecap": "round" });
+  el(fork, "path", { d: "M -38 -430 v -66 M 0 -430 v -80 M 38 -430 v -66 M -38 -430 h 76", fill: "none", stroke: INK, "stroke-width": 5, "stroke-linecap": "round" });
+  const person = K.person(root, shirt);
+  return { root, person, fork };
+}
+
+function tumbleweed(parent) {
+  const root = g(parent);
+  el(root, "path", { d: Array.from({ length: 13 }, (_, i) => { const a = (i / 13) * Math.PI * 2, r = 44 + noise(i * 1.9, 5) * 12; return `${i ? "L" : "M"} ${(Math.cos(a) * r).toFixed(1)} ${(Math.sin(a) * r).toFixed(1)}`; }).join(" ") + " Z", fill: "none", stroke: "#a98d5e", "stroke-width": 8, "stroke-linejoin": "round" });
+  for (let i = 0; i < 8; i++) {
+    const a = i * 45, r1 = 12 + noise(i * 1.3, 2) * 6, r2 = 40 + noise(i * 2.7, 7) * 10;
+    el(root, "path", { d: `M ${r1.toFixed(1)} 0 L ${r2.toFixed(1)} ${(noise(i * 3.1, 8) * 14).toFixed(1)}`, fill: "none", stroke: "#8f7649", "stroke-width": 7, "stroke-linecap": "round", transform: `rotate(${a})` });
+  }
+  return { root };
+}
+
+// a plain human silhouette; `lit` fades a brighter copy in over the dark one
+function silhouette(parent, fill, lit) {
+  const root = g(parent);
+  const d = "M -70 0 q -6 -156 24 -194 q -26 -42 8 -70 q 36 -28 66 4 q 26 30 -4 66 q 42 38 36 194 z";
+  el(root, "path", { d, fill });
+  const hi = lit ? el(root, "path", { d, fill: lit, opacity: 0 }) : null;
+  return { root, lit: (k) => { if (hi) hi.setAttribute("opacity", c01(k).toFixed(3)); } };
+}
+
+// ==================================================================
+// set A: the interrogation room
+// ==================================================================
+const A = g(world);
+el(A, "rect", { x: -1400, y: -1400, width: 3400, height: 2640, fill: SLATE });
+el(A, "rect", { x: -1400, y: 1240, width: 3400, height: 1800, fill: SLATE_D });
+el(A, "rect", { x: -1400, y: 1228, width: 3400, height: 18, fill: "#18242e" });
+for (let i = 0; i < 18; i++) el(A, "line", { x1: -1400 + i * 200, y1: -1400, x2: -1400 + i * 200, y2: 1240, stroke: "#3d5162", "stroke-width": 3 });
+el(A, "line", { x1: -1400, y1: 560, x2: 2000, y2: 560, stroke: "#3d5162", "stroke-width": 3 });
+// floor seams, so the near floor reads as a surface rather than an empty field
+[1360, 1520, 1740, 2010].forEach((y) => el(A, "line", { x1: -1400, y1: y, x2: 2000, y2: y, stroke: "#1a2833", "stroke-width": 5 }));
+[-520, 260, 1040].forEach((x) => el(A, "path", { d: `M ${x} 1240 L ${x - 190} 2340`, stroke: "#1a2833", "stroke-width": 5 }));
+const Awarm = el(A, "rect", { x: -1400, y: -1400, width: 3400, height: 4440, fill: "#f2bd7c", opacity: 0 });
+
+// the holding area behind the observation glass
+const glassRoom = g(A);
+el(glassRoom, "rect", { x: 540, y: 250, width: 550, height: 670, fill: SLATE_L });
+el(glassRoom, "rect", { x: 540, y: 850, width: 550, height: 70, fill: "#3d5262" });
+const gh1 = gearHead(glassRoom);
+const glass = g(A);
+el(glass, "path", { d: "M 620 920 L 900 250 L 1010 250 L 730 920 Z", fill: "#e8f6fa", opacity: 0.16 });
+el(glass, "path", { d: "M 800 920 L 1030 370 L 1090 370 L 1090 460 L 890 920 Z", fill: "#e8f6fa", opacity: 0.1 });
+el(glass, "rect", { x: 540, y: 250, width: 550, height: 670, fill: "none", stroke: INK, "stroke-width": 16, rx: 8 });
+el(glass, "rect", { x: 528, y: 900, width: 574, height: 30, rx: 14, fill: "#2b3945", stroke: INK, "stroke-width": 6 });
+
+// the exit, warm light behind it; its spill reaches across the near floor so the
+// bottom of the frame carries the one thing this beat is about: the way out
+const doorGlow = g(A);
+el(doorGlow, "path", { d: "M 1120 1236 L 1345 1236 L 1900 2040 L 470 2040 Z", fill: "#f3c98f", opacity: 0.14 });
+el(doorGlow, "path", { d: "M 1150 1236 L 1315 1236 L 1600 2040 L 760 2040 Z", fill: "#f8dda9", opacity: 0.13 });
+el(doorGlow, "rect", { x: 1120, y: 420, width: 225, height: 820, rx: 10, fill: "#f8dda9" });
+el(doorGlow, "rect", { x: 1120, y: 420, width: 225, height: 820, rx: 10, fill: "none", stroke: INK, "stroke-width": 11 });
+const doorPanel = g(A);
+el(doorPanel, "rect", { x: 0, y: 0, width: 225, height: 820, rx: 10, fill: ORANGE, stroke: INK, "stroke-width": 10 });
+el(doorPanel, "circle", { cx: 36, cy: 430, r: 12, fill: INK });
+
+// the hanging lamp
+const lampPivot = g(A);
+el(lampPivot, "line", { x1: 0, y1: -1400, x2: 0, y2: 250, stroke: INK, "stroke-width": 9 });
+el(lampPivot, "path", { d: "M -130 360 L -36 252 L 36 252 L 130 360 Z", fill: "#3a4c5b", stroke: INK, "stroke-width": 9, "stroke-linejoin": "round" });
+el(lampPivot, "ellipse", { cx: 0, cy: 360, rx: 130, ry: 28, fill: "#ffd79a", stroke: INK, "stroke-width": 8 });
+const lampCone = el(lampPivot, "path", { d: "M -120 372 L 120 372 L 560 1240 L -560 1240 Z", fill: "#ffcf8e", opacity: 0.16 });
+
+// the metal table
+const table = g(A);
+el(table, "path", { d: "M -160 1060 L 820 1060 L 940 1200 L -280 1200 Z", fill: "#7d8b93", stroke: INK, "stroke-width": 9, "stroke-linejoin": "round" });
+el(table, "rect", { x: -280, y: 1190, width: 1220, height: 34, rx: 14, fill: "#5f6d75", stroke: INK, "stroke-width": 8 });
+el(table, "rect", { x: -160, y: 1220, width: 38, height: 220, rx: 14, fill: "#4d5a62", stroke: INK, "stroke-width": 7 });
+el(table, "rect", { x: 780, y: 1220, width: 38, height: 220, rx: 14, fill: "#4d5a62", stroke: INK, "stroke-width": 7 });
+
+const detA = K.person(A, "#4f6377");
+const pen = g(A);
+el(pen, "rect", { x: -66, y: -10, width: 132, height: 20, rx: 10, fill: "#2f6f7a", stroke: INK, "stroke-width": 5 });
+const penCap = el(pen, "rect", { x: 50, y: -15, width: 50, height: 30, rx: 11, fill: ORANGE, stroke: INK, "stroke-width": 5 });
+const slideCard = chartCard(A, CLICKS_FALL, IMPR_FLAT, { w: 620, h: 300, lw: 18, sw: 10, legend: true });
+
+// the empty chair, foreground
+const chair = g(A);
+el(chair, "ellipse", { cx: 0, cy: 116, rx: 150, ry: 26, fill: "#16222d", opacity: 0.45 });
+el(chair, "rect", { x: -100, y: -240, width: 200, height: 42, rx: 15, fill: "#6d5a44", stroke: INK, "stroke-width": 8 });
+el(chair, "rect", { x: -100, y: -62, width: 200, height: 36, rx: 15, fill: "#7d6a52", stroke: INK, "stroke-width": 8 });
+el(chair, "rect", { x: -88, y: -32, width: 26, height: 140, rx: 11, fill: "#5d4c39", stroke: INK, "stroke-width": 7 });
+el(chair, "rect", { x: 62, y: -32, width: 26, height: 140, rx: 11, fill: "#5d4c39", stroke: INK, "stroke-width": 7 });
+el(chair, "rect", { x: -88, y: -236, width: 26, height: 200, rx: 11, fill: "#5d4c39", stroke: INK, "stroke-width": 7 });
+el(chair, "rect", { x: 62, y: -236, width: 26, height: 200, rx: 11, fill: "#5d4c39", stroke: INK, "stroke-width": 7 });
+
+// ==================================================================
+// set B: the dawn office (BEFORE)
+// ==================================================================
+const OX = 4300;
+const B = g(world);
+el(B, "rect", { x: OX - 1500, y: -1400, width: 3000, height: 2640, fill: DAWN });
+el(B, "rect", { x: OX - 1500, y: 1240, width: 3000, height: 1800, fill: DAWN_D });
+el(B, "rect", { x: OX - 1500, y: 1228, width: 3000, height: 18, fill: "#1b2b3a" });
+el(B, "path", { d: `M ${OX + 1500} -1400 L ${OX + 1500} 1240 L ${OX + 200} 1240 L ${OX + 700} -1400 Z`, fill: "#bcd8e8", opacity: 0.09 });
+
+// the pendant lamp over the desk
+const lampB = g(B);
+el(lampB, "line", { x1: OX + 70, y1: -1400, x2: OX + 70, y2: 190, stroke: INK, "stroke-width": 8 });
+el(lampB, "path", { d: `M ${OX - 40} 300 L ${OX + 34} 192 L ${OX + 106} 192 L ${OX + 180} 300 Z`, fill: "#3a4c5b", stroke: INK, "stroke-width": 8, "stroke-linejoin": "round" });
+el(lampB, "ellipse", { cx: OX + 70, cy: 300, rx: 110, ry: 24, fill: "#ffd79a", stroke: INK, "stroke-width": 7 });
+el(lampB, "path", { d: `M ${OX - 34} 310 L ${OX + 174} 310 L ${OX + 470} 1090 L ${OX - 330} 1090 Z`, fill: "#ffcf8e", opacity: 0.1 });
+
+// The wall calendar. Panel 5 is an insert on it, so it is built tall enough to
+// carry a 9:16 frame on its own: five weeks, a spiral binding, and room for the
+// pins to scatter through the early weeks well above the one circled day.
+const cal = g(B);
+const CLX = OX - 770, CLY = 170, CLW = 460, CLH = 700;
+el(cal, "rect", { x: CLX, y: CLY, width: CLW, height: CLH, rx: 16, fill: BOARD, stroke: INK, "stroke-width": 10 });
+for (let i = 0; i < 6; i++) el(cal, "path", { d: `M ${CLX + 60 + i * 70} ${CLY + 6} q -16 -34 10 -40`, fill: "none", stroke: "#9aa7ad", "stroke-width": 9, "stroke-linecap": "round" });
+el(cal, "rect", { x: CLX + 26, y: CLY + 28, width: CLW - 52, height: 76, rx: 10, fill: "#5c6b78" });
+el(cal, "text", { x: CLX + CLW / 2, y: CLY + 84, "text-anchor": "middle", "font-size": 48, "font-family": "Space Grotesk", "font-weight": 700, fill: "#fff" }, "SEPTEMBER");
+const calCells = [];
+for (let r = 0; r < 5; r++) for (let cc = 0; cc < 7; cc++) {
+  const x = CLX + 26 + cc * 59, y = CLY + 126 + r * 110;
+  el(cal, "rect", { x, y, width: 52, height: 98, rx: 8, fill: "#fbf7ef", stroke: "#b49a70", "stroke-width": 4 });
+  calCells.push([x + 26, y + 49]);
+}
+const calPins = [1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 16, 18, 19].map((i) => {
+  const n = g(cal);
+  el(n, "circle", { r: 19, fill: RED, stroke: INK, "stroke-width": 6 });
+  el(n, "circle", { cx: -5, cy: -6, r: 5, fill: "#ff9f8a" });
+  return { node: n, at: calCells[i] };
+});
+const RINGI = 23;
+const calRing = el(cal, "ellipse", { cx: calCells[RINGI][0], cy: calCells[RINGI][1], rx: 38, ry: 58, fill: "none", stroke: ORANGE, "stroke-width": 13, "stroke-dasharray": 320, "stroke-dashoffset": 320, transform: `rotate(-8 ${calCells[RINGI][0]} ${calCells[RINGI][1]})` });
+
+// the desk, with drawers filling the foreground
+el(B, "path", { d: `M ${OX - 620} 1090 L ${OX + 760} 1090 L ${OX + 880} 1240 L ${OX - 740} 1240 Z`, fill: "#6b5340", stroke: INK, "stroke-width": 9, "stroke-linejoin": "round" });
+el(B, "rect", { x: OX - 740, y: 1230, width: 1620, height: 34, rx: 14, fill: "#54402f", stroke: INK, "stroke-width": 8 });
+el(B, "rect", { x: OX - 700, y: 1258, width: 470, height: 420, rx: 12, fill: "#5b452f", stroke: INK, "stroke-width": 8 });
+for (let i = 0; i < 2; i++) {
+  el(B, "rect", { x: OX - 676, y: 1284 + i * 190, width: 422, height: 164, rx: 10, fill: "#6b5340", stroke: INK, "stroke-width": 6 });
+  el(B, "rect", { x: OX - 540, y: 1352 + i * 190, width: 150, height: 20, rx: 10, fill: "#3e2f21" });
+}
+
+// the monitor
+const mon = g(B);
+el(mon, "rect", { x: OX + 40, y: 900, width: 80, height: 50, rx: 8, fill: "#2c3a45", stroke: INK, "stroke-width": 6 });
+el(mon, "rect", { x: OX - 200, y: 460, width: 540, height: 440, rx: 24, fill: "#2c3a45", stroke: INK, "stroke-width": 10 });
+el(mon, "rect", { x: OX - 174, y: 486, width: 488, height: 362, rx: 10, fill: "#f7f2e8" });
+for (let i = 1; i < 4; i++) el(mon, "line", { x1: OX - 152, x2: OX + 292, y1: 520 + i * 78, y2: 520 + i * 78, stroke: "#e6dccb", "stroke-width": 3 });
+const monPts = CLICKS_FALL.map((v, i) => [OX - 152 + (i * 444) / 11, 816 - v * 292]);
+el(mon, "path", { d: monPts.map((a, i) => `${i ? "L" : "M"} ${a[0].toFixed(1)} ${a[1].toFixed(1)}`).join(" "), fill: "none", stroke: RED, "stroke-width": 14, "stroke-linecap": "round", "stroke-linejoin": "round" });
+const monStep = el(mon, "path", { d: `M ${(OX + 252).toFixed(1)} ${(816 - 0.2 * 292).toFixed(1)} L ${(OX + 292).toFixed(1)} ${(816 - 0.01 * 292).toFixed(1)}`, fill: "none", stroke: RED, "stroke-width": 14, "stroke-linecap": "round", opacity: 0 });
+
+// coffee cups and the buzzing phone
+[[OX - 40, 1090], [OX + 36, 1090]].forEach(([x, y], i) => {
+  const cup = g(B);
+  el(cup, "path", { d: `M ${x - 32} ${y - 82} h 64 l -9 82 h -46 z`, fill: i ? "#fbf7ef" : "#e7dcc8", stroke: INK, "stroke-width": 6, "stroke-linejoin": "round" });
+  el(cup, "path", { d: `M ${x + 32} ${y - 68} q 28 12 0 36`, fill: "none", stroke: INK, "stroke-width": 6 });
+});
+const phone = g(B);
+el(phone, "rect", { x: -68, y: -112, width: 136, height: 112, rx: 17, fill: "#2c3a45", stroke: INK, "stroke-width": 7 });
+el(phone, "rect", { x: -50, y: -94, width: 100, height: 62, rx: 8, fill: "#9fe4dd" });
+const phoneWaves = g(phone);
+[0, 1, 2].forEach((i) => {
+  el(phoneWaves, "path", { d: `M ${82 + i * 28} ${-124 - i * 16} q 24 30 0 64`, fill: "none", stroke: ORANGE, "stroke-width": 9, "stroke-linecap": "round" });
+  el(phoneWaves, "path", { d: `M ${-82 - i * 28} ${-124 - i * 16} q -24 30 0 64`, fill: "none", stroke: ORANGE, "stroke-width": 9, "stroke-linecap": "round" });
+});
+
+// her chair back, then her
+el(B, "rect", { x: OX - 560, y: 980, width: 220, height: 280, rx: 26, fill: "#33465a", stroke: INK, "stroke-width": 8 });
+const detB = K.person(B, "#4f6377");
+
+// the window, the street and the mob beyond it
+const WX = OX + 880;
+const win = g(B);
+el(win, "rect", { x: WX - 300, y: 400, width: 44, height: 22, rx: 11, fill: "#54402f", stroke: INK, "stroke-width": 6 });
+el(win, "rect", { x: WX + 256, y: 400, width: 44, height: 22, rx: 11, fill: "#54402f", stroke: INK, "stroke-width": 6 });
+el(win, "rect", { x: WX - 296, y: 402, width: 592, height: 18, rx: 9, fill: "#6b5340", stroke: INK, "stroke-width": 6 });
+el(win, "rect", { x: WX - 260, y: 460, width: 520, height: 570, fill: "#cfe0ea" });
+el(win, "rect", { x: WX - 260, y: 790, width: 520, height: 240, fill: "#b7ccd9" });
+el(win, "rect", { x: WX - 260, y: 780, width: 520, height: 14, fill: "#8fa6b5" });
+const mobG = g(win);
+const mob = [pitchforkFigure(mobG, "#7a5bc7"), pitchforkFigure(mobG, "#2f8f83"), pitchforkFigure(mobG, "#c9352b")];
+const mobGear = gearHead(mobG);
+el(win, "rect", { x: WX - 260, y: 460, width: 520, height: 570, fill: "none", stroke: INK, "stroke-width": 17 });
+el(win, "rect", { x: WX - 13, y: 460, width: 26, height: 570, fill: INK });
+el(win, "rect", { x: WX - 260, y: 700, width: 520, height: 20, fill: INK });
+el(win, "rect", { x: WX - 300, y: 1026, width: 600, height: 38, rx: 16, fill: "#54402f", stroke: INK, "stroke-width": 8 });
+
+const shoulderB = silhouette(B, "#16222d");
+// a second, nearer silhouette: she is reading the calendar in panel 5, and this
+// keeps her out of the caption's lane instead of parked behind it
+const shoulderB2 = silhouette(B, "#16222d");
+
+// ==================================================================
+// set C: the evidence table
+// ==================================================================
+const CX = 7200;
+const Cs = g(world);
+el(Cs, "rect", { x: CX - 1500, y: -1400, width: 3000, height: 2640, fill: SLATE });
+el(Cs, "rect", { x: CX - 1500, y: 1240, width: 3000, height: 1800, fill: SLATE_D });
+for (let i = 0; i < 11; i++) el(Cs, "line", { x1: CX - 900, x2: CX + 900, y1: 380 + i * 78, y2: 380 + i * 78, stroke: "#3d5162", "stroke-width": 4 });
+[-300, 300].forEach((dx) => {
+  const l = g(Cs);
+  el(l, "line", { x1: CX + dx, y1: -1400, x2: CX + dx, y2: 330, stroke: INK, "stroke-width": 8 });
+  el(l, "path", { d: `M ${CX + dx - 100} 410 L ${CX + dx - 28} 332 L ${CX + dx + 28} 332 L ${CX + dx + 100} 410 Z`, fill: "#3a4c5b", stroke: INK, "stroke-width": 8, "stroke-linejoin": "round" });
+  el(l, "ellipse", { cx: CX + dx, cy: 410, rx: 100, ry: 22, fill: "#ffd79a", stroke: INK, "stroke-width": 7 });
+  el(l, "path", { d: `M ${CX + dx - 92} 424 L ${CX + dx + 92} 424 L ${CX + dx + 260} 1180 L ${CX + dx - 260} 1180 Z`, fill: "#ffcf8e", opacity: 0.07 });
+});
+const waiters = [-300, 0, 300].map((dx) => ({ s: silhouette(Cs, "#1d2c38", "#3f7f7e"), x: CX + dx }));
+const uvBeams = g(Cs);
+[-300, 0, 300].forEach((dx) => el(uvBeams, "path", { d: `M ${CX - 110} 1010 L ${CX + 110} 1010 L ${CX + dx + 190} 600 L ${CX + dx - 190} 600 Z`, fill: "#8fe6d8", opacity: 0 }));
+el(Cs, "path", { d: `M ${CX - 800} 1240 L ${CX + 800} 1240 L ${CX + 980} 1400 L ${CX - 980} 1400 Z`, fill: "#7d8b93", stroke: INK, "stroke-width": 10, "stroke-linejoin": "round" });
+el(Cs, "rect", { x: CX - 980, y: 1390, width: 1960, height: 40, rx: 16, fill: "#5f6d75", stroke: INK, "stroke-width": 9 });
+// the near edge of the table, close to camera, with the case clutter on it
+el(Cs, "rect", { x: CX - 1400, y: 1520, width: 2800, height: 1000, rx: 24, fill: "#2b3945", stroke: INK, "stroke-width": 10 });
+el(Cs, "rect", { x: CX - 1380, y: 1540, width: 2760, height: 12, rx: 6, fill: "#46596b" });
+[[CX - 350, -6], [CX + 360, 5]].forEach(([x, r], i) => {
+  const n = g(Cs);
+  for (let j = 0; j < 3; j++) el(n, "rect", { x: -150 + j * 9, y: -34 - j * 26, width: 300, height: 58, rx: 12, fill: j === 2 ? "#e7dcc8" : "#c9a86f", stroke: INK, "stroke-width": 8 });
+  el(n, "rect", { x: -60, y: -96, width: 120, height: 16, rx: 8, fill: i ? RED : "#8a6a45" });
+  n.setAttribute("transform", `translate(${x} 1524) rotate(${r})`);
+});
+
+// the second chart she lifts the pale line out of, and the clicks chart it lands on
+const SRCX = CX - 560;
+const sourceCard = chartCard(Cs, IMPR_FLAT.map(() => 0), IMPR_FLAT, { w: 480, h: 280, lw: 20, sw: 10, paper: "#f4eee2", label: "IMPRESSIONS", labelColor: "#41708a" });
+const evidence = chartCard(Cs, CLICKS_FALL, IMPR_FLAT, { w: 700, h: 320, lw: 16, sw: 10, legend: true });
+// the pale line travelling on its own: the same geometry as the evidence line,
+// shifted so its middle sits near the group's origin
+const freeLine = g(Cs);
+const freeD = IMPR_FLAT.map((v, i) => `${i ? "L" : "M"} ${(-350 + (i * 700) / 11).toFixed(1)} ${(134 - 16 - v * 286).toFixed(1)}`).join(" ");
+el(freeLine, "path", { d: freeD, fill: "none", stroke: "#9fe4dd", "stroke-width": 40, "stroke-linecap": "round", "stroke-linejoin": "round", opacity: 0.55 });
+el(freeLine, "path", { d: freeD, fill: "none", stroke: PALE, "stroke-width": 16, "stroke-linecap": "round", "stroke-linejoin": "round" });
+const handL = hand(Cs, 1), handR = hand(Cs, -1);
+
+// ==================================================================
+// set D: the police lineup
+// ==================================================================
+const DX = 9900;
+const D = g(world);
+el(D, "rect", { x: DX - 1500, y: -1400, width: 3000, height: 2690, fill: "#54687c" });
+el(D, "rect", { x: DX - 1500, y: 1290, width: 3000, height: 1800, fill: "#31455a" });
+el(D, "rect", { x: DX - 1500, y: 1278, width: 3000, height: 18, fill: "#22313f" });
+// the height chart they stand against: it gives the back wall something to say
+for (let i = 0; i < 11; i++) {
+  const y = 440 + i * 82;
+  el(D, "line", { x1: DX - 900, x2: DX + 900, y1: y, y2: y, stroke: "#6a7f92", "stroke-width": 4 });
+  el(D, "rect", { x: DX - 470, y: y - 5, width: 62, height: 10, rx: 5, fill: "#8398aa" });
+  el(D, "rect", { x: DX + 408, y: y - 5, width: 62, height: 10, rx: 5, fill: "#8398aa" });
+  if (i % 2 === 0) el(D, "text", { x: DX - 486, y: y + 16, "text-anchor": "end", "font-size": 46, "font-family": "IBM Plex Mono", fill: "#8398aa" }, String(7 - i / 2));
+}
+const S1X = DX - 310, S2X = DX, S3X = DX + 310;
+const spots = [S1X, S2X, S3X].map((x) => {
+  const gr = g(D);
+  el(gr, "rect", { x: x - 90, y: 260, width: 180, height: 60, rx: 14, fill: "#2c3a45", stroke: INK, "stroke-width": 7 });
+  el(gr, "ellipse", { cx: x, cy: 322, rx: 78, ry: 16, fill: "#ffe6b8", stroke: INK, "stroke-width": 6 });
+  return el(gr, "path", { d: `M ${x - 70} 332 L ${x + 70} 332 L ${x + 168} 1290 L ${x - 168} 1290 Z`, fill: "#ffe0ab", opacity: 0.05 });
+});
+[S1X, S2X, S3X].forEach((x) => el(D, "ellipse", { cx: x, cy: 1292, rx: 116, ry: 22, fill: "#22313f", opacity: 0.55 }));
+const susp1 = snippetSuspect(D);
+const susp2 = K.person(D, "#c9352b");
+const list2 = checklist(D);
+const susp3 = hoodSuspect(D);
+const weed = tumbleweed(D);
+const vcard1 = chartCard(D, CLICKS_FALL, IMPR_FLAT, { w: 700, h: 300, lw: 17, sw: 10, label: "IMPRESSIONS FLAT", labelColor: "#41708a", legend: true });
+const vcard2 = chartCard(D, CLICKS_FALL2, IMPR_FALL, { w: 700, h: 300, lw: 17, sw: 10, label: "BOTH FALLING", labelColor: RED, legend: true });
+const vcard3 = chartCard(D, GONE_C, GONE_I, { w: 700, h: 300, lw: 17, sw: 10, label: "IMPRESSIONS GONE", labelColor: "#5a6b7a", legend: true });
+el(D, "rect", { x: DX - 1500, y: 1420, width: 3000, height: 110, rx: 22, fill: "#2a3b4c", stroke: INK, "stroke-width": 10 });
+[-760, -260, 240, 740].forEach((dx) => el(D, "rect", { x: DX + dx, y: 1510, width: 46, height: 400, rx: 12, fill: "#22313f", stroke: INK, "stroke-width": 8 }));
+const shoulderD = silhouette(D, "#16222d");
+
+// ==================================================================
+// set E: the front desk
+// ==================================================================
+const EX = 12400;
+const E = g(world);
+el(E, "rect", { x: EX - 1000, y: -1400, width: 2000, height: 2650, fill: "#46596b" });
+el(E, "rect", { x: EX - 1000, y: 1250, width: 2000, height: 1800, fill: "#2d3e4f" });
+el(E, "rect", { x: EX - 1000, y: 1238, width: 2000, height: 18, fill: "#22313f" });
+el(E, "rect", { x: EX - 1000, y: 150, width: 2000, height: 40, rx: 16, fill: "#3a4c5b" });
+el(E, "rect", { x: EX - 480, y: 360, width: 420, height: 130, rx: 14, fill: "#2c3a45", stroke: INK, "stroke-width": 8 });
+el(E, "text", { x: EX - 270, y: 450, "text-anchor": "middle", "font-size": 52, "font-family": "Space Grotesk", "font-weight": 700, fill: "#fff" }, "FRONT DESK");
+// a wall clock and a notice board, so the wall is not bare
+el(E, "circle", { cx: EX + 120, cy: 430, r: 78, fill: "#f4efe6", stroke: INK, "stroke-width": 9 });
+el(E, "path", { d: `M ${EX + 120} 430 L ${EX + 120} 378 M ${EX + 120} 430 L ${EX + 158} 452`, stroke: INK, "stroke-width": 9, "stroke-linecap": "round" });
+el(E, "rect", { x: EX - 480, y: 640, width: 300, height: 210, rx: 12, fill: BOARD, stroke: "#8a6a45", "stroke-width": 10 });
+[0, 1, 2].forEach((i) => el(E, "rect", { x: EX - 440 + (i % 2) * 130, y: 676 + i * 56, width: 110, height: 44, rx: 7, fill: "#fbf7ef", stroke: INK, "stroke-width": 4 }));
+// the exit
+el(E, "rect", { x: EX + 340, y: 440, width: 280, height: 810, rx: 10, fill: "#f8dda9" });
+el(E, "rect", { x: EX + 340, y: 440, width: 280, height: 810, rx: 10, fill: "none", stroke: INK, "stroke-width": 11 });
+el(E, "path", { d: `M ${EX + 340} 1250 L ${EX + 620} 1250 L ${EX + 760} 1620 L ${EX + 250} 1620 Z`, fill: "#f3c98f", opacity: 0.3 });
+const exitPanel = g(E);
+el(exitPanel, "rect", { x: 0, y: 0, width: 280, height: 810, rx: 10, fill: ORANGE, stroke: INK, "stroke-width": 10 });
+el(exitPanel, "circle", { cx: 42, cy: 430, r: 13, fill: INK });
+const detE = K.person(E, "#3f5060");
+const gh2 = gearHead(E);
+el(E, "path", { d: `M ${EX - 520} 1160 L ${EX + 240} 1160 L ${EX + 350} 1260 L ${EX - 630} 1260 Z`, fill: "#7d6a52", stroke: INK, "stroke-width": 10, "stroke-linejoin": "round" });
+el(E, "rect", { x: EX - 630, y: 1250, width: 980, height: 190, rx: 14, fill: "#6d5a44", stroke: INK, "stroke-width": 9 });
+const clip = g(E);
+el(clip, "rect", { x: -84, y: -112, width: 168, height: 210, rx: 11, fill: "#fff", stroke: INK, "stroke-width": 7 });
+el(clip, "rect", { x: -34, y: -132, width: 68, height: 28, rx: 9, fill: "#8b8f94", stroke: INK, "stroke-width": 6 });
+for (let i = 0; i < 3; i++) el(clip, "rect", { x: -60, y: -72 + i * 28, width: 120, height: 10, rx: 5, fill: "#ddd3c2" });
+const sigPath = el(clip, "path", { d: "M -58 40 q 20 -34 34 -6 q 12 26 24 -8 q 14 -30 28 6 q 10 20 26 -6", fill: "none", stroke: "#2b4ea2", "stroke-width": 8, "stroke-linecap": "round" });
+
+// ==================================================================
+// set F: the corkboard, sixteen months of both lines
+// ==================================================================
+const FX = 15400;
+const F = g(world);
+el(F, "rect", { x: FX - 3400, y: -2200, width: 5600, height: 6600, fill: "#f1e7d4" });
+el(F, "rect", { x: FX - 2900, y: -700, width: 4400, height: 3700, rx: 30, fill: BOARD, stroke: "#8a6a45", "stroke-width": 34 });
+const fTitle = g(F);
+el(fTitle, "text", { x: 0, y: 0, "text-anchor": "middle", "font-size": 160, "font-family": "Space Grotesk", "font-weight": 700, fill: INK }, "16 MONTHS");
+
+// The run of past months: chart cards overlapping like a fanned deck, the oldest
+// sliding away off the left edge. Drawn example shapes, never measurements.
+const ribbon = [];
+for (let i = 12; i >= 0; i--) {
+  const base = 0.74 - i * 0.011;
+  const cl = IMPR_FLAT.map((_, j) => c01(base - 0.13 + noise(i * 3.1 + j * 0.62, 4) * 0.11));
+  const im = IMPR_FLAT.map((_, j) => c01(base + 0.09 + noise(i * 3.1 + j * 0.62, 9) * 0.09));
+  // card first, then its pin, so the pin lands on the strip of that card the
+  // next month along does not cover
+  const card = chartCard(F, cl, im, { w: 700, h: 300, lw: 34, sw: 20 });
+  const pin = g(F);
+  el(pin, "circle", { r: 15, fill: "#8a6a45", stroke: INK, "stroke-width": 5 });
+  el(pin, "circle", { cx: -4, cy: -5, r: 4, fill: "#dcc08a" });
+  ribbon[i] = { card, pin, x: FX + 250 - i * 130 };
+}
+const newCard = chartCard(F, CLICKS_FALL, IMPR_FLAT, { w: 700, h: 300, lw: 24, sw: 14, legend: true });
+const newPin = g(F);
+el(newPin, "circle", { r: 26, fill: ORANGE, stroke: INK, "stroke-width": 8 });
+el(newPin, "circle", { cx: -7, cy: -8, r: 8, fill: "#ffd0ae" });
+const pinHand = hand(F, -1);
+
+// And the same pair of lines running unbroken under the whole run: one view.
+const SW0 = FX - 2700, SWW = 3880, SY = 1800, SH = 330;
+const strip = g(F);
+el(strip, "rect", { x: SW0 - 26, y: SY - SH - 80, width: SWW + 52, height: SH + 150, rx: 26, fill: PAPER, stroke: INK, "stroke-width": 14 });
+const sLine = (seed, base, amp, fall) => {
+  const q = [];
+  for (let j = 0; j <= 48; j++) {
+    const u = j / 48;
+    const v = base + noise(j * 0.42, seed) * amp - fall * Math.max(0, (u - 0.84) / 0.16) * 0.44;
+    q.push(`${j ? "L" : "M"} ${(SW0 + u * SWW).toFixed(1)} ${(SY - 40 - c01(v) * SH).toFixed(1)}`);
+  }
+  return q.join(" ");
+};
+const stripI = el(strip, "path", { d: sLine(9, 0.80, 0.07, 0), fill: "none", stroke: PALE, "stroke-width": 17, "stroke-linecap": "round", "stroke-linejoin": "round" });
+const stripC = el(strip, "path", { d: sLine(4, 0.60, 0.07, 1), fill: "none", stroke: RED, "stroke-width": 17, "stroke-linecap": "round", "stroke-linejoin": "round" });
+const stripLen = {};
+
+// pinned paper, so the near board is not bare
+[[FX + 180, 2170, -5], [FX + 1020, 2110, 4]].forEach(([x, y, r]) => {
+  const n = g(F);
+  el(n, "rect", { x: -160, y: -110, width: 320, height: 220, rx: 10, fill: "#fbf7ef", stroke: INK, "stroke-width": 8 });
+  for (let i = 0; i < 4; i++) el(n, "rect", { x: -118, y: -62 + i * 38, width: i === 3 ? 130 : 236, height: 13, rx: 6, fill: "#ddd3c2" });
+  el(n, "circle", { cy: -100, r: 16, fill: ORANGE, stroke: INK, "stroke-width": 5 });
+  n.setAttribute("transform", `translate(${x} ${y}) rotate(${r}) scale(1.5)`);
+});
+
+// ==================================================================
+// overlays: the one piece of data a panel names
+// ==================================================================
+function tag(text) {
+  const root = g(overlay);
+  const w = text.length * 33 + 78;
+  el(root, "rect", { x: 0, y: -64, width: w, height: 108, rx: 28, fill: "rgba(18,26,34,.94)", stroke: ORANGE, "stroke-width": 7 });
+  el(root, "text", { x: 40, y: 14, "font-size": 56, "font-family": "IBM Plex Mono", fill: "#ffd7a8" }, text);
+  return root;
+}
+const tagTime = tag("MON 06:12");
+const tagDrop = tag("TRAFFIC DOWN");
+const tagBlame = tag("SPAM UPDATE");
+const cleared = K.stamp(overlay, "CLEARED", "no charge", GREEN);
+
+const reelUI = K.reelUI();
+
+// ==================================================================
+// the camera
+// ==================================================================
+const cam = K.camera([
+  { at: 0, x: 520, y: 780, zoom: 0.92, move: "push" },
+  { at: T.p1, x: 900, y: 700, zoom: 1.0, move: "ease", dur: 0.5 },
+  { at: T.p2 + 0.15, x: OX - 100, y: 800, zoom: 0.92, move: "whip", dur: 0.3 },
+  { at: T.p3, x: OX + 20, y: 720, zoom: 1.55, move: "ease", dur: 0.5 },
+  { at: T.p4, x: WX, y: 880, zoom: 1.32, move: "ease", dur: 0.55 },
+  { at: T.p5, x: OX - 530, y: 520, zoom: 1.5, move: "push", dur: 0.55 },
+  { at: T.p6, x: SRCX, y: 1010, zoom: 1.5, move: "cut" },
+  { at: T.p7, x: CX, y: 860, zoom: 0.95, move: "ease", dur: 0.9 },
+  { at: T.p8, x: DX, y: 940, zoom: 1.06, move: "cut" },
+  { at: T.p9, x: S1X, y: 900, zoom: 1.35, move: "push", dur: 0.5 },
+  { at: T.p10, x: S2X, y: 900, zoom: 1.35, move: "ease", dur: 0.45 },
+  { at: T.p11, x: S3X, y: 940, zoom: 1.3, move: "drift", dur: 0.5 },
+  { at: T.p12, x: EX - 140, y: 900, zoom: 1.15, move: "cut" },
+  { at: T.p12 + 1.5, x: EX + 230, y: 880, zoom: 1.1, move: "ease", dur: 1.2 },
+  { at: T.p13, x: FX + 850, y: 955, zoom: 1.25, move: "cut" },
+  { at: T.p14, x: FX + 560, y: 1000, zoom: 0.72, move: "ease", dur: 0.9 },
+  { at: T.p15, x: 430, y: 860, zoom: 1.2, move: "cut" },
+  { at: T.end - 0.1, x: 760, y: 800, zoom: 0.9, move: "ease", dur: 2.2 },
+], [
+  { at: 1.70, amp: 15, dur: 0.4 },
+  { at: 6.50, amp: 20, dur: 0.45 },
+  { at: 9.00, amp: 12, dur: 0.3 },
+  { at: 23.94, amp: 22, dur: 0.5 },
+]);
+const layers = [{ node: world, depth: 1 }];
+
+// ==================================================================
+// the frame
+// ==================================================================
+window.render = async function (t) {
+  K.applyCamera(layers, cam(t), stage.blur);
+  const late = t >= T.p15;
+
+  // ---------- set A: interrogation room (panels 0, 1, 15) ----------
+  const warm = p(t, T.p15 + 0.4, 1.3);
+  Awarm.setAttribute("opacity", (0.2 * warm).toFixed(3));
+  lampCone.setAttribute("opacity", (0.16 + 0.12 * warm).toFixed(3));
+  const swing = Math.sin(t * 1.3) * 1.4 + 2.8 * Math.exp(-2.2 * Math.max(0, t - 1.7)) * Math.sin((t - 1.7) * 9);
+  lampPivot.setAttribute("transform", `rotate(${swing.toFixed(2)} 300 -1400) translate(300 0)`);
+
+  {
+    // she slides the card: wind-up, skid, overshoot, flutter to a stop
+    const k = p(t, 0.62, 1.1), e = ease.out(k);
+    const over = k > 0.72 ? Math.sin(Math.PI * c01((k - 0.72) / 0.28)) : 0;
+    const flutter = t > 1.7 ? (1 - c01((t - 1.7) / 0.55)) * Math.sin((t - 1.7) * 22) : 0;
+    place(slideCard.root, lerp(255, 555, e) + over * 26, lerp(1118, 1150, e), 0.78, lerp(-13, -3, e) + flutter * 3, late ? 0 : 1);
+    const cardK = late ? 0 : c01(p(t, 0.05, 0.45));
+    slideCard.draw(cardK, cardK);
+
+    place(detA.root, 215, 1060, 1.75, 0, 1);
+    detA.pose({ t, mood: late ? 0.6 : 0.1 });
+    const shove = Math.sin(Math.PI * c01(p(t, 0.45, 0.85)));
+    detA.armR.setAttribute("transform", `rotate(${(-12 - 56 * shove).toFixed(1)} 55 -190)`);
+
+    const penK = p(t, T.p15 + 0.3, 0.45);
+    place(pen, 420, 1020, 1.05, -12, late ? 1 : 0);
+    penCap.setAttribute("transform", `translate(${(40 * (1 - ease.back(penK, 2.4))).toFixed(1)} 0)`);
+  }
+  {
+    // the empty chair, close to camera: it fills the near floor through the hook
+    // and slides itself back under the table on the last beat
+    const slide = ease.io(p(t, T.p15 + 1.3, 0.85));
+    place(chair, lerp(400, 300, slide), lerp(1780, 1690, slide), lerp(2.0, 1.88, slide), lerp(-7, 0, slide), 1);
+  }
+  {
+    // cuffs spring open and drop, a shrug at the camera, then out of the door
+    const cuffOpen = p(t, T.p1 + 0.25, 0.26);           // the ding
+    const drop = p(t, T.p1 + 0.5, 0.45);
+    const shrug = Math.sin(Math.PI * c01(p(t, T.p1 + 0.66, 0.6)));
+    const go = p(t, T.p1 + 0.9, 0.85);                   // the whoosh, out of the door
+    const fade = 1 - p(t, T.p1 + 1.55, 0.35);
+    place(gh1.root, lerp(820, 1232, ease.io(go)), 900 - 10 * ease.io(go), lerp(1.35, 1.05, ease.io(go)), 0, late ? 0 : fade);
+    gh1.pose({ t, walk: t * 1.7, moving: go > 0.02 && go < 0.98, shrug: go > 0.05 ? 0 : shrug * (cuffOpen > 0.9 ? 1 : 0), cuffed: 1 - cuffOpen, drop, mood: cuffOpen > 0.5 ? 1 : 0 });
+  }
+  doorPanel.setAttribute("transform", `translate(1120 420) scale(${(1 - 0.86 * Math.max(p(t, T.p1 + 0.75, 0.3), late ? 1 : 0)).toFixed(3)} 1)`);
+
+  // ---------- set B: the dawn office (panels 2, 3, 4, 5) ----------
+  {
+    const slump = ease.io(p(t, T.p2 + 0.5, 0.9));
+    place(detB.root, OX - 450, 1240, 1.55, lerp(-2, -8, slump), 1 - p(t, T.p5 - 0.6, 0.4));
+    detB.pose({ t, mood: lerp(0, -0.9, slump) });
+    monStep.setAttribute("opacity", p(t, T.p3 + 0.15, 0.18).toFixed(2));
+    const buzz = t > T.p2 + 1.5 && t < T.p4 - 0.2;
+    const jump = buzz ? Math.max(0, Math.sin(t * 17)) : 0;
+    const rattle = buzz ? noise(t * 34, 12) * 6 : 0;
+    place(phone, OX + 230 + rattle, 1060 - jump * 30, 1, rattle * 1.4, buzz ? 1 : 0);
+    phoneWaves.setAttribute("opacity", (buzz ? c01(Math.sin(t * 8.5) * 2) : 0).toFixed(2));
+    const shOn = (t > T.p3 - 0.3 && t < T.p5 - 0.55) ? 1 : 0;
+    place(shoulderB.root, t > T.p4 - 0.4 ? WX - 320 : OX - 300, 1620, 2.5, 0, shOn);
+    // panel 5: only her head and shoulder, low and dark, under the calendar
+    place(shoulderB2.root, OX - 530, 1526, 1.94, 0, p(t, T.p5 + 0.2, 0.45) * (1 - p(t, T.p6 - 0.35, 0.25)));
+  }
+  {
+    const on = p(t, T.p4 - 0.5, 0.4);
+    const jab = Math.max(0, Math.sin((t - T.p4 - 0.2) * 5.4));
+    mob.forEach((m, i) => {
+      place(m.root, WX - 190 + i * 132, 1005, 0.72, 0, on);
+      m.person.pose({ t: t + i * 0.4, mood: -1 });
+      m.fork.setAttribute("transform", `translate(92 ${(-70 * jab).toFixed(1)}) rotate(${(-10 + 12 * jab).toFixed(1)} 0 0)`);
+    });
+    place(mobGear.root, WX + 175 + 40 * ease.out(p(t, T.p4 + 0.5, 0.85)), 1005, 0.8, 0, on);
+    mobGear.pose({ t, hands: 1, mood: -1 });
+  }
+  {
+    calPins.forEach((pin, i) => {
+      const k = ease.back(p(t, T.p5 + 0.25 + i * 0.075, 0.22), 2.6);
+      place(pin.node, pin.at[0], pin.at[1], k, 0, k > 0.02 ? 1 : 0);
+    });
+    calRing.setAttribute("stroke-dashoffset", (320 * (1 - ease.out(p(t, T.p5 + 1.75, 0.75)))).toFixed(1));
+  }
+
+  // ---------- set C: the evidence table (panels 6, 7) ----------
+  {
+    // One unbroken move, so the picture says what the voice says: her hands
+    // pinch the pale line out of the impressions chart, carry it across while
+    // the camera pulls out, set it down on the clicks chart, and only then let
+    // go. The line is never travelling on its own.
+    const grab = p(t, T.p6 + 0.06, 0.45);     // 14.36  hands come down on it
+    const lift = p(t, T.p6 + 0.30, 0.75);     // 14.60  the boing, it peels up
+    const drag = p(t, T.p6 + 1.25, 1.20);     // 15.55  "drags impressions onto"
+    const land = p(t, T.p6 + 2.45, 0.40);     // 16.75  "the clicks chart", the ding
+    const off = p(t, T.p6 + 2.85, 0.45);      // 17.15  the hands lift away
+    const flare = p(t, T.p6 + 3.35, 0.65);    // 17.65  "and reads the gap"
+
+    place(sourceCard.root, SRCX, 1150, 1.0, -2, 1 - p(t, T.p6 + 1.7, 0.55));
+    sourceCard.draw(0, lift > 0.05 ? 0 : 1);
+
+    // three poses for the line: lying in its chart, peeled up, laid on the other
+    const e1 = ease.out(lift), dk = ease.io(drag), lk = ease.out(land);
+    const wob = Math.sin(t * 12) * 0.055 * (1 - e1 * 0.4) * (1 - lk);
+    const lx = lerp(lerp(SRCX, SRCX + 30, e1), CX, dk);
+    const lyBase = lerp(lerp(1039, 968, e1), 1203, dk);
+    const ly = lyBase - 150 * (1 - lk) * dk - 90 * Math.sin(Math.PI * dk);
+    const ls = lerp(lerp(0.90, 1.05, e1), 0.95, dk) * (1 + wob);
+    const lsx = lerp(lerp(0.686, 0.62, e1), 0.951, dk);
+    const lrot = lerp(lerp(-2, -7, e1), 0, dk) + 5 * Math.sin(Math.PI * dk);
+    const lo = 1 - p(t, T.p6 + 2.72, 0.12);   // the chart's own line takes over
+    place(freeLine, lx, ly, ls, lrot, lo, lsx);
+
+    // the hands hold the two ends of whatever shape the line is in right now
+    const lineY = ly - 132 * ls, halfW = 350 * lsx;
+    const ho = c01(grab * 1.7) * (1 - c01(off * 1.4));
+    const hdy = -190 * (1 - ease.out(grab)) + 260 * ease.in(off);
+    place(handL.root, lx - halfW + 16, lineY - 34 + hdy, 0.95, lerp(16, -2, e1), ho);
+    place(handR.root, lx + halfW - 16, lineY - 34 + hdy, 0.95, lerp(-16, 2, e1), ho);
+
+    place(evidence.root, CX, 1330, 0.95, 0, 1);
+    evidence.draw(1, p(t, T.p6 + 2.72, 0.12));
+    evidence.gap(flare);
+    uvBeams.childNodes.forEach((n) => n.setAttribute("opacity", (0.2 * flare * (0.72 + 0.28 * Math.sin(t * 5))).toFixed(3)));
+    waiters.forEach((wt) => {
+      place(wt.s.root, wt.x, 1150, 1.95, 0, 1);
+      wt.s.lit(flare * 0.85);
+    });
+  }
+
+  // ---------- set D: the lineup (panels 8, 9, 10, 11) ----------
+  {
+    const shuffle = p(t, T.p8 - 0.2, 0.7);
+    place(susp1.root, lerp(S1X - 70, S1X, ease.out(shuffle)), 1290, 1.25, 0, 1);
+    susp1.pose({ t, walk: t * 1.7, moving: shuffle > 0.02 && shuffle < 0.97, flicker: t > T.p9 + 0.55 && t < T.p10 - 0.2 ? 1 : 0 });
+    place(susp2.root, lerp(S2X + 60, S2X, ease.out(shuffle)), 1290, 1.2, 0, 1);
+    const nerves = (t > T.p10 - 0.2 && t < T.p11 - 0.1) ? 1 : 0;
+    susp2.pose({ t, mood: -0.8, surprise: nerves * c01(p(t, T.p10 + 0.25, 0.25)) });
+    // He holds the clipboard from the moment the lineup forms: it is what he is.
+    // Only the count and the ticks wait for "work the five causes".
+    const listOn = c01(p(t, T.p8 - 0.15, 0.35)) * (1 - p(t, T.p11 - 0.35, 0.3));
+    place(list2.root, S2X + 86 + noise(t * 9, 30) * 5 * nerves, 1152, 0.62, lerp(9, 3, p(t, T.p10, 0.4)), listOn);
+    list2.reveal(ease.back(p(t, T.p10 + 0.35, 0.4), 2));
+    list2.tick(p(t, T.p10 + 0.95, 0.8));
+    place(susp3.root, S3X, 1290, 1.1, 0, 1);
+    susp3.pose({ t });
+
+    spots.forEach((s, i) => {
+      const sweep = 0.05 + 0.18 * Math.max(0, 1 - Math.abs(((t - T.p8 + 0.2) / 1.9) * 2 - i * 0.7));
+      let lit = sweep;
+      if (t >= T.p9 - 0.25 && t < T.p10 - 0.2) lit = i === 0 ? 0.26 : 0.04;
+      else if (t >= T.p10 - 0.2 && t < T.p11 - 0.2) lit = i === 1 ? 0.28 : 0.04;
+      else if (t >= T.p11 - 0.2) lit = i === 2 ? 0.045 : 0.03;
+      s.setAttribute("opacity", lit.toFixed(3));
+    });
+
+    const c1 = ease.back(p(t, T.p9 + 0.2, 0.4), 1.8) * (1 - p(t, T.p10 - 0.3, 0.25));
+    place(vcard1.root, S1X, 790, 0.62, -2, c01(c1));
+    vcard1.draw(p(t, T.p9 + 0.5, 0.7), p(t, T.p9 + 0.5, 0.7));
+    const c2 = ease.back(p(t, T.p10 + 0.15, 0.35), 1.8) * (1 - p(t, T.p11 - 0.3, 0.25));
+    place(vcard2.root, S2X, 790, 0.62, 2, c01(c2));
+    vcard2.draw(p(t, T.p10 + 0.25, 0.55), p(t, T.p10 + 0.25, 0.55));
+    const c3 = ease.back(p(t, T.p11 + 0.15, 0.35), 1.8) * (1 - p(t, T.p12 - 0.35, 0.25));
+    place(vcard3.root, S3X, 790, 0.62, -1, c01(c3));
+    vcard3.draw(p(t, T.p11 + 0.25, 0.6), p(t, T.p11 + 0.25, 0.6));
+
+    const roll = p(t, T.p11 + 0.15, 1.7);
+    place(weed.root, lerp(S3X + 700, S3X - 620, roll), 1230 - Math.abs(Math.sin(roll * 8)) * 26, 1.05, roll * 900, roll > 0.01 && roll < 0.99 ? 1 : 0);
+    place(shoulderD.root, DX - 700, 1860, 2.6, 0, t < T.p9 - 0.35 ? 1 : 0);
+  }
+
+  // ---------- set E: the front desk (panel 12) ----------
+  {
+    const sign = p(t, T.p12 + 0.45, 0.55);
+    const tip = p(t, T.p12 + 1.25, 0.35);
+    const walk = p(t, T.p12 + 1.7, 1.25);
+    place(gh2.root, lerp(EX - 240, EX + 480, ease.io(walk)), 1250 - 26 * ease.io(walk), lerp(1.34, 1.05, ease.io(walk)), 0, 1 - p(t, T.p12 + 2.9, 0.3));
+    gh2.pose({ t, walk: t * 1.7, moving: walk > 0.02 && walk < 0.98, tip: tip > 0.25 && walk < 0.15 ? 1 : 0, mood: 1 });
+    place(clip, EX - 120, 1190, 1.05, -6, 1);
+    sigPath.setAttribute("stroke-dasharray", "280");
+    sigPath.setAttribute("stroke-dashoffset", (280 * (1 - ease.out(sign))).toFixed(1));
+    place(detE.root, EX - 500, 1250, 1.3, 0, 1);
+    detE.pose({ t, mood: 0.3 });
+    const so = p(t, T.p12 + 2.1, 0.5) * (1 - 0.25 * p(t, T.p12 + 2.8, 0.5));
+    exitPanel.setAttribute("transform", `translate(${EX + 340} 440) scale(${(1 - 0.86 * so).toFixed(3)} 1)`);
+  }
+
+  // ---------- set F: the corkboard (panels 13, 14) ----------
+  {
+    // panel 13: she presses the newest card onto the board
+    const press = p(t, T.p13 + 0.2, 0.45);
+    const rock = t > T.p13 + 0.5 ? (1 - c01((t - (T.p13 + 0.5)) / 0.7)) * Math.sin((t - (T.p13 + 0.5)) * 13) : 0;
+    place(newCard.root, FX + 850, lerp(1128, 1080, ease.out(press)), 0.95, lerp(7, 0, ease.back(press, 2)) + rock * 2.2, 1);
+    newCard.draw(1, 1);
+    const pinK = ease.back(p(t, T.p13 + 0.34, 0.34), 2.2);
+    place(newPin, FX + 850, 742 + 30 * (1 - pinK), 1.25, 0, p(t, T.p13 + 0.28, 0.14));
+    const hIn = 1 - p(t, T.p13 + 1.05, 0.5);
+    place(pinHand.root, FX + 1010 + 120 * (1 - ease.out(press)), 628 - 60 * (1 - ease.out(press)), 1.3, 26, hIn);
+
+    // panel 14: the run of past months slides out from behind it, and the one
+    // unbroken view of both lines draws in under the whole row
+    const un = ease.out(p(t, T.p14 - 0.7, 1.5));
+    ribbon.forEach((r, i) => {
+      const k = c01(un * 2.2 - i * 0.1);
+      const rx = lerp(FX + 770, r.x, ease.out(k));
+      place(r.card.root, rx, 929, 0.5, 0, k > 0.02 ? 1 : 0);
+      r.card.draw(k, k);
+      place(r.pin, rx - 123, 748, 1, 0, k > 0.55 ? 1 : 0);
+    });
+    const tk = ease.back(p(t, T.p14 - 0.45, 0.45), 2);
+    place(fTitle, FX + 560, 300, 0.88 + 0.12 * c01(tk), 0, c01(tk * 1.6));
+    if (!stripLen.c) { stripLen.c = stripC.getTotalLength(); stripLen.i = stripI.getTotalLength(); stripC.setAttribute("stroke-dasharray", stripLen.c.toFixed(1)); stripI.setAttribute("stroke-dasharray", stripLen.i.toFixed(1)); }
+    const sk = ease.out(p(t, T.p14 - 0.5, 1.3));
+    strip.setAttribute("opacity", c01(p(t, T.p14 - 0.65, 0.5)).toFixed(3));
+    stripC.setAttribute("stroke-dashoffset", (-stripLen.c * (1 - sk)).toFixed(1));
+    stripI.setAttribute("stroke-dashoffset", (-stripLen.i * (1 - c01(sk * 1.12))).toFixed(1));
+  }
+
+  // ---------- overlays ----------
+  const clr = ease.back(p(t, T.p1 + 0.3, 0.4), 1.9) * (1 - p(t, T.p2 - 0.3, 0.25));
+  place(cleared.root, 430, 1210, lerp(1.5, 0.8, c01(clr)), -7, c01(clr * 1.4));
+  place(tagTime, 100, 1250, 1, 0, p(t, T.p2 + 0.35, 0.3) * (1 - p(t, T.p3 - 0.35, 0.25)));
+  place(tagDrop, 100, 1250, 1, 0, p(t, T.p3 + 0.3, 0.3) * (1 - p(t, T.p4 - 0.35, 0.25)));
+  place(tagBlame, 100, 1250, 1, 0, p(t, T.p4 + 0.3, 0.3) * (1 - p(t, T.p5 - 0.35, 0.25)));
+
+  reelUI(t);
+};
+
+window.ready = document.fonts.ready.then(() => window.render(0)).then(() => true);
+</script>
+</body>
+</html>

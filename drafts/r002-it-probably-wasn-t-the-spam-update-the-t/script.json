@@ -1,0 +1,144 @@
+{
+ "title": "The algorithm walked free",
+ "beats": [
+  {
+   "role": "hook",
+   "say": "She cleared the update as a suspect in about ten seconds.",
+   "visual": "Dim interrogation room. A detective in a rumpled blazer slides a two-line chart card across the metal table. Behind glass, a gear-headed suspect in a trench coat gets its handcuffs unlocked and strolls out the door, shrugging at the camera.",
+   "sfx": [
+    {
+     "at": 1.45,
+     "kind": "slam"
+    },
+    {
+     "at": 3.85,
+     "kind": "ding"
+    },
+    {
+     "at": 4.8,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "role": "body",
+   "say": "Rewind. Monday, traffic down, a client waiting. Everyone blames the spam update, still mid rollout. But rankings were twitching weeks before Google confirmed anything.",
+   "visual": "Wipe left into the before side: the same detective at a cluttered dawn desk, a red falling line on her monitor, phone buzzing off the hook. Outside the window a small mob with pitchforks surrounds the gear-headed suspect. On the wall, a calendar with pins scattered across many earlier days, long before the one circled in red.",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 5.45,
+     "kind": "buzz"
+    },
+    {
+     "at": 10.35,
+     "kind": "bonk"
+    },
+    {
+     "at": 15.55,
+     "kind": "pop"
+    },
+    {
+     "at": 16.1,
+     "kind": "pop"
+    },
+    {
+     "at": 17,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "role": "body",
+   "say": "So she stops guessing, drags impressions onto the clicks chart, and reads the gap.",
+   "visual": "Close on her hands lifting a glowing pale line out of a second chart and laying it over the first. The two lines settle together and the space between them lights up like a fingerprint under ultraviolet, throwing light across three suspects lining up against a height chart.",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "boing"
+    },
+    {
+     "at": 4.95,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "role": "payoff",
+   "say": "Impressions flat, clicks falling: Google says check titles and snippets. Both falling: work the five causes. Impressions gone: sometimes nobody searched that week.",
+   "visual": "Police lineup of three. A suspect folded from a search result snippet steps forward under a flat-topped line. Then a both-lines-tumbling shape lights the middle suspect, a nervous figure clutching a five item checklist. Then tumbleweed rolls past an empty-hooded suspect while the gear-head signs out at the front desk and leaves again.",
+   "sfx": [
+    {
+     "at": 0.15,
+     "kind": "step"
+    },
+    {
+     "at": 4.75,
+     "kind": "step"
+    },
+    {
+     "at": 9.5,
+     "kind": "slam"
+    },
+    {
+     "at": 10.2,
+     "kind": "type"
+    },
+    {
+     "at": 14.6,
+     "kind": "whoosh"
+    },
+    {
+     "at": 18,
+     "kind": "type"
+    },
+    {
+     "at": 18.8,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "role": "loop",
+   "say": "Flowra keeps sixteen months of both lines in one view, so next Monday you answer first.",
+   "caption": "Flowra keeps 16 months of both lines in one view, so next Monday you answer first.",
+   "visual": "The detective pins the two-line chart onto a clean corkboard where a long ribbon of past months stretches sideways. She caps her pen, the room lights lift, and the empty interrogation chair slides back into place as the camera drifts toward the door the gear-head just walked out of.",
+   "sfx": [
+    {
+     "at": 0.45,
+     "kind": "pop"
+    },
+    {
+     "at": 4.6,
+     "kind": "whoosh"
+    },
+    {
+     "at": 9.1,
+     "kind": "ding"
+    },
+    {
+     "at": 9.8,
+     "kind": "step"
+    }
+   ]
+  }
+ ],
+ "loopNote": "The loop ends on the empty interrogation room and the door the algorithm walked out of, which is the exact frame the hook opens on, so a replay reads as the next case sliding onto the table.",
+ "caption": "Before you tell anyone the spam update hit you, run the test Google actually documents. Put clicks and impressions on the same chart and read the gap. Impressions steady while clicks fall? Google says that points at titles and snippets, not lost ranking. Both falling together? Then work the five documented causes: algorithmic updates, technical issues, security or spam policy issues, seasonality and changing interests, site migrations. And check the Data Anomalies page, because a drop can come from a data processing change rather than your site. Worth remembering this week: volatility was reported from around 23 September, before the September 2026 spam update was confirmed on the 24th, and Google said that rollout may take up to two weeks. For the seasonality question Google recommends a 16 month range, which is what Flowra holds next to your GA4 data. Sources: Google Search Central traffic drop docs, Search Engine Roundtable.",
+ "hashtags": [
+  "#seo",
+  "#searchconsole",
+  "#googleupdate",
+  "#organictraffic",
+  "#seotips"
+ ],
+ "id": "r002-it-probably-wasn-t-the-spam-update-the-t",
+ "format": "before-after-bridge",
+ "goal": "save",
+ "topic": "It probably wasn't the spam update: the two-line Search Console test that names the real culprit behind a traffic drop",
+ "template": "../drafts/r002-it-probably-wasn-t-the-spam-update-the-t/scene.html",
+ "posterAt": 1
+}

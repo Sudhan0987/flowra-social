@@ -1,0 +1,504 @@
+{
+ "duration": 36.189,
+ "beats": [
+  {
+   "start": 0.25,
+   "spokenEnd": 3.301,
+   "end": 3.651,
+   "chunks": [
+    {
+     "text": "She cleared the update",
+     "start": 0.25,
+     "end": 1.346,
+     "words": [
+      "She",
+      "cleared",
+      "the",
+      "update"
+     ],
+     "wordStarts": [
+      0.25,
+      0.441,
+      0.822,
+      1.013
+     ]
+    },
+    {
+     "text": "as a suspect in",
+     "start": 1.346,
+     "end": 2.109,
+     "words": [
+      "as",
+      "a",
+      "suspect",
+      "in"
+     ],
+     "wordStarts": [
+      1.346,
+      1.489,
+      1.585,
+      1.966
+     ]
+    },
+    {
+     "text": "about ten seconds.",
+     "start": 2.109,
+     "end": 3.301,
+     "words": [
+      "about",
+      "ten",
+      "seconds."
+     ],
+     "wordStarts": [
+      2.109,
+      2.485,
+      2.736
+     ]
+    }
+   ]
+  },
+  {
+   "start": 3.651,
+   "spokenEnd": 13.997,
+   "end": 14.297,
+   "chunks": [
+    {
+     "text": "Rewind.",
+     "start": 3.651,
+     "end": 4.34,
+     "words": [
+      "Rewind."
+     ],
+     "wordStarts": [
+      3.651
+     ]
+    },
+    {
+     "text": "Monday,",
+     "start": 4.34,
+     "end": 5.03,
+     "words": [
+      "Monday,"
+     ],
+     "wordStarts": [
+      4.34
+     ]
+    },
+    {
+     "text": "traffic down,",
+     "start": 5.03,
+     "end": 6.016,
+     "words": [
+      "traffic",
+      "down,"
+     ],
+     "wordStarts": [
+      5.03,
+      5.593
+     ]
+    },
+    {
+     "text": "a client waiting.",
+     "start": 6.016,
+     "end": 7.198,
+     "words": [
+      "a",
+      "client",
+      "waiting."
+     ],
+     "wordStarts": [
+      6.016,
+      6.147,
+      6.607
+     ]
+    },
+    {
+     "text": "Everyone blames the spam",
+     "start": 7.198,
+     "end": 8.43,
+     "words": [
+      "Everyone",
+      "blames",
+      "the",
+      "spam"
+     ],
+     "wordStarts": [
+      7.198,
+      7.642,
+      7.986,
+      8.183
+     ]
+    },
+    {
+     "text": "update,",
+     "start": 8.43,
+     "end": 9.12,
+     "words": [
+      "update,"
+     ],
+     "wordStarts": [
+      8.43
+     ]
+    },
+    {
+     "text": "still mid rollout.",
+     "start": 9.12,
+     "end": 10.351,
+     "words": [
+      "still",
+      "mid",
+      "rollout."
+     ],
+     "wordStarts": [
+      9.12,
+      9.509,
+      9.768
+     ]
+    },
+    {
+     "text": "But rankings were",
+     "start": 10.351,
+     "end": 11.238,
+     "words": [
+      "But",
+      "rankings",
+      "were"
+     ],
+     "wordStarts": [
+      10.351,
+      10.548,
+      10.992
+     ]
+    },
+    {
+     "text": "twitching weeks before",
+     "start": 11.238,
+     "end": 12.371,
+     "words": [
+      "twitching",
+      "weeks",
+      "before"
+     ],
+     "wordStarts": [
+      11.238,
+      11.731,
+      12.027
+     ]
+    },
+    {
+     "text": "Google confirmed",
+     "start": 12.371,
+     "end": 13.209,
+     "words": [
+      "Google",
+      "confirmed"
+     ],
+     "wordStarts": [
+      12.371,
+      12.716
+     ]
+    },
+    {
+     "text": "anything.",
+     "start": 13.209,
+     "end": 13.997,
+     "words": [
+      "anything."
+     ],
+     "wordStarts": [
+      13.209
+     ]
+    }
+   ]
+  },
+  {
+   "start": 14.297,
+   "spokenEnd": 18.735,
+   "end": 19.035,
+   "chunks": [
+    {
+     "text": "So she stops guessing,",
+     "start": 14.297,
+     "end": 15.571,
+     "words": [
+      "So",
+      "she",
+      "stops",
+      "guessing,"
+     ],
+     "wordStarts": [
+      14.297,
+      14.464,
+      14.685,
+      15.017
+     ]
+    },
+    {
+     "text": "drags impressions onto",
+     "start": 15.571,
+     "end": 16.582,
+     "words": [
+      "drags",
+      "impressions",
+      "onto"
+     ],
+     "wordStarts": [
+      15.571,
+      15.835,
+      16.362
+     ]
+    },
+    {
+     "text": "the clicks chart,",
+     "start": 16.582,
+     "end": 17.636,
+     "words": [
+      "the",
+      "clicks",
+      "chart,"
+     ],
+     "wordStarts": [
+      16.582,
+      16.816,
+      17.226
+     ]
+    },
+    {
+     "text": "and reads the gap.",
+     "start": 17.636,
+     "end": 18.735,
+     "words": [
+      "and",
+      "reads",
+      "the",
+      "gap."
+     ],
+     "wordStarts": [
+      17.636,
+      17.868,
+      18.214,
+      18.446
+     ]
+    }
+   ]
+  },
+  {
+   "start": 19.035,
+   "spokenEnd": 29.168,
+   "end": 29.468,
+   "chunks": [
+    {
+     "text": "Impressions flat,",
+     "start": 19.035,
+     "end": 20.215,
+     "words": [
+      "Impressions",
+      "flat,"
+     ],
+     "wordStarts": [
+      19.035,
+      19.822
+     ]
+    },
+    {
+     "text": "clicks falling:",
+     "start": 20.215,
+     "end": 21.297,
+     "words": [
+      "clicks",
+      "falling:"
+     ],
+     "wordStarts": [
+      20.215,
+      20.689
+     ]
+    },
+    {
+     "text": "Google says check titles",
+     "start": 21.297,
+     "end": 22.527,
+     "words": [
+      "Google",
+      "says",
+      "check",
+      "titles"
+     ],
+     "wordStarts": [
+      21.297,
+      21.642,
+      21.888,
+      22.183
+     ]
+    },
+    {
+     "text": "and snippets.",
+     "start": 22.527,
+     "end": 23.511,
+     "words": [
+      "and",
+      "snippets."
+     ],
+     "wordStarts": [
+      22.527,
+      22.808
+     ]
+    },
+    {
+     "text": "Both falling:",
+     "start": 23.511,
+     "end": 24.495,
+     "words": [
+      "Both",
+      "falling:"
+     ],
+     "wordStarts": [
+      23.511,
+      23.862
+     ]
+    },
+    {
+     "text": "work the five causes.",
+     "start": 24.495,
+     "end": 25.872,
+     "words": [
+      "work",
+      "the",
+      "five",
+      "causes."
+     ],
+     "wordStarts": [
+      24.495,
+      24.808,
+      25.058,
+      25.371
+     ]
+    },
+    {
+     "text": "Impressions gone:",
+     "start": 25.872,
+     "end": 27.053,
+     "words": [
+      "Impressions",
+      "gone:"
+     ],
+     "wordStarts": [
+      25.872,
+      26.659
+     ]
+    },
+    {
+     "text": "sometimes nobody",
+     "start": 27.053,
+     "end": 27.889,
+     "words": [
+      "sometimes",
+      "nobody"
+     ],
+     "wordStarts": [
+      27.053,
+      27.545
+     ]
+    },
+    {
+     "text": "searched that week.",
+     "start": 27.889,
+     "end": 29.168,
+     "words": [
+      "searched",
+      "that",
+      "week."
+     ],
+     "wordStarts": [
+      27.889,
+      28.465,
+      28.784
+     ]
+    }
+   ]
+  },
+  {
+   "start": 29.468,
+   "spokenEnd": 34.289,
+   "end": 36.189,
+   "chunks": [
+    {
+     "text": "Flowra keeps 16 months",
+     "start": 29.468,
+     "end": 30.635,
+     "words": [
+      "Flowra",
+      "keeps",
+      "16",
+      "months"
+     ],
+     "wordStarts": [
+      29.468,
+      29.823,
+      30.128,
+      30.28
+     ]
+    },
+    {
+     "text": "of both lines in",
+     "start": 30.635,
+     "end": 31.498,
+     "words": [
+      "of",
+      "both",
+      "lines",
+      "in"
+     ],
+     "wordStarts": [
+      30.635,
+      30.787,
+      31.041,
+      31.346
+     ]
+    },
+    {
+     "text": "one view,",
+     "start": 31.498,
+     "end": 32.31,
+     "words": [
+      "one",
+      "view,"
+     ],
+     "wordStarts": [
+      31.498,
+      31.823
+     ]
+    },
+    {
+     "text": "so next Monday you",
+     "start": 32.31,
+     "end": 33.274,
+     "words": [
+      "so",
+      "next",
+      "Monday",
+      "you"
+     ],
+     "wordStarts": [
+      32.31,
+      32.462,
+      32.716,
+      33.071
+     ]
+    },
+    {
+     "text": "answer first.",
+     "start": 33.274,
+     "end": 34.289,
+     "words": [
+      "answer",
+      "first."
+     ],
+     "wordStarts": [
+      33.274,
+      33.782
+     ]
+    }
+   ]
+  }
+ ]
+}

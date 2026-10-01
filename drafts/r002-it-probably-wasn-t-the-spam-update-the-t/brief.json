@@ -1,0 +1,51 @@
+{
+ "topic": "It probably wasn't the spam update: the two-line Search Console test that names the real culprit behind a traffic drop",
+ "angle": "Everyone is blaming this week's drop on the September 2026 spam update, but rankings were already moving on 4-13, 15 and 22-23 September, before Google confirmed anything. Google's own traffic-drop doc lists five causes and the algorithm is only one of them, and it gives a test you can run on screen in ten seconds: put clicks and impressions on the same chart and read the gap between them. The reel runs three real-looking chart shapes and calls the verdict for each, ending on the one nobody wants to hear: sometimes impressions fell because nobody searched that week.",
+ "whyNow": "The September 2026 spam update started rolling out on 24 September and Google said it may take up to two weeks, so it is still mid-rollout as this posts. Search Engine Roundtable reported the heaviest movement over 25-27 September, meaning feeds and client inboxes are full of \"did the update hit us\" right now, and nobody can answer it with the rollout unfinished.",
+ "goal": "save",
+ "audience": "In-house content and SEO leads, and agency account managers, who opened Search Console this week, saw a drop, and have to tell a client or a boss what caused it before the rollout is even finished.",
+ "facts": [
+  {
+   "fact": "Google released the September 2026 spam update on 24 September 2026, applying globally and to all languages, and said the rollout may take up to two weeks to complete.",
+   "source": "https://www.seroundtable.com/google-september-2026-spam-update-42163.html"
+  },
+  {
+   "fact": "Ranking volatility was reported starting around 23 September, before Google confirmed the spam update, and the same report notes earlier unconfirmed volatility on 15 September and across 4-13 September.",
+   "source": "https://www.seroundtable.com/google-search-ranking-volatility-42157.html"
+  },
+  {
+   "fact": "The first stage of the update was felt starting Friday 25 September, with more movement on Saturday 26 September and Sunday 27 September, and this was only the early phase of the two-week rollout.",
+   "source": "https://www.seroundtable.com/google-september-2026-spam-update-weekend-impact-42174.html"
+  },
+  {
+   "fact": "Google's traffic-drop documentation lists five causes: algorithmic updates, technical issues, security or spam policy issues, seasonality and changing interests, and site migrations.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google says that if impressions stay constant but clicks decline, the issue is likely page titles or snippets rather than lost ranking.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google says that if impressions and clicks drop together, you should investigate the main causes of a drop.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google recommends using a 16-month date range in Search Console to spot yearly seasonal patterns, noting that user behaviour can change demand for certain queries through trends or seasonality.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google recommends checking the Search Console Data Anomalies page, because a drop can be caused by a change in data processing or a logging error rather than by the site.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Flowra puts Search Console and GA4 in one dashboard with 16 months of history, and filters for queries, pages, countries and devices.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "When you tag a change on a page, Flowra compares the period before and after with a 14 day settling window and adjusts for the whole site's movement. It is a before-and-after comparison, not a split test.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "A police lineup of three suspects holding height-chart boards, labelled The Algorithm, The Snippet and Nobody Searched. A single Search Console chart with two lines, clicks and impressions, slides across the screen as the fingerprint card, and the gap between the two lines lights up the guilty one. Three drop shapes, three different suspects step forward, and The Algorithm walks free in two of them.",
+ "pillar": "problem"
+}

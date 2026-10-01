@@ -1,0 +1,101 @@
+{
+  "_about": "Story structures for reels. Every reel uses exactly one, and the agent does not repeat any of the last three used. Each has the same outer shape: a hook that lands in the first 2 seconds, the body, a payoff, and a last line that loops back into the first frame. Target 25 to 35 seconds (65 to 95 spoken words): Instagram favours 7 to 30 second reels for reach to non-followers, and completion and replays are its strongest signal. goal says which action the reel is built to earn: send (a DM to a friend: funny, surprising, relatable) or save (useful, step by step).",
+  "formats": [
+    {
+      "id": "open-loop",
+      "name": "Open loop (curiosity gap)",
+      "goal": "send",
+      "beats": ["hook: a strange result or a question the viewer can't answer yet", "clue 1: a small reveal that raises the stakes", "clue 2: a second reveal that nearly answers it", "payoff: the answer, shown not told", "loop: a last line that sends the viewer back to the opening image"],
+      "when": "a surprising true finding, a weird bug, a counter-intuitive result",
+      "visual": "hold back the key image until the payoff; show the mystery object early and let the camera circle it"
+    },
+    {
+      "id": "problem-agitate-solve",
+      "name": "Problem, agitate, solve",
+      "goal": "save",
+      "beats": ["hook: name the exact problem the viewer has, in their words", "agitate: show what it quietly costs them (make the cost visible)", "solve: the fix in 2 or 3 concrete moves", "payoff: the after state", "loop"],
+      "when": "a common, painful SEO or content problem with a clear fix",
+      "visual": "make the cost physical: a leaking bucket of clicks, a page sinking, a chart sliding"
+    },
+    {
+      "id": "before-after-bridge",
+      "name": "Before, after, bridge",
+      "goal": "save",
+      "beats": ["hook: the after state first, the result that makes them stop", "before: where it started", "bridge: the one change that got there", "payoff: the result again, now understood", "loop"],
+      "when": "a transformation with a clear cause; only real numbers from our own data, or a clearly labelled example",
+      "visual": "split screen or a wipe between before and after; the bridge is one visible action"
+    },
+    {
+      "id": "myth-bust",
+      "name": "Myth bust",
+      "goal": "send",
+      "beats": ["hook: state the myth as if it were true, with confidence", "the twist: why people believe it", "the bust: show it failing (smash, cross out, stamp)", "the truth: what actually works", "loop"],
+      "when": "a popular SEO belief that is wrong or outdated",
+      "visual": "the myth is an object that gets physically broken; the truth replaces it"
+    },
+    {
+      "id": "in-medias-res",
+      "name": "Start in the middle",
+      "goal": "send",
+      "beats": ["hook: drop straight into the disaster at its worst moment", "rewind: '3 weeks earlier' and the innocent-looking cause", "escalation: how it got worse", "payoff: the fix or the lesson", "loop: end on the same moment as the opening, now defused"],
+      "when": "a story with a dramatic moment: a traffic crash, a deindexed page, a broken launch",
+      "visual": "freeze-frame the opening, whip-pan for the rewind, match-cut back at the end"
+    },
+    {
+      "id": "reveal-ladder",
+      "name": "Reveal ladder",
+      "goal": "send",
+      "beats": ["hook: the first surprising thing", "reveal 2: something bigger", "reveal 3: the biggest, the one they'll repeat", "payoff: what it means for them", "loop"],
+      "when": "several facts that build on each other, each more surprising",
+      "visual": "each rung zooms out to reveal a bigger picture (camera pull-out ladder)"
+    },
+    {
+      "id": "expert-contrast",
+      "name": "Beginner vs pro",
+      "goal": "save",
+      "beats": ["hook: most people do X", "the beginner move, shown going wrong", "the pro move, shown working", "payoff: the one difference", "loop"],
+      "when": "a task done two ways, one clearly better",
+      "visual": "two characters side by side doing the same task; split screen with a divider"
+    },
+    {
+      "id": "ticking-clock",
+      "name": "Ticking clock",
+      "goal": "save",
+      "beats": ["hook: something is running out (time, clicks, a window)", "what happens when it runs out", "the steps to beat the clock, fast", "payoff: saved just in time", "loop"],
+      "when": "a real deadline or decay: content decay, a migration, a Google update rolling out",
+      "visual": "a clock or countdown on screen the whole time; pace speeds up"
+    },
+    {
+      "id": "countdown",
+      "name": "Stacked micro-payoffs (countdown)",
+      "goal": "save",
+      "beats": ["hook: '3 signs your blog post is dying' style promise", "sign 3", "sign 2", "sign 1, the best one", "loop"],
+      "when": "a list of 3 checks, signs or mistakes; each item is its own tiny payoff every 6 to 8 seconds",
+      "visual": "a big number per item; each item gets its own mini scene"
+    },
+    {
+      "id": "what-if",
+      "name": "What if (thought experiment)",
+      "goal": "send",
+      "beats": ["hook: an absurd what-if (what if Google deleted page 2?)", "play it out: the funny chaos", "the real lesson hiding in it", "payoff: what to actually do", "loop"],
+      "when": "to make a dry fact memorable through exaggeration",
+      "visual": "comic exaggeration: things falling, characters panicking, cartoon physics"
+    },
+    {
+      "id": "pov-skit",
+      "name": "POV skit",
+      "goal": "send",
+      "beats": ["hook: 'POV: you are a blog post from 2019'", "the character's day going wrong in a relatable way", "the turn: someone finally fixes it", "payoff: the character thriving", "loop"],
+      "when": "turning an SEO idea into a character with feelings; the most shareable format",
+      "visual": "the thing (a page, a crawler, a keyword) is a character with a face; first-person framing"
+    },
+    {
+      "id": "explain-like-five",
+      "name": "Explain it with one metaphor",
+      "goal": "save",
+      "beats": ["hook: a technical term people pretend to understand", "the metaphor: one everyday picture that maps to it", "how the pieces map, shown in the metaphor", "payoff: the term, now obvious, and why it matters", "loop"],
+      "when": "a concept: crawling, indexing, canonical tags, cannibalization, AI overviews",
+      "visual": "stay inside one metaphor world for the whole reel (a library, a restaurant, a city)"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1f1810;--paper:#f7f4ee;--cream:#f6efe3;--amber:#f2b247;--coral:#ef6f73;--magenta:#c25aa0;--violet:#8466d9;--indigo:#4f5fc7;--muted:#6b5f52}
+  *{box-sizing:border-box;margin:0}
+  body{width:1800px;background:var(--paper);color:var(--ink);font-family:"Public Sans",sans-serif;padding:56px 64px}
+  h1{font:700 44px "Space Grotesk";letter-spacing:-.5px}
+  .sub{font-size:20px;color:var(--muted);margin-top:8px}
+  .bar{height:6px;border-radius:3px;margin:22px 0 36px;background:linear-gradient(90deg,var(--amber),var(--coral) 28%,var(--magenta) 52%,var(--violet) 76%,var(--indigo))}
+  .row{display:grid;grid-template-columns:330px 1fr;gap:28px;align-items:center;padding:26px 0;border-top:2px solid #e6dfd3}
+  .label .tag{font:700 15px "Space Grotesk";letter-spacing:2px;text-transform:uppercase;color:var(--magenta)}
+  .label h2{font:700 34px "Space Grotesk";margin:6px 0 8px}
+  .label p{font-size:17px;line-height:1.45;color:#3d342a}
+  .poses{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .pose{background:#fff;border-radius:18px;border:2px solid #ebe4d8;padding:10px 10px 14px;text-align:center}
+  .pose svg{width:100%;height:300px;display:block}
+  .pose span{font:600 15px "Public Sans";color:var(--muted)}
+</style></head>
+<body>
+<h1>Flowra mascot: three directions</h1>
+<div class="sub">Same brand colours as the logo. Each shown in four moods it would need in reels: hello, worried (traffic dropping), thinking, celebrating.</div>
+<div class="bar"></div>
+<div id="rows"></div>
+<script>
+const C={ink:"#1f1810",cream:"#f6efe3",amber:"#f2b247",coral:"#ef6f73",magenta:"#c25aa0",violet:"#8466d9",indigo:"#4f5fc7"};
+const defs=`<defs>
+ <linearGradient id="spark" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${C.amber}"/><stop offset=".45" stop-color="${C.coral}"/><stop offset="1" stop-color="${C.magenta}"/></linearGradient>
+ <linearGradient id="bird" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${C.coral}"/><stop offset=".55" stop-color="${C.magenta}"/><stop offset="1" stop-color="${C.violet}"/></linearGradient>
+ <linearGradient id="wing" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${C.violet}"/><stop offset="1" stop-color="${C.indigo}"/></linearGradient>
+</defs>`;
+const shadow=(y=262,w=58)=>`<ellipse cx="150" cy="${y}" rx="${w}" ry="9" fill="${C.ink}" opacity=".12"/>`;
+const sparkPath=(cx,cy,R,k)=>`M${cx},${cy-R} Q${cx+k},${cy-k} ${cx+R},${cy} Q${cx+k},${cy+k} ${cx},${cy+R} Q${cx-k},${cy+k} ${cx-R},${cy} Q${cx-k},${cy-k} ${cx},${cy-R}Z`;
+
+// face helpers: eyes at (x1,y),(x2,y)
+function eyes(x1,x2,y,mood,r=11){
+  const pupil=(x)=>`<ellipse cx="${x}" cy="${y}" rx="${r}" ry="${r*1.18}" fill="${C.ink}"/><circle cx="${x+r*.35}" cy="${y-r*.45}" r="${r*.33}" fill="#fff"/>`;
+  if(mood==="party") return [x1,x2].map(x=>`<path d="M${x-r},${y+2} Q${x},${y-r*1.4} ${x+r},${y+2}" stroke="${C.ink}" stroke-width="5" fill="none" stroke-linecap="round"/>`).join("");
+  let s=pupil(x1)+pupil(x2);
+  if(mood==="worried") s+=`<path d="M${x1-r},${y-r*1.9} L${x1+r},${y-r*2.5}" stroke="${C.ink}" stroke-width="5" stroke-linecap="round"/><path d="M${x2+r},${y-r*1.9} L${x2-r},${y-r*2.5}" stroke="${C.ink}" stroke-width="5" stroke-linecap="round"/>`;
+  if(mood==="think") s+=`<path d="M${x1-r},${y-r*2.2} Q${x1},${y-r*2.6} ${x1+r},${y-r*2.1}" stroke="${C.ink}" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M${x2-r},${y-r*2.6} L${x2+r},${y-r*2.8}" stroke="${C.ink}" stroke-width="5" stroke-linecap="round"/>`;
+  return s;
+}
+function mouth(x,y,mood,w=14){
+  if(mood==="hello") return `<path d="M${x-w},${y} Q${x},${y+w*1.1} ${x+w},${y}" stroke="${C.ink}" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  if(mood==="worried") return `<path d="M${x-w*.8},${y+6} Q${x-w*.4},${y} ${x},${y+5} Q${x+w*.4},${y+10} ${x+w*.8},${y+4}" stroke="${C.ink}" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  if(mood==="think") return `<path d="M${x-w*.5},${y+4} L${x+w*.7},${y+1}" stroke="${C.ink}" stroke-width="5" stroke-linecap="round"/>`;
+  return `<path d="M${x-w*1.1},${y-2} Q${x},${y+w*1.6} ${x+w*1.1},${y-2} Z" fill="${C.ink}"/><path d="M${x-w*.55},${y+w*.75} Q${x},${y+w*1.25} ${x+w*.55},${y+w*.75}" fill="${C.coral}"/>`;
+}
+const blush=(x1,x2,y)=>`<ellipse cx="${x1}" cy="${y}" rx="9" ry="5" fill="${C.coral}" opacity=".55"/><ellipse cx="${x2}" cy="${y}" rx="9" ry="5" fill="${C.coral}" opacity=".55"/>`;
+const sweat=(x,y)=>`<path d="M${x},${y} q-8,14 0,18 q8,-4 0,-18z" fill="#8fd0ef" stroke="${C.ink}" stroke-width="3"/>`;
+const bulb=(x,y)=>`<g transform="translate(${x},${y})"><circle r="16" fill="${C.amber}" stroke="${C.ink}" stroke-width="4"/><rect x="-7" y="14" width="14" height="9" rx="2" fill="${C.cream}" stroke="${C.ink}" stroke-width="3"/><path d="M-24,-20 l-7,-7 M24,-20 l7,-7 M0,-26 v-9" stroke="${C.ink}" stroke-width="4" stroke-linecap="round"/></g>`;
+const confetti=()=>[[40,60,C.amber,20],[255,50,C.indigo,-25],[60,150,C.violet,40],[248,140,C.coral,10],[95,30,C.magenta,-10],[210,25,C.amber,30]].map(([x,y,c,a])=>`<rect x="${x}" y="${y}" width="14" height="7" rx="2" fill="${c}" transform="rotate(${a} ${x} ${y})"/>`).join("");
+const tinySpark=(x,y,s=10,f=C.amber)=>`<path d="${sparkPath(x,y,s,s*.22)}" fill="${f}" stroke="${C.ink}" stroke-width="2.5" stroke-linejoin="round"/>`;
+
+// ---------- A: Spark ----------
+function sparkChar(m){
+  const lift = m==="party"?-14:0, tilt = m==="think"?-8:m==="worried"?6:0;
+  const cy=140+lift;
+  let arms="";
+  // little arms: hello = waving right arm; party = both up; worried = hands to cheeks; think = hand on chin
+  const arm=(d)=>`<path d="${d}" stroke="${C.ink}" stroke-width="17" fill="none" stroke-linecap="round"/><path d="${d}" stroke="${C.coral}" stroke-width="8" fill="none" stroke-linecap="round"/>`;
+  if(m==="hello") arms=arm(`M188,${cy+10} q44,-6 52,-56`)+arm(`M112,${cy+14} q-34,16 -36,44`);
+  if(m==="party") arms=arm(`M188,${cy+4} q42,-20 44,-70`)+arm(`M112,${cy+4} q-42,-20 -44,-70`);
+  if(m==="worried") arms=arm(`M186,${cy+24} q26,6 14,-24`)+arm(`M114,${cy+24} q-26,6 -14,-24`);
+  if(m==="think") arms=arm(`M186,${cy+20} q30,26 -18,26`)+arm(`M112,${cy+14} q-34,16 -36,44`);
+  let extra = m==="worried"?sweat(212,cy-46):m==="think"?bulb(232,cy-92):m==="party"?confetti()+tinySpark(60,cy-70,12)+tinySpark(240,cy-80,9,C.indigo):tinySpark(245,cy-95,9);
+  const legs = m==="party"?"":`<path d="M136,${cy+92} v22 M164,${cy+92} v22" stroke="${C.ink}" stroke-width="8" stroke-linecap="round"/><ellipse cx="132" cy="${cy+116}" rx="12" ry="6" fill="${C.ink}"/><ellipse cx="168" cy="${cy+116}" rx="12" ry="6" fill="${C.ink}"/>`;
+  return `${shadow(m==="party"?266:262,m==="party"?40:58)}<g transform="rotate(${tilt} 150 ${cy})">${legs}${arms}
+   <path d="${sparkPath(150,cy,108,44)}" fill="url(#spark)" stroke="${C.cream}" stroke-width="16" stroke-linejoin="round"/>
+   <path d="${sparkPath(150,cy,108,44)}" fill="none" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>
+   <path d="${sparkPath(150,cy,116,47)}" fill="none" stroke="${C.ink}" stroke-width="4" stroke-linejoin="round"/>
+   ${eyes(134,166,cy-8,m,9)}${blush(124,176,cy+12)}${mouth(150,cy+14,m,10)}</g>${extra}`;
+}
+
+// ---------- B: Otter ----------
+function otter(m){
+  const lift=m==="party"?-10:0, tilt=m==="think"?-6:m==="worried"?4:0, cy=150+lift;
+  const brown="#8a5a3c", dark="#6a4229", cream="#f3e2c9";
+  const arm=(d)=>`<path d="${d}" stroke="${C.ink}" stroke-width="22" fill="none" stroke-linecap="round"/><path d="${d}" stroke="${brown}" stroke-width="14" fill="none" stroke-linecap="round"/>`;
+  let arms="";
+  if(m==="hello") arms=arm(`M196,${cy+30} q30,-14 34,-60`)+arm(`M106,${cy+40} q-14,20 -6,40`);
+  if(m==="party") arms=arm(`M192,${cy+26} q30,-30 26,-70`)+arm(`M108,${cy+26} q-30,-30 -26,-70`);
+  if(m==="worried") arms=arm(`M190,${cy+36} q10,-20 -10,-38`)+arm(`M110,${cy+36} q-10,-20 10,-38`);
+  if(m==="think") arms=arm(`M192,${cy+40} q6,-26 -26,-30`)+arm(`M106,${cy+40} q-14,20 -6,40`);
+  const extra = m==="worried"?sweat(205,cy-70):m==="think"?bulb(236,cy-96):m==="party"?confetti():"";
+  return `${shadow()}<g transform="rotate(${tilt} 150 ${cy})">
+   <path d="M196,${cy+92} q46,6 54,-30 q4,-14 -8,-10 q-12,30 -46,20" fill="${brown}" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>
+   <ellipse cx="150" cy="${cy+48}" rx="56" ry="66" fill="${brown}" stroke="${C.ink}" stroke-width="5"/>
+   <ellipse cx="150" cy="${cy+58}" rx="36" ry="46" fill="${cream}"/>
+   <path d="${sparkPath(150,cy+56,16,4)}" fill="url(#spark)" stroke="${C.ink}" stroke-width="3" stroke-linejoin="round"/>
+   <ellipse cx="128" cy="${cy+112}" rx="18" ry="9" fill="${dark}" stroke="${C.ink}" stroke-width="4"/><ellipse cx="172" cy="${cy+112}" rx="18" ry="9" fill="${dark}" stroke="${C.ink}" stroke-width="4"/>
+   ${arms}
+   <circle cx="108" cy="${cy-62}" r="14" fill="${brown}" stroke="${C.ink}" stroke-width="5"/><circle cx="192" cy="${cy-62}" r="14" fill="${brown}" stroke="${C.ink}" stroke-width="5"/>
+   <circle cx="108" cy="${cy-62}" r="6" fill="${dark}"/><circle cx="192" cy="${cy-62}" r="6" fill="${dark}"/>
+   <ellipse cx="150" cy="${cy-24}" rx="56" ry="50" fill="${brown}" stroke="${C.ink}" stroke-width="5"/>
+   <path d="M108,${cy-6} q8,-36 42,-36 q34,0 42,36 q-10,32 -42,32 q-32,0 -42,-32z" fill="${cream}"/>
+   ${eyes(130,170,cy-24,m,8)}
+   <ellipse cx="150" cy="${cy-6}" rx="9" ry="6" fill="${C.ink}"/>
+   ${mouth(150,cy+6,m,9)}
+   <path d="M116,${cy-2} l-22,-4 M116,${cy+4} l-22,4 M184,${cy-2} l22,-4 M184,${cy+4} l22,4" stroke="${C.ink}" stroke-width="2.5" stroke-linecap="round"/>
+   ${blush(120,180,cy+2)}</g>${extra}`;
+}
+
+// ---------- C: Hummingbird ----------
+function bird(m){
+  const lift=m==="party"?-12:0, tilt=m==="think"?-10:m==="worried"?8:-4, cy=140+lift;
+  const wingUp = m==="party"||m==="hello";
+  const wing = wingUp
+    ? `<path d="M170,${cy-30} q40,-80 100,-90 q-16,60 -84,100z" fill="url(#wing)" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/><path d="M186,${cy-40} q30,-46 66,-64 M194,${cy-30} q32,-30 56,-40" stroke="${C.cream}" stroke-width="3" fill="none" opacity=".7"/>`
+    : `<path d="M150,${cy} q70,-10 104,30 q-60,16 -96,-6z" fill="url(#wing)" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>`;
+  const blur = `<path d="M150,${cy-6} q30,-70 90,-90" stroke="${C.violet}" stroke-width="22" opacity=".18" fill="none" stroke-linecap="round"/>`;
+  const extra = m==="worried"?sweat(120,cy-74):m==="think"?bulb(70,cy-90):m==="party"?confetti():"";
+  return `${shadow(262,40)}<g transform="rotate(${tilt} 150 ${cy})">
+   <path d="M126,${cy+52} q-20,40 -46,56 q34,-4 58,-36z" fill="${C.indigo}" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>
+   ${wingUp?blur+wing:""}
+   <path d="M98,${cy-14} q4,-58 58,-60 q58,0 62,62 q2,70 -64,82 q-60,-6 -56,-84z" fill="url(#bird)" stroke="${C.ink}" stroke-width="5"/>
+   <path d="M122,${cy+10} q30,40 64,0 q-4,44 -32,52 q-28,-6 -32,-52z" fill="${C.cream}" opacity=".9"/>
+   <path d="M98,${cy-24} L42,${cy-(m==="think"?40:30)} L98,${cy-12}z" fill="${C.ink}" stroke="${C.ink}" stroke-width="4" stroke-linejoin="round"/>
+   ${wingUp?"":wing}
+   ${eyes(126,162,cy-30,m,9)}${blush(116,170,cy-10)}
+   <path d="M140,${cy+104} v14 M160,${cy+104} v14" stroke="${C.ink}" stroke-width="4" stroke-linecap="round"/></g>${extra}`;
+}
+
+const moods=[["hello","Hello"],["worried","Traffic dropping"],["think","Thinking"],["party","It worked"]];
+const rows=[
+ ["A","Spark","The Flowra logo come alive. Fully ours, instantly tied to the brand, and the easiest shape to animate with personality: it can stretch, spin, glow, and dim when traffic drops.",sparkChar],
+ ["B","Otter","A river animal that uses tools to fix things. Warm, funny and very shareable, wearing the Flowra spark as a badge. Risk: Otter.ai already uses an otter.",otter],
+ ["C","Hummingbird","Fast and precise, hops from flower to flower like Flowra checks page after page. Elegant in brand colours, but tiny wings and a beak are less expressive.",bird],
+];
+document.getElementById("rows").innerHTML=rows.map(([k,name,desc,fn])=>`<div class="row"><div class="label"><div class="tag">Option ${k}</div><h2>${name}</h2><p>${desc}</p></div><div class="poses">${moods.map(([m,l])=>`<div class="pose"><svg viewBox="0 0 300 290">${defs}${fn(m)}</svg><span>${l}</span></div>`).join("")}</div></div>`).join("");
+</script>
+</body></html>

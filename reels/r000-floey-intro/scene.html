@@ -1,0 +1,208 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Public+Sans:wght@800&display=swap" rel="stylesheet">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/world/garden.js"></script>
+<style>html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#f7f4ee}svg{display:block}</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// Reel 000: meet Floey. Story: problem (a page losing clicks unseen), Floey
+// arrives, what she does, the fix, the payoff, and a loop back to the opening.
+const C = HUM.colors, FPS = 30, M = window.MOUTHS || {};
+const LINES = [
+  ["hook", "One of your pages is losing clicks right now. You just can't see it."],
+  ["intro", "That's where I come in. I'm Floey, from Flowra."],
+  ["watch", "I watch your Search Console and spot the pages that are fading, and the ones close to page one."],
+  ["fix", "Then we fix them. You see every change before it goes live on WordPress."],
+  ["check", "Two weeks later, I check whether it actually worked."],
+  ["loop", "Somewhere on your site, another page just started fading. Start free at useflowra.com."],
+];
+// beat timing comes from the spoken lines
+const GAP = { hook: 0.5, intro: 0.45, watch: 0.5, fix: 0.6, check: 0.55, loop: 0.2 };
+const B = {}; let tt = 0.35;
+for (const [id] of LINES) { const len = (M[id] || []).length / FPS || 2.5; B[id] = { start: tt, len, end: tt + len }; tt += len + GAP[id]; }
+const DUR = tt + 0.5;
+
+// ---------- the garden ----------
+const FLOWERS = {
+  C: { x: 215, base: 1720, h: 720, bloom: 1, pal: [C.violet, C.indigo, C.magenta], dir: 1, seed: 3 },
+  A: { x: 590, base: 1720, h: 440, bloom: 0, pal: [C.coral, C.amber, C.magenta], dir: -1, seed: 7 },
+  B: { x: 850, base: 1720, h: 480, bloom: 1, pal: [C.amber, C.coral, C.violet], dir: 1, seed: 11 },
+  D: { x: 985, base: 1720, h: 380, bloom: 1, pal: [C.magenta, C.amber, C.coral], dir: 1, seed: 17 },
+};
+const W = { camX: 540, camY: 960, zoom: 1, A: 0, B: 1, D: 1, arrowA: 0, tagB: 0, tagC: 0, card: 0, published: 0, cal: 0, chart: 0, logo: 0, petal: 0 };
+const head = (f, b) => { const d = (1 - b) * 26 * (f.dir || 1), a = d * Math.PI / 180; return { x: f.x + Math.sin(a) * f.h, y: f.base - Math.cos(a) * f.h, a: d }; };
+
+// the broken link sitting on page A
+const link = (s = 1) => `<g transform="scale(${s})"><circle r="26" fill="#fffaf2" stroke="${C.ink}" stroke-width="4"/><g transform="rotate(-40)" stroke="#d24b4b" stroke-width="6" fill="none" stroke-linecap="round"><rect x="-19" y="-8" width="20" height="16" rx="8"/><rect x="3" y="-8" width="20" height="16" rx="8"/></g><path d="M-6,-14 l4,8 l-5,4 l5,8" stroke="${C.ink}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+const linkPos = () => { const h = head(FLOWERS.A, 0), a = h.a * Math.PI / 180; return { x: h.x + Math.cos(a) * 52 + Math.sin(a) * 96, y: h.y + Math.sin(a) * 52 - Math.cos(a) * 96 }; };
+
+// ---------- Floey's performance, cued to the voice ----------
+const F = FLOEY.create({ x: -260, y: 760, facing: -1, scale: 1.35, mood: "determined" });
+const wt = gsap.timeline({ paused: true });
+const b = B;
+const hA = head(FLOWERS.A, 0), lp = linkPos();
+
+// HOOK: tight on A's arrow sliding down, a petal drops, pull out to the garden
+wt.set(W, { camX: hA.x + 30, camY: hA.y + 40, zoom: 3.1 }, 0)
+  .to(W, { arrowA: 1, duration: 0.6, ease: "power2.in" }, 0.25)
+  .to(W, { petal: 1, duration: 1.6, ease: "none" }, 0.6)
+  .to(W, { camX: 560, camY: 1130, zoom: 1.12, duration: 1.3, ease: "power3.inOut" }, b.hook.start + 1.4);
+F.sfx(0.3, "swish").sfx(0.85, "tk");
+F.sfx(b.hook.start, "voice", { id: "hook", len: b.hook.len });
+
+// INTRO: zips in, brakes beside A, snaps to camera, throat flash on "Flowra"
+F.dart(b.intro.start - 0.1, 700, 780, 0.34, -1)
+ .mood(b.intro.start + 0.3, "hello")
+ .pivot(b.intro.start + 0.75, "front")
+ .chips(b.intro.start - 0.28, 1)  // Floey's signature pip before she speaks
+ .say(b.intro.start, M.intro || [], "intro")
+ .flash(b.intro.end - 0.45).chips(b.intro.end + 0.05, 2);
+wt.to(W, { camX: 640, camY: 1060, zoom: 1.24, duration: 1.4, ease: "sine.inOut" }, b.intro.start + 0.4);
+
+// WATCH: fly the row, a red tag pops on B as it starts to sag, then point at C under the PAGE 1 line
+F.pivot(b.watch.start + 0.1, "side").mood(b.watch.start + 0.1, "think")
+ .move(b.watch.start + 0.2, 905, 900, 0.5, "power2.inOut").face(b.watch.start + 0.2, -1)
+ .say(b.watch.start, M.watch || [], "watch")
+ .look(b.watch.start + 0.7, -0.6, 0.8)
+ .sfx(b.watch.start + 1.1, "pluck")
+ .face(b.watch.start + b.watch.len * 0.55, 1)
+ .dart(b.watch.start + b.watch.len * 0.55 + 0.2, 420, 940, 0.34, 1)
+ .mood(b.watch.start + b.watch.len * 0.62, "determined")
+ .sfx(b.watch.start + b.watch.len * 0.8, "pluck").chips(b.watch.start + b.watch.len * 0.82, 2);
+wt.to(W, { camX: 560, camY: 1130, zoom: 1.12, duration: 0.6, ease: "power2.inOut" }, b.watch.start)
+  .to(W, { B: 0.55, duration: 1.2, ease: "power1.inOut" }, b.watch.start + 0.6)
+  .to(W, { tagB: 1, duration: 0.3, ease: "back.out(2.5)" }, b.watch.start + 1.1)
+  .to(W, { tagC: 1, duration: 0.3, ease: "back.out(2.5)" }, b.watch.start + b.watch.len * 0.8);
+
+// FIX: pick the broken link off A, flick it away, change preview, tap Publish, A blooms
+F.mood(b.fix.start, "determined")
+ .reach(b.fix.start - 0.25, lp.x, lp.y, 0.3)
+ .pick(b.fix.start + 0.25, link(0.7), "link")
+ .toss(b.fix.start + 0.75, 1)
+ .say(b.fix.start, M.fix || [], "fix")
+ .move(b.fix.start + 1.3, 960, 660, 0.45, "power2.inOut").face(b.fix.start + 1.3, 1).mood(b.fix.start + 1.3, "hello");
+const btn = { x: 540, y: 620 };
+F.reach(b.fix.start + b.fix.len * 0.72, btn.x + 236, btn.y, 0.3)
+ .sfx(b.fix.start + b.fix.len * 0.72 + 0.34, "tap").sfx(b.fix.start + b.fix.len * 0.72 + 0.36, "ting")
+ .sfx(b.fix.end + 0.05, "bloom").mood(b.fix.end, "party");
+wt.to(W, { card: 1, duration: 0.35, ease: "back.out(1.8)" }, b.fix.start + 1.2)
+  .to(W, { published: 1, duration: 0.2 }, b.fix.start + b.fix.len * 0.72 + 0.34)
+  .to(W, { card: 0, duration: 0.3, ease: "power2.in" }, b.fix.end - 0.1)
+  .to(W, { A: 1, duration: 0.6, ease: "back.out(2)" }, b.fix.end + 0.05);
+
+// CHECK: calendar flips 14 days, the clicks line climbs, celebration
+F.move(b.check.start, 560, 1000, 0.45).pivot(b.check.start + 0.2, "front").mood(b.check.start + 0.2, "think")
+ .say(b.check.start, M.check || [], "check")
+ .sfx(b.check.start + 0.4, "rustle", { n: 4 })
+ .mood(b.check.end - 0.4, "party").flash(b.check.end - 0.35).shuttle(b.check.end - 0.2, 4, 60, 0.18);
+wt.to(W, { cal: 1, duration: 1.1, ease: "power1.inOut" }, b.check.start + 0.35)
+  .to(W, { chart: 1, duration: 0.9, ease: "power2.out" }, b.check.start + 1.5)
+  .to(W, { cal: 0, chart: 0, duration: 0.3 }, b.check.end + 0.6);
+
+// LOOP: D starts to sag, Floey spins to it, the camera pushes into D's arrow (the opening shot)
+F.pivot(b.loop.start + 0.3, "side").face(b.loop.start + 0.3, -1).mood(b.loop.start + 0.3, "surprised")
+ .say(b.loop.start, M.loop || [], "loop")
+ .look(b.loop.start + 0.4, -1, 0.6)
+ .mood(b.loop.start + 1.2, "determined");
+const hD = head(FLOWERS.D, 0.25);
+wt.to(W, { tagB: 0, tagC: 0, duration: 0.25 }, b.loop.start)
+  .to(W, { D: 0.25, duration: 1.4, ease: "power1.inOut" }, b.loop.start + 0.2)
+  .to(W, { logo: 1, duration: 0.4 }, b.loop.end - 2.0)
+  .to(W, { camX: hD.x - 20, camY: hD.y + 40, zoom: 3.1, duration: 1.6, ease: "power3.in" }, b.loop.end - 1.2);
+F.sfx(b.loop.start + 0.3, "tk").sfx(b.loop.end - 1.2, "swish");
+wt.set({}, {}, DUR);
+
+// ---------- props ----------
+function tag(x, y, k, text, bg) {
+  if (k <= 0) return "";
+  return `<g transform="translate(${x} ${y}) scale(${k})"><rect x="-74" y="-30" width="148" height="60" rx="30" fill="${bg}" stroke="${C.ink}" stroke-width="5"/><text x="0" y="12" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="32" fill="#fff">${text}</text></g>`;
+}
+function previewCard(k, pub) {
+  if (k <= 0.01) return "";
+  const rows = [["del", 300], ["add", 380], ["keep", 340], ["add", 260]];
+  let s = `<g transform="translate(540 520) scale(${k}) translate(-540 -520)"><rect x="250" y="300" width="580" height="420" rx="32" fill="#fffaf2" stroke="${C.ink}" stroke-width="7"/>`;
+  s += `<text x="290" y="370" font-family="Space Grotesk" font-weight="700" font-size="38" fill="${C.ink}">Changes to review</text>`;
+  rows.forEach(([kind, w], i) => { const y = 404 + i * 46, col = kind === "del" ? "#f1c6c6" : kind === "add" ? "#c8ebd3" : "#e9e2d6"; s += `<rect x="290" y="${y}" width="${w}" height="26" rx="13" fill="${col}"/>`; if (kind === "del") s += `<path d="M290,${y + 13} h${w}" stroke="#d24b4b" stroke-width="4"/>`; if (kind === "add") s += `<text x="${300 + w}" y="${y + 23}" font-family="Space Grotesk" font-weight="700" font-size="26" fill="#2f9e62">+</text>`; });
+  s += `<rect x="290" y="${btn.y - 34 + 0}" width="500" height="68" rx="34" fill="${pub > .5 ? "#2f9e62" : C.ink}"/><text x="540" y="${btn.y + 12}" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="32" fill="#fff">${pub > .5 ? "Live on WordPress  ✓" : "Publish to WordPress"}</text>`;
+  return s + `</g>`;
+}
+function calendar(k, ch) {
+  if (k <= 0.01 && ch <= 0.01) return "";
+  const day = Math.max(1, Math.round(1 + 13 * Math.min(1, k)));
+  let s = `<g opacity="${Math.min(1, k * 3)}"><rect x="160" y="330" width="330" height="330" rx="28" fill="#fffaf2" stroke="${C.ink}" stroke-width="7"/><rect x="160" y="330" width="330" height="80" rx="28" fill="${C.coral}"/><rect x="160" y="380" width="330" height="30" fill="${C.coral}"/>`;
+  s += `<text x="325" y="385" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="34" fill="#fff">DAY</text><text x="325" y="590" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="150" fill="${C.ink}">${day}</text></g>`;
+  // the clicks line: flat, then climbing after the change
+  const pts = [[560, 600], [620, 590], [680, 605], [740, 595], [800, 540], [860, 470], [920, 400]];
+  const n = Math.max(2, Math.ceil(pts.length * ch));
+  if (ch > 0.01) {
+    s += `<g opacity="${Math.min(1, ch * 4)}"><rect x="530" y="330" width="420" height="330" rx="28" fill="#fffaf2" stroke="${C.ink}" stroke-width="7"/><text x="560" y="385" font-family="Space Grotesk" font-weight="700" font-size="30" fill="${C.ink}">Clicks</text>`;
+    s += `<path d="M740,370 v270" stroke="${C.ink}" stroke-width="3" stroke-dasharray="8 8" opacity=".4"/>`;
+    s += `<polyline points="${pts.slice(0, n).map((p) => p.join(",")).join(" ")}" fill="none" stroke="#2f9e62" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  }
+  return s;
+}
+function captions(t) {
+  for (const [id, text] of LINES) {
+    const bt = B[id]; if (t < bt.start - 0.05 || t > bt.end + 0.25) continue;
+    const chunks = [];
+    for (const part of text.split(/(?<=[.,!?])\s+/).filter(Boolean)) {
+      const words = part.split(" ");
+      for (let i = 0; i < words.length;) { const left = words.length - i, n = left <= 4 ? left : left === 5 ? 2 : 3; chunks.push(words.slice(i, i + n).join(" ")); i += n; }
+    }
+    const total = chunks.reduce((a, c) => a + c.length, 0); let acc = 0, cur = chunks[chunks.length - 1];
+    for (const c of chunks) { const s0 = bt.start + (acc / total) * bt.len; acc += c.length; if (t < bt.start + (acc / total) * bt.len) { cur = c; break; } }
+    const w = cur.length * 27 + 70;
+    return `<g transform="translate(540 1515)"><rect x="${-w / 2}" y="-52" width="${w}" height="88" rx="22" fill="${C.ink}" opacity=".88"/><text x="0" y="12" text-anchor="middle" font-family="Public Sans" font-weight="800" font-size="50" fill="#fff">${cur.replace(/&/g, "&amp;")}</text></g>`;
+  }
+  return "";
+}
+function sparks(t, x, y, at, n = 10, size = 28) {
+  const k = (t - at) / .7; if (k < 0 || k > 1) return "";
+  let s = ""; for (let i = 0; i < n; i++) { const a = i / n * Math.PI * 2 + i, d = 40 + k * (120 + (i % 3) * 40); s += `<g opacity="${1 - k}">${HUM.spark(x + Math.cos(a) * d, y + Math.sin(a) * d, size * (1 - k * .5), [C.amber, C.coral, C.magenta, C.violet][i % 4])}</g>`; }
+  return s;
+}
+let tossFrom = null;
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  F.pose(t);
+  const cam = { camX: W.camX, camY: W.camY, zoom: W.zoom };
+  let s = GARDEN.defs() + GARDEN.background(t, cam);
+  s += `<g transform="translate(540 960) scale(${W.zoom}) translate(${-W.camX} ${-W.camY})">`;
+  s += GARDEN.ground();
+  // PAGE 1 line
+  s += `<path d="M30,930 H1050" stroke="${C.ink}" stroke-width="4" stroke-dasharray="14 12" opacity=".45"/><rect x="440" y="880" width="150" height="40" rx="10" fill="${C.ink}" opacity=".85"/><text x="515" y="909" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="26" fill="#fff">PAGE 1</text>`;
+  s += GARDEN.flower(FLOWERS.C, 1, t);
+  s += GARDEN.flower(FLOWERS.B, W.B, t);
+  s += GARDEN.flower(FLOWERS.D, W.D, t);
+  s += GARDEN.flower(FLOWERS.A, W.A, t, { dropPetal: W.petal, arrow: W.A > .6 ? "up" : "down" });
+  // the falling petal in the hook
+  { const p0 = head(FLOWERS.A, 0); s += GARDEN.fallingPetal(FLOWERS.A, W.A, p0.x + 40, p0.y + 30, W.petal); }
+  // tags
+  const hB = head(FLOWERS.B, W.B), hC = head(FLOWERS.C, 1);
+  s += tag(hB.x + 40, hB.y - 150, W.tagB, "fading", "#d24b4b");
+  s += tag(hC.x + 140, hC.y - 40, W.tagC, "#9", C.violet);
+  // the broken link
+  const pk = F.events.find((e) => e.type === "picked"), ts = F.events.find((e) => e.type === "tossed");
+  if (!pk || t < pk.t) s += `<g transform="translate(${lp.x} ${lp.y}) rotate(${Math.sin(t * 7) * 6})">${link(1)}</g>`;
+  if (ts && t >= ts.t) { if (!tossFrom) tossFrom = F.beakTip(ts.t); const k = t - ts.t, x = tossFrom[0] - 1200 * k, y = tossFrom[1] - 900 * k + 1500 * k * k; if (y < 2200) s += `<g transform="translate(${x} ${y}) rotate(${-k * 720})">${link(1)}</g>`; }
+  s += previewCard(W.card, W.published);
+  s += calendar(W.cal, W.chart);
+  s += sparks(t, head(FLOWERS.A, 1).x, head(FLOWERS.A, 1).y, B.fix.end + 0.1, 12, 30);
+  s += F.trail(t) + F.svg(t);
+  s += `</g>`;
+  s += GARDEN.pollen(t, cam) + GARDEN.vignette();
+  s += captions(t);
+  if (W.logo > 0) s += `<g opacity="${W.logo}" transform="translate(540 300)"><rect x="-290" y="-80" width="580" height="170" rx="40" fill="#fffaf2" opacity=".94" stroke="${C.ink}" stroke-width="5"/>${HUM.spark(-210, -14, 26, C.coral)}<text x="-172" y="0" font-family="Space Grotesk" font-weight="700" font-size="70" fill="${C.ink}">useflowra.com</text><text x="0" y="56" text-anchor="middle" font-family="Space Grotesk" font-weight="600" font-size="32" fill="${C.magenta}">Start free</text></g>`;
+  document.getElementById("stage").innerHTML = s;
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), music: Object.values(B).map((x) => x.start) });
+window.LINES = LINES;
+window.render(0);
+</script></body></html>

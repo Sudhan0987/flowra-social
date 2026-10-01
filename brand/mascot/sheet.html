@@ -1,0 +1,49 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<script src="hum.js"></script>
+<style>
+  :root{--ink:#1f1810;--paper:#f7f4ee;--muted:#6b5f52}
+  *{box-sizing:border-box;margin:0}
+  body{width:1800px;background:var(--paper);color:var(--ink);font-family:"Public Sans",sans-serif;padding:56px 64px}
+  h1{font:700 44px "Space Grotesk"} .sub{font-size:20px;color:var(--muted);margin-top:8px;max-width:1200px}
+  .bar{height:6px;border-radius:3px;margin:22px 0 30px;background:linear-gradient(90deg,#f2b247,#ef6f73 28%,#c25aa0 52%,#8466d9 76%,#4f5fc7)}
+  h3{font:700 15px "Space Grotesk";letter-spacing:2px;text-transform:uppercase;color:#c25aa0;margin:26px 0 12px}
+  .grid{display:grid;gap:16px}
+  .c{background:#fff;border:2px solid #ebe4d8;border-radius:18px;padding:8px 8px 14px;text-align:center}
+  .c svg{width:100%;display:block}
+  .c span{font:600 15px "Public Sans";color:var(--muted)}
+  .hero{display:grid;grid-template-columns:520px 1fr;gap:30px;align-items:center}
+  .notes{font-size:18px;line-height:1.55;color:#3d342a} .notes b{color:var(--ink)}
+  .notes li{margin:4px 0 4px 20px}
+</style></head><body>
+<h1>Flowra hummingbird: character sheet v3</h1>
+<div class="sub">Built as a drawing the reel renderer can pose: every expression, wing and tail position below is the same character with different settings, so it always looks identical from reel to reel.</div>
+<div class="bar"></div>
+<div class="hero">
+  <div class="c"><svg viewBox="20 20 280 260" id="hero"></svg><span>Hovering, saying hello</span></div>
+  <div class="notes"><b>Design notes</b><ul>
+    <li><b>Spectrum throat (gorget):</b> real hummingbird throats change colour with angle. Ours sweeps the Flowra spectrum on "found it" and "it worked" moments.</li>
+    <li><b>Spark catchlight:</b> the shine in the eye is the Flowra logo star.</li>
+    <li><b>Shorter, softer beak</b> than a real bird: friendlier, and it opens to talk and points at things.</li>
+    <li><b>Crest feathers</b> carry mood: up when alert or excited, flat when worried.</li>
+    <li><b>Wings:</b> a figure-8 blur when hovering (real wings beat 50 to 80 times a second, faster than video can show), and a feather "hand" when it needs to point or wave.</li>
+    <li><b>Tail</b> fans out to brake after a dart.</li>
+  </ul></div>
+</div>
+<h3>Turnaround</h3><div class="grid" id="turn" style="grid-template-columns:repeat(4,1fr)"></div>
+<h3>Expressions</h3><div class="grid" id="moods" style="grid-template-columns:repeat(8,1fr)"></div>
+<h3>Expressions, front</h3><div class="grid" id="moodsF" style="grid-template-columns:repeat(8,1fr)"></div>
+<h3>Wings, tail and talking</h3><div class="grid" id="parts" style="grid-template-columns:repeat(6,1fr)"></div>
+<h3>Spectrum flash (frames across 0.4 seconds)</h3><div class="grid" id="flash" style="grid-template-columns:repeat(6,1fr)"></div>
+<script>
+const box='20 20 280 260';
+document.getElementById("hero").innerHTML=HUM.svg({mood:"hello",wing:"blur",wingPhase:.3,beak:.35});
+document.getElementById("turn").innerHTML=[["front","Front"],["three","Three-quarter"],["side","Side"],["back","Back"]].map(([v,l])=>`<div class="c"><svg viewBox="${box}">${HUM.svg({view:v,mood:"hello",wing:"blur",wingPhase:.2})}</svg><span>${l}</span></div>`).join("");
+const moods=[["hello","Hello"],["happy","Happy"],["think","Thinking"],["worried","Worried"],["sad","Sad"],["surprised","Surprised"],["determined","On it"],["party","It worked",{flash:.5}]];
+document.getElementById("moods").innerHTML=moods.map(([m,l,x])=>`<div class="c"><svg viewBox="${box}">${HUM.svg({mood:m,wing:m==="sad"?"fold":"blur",wingPhase:.2,beak:m==="surprised"?.6:m==="party"?.5:0,...(x||{})})}</svg><span>${l}</span></div>`).join("");
+document.getElementById("moodsF").innerHTML=moods.map(([m,l,x])=>`<div class="c"><svg viewBox="${box}">${HUM.svg({view:"front",mood:m,wing:m==="sad"?"fold":"blur",wingPhase:.2,beak:m==="surprised"?.6:m==="party"?.5:0,feet:m==="sad",...(x||{})})}</svg><span>${l}</span></div>`).join("");
+const parts=[["Hover blur",{wing:"blur",wingPhase:.1}],["Wing up",{wing:"up"}],["Points",{wing:"point",mood:"determined"}],["Waves",{wing:"wave",wingPhase:.25,mood:"happy"}],["Brakes (tail fanned)",{wing:"blur",tail:1,mood:"surprised"}],["Talking",{wing:"blur",beak:.8,mood:"hello"}]];
+document.getElementById("parts").innerHTML=parts.map(([l,o])=>`<div class="c"><svg viewBox="${box}">${HUM.svg(o)}</svg><span>${l}</span></div>`).join("");
+document.getElementById("flash").innerHTML=[0,.2,.4,.6,.8,1].map(f=>`<div class="c"><svg viewBox="${box}">${HUM.svg({mood:"party",wing:"blur",flash:f,beak:.4})}</svg><span>${f.toFixed(1)}</span></div>`).join("");
+</script></body></html>

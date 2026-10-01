@@ -35,17 +35,18 @@ interface CliResult {
 
 const TIMEOUT_MS = 25 * 60_000;
 
-function runClaude(args: string[], input: string): Promise<CliResult> {
+function runClaude(args: string[], input: string, opts: { settingSources?: string; timeoutMs?: number; cwd?: string } = {}): Promise<CliResult> {
   return new Promise((resolve, reject) => {
     const env = { ...process.env };
     delete env.ANTHROPIC_API_KEY; // never fall back to API billing
-    const child = spawn("claude", ["-p", "--output-format", "json", "--no-session-persistence", "--setting-sources", "", "--model", MODEL, ...args], {
+    const child = spawn("claude", ["-p", "--output-format", "json", "--no-session-persistence", "--setting-sources", opts.settingSources ?? "", "--model", MODEL, ...args], {
       env,
+      cwd: opts.cwd,
       stdio: ["pipe", "pipe", "pipe"],
     });
     let out = "";
     let err = "";
-    const timer = setTimeout(() => child.kill("SIGTERM"), TIMEOUT_MS);
+    const timer = setTimeout(() => child.kill("SIGTERM"), opts.timeoutMs ?? TIMEOUT_MS);
     child.stdout.on("data", (d) => (out += d));
     child.stderr.on("data", (d) => (err += d));
     child.on("error", (e) => reject(new StopError(`Could not start Claude Code (is it installed?): ${e.message}`)));
@@ -76,21 +77,38 @@ export function jsonSchema(schema: z.ZodType): Record<string, unknown> {
 }
 
 /** One task whose answer must match a schema (briefs, verdicts, edit lists). */
-export async function askJson<T extends z.ZodType>(opts: { system: string; prompt: string; schema: T; effort?: Effort; readFiles?: boolean }): Promise<z.infer<T>> {
+export async function askJson<T extends z.ZodType>(opts: { system: string; prompt: string; schema: T; effort?: Effort; readFiles?: boolean; web?: number }): Promise<z.infer<T>> {
   // readFiles lets Claude open local files the prompt names (it is how it
-  // looks at a screenshot); nothing else.
+  // looks at a screenshot); web lets it search and read pages, up to that
+  // many searches. Nothing else.
+  const tools = [opts.readFiles ? "Read" : "", opts.web ? "WebSearch,WebFetch" : ""].filter(Boolean).join(",");
   const res = await runClaude(
     [
       "--system-prompt", opts.system,
-      "--tools", opts.readFiles ? "Read" : "",
-      ...(opts.readFiles ? ["--allowedTools", "Read"] : []),
+      "--tools", tools,
+      ...(tools ? ["--allowedTools", tools] : []),
       "--json-schema", JSON.stringify(jsonSchema(opts.schema)),
       "--effort", opts.effort ?? "high",
-      "--max-turns", opts.readFiles ? "8" : "5",
+      "--max-turns", String(opts.web ? opts.web * 3 + 6 : opts.readFiles ? 24 : 5),
     ],
     opts.prompt,
   );
   const checked = opts.schema.safeParse(res.structured_output);
   if (!checked.success) throw new StopError(`The answer did not match the expected format: ${checked.error.message.slice(0, 300)}`);
   return checked.data as z.infer<T>;
+}
+
+/**
+ * Claude Code as a working agent in this repo: the project's skills load
+ * (.claude/skills), and it may read, write and edit files and run only the
+ * commands in `bash` (e.g. "npx tsx src/render.ts:*"). Used by the director.
+ */
+export async function agent(opts: { prompt: string; system: string; bash: string[]; maxTurns?: number; timeoutMs?: number }): Promise<string> {
+  const allowed = ["Read", "Write", "Edit", "Glob", "Grep", "Skill", ...opts.bash.map((b) => `Bash(${b})`)].join(",");
+  const res = await runClaude(
+    ["--append-system-prompt", opts.system, "--allowedTools", allowed, "--permission-mode", "acceptEdits", "--max-turns", String(opts.maxTurns ?? 90), "--effort", "high"],
+    opts.prompt,
+    { settingSources: "project", timeoutMs: opts.timeoutMs ?? 50 * 60_000 },
+  );
+  return res.result ?? "";
 }

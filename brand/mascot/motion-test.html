@@ -1,0 +1,132 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="hum.js"></script>
+<style>
+  html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#f7f4ee}
+  svg{display:block}
+</style></head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// Floey motion test. window.render(t) is a pure function of time: a paused
+// GSAP timeline is seeked to t and the scene is drawn from its state.
+gsap.registerPlugin(CustomEase);
+const MOUTH = window.MOUTH || [];
+const C = HUM.colors, FPS = 30, DUR = 8.8;
+const S = { x: 300, y: 900, rot: 0, sx: 1, sy: 1, tail: .15, crest: .2, flash: 0, bloom: 0, cam: 1, camY: 0, shake: 0, out: 0, logo: 0 };
+const tl = gsap.timeline({ paused: true, defaults: { ease: "power2.out" } });
+CustomEase.create("dart", "M0,0 C0.08,0.6 0.18,1.02 1,1");
+CustomEase.create("brake", "M0,0 C0.2,1.35 0.42,0.94 1,1");
+// 1. hover, then anticipation: lean back and squash
+tl.to(S, { x: 270, rot: 14, sx: .9, sy: 1.08, duration: .25, ease: "power1.in" }, 1.2)
+// 2. dart right with stretch
+  .to(S, { x: 770, y: 870, rot: -6, sx: 1.35, sy: .82, duration: .3, ease: "dart" }, 1.45)
+// 3. brake: tail fans, body overshoots, settles
+  .to(S, { tail: 1, sx: 1, sy: 1, duration: .2 }, 1.75)
+  .to(S, { rot: -22, duration: .12, ease: "power2.out" }, 1.75)
+  .to(S, { rot: 0, duration: .45, ease: "elastic.out(1,.45)" }, 1.87)
+  .to(S, { shake: 1, duration: .04 }, 1.75).to(S, { shake: 0, duration: .25 }, 1.79)
+  .to(S, { tail: .15, duration: .4 }, 2.1)
+// 4. pivot to camera (snap), little scale pop, camera pushes in while talking
+  .to(S, { sx: 1.08, sy: 1.08, duration: .08 }, 2.3).to(S, { sx: 1, sy: 1, duration: .3, ease: "back.out(3)" }, 2.38)
+  .to(S, { cam: 1.12, camY: -40, duration: 2.0, ease: "sine.inOut" }, 2.5)
+// 5. surprise, then dive to the wilted page-flower
+  .to(S, { crest: 1, duration: .1 }, 4.6)
+  .to(S, { y: 830, duration: .18, ease: "power2.out" }, 4.65)
+  .to(S, { cam: 1, camY: 0, duration: .5, ease: "power2.inOut" }, 4.8)
+  .to(S, { x: 870, y: 1290, rot: 24, sx: 1.25, sy: .86, duration: .36, ease: "dart" }, 4.98)
+  .to(S, { rot: 16, sx: 1, sy: 1, duration: .3, ease: "brake" }, 5.34)
+// 6. sip three times; the flower blooms in steps
+  .to(S, { x: 852, rot: 22, duration: .1, yoyo: true, repeat: 5, ease: "sine.inOut" }, 5.55)
+  .to(S, { bloom: .33, duration: .2, ease: "back.out(2)" }, 5.62)
+  .to(S, { bloom: .66, duration: .2, ease: "back.out(2)" }, 5.88)
+  .to(S, { bloom: 1, duration: .3, ease: "back.out(2.4)" }, 6.14)
+// 7. rise, face camera, spectrum flash
+  .to(S, { x: 620, y: 930, rot: 0, duration: .4, ease: "power3.out" }, 6.3)
+  .to(S, { flash: 1, duration: .45, ease: "none" }, 6.42)
+// 8. comic backwards flight, then zip off
+  .to(S, { x: 470, duration: .55, ease: "power1.inOut" }, 6.95)
+  .to(S, { x: 1400, y: 560, rot: -18, sx: 1.5, sy: .78, duration: .32, ease: "power3.in" }, 7.6)
+  .to(S, { logo: 1, duration: .4, ease: "power2.out" }, 7.95);
+tl.set({}, {}, DUR);
+
+const facing = (t) => (t < 2.3 ? -1 : 1);                 // -1: mirrored so the side view faces right
+const view = (t) => t < 2.3 ? "side" : t < 2.38 ? "three" : t < 4.62 ? "front" : t < 6.32 ? "side" : t < 6.38 ? "three" : t < 6.95 ? "front" : "side";
+const mood = (t) => t < 1.2 ? "hello" : t < 2.3 ? "determined" : t < 4.6 ? "happy" : t < 5.0 ? "surprised" : t < 6.3 ? "determined" : t < 6.95 ? "party" : t < 7.55 ? "happy" : "determined";
+const blink = (t) => [0.8, 2.1, 4.2].some((b) => t > b && t < b + .1) ? 1 : 0;
+
+function flower(b) {
+  // a page on a stem: wilted grey when b = 0, upright and in full colour at 1
+  const lean = (1 - b) * 38, col = (a, c2) => b > .5 ? c2 : a;
+  const head = { x: 720, y: 1290 };
+  let s = `<g transform="rotate(${lean} 720 1720)">`;
+  s += `<path d="M720,1720 C716,1600 724,1440 720,${head.y + 60}" stroke="#5c8a4f" stroke-width="14" fill="none" stroke-linecap="round"/>`;
+  s += `<path d="M720,1560 q-60,-20 -90,-70 q60,0 90,50z" fill="#76a865" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/><path d="M722,1500 q60,-14 92,-62 q-62,4 -92,46z" fill="#76a865" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>`;
+  const n = 7;
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * 360, droop = (1 - b) * 50;
+    s += `<g transform="rotate(${a} ${head.x} ${head.y}) translate(0 ${droop * Math.max(0, Math.cos(a * Math.PI / 180))})"><ellipse cx="${head.x}" cy="${head.y - 92}" rx="${26 + b * 8}" ry="${46 + b * 10}" fill="${b > .2 ? [C.coral, C.amber, C.magenta][i % 3] : "#c9c1b6"}" stroke="${C.ink}" stroke-width="5" opacity="${.55 + b * .45}"/></g>`;
+  }
+  s += `<rect x="${head.x - 62}" y="${head.y - 74}" width="124" height="150" rx="14" fill="#fffaf2" stroke="${C.ink}" stroke-width="6"/>`;
+  [0, 1, 2, 3].forEach((i) => s += `<rect x="${head.x - 40}" y="${head.y - 46 + i * 28}" width="${[80, 64, 76, 50][i]}" height="10" rx="5" fill="${b > .5 ? [C.coral, "#d9d2c6", "#d9d2c6", C.violet][i] : "#d9d2c6"}"/>`);
+  // a tiny traffic arrow on the page, down when wilted and up when bloomed
+  const up = b > .6;
+  s += `<path d="M${head.x + 34},${head.y + 52} l0,${up ? -26 : 26} m-10,${up ? 10 : -10} l10,${up ? -10 : 10} l10,${up ? 10 : -10}" stroke="${up ? "#2f9e62" : "#d24b4b"}" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+  return s + `</g>`;
+}
+
+function sparks(t, x, y, at, n = 8, size = 26) {
+  const k = (t - at) / .7;
+  if (k < 0 || k > 1) return "";
+  let s = "";
+  for (let i = 0; i < n; i++) {
+    const a = i / n * Math.PI * 2 + i, d = 40 + k * (120 + (i % 3) * 40);
+    s += `<g opacity="${1 - k}">${HUM.spark(x + Math.cos(a) * d, y + Math.sin(a) * d, size * (1 - k * .5), [C.amber, C.coral, C.magenta, C.violet][i % 4])}</g>`;
+  }
+  return s;
+}
+
+function bird(t, st, ghost) {
+  const mi = Math.round(t * FPS), v = view(t);
+  const beak = t >= 2.7 && t < 4.0 ? (MOUTH[mi] || 0) : mood(t) === "surprised" ? .6 : mood(t) === "party" ? .5 : 0;
+  const sip = t > 5.55 && t < 6.15 ? .25 : 0;
+  const svg = HUM.svg({ view: v, mood: mood(t), beak: beak + sip, wing: "blur", wingPhase: (mi * .37) % 1, tail: st.tail, crest: st.crest, flash: st.flash, blink: blink(t), lean: v === "side" ? undefined : st.rot * .3, feet: false });
+  const bob = Math.sin(t * Math.PI * 2 * 2.2) * 6;
+  const f = v === "side" ? facing(t) : 1;
+  // the bird art is 300 units; draw it at 1.9x around its centre
+  return `<g opacity="${ghost ?? 1}" transform="translate(${st.x} ${st.y + bob}) rotate(${v === "side" ? st.rot * -f : 0}) scale(${st.sx * f * 1.9} ${st.sy * 1.9}) translate(-160 -150)">${svg}</g>`;
+}
+
+function snapshot(t) { tl.seek(Math.max(0, Math.min(DUR, t)), false); return { ...S }; }
+
+window.render = function (t) {
+  const now = snapshot(t);
+  const ghosts = [3, 2, 1].map((k) => ({ k, st: snapshot(t - k * .025) }));
+  snapshot(t);
+  const fast = ghosts.filter((g) => Math.hypot(g.st.x - now.x, g.st.y - now.y) > 40);
+  const sh = now.shake * 14 * Math.sin(t * 90);
+  let s = `<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3eefb"/><stop offset=".65" stop-color="#f7f4ee"/><stop offset="1" stop-color="#efe7d8"/></linearGradient></defs>`;
+  s += `<rect width="1080" height="1920" fill="url(#sky)"/>`;
+  s += `<g transform="translate(${540 + sh} ${960 + now.camY}) scale(${now.cam}) translate(-540 -960)">`;
+  // background: soft hills and two far flowers for depth
+  s += `<path d="M0,1600 C260,1520 520,1580 760,1530 C900,1500 1000,1520 1080,1540 L1080,1920 L0,1920Z" fill="#e3ead6"/>`;
+  s += `<path d="M0,1700 C300,1650 700,1720 1080,1660 L1080,1920 L0,1920Z" fill="#cfdcbf"/>`;
+  [[170, 1560, .5], [960, 1520, .42]].forEach(([x, y, k]) => s += `<g transform="translate(${x} ${y}) scale(${k}) translate(-720 -1290)" opacity=".55">${flower(1)}</g>`);
+  s += `<g transform="translate(-150 -40)">${flower(now.bloom)}${sparks(t, 720, 1290, 6.14, 10, 30)}</g>`;
+  // motion trail and speed lines while darting
+  fast.forEach((g) => s += bird(t, g.st, .12 + (3 - g.k) * .06));
+  if (fast.length) {
+    const g = ghosts[0].st, dx = now.x - g.x, dy = now.y - g.y, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L;
+    [-50, 0, 50].forEach((o, i) => s += `<path d="M${now.x - ux * (160 + i * 30) - uy * o},${now.y - uy * (160 + i * 30) + ux * o} l${-ux * 180},${-uy * 180}" stroke="${C.violet}" stroke-width="7" stroke-linecap="round" opacity=".35"/>`);
+  }
+  s += sparks(t, now.x, now.y - 20, 6.42, 12, 34);
+  s += bird(t, now);
+  s += `</g>`;
+  if (now.logo > 0) s += `<g opacity="${now.logo}" transform="translate(540 ${360 - (1 - now.logo) * 30})">${HUM.spark(-150, -16, 26, C.coral)}<text x="-110" y="0" font-family="Space Grotesk" font-weight="700" font-size="84" fill="${C.ink}">Floey</text><text x="-108" y="54" font-family="Space Grotesk" font-weight="700" font-size="34" fill="${C.magenta}">from Flowra</text></g>`;
+  document.getElementById("stage").innerHTML = s;
+};
+window.DURATION = DUR;
+window.render(0);
+</script></body></html>

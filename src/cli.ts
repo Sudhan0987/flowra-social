@@ -16,6 +16,7 @@ import { costSoFar } from "./claude.ts";
 import { render } from "./render.ts";
 import { writeScript, type Script, type Topic } from "./script.ts";
 import { postDraft, say } from "./slack.ts";
+import { direct, finalTest, pickFormat, research, storyboard, writeStory, type Board, type Brief, type Story } from "./pipeline.ts";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STATE = path.join(ROOT, "state/posts.json");
@@ -42,8 +43,9 @@ function audio(dir: string): void {
 }
 
 function message(s: Script, seconds: number): string {
+  const format = (s as unknown as { format: string }).format;
   return [
-    `*Flowra Social* · new reel draft: *${s.title}* (${Math.round(seconds)}s, ${s.kicker.toLowerCase()})`,
+    `*Flowra Social* · new reel draft: *${s.title}* (${Math.round(seconds)}s, story: ${format})`,
     "",
     "*Caption*",
     s.caption,
@@ -54,21 +56,85 @@ function message(s: Script, seconds: number): string {
   ].join("\n");
 }
 
-async function make(state: State, id?: string): Promise<void> {
-  const done = new Set(state.posts.map((p) => p.id));
-  const topic = id ? topics().find((t) => t.id === id) : topics().find((t) => !done.has(t.id));
-  if (!topic) return void console.log(id ? `No topic "${id}" in calendar/topics.json.` : "Every topic in calendar/topics.json has a reel. Add topics.");
-  const dir = path.join(ROOT, "drafts", topic.id);
-  mkdirSync(dir, { recursive: true });
-  console.log(`Writing ${topic.id}: ${topic.topic}`);
-  const script = await writeScript(topic);
-  writeFileSync(path.join(dir, "script.json"), JSON.stringify(script, null, 1) + "\n");
-  audio(dir);
-  const r = await render(dir);
-  const slack = await postDraft(r.mp4, message(script, r.seconds));
-  state.posts = state.posts.filter((p) => p.id !== topic.id);
-  state.posts.push({ id: topic.id, status: "draft", topic: topic.topic, format: topic.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), slack });
-  console.log(`Made ${topic.id}: ${r.mp4} (${r.seconds.toFixed(1)}s). Claude usage, API-equivalent: $${costSoFar().toFixed(2)}.`);
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40);
+const readJson = <T>(f: string): T => JSON.parse(readFileSync(f, "utf8")) as T;
+const writeJson = (f: string, v: unknown) => writeFileSync(f, JSON.stringify(v, null, 1) + "\n");
+
+/**
+ * One reel through the whole studio process (docs/production-process.md).
+ * Each stage's file is kept, so `make <id>` resumes a draft at the first
+ * stage whose file is missing. A seed topic id from calendar/topics.json
+ * steers the research instead of letting it pick.
+ */
+async function make(state: State, arg?: string): Promise<void> {
+  const seed = arg ? topics().find((t) => t.id === arg) : undefined;
+  const resume = arg && !seed && existsSync(path.join(ROOT, "drafts", arg)) ? arg : undefined;
+  const recent = state.posts.map((p) => p.topic);
+  const lastFormats = state.posts.map((p) => p.format);
+
+  let id = resume ?? "";
+  let brief: Brief;
+  if (resume) brief = readJson(path.join(ROOT, "drafts", id, "brief.json"));
+  else {
+    console.log("1. Research");
+    brief = await research(recent, seed ? { topic: seed.topic, angle: seed.angle } : undefined);
+    id = `r${String(state.posts.length + 1).padStart(3, "0")}-${slug(brief.topic)}`;
+    mkdirSync(path.join(ROOT, "drafts", id), { recursive: true });
+    writeJson(path.join(ROOT, "drafts", id, "brief.json"), brief);
+  }
+  const dir = path.join(ROOT, "drafts", id);
+  const f = (name: string) => path.join(dir, name);
+  console.log(`Reel ${id}: ${brief.topic} (${brief.goal})`);
+
+  if (!existsSync(f("script.json"))) {
+    const format = pickFormat(brief, lastFormats);
+    console.log(`2. Story, as "${format.name}"`);
+    const story = await writeStory(id, brief, format);
+    writeJson(f("script.json"), { ...story, template: `../drafts/${id}/scene.html` });
+  }
+  if (!existsSync(f("storyboard.json"))) {
+    console.log("3. Voice timing");
+    audio(dir);
+    console.log("4. Storyboard");
+    const story = readJson<Story & Record<string, unknown>>(f("script.json"));
+    const board = await storyboard(story, readJson(f("timeline.json")));
+    writeJson(f("storyboard.json"), board);
+    // the storyboard's sound effects join the script, and the cover frame is its pick
+    const beats = story.beats.map((b, i) => ({ ...b, sfx: board.panels.filter((p) => p.beat === i).flatMap((p) => p.sfx.map((x) => ({ at: +(p.at + x.at).toFixed(2), kind: x.kind }))) }));
+    writeJson(f("script.json"), { ...story, beats, posterAt: board.posterAt });
+    audio(dir); // again, now with the effects mixed in
+  }
+  if (!existsSync(f("scene.html"))) {
+    console.log("5-6. Director: animatic and animation");
+    // a director that runs out of time while polishing has still written a
+    // scene; the final test decides whether it is good enough
+    await direct(id).catch((e: unknown) => {
+      if (!existsSync(f("scene.html"))) throw e;
+      console.log(`Director stopped early (${e instanceof Error ? e.message : e}); using the scene it wrote`);
+    });
+    if (!existsSync(f("scene.html"))) throw new Error(`The director did not write drafts/${id}/scene.html`);
+  }
+  console.log("7. Render");
+  let r = await render(dir);
+  console.log("8. Final test");
+  let qa = await finalTest(id);
+  if (!qa.pass) {
+    console.log(`Final test failed, one more pass:\n${qa.problems.join("\n")}`);
+    await direct(id, qa.problems.map((x) => `- ${x}`).join("\n")).catch((e: unknown) => console.log(`Fix pass stopped early (${e instanceof Error ? e.message : e})`));
+    r = await render(dir);
+    qa = await finalTest(id);
+  }
+  writeJson(f("qa.json"), qa);
+  const story = readJson<Story & { format: string }>(f("script.json"));
+  state.posts = state.posts.filter((p) => p.id !== id);
+  if (!qa.pass) {
+    state.posts.push({ id, status: "failed", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), reason: qa.problems.join(" ").slice(0, 500) });
+    await say(`:warning: The reel "${story.title}" didn't pass its final test twice, so it isn't posted:\n${qa.problems.map((x) => `• ${x}`).join("\n").slice(0, 1500)}`);
+    return;
+  }
+  const slack = await postDraft(r.mp4, message(story as unknown as Script, r.seconds));
+  state.posts.push({ id, status: "draft", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), slack });
+  console.log(`Made ${id}: ${r.mp4} (${r.seconds.toFixed(1)}s). Claude usage, API-equivalent: $${costSoFar().toFixed(2)}.`);
 }
 
 async function main(): Promise<void> {

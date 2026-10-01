@@ -81,7 +81,7 @@ export async function render(dir: string, stills?: number[]): Promise<{ mp4: str
     const poster = path.join(dir, "poster.jpg");
     execFileSync("ffmpeg", ["-v", "error", "-y", "-framerate", String(FPS), "-i", path.join(frames, "%05d.jpg"), "-i", path.join(dir, "audio.wav"),
       "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "20", "-preset", "medium", "-r", String(FPS),
-      "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-shortest", "-movflags", "+faststart", mp4]);
+      "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-shortest", "-movflags", "+faststart", mp4]);
     execFileSync("cp", [path.join(frames, "00000.jpg"), poster]);
     rmSync(path.join(dir, "work"), { recursive: true, force: true });
     return { mp4, poster, seconds: timeline.duration };
