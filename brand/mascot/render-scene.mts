@@ -1,5 +1,7 @@
 // Render a Floey scene to video with its own sound.
-//   npx tsx brand/mascot/render-scene.mts <scene.html> <name> [id="line" ...] [--stills t1,t2,...]
+//   npx tsx brand/mascot/render-scene.mts <scene.html> <name> [id="line" ...] [--stills=t1,t2,...] [--out=<dir>] [--voice-only]
+// --out puts everything in that folder (default brand/mascot/out/<name>); --voice-only
+// speaks the lines and writes voice.json (seconds per line) without drawing.
 // 1. speaks each line (beak sync comes from these), 2. draws every frame,
 // 3. mixes the sound from the scene's cues, 4. joins them.
 import { chromium } from "playwright";
@@ -11,10 +13,11 @@ import { fileURLToPath } from "node:url";
 const HERE = path.dirname(fileURLToPath(import.meta.url)), ROOT = path.resolve(HERE, "../..");
 const [scene, name, ...rest] = process.argv.slice(2);
 const stillsArg = rest.find((a) => a.startsWith("--stills"));
+const outArg = rest.find((a) => a.startsWith("--out="))?.slice(6), voiceOnly = rest.includes("--voice-only");
 const lines = rest.filter((a) => /^\w+=/.test(a)).map((a) => [a.slice(0, a.indexOf("=")), a.slice(a.indexOf("=") + 1)]);
-const OUT = path.join(HERE, "out", name), FR = path.join(OUT, "frames"), FPS = 30;
+const OUT = outArg ? path.resolve(outArg) : path.join(HERE, "out", name), FR = path.join(OUT, "frames"), FPS = 30;
 mkdirSync(OUT, { recursive: true });
-const py = path.join(ROOT, ".venv/bin/python"), snd = path.join(HERE, "floey_sound.py");
+const py = process.env.PYTHON ?? path.join(ROOT, ".venv/bin/python"), snd = path.join(HERE, "floey_sound.py");
 const env = { ...process.env, ESPEAK_LIB: process.env.ESPEAK_LIB ?? "/opt/homebrew/lib/libespeak-ng.dylib", ESPEAK_DATA: process.env.ESPEAK_DATA ?? "/opt/homebrew/share/espeak-ng-data" };
 
 // lines come from the command line, or from the scene's own window.LINES
@@ -32,6 +35,8 @@ for (const [id, line] of lines as string[][]) {
   if (!existsSync(path.join(OUT, `${id}.mouth.json`)) || !existsSync(said) || readFileSync(said, "utf8") !== key) { execFileSync(py, [snd, "voice", id, line, OUT, emotion], { stdio: "inherit", env }); writeFileSync(said, key); }
   mouths[id] = JSON.parse(readFileSync(path.join(OUT, `${id}.mouth.json`), "utf8"));
 }
+writeFileSync(path.join(OUT, "voice.json"), JSON.stringify(Object.fromEntries(Object.entries(mouths).map(([id, m]) => [id, +(m.length / FPS).toFixed(2)]))));
+if (voiceOnly) { await browser.close(); console.log(path.join(OUT, "voice.json")); process.exit(0); }
 
 const page = await browser.newPage({ viewport: { width: 1080, height: 1920 } });
 page.on("pageerror", (e) => console.log("page error:", e.message));

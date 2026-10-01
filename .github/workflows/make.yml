@@ -1,6 +1,7 @@
 # Makes the next reel through the studio process in docs/production-process.md
-# (research, story, voice, storyboard, director, render, final test), all on
-# the Claude subscription. Originally: Claude writes the script,
+# (research, story, Floey's voice, storyboard, director, render, final test),
+# all on the Claude subscription. Floey speaks with the clean (Kokoro) voice
+# here; the acted (Chatterbox) voice needs a bigger machine. Originally: Claude writes the script,
 # a free local voice reads it, the page in reel/ is drawn frame by frame, and
 # the video goes to Slack #social for a ✅. Monday, Wednesday and Friday at
 # 10:30 India time, or by hand from the Actions tab (optionally with a topic id).
@@ -40,6 +41,7 @@ jobs:
       CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'opus' }}
       KOKORO_DIR: ${{ github.workspace }}/.kokoro
       TOPIC: ${{ inputs.topic }}
+      FLOEY_ENGINE: kokoro
     steps:
       - uses: actions/checkout@v5
 

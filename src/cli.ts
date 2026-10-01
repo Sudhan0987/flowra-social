@@ -13,10 +13,11 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { costSoFar } from "./claude.ts";
-import { render } from "./render.ts";
 import { writeScript, type Script, type Topic } from "./script.ts";
 import { postDraft, say } from "./slack.ts";
-import { direct, finalTest, pickFormat, research, storyboard, writeStory, type Board, type Brief, type Story } from "./pipeline.ts";
+import { HOUSE, finalTest, pickFormat, research, storyboard, writeStory, type Board, type Brief, type Story } from "./pipeline.ts";
+import { directFloey } from "./studio.ts";
+import type { Line } from "./scenecheck.ts";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STATE = path.join(ROOT, "state/posts.json");
@@ -37,9 +38,20 @@ const load = (): State => (existsSync(STATE) ? JSON.parse(readFileSync(STATE, "u
 const save = (s: State) => writeFileSync(STATE, JSON.stringify(s, null, 1) + "\n");
 const topics = (): Topic[] => JSON.parse(readFileSync(path.join(ROOT, "calendar/topics.json"), "utf8")).topics;
 
-function audio(dir: string): void {
-  const py = process.env.PYTHON ?? "python3";
-  execFileSync(py, [path.join(ROOT, "src/audio.py"), dir], { stdio: "inherit" });
+
+/** brand/mascot/render-scene.mts: voices the lines, draws the frames, mixes the sound. */
+function scene(page: string, name: string, extra: string[] = []): void {
+  const dir = path.dirname(page);
+  execFileSync("npx", ["tsx", path.join(ROOT, "brand/mascot/render-scene.mts"), page, name, `--out=${path.join(dir, "build")}`, ...extra], { stdio: "inherit", cwd: ROOT });
+}
+
+function renderReel(dir: string, posterAt: number): { mp4: string; seconds: number } {
+  scene(path.join(dir, "scene.html"), "reel");
+  const mp4 = path.join(dir, "reel.mp4");
+  execFileSync("cp", [path.join(dir, "build", "reel.mp4"), mp4]);
+  execFileSync("ffmpeg", ["-v", "error", "-y", "-ss", String(posterAt ?? 1), "-i", mp4, "-frames:v", "1", "-q:v", "3", path.join(dir, "poster.jpg")]);
+  const seconds = Number(execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", mp4]).toString().trim());
+  return { mp4, seconds };
 }
 
 function message(s: Script, seconds: number): string {
@@ -52,6 +64,7 @@ function message(s: Script, seconds: number): string {
     "",
     s.hashtags.join(" "),
     "",
+    ...((s as unknown as { editorNotes?: string[] }).editorNotes?.length ? ["*The script editor still had these notes* (decide whether they matter):", ...(s as unknown as { editorNotes: string[] }).editorNotes.slice(0, 4).map((n) => `• ${n.slice(0, 300)}`), ""] : []),
     "React :white_check_mark: to approve it for Instagram, or :x: to drop it. Reply in the thread with changes and I'll redo it.",
   ].join("\n");
 }
@@ -92,36 +105,36 @@ async function make(state: State, arg?: string): Promise<void> {
     const story = await writeStory(id, brief, format);
     writeJson(f("script.json"), { ...story, template: `../drafts/${id}/scene.html` });
   }
-  if (!existsSync(f("storyboard.json"))) {
-    console.log("3. Voice timing");
-    audio(dir);
-    console.log("4. Storyboard");
-    const story = readJson<Story & Record<string, unknown>>(f("script.json"));
-    const board = await storyboard(story, readJson(f("timeline.json")));
-    writeJson(f("storyboard.json"), board);
-    // the storyboard's sound effects join the script, and the cover frame is its pick
-    const beats = story.beats.map((b, i) => ({ ...b, sfx: board.panels.filter((p) => p.beat === i).flatMap((p) => p.sfx.map((x) => ({ at: +(p.at + x.at).toFixed(2), kind: x.kind }))) }));
-    writeJson(f("script.json"), { ...story, beats, posterAt: board.posterAt });
-    audio(dir); // again, now with the effects mixed in
+  // Floey's lines, exactly as she will say them (the scene reads lines.js and never changes it)
+  const story0 = readJson<Story>(f("script.json"));
+  const lines: Line[] = story0.beats.map((x, i) => (x.caption ? [`${x.role}${i}`, x.say, x.emotion, x.caption] : [`${x.role}${i}`, x.say, x.emotion]) as Line);
+  writeFileSync(f("lines.js"), `window.LINES = ${JSON.stringify(lines)};\n`);
+  if (!existsSync(f("build/voice.json"))) {
+    console.log("3. Floey's voice");
+    writeFileSync(f("voice.html"), '<!doctype html><script src="lines.js"></script>');
+    scene(f("voice.html"), "voice", ["--voice-only"]);
   }
+  const voice = readJson<Record<string, number>>(f("build/voice.json"));
+  const seconds = lines.map(([id]) => voice[id]);
+  if (!existsSync(f("storyboard.json"))) {
+    console.log("4. Storyboard");
+    writeJson(f("storyboard.json"), await storyboard(story0, seconds));
+  }
+  const board = readJson<Board>(f("storyboard.json"));
   if (!existsSync(f("scene.html"))) {
-    console.log("5-6. Director: animatic and animation");
-    // a director that runs out of time while polishing has still written a
-    // scene; the final test decides whether it is good enough
-    await direct(id).catch((e: unknown) => {
-      if (!existsSync(f("scene.html"))) throw e;
-      console.log(`Director stopped early (${e instanceof Error ? e.message : e}); using the scene it wrote`);
-    });
-    if (!existsSync(f("scene.html"))) throw new Error(`The director did not write drafts/${id}/scene.html`);
+    console.log("5-6. Director: scene, code checks, contact-sheet review");
+    const d = await directFloey(dir, HOUSE, { lines, story: story0, board, seconds: voice });
+    writeJson(f("director.json"), d.log);
   }
   console.log("7. Render");
-  let r = await render(dir);
+  let r = renderReel(dir, board.posterAt);
   console.log("8. Final test");
   let qa = await finalTest(id);
   if (!qa.pass) {
     console.log(`Final test failed, one more pass:\n${qa.problems.join("\n")}`);
-    await direct(id, qa.problems.map((x) => `- ${x}`).join("\n")).catch((e: unknown) => console.log(`Fix pass stopped early (${e instanceof Error ? e.message : e})`));
-    r = await render(dir);
+    const d = await directFloey(dir, HOUSE, { lines, story: story0, board, seconds: voice, notes: qa.problems.map((x) => `- ${x}`).join("\n") });
+    writeJson(f("director.json"), [...readJson<string[]>(f("director.json")), ...d.log]);
+    r = renderReel(dir, board.posterAt);
     qa = await finalTest(id);
   }
   writeJson(f("qa.json"), qa);
@@ -144,8 +157,7 @@ async function main(): Promise<void> {
     if (cmd === "make") await make(state, arg);
     else if (cmd === "render" && arg) {
       const dir = path.join(ROOT, "drafts", arg);
-      audio(dir);
-      console.log((await render(dir)).mp4);
+      console.log(renderReel(dir, readJson<Board>(path.join(dir, "storyboard.json")).posterAt).mp4);
     } else if (cmd === "status") for (const p of state.posts) console.log(`${p.madeAt.slice(0, 10)}  ${p.status.padEnd(9)}  ${p.id}`);
     else throw new Error(`Unknown command "${cmd ?? ""}". Use make [id], render <id> or status.`);
   } finally {

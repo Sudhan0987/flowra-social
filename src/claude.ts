@@ -46,6 +46,7 @@ function runClaude(args: string[], input: string, opts: { settingSources?: strin
     });
     let out = "";
     let err = "";
+    const started = Date.now();
     const timer = setTimeout(() => child.kill("SIGTERM"), opts.timeoutMs ?? TIMEOUT_MS);
     child.stdout.on("data", (d) => (out += d));
     child.stderr.on("data", (d) => (err += d));
@@ -59,6 +60,7 @@ function runClaude(args: string[], input: string, opts: { settingSources?: strin
         return reject(new StopError(`Claude Code exited ${code} without a result. ${err.slice(-800)}`));
       }
       equivalent += parsed.total_cost_usd ?? 0;
+      console.log(`   (claude: ${((Date.now() - started) / 60000).toFixed(1)} min, API-equivalent $${(parsed.total_cost_usd ?? 0).toFixed(2)})`);
       if (parsed.is_error || parsed.subtype !== "success") {
         const text = `${parsed.result ?? ""} ${err}`.slice(0, 800);
         const limited = /limit|quota|usage|429/i.test(text) || parsed.api_error_status === 429;
@@ -103,8 +105,8 @@ export async function askJson<T extends z.ZodType>(opts: { system: string; promp
  * (.claude/skills), and it may read, write and edit files and run only the
  * commands in `bash` (e.g. "npx tsx src/render.ts:*"). Used by the director.
  */
-export async function agent(opts: { prompt: string; system: string; bash: string[]; maxTurns?: number; timeoutMs?: number }): Promise<string> {
-  const allowed = ["Read", "Write", "Edit", "Glob", "Grep", "Skill", ...opts.bash.map((b) => `Bash(${b})`)].join(",");
+export async function agent(opts: { prompt: string; system: string; bash: string[]; maxTurns?: number; timeoutMs?: number; tools?: string[] }): Promise<string> {
+  const allowed = [...(opts.tools ?? ["Read", "Write", "Edit", "Glob", "Grep", "Skill"]), ...opts.bash.map((b) => `Bash(${b})`)].join(",");
   const res = await runClaude(
     ["--append-system-prompt", opts.system, "--allowedTools", allowed, "--permission-mode", "acceptEdits", "--max-turns", String(opts.maxTurns ?? 90), "--effort", "high"],
     opts.prompt,

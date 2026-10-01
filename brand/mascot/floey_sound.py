@@ -285,7 +285,8 @@ def floey_voice(k, line, plain=False, emotion="warm"):
 def kokoro():
     from kokoro_onnx import Kokoro
     from kokoro_onnx.config import EspeakConfig
-    return Kokoro(os.path.expanduser("~/.cache/hyperframes/tts/models/kokoro-v1.0.onnx"), os.path.expanduser("~/.cache/hyperframes/tts/voices/voices-v1.0.bin"),
+    base = os.environ.get("KOKORO_DIR") or os.path.expanduser("~/.cache/hyperframes/tts")
+    return Kokoro(os.path.join(base, "models", "kokoro-v1.0.onnx"), os.path.join(base, "voices", "voices-v1.0.bin"),
                   espeak_config=EspeakConfig(lib_path=os.environ.get("ESPEAK_LIB"), data_path=os.environ.get("ESPEAK_DATA")))
 
 

@@ -7,7 +7,7 @@ import { existsSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
-import { agent, askJson } from "./claude.ts";
+import { askJson } from "./claude.ts";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (f: string) => readFileSync(path.join(ROOT, f), "utf8");
@@ -32,7 +32,7 @@ const Brief = z.object({
   goal: z.enum(["send", "save"]).describe("send: funny, surprising or relatable enough to DM to a friend. save: useful enough to keep."),
   audience: z.string().describe("Who exactly it is for."),
   facts: z.array(z.object({ fact: z.string(), source: z.string().describe("URL, or 'Flowra facts file', or 'Flowra finding'") })).describe("Every fact the reel may state, each with its source."),
-  visualIdea: z.string().describe("The one central image or metaphor that could carry the whole reel."),
+  visualIdea: z.string().describe("The one central image that could carry the whole reel, drawn in Floey's garden with the studio's parts: pages are flowers whose health rises or falls, bugs are errors Floey eats, the PAGE 1 line, tags, the review card, day counter, clicks chart. No new worlds or effects."),
   pillar: z.enum(["problem", "news", "myth", "story", "fun", "product"]),
 });
 export type Brief = z.infer<typeof Brief>;
@@ -45,6 +45,7 @@ export async function research(recent: string[], seed?: { topic: string; angle: 
       "Pillars, in rough proportion: problems buyers have and their fixes (30%), SEO and AI-search news explained (20%), myths (15%), true stories and findings (15%), fun and relatable (15%), product (5%, only when it genuinely helps).",
       "Research like a strategist: search this week's SEO and AI search news (Google updates, AI Overviews, ChatGPT search, crawler changes), questions people ask on Reddit (r/SEO, r/bigseo, r/content_marketing) and forums, and what similar accounts post. Prefer a topic where the reel can show something, not just say it.",
       "Every fact must have a source. If you cannot source it, leave it out.",
+    "The reel will be animated in Floey's garden with a fixed set of parts; propose a visual idea that those parts can tell:\n" + read("brand/studio/README.md").split("## Props")[0],
       "The facts file:",
       read("facts/flowra.md"),
     ].join("\n\n"),
@@ -58,11 +59,13 @@ export async function research(recent: string[], seed?: { topic: string; angle: 
 }
 
 // ---------- 2. story ----------
+const EMOTIONS = ["ominous", "worried", "curious", "warm", "bright", "determined", "proud", "excited", "playful"] as const;
 const Beat = z.object({
-  role: z.enum(["hook", "body", "payoff", "loop"]),
-  say: z.string().describe("What the voice says. Spoken English, no symbols or links (write useflowra.com as is)."),
+  role: z.enum(["hook", "body", "payoff", "loop", "go", "url"]),
+  say: z.string().describe("What Floey says. Spoken English, no symbols or links (write useflowra.com as is)."),
+  emotion: z.enum(EMOTIONS).describe("How Floey delivers this line; it sets her voice's pitch, pace and acting."),
   caption: z.string().optional().describe("Only when the on-screen caption should differ from the spoken words, e.g. '429' for 'four twenty nine'."),
-  visual: z.string().describe("What the picture shows while this is said: a concrete scene with characters, objects and action. Never 'text on screen'."),
+  visual: z.string().describe("What the picture shows while this is said, in Floey's garden: what Floey does, which page-flowers change and how, any prop. Never 'text on screen'."),
 });
 const Story = z.object({
   title: z.string(),
@@ -71,7 +74,7 @@ const Story = z.object({
   caption: z.string(),
   hashtags: z.array(z.string()),
 });
-export type Story = z.infer<typeof Story> & { id: string; format: string; goal: string; topic: string };
+export type Story = z.infer<typeof Story> & { id: string; format: string; goal: string; topic: string; editorNotes?: string[] };
 
 const words = (s: string) => s.split(/\s+/).filter(Boolean).length;
 export function storyProblems(s: Story): string[] {
@@ -87,8 +90,11 @@ export function storyProblems(s: Story): string[] {
   if (/\b(a|one|every|many|most|some) (site|website|business|store|blog) owners?\b|\b(a|one) (marketer|seo|blogger)\b/i.test(s.beats.map((b) => b.say).join(" "))) out.push("The voice talks about a generic stranger ('a site owner'); talk to the viewer with you and your.");
   if (!/\byou(r|'re|'ll|'ve)?\b/i.test(s.beats.slice(0, 2).map((b) => b.say).join(" "))) out.push("The first two beats never say you or your; speak to the viewer directly.");
   if (!s.beats.some((b) => b.role === "payoff")) out.push("There is no payoff beat.");
-  if (s.beats[s.beats.length - 1]?.role !== "loop") out.push("The last beat must be the loop.");
-  if (s.beats.length < 4 || s.beats.length > 8) out.push(`Use 4 to 8 beats, not ${s.beats.length}.`);
+  const n3 = s.beats.length;
+  if (s.beats[n3 - 3]?.role !== "loop" || s.beats[n3 - 2]?.role !== "go" || s.beats[n3 - 1]?.role !== "url") out.push("End with three beats in this order: loop (leads back to the opening), go (Floey calls the viewer to act with energy, like 'Come on, let's go fix it!'), url (only 'useflowra.com.').");
+  if (s.beats[n3 - 1] && s.beats[n3 - 1].say.trim().toLowerCase() !== "useflowra.com.") out.push("The url beat says only 'useflowra.com.'.");
+  if (s.beats[n3 - 2] && words(s.beats[n3 - 2].say) > 8) out.push("The go beat is a short, energetic call of at most 8 words.");
+  if (s.beats.length < 6 || s.beats.length > 10) out.push(`Use 6 to 10 beats, not ${s.beats.length}.`);
   if (s.beats.some((b) => /text on screen|title card|words appear/i.test(b.visual))) out.push("A visual is a text card; every beat needs a picture that explains it.");
   if (s.hashtags.length < 3 || s.hashtags.length > 6 || s.hashtags.some((h) => !/^#[a-z0-9]+$/.test(h))) out.push("3 to 6 lowercase hashtags like #seo.");
   if (s.caption.length < 150 || s.caption.length > 1200) out.push("Caption 150 to 1200 characters.");
@@ -106,24 +112,71 @@ export function pickFormat(brief: Brief, lastFormats: string[]): Format {
 
 export async function writeStory(id: string, brief: Brief, format: Format): Promise<Story> {
   const system = [
-    "You write 25 to 35 second animated reels for Flowra's Instagram. A voice reads your lines; the picture is an illustrated animation (characters, objects, a moving camera). Captions of the voice are burned in, so the picture must never repeat the words as text: it shows the idea.",
+    "You write 25 to 35 second animated reels for Flowra's Instagram, told by Floey, Flowra's hummingbird, in her garden where every web page is a flower. Floey speaks every line to the viewer, in her own warm, quick, curious voice; she may say I and we. Captions of her voice are burned in, so the picture must never repeat the words as text: it shows the idea.",
     HOUSE,
     `Story structure for this reel: ${format.name}. Beats: ${format.beats.join(" | ")}. Visual approach: ${format.visual}`,
-    "Rules: the hook lands in the first 2 seconds and is at most 14 words, a specific tension, never a greeting. A small payoff every 6 to 8 seconds. The last beat (role loop) is the call to action folded into a line that leads naturally back to the first frame, so a replay feels like it continues. Total 65 to 95 spoken words. Mention Flowra only in the loop, if at all, and never as hype.",
-    "Talk to the viewer, not about a stranger: say you and your (your traffic, your page, your client's site), never 'a site owner', 'a marketer', 'one SEO' or 'many people'. The hook is a specific statement aimed at the viewer, never a yes or no question ('Is your traffic dropping?' gets a silent no and a scroll; 'Your traffic didn't drop because of the update.' opens a gap they need closed). A character on screen can act the story out while the voice still speaks to the viewer.",
-    "Each beat's visual is a concrete scene a designer could draw: who is on screen, what they do, what changes. Use characters and metaphors: robots for crawlers, a bouncer for a block, a sinking page for decay, a race for rankings.",
+    "The world (use it, do not invent other characters): pages are flowers; a fading page loses colour and droops, a thriving one glows and sways; problems on a site (404s, broken links, errors) are little bugs Floey catches and eats; a dashed PAGE 1 line in the garden is page one of Google; Floey can show a change preview card with a Publish button, a day counter, a small clicks chart, pill tags on flowers. She can dart, hover, land, sip, preen, flash her throat, eat bugs, tap buttons, and turn to the viewer to talk.",
+    "Rules: the hook lands in the first 2 seconds and is at most 14 words, a specific tension, never a greeting. A small payoff every 6 to 8 seconds. The story ends with three beats: loop (a line that leads naturally back to the first frame, so a replay continues), go (Floey calls the viewer to act with energy, at most 8 words, e.g. 'Come on, let's go fix it!'), url (only 'useflowra.com.'). Total 65 to 95 spoken words. Mention Flowra only near the end, if at all, and never as hype.",
+    "The brief's visual idea is a starting point; if any part of it cannot be drawn with the studio, drop that part. The studio always wins. The Instagram caption is 150 to 1000 characters with 3 to 6 lowercase hashtags.",
+    "THE APPROVED EXAMPLE (reel 000, the founder loved it). Its lines, with the emotion of each:\n" + JSON.stringify((() => { const m = read("reels/r000-floey-intro/scene.html").match(/const LINES = (\[[\s\S]*?\]);/); return m ? m[1] : ""; })()) + "\nWhy it works: the hook is a specific, slightly alarming claim about the viewer's own site that they cannot check right now ('One of your pages is losing clicks right now. You just can't see it.'); every next line answers the question the last one raised; the payoff is shown (a flower blooming, a chart climbing); the loop line restarts the problem; the ending is pure energy, then the address. Hooks that fail: a label or caption ('Your pages, lined up worst first'), a tautology true of every site ('One page lost more than the others'), a yes or no question, a greeting.",
+    "Talk to the viewer, not about a stranger: say you and your (your traffic, your page, your client's site), never 'a site owner', 'a marketer', 'one SEO' or 'many people'. The hook is a specific statement aimed at the viewer, never a yes or no question.",
+    "Draw only with the studio's parts (listed in the world above) plus at most one or two simple new props for the whole reel; flowers stay rooted (they change health, sway, droop, glow), the camera and Floey do the moving. Name the real thing (pages, clicks, traffic) in the spoken hook; the picture carries the flower metaphor. Never put the spoken sentence on screen; short interface labels a viewer needs to follow along (a tab or column name like 'Compare' or 'Difference', one number) are fine.",
+    "Give every line an emotion that matches the moment (ominous or worried for a problem, curious for a question, determined for the fix, proud or excited for the payoff, playful for the address).",
+    "Each beat's visual is a concrete garden scene an animator could draw: what Floey does, which flower changes and how, any prop.",
   ].join("\n\n");
   const prompt = `The brief:\n${JSON.stringify(brief, null, 1)}\n\nWrite the reel. Use only the brief's facts.`;
   let draft = await askJson({ system, prompt, schema: Story, effort: "high" });
-  let story: Story = { ...draft, id, format: format.id, goal: brief.goal, topic: brief.topic };
-  let issues = storyProblems(story);
-  if (issues.length) {
-    draft = await askJson({ system, prompt: `${prompt}\n\nYour draft:\n${JSON.stringify(draft, null, 1)}\n\nFix every one of these and keep what works:\n${issues.map((x) => `- ${x}`).join("\n")}`, schema: Story, effort: "high" });
-    story = { ...draft, id, format: format.id, goal: brief.goal, topic: brief.topic };
-    issues = storyProblems(story);
-    if (issues.length) throw new Error(`The story for ${id} still fails: ${issues.join(" ")}`);
+  // trivial format slips are repaired in code, not with a rewrite
+  const tidy = (d: typeof draft): typeof draft => {
+    const beats = d.beats.map((b, i) => (i === d.beats.length - 1 && b.role === "url" ? { ...b, say: "useflowra.com." } : b));
+    const hashtags = [...new Set(d.hashtags.map((h) => "#" + h.toLowerCase().replace(/[^a-z0-9]/g, "")).filter((h) => h.length > 2))].slice(0, 6);
+    return { ...d, beats, hashtags };
+  };
+  const as = (d: typeof draft): Story => ({ ...tidy(d), id, format: format.id, goal: brief.goal, topic: brief.topic });
+  // every earlier note travels with each rewrite, so a fix is never undone by the next one
+  const history: string[] = [];
+  const rewrite = async (notes: string[]) => {
+    const earlier = history.length ? `\n\nEarlier notes, already addressed; keep them addressed:\n${history.map((x) => `- ${x}`).join("\n")}` : "";
+    draft = await askJson({ system, prompt: `${prompt}\n\nYour draft:\n${JSON.stringify(tidy(draft), null, 1)}\n\nFix every one of these and keep what works:\n${notes.map((x) => `- ${x}`).join("\n")}${earlier}`, schema: Story, effort: "high" });
+    history.push(...notes.filter((n) => !n.startsWith("(polish)")));
+  };
+  // code checks (cheap) get two rewrites per draft; the editor one
+  let checks = 0, edits = 0;
+  for (;;) {
+    const issues = storyProblems(as(draft));
+    if (issues.length) {
+      if (checks++ === 2) throw new Error(`The story for ${id} still fails its checks: ${issues.join(" ")}`);
+      console.log(`   story checks: ${issues.join(" | ")}`);
+      await rewrite(issues);
+      continue;
+    }
+    const notes = await editStory(as(draft), brief);
+    if (!notes.length) return as(draft);
+    // One editor rewrite, then the founder decides. A strict editor always finds
+    // something new, and chasing it cost about $3 per story with no end.
+    if (edits++ === 1) return { ...as(draft), editorNotes: notes } as Story;
+    console.log(`   story editor: ${notes.join(" | ").slice(0, 600)}`);
+    await rewrite(notes);
+    checks = 0; // a rewritten draft gets its own two check fixes
   }
-  return story;
+}
+
+const Edit = z.object({ problems: z.array(z.object({ blocking: z.boolean().describe("True if a viewer would notice it or it is untrue, unclear, undrawable or would not work. False for polish."), note: z.string().describe("The problem and what to do instead.") })) });
+/** The script editor: reads the story as a viewer would, before any voice or drawing is spent on it. */
+async function editStory(story: Story, brief: Brief): Promise<string[]> {
+  const r = await askJson({
+    system: [
+      "You are the script editor for Flowra's Instagram reels, told by Floey the hummingbird. You read a script the way a viewer scrolling past would, and you only pass it when it is excellent. Be specific and strict; do not rewrite it yourself.",
+      HOUSE,
+      "Fail it for: a hook a stranger would not understand in 2 seconds, or one that is muddled or abstract; any line that sounds unnatural spoken aloud, or is confusing out of context; any claim not backed by the brief's facts, or that is untrue or overstated (for example claiming a tool has an alert feature it does not have); a story whose steps would not actually work if the viewer followed them; a payoff that is not clearly shown; a loop that does not lead back to the opening image; a visual the animator cannot draw with the studio below (note: each line's emotion is Floey's VOICE delivery, one of ominous, worried, curious, warm, bright, determined, proud, excited, playful; her face moods are chosen later by the animator, so never fail an emotion for not being a face mood) (only Floey, page-flowers whose health changes, bugs, tags, the review card, day counter, clicks chart, PAGE 1 line, sparks, end card, plus at most one or two simple new props per reel).",
+      "The studio:\n" + read("brand/studio/README.md"),
+    ].join("\n\n"),
+    prompt: `The brief (the only facts allowed):\n${JSON.stringify(brief, null, 1)}\n\nThe script:\n${JSON.stringify({ title: story.title, beats: story.beats, loopNote: story.loopNote }, null, 1)}\n\nList every real problem, marking each blocking or polish.`,
+    schema: Edit,
+    effort: "high",
+  });
+  // only blocking notes stop a script; polish rides along if a rewrite happens anyway
+  return r.problems.some((p) => p.blocking) ? r.problems.map((p) => (p.blocking ? p.note : `(polish) ${p.note}`)) : [];
 }
 
 // ---------- 4. storyboard ----------
@@ -140,42 +193,24 @@ const Panel = z.object({
 const Board = z.object({ style: z.string().describe("One line fixing the look for the whole reel: palette use, setting, recurring characters."), panels: z.array(Panel), posterAt: z.number().describe("Seconds into the reel for the cover frame: the most intriguing complete image in the first 5 seconds.") });
 export type Board = z.infer<typeof Board>;
 
-export async function storyboard(story: Story, timeline: { beats: { start: number; spokenEnd: number; end: number }[] }): Promise<Board> {
-  const kit = read("reel/kit/kit.js").split("\n").filter((l) => l.startsWith("//") || /K\.\w+ = function/.test(l)).join("\n");
+export async function storyboard(story: Story, seconds: number[]): Promise<Board> {
+  const kit = read("brand/studio/README.md");
   return askJson({
     system: [
-      "You are the storyboard artist for an animated explainer reel (1080x1920, 30 fps). Plan every panel so the picture explains the story on its own; the voice and captions carry the words.",
+      "You are the storyboard artist for an animated explainer reel (1080x1920, 30 fps) starring Floey the hummingbird in her page-flower garden. Plan every panel so the picture explains the story on its own; Floey's voice and the captions carry the words.",
+      HOUSE,
       "Cinematography: open on the most intriguing image (it is also the cover). Vary shot sizes; push in on a reveal, pull out to show scale, whip-pan between places or times, a short shake on impact. Keep the subject inside x 80 to 960 and y 250 to 1300 (Instagram covers the rest). One idea per panel, 1.5 to 4 seconds each. Motion with anticipation and follow-through.",
-      "You draw with this kit (characters and props available to the animator):",
+      "The animator draws with Floey's studio (her behaviours, the garden, the props). Plan only what it can draw:",
       kit,
       "Sound: an effect only on a real event (impact, reveal, typing). Never more than one every 0.4 seconds.",
     ].join("\n\n"),
-    prompt: `The story:\n${JSON.stringify(story.beats.map((b, i) => ({ beat: i, role: b.role, say: b.say, visual: b.visual, seconds: +(timeline.beats[i].end - timeline.beats[i].start).toFixed(2) })), null, 1)}\n\nStoryboard it.`,
+    prompt: `The story:\n${JSON.stringify(story.beats.map((b, i) => ({ beat: i, role: b.role, say: b.say, visual: b.visual, seconds: seconds[i] })), null, 1)}\n\nStoryboard it.`,
     schema: Board,
     effort: "high",
   });
 }
 
-// ---------- 5 and 6. director: animatic, then animation ----------
-export async function direct(id: string, notes = ""): Promise<string> {
-  const dir = `drafts/${id}`;
-  return agent({
-    system: [
-      "You are the director and animator of one Flowra reel. You build the scene page, look at your own frames, and fix what a good motion designer would fix. Your skills include hyperframes-animation, motion-graphics, animate, review-animations and impeccable: load the animation ones before you start.",
-      HOUSE,
-    ].join("\n"),
-    prompt: [
-      `Build ${dir}/scene.html: the animation for the reel in ${dir}. Read first: ${dir}/script.json (the story), ${dir}/storyboard.json (the panels), ${dir}/timeline.json (when each beat starts and ends; the voice is fixed), reel/kit/kit.js (the characters, props, camera director and captions you draw with), and reel/scenes/gptbot.html (a finished reel at the quality bar: study how it builds a world, moves the camera and times action to the voice).`,
-      "The page must: load ../../reel/kit/kit.js; set up fonts from ../../reel/assets/ (see gptbot.html); build everything once; define window.render = async (t) => {...} as a pure function of t (no Date, no random without a seed, no requestAnimationFrame timing); call KIT.reelUI() for captions; set window.ready to a promise that resolves after fonts load and the first render.",
-      "Follow the storyboard panel by panel, timing each to the timeline. The picture explains; on-screen text only for the one piece of data a panel names. Use the director (KIT.camera) for every camera move.",
-      `Animatic: once it runs, draw stills with \`npx tsx src/render.ts ${dir} --stills <times>\` (comma separated seconds, one or two per panel) and open them with Read from ${dir}/stills/. For each still ask: is the subject clear and inside the safe area, does it show what this line says, is anything clipped, overlapping or empty-looking? Fix and draw again. Then check motion by drawing 4 stills across one busy panel.`,
-      "Stop when every panel reads clearly at phone size. Do not render the full video; the pipeline does that.",
-      notes ? `Fix these problems from the final test, then check them in stills:\n${notes}` : "",
-    ].join("\n\n"),
-    bash: ["npx tsx src/render.ts:*"],
-    maxTurns: 120,
-  });
-}
+// ---------- 5 and 6. director: src/studio.ts (directFloey) ----------
 
 // ---------- 8. final test ----------
 const Verdict = z.object({ pass: z.boolean(), problems: z.array(z.string()) });
@@ -183,7 +218,7 @@ export async function finalTest(id: string): Promise<{ pass: boolean; problems: 
   const dir = path.join(ROOT, "drafts", id);
   const problems: string[] = [];
   const story = json<Story>(path.join(dir, "script.json"));
-  const tl = json<{ duration: number }>(path.join(dir, "timeline.json"));
+  const tl = { duration: Number(execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path.join(dir, "reel.mp4")]).toString().trim()) };
   if (tl.duration < 15 || tl.duration > 45) problems.push(`Length ${tl.duration.toFixed(1)}s is outside 15 to 45 seconds.`);
   const lufs = execFileSync("ffmpeg", ["-hide_banner", "-nostats", "-i", path.join(dir, "reel.mp4"), "-af", "ebur128", "-f", "null", "-"], { stdio: ["ignore", "pipe", "pipe"] }).toString();
   void lufs; // ffmpeg writes the summary to stderr; loudness is normalised at render time
@@ -203,4 +238,4 @@ export async function finalTest(id: string): Promise<{ pass: boolean; problems: 
   return { pass: problems.length === 0 && v.pass, problems: [...problems, ...v.problems] };
 }
 
-export { save, json, existsSync };
+export { save, json, existsSync, HOUSE };

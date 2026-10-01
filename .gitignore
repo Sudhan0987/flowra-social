@@ -22,3 +22,7 @@ drafts/*/*.wav
 drafts/*/poster.jpg
 .DS_Store
 __pycache__/
+
+# the new pipeline's working folder (voices, frames, mix)
+drafts/*/build/
+.venv-cb/
