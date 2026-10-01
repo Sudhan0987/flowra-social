@@ -13,8 +13,10 @@
 name: Make a reel
 
 on:
-  schedule:
-    - cron: "0 5 * * 1,3,5"
+  # Paused 2026-10-01 while the director moves to Floey and the garden
+  # (the old style was rejected). Turn back on after the founder approves v2.
+  # schedule:
+  #   - cron: "0 5 * * 1,3,5"
   workflow_dispatch:
     inputs:
       topic:
