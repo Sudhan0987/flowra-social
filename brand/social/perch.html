@@ -8,22 +8,34 @@
 </head><body>
 <svg id="stage" width="1080" height="1080" viewBox="0 0 1080 1080"></svg>
 <script>
-// The Flowra logo stays still and is the subject. Floey flies in from outside,
-// brakes, and lands on the top point of the spark; the camera never follows her.
+// The Flowra logo stays still and is the subject. Floey flies in sideways from
+// the left, lands on the spark's left arm like a bird on a branch, then turns
+// to face the camera with a straight, calm face. The camera never follows her.
 // The last frame is the profile picture.
-const C = HUM.colors, DUR = 4.2;
-const L = { x: 540, y: 600, R: 330 };
+const C = HUM.colors, DUR = 4.6;
+const L = { x: 580, y: 590, R: 330 };
 const k = L.R * 0.16;
 const spark = `M${L.x},${L.y - L.R} Q${L.x + k},${L.y - k} ${L.x + L.R},${L.y} Q${L.x + k},${L.y + k} ${L.x},${L.y + L.R} Q${L.x - k},${L.y + k} ${L.x - L.R},${L.y} Q${L.x - k},${L.y - k} ${L.x},${L.y - L.R}Z`;
 const K = 0.6; // Floey is small: the logo is the hero
-// perched: her feet (local 163, 261) rest on the spark's top point
-const perch = { x: L.x - 3 * K, y: L.y - L.R - 6 - (261 - 150) * K };
-const F = FLOEY.create({ x: 1320, y: -160, facing: 1, scale: K, mood: "determined" });
-F.dart(0.75, perch.x + 120, perch.y - 90, 0.5)
- .land(1.55, perch.x, perch.y, 0.42)
- .mood(2.05, "happy").look(2.3, 0.6, 0.1).mood(2.9, "hello").look(3.0, 0.9, 0);
+// a point on the top edge of the left arm (s 0 = arm tip, 1 = top point), lifted
+// by half the outline so her feet rest on the outside of the cream stroke
+const arm = (s) => {
+  const P0 = [L.x - L.R, L.y], Q = [L.x - k, L.y - k], P1 = [L.x, L.y - L.R], u = 1 - s;
+  const x = u * u * P0[0] + 2 * s * u * Q[0] + s * s * P1[0], y = u * u * P0[1] + 2 * s * u * Q[1] + s * s * P1[1];
+  const dx = 2 * u * (Q[0] - P0[0]) + 2 * s * (P1[0] - Q[0]), dy = 2 * u * (Q[1] - P0[1]) + 2 * s * (P1[1] - Q[1]), n = Math.hypot(dx, dy);
+  return [x + (dy / n) * 14, y - (dx / n) * 14];
+};
+const [fx, fy] = arm(0.14);
+const side = { x: fx - 3 * K, y: fy - (249 - 150) * K };   // feet of the side view
+const front = { x: fx + 10 * K, y: fy - (249 - 150) * K }; // feet of the front view
+const F = FLOEY.create({ x: -160, y: side.y - 70, facing: -1, scale: K, mood: "determined" });
+F.dart(0.55, side.x - 130, side.y - 40, 0.5, -1)
+ .land(1.3, side.x, side.y, 0.42)
+ .mood(1.95, "happy")
+ .pivot(2.45, "front").move(2.45, front.x, front.y, 0.08)
+ .mood(2.75, "hello").look(2.8, 0, 0, 0.1);
 const W = { glow: 0 };
-const wt = gsap.timeline({ paused: true }).to(W, { glow: 1, duration: 0.35, ease: "power2.out" }, 1.97).to(W, { glow: 0, duration: 0.8, ease: "power2.in" }, 2.32);
+const wt = gsap.timeline({ paused: true }).to(W, { glow: 1, duration: 0.35, ease: "power2.out" }, 1.72).to(W, { glow: 0, duration: 0.8, ease: "power2.in" }, 2.07);
 
 window.render = (t) => {
   wt.seek(t, false);
@@ -34,9 +46,10 @@ window.render = (t) => {
   </defs>
   <rect width="1080" height="1080" fill="url(#bg)"/>
   <path d="${spark}" fill="url(#lg)" stroke="#f6efe3" stroke-width="28" stroke-linejoin="round"/>
-  ${W.glow > 0 ? [-1, 0, 1].map((i) => `<g opacity="${W.glow}">${HUM.spark(L.x + i * (46 + W.glow * 30), L.y - L.R + 10 - Math.abs(i) * 6 - W.glow * 20 - (i === 0 ? 30 : 0), 10 + W.glow * 4, "#f2b247")}</g>`).join("") : ""}
+  ${W.glow > 0 ? [-1, 0, 1].map((i) => `<g opacity="${W.glow}">${HUM.spark(fx + i * (40 + W.glow * 26), fy - 120 - Math.abs(i) * -14 - W.glow * 20 - (i === 0 ? 24 : 0), 9 + W.glow * 4, "#f2b247")}</g>`).join("") : ""}
   <g filter="url(#sticker)">${F.trail(t)}${F.svg(t)}</g>`;
 };
 window.DURATION = DUR;
+window.STILLS = [0.3, 0.8, 1.2, 1.5, 1.75, 2.3, 2.6, DUR];
 window.render(0);
 </script></body></html>

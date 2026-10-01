@@ -2,6 +2,11 @@
 
 Newest first. Each entry: date, what Sudhan said (close to his words), and what changed.
 
+## 2026-10-01 (night)
+- **Floey should not sit on top of the logo; she sits on the spark's left arm like a bird on a branch, arrives sideways, and faces the camera with a straight face.** perch.html redone that way.
+- **Navbar: keep the logo's spin animation; Floey flies in, sits on the logo, then leaves, and the logo carries on as before.**
+- Reel posting waits for auto-posting.
+
 ## 2026-10-01 (evening)
 - **Both voices are great; save both and pick by preference.** Saved as presets in brand/voice.json.
 - Profile picture: Floey small, perched on the logo; the logo stays the focus.
