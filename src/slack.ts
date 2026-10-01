@@ -33,7 +33,8 @@ async function channel(): Promise<string> {
 /** A plain message as "Flowra Social". */
 export async function say(text: string): Promise<void> {
   if (!process.env.SLACK_BOT_TOKEN) return void console.log(`(Slack) ${text}`);
-  await call("chat.postMessage", { channel: await channel(), text, username: "Flowra Social", icon_emoji: ":clapper:", unfurl_links: false, unfurl_media: false });
+  // <!channel> makes Slack push a notification; plain bot posts arrive silently
+  await call("chat.postMessage", { channel: await channel(), text: `<!channel> ${text}`, username: "Flowra Social", icon_emoji: ":clapper:", unfurl_links: false, unfurl_media: false });
 }
 
 /**
@@ -50,7 +51,7 @@ export async function postDraft(file: string, text: string): Promise<{ channel: 
   const up = await call<{ upload_url: string; file_id: string }>("files.getUploadURLExternal", { filename: path.basename(file), length: statSync(file).size }, true);
   const put = await fetch(up.upload_url, { method: "POST", body: bytes });
   if (!put.ok) throw new Error(`Slack upload failed: ${put.status}`);
-  await call("files.completeUploadExternal", { files: [{ id: up.file_id, title: path.basename(file) }], channel_id: ch, initial_comment: text });
+  await call("files.completeUploadExternal", { files: [{ id: up.file_id, title: path.basename(file) }], channel_id: ch, initial_comment: `<!channel> ${text}` });
   // The share is posted a moment later; find the message that carries the file.
   for (let i = 0; i < 10; i++) {
     await new Promise((r) => setTimeout(r, 2000));
