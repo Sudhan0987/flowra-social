@@ -13,233 +13,273 @@
 <svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
 <script>
 // r002: find the pages fading inside a flat clicks line (before, after, bridge).
-// Wide: a flat clicks chart over a garden that looks fine. Up close: two pages
-// are fading. Bridge: Floey walks Search Console's Performance report (drawn in
-// her own paper and ink): Date, Compare, Pages, Clicks Difference, Queries.
-// Each tap collects as a step chip (the thing worth saving). Ending: she eats
-// the bug in the worst page, it starts to bloom, and the camera lands back on
-// the opening wide shot with that one flower brighter.
+// AFTER (hook): the report already open, compared, sorted; the worst page's row
+// glows over its drooping flower. BEFORE: Floey dashes right to left and the
+// answer clears in her wake: one flat line, six flowers that look fine. Up
+// close, two pages fade on cue. BRIDGE: Date, Compare, Pages, Clicks Difference
+// twice, Queries, drawn in Floey's own paper and ink. "Save this" lands back on
+// the finished table; she catches the page's bug, and the camera pulls back to
+// the opening frame exactly (the fix comes next, so the flower stays faded).
 const C = HUM.colors, M = window.MOUTHS || {};
 const LINES = window.LINES;
+// ask for both fonts now (no caption shows at t 0), so document.fonts.ready waits for them
+// and no box is ever measured with a fallback font
+document.fonts.load("800 50px 'Public Sans'"); document.fonts.load("700 28px 'Space Grotesk'");
 const GAP = { hook0: 0.45, body1: 0.35, body2: 0.5, body3: 0.4, body4: 0.6, body5: 0.6, payoff6: 0.55, loop7: 0.4, go8: 0.75, url9: 0.35 };
 const { B, DUR } = PROPS.timing(LINES, M, GAP);
 const b = B, INK = C.ink, FONT = "Space Grotesk";
 const clamp = (v, a = 0, z = 1) => Math.max(a, Math.min(z, v));
+const smooth = (k) => { k = clamp(k); return k * k * (3 - 2 * k); };
 
 // ---------- the garden: six pages; the third (F3) and fifth (F5) are quietly fading ----------
 const FL = {
-  F1: { x: 90, base: 1720, h: 470, pal: [C.amber, C.coral, C.magenta], dir: 1, seed: 5 },
-  F2: { x: 250, base: 1720, h: 330, pal: [C.magenta, C.violet, C.amber], dir: -1, seed: 9 },
-  F3: { x: 430, base: 1720, h: 640, pal: [C.violet, C.indigo, C.magenta], dir: -1, seed: 3 },
-  F4: { x: 610, base: 1720, h: 360, pal: [C.indigo, C.violet, C.coral], dir: 1, seed: 13 },
-  F5: { x: 800, base: 1720, h: 600, pal: [C.coral, C.amber, C.magenta], dir: -1, seed: 11 },
-  F6: { x: 985, base: 1720, h: 470, pal: [C.magenta, C.amber, C.violet], dir: 1, seed: 17 },
+  F1: { x: 30, base: 1720, h: 480, pal: [C.amber, C.coral, C.magenta], dir: 1, seed: 5 },
+  F2: { x: 190, base: 1720, h: 380, pal: [C.magenta, C.violet, C.amber], dir: -1, seed: 9 },
+  F3: { x: 480, base: 1720, h: 450, pal: [C.violet, C.indigo, C.magenta], dir: -1, seed: 3 },
+  F4: { x: 655, base: 1720, h: 370, pal: [C.indigo, C.violet, C.coral], dir: 1, seed: 13 },
+  F5: { x: 820, base: 1720, h: 440, pal: [C.coral, C.amber, C.magenta], dir: 1, seed: 11 },
+  F6: { x: 1065, base: 1720, h: 360, pal: [C.magenta, C.amber, C.violet], dir: 1, seed: 17 },
 };
 const head = PROPS.head;
+const LOW3 = 0.2, LOW5 = 0.3, FINE = 0.9;     // faded health, and "looks fine from up here"
+const H3 = head(FL.F3, LOW3);                 // the drooping worst page
 
 // ---------- the Performance panel (Floey's drawing of the report) ----------
-const PX = 130, PY = 190, PW = 820, PH0 = 460, PH1 = 870;
-const IX0 = PX + 34, IX1 = PX + PW - 34;          // inner left / right
-const CHIP_Y = PY + 120;                            // the Date chip row
-const CH = { x0: 184, x1: 896, y0: 430, y1: 612 };  // the chart's plot area
+const PX = 110, PY = 165, PW = 860, PH0 = 350, PH1 = 725;
+const IX0 = PX + 34, IX1 = PX + PW - 34;           // inner left / right
+const CHIP_Y = PY + 125;                            // the Date chip row
+const CH = { x0: 164, x1: 916, y0: 372, y1: 470 };  // the chart's plot area
 const TOT = [0.5, 0.47, 0.53, 0.49, 0.52, 0.48, 0.51, 0.5, 0.54, 0.49, 0.5, 0.52];
-const PREV = [0.6, 0.63, 0.58, 0.62, 0.59, 0.64, 0.6, 0.61, 0.57, 0.62, 0.6, 0.59];
-const MX = 164, MY = 352;                           // the Date menu
-const TABS_Y = PY + PH0 + 2, HDR_Y = 754, ROW_Y = 772, RH = 64;
-// pages (example numbers): Clicks Difference is a plain count of clicks
+const PREV = [0.72, 0.75, 0.7, 0.74, 0.71, 0.76, 0.72, 0.73, 0.69, 0.74, 0.72, 0.71];
+const MX = IX0, MY = CHIP_Y + 44;                   // the Date menu
+const TABS_Y = 500, HDR_Y = 598, ROW_Y = 610, RH = 64;
+// example numbers: Clicks Difference is a plain count of clicks. o = row position [unsorted, wrong way, losses on top]
 const PAGES = [
   { label: "/content-calendar", diff: 12, fl: "F1", o: [0, 1, 2] },
   { label: "/seo-checklist", diff: -120, fl: "F3", o: [1, 3, 0] },
   { label: "/link-building", diff: 35, fl: "F2", o: [2, 0, 3] },
   { label: "/keyword-guide", diff: -64, fl: "F5", o: [3, 2, 1] },
 ];
+const QALL = [{ label: "seo checklist", diff: -70 }, { label: "content calendar", diff: 18 }, { label: "link building tips", diff: 9 }, { label: "keyword research", diff: -41 }];
 const QUERIES = [{ label: "seo checklist", diff: -70 }, { label: "seo audit template", diff: -32 }, { label: "site audit steps", diff: -18 }];
-// where Floey taps (world); the reach lands her beak tip here
+
+// where Floey's beak lands on each control (world). Measured text widths are
+// not available yet (the web font loads after this runs, and an early measure
+// is cached for good), so the tap points use the widths at Space Grotesk 700.
+const measure = PROPS.measure, esc = PROPS.esc;
+const chipW = (label) => measure(label, `700 28px '${FONT}'`) + 132;
+const W_CHIP = 272, W_OPT = 490, W_HDR = 196;
 const TAP = {
-  title: { x: 250, y: 230 }, chip: { x: 300, y: CHIP_Y }, cmp: { x: MX + 24 + 225, y: MY + 34 },
-  opt: { x: MX + 430, y: MY + 170 }, pages: { x: IX0 + 240, y: TABS_Y + 24 }, hdr: { x: 826, y: HDR_Y - 8 },
-  row0: { x: 330, y: ROW_Y + 32 }, queries: { x: IX0 + 80, y: TABS_Y + 24 },
+  chev: { x: IX0 + W_CHIP + 132 - 50, y: CHIP_Y },
+  cmp: { x: MX + 24 + 225 + 52, y: MY + 36 },
+  opt: { x: MX + 74 + W_OPT, y: MY + 164 },
+  pages: { x: IX0 + 240 + 40, y: TABS_Y + 22 },
+  hdr: { x: IX1 - W_HDR - 34, y: HDR_Y - 10 },
+  row0: { x: IX0 + 280, y: ROW_Y + 28 },
+  queries: { x: IX0 + 80 + 56, y: TABS_Y + 22 },
 };
 
+// the world. Opening values are the AFTER state (and the final frame).
 const W = {
-  camX: 540, camY: 960, zoom: 1,
-  h1: 1, h2: 1, h3: 0.55, h4: 1, h5: 0.55, h6: 1,
-  p1: 0, p2: 0, petalOp: 1, trace: 0, pulse: 0, tpulse: 0,
-  menu: 0, cmpTab: 0, picked: 0, compare: 0, cmpLine: 0,
-  ph: PH0, tabs: 0, tabActive: 0, rows: 0, s1: 0, s2: 0, glow: 0, filter: 0, q: 0, example: 0,
-  rail: 0, railPulse: 0, bug: 0,
+  camX: 540, camY: 960, zoom: 1, shx: 0, shy: 0,
+  h1: 1, h2: 1, h3: LOW3, h4: 1, h5: LOW5, h6: 1, shiver: 0,
+  p1: 0.999, ping: 0, tpulse: 0, cpulse: 0,
+  menu: 0, cmpTab: 0, picked: 0, compare: 1, cmpLine: 1,
+  ph: PH1, tabs: 1, tabActive: 1, qAll: 0, rows: 1, s1: 1, s2: 1, glow: 1, narrow: 0, filter: 0, q: 0, example: 1,
+  bug: 0,
 };
+const BEFORE = { h3: FINE, h5: FINE, compare: 0 };    // what the wipe in body1 reveals
 
-// step chips that collect as Floey taps (screen space, above the captions)
-const STEPS = [
-  { t: 0, label: "Performance" }, { t: 0, label: "Date › Compare" }, { t: 0, label: "Last 3 months" },
-  { t: 0, label: "Pages" }, { t: 0, label: "Clicks Difference" }, { t: 0, label: "Queries" },
-];
 const TAPS = []; // [t, x, y] tap rings
-const tapAt = (t, p, step) => { TAPS.push([t, p.x, p.y]); if (step != null) STEPS[step].t = t; };
+const tapAt = (t, p) => TAPS.push([t, p.x, p.y]);
 
 // ---------- Floey's performance, cued to the voice ----------
-const F = FLOEY.create({ x: 350, y: 815, facing: 1, scale: 1.15, mood: "worried", view: "front" });
+const HOME = { x: 310, y: 1010 };             // just above the drooping third flower (opening = final frame)
+const PARK = { x: 830, y: 975 };              // below the report, out of the way of the chart and the table
+const F = FLOEY.create({ x: HOME.x, y: HOME.y, facing: 1, scale: 1.15, mood: "hello", view: "front" });
 const wt = gsap.timeline({ paused: true });
 wt.set(W, { camX: 540, camY: 960, zoom: 1 }, 0);
 
-// HOOK: the wide garden under a flat line. On "fading pages" the camera dips to
-// the third flower as it drops a petal; on "Search Console" the report pulses.
+// HOOK: the finished check. The worst page's row pings; Floey looks from the row
+// down to its drooping flower, and the camera eases in so they read as a pair.
 F.say(b.hook0.start, M.hook0 || [], "hook0")
- .look(0.45, 0.25, -1, 0.15).sfx(0.6, "tk")
- .look(1.55, -0.3, 1, 0.1).sfx(1.75, "rustle", { n: 2 })
- .mood(2.75, "determined").look(2.8, 0, -0.2, 0.1)
- .move(2.85, 420, 770, 0.6, "power2.inOut")
- .look(3.55, -0.7, -0.9, 0.08).sfx(3.6, "ting")
- .look(4.4, 0, 0, 0.1).tongue(4.95, 1);
-wt.to(W, { trace: 1, duration: 1.1, ease: "none" }, 0.6)
-  .to(W, { camX: 360, camY: 1010, zoom: 1.35, duration: 1.1, ease: "power2.inOut" }, 1.45)
-  .to(W, { h3: 0.45, duration: 0.8, ease: "power1.inOut" }, 1.6)
-  .to(W, { p1: 0.999, duration: 1.5, ease: "none" }, 1.7)
-  .to(W, { camX: 540, camY: 960, zoom: 1, duration: 1.0, ease: "power3.inOut" }, 2.75)
-  .to(W, { pulse: 1, duration: 0.7, ease: "none" }, 3.55);
+ .look(0.45, 0.35, -1, 0.12).sfx(0.55, "tk", { x0: 700 })
+ .look(1.4, -0.1, 1, 0.1).mood(1.4, "worried").sfx(1.6, "rustle", { n: 1, x0: 430 })
+ .look(2.6, 0.4, -1, 0.1)
+ .look(3.3, -0.1, 1, 0.08)
+ .mood(3.7, "determined").look(3.7, 0, 0, 0.1)
+ .tongue(4.4, 1);
+wt.to(W, { ping: 1, duration: 0.8, ease: "none" }, 0.45)
+  .to(W, { camX: 520, camY: 980, zoom: 1.15, duration: 1.8, ease: "sine.inOut" }, 2.4);
 
-// BODY1: "from up here" she zips right, then glides left under the flat line
-F.pivot(5.2, "side").mood(5.2, "hello")
- .dart(5.35, 900, 740, 0.32)
+// BODY1: the wipe. She zips right, then dashes left; the answer clears in her
+// wake and the garden goes back to "fine from up here" under one flat line.
+const T0 = b.body1.start + 0.05, DASH = 0.7, T1 = T0 + DASH + 0.05;
+F.pivot(b.hook0.end - 0.2, "side").mood(b.hook0.end - 0.2, "hello")
+ .dart(b.hook0.end - 0.05, 930, 990, 0.28)
  .say(b.body1.start, M.body1 || [], "body1")
- .face(5.85, 1)
- .move(5.95, 200, 740, 1.15, "sine.inOut")
- .pivot(7.12, "front").look(7.15, 0.2, 0.7, 0.1).stretch(7.2, 0.5);
-wt.to(W, { camX: 540, camY: 950, zoom: 0.97, duration: 2.0, ease: "sine.inOut" }, 5.4);
+ .dart(T0, 170, 990, DASH, 1)
+ .sfx(T0 + 0.05, "swish", { x0: 540 })
+ .mood(T1, "happy")
+ .preen(b.body1.start + 1.05, 0.8);
+wt.to(W, { camX: 540, camY: 960, zoom: 1, duration: 0.8, ease: "power2.inOut" }, b.hook0.end - 0.05);
+// when she passes the third flower its fallen petal floats back up
+let TPASS3 = T1; for (let t = T0; t < T1; t += 1 / 60) if (F.pose(t).x < 470) { TPASS3 = t; break; }
+wt.to(W, { p1: 0, duration: 0.45, ease: "power2.inOut" }, TPASS3)
+  .set(W, { h3: FINE, h5: FINE, compare: 0, cmpLine: 0, rows: 0, tabs: 0, glow: 0, example: 0, s1: 0, s2: 0, tabActive: 0 }, T1)
+  .to(W, { ph: PH0, duration: 0.4, ease: "power2.inOut" }, T1);
+F.sfx(TPASS3 + 0.1, "pluck", { x0: 430 }).sfx(T1 + 0.05, "tk", { x0: 900 });
 
 // BODY2: up close, the third and fifth pages fade; her head flicks between them
-F.pivot(7.62, "side")
- .dart(7.85, 445, 880, 0.32)
+F.dart(b.body2.start, 640, 1080, 0.32)
  .say(b.body2.start, M.body2 || [], "body2")
- .mood(8.3, "worried")
- .face(8.65, 1).look(8.65, 0.3, 0.8, 0.06)
- .face(9.35, -1)
- .sfx(9.05, "rustle", { n: 2 })
- .face(10.05, 1);
-wt.to(W, { camX: 440, camY: 1000, zoom: 1.35, duration: 0.8, ease: "power2.inOut" }, 7.85)
-  .to(W, { h3: 0.2, duration: 1.3, ease: "power1.inOut" }, 8.6)
-  .to(W, { h5: 0.2, duration: 1.3, ease: "power1.inOut" }, 8.75)
-  .to(W, { p2: 0.999, duration: 1.5, ease: "none" }, 9.0);
+ .mood(b.body2.start + 0.5, "worried")
+ .face(b.body2.start + 0.95, 1).look(b.body2.start + 0.95, 0.3, 0.8, 0.06)
+ .face(b.body2.start + 1.6, -1)
+ .face(b.body2.start + 2.25, 1)
+ .sfx(b.body2.start + 1.0, "pluck", { x0: 400 }).sfx(b.body2.start + 1.15, "pluck", { x0: 900 })
+ .sfx(b.body2.start + 1.4, "rustle", { n: 2, x0: 380 });
+wt.to(W, { camX: 640, camY: 1060, zoom: 1.3, duration: 0.8, ease: "power2.inOut" }, b.body2.start)
+  .to(W, { h3: LOW3, duration: 1.2, ease: "power1.inOut" }, b.body2.start + 1.0)
+  .to(W, { h5: LOW5, duration: 1.2, ease: "power1.inOut" }, b.body2.start + 1.15)
+  .to(W, { p1: 0.999, duration: 1.5, ease: "none" }, b.body2.start + 1.35);
 
-// BODY3: she turns to you, then zips up to the report
-F.pivot(11.1, "front").mood(11.1, "hello").look(11.15, 0, 0, 0.1)
+// BODY3: she turns to you, then zips up beside the Date chip (never on it)
+F.pivot(b.body3.start, "front").mood(b.body3.start, "hello").look(b.body3.start + 0.05, 0, 0, 0.1)
  .say(b.body3.start, M.body3 || [], "body3")
- .chips(12.2, 1)
- .pivot(12.5, "side")
- .dart(12.65, 520, 300, 0.34)
- .pivot(13.2, "front").mood(13.2, "happy").look(13.3, -0.6, -0.5, 0.1)
- .sfx(13.45, "ting");
-wt.to(W, { camX: 500, camY: 940, zoom: 1.15, duration: 0.7, ease: "power2.inOut" }, 11.15)
-  .to(W, { camX: 540, camY: 780, zoom: 1.2, duration: 0.9, ease: "power2.inOut" }, 12.55)
-  .to(W, { tpulse: 1, duration: 0.7, ease: "none" }, 13.4);
+ .chips(b.body3.start + 1.05, 1)
+ .pivot(b.body3.start + 1.4, "side")
+ .dart(b.body3.start + 1.6, 740, 330, 0.34, 1)
+ .mood(b.body3.start + 2.0, "happy").look(b.body3.start + 2.05, -0.8, 0.2, 0.1)
+ .sfx(b.body3.start + 2.05, "ting", { x0: 400 });
+wt.to(W, { camX: 520, camY: 560, zoom: 1.15, duration: 0.8, ease: "power2.inOut" }, b.body3.start + 1.25)
+  .to(W, { cpulse: 2, duration: 1.4, ease: "none" }, b.body3.start + 1.95);
 
 // BODY4: Performance, Date, Compare, last 3 months; the earlier period draws in behind
-F.pivot(14.15, "side").mood(14.15, "determined")
+const tChev = b.body4.start + 1.15, tCmp = b.body4.start + 2.05, tOpt = b.body4.start + 3.25;
+F.mood(b.body4.start, "determined")
  .say(b.body4.start, M.body4 || [], "body4")
- .reach(14.35, TAP.title.x, TAP.title.y, 0.3).sfx(14.66, "tap")
- .reach(15.25, TAP.chip.x, TAP.chip.y, 0.3).sfx(15.56, "tap").sfx(15.64, "pluck")
- .reach(16.15, TAP.cmp.x, TAP.cmp.y, 0.28).sfx(16.44, "tk")
- .move(16.8, 900, 470, 0.35, "power2.inOut")
- .reach(17.45, TAP.opt.x, TAP.opt.y, 0.28).sfx(17.74, "tap")
- .sfx(18.15, "swish")
- .reverse(18.3, 930, 0.45)
- .look(18.5, -0.8, 0.3, 0.1).sfx(18.5, "rustle", { n: 4 })
- .mood(19.5, "happy").tongue(19.95, 2);
-tapAt(14.65, TAP.title, 0); tapAt(15.55, TAP.chip); tapAt(16.43, TAP.cmp, 1); tapAt(17.73, TAP.opt, 2);
-wt.to(W, { camX: 545, camY: 770, zoom: 1.22, duration: 5.5, ease: "sine.inOut" }, 14.2)
-  .to(W, { rail: 1, duration: 0.2 }, 14.6)
-  .to(W, { menu: 1, duration: 0.3, ease: "back.out(1.6)" }, 15.6)
-  .to(W, { cmpTab: 1, duration: 0.25, ease: "power2.out" }, 16.45)
-  .set(W, { picked: 1 }, 17.74)
-  .to(W, { menu: 0, duration: 0.25, ease: "power2.in" }, 18.1)
-  .set(W, { compare: 1 }, 18.3)
-  .to(W, { cmpLine: 1, duration: 1.0, ease: "power1.inOut" }, 18.45);
+ .sfx(b.body4.start + 0.1, "tk", { x0: 250 })
+ .reach(tChev, TAP.chev.x, TAP.chev.y, 0.28).sfx(tChev + 0.3, "tap", { x0: TAP.chev.x }).sfx(tChev + 0.38, "pluck", { x0: 400 })
+ .reach(tCmp, TAP.cmp.x, TAP.cmp.y, 0.28).sfx(tCmp + 0.3, "tk", { x0: TAP.cmp.x })
+ // round to the right of the menu first, so her head never covers the option's words
+ .move(tCmp + 0.5, TAP.opt.x + 190, TAP.opt.y + 30, 0.35, "power2.inOut")
+ .reach(tOpt, TAP.opt.x, TAP.opt.y, 0.28).sfx(tOpt + 0.3, "tap", { x0: TAP.opt.x })
+ .reverse(tOpt + 0.4, TAP.opt.x + 200, 0.25)
+ .sfx(b.body4.start + 3.95, "swish", { x0: 450 })
+ .move(b.body4.start + 3.95, 830, 640, 0.5, "power2.inOut")
+ .pivot(b.body4.start + 4.5, "front").look(b.body4.start + 4.55, -0.6, -0.8, 0.1)
+ .sfx(b.body4.start + 4.15, "rustle", { n: 4, x0: 540 })
+ .mood(b.body4.start + 5.1, "happy");
+tapAt(tChev + 0.3, TAP.chev); tapAt(tCmp + 0.3, TAP.cmp); tapAt(tOpt + 0.3, TAP.opt);
+wt.to(W, { tpulse: 1, duration: 0.8, ease: "none" }, b.body4.start)
+  .to(W, { camX: 560, camY: 440, zoom: 1.2, duration: 0.7, ease: "power2.inOut" }, b.body4.start + 0.6)
+  .to(W, { menu: 1, duration: 0.3, ease: "back.out(1.6)" }, tChev + 0.32)
+  .to(W, { cmpTab: 1, duration: 0.25, ease: "power2.out" }, tCmp + 0.32)
+  .set(W, { picked: 1 }, tOpt + 0.3)
+  .to(W, { menu: 0, duration: 0.25, ease: "power2.in" }, b.body4.start + 3.9)
+  .set(W, { compare: 1 }, b.body4.start + 4.1)
+  .to(W, { camX: 540, camY: 580, zoom: 1.1, duration: 0.9, ease: "power2.inOut" }, b.body4.start + 3.9)
+  .to(W, { cmpLine: 1, duration: 1.0, ease: "power1.inOut" }, b.body4.start + 4.15);
 
 // BODY5: the Pages table; tap Clicks Difference twice so the biggest losses sit on top
-F.sfx(20.2, "pluck")
+const tPg = b.body5.start, tH1 = b.body5.start + 1.1, tH2 = b.body5.start + 2.3;
+F.pivot(b.body5.start - 0.45, "side")
+ .move(b.body5.start - 0.45, PARK.x, PARK.y, 0.4, "power2.inOut")
+ .sfx(b.body5.start - 0.35, "pluck", { x0: 540 })
  .say(b.body5.start, M.body5 || [], "body5")
- .reach(20.65, TAP.pages.x, TAP.pages.y, 0.3).sfx(20.96, "tap")
- .move(21.35, 985, 700, 0.35, "power2.inOut")
- .reach(21.72, TAP.hdr.x, TAP.hdr.y, 0.26).sfx(21.99, "tk").sfx(22.05, "swish")
- .mood(22.45, "think").tiltTo(22.5, -16, 0.15).look(22.5, -0.6, 0.7, 0.08)
- .move(22.85, 985, 720, 0.3)
- .tiltTo(23.15, 0, 0.1)
- .reach(23.3, TAP.hdr.x, TAP.hdr.y, 0.25).sfx(23.56, "tk").sfx(23.62, "swish").sfx(23.98, "ting")
- .mood(23.9, "determined")
- .move(24.2, 880, 470, 0.45, "power2.inOut")
- .look(24.7, -0.7, 0.9, 0.1);
-tapAt(20.95, TAP.pages, 3); tapAt(21.98, TAP.hdr, 4); tapAt(23.55, TAP.hdr);
-wt.to(W, { camX: 560, camY: 835, zoom: 1.1, duration: 0.6, ease: "power2.inOut" }, 20.05)
-  .to(W, { ph: PH1, duration: 0.45, ease: "power2.out" }, 20.15)
-  .to(W, { tabs: 1, duration: 0.3 }, 20.35)
-  .to(W, { example: 1, duration: 0.3 }, 20.5)
-  .set(W, { tabActive: 1 }, 20.96)
-  .to(W, { rows: 1, duration: 0.45, ease: "power1.out" }, 21.0)
-  .to(W, { s1: 1, duration: 0.36, ease: "power2.inOut" }, 22.02)
-  .to(W, { s2: 1, duration: 0.36, ease: "power2.inOut" }, 23.58)
-  .to(W, { glow: 1, duration: 0.3, ease: "power2.out" }, 23.95);
+ .reach(tPg, TAP.pages.x, TAP.pages.y, 0.3).sfx(tPg + 0.32, "tap", { x0: TAP.pages.x })
+ .move(b.body5.start + 0.75, 585, 560, 0.3, "power2.inOut")
+ .reach(tH1, TAP.hdr.x, TAP.hdr.y, 0.25).sfx(tH1 + 0.27, "tk", { x0: 800 }).sfx(tH1 + 0.32, "swish", { x0: 540 })
+ .mood(b.body5.start + 1.8, "think").tiltTo(b.body5.start + 1.85, -16, 0.15).look(b.body5.start + 1.85, 0.6, 0.8, 0.08)
+ .tiltTo(b.body5.start + 2.2, 0, 0.1)
+ .reach(tH2, TAP.hdr.x, TAP.hdr.y, 0.22).sfx(tH2 + 0.24, "tk", { x0: 800 }).sfx(tH2 + 0.3, "swish", { x0: 540 }).sfx(tH2 + 0.68, "ting", { x0: 400 })
+ .mood(b.body5.start + 2.75, "determined")
+ .move(b.body5.start + 3.2, PARK.x, PARK.y, 0.45, "power2.inOut")
+ .pivot(b.body5.start + 3.7, "front").look(b.body5.start + 3.75, -0.7, -0.6, 0.1);
+tapAt(tPg + 0.32, TAP.pages); tapAt(tH1 + 0.27, TAP.hdr); tapAt(tH2 + 0.24, TAP.hdr);
+wt.to(W, { camX: 540, camY: 680, zoom: 1.05, duration: 0.6, ease: "power2.inOut" }, b.body5.start - 0.45)
+  .to(W, { ph: PH1, duration: 0.45, ease: "power2.out" }, b.body5.start - 0.4)
+  .to(W, { tabs: 1, duration: 0.3 }, b.body5.start - 0.25)
+  .to(W, { qAll: 1, duration: 0.4, ease: "power1.out" }, b.body5.start - 0.2)
+  .to(W, { example: 1, duration: 0.3 }, b.body5.start - 0.1)
+  .set(W, { tabActive: 1 }, tPg + 0.32)
+  .to(W, { qAll: 0, duration: 0.15 }, tPg + 0.32)
+  .to(W, { rows: 1, duration: 0.45, ease: "power1.out" }, tPg + 0.42)
+  .to(W, { s1: 1, duration: 0.36, ease: "power2.inOut" }, tH1 + 0.3)
+  .to(W, { s2: 1, duration: 0.36, ease: "power2.inOut" }, tH2 + 0.27)
+  .to(W, { glow: 1, duration: 0.3, ease: "power2.out" }, tH2 + 0.66);
 
 // PAYOFF6: the worst page; click it, open Queries, the searches that lost clicks
-F.pivot(25.5, "front").mood(25.5, "happy")
+const tRow = b.payoff6.start + 1.2, tQ = b.payoff6.start + 2.0;
+F.mood(b.payoff6.start, "happy")
  .say(b.payoff6.start, M.payoff6 || [], "payoff6")
- .flash(25.95)
- .pivot(26.6, "side")
- .reach(26.8, TAP.row0.x, TAP.row0.y, 0.3).sfx(27.11, "tap").sfx(27.2, "pluck")
- .reach(27.5, TAP.queries.x, TAP.queries.y, 0.28).sfx(27.79, "tk")
- .sfx(27.95, "pluck").sfx(28.15, "pluck").sfx(28.35, "pluck")
- .move(28.25, 880, 470, 0.45, "power2.inOut")
- .look(28.8, -0.8, 0.9, 0.1).mood(28.8, "think")
- .mood(29.6, "determined");
-tapAt(27.1, TAP.row0); tapAt(27.78, TAP.queries, 5);
-wt.to(W, { camX: 570, camY: 840, zoom: 1.13, duration: 4.5, ease: "sine.inOut" }, 25.6)
-  .to(W, { filter: 1, duration: 0.3, ease: "back.out(1.8)" }, 27.15)
-  .to(W, { rows: 0, glow: 0, duration: 0.3 }, 27.2)
-  .set(W, { tabActive: 0 }, 27.79)
-  .to(W, { q: 1, duration: 0.6, ease: "none" }, 27.85);
+ .flash(b.payoff6.start + 0.45)
+ .pivot(b.payoff6.start + 1.05, "side")
+ .reach(tRow, TAP.row0.x, TAP.row0.y, 0.3).sfx(tRow + 0.32, "tap", { x0: TAP.row0.x }).sfx(tRow + 0.4, "pluck", { x0: 700 })
+ .reach(tQ, TAP.queries.x, TAP.queries.y, 0.28).sfx(tQ + 0.3, "tk", { x0: TAP.queries.x })
+ .sfx(tQ + 0.5, "pluck", { x0: 600 }).sfx(tQ + 0.7, "pluck", { x0: 600 }).sfx(tQ + 0.9, "pluck", { x0: 600 })
+ .move(b.payoff6.start + 2.75, PARK.x, PARK.y, 0.45, "power2.inOut")
+ .look(b.payoff6.start + 3.25, -0.8, -0.5, 0.1).mood(b.payoff6.start + 3.25, "think")
+ // the camera drifts down to the worst page; a little bug peeks out of it
+ .move(b.payoff6.end, 470, 1060, 0.7, "power2.inOut")
+ .face(b.payoff6.end + 0.5, 1).look(b.payoff6.end + 0.5, -0.4, 1, 0.05).mood(b.payoff6.end + 0.5, "surprised")
+ .sfx(b.payoff6.end + 0.35, "brrt", { x0: 320 });
+tapAt(tRow + 0.32, TAP.row0); tapAt(tQ + 0.3, TAP.queries);
+wt.to(W, { filter: 1, duration: 0.3, ease: "back.out(1.8)" }, tRow + 0.34)
+  .to(W, { narrow: 1, duration: 0.3 }, tRow + 0.34)
+  .set(W, { tabActive: 0 }, tQ + 0.3)
+  .to(W, { rows: 0, glow: 0, duration: 0.15 }, tQ + 0.3)
+  .to(W, { q: 1, duration: 0.6, ease: "none" }, tQ + 0.4)
+  .to(W, { camX: 540, camY: 1060, zoom: 1.1, duration: 1.1, ease: "power2.inOut" }, b.payoff6.end - 0.15)
+  .to(W, { bug: 0.55, duration: 0.35, ease: "back.out(2)" }, b.payoff6.end + 0.25);
 
-// LOOP7: "Save this" (the steps pulse), then back up where it still looks flat
-F.pivot(30.35, "front").mood(30.35, "happy")
+// LOOP7: "Save this": the report lands back on the finished table. "From up
+// here": back up to the wide shot, where the total line still looks flat.
+F.pivot(b.loop7.start, "front").mood(b.loop7.start, "happy").look(b.loop7.start, 0, 0, 0.1)
  .say(b.loop7.start, M.loop7 || [], "loop7")
- .wink(30.6).look(30.75, 0, 1, 0.12).sfx(30.5, "pluck")
- .pivot(31.25, "side")
- .move(31.3, 600, 730, 0.6, "power2.inOut")
- .look(31.9, 0.1, -1, 0.12).tiltTo(31.9, -18, 0.2).sfx(32.0, "tk")
- .tiltTo(32.55, 0, 0.15).sfx(32.3, "flutter")
- .look(32.65, -1, 0.8, 0.06).mood(32.65, "surprised");
-wt.to(W, { railPulse: 1, duration: 0.6, ease: "none" }, 30.5)
-  .to(W, { q: 0, tabs: 0, filter: 0, example: 0, duration: 0.25 }, 31.2)
-  .to(W, { rail: 0, duration: 0.3 }, 31.25)
-  .to(W, { ph: PH0, duration: 0.4, ease: "power2.inOut" }, 31.35)
-  .to(W, { camX: 540, camY: 960, zoom: 1, duration: 0.9, ease: "power2.inOut" }, 31.2)
-  .to(W, { bug: 0.62, duration: 0.35, ease: "back.out(2)" }, 32.3);
+ .wink(b.loop7.start + 0.25)
+ .sfx(b.loop7.start + 0.2, "swish", { x0: 540 })
+ .move(b.loop7.start + 0.95, HOME.x + 20, HOME.y - 10, 0.5, "power2.inOut")
+ .look(b.loop7.start + 1.5, 0.3, -1, 0.12).sfx(b.loop7.start + 1.55, "tk", { x0: 540 })
+ .look(b.loop7.start + 2.2, -0.2, 1, 0.08)
+ .sfx(b.loop7.start + 1.9, "brrt", { x0: 320 });
+wt.to(W, { camX: 540, camY: 960, zoom: 1, duration: 0.9, ease: "power2.inOut" }, b.loop7.start + 0.15)
+  .to(W, { q: 0, filter: 0, duration: 0.2 }, b.loop7.start + 0.2)
+  .set(W, { tabActive: 1 }, b.loop7.start + 0.3)
+  .to(W, { rows: 1, glow: 1, duration: 0.35 }, b.loop7.start + 0.4)
+  .to(W, { narrow: 0, duration: 0.35 }, b.loop7.start + 0.4)
+  .to(W, { ping: 2, duration: 0.8, ease: "none" }, b.loop7.start + 0.6);
 
-// GO8: she dives for the bug in the worst page, eats it, and the page starts to bloom
-const T_PICK = 33.92;
-const bp = PROPS.bugOn(FL.F3, T_PICK, 0.2);
-F.pivot(33.1, "front").mood(33.1, "party")
+// GO8: the bug zips out of the leaves; she catches it mid-air and eats it.
+// The flower shivers but stays faded: the fix comes next.
+const T_ZIP = b.go8.start + 0.4, T_PICK = b.go8.start + 0.95;
+const BUGAIR = { x: H3.x + 170, y: H3.y - 175 };
+F.mood(b.go8.start - 0.1, "party")
  .say(b.go8.start, M.go8 || [], "go8")
- .pivot(33.45, "side").mood(33.45, "determined")
- .reach(33.6, bp.x, bp.y, 0.3)
- .pick(T_PICK - 0.12, `<g transform="rotate(90)">${PROPS.bug(0, 0.55, "")}</g>`, "bug")
- .eat(34.22)
- .sfx(34.9, "bloom").chips(35.0, 2);
-wt.to(W, { camX: 360, camY: 1020, zoom: 1.3, duration: 0.55, ease: "power2.out" }, 33.35)
-  .to(W, { h3: 0.95, duration: 0.8, ease: "back.out(1.6)" }, 34.9);
+ .pivot(b.go8.start + 0.35, "side").mood(b.go8.start + 0.35, "determined")
+ .reach(T_PICK - 0.45, BUGAIR.x, BUGAIR.y, 0.28)
+ .pick(T_PICK, `<g transform="rotate(90)">${PROPS.bug(0, 0.55, "")}</g>`, "bug")
+ .eat(T_PICK + 0.35)
+ .tongue(T_PICK + 1.15, 1)
+ .sfx(T_ZIP, "zipoff", { d: 0.3, x0: H3.x, x1: BUGAIR.x })
+ .sfx(T_PICK + 0.75, "rustle", { n: 2, x0: H3.x });
+// low and close, so the report leaves the frame and the chase owns it
+wt.to(W, { camX: 400, camY: 1430, zoom: 1.45, duration: 0.5, ease: "power2.out" }, b.go8.start + 0.3)
+  .to(W, { shx: 7, shy: -5, duration: 0.04, yoyo: true, repeat: 5, ease: "sine.inOut" }, T_PICK + 0.12)
+  .set(W, { shx: 0, shy: 0 }, T_PICK + 0.36)
+  .to(W, { shiver: 1, duration: 0.7, ease: "none" }, T_PICK + 0.7);
 
-// URL9: a beat, then back to the opening wide shot; the third page is brighter now
-F.move(35.3, 380, 810, 0.6, "power2.inOut")
- .pivot(35.75, "front").mood(35.75, "happy")
+// URL9: a beat, then back to the opening wide shot; Floey takes her opening spot
+F.move(b.url9.start - 0.1, HOME.x, HOME.y, 0.6, "power2.inOut")
+ .sfx(b.url9.start - 0.15, "swish", { x0: 540 })
+ .pivot(b.url9.start + 0.55, "front").mood(b.url9.start + 0.55, "hello").look(b.url9.start + 0.55, 0, 0, 0.1)
  .say(b.url9.start, M.url9 || [], "url9")
- .flash(36.1).chips(b.url9.end + 0.1, 1);
-F.sfx(35.3, "swish");
-wt.to(W, { camX: 540, camY: 960, zoom: 1, duration: 1.25, ease: "power3.inOut" }, 35.25)
-  .to(W, { cmpLine: 0, petalOp: 0, duration: 0.5 }, 35.4)
-  .set(W, { compare: 0 }, 35.6);
+ .flash(b.url9.start + 0.75).chips(b.url9.end + 0.05, 1);
+wt.to(W, { camX: 540, camY: 960, zoom: 1, duration: 1.35, ease: "power3.inOut" }, b.url9.start - 0.15);
 wt.set({}, {}, DUR);
 
 // ---------- drawing ----------
-const esc = PROPS.esc, measure = PROPS.measure;
 const fadeCol = (fl, h) => GARDEN.fade(FL[fl].pal[0], h);
 const linePts = (vals, k) => {
   const n = vals.length - 1, u = clamp(k) * n, px = (i) => CH.x0 + (i / n) * (CH.x1 - CH.x0), py = (v) => CH.y1 - v * (CH.y1 - CH.y0);
@@ -250,54 +290,70 @@ const linePts = (vals, k) => {
   return out;
 };
 const poly = (pts) => pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+// the fallen petal: the garden's falling petal, landed on the meadow by the third flower
+const P0 = { x: H3.x + 40, y: H3.y + 30 }, GROUND = 1748;
+const petal = (k) => k <= 0 ? "" : `<g transform="translate(0 ${(-(560 - (GROUND - P0.y)) * k).toFixed(1)})">${GARDEN.fallingPetal(FL.F3, LOW3, P0.x, P0.y, Math.min(k, 0.999))}</g>`;
+// the bug: on the worst page, then out into the air where Floey catches it
+const bugPos = (t) => {
+  const p = PROPS.bugOn(FL.F3, t, W.h3);
+  if (t < T_ZIP) return p;
+  const k = gsap.parseEase("power2.out")(clamp((t - T_ZIP) / 0.3));
+  return { x: p.x + (BUGAIR.x - p.x) * k + Math.sin(t * 19) * 5 * k, y: p.y + (BUGAIR.y - p.y) * k + Math.cos(t * 23) * 5 * k, a: p.a * (1 - k) - 30 * k };
+};
 
 window.render = function (t) {
   wt.seek(Math.min(DUR, t), false);
   F.pose(t);
-  const cam = { camX: W.camX, camY: W.camY, zoom: W.zoom };
+  const cam = { camX: W.camX + W.shx, camY: W.camY + W.shy, zoom: W.zoom };
   // fonts first: a measure taken before the web font loads is cached for good
   const fontsOK = document.fonts.check(`700 28px '${FONT}'`);
   // texts fade out before they reach Instagram's header or the frame's sides
   const sx = (x) => 540 + (x - cam.camX) * cam.zoom, sy = (y) => 960 + (y - cam.camY) * cam.zoom;
-  const vis = (x0, y0, x1, y1) => fontsOK ? clamp((sy((y0 + y1) / 2) - 150) / 50) * clamp(Math.min(sx(x0), 1080 - sx(x1)) / 30) : 0;
+  // the tall report fades as a whole once the camera leaves it, so no blank strip of paper hangs at the top
+  const panelVis = W.ph > 600 ? Math.min(clamp((sy(PY + W.ph) - 250) / 150), clamp((1080 - sx(IX1)) / 30), clamp(sx(IX0) / 30)) : 1;
+  const vis = (x0, y0, x1, y1) => fontsOK ? clamp((sy((y0 + y1) / 2) - 150) / 50) * clamp(Math.min(sx(x0), 1080 - sx(x1)) / 30) * panelVis : 0;
   const gate = (s, op) => op >= 0.999 ? s : s.replace(/<text /g, `<text opacity="${op.toFixed(2)}" `);
+  // a table row or control fades as one piece (no dots or arrows left without their words)
+  const gateAll = (s, op) => op >= 0.999 ? s : op <= 0.01 ? "" : `<g opacity="${op.toFixed(2)}">${gate(s, op)}</g>`;
+  // the body1 wipe: right of Floey shows the before state, left of her still the after
+  const inWipe = t >= T0 - 0.2 && t < T1, wx = F.pose(t).x + 70;
+  const passed = (x) => inWipe ? smooth((x - wx) / 140 + 0.5) : 0;
+  const wv = (key, x) => W[key] + (BEFORE[key] - W[key]) * passed(x);
 
   let s = GARDEN.defs() + GARDEN.background(t, cam);
-  s += `<g transform="translate(540 960) scale(${W.zoom}) translate(${-W.camX} ${-W.camY})">`;
+  s += `<g transform="translate(540 960) scale(${cam.zoom}) translate(${-cam.camX} ${-cam.camY})">`;
   s += GARDEN.ground();
   // flowers: the fading ones last, so their drooping heads lie over their neighbours
+  const h3 = wv("h3", 380), h5 = wv("h5", 880);
   s += GARDEN.flower(FL.F2, W.h2, t) + GARDEN.flower(FL.F4, W.h4, t) + GARDEN.flower(FL.F1, W.h1, t) + GARDEN.flower(FL.F6, W.h6, t);
-  s += GARDEN.flower(FL.F5, W.h5, t, { dropPetal: W.p2 > 0 ? W.p2 : 0, arrow: "down" });
-  s += GARDEN.flower(FL.F3, W.h3, t, { dropPetal: W.p1 > 0 && W.h3 < 0.7 ? W.p1 : 0, arrow: W.h3 > 0.6 ? "up" : "down" });
-  // fallen petals (rest on the ground until the loop clears them)
-  { const h = head(FL.F3, 0.55); s += `<g opacity="${W.petalOp}">${GARDEN.fallingPetal(FL.F3, 0.45, h.x + 40, h.y + 30, W.p1)}</g>`; }
-  { const h = head(FL.F5, 0.45); s += `<g opacity="${W.petalOp}">${GARDEN.fallingPetal(FL.F5, 0.3, h.x - 30, h.y + 30, W.p2)}</g>`; }
-  s += PROPS.sparks(t, head(FL.F3, 1).x, head(FL.F3, 1).y, 35.0, 12, 30);
+  s += GARDEN.flower(FL.F5, h5, t);
+  const shv = W.shiver > 0 && W.shiver < 1 ? Math.sin(W.shiver * 40) * 2.2 * (1 - W.shiver) : 0;
+  s += `<g transform="rotate(${shv.toFixed(2)} ${FL.F3.x} ${FL.F3.base})">${GARDEN.flower(FL.F3, h3, t, { dropPetal: W.p1 > 0 ? W.p1 : 0 })}</g>`;
+  s += petal(W.p1);
 
   // ---- the Performance panel ----
-  const ph = W.ph, pulse = Math.sin(clamp(W.pulse) * Math.PI), tpulse = Math.sin(clamp(W.tpulse) * Math.PI);
+  const s0 = s.length;
+  const ph = W.ph, tpulse = Math.sin(clamp(W.tpulse) * Math.PI);
   const tw = measure("Performance", `700 30px '${FONT}'`);
   s += gate(PROPS.panel(1, PX, PY, PW, ph, { title: "Performance", accent: C.indigo }), vis(IX0, PY + 20, IX0 + tw, PY + 60));
-  if (pulse > 0) s += `<rect x="${PX - 10}" y="${PY - 10}" width="${PW + 20}" height="${ph + 20}" rx="36" fill="none" stroke="${C.amber}" stroke-width="${8 * pulse}" opacity="${pulse * 0.8}"/>`;
   if (tpulse > 0) s += `<rect x="${PX - 8}" y="${PY - 8}" width="${PW + 16}" height="92" rx="34" fill="none" stroke="${C.amber}" stroke-width="${8 * tpulse}" opacity="${tpulse * 0.9}"/>`;
-  if (W.example > 0.01) {
-    const ew = measure("example numbers", `700 22px '${FONT}'`);
-    s += gate(`<text x="${IX1}" y="${PY + 47}" text-anchor="end" font-family="${FONT}" font-weight="700" font-size="22" fill="#fff" opacity="${(0.85 * W.example).toFixed(2)}">example numbers</text>`, vis(IX1 - ew, PY + 30, IX1, PY + 54));
-  }
   // the Date chip (and the Page filter once a page is clicked)
-  const dLabel = W.compare ? "Date: Compare" : "Date: Last 3 months";
-  const dw = fontsOK ? measure(dLabel, `700 28px '${FONT}'`) + 132 : 300, dcx = IX0 + dw / 2;
+  const compare = inWipe ? (passed(IX0 + 200) > 0.5 ? 0 : 1) : W.compare;
+  const dLabel = compare ? "Date: Compare" : "Date: Last 3 months";
+  const dw = fontsOK ? chipW(dLabel) : 300, dcx = IX0 + dw / 2;
+  const cp = W.cpulse > 0 && W.cpulse < 2 ? Math.sin((W.cpulse % 1) * Math.PI) : 0;
+  if (cp > 0) s += `<rect x="${IX0 - 10}" y="${CHIP_Y - 38}" width="${dw + 20}" height="76" rx="38" fill="${C.amber}" opacity="${(0.35 * cp).toFixed(2)}"/>`;
   s += gate(PROPS.dropdown(1, dcx, CHIP_Y, dLabel), vis(IX0, CHIP_Y - 28, IX0 + dw, CHIP_Y + 28));
   if (W.filter > 0.01) {
-    const fLabel = "Page: /seo-checklist", fw = fontsOK ? measure(fLabel, `700 28px '${FONT}'`) + 132 : 400, fcx = IX0 + dw + 14 + fw / 2;
+    const fLabel = "Page: /seo-checklist", fw = fontsOK ? chipW(fLabel) : 400, fcx = IX0 + dw + 14 + fw / 2;
     s += `<g transform="translate(${fcx} ${CHIP_Y}) scale(${0.6 + 0.4 * W.filter}) translate(${-fcx} ${-CHIP_Y})">${gate(PROPS.dropdown(W.filter, fcx, CHIP_Y, fLabel), vis(fcx - fw / 2, CHIP_Y - 28, fcx + fw / 2, CHIP_Y + 28))}</g>`;
   }
-  // the chart: one flat total line; after Compare, the earlier period draws in behind it
-  if (W.menu < 0.05) s += gate(`<text x="${IX0 + 16}" y="${CH.y0 - 30}" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}" opacity=".55">Clicks</text>`, vis(IX0, CH.y0 - 50, IX0 + 100, CH.y0 - 26));
+  // the chart: one flat total line; after Compare, the earlier period (paler) sits above it
+  if (W.menu < 0.05) s += gate(`<text x="${IX0 + 16}" y="${CH.y0 - 22}" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}" opacity=".55">Clicks</text>`, vis(IX0, CH.y0 - 42, IX0 + 100, CH.y0 - 18));
   s += `<path d="M${CH.x0},${CH.y1 + 6} H${CH.x1}" stroke="${INK}" stroke-width="3" opacity=".15"/>`;
-  if (W.cmpLine > 0.01) s += `<polyline points="${poly(linePts(PREV, W.cmpLine))}" fill="none" stroke="${C.indigo}" stroke-width="7" stroke-dasharray="2 14" stroke-linecap="round" opacity=".45"/>`;
+  const cmpK = W.cmpLine * (inWipe ? clamp((wx - CH.x0) / (CH.x1 - CH.x0)) : 1);
+  if (cmpK > 0.01) s += `<polyline points="${poly(linePts(PREV, cmpK))}" fill="none" stroke="${C.violet}" stroke-width="7" stroke-dasharray="2 14" stroke-linecap="round" opacity=".5"/>`;
   s += `<polyline points="${poly(linePts(TOT, 1))}" fill="none" stroke="${C.indigo}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>`;
-  if (W.trace > 0 && W.trace < 1) { const p = linePts(TOT, W.trace).pop(), o = Math.sin(W.trace * Math.PI); s += `<circle cx="${p[0]}" cy="${p[1]}" r="26" fill="#fff1c2" opacity="${(o * 0.8).toFixed(2)}"/><circle cx="${p[0]}" cy="${p[1]}" r="11" fill="${C.amber}" stroke="${INK}" stroke-width="3" opacity="${o.toFixed(2)}"/>`; }
 
   // the Date menu: Filter / Compare, then the period to compare
   if (W.menu > 0.01) {
@@ -313,73 +369,63 @@ window.render = function (t) {
     s += `<g opacity="${clamp(W.menu * 3).toFixed(2)}" transform="translate(0 ${MY}) scale(1 ${(0.5 + 0.5 * W.menu).toFixed(3)}) translate(0 ${-MY})">${gate(m, vis(MX, MY, MX + mw, MY + mh))}</g>`;
   }
 
-  // tabs, the column header and the rows (only once the panel has grown)
+  // tabs, the column header and the rows; during the wipe they clear from the right
+  let tbl = "";
+  if (W.example > 0.01) {
+    const ew = measure("example numbers", `700 22px '${FONT}'`);
+    tbl += gate(`<text x="${IX1}" y="${PY + 47}" text-anchor="end" font-family="${FONT}" font-weight="700" font-size="22" fill="#fff" opacity="${(0.9 * W.example).toFixed(2)}">example numbers</text>`, vis(IX1 - ew, PY + 30, IX1, PY + 54));
+  }
   if (W.tabs > 0.01) {
-    s += gate(PROPS.tabs(W.tabs, IX0, TABS_Y, 480, ["Queries", "Pages", "Countries"], W.tabActive, C.indigo), vis(IX0, TABS_Y, IX0 + 480, TABS_Y + 50));
-    const hdr = "Clicks Difference", hw = measure(hdr, `700 24px '${FONT}'`), qMode = W.q > 0.01;
-    const sorted = W.s2 > 0.5 ? "up" : W.s1 > 0.5 ? "down" : null, ax = IX1 - hw - 24;
+    const qMode = W.qAll > 0.5 || W.q > 0.5 || (W.rows < 0.05 && W.qAll > 0.01);
+    tbl += gateAll(PROPS.tabs(W.tabs, IX0, TABS_Y, 480, ["Queries", "Pages", "Countries"], W.tabActive, C.indigo), vis(IX0, TABS_Y, IX0 + 480, TABS_Y + 50));
+    const hdr = "Clicks Difference", hw = measure(hdr, `700 24px '${FONT}'`);
+    const sorted = qMode ? null : W.s2 > 0.5 ? "up" : W.s1 > 0.5 ? "down" : null, ax = IX1 - hw - 34;
     let h = `<text x="${IX0 + 16}" y="${HDR_Y}" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}" opacity=".55">${qMode ? "Top queries" : "Top pages"}</text>`;
     h += `<text x="${IX1}" y="${HDR_Y}" text-anchor="end" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}">${hdr}</text>`;
     if (sorted) h += `<path d="${sorted === "down" ? `M${ax - 8},${HDR_Y - 14} l8,9 l8,-9` : `M${ax - 8},${HDR_Y - 5} l8,-9 l8,9`}" stroke="${INK}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
-    s += `<g opacity="${clamp(W.tabs * 3).toFixed(2)}">${gate(h, vis(IX0, HDR_Y - 24, IX1, HDR_Y))}</g>`;
+    tbl += `<g opacity="${clamp(W.tabs * 3).toFixed(2)}">${gateAll(h, vis(IX0, HDR_Y - 24, IX1, HDR_Y))}</g>`;
   }
-  if (W.rows > 0.01) {
-    PAGES.forEach((r, i) => {
-      const pos = r.o[0] + (r.o[1] - r.o[0]) * W.s1 + (r.o[2] - r.o[1]) * W.s2;
-      const moving = Math.sin(W.s1 * Math.PI) + Math.sin(W.s2 * Math.PI), dx = (r.diff < 0 ? 1 : -1) * 14 * moving;
-      const y = ROW_Y + pos * RH, k = clamp(W.rows * 4 - i * 0.6, 0, 1), col = fadeCol(r.fl, W["h" + r.fl[1]]);
-      let row = "";
-      if (r.fl === "F3" && W.glow > 0.01) row += `<rect x="${IX0 - 6}" y="${y + 4}" width="${IX1 - IX0 + 12}" height="${RH - 8}" rx="18" fill="${col}" opacity="${(W.glow * (0.4 + 0.15 * Math.sin(t * 6))).toFixed(2)}"/>`;
-      row += `<circle cx="${IX0 + 24}" cy="${y + RH / 2}" r="12" fill="${col}" stroke="${INK}" stroke-width="3" opacity="${k}"/>`;
-      row += PROPS.table(k / 3, IX0 + 50, y, IX1 - IX0 - 50, [r]);
-      s += `<g transform="translate(${dx.toFixed(1)} 0)">${gate(row, vis(IX0, y, IX1, y + RH))}</g>`;
-    });
-  }
-  if (W.q > 0.01) {
-    QUERIES.forEach((r, i) => {
-      const y = ROW_Y + i * RH, k = clamp(W.q * 3 - i, 0, 1), col = fadeCol("F3", W.h3);
-      if (k <= 0) return;
-      const row = `<circle cx="${IX0 + 24}" cy="${y + RH / 2}" r="12" fill="${col}" stroke="${INK}" stroke-width="3" opacity="${k}"/>` + PROPS.table(k / 3, IX0 + 50, y, IX1 - IX0 - 50, [r]);
-      s += `<g transform="translate(${(1 - k) * 40} 0)">${gate(row, vis(IX0, y, IX1, y + RH))}</g>`;
-    });
-  }
+  const rowSvg = (r, y, k, col) => `<circle cx="${IX0 + 24}" cy="${y + RH / 2}" r="12" fill="${col}" stroke="${INK}" stroke-width="3" opacity="${k}"/>` + PROPS.table(k / 3, IX0 + 50, y, IX1 - IX0 - 50, [r]);
+  if (W.qAll > 0.01) QALL.forEach((r, i) => {
+    const y = ROW_Y + i * RH, k = clamp(W.qAll * 4 - i * 0.6);
+    if (k > 0) tbl += `<g transform="translate(${((1 - k) * 30).toFixed(1)} 0)">${gateAll(rowSvg(r, y, k, INK), vis(IX0, y, IX1, y + RH))}</g>`;
+  });
+  if (W.rows > 0.01) PAGES.forEach((r, i) => {
+    const pos = r.o[0] + (r.o[1] - r.o[0]) * W.s1 + (r.o[2] - r.o[1]) * W.s2;
+    const moving = Math.sin(W.s1 * Math.PI) + Math.sin(W.s2 * Math.PI), dx = (r.diff < 0 ? 1 : -1) * 14 * moving;
+    const y = ROW_Y + pos * RH, keep = r.fl === "F3" ? 1 : 1 - W.narrow;
+    const k = clamp(W.rows * 4 - i * 0.6) * keep, col = fadeCol(r.fl, W["h" + r.fl[1]]);
+    if (k <= 0.01) return;
+    let row = "";
+    if (r.fl === "F3" && W.glow > 0.01) {
+      const pg = W.ping > 0 && W.ping < 2 ? Math.sin((W.ping % 1) * Math.PI) : 0;
+      row += `<rect x="${IX0 - 6}" y="${y + 4}" width="${IX1 - IX0 + 12}" height="${RH - 8}" rx="18" fill="${col}" opacity="${(W.glow * k * (0.45 + 0.12 * Math.sin(t * 4))).toFixed(2)}"/>`;
+      if (pg > 0) row += `<rect x="${IX0 - 6 - 10 * pg}" y="${y + 4 - 8 * pg}" width="${IX1 - IX0 + 12 + 20 * pg}" height="${RH - 8 + 16 * pg}" rx="24" fill="none" stroke="${C.amber}" stroke-width="6" opacity="${(0.9 * pg).toFixed(2)}"/>`;
+    }
+    row += rowSvg(r, y, k, col);
+    tbl += `<g transform="translate(${dx.toFixed(1)} 0)">${gateAll(row, vis(IX0, y, IX1, y + RH))}</g>`;
+  });
+  if (W.q > 0.01) QUERIES.forEach((r, i) => {
+    const y = ROW_Y + i * RH, k = clamp(W.q * 3 - 0.3 - i * 0.8);
+    if (k > 0) tbl += `<g transform="translate(${((1 - k) * 40).toFixed(1)} 0)">${gateAll(rowSvg(r, y, k, fadeCol("F3", W.h3)), vis(IX0, y, IX1, y + RH))}</g>`;
+  });
+  s += inWipe ? `<clipPath id="wipe"><rect x="-400" y="0" width="${(wx + 400).toFixed(1)}" height="1920"/></clipPath><g clip-path="url(#wipe)">${tbl}</g>` : tbl;
   // tap rings where her beak lands
   for (const [tt, x, y] of TAPS) { const k = (t - tt) / 0.45; if (k > 0 && k < 1) s += PROPS.cursor(k, x, y); }
+  if (panelVis < 0.999) s = s.slice(0, s0) + (panelVis > 0.01 ? `<g opacity="${panelVis.toFixed(2)}">${s.slice(s0)}</g>` : "");
 
-  // the bug in the worst page, until Floey catches it
+  // the bug on the worst page, until Floey catches it
   const pk = F.events.find((e) => e.type === "picked");
-  if (W.bug > 0.01 && (!pk || t < pk.t)) { const q = PROPS.bugOn(FL.F3, t, W.h3); s += `<g transform="translate(${q.x} ${q.y}) rotate(${q.a})">${PROPS.bug(t, W.bug, "")}</g>`; }
+  if (W.bug > 0.01 && (!pk || t < pk.t)) { const q = bugPos(t); s += `<g transform="translate(${q.x} ${q.y}) rotate(${q.a})">${PROPS.bug(t, W.bug, "")}</g>`; }
   s += F.trail(t) + F.svg(t);
   s += `</g>`;
   s += GARDEN.pollen(t, cam) + GARDEN.vignette();
-
-  // the steps so far, as chips to save (screen space, above the captions)
-  if (W.rail > 0.01 && fontsOK) {
-    const fs = 22, rows = [STEPS.slice(0, 3), STEPS.slice(3)], rp = Math.sin(clamp(W.railPulse) * Math.PI);
-    let n = 0;
-    rows.forEach((row, ri) => {
-      const items = row.map((st) => ({ ...st, n: ++n, w: measure(st.label, `700 ${fs}px '${FONT}'`) + 74 }));
-      const total = items.reduce((a, it) => a + it.w, 0) + 12 * (items.length - 1);
-      let x = 540 - total / 2; const y = 1290 + ri * 62;
-      for (const it of items) {
-        const k = it.t ? clamp((t - it.t) / 0.3) : 0;
-        if (k > 0) {
-          const sc = (k < 1 ? 0.6 + 0.4 * gsap.parseEase("back.out(2)")(k) : 1) * (1 + 0.07 * rp), cx = x + it.w / 2;
-          s += `<g opacity="${(clamp(k * 3) * W.rail).toFixed(2)}" transform="translate(${cx} ${y}) scale(${sc.toFixed(3)}) translate(${-cx} ${-y})">`;
-          s += `<rect x="${x}" y="${y - 23}" width="${it.w}" height="46" rx="23" fill="#fffaf2" stroke="${INK}" stroke-width="4"/>`;
-          s += `<circle cx="${x + 24}" cy="${y}" r="15" fill="${INK}"/><text x="${x + 24}" y="${y + 7}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="19" fill="#fff">${it.n}</text>`;
-          s += `<text x="${x + 50}" y="${y + 8}" font-family="${FONT}" font-weight="700" font-size="${fs}" fill="${INK}">${esc(it.label)}</text></g>`;
-        }
-        x += it.w + 12;
-      }
-    });
-  }
-  s += PROPS.captions(LINES, B, t);
+  if (document.fonts.check("800 50px 'Public Sans'")) s += PROPS.captions(LINES, B, t);
   document.getElementById("stage").innerHTML = s;
 };
 window.DURATION = DUR;
 window.SOUND = () => ({ ...F.sound(DUR), music: Object.values(B).map((x) => x.start) });
-window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX + W.shx, camY: W.camY + W.shy, zoom: W.zoom }; };
 window.FLOEY = F;
 window.BEATS = B;
 window.render(0);
