@@ -74,13 +74,18 @@ export async function directFloey(dir: string, system: string, opts: { lines: Li
   // returning a whole page inside a JSON answer was slow enough to time out
   const write = async (prompt: string) => {
     const before = existsSync(scene) ? readFileSync(scene, "utf8") : "";
+    // everything it needs is in the prompt; a turn spent opening files is wasted
     const notes = await agent({
       system: base,
-      prompt: `${prompt}\n\nWrite the complete page to ${scene} with the Write tool (replace the whole file), then reply with one or two sentences: the shots, and the moment you are proudest of.`,
+      prompt: `${prompt}\n\nEverything you need is above; do not open other files. Write the complete page to ${scene} with ONE Write call (the whole file at once), then reply with one or two sentences: the shots, and the moment you are proudest of.`,
       tools: ["Read", "Write", "Edit"],
       bash: [],
-      maxTurns: 6,
+      maxTurns: 12,
       timeoutMs: 40 * 60_000,
+    }).catch((e: unknown) => {
+      // ran out of turns after writing: keep the page, the code checks decide
+      if (existsSync(scene) && readFileSync(scene, "utf8") !== before) return `(stopped early: ${e instanceof Error ? e.message.slice(0, 120) : e})`;
+      throw e;
     });
     if (!existsSync(scene) || readFileSync(scene, "utf8") === before) throw new Error("The director did not write the scene.");
     log.push(notes.trim());
