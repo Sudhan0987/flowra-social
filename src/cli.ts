@@ -121,10 +121,12 @@ async function make(state: State, arg?: string): Promise<void> {
     writeJson(f("storyboard.json"), await storyboard(story0, seconds));
   }
   const board = readJson<Board>(f("storyboard.json"));
+  const priorLog = existsSync(f("director.json")) ? readJson<string[]>(f("director.json")) : [];
   if (!existsSync(f("scene.html"))) {
     console.log("5-6. Director: scene, code checks, contact-sheet review");
     const d = await directFloey(dir, HOUSE, { lines, story: story0, board, seconds: voice });
-    writeJson(f("director.json"), d.log);
+    priorLog.push(...d.log);
+    writeJson(f("director.json"), priorLog);
   }
   console.log("7. Render");
   let r = renderReel(dir, board.posterAt);
@@ -133,7 +135,8 @@ async function make(state: State, arg?: string): Promise<void> {
   if (!qa.pass) {
     console.log(`Final test failed, one more pass:\n${qa.problems.join("\n")}`);
     const d = await directFloey(dir, HOUSE, { lines, story: story0, board, seconds: voice, notes: qa.problems.map((x) => `- ${x}`).join("\n") });
-    writeJson(f("director.json"), [...readJson<string[]>(f("director.json")), ...d.log]);
+    priorLog.push(...d.log);
+    writeJson(f("director.json"), priorLog);
     r = renderReel(dir, board.posterAt);
     qa = await finalTest(id);
   }
