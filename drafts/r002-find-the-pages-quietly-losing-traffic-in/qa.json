@@ -1,7 +1,0 @@
-{
- "pass": false,
- "problems": [
-  "Frame 05: Floey's body sits on top of the Date dropdown she is tapping. It hides the Date chip, the first menu tab and the start of the option text, so the menu reads 'mpare last 3 months / o previous period'. This happens just as the voice and caption say 'Compare last 3…', so the one UI step being taught can't be read on screen. Fix: put Floey on the menu's left or right edge so only her beak touches the option and all the menu text stays visible.",
-  "Frame 09: Floey covers the table's tab row and cuts the column header off at 'Clicks Differ…'. The 'Pages' tab is hidden behind her too. This is while the voice says 'open Queries, see which searches lost clicks.' Fix: have her tap from above or outside the table so the header and tabs stay whole."
- ]
-}
