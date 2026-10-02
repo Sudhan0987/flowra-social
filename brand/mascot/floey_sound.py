@@ -319,6 +319,16 @@ def compare(line, path):
     print(path)
 
 
+# FOUNDER FEEDBACK 2026-10-02, not yet applied (do it on the next reel, not this one):
+# the voice reads at about the same loudness as the sfx/ambience/music bed; it should
+# sit clearly above them. Likely cause: the final `out / out.max() * 0.9` below
+# normalises the WHOLE mix to one peak sample, taken after sfx (e.g. "rustle" at gain
+# 1.8) and the voice's own 1.6x boost are summed in — a single sharp sfx transient can
+# set that peak and drag the voice's effective level down with it, even though voice
+# is boosted going in. A real fix likely needs voice loudness (RMS, not peak) set
+# independently of sfx/music, e.g. normalise voice on its own first, or duck sfx/music
+# harder under speech (mirroring the existing music duck at line below), then limit
+# only the sfx+music bed to the voice's peak rather than normalising everything together.
 def mix(cues_path, outdir, dur):
     data = json.load(open(cues_path))
     out = hum(data["track"], dur) + ambience(dur)
