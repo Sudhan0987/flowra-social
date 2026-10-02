@@ -28,6 +28,12 @@ document.fonts.load("800 50px 'Public Sans'"); document.fonts.load("700 28px 'Sp
 const GAP = { hook0: 0.45, body1: 0.35, body2: 0.5, body3: 0.4, body4: 0.6, body5: 0.6, payoff6: 0.55, loop7: 0.4, go8: 0.75, url9: 0.35 };
 const { B, DUR } = PROPS.timing(LINES, M, GAP);
 const b = B, INK = C.ink, FONT = "Space Grotesk";
+// captions hold their last words through the pause after a line (no blank
+// frames mid-reel), and the address stays up to the very end
+const CAPB = Object.fromEntries(LINES.map(([id], i) => {
+  const nx = LINES[i + 1];
+  return [id, { ...B[id], end: nx ? Math.max(B[id].end, B[nx[0]].start - 0.35) : DUR }];
+}));
 const clamp = (v, a = 0, z = 1) => Math.max(a, Math.min(z, v));
 const smooth = (k) => { k = clamp(k); return k * k * (3 - 2 * k); };
 
@@ -45,14 +51,16 @@ const LOW3 = 0.2, LOW5 = 0.3, FINE = 0.9;     // faded health, and "looks fine f
 const H3 = head(FL.F3, LOW3);                 // the drooping worst page
 
 // ---------- the Performance panel (Floey's drawing of the report) ----------
-const PX = 110, PY = 165, PW = 860, PH0 = 350, PH1 = 725;
+// the chart sits above the Date chip, so the Date menu drops below the chart
+// and never hides the line the Compare step is about
+const PX = 110, PY = 170, PW = 860, PH0 = 345, PH_TABS = 430, PH1 = 750;
 const IX0 = PX + 34, IX1 = PX + PW - 34;           // inner left / right
-const CHIP_Y = PY + 125;                            // the Date chip row
-const CH = { x0: 164, x1: 916, y0: 372, y1: 470 };  // the chart's plot area
+const CH = { x0: 164, x1: 916, y0: 300, y1: 392 };  // the chart's plot area
+const CHIP_Y = 452;                                 // the Date chip row, under the chart
 const TOT = [0.5, 0.47, 0.53, 0.49, 0.52, 0.48, 0.51, 0.5, 0.54, 0.49, 0.5, 0.52];
 const PREV = [0.72, 0.75, 0.7, 0.74, 0.71, 0.76, 0.72, 0.73, 0.69, 0.74, 0.72, 0.71];
 const MX = IX0, MY = CHIP_Y + 44;                   // the Date menu
-const TABS_Y = 500, HDR_Y = 598, ROW_Y = 610, RH = 64;
+const TABS_Y = 520, HDR_Y = 618, ROW_Y = 630, RH = 64;
 // example numbers: Clicks Difference is a plain count of clicks. o = row position [unsorted, wrong way, losses on top]
 const PAGES = [
   { label: "/content-calendar", diff: 12, fl: "F1", o: [0, 1, 2] },
@@ -60,7 +68,6 @@ const PAGES = [
   { label: "/link-building", diff: 35, fl: "F2", o: [2, 0, 3] },
   { label: "/keyword-guide", diff: -64, fl: "F5", o: [3, 2, 1] },
 ];
-const QALL = [{ label: "seo checklist", diff: -70 }, { label: "content calendar", diff: 18 }, { label: "link building tips", diff: 9 }, { label: "keyword research", diff: -41 }];
 const QUERIES = [{ label: "seo checklist", diff: -70 }, { label: "seo audit template", diff: -32 }, { label: "site audit steps", diff: -18 }];
 
 // where Floey's beak lands on each control (world). Measured text widths are
@@ -85,7 +92,7 @@ const W = {
   h1: 1, h2: 1, h3: LOW3, h4: 1, h5: LOW5, h6: 1, shiver: 0,
   p1: 0.999, ping: 0, tpulse: 0, cpulse: 0,
   menu: 0, cmpTab: 0, picked: 0, compare: 1, cmpLine: 1,
-  ph: PH1, tabs: 1, tabActive: 1, qAll: 0, rows: 1, s1: 1, s2: 1, glow: 1, narrow: 0, filter: 0, q: 0, example: 1,
+  ph: PH1, tabs: 1, tabActive: 1, rows: 1, s1: 1, s2: 1, glow: 1, narrow: 0, filter: 0, q: 0, example: 1,
   bug: 0,
 };
 const BEFORE = { h3: FINE, h5: FINE, compare: 0 };    // what the wipe in body1 reveals
@@ -94,8 +101,10 @@ const TAPS = []; // [t, x, y] tap rings
 const tapAt = (t, p) => TAPS.push([t, p.x, p.y]);
 
 // ---------- Floey's performance, cued to the voice ----------
-const HOME = { x: 310, y: 1010 };             // just above the drooping third flower (opening = final frame)
-const PARK = { x: 830, y: 975 };              // below the report, out of the way of the chart and the table
+const HOME = { x: 310, y: 1060 };             // just above the drooping third flower (opening = final frame)
+const PARK = { x: 830, y: 1020 };             // below the report, out of the way of the chart and the table
+// the camera on the report: the whole card and Floey stay inside the frame
+const ON_CHART = { camX: 540, camY: 600, zoom: 1.12 }, ON_TABLE = { camX: 540, camY: 700, zoom: 1.08 };
 const F = FLOEY.create({ x: HOME.x, y: HOME.y, facing: 1, scale: 1.15, mood: "hello", view: "front" });
 const wt = gsap.timeline({ paused: true });
 wt.set(W, { camX: 540, camY: 960, zoom: 1 }, 0);
@@ -109,8 +118,9 @@ F.say(b.hook0.start, M.hook0 || [], "hook0")
  .look(3.3, -0.1, 1, 0.08)
  .mood(3.7, "determined").look(3.7, 0, 0, 0.1)
  .tongue(4.4, 1);
+// a gentle push: the whole report stays on screen, clear of Instagram's header
 wt.to(W, { ping: 1, duration: 0.8, ease: "none" }, 0.45)
-  .to(W, { camX: 520, camY: 980, zoom: 1.15, duration: 1.8, ease: "sine.inOut" }, 2.4);
+  .to(W, { camX: 520, camY: 925, zoom: 1.05, duration: 1.8, ease: "sine.inOut" }, 2.4);
 
 // BODY1: the wipe. She zips right, then dashes left; the answer clears in her
 // wake and the garden goes back to "fine from up here" under one flat line.
@@ -149,10 +159,10 @@ F.pivot(b.body3.start, "front").mood(b.body3.start, "hello").look(b.body3.start 
  .say(b.body3.start, M.body3 || [], "body3")
  .chips(b.body3.start + 1.05, 1)
  .pivot(b.body3.start + 1.4, "side")
- .dart(b.body3.start + 1.6, 740, 330, 0.34, 1)
- .mood(b.body3.start + 2.0, "happy").look(b.body3.start + 2.05, -0.8, 0.2, 0.1)
+ .dart(b.body3.start + 1.6, 720, 600, 0.34, 1)
+ .mood(b.body3.start + 2.0, "happy").look(b.body3.start + 2.05, -0.8, -0.5, 0.1)
  .sfx(b.body3.start + 2.05, "ting", { x0: 400 });
-wt.to(W, { camX: 520, camY: 560, zoom: 1.15, duration: 0.8, ease: "power2.inOut" }, b.body3.start + 1.25)
+wt.to(W, { ...ON_CHART, duration: 0.8, ease: "power2.inOut" }, b.body3.start + 1.25)
   .to(W, { cpulse: 2, duration: 1.4, ease: "none" }, b.body3.start + 1.95);
 
 // BODY4: Performance, Date, Compare, last 3 months; the earlier period draws in behind
@@ -162,28 +172,27 @@ F.mood(b.body4.start, "determined")
  .sfx(b.body4.start + 0.1, "tk", { x0: 250 })
  .reach(tChev, TAP.chev.x, TAP.chev.y, 0.28).sfx(tChev + 0.3, "tap", { x0: TAP.chev.x }).sfx(tChev + 0.38, "pluck", { x0: 400 })
  .reach(tCmp, TAP.cmp.x, TAP.cmp.y, 0.28).sfx(tCmp + 0.3, "tk", { x0: TAP.cmp.x })
- // round to the right of the menu first, so her head never covers the option's words
- .move(tCmp + 0.5, TAP.opt.x + 190, TAP.opt.y + 30, 0.35, "power2.inOut")
+ // round below the menu first, so her head never covers the option's words
+ .move(tCmp + 0.5, 790, 790, 0.35, "power2.inOut")
  .reach(tOpt, TAP.opt.x, TAP.opt.y, 0.28).sfx(tOpt + 0.3, "tap", { x0: TAP.opt.x })
- .reverse(tOpt + 0.4, TAP.opt.x + 200, 0.25)
+ .reverse(tOpt + 0.4, 800, 0.25)
  .sfx(b.body4.start + 3.95, "swish", { x0: 450 })
- .move(b.body4.start + 3.95, 830, 640, 0.5, "power2.inOut")
+ .move(b.body4.start + 3.95, 780, 640, 0.5, "power2.inOut")
  .pivot(b.body4.start + 4.5, "front").look(b.body4.start + 4.55, -0.6, -0.8, 0.1)
  .sfx(b.body4.start + 4.15, "rustle", { n: 4, x0: 540 })
  .mood(b.body4.start + 5.1, "happy");
 tapAt(tChev + 0.3, TAP.chev); tapAt(tCmp + 0.3, TAP.cmp); tapAt(tOpt + 0.3, TAP.opt);
+// the camera holds the ON_CHART framing: the card, the menu below it and Floey all fit
 wt.to(W, { tpulse: 1, duration: 0.8, ease: "none" }, b.body4.start)
-  .to(W, { camX: 560, camY: 440, zoom: 1.2, duration: 0.7, ease: "power2.inOut" }, b.body4.start + 0.6)
   .to(W, { menu: 1, duration: 0.3, ease: "back.out(1.6)" }, tChev + 0.32)
   .to(W, { cmpTab: 1, duration: 0.25, ease: "power2.out" }, tCmp + 0.32)
   .set(W, { picked: 1 }, tOpt + 0.3)
   .to(W, { menu: 0, duration: 0.25, ease: "power2.in" }, b.body4.start + 3.9)
   .set(W, { compare: 1 }, b.body4.start + 4.1)
-  .to(W, { camX: 540, camY: 580, zoom: 1.1, duration: 0.9, ease: "power2.inOut" }, b.body4.start + 3.9)
   .to(W, { cmpLine: 1, duration: 1.0, ease: "power1.inOut" }, b.body4.start + 4.15);
 
 // BODY5: the Pages table; tap Clicks Difference twice so the biggest losses sit on top
-const tPg = b.body5.start, tH1 = b.body5.start + 1.1, tH2 = b.body5.start + 2.3;
+const tPg = b.body5.start + 0.2, tH1 = b.body5.start + 1.1, tH2 = b.body5.start + 2.3;
 F.pivot(b.body5.start - 0.45, "side")
  .move(b.body5.start - 0.45, PARK.x, PARK.y, 0.4, "power2.inOut")
  .sfx(b.body5.start - 0.35, "pluck", { x0: 540 })
@@ -198,14 +207,15 @@ F.pivot(b.body5.start - 0.45, "side")
  .move(b.body5.start + 3.2, PARK.x, PARK.y, 0.45, "power2.inOut")
  .pivot(b.body5.start + 3.7, "front").look(b.body5.start + 3.75, -0.7, -0.6, 0.1);
 tapAt(tPg + 0.32, TAP.pages); tapAt(tH1 + 0.27, TAP.hdr); tapAt(tH2 + 0.24, TAP.hdr);
-wt.to(W, { camX: 540, camY: 680, zoom: 1.05, duration: 0.6, ease: "power2.inOut" }, b.body5.start - 0.45)
-  .to(W, { ph: PH1, duration: 0.45, ease: "power2.out" }, b.body5.start - 0.4)
-  .to(W, { tabs: 1, duration: 0.3 }, b.body5.start - 0.25)
-  .to(W, { qAll: 1, duration: 0.4, ease: "power1.out" }, b.body5.start - 0.2)
-  .to(W, { example: 1, duration: 0.3 }, b.body5.start - 0.1)
+// the table opens on its tabs alone (none chosen yet); tapping Pages fills it, unsorted
+wt.to(W, { ...ON_TABLE, duration: 0.6, ease: "power2.inOut" }, b.body5.start - 0.45)
+  .set(W, { tabActive: -1 }, b.body5.start - 0.45)
+  .to(W, { ph: PH_TABS, duration: 0.3, ease: "power2.out" }, b.body5.start - 0.2)
+  .to(W, { tabs: 1, duration: 0.3 }, b.body5.start - 0.1)
+  .to(W, { example: 1, duration: 0.3 }, b.body5.start - 0.05)
   .set(W, { tabActive: 1 }, tPg + 0.32)
-  .to(W, { qAll: 0, duration: 0.15 }, tPg + 0.32)
-  .to(W, { rows: 1, duration: 0.45, ease: "power1.out" }, tPg + 0.42)
+  .to(W, { ph: PH1, duration: 0.35, ease: "power2.out" }, tPg + 0.32)
+  .to(W, { rows: 1, duration: 0.45, ease: "power1.out" }, tPg + 0.38)
   .to(W, { s1: 1, duration: 0.36, ease: "power2.inOut" }, tH1 + 0.3)
   .to(W, { s2: 1, duration: 0.36, ease: "power2.inOut" }, tH2 + 0.27)
   .to(W, { glow: 1, duration: 0.3, ease: "power2.out" }, tH2 + 0.66);
@@ -222,7 +232,7 @@ F.mood(b.payoff6.start, "happy")
  .move(b.payoff6.start + 2.75, PARK.x, PARK.y, 0.45, "power2.inOut")
  .look(b.payoff6.start + 3.25, -0.8, -0.5, 0.1).mood(b.payoff6.start + 3.25, "think")
  // the camera drifts down to the worst page; a little bug peeks out of it
- .move(b.payoff6.end, 470, 1060, 0.7, "power2.inOut")
+ .move(b.payoff6.end, 470, 1080, 0.7, "power2.inOut")
  .face(b.payoff6.end + 0.5, 1).look(b.payoff6.end + 0.5, -0.4, 1, 0.05).mood(b.payoff6.end + 0.5, "surprised")
  .sfx(b.payoff6.end + 0.35, "brrt", { x0: 320 });
 tapAt(tRow + 0.32, TAP.row0); tapAt(tQ + 0.3, TAP.queries);
@@ -270,13 +280,16 @@ wt.to(W, { camX: 400, camY: 1430, zoom: 1.45, duration: 0.5, ease: "power2.out" 
   .set(W, { shx: 0, shy: 0 }, T_PICK + 0.36)
   .to(W, { shiver: 1, duration: 0.7, ease: "none" }, T_PICK + 0.7);
 
-// URL9: a beat, then back to the opening wide shot; Floey takes her opening spot
-F.move(b.url9.start - 0.1, HOME.x, HOME.y, 0.6, "power2.inOut")
- .sfx(b.url9.start - 0.15, "swish", { x0: 540 })
- .pivot(b.url9.start + 0.55, "front").mood(b.url9.start + 0.55, "hello").look(b.url9.start + 0.55, 0, 0, 0.1)
+// URL9: in the beat before the address, the camera is already back on the
+// opening wide shot and Floey on her opening spot, so the address plays over
+// the first frame exactly
+const T_BACK = b.go8.end + 0.1;
+F.move(T_BACK + 0.05, HOME.x, HOME.y, 0.6, "power2.inOut")
+ .sfx(T_BACK, "swish", { x0: 540 })
+ .pivot(b.url9.start - 0.1, "front").mood(b.url9.start - 0.1, "hello").look(b.url9.start - 0.1, 0, 0, 0.1)
  .say(b.url9.start, M.url9 || [], "url9")
- .flash(b.url9.start + 0.75).chips(b.url9.end + 0.05, 1);
-wt.to(W, { camX: 540, camY: 960, zoom: 1, duration: 1.35, ease: "power3.inOut" }, b.url9.start - 0.15);
+ .flash(b.url9.end - 0.3).chips(b.url9.end + 0.25, 1);
+wt.to(W, { camX: 540, camY: 960, zoom: 1, duration: 0.85, ease: "power2.inOut" }, T_BACK);
 wt.set({}, {}, DUR);
 
 // ---------- drawing ----------
@@ -307,14 +320,11 @@ window.render = function (t) {
   const cam = { camX: W.camX + W.shx, camY: W.camY + W.shy, zoom: W.zoom };
   // fonts first: a measure taken before the web font loads is cached for good
   const fontsOK = document.fonts.check(`700 28px '${FONT}'`);
-  // texts fade out before they reach Instagram's header or the frame's sides
+  // The report shows or hides as one piece, never text by text: it fades out
+  // whole (paper, lines and words together) as its title nears Instagram's
+  // header or a side of the frame, so no blank card or word-less chip is ever left.
   const sx = (x) => 540 + (x - cam.camX) * cam.zoom, sy = (y) => 960 + (y - cam.camY) * cam.zoom;
-  // the tall report fades as a whole once the camera leaves it, so no blank strip of paper hangs at the top
-  const panelVis = W.ph > 600 ? Math.min(clamp((sy(PY + W.ph) - 250) / 150), clamp((1080 - sx(IX1)) / 30), clamp(sx(IX0) / 30)) : 1;
-  const vis = (x0, y0, x1, y1) => fontsOK ? clamp((sy((y0 + y1) / 2) - 150) / 50) * clamp(Math.min(sx(x0), 1080 - sx(x1)) / 30) * panelVis : 0;
-  const gate = (s, op) => op >= 0.999 ? s : s.replace(/<text /g, `<text opacity="${op.toFixed(2)}" `);
-  // a table row or control fades as one piece (no dots or arrows left without their words)
-  const gateAll = (s, op) => op >= 0.999 ? s : op <= 0.01 ? "" : `<g opacity="${op.toFixed(2)}">${gate(s, op)}</g>`;
+  const panelVis = fontsOK ? Math.min(clamp((sy(PY + 40) - 152) / 40), clamp((sx(PX) - 10) / 40), clamp((1070 - sx(PX + PW)) / 40)) : 0;
   // the body1 wipe: right of Floey shows the before state, left of her still the after
   const inWipe = t >= T0 - 0.2 && t < T1, wx = F.pose(t).x + 70;
   const passed = (x) => inWipe ? smooth((x - wx) / 140 + 0.5) : 0;
@@ -334,8 +344,7 @@ window.render = function (t) {
   // ---- the Performance panel ----
   const s0 = s.length;
   const ph = W.ph, tpulse = Math.sin(clamp(W.tpulse) * Math.PI);
-  const tw = measure("Performance", `700 30px '${FONT}'`);
-  s += gate(PROPS.panel(1, PX, PY, PW, ph, { title: "Performance", accent: C.indigo }), vis(IX0, PY + 20, IX0 + tw, PY + 60));
+  s += PROPS.panel(1, PX, PY, PW, ph, { title: "Performance", accent: C.indigo });
   if (tpulse > 0) s += `<rect x="${PX - 8}" y="${PY - 8}" width="${PW + 16}" height="92" rx="34" fill="none" stroke="${C.amber}" stroke-width="${8 * tpulse}" opacity="${tpulse * 0.9}"/>`;
   // the Date chip (and the Page filter once a page is clicked)
   const compare = inWipe ? (passed(IX0 + 200) > 0.5 ? 0 : 1) : W.compare;
@@ -343,13 +352,13 @@ window.render = function (t) {
   const dw = fontsOK ? chipW(dLabel) : 300, dcx = IX0 + dw / 2;
   const cp = W.cpulse > 0 && W.cpulse < 2 ? Math.sin((W.cpulse % 1) * Math.PI) : 0;
   if (cp > 0) s += `<rect x="${IX0 - 10}" y="${CHIP_Y - 38}" width="${dw + 20}" height="76" rx="38" fill="${C.amber}" opacity="${(0.35 * cp).toFixed(2)}"/>`;
-  s += gate(PROPS.dropdown(1, dcx, CHIP_Y, dLabel), vis(IX0, CHIP_Y - 28, IX0 + dw, CHIP_Y + 28));
+  s += PROPS.dropdown(1, dcx, CHIP_Y, dLabel);
   if (W.filter > 0.01) {
     const fLabel = "Page: /seo-checklist", fw = fontsOK ? chipW(fLabel) : 400, fcx = IX0 + dw + 14 + fw / 2;
-    s += `<g transform="translate(${fcx} ${CHIP_Y}) scale(${0.6 + 0.4 * W.filter}) translate(${-fcx} ${-CHIP_Y})">${gate(PROPS.dropdown(W.filter, fcx, CHIP_Y, fLabel), vis(fcx - fw / 2, CHIP_Y - 28, fcx + fw / 2, CHIP_Y + 28))}</g>`;
+    s += `<g transform="translate(${fcx} ${CHIP_Y}) scale(${0.6 + 0.4 * W.filter}) translate(${-fcx} ${-CHIP_Y})">${PROPS.dropdown(W.filter, fcx, CHIP_Y, fLabel)}</g>`;
   }
   // the chart: one flat total line; after Compare, the earlier period (paler) sits above it
-  if (W.menu < 0.05) s += gate(`<text x="${IX0 + 16}" y="${CH.y0 - 22}" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}" opacity=".55">Clicks</text>`, vis(IX0, CH.y0 - 42, IX0 + 100, CH.y0 - 18));
+  s += `<text x="${IX0 + 16}" y="${CH.y0 - 14}" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}" opacity=".55">Clicks</text>`;
   s += `<path d="M${CH.x0},${CH.y1 + 6} H${CH.x1}" stroke="${INK}" stroke-width="3" opacity=".15"/>`;
   const cmpK = W.cmpLine * (inWipe ? clamp((wx - CH.x0) / (CH.x1 - CH.x0)) : 1);
   if (cmpK > 0.01) s += `<polyline points="${poly(linePts(PREV, cmpK))}" fill="none" stroke="${C.violet}" stroke-width="7" stroke-dasharray="2 14" stroke-linecap="round" opacity=".5"/>`;
@@ -366,30 +375,27 @@ window.render = function (t) {
       m += `<circle cx="${MX + 42}" cy="${y - 8}" r="13" fill="#fffaf2" stroke="${INK}" stroke-width="4"/>${on ? `<circle cx="${MX + 42}" cy="${y - 8}" r="6.5" fill="${C.indigo}"/>` : ""}`;
       m += `<text x="${MX + 70}" y="${y}" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}" opacity="${on || !W.picked ? 1 : 0.5}">${esc(o)}</text>`;
     });
-    s += `<g opacity="${clamp(W.menu * 3).toFixed(2)}" transform="translate(0 ${MY}) scale(1 ${(0.5 + 0.5 * W.menu).toFixed(3)}) translate(0 ${-MY})">${gate(m, vis(MX, MY, MX + mw, MY + mh))}</g>`;
+    s += `<g opacity="${clamp(W.menu * 3).toFixed(2)}" transform="translate(0 ${MY}) scale(1 ${(0.5 + 0.5 * W.menu).toFixed(3)}) translate(0 ${-MY})">${m}</g>`;
   }
 
   // tabs, the column header and the rows; during the wipe they clear from the right
   let tbl = "";
   if (W.example > 0.01) {
-    const ew = measure("example numbers", `700 22px '${FONT}'`);
-    tbl += gate(`<text x="${IX1}" y="${PY + 47}" text-anchor="end" font-family="${FONT}" font-weight="700" font-size="22" fill="#fff" opacity="${(0.9 * W.example).toFixed(2)}">example numbers</text>`, vis(IX1 - ew, PY + 30, IX1, PY + 54));
+    tbl += `<text x="${IX1}" y="${PY + 47}" text-anchor="end" font-family="${FONT}" font-weight="700" font-size="22" fill="#fff" opacity="${(0.9 * W.example).toFixed(2)}">example numbers</text>`;
   }
   if (W.tabs > 0.01) {
-    const qMode = W.qAll > 0.5 || W.q > 0.5 || (W.rows < 0.05 && W.qAll > 0.01);
-    tbl += gateAll(PROPS.tabs(W.tabs, IX0, TABS_Y, 480, ["Queries", "Pages", "Countries"], W.tabActive, C.indigo), vis(IX0, TABS_Y, IX0 + 480, TABS_Y + 50));
+    const qMode = W.q > 0.5;
+    tbl += PROPS.tabs(W.tabs, IX0, TABS_Y, 480, ["Queries", "Pages", "Countries"], W.tabActive, C.indigo);
     const hdr = "Clicks Difference", hw = measure(hdr, `700 24px '${FONT}'`);
     const sorted = qMode ? null : W.s2 > 0.5 ? "up" : W.s1 > 0.5 ? "down" : null, ax = IX1 - hw - 34;
     let h = `<text x="${IX0 + 16}" y="${HDR_Y}" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}" opacity=".55">${qMode ? "Top queries" : "Top pages"}</text>`;
     h += `<text x="${IX1}" y="${HDR_Y}" text-anchor="end" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}">${hdr}</text>`;
     if (sorted) h += `<path d="${sorted === "down" ? `M${ax - 8},${HDR_Y - 14} l8,9 l8,-9` : `M${ax - 8},${HDR_Y - 5} l8,-9 l8,9`}" stroke="${INK}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
-    tbl += `<g opacity="${clamp(W.tabs * 3).toFixed(2)}">${gateAll(h, vis(IX0, HDR_Y - 24, IX1, HDR_Y))}</g>`;
+    // the column header only once a tab is chosen and there are rows under it
+    const hk = clamp(Math.max(W.rows, W.q) * 3);
+    if (hk > 0.01) tbl += `<g opacity="${(hk * clamp(W.tabs * 3)).toFixed(2)}">${h}</g>`;
   }
   const rowSvg = (r, y, k, col) => `<circle cx="${IX0 + 24}" cy="${y + RH / 2}" r="12" fill="${col}" stroke="${INK}" stroke-width="3" opacity="${k}"/>` + PROPS.table(k / 3, IX0 + 50, y, IX1 - IX0 - 50, [r]);
-  if (W.qAll > 0.01) QALL.forEach((r, i) => {
-    const y = ROW_Y + i * RH, k = clamp(W.qAll * 4 - i * 0.6);
-    if (k > 0) tbl += `<g transform="translate(${((1 - k) * 30).toFixed(1)} 0)">${gateAll(rowSvg(r, y, k, INK), vis(IX0, y, IX1, y + RH))}</g>`;
-  });
   // The rows reorder twice (sort descending, then ascending), each a full reversal of
   // the previous order. A plain linear cross of each row's own slot can bring two (or
   // all four) rows arbitrarily close together mid-transition, in either stage, not just
@@ -413,11 +419,11 @@ window.render = function (t) {
       if (pg > 0) row += `<rect x="${IX0 - 6 - 10 * pg}" y="${y + 4 - 8 * pg}" width="${IX1 - IX0 + 12 + 20 * pg}" height="${RH - 8 + 16 * pg}" rx="24" fill="none" stroke="${C.amber}" stroke-width="6" opacity="${(0.9 * pg).toFixed(2)}"/>`;
     }
     row += rowSvg(r, y, k, col);
-    tbl += `<g transform="translate(${dx.toFixed(1)} 0)">${gateAll(row, vis(IX0, y, IX1, y + RH))}</g>`;
+    tbl += `<g transform="translate(${dx.toFixed(1)} 0)">${row}</g>`;
   });
   if (W.q > 0.01) QUERIES.forEach((r, i) => {
     const y = ROW_Y + i * RH, k = clamp(W.q * 3 - 0.3 - i * 0.8);
-    if (k > 0) tbl += `<g transform="translate(${((1 - k) * 40).toFixed(1)} 0)">${gateAll(rowSvg(r, y, k, fadeCol("F3", W.h3)), vis(IX0, y, IX1, y + RH))}</g>`;
+    if (k > 0) tbl += `<g transform="translate(${((1 - k) * 40).toFixed(1)} 0)">${rowSvg(r, y, k, fadeCol("F3", W.h3))}</g>`;
   });
   s += inWipe ? `<clipPath id="wipe"><rect x="-400" y="0" width="${(wx + 400).toFixed(1)}" height="1920"/></clipPath><g clip-path="url(#wipe)">${tbl}</g>` : tbl;
   // tap rings where her beak lands
@@ -430,7 +436,7 @@ window.render = function (t) {
   s += F.trail(t) + F.svg(t);
   s += `</g>`;
   s += GARDEN.pollen(t, cam) + GARDEN.vignette();
-  if (document.fonts.check("800 50px 'Public Sans'")) s += PROPS.captions(LINES, B, t);
+  if (document.fonts.check("800 50px 'Public Sans'")) s += PROPS.captions(LINES, CAPB, t);
   document.getElementById("stage").innerHTML = s;
 };
 window.DURATION = DUR;

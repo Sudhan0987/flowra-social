@@ -1,0 +1,11 @@
+{
+ "pass": true,
+ "problems": [
+  "Frame 07 (minor): Floey's body covers the 'Countries' tab label while she taps in the table.",
+  "Frames 00, 01, 07-11 (minor): the 'example numbers' label is about 10px at this preview size, which is small on a phone. Enlarge it, since it is the only thing marking the numbers as made up.",
+  "Frame 05 (minor): on 'Compare last 3', Floey hovers to the right of the menu instead of tapping the option. This is a single still, so the tap may land a moment later.",
+  "Frame 06 (minor): no caption, and the tabs are half-faded while the table pops in. Probably the pause between lines; check the pause is not too long.",
+  "Changes from the script (not reasons to fail): the table shows page URLs with numbers like -120 instead of coloured tags reading '-41%, example only', and the Queries step shows labelled query rows instead of bars without words. Update the script to match.",
+  "Not checked: the bug catch on 'Come on, let's go fix it!' falls between the sampled frames, and sounds cannot be checked from stills."
+ ]
+}
