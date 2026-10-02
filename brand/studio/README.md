@@ -68,6 +68,28 @@ Scale 1.35 is her normal size in a reel; 1.0 for a wide shot.
 
 A reel may draw one or two small new props of its own (a magnifying glass, a signpost, a search result card) in the same style: ink outlines 5 to 7 px, paper fill `#fffaf2`, rounded corners, Space Grotesk 700. Size every box to its text with `PROPS.measure`.
 
+## Walking through a real screen (UI chrome)
+
+Not every reel is a garden metaphor. Some topics are genuinely "here's what you do in the product" — Search Console, GA4, Flowra's own dashboard, the rework queue. Those reels still draw the screen, they just draw it in Floey's own hand, never as a screenshot. Build it from these (same `brand/studio/props.js`):
+
+- `PROPS.panel(k, x, y, w, h, { title, accent })` a window of paper to hold the rest; `PROPS.panelBody(x, y, w, h, { title })` returns the `{x, y, w, h}` content rect under its title bar — place everything else relative to that, not to the panel's outer edges.
+- `PROPS.tabs(k, x, y, w, labels, activeIndex, accent)` a tab row, active one underlined.
+- `PROPS.dropdown(k, x, y, label)` an outline pill with a chevron — a filter or setting a viewer recognizes, not a status badge.
+- `PROPS.table(k, x, y, w, rows)` up to 4 rows of `{ label, diff }` — a real data table (query, page, metric), not invented numbers; `diff` drives the rising/falling colour and arrow by itself.
+- `PROPS.bars(k, x, y, w, h, data)` up to 5 bars, `data: [{ label, value (0..1), color? }]`, rounded ends, `color` falling back to `PROPS.seriesColor(i)`.
+- `PROPS.badge(k, x, y, text, tone)` a status pill, `tone` one of `good | warn | critical | neutral` only.
+- `PROPS.button(k, x, y, label, tone)` a filled pill, `tone` `ink` (default action) or `good` (confirmed); its `x, y` is also where Floey should `reach()` to tap it.
+- `PROPS.cursor(k, x, y)` a small tap ring to land on a control the moment Floey reaches it.
+
+Colour discipline for this (the same rules any chart follows, just drawn by hand):
+
+- `PROPS.series` is the fixed categorical order `[coral, indigo, amber, magenta, violet]` — assign `PROPS.seriesColor(i)` by a series' position, never cycle past the 5th; a 6th thing folds into "other" rather than repeating a hue.
+- `PROPS.good` (rising, confirmed) and `PROPS.bad` (falling, error) are the one diverging pair, used by `table()`'s diff arrows and nowhere else as a meaning. `PROPS.warn` is reserved for the `badge()` warn tone only.
+- A status tone (`badge`) is never reused for a category, and a category colour (`series`) is never reused to mean a status. If you need both a category and a status on the same row, show the category as a coloured dot or label and the status as its own `badge`.
+- A real reel never shows more than one `panel` of invented numbers; label them "example numbers" in the voice line or caption if the exact figures aren't the viewer's real data.
+
+Hard rule specific to this: **never draw browser chrome, a literal window frame, or copy a real product's exact layout, icon set, or wordmark.** This is Floey's own paper-and-ink rendering of a screen living inside her garden — compose it the same way you'd place a prop beside a flower: a `panel` can sit over the grass with Floey perched at it, tapping a `button`, reacting to a `badge`. If a storyboard beat describes a UI action ("open the Date filter", "sort by clicks"), that is exactly what `dropdown`/`tabs`/`table` are for — draw the approved part, never a new invented mockup. `brand/studio/demo.html` renders every part above at rest (`npx tsx brand/mascot/render-scene.mts brand/studio/demo.html demo --out=/tmp/x --stills=0`) — look at it before inventing a new UI piece; if what you need isn't there, build it from the same ink-outline/paper-fill/Space-Grotesk vocabulary, sized with `PROPS.measure`, the same way `panel`/`badge`/`button` are built.
+
 ## Hard rules (the pipeline checks these in code before anyone looks)
 
 - The page loads with no errors and defines everything above; `window.LINES` is not redefined.

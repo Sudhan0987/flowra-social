@@ -1,0 +1,65 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Public+Sans:wght@800&display=swap" rel="stylesheet">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/world/garden.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<style>html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#f7f4ee}svg{display:block}</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// A reference sheet, not a reel: every UI-chrome prop in brand/studio/props.js
+// at rest, composed the way a real reel would use them, so a director (or a
+// person) can see the whole studio at a glance before drawing a new screen.
+// Render it: npx tsx brand/mascot/render-scene.mts brand/studio/demo.html demo --out=/tmp/propsdemo --stills=0
+const C = HUM.colors;
+window.LINES = [];
+window.DURATION = 1;
+
+const panel = { x: 150, y: 420, w: 840, h: 700, title: "Performance", accent: C.coral };
+const body = PROPS.panelBody(panel.x, panel.y, panel.w, panel.h, { title: true });
+const tableRows = [
+  { label: "/blog/seo-audit-checklist", diff: -120 },
+  { label: "/guides/keyword-research", diff: 48 },
+  { label: "/blog/content-calendar", diff: -64 },
+  { label: "/features/rank-tracking", diff: 35 },
+];
+const barData = [
+  { label: "Mon", value: 0.4 }, { label: "Tue", value: 0.55 }, { label: "Wed", value: 0.3 },
+  { label: "Thu", value: 0.7 }, { label: "Fri", value: 0.9 },
+];
+const barY = body.y + 90 + tableRows.length * 64 + 56;
+const barW = body.w * 0.46;
+const btnX = body.x + body.w - 150, btnY = barY + 100;
+
+const F = FLOEY.create({ x: btnX - 190, y: btnY + 150, facing: 1, scale: 1.1, mood: "determined" });
+F.pivot(0, "three"); F.look(0, 0.3, -0.1); F.reach(0, btnX - 74, btnY - 4);
+
+window.render = (t) => {
+  let s = GARDEN.defs() + GARDEN.background(t, { camX: 540, camY: 960, zoom: 1 }) + GARDEN.ground();
+  s += GARDEN.flower({ x: 980, base: 1720, h: 420, pal: [C.violet, C.indigo, C.magenta], dir: -1, seed: 4 }, 1, t);
+
+  s += PROPS.panel(1, panel.x, panel.y, panel.w, panel.h, { title: panel.title, accent: panel.accent });
+  s += PROPS.tabs(1, body.x, body.y, 420, ["Queries", "Pages"], 0);
+  s += PROPS.dropdown(1, body.x + body.w - 150, body.y + 28, "Last 28 days");
+  s += PROPS.table(1, body.x, body.y + 90, body.w, tableRows);
+  s += PROPS.bars(1, body.x, barY, barW, 150, barData);
+  s += PROPS.button(1, btnX, btnY, "Open report", "ink");
+  s += PROPS.cursor(0.55, btnX, btnY);
+
+  s += PROPS.badge(1, 230, 1310, "Fixed", "good");
+  s += PROPS.badge(1, 420, 1310, "Watching", "warn");
+  s += PROPS.badge(1, 650, 1310, "Broken link", "critical");
+  s += PROPS.badge(1, 880, 1310, "Draft", "neutral");
+
+  s += F.trail(t) + F.svg(t);
+  s += GARDEN.pollen(t, { camX: 540, camY: 960, zoom: 1 }) + GARDEN.vignette();
+  s += PROPS.captions([["demo", "The studio's UI chrome, at rest."]], { demo: { start: 0, len: 1, end: 1 } }, 0.2);
+  document.getElementById("stage").innerHTML = s;
+};
+window.render(0);
+</script>
+</body></html>

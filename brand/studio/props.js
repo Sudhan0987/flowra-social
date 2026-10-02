@@ -19,6 +19,22 @@
 //   PROPS.captions(LINES, B, t)        burned-in captions, 3 or 4 words at a time
 //   PROPS.endCard(k, url, sub)         the address card (measured, never overflows)
 //   PROPS.measure(text, font)          text width in px, for sizing boxes
+//
+// UI chrome — for a reel that walks through a real screen (Flowra's own, or a
+// tool like Search Console). Build the screen from these, in this ink/paper
+// style, never as a literal screenshot (see brand/studio/README.md):
+//
+//   PROPS.panel(k, x, y, w, h, opts)      a window of paper to hold other props
+//   PROPS.panelBody(x, y, w, h, opts)     the content rect inside a panel
+//   PROPS.tabs(k, x, y, w, labels, i)     a tab row; the active one is underlined
+//   PROPS.dropdown(k, x, y, label)        an outline control pill with a chevron
+//   PROPS.table(k, x, y, w, rows)         up to 4 rows of {label, diff}
+//   PROPS.badge(k, x, y, text, tone)      a status pill: good | warn | critical | neutral
+//   PROPS.button(k, x, y, label, tone)    a filled pill button (tone: ink | good)
+//   PROPS.bars(k, x, y, w, h, data)       up to 5 categorical bars, rounded ends
+//   PROPS.cursor(k, x, y)                 a tap ring, to land Floey's reach on a control
+//   PROPS.series / PROPS.seriesColor(i)   the fixed categorical hue order
+//   PROPS.good / PROPS.bad / PROPS.warn   the reserved status colours
 (function () {
   const C = HUM.colors;
   const INK = C.ink, FONT = "Space Grotesk", CAP = "Public Sans";
@@ -110,6 +126,121 @@
     return s;
   }
 
+  // Reserved status colours: good/warn/critical never stand for anything but
+  // that state. GOOD/BAD double as the diverging pair for any up/down number.
+  const GOOD = "#2f9e62", BAD = "#d24b4b", WARN = C.amber;
+  // Fixed categorical order for a multi-series chart or bar group — assign by
+  // a series' position, never by its value, and never cycle past the end;
+  // a 6th series folds into "other" instead of repeating a colour.
+  const SERIES = [C.coral, C.indigo, C.amber, C.magenta, C.violet];
+  const seriesColor = (i) => SERIES[i % SERIES.length];
+
+  // --- UI chrome ------------------------------------------------------------
+  // For walking through a real screen. Compose a scene from these the same
+  // way the garden is composed from flowers: panel() for the window, then
+  // tabs/dropdown/table/bars/badge/button placed inside it with panelBody()'s
+  // rect as the guide. Never draw raw browser chrome or copy a real product's
+  // exact layout — this is Floey's own paper-and-ink rendering of a screen.
+
+  // a window of paper to hold other props; k 0..1 pops it on (scales in)
+  function panel(k, x, y, w, h, o = {}) {
+    if (k <= 0.01) return "";
+    const title = o.title, accent = o.accent ?? C.coral, cx = x + w / 2, cy = y + h / 2;
+    let s = `<g opacity="${Math.min(1, k * 4)}" transform="translate(${cx} ${cy}) scale(${0.96 + k * 0.04}) translate(${-cx} ${-cy})"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="28" fill="#fffaf2" stroke="${INK}" stroke-width="7"/>`;
+    if (title) {
+      s += `<rect x="${x}" y="${y}" width="${w}" height="76" rx="28" fill="${accent}"/><rect x="${x}" y="${y + 42}" width="${w}" height="34" fill="${accent}"/>`;
+      s += `<text x="${x + 34}" y="${y + 50}" font-family="${FONT}" font-weight="700" font-size="30" fill="#fff">${esc(title)}</text>`;
+    }
+    return s + `</g>`;
+  }
+  // the content rect inside a panel, under its title bar if it has one
+  const panelBody = (x, y, w, h, o = {}) => ({ x: x + 34, y: y + (o.title ? 76 : 24) + 20, w: w - 68, h: h - (o.title ? 76 : 24) - 44 });
+
+  // a row of tab labels; the active one is bold ink with an underline
+  function tabs(k, x, y, w, labels, active = 0, accent = C.coral) {
+    if (k <= 0.01) return "";
+    const cw = w / labels.length;
+    let s = `<g opacity="${Math.min(1, k * 4)}">`;
+    labels.forEach((label, i) => {
+      const cx = x + cw * i + cw / 2, on = i === active, tw = measure(label, `700 26px '${FONT}'`);
+      s += `<text x="${cx}" y="${y + 30}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="26" fill="${INK}" opacity="${on ? 1 : 0.4}">${esc(label)}</text>`;
+      if (on) s += `<rect x="${cx - tw / 2}" y="${y + 44}" width="${tw}" height="6" rx="3" fill="${accent}"/>`;
+    });
+    return s + `</g>`;
+  }
+
+  // an outline control pill with a chevron — a filter or a setting, not a status badge.
+  // the chevron sits a fixed gap past the text's own measured end, not off the
+  // pill's half-width, so it never crowds a wide label.
+  function dropdown(k, x, y, label) {
+    if (k <= 0.01) return "";
+    const tw = measure(label, `700 28px '${FONT}'`), padL = 32, gap = 40, chevW = 30;
+    const w = padL + tw + gap + chevW + 30, x0 = -w / 2, chevCx = x0 + padL + tw + gap + chevW / 2;
+    return `<g opacity="${Math.min(1, k * 4)}" transform="translate(${x} ${y})"><rect x="${x0}" y="-28" width="${w}" height="56" rx="28" fill="#fffaf2" stroke="${INK}" stroke-width="4.5"/><text x="${x0 + padL}" y="8" font-family="${FONT}" font-weight="700" font-size="28" fill="${INK}">${esc(label)}</text><path d="M${chevCx - 9},-6 l9,10 l9,-10" stroke="${INK}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  }
+
+  // up to 4 rows of {label, diff}; diff > 0 rises in GOOD, diff < 0 falls in
+  // BAD — the one diverging pair, never a third colour for a third meaning.
+  // k 0..1 lands the rows in one at a time.
+  function table(k, x, y, w, rows) {
+    if (k <= 0.01) return "";
+    const rh = 64, n = rows.length;
+    let s = "";
+    rows.forEach((r, i) => {
+      const op = Math.min(1, Math.max(0, k * n - i) * 3); if (op <= 0) return;
+      const ry = y + i * rh;
+      s += `<g opacity="${op}">`;
+      if (i > 0) s += `<path d="M${x},${ry} H${x + w}" stroke="${INK}" stroke-width="2" opacity=".12"/>`;
+      s += `<text x="${x}" y="${ry + rh / 2 + 10}" font-family="${FONT}" font-weight="700" font-size="28" fill="${INK}">${esc(r.label)}</text>`;
+      if (r.diff != null) {
+        const up = r.diff > 0, col = up ? GOOD : r.diff < 0 ? BAD : INK, text = (up ? "+" : "") + r.diff;
+        const tw = measure(text, `700 28px '${FONT}'`);
+        s += `<text x="${x + w}" y="${ry + rh / 2 + 10}" text-anchor="end" font-family="${FONT}" font-weight="700" font-size="28" fill="${col}">${esc(text)}</text>`;
+        if (r.diff !== 0) s += `<path d="${up ? `M${x + w - tw - 40},${ry + rh / 2 + 6} l9,-11 l9,11` : `M${x + w - tw - 40},${ry + rh / 2 - 6} l9,11 l9,-11`}" stroke="${col}" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+      }
+      s += `</g>`;
+    });
+    return s;
+  }
+
+  // a status pill: tone is good | warn | critical | neutral, fixed colours —
+  // never reused for an unrelated category (use tag() for that instead)
+  function badge(k, x, y, text, tone = "neutral") {
+    if (k <= 0.01) return "";
+    const bg = { good: GOOD, warn: WARN, critical: BAD, neutral: INK }[tone] ?? INK;
+    const w = measure(text, `700 26px '${FONT}'`) + 44;
+    return `<g opacity="${Math.min(1, k * 4)}" transform="translate(${x} ${y}) scale(${0.9 + k * 0.1})"><rect x="${-w / 2}" y="-24" width="${w}" height="48" rx="24" fill="${bg}"/><text x="0" y="9" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="26" fill="#fff">${esc(text)}</text></g>`;
+  }
+
+  // a filled pill button, centred at x,y — that point is also where Floey
+  // should reach to tap it. tone: ink (default action) | good (confirmed)
+  function button(k, x, y, label, tone = "ink") {
+    if (k <= 0.01) return "";
+    const bg = tone === "good" ? GOOD : INK, w = measure(label, `700 30px '${FONT}'`) + 72;
+    return `<g opacity="${Math.min(1, k * 4)}" transform="translate(${x} ${y}) scale(${0.94 + k * 0.06})"><rect x="${-w / 2}" y="-34" width="${w}" height="68" rx="34" fill="${bg}"/><text x="0" y="11" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="30" fill="#fff">${esc(label)}</text></g>`;
+  }
+
+  // up to 5 categorical bars, rounded ends, baseline at y+h.
+  // data: [{ label, value (0..1), color? }] — color falls back to seriesColor(i)
+  function bars(k, x, y, w, h, data) {
+    if (k <= 0.01) return "";
+    const n = data.length, gap = 24, bw = (w - gap * (n - 1)) / n;
+    let s = `<g opacity="${Math.min(1, k * 4)}">`;
+    data.forEach((d, i) => {
+      const bh = Math.max(8, d.value * h * Math.min(1, k * 2)), bx = x + i * (bw + gap), by = y + h - bh;
+      s += `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="${bw / 2}" fill="${d.color ?? seriesColor(i)}"/>`;
+      s += `<text x="${bx + bw / 2}" y="${y + h + 34}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="22" fill="${INK}" opacity=".7">${esc(d.label)}</text>`;
+    });
+    return s + `</g>`;
+  }
+
+  // a tap ring at a point, to land Floey's reach on a control (k 0..1, once)
+  function cursor(k, x, y) {
+    if (k <= 0.01) return "";
+    const r = 16 + k * 20;
+    return `<circle cx="${x}" cy="${y}" r="${r.toFixed(1)}" fill="none" stroke="${INK}" stroke-width="4" opacity="${(1 - k) * 0.8}"/>`;
+  }
+
   // the dashed line flowers must reach to be on page one
   const rankLine = (y = 930, label = "PAGE 1") => {
     const w = measure(label, `700 26px '${FONT}'`) + 40;
@@ -149,5 +280,9 @@
     return `<g opacity="${k}" transform="translate(540 ${y}) scale(${0.9 + k * 0.1})"><rect x="${x0}" y="-82" width="${w}" height="176" rx="44" fill="#fffaf2" opacity=".96" stroke="${INK}" stroke-width="5"/>${HUM.spark(x0 + padX + spark / 2, -18, 26, C.coral)}<text x="${x0 + padX + spark + gap}" y="6" font-family="${FONT}" font-weight="700" font-size="70" fill="${INK}">${esc(url)}</text>${sub ? `<text x="0" y="62" text-anchor="middle" font-family="${FONT}" font-weight="600" font-size="32" fill="${C.magenta}">${esc(sub)}</text>` : ""}</g>`;
   }
 
-  window.PROPS = { measure, timing, head, bug, bugOn, tag, reviewCard, reviewButton, calendar, chart, rankLine, sparks, captions, endCard, esc };
+  window.PROPS = {
+    measure, timing, head, bug, bugOn, tag, reviewCard, reviewButton, calendar, chart, rankLine, sparks, captions, endCard, esc,
+    panel, panelBody, tabs, dropdown, table, badge, button, bars, cursor,
+    series: SERIES, seriesColor, good: GOOD, bad: BAD, warn: WARN,
+  };
 })();
