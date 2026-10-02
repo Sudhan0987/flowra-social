@@ -1,0 +1,51 @@
+{
+ "topic": "Find the pages quietly losing traffic in Search Console in under a minute: Compare last 3 months to previous period, Pages tab, sort by Clicks Difference",
+ "angle": "From far away your garden looks fine, because one total chart hides the single pages that are slowly fading. Floey shows the four taps Google itself recommends (Date filter, Compare last 3 months to previous period, Pages tab, sort by Clicks Difference) and the faded flowers rise to the top of the list, so you know exactly which page to fix first. The payoff is a saveable checklist you can do today, then Floey heads off to fix the worst flower.",
+ "whyNow": "Google's September 2026 spam update started on September 24 with a rollout of up to two weeks (it could still be moving around October 8), so content teams and agencies are checking Search Console for drops right now. This check is the calm, page-level way to see what actually moved, whatever the cause. Do not say the update caused the viewer's losses.",
+ "goal": "save",
+ "audience": "In-house content leads, SEO managers and agency account managers who open Search Console every so often, see a total clicks line that looks roughly flat, and do not know which individual pages are sliding, especially the ones checking client sites during the September 2026 spam update rollout.",
+ "facts": [
+  {
+   "fact": "Google's own guide to traffic drops says: choose the Date filter on top of the chart, select the Compare tab, and then Compare last 3 months to previous period.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "The same Google guide says to review the Pages table below the chart, and to select Clicks Difference to order it by the pages that lost the most traffic.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google's guide suggests checking whether a drop is site-wide, a group of pages, or just one very important page.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google's guide also suggests choosing Last 16 months in the Date filter to see a traffic drop in context.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "When you compare periods, Search Console adds a difference column to the tables; you may need to click the Clicks Difference header a second time so the biggest losses sit on top.",
+   "source": "https://search-console.org/blog/find-pages-losing-traffic.html"
+  },
+  {
+   "fact": "Once you find a losing page, click its URL to filter the report to that page, then open the Queries tab to see which searches lost the clicks.",
+   "source": "https://www.practicalecommerce.com/how-to-diagnose-organic-traffic-losses-using-search-console"
+  },
+  {
+   "fact": "The Performance report's default view shows clicks and impressions from Google Search for the past three months, and the newest data can be preliminary and change in the next few hours.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "Google's September 2026 spam update went live on September 24, 2026, and the rollout may take up to two weeks to complete.",
+   "source": "https://ppc.land/googles-september-spam-update-gets-a-two-week-rollout-its-longest-yet/"
+  },
+  {
+   "fact": "Flowra's content decay report finds pages whose clicks and impressions are falling, from Search Console data, and puts them in a queue to fix; a basic content decay report is on the Free plan.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "Flowra's Measure a change: tag a change on a page and Flowra compares the period before and after, with a 14 day settling window and an adjustment for the whole site's movement (a before-and-after comparison, not a split test).",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Open wide (Floey at scale 1.0) on a row of six page-flowers that all look roughly fine, with a clicks chart above them whose total line is nearly flat: \"your site looks fine from up here.\" Floey darts in to scale 1.35 and the camera pushes in: two flowers are slowly losing health (beige, drooping, a petal falling, down arrows), and the voice says so as it happens. The review card becomes the Search Console steps: Floey reach()-taps Date, then Compare last 3 months to previous period (the day counter splits into \"last 3 months\" vs \"previous 3 months\" and the chart gains a second, paler line), then the Pages tab, then the Clicks Difference header, twice. Each tap gets its tap/tk sound and the tags on the flowers reshuffle so the most faded flower's tag (an example value like \"-41%, example only\", clearly marked as an example) jumps to the top. Floey hovers over that flower with a determined mood, a small bug hiding in its leaves (the page's problem); she catches and eats it, the flower's health starts to rise, then the line \"Come on, let's go fix it!\", a beat, then \"useflowra.com\". Loop: the final wide shot matches the opening, with the flat total chart over the garden, now one flower brighter.",
+ "pillar": "problem"
+}

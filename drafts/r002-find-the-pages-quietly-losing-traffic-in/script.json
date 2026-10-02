@@ -1,0 +1,95 @@
+{
+ "title": "Find the pages fading inside your flat clicks line",
+ "beats": [
+  {
+   "role": "hook",
+   "say": "Flat clicks can hide fading pages. Search Console finds yours in a minute.",
+   "emotion": "ominous",
+   "visual": "Opening frame, wide (Floey at scale 1.0). Six page-flowers stand in a row on soft, pale hills under a pale sun. Above them floats a small clicks chart. It has a Date chip in its top-left corner and a nearly flat total line, with a second, paler line just behind it. To the right of the chart sits the one new prop, a small Pages table. Its rows are pill tags in the flowers' colours. The top row is beige, matches the third flower and reads '-41%, example only'. It glows softly. The third flower is beige and drooping, with one fallen petal at its base. The fifth flower is a little pale. Floey hovers just above the third flower, facing the viewer, and flashes her throat once. A soft tk sounds on the right as the top row settles into place."
+  },
+  {
+   "role": "body",
+   "say": "From up here, your total clicks look flat.",
+   "emotion": "warm",
+   "visual": "Wipe to the before state. Floey dashes from right to left across the frame, and the after layout clears in her wake: the Pages table folds down into the grass, the paler chart line fades away, and the fallen petal goes back onto its flower. The result is the same wide garden with one flat chart line and six flowers that all look roughly fine from this far away. A whoosh follows Floey across the frame. She settles above the row and preens one wing, relaxed (soft flutter sound)."
+  },
+  {
+   "role": "body",
+   "say": "Up close, two pages are quietly losing clicks.",
+   "emotion": "worried",
+   "visual": "Floey darts down (scale 1.35) and the camera pushes in with her. On 'two pages', the third and fifth flowers visibly fade. Their colour drains to beige and their stems droop. The third flower drops one petal (tiny rustle, panned left). Up in the edge of the frame, the chart line stays flat and gives nothing away. Floey's head flicks from one flower to the other."
+  },
+  {
+   "role": "body",
+   "say": "Checking client sites this week? Start right here.",
+   "emotion": "warm",
+   "visual": "Floey turns to the viewer, then zips up to the clicks chart (zip sound). The Date chip in the chart's corner pulses gently, waiting to be tapped."
+  },
+  {
+   "role": "body",
+   "say": "Open Performance. Date filter, Compare tab, Compare last three months to previous period.",
+   "emotion": "determined",
+   "caption": "Open Performance. Date filter, Compare tab, Compare last 3 months to previous period.",
+   "visual": "Bridge, part one. Floey reaches out and taps the Date chip on the chart with her beak (tap). A small menu drops down from it. She taps the 'Compare' tab (tk), then the option 'last 3 months vs previous' (tk). The menu folds away and a second, paler line draws itself behind the flat one with a soft pencil-scratch sound. Each tap is panned to where it happens."
+  },
+  {
+   "role": "body",
+   "say": "Pages tab. Tap Clicks Difference, twice if needed, biggest losses on top.",
+   "emotion": "determined",
+   "visual": "Bridge, part two. The small Pages table pops up beside the chart (pop sound). Floey taps its 'Pages' tab (tap), then the 'Clicks Difference' column header (tk). The rows shuffle the wrong way, with the bright tags on top. She cocks her head, taps the header again (tk), and the rows shuffle back with little whooshes. Now the beige tag matching the third flower ('-41%, example only') slides to the top, and the fifth flower's paler tag sits second."
+  },
+  {
+   "role": "payoff",
+   "say": "There's your worst page. Click it, open Queries, see which searches lost clicks.",
+   "emotion": "proud",
+   "visual": "Floey taps the top row (tap). The table narrows to that single row and a small 'Queries' tab appears. She taps it (tk), and three short grey bars slide in below it, each dipping down a notch (soft descending blips). The bars carry no words. The camera eases toward the third flower. A tiny bug peeks out from its leaves (faint buzz, panned left), and Floey's head snaps toward it."
+  },
+  {
+   "role": "loop",
+   "say": "Save this. From up here, it still looks flat.",
+   "emotion": "bright",
+   "visual": "Floey hovers above the third flower and turns to the viewer with a quick wink (soft chime). Then she tips her beak up at the chart line overhead, still flat. The bug buzzes in the leaves below her."
+  },
+  {
+   "role": "go",
+   "say": "Come on, let's go fix it!",
+   "emotion": "excited",
+   "visual": "Floey darts down at the third flower. The bug zips out of the leaves and she shuttles left and right after it, catches it mid-air and gulps it down with a tongue flick (snap and gulp, panned left). The flower gives one small shiver. Its colour stays the same for now, because the fix comes next."
+  },
+  {
+   "role": "url",
+   "say": "useflowra.com.",
+   "emotion": "playful",
+   "visual": "A beat of quiet, then the camera pulls smoothly back out to the opening wide framing (soft whoosh). Floey rises to hover just above the third flower, faces the viewer and flashes her throat. Everything is exactly as in the first frame: the flat chart with its paler second line and Date chip, the Pages table with the beige '-41%, example only' row glowing on top, the drooping third flower with its fallen petal, and the slightly pale fifth flower. No logo or end card goes into the garden, so the final frame matches the opening exactly. The address is carried by the burned-in caption."
+  }
+ ],
+ "loopNote": "The url beat pulls the camera back to the exact opening frame: Floey hovering above the drooping third flower and facing the viewer, the flat chart with its two lines, and the Pages table with the example row on top. Nothing is added (no logo, no recovered flower), so on replay the hook 'Flat clicks can hide fading pages' plays over an identical image. The loop line 'From up here, it still looks flat' runs straight into that hook.",
+ "caption": "Your total clicks line can look flat while single pages quietly slide. Here's the page-level check from Google's own guide to traffic drops. Save it for your next Search Console visit:\n\n1. Open the Performance report and choose the Date filter on top of the chart\n2. Select the Compare tab, then Compare last 3 months to previous period\n3. Look at the Pages table below the chart\n4. Sort by Clicks Difference (click it twice if needed so the biggest losses sit on top)\n5. Click a losing page to filter to it, then open the Queries tab to see which searches lost the clicks\n\nChecking client sites this week? This is a calm way to see what actually moved, whatever the cause.\n\nWant a hand? Flowra's content decay report finds pages with falling clicks and impressions and puts them in a queue to fix. A basic version is on the Free plan.\n\n(The -41% in the video is an example only.)",
+ "hashtags": [
+  "#seo",
+  "#googlesearchconsole",
+  "#contentmarketing",
+  "#seotips",
+  "#contentdecay"
+ ],
+ "id": "r002-find-the-pages-quietly-losing-traffic-in",
+ "format": "before-after-bridge",
+ "goal": "save",
+ "topic": "Find the pages quietly losing traffic in Search Console in under a minute: Compare last 3 months to previous period, Pages tab, sort by Clicks Difference",
+ "editorNotes": [
+  "The '-41%, example only' row shows the wrong kind of number. When you compare periods, Search Console's Clicks Difference column is a plain count of clicks (for example -120), not a percentage. Showing a percent under that header misrepresents the screen the viewer is about to open. Use an example click count, keep it clearly marked as an example, and use the same value in the hook, payoff and url frames.",
+  "The studio allows one or two simple new props per reel; this script needs at least three. It calls the Pages table 'the one new prop', but it also needs a Date chip with a drop-down menu (Compare tab plus an option row) and a Queries panel with three bars, on top of a two-line chart that PROPS.chart does not draw. Cut back to two. For example, show the Date and Compare steps on the existing review card or calendar (the brief suggested the day counter splitting into 'last 3 months' and 'previous 3 months'), and drop or simplify the Queries panel.",
+  "The hook is abstract and does not talk to the viewer. 'Flat clicks can hide fading pages' needs a moment of decoding: whose clicks, and what is a fading page? Make it a concrete statement in direct address that a stranger gets in 2 seconds, e.g. 'Your total clicks look flat, but some of your pages are losing traffic.' Keep it a statement, not a question.",
+  "The opening is muddled. The first frame is the finished state: a two-line chart, a table, a glowing example row, a drooping flower, and a throat flash under an ominous line. Then a backwards wipe undoes it, the fallen petal flies back onto its flower, and the slow-fade reveal plays again in beat 3. A scroller has to process the answer, a rewind and the reveal in about 6 seconds. Beat 2 also repeats the hook ('total clicks look flat'). Open on the simple wide shot (flat line, flowers that look fine) so 'up close, two pages are fading' is the first reveal. Then make the loop land back on that simpler image.",
+  "'Checking client sites this week? Start right here.' is confusing out of context. Nothing in the reel explains why this week matters, because the spam update is never mentioned. It also shuts out in-house content leads and goes against the 'your site' rule. Either say the timing plainly and safely ('Google's spam update is still rolling out, so check your pages now'), without saying the update caused any losses, or cut the line. The visual here is also just a pulsing chip.",
+  "The goal is saves, but nothing on screen is worth saving. The four steps flash past once in dense spoken captions, and then 'Save this' arrives with no recap. Show a short checklist of what was tapped, e.g. the four tapped labels collecting as small tags (interface labels are allowed). Put it before 'Save this' so the save prompt points at something.",
+  "The story has no real ending, which breaks Sudhan's quality bar. Floey eats the page's bug, then the script freezes the flower ('colour stays the same') and the url beat puts the drooping flower and fallen petal back. The brief's own idea was that the flower starts to recover and the final wide shot is 'now one flower brighter'. Let the health start to rise after she eats the bug, and let the loop match the opening composition (same camera, chart and row of flowers) with that one flower brighter.",
+  "The loop line 'From up here, it still looks flat.' is unclear. After the reveal, 'it' could mean the chart, the site or the page, and with a bright voice it reads as a non sequitur. On replay it also runs into a hook that starts with 'flat' again, so the viewer hears 'flat' three times. Rewrite it so it clearly says the total chart still hides the fading pages, and so it hands off cleanly to the opening line.",
+  "(polish) The Compare line is hard to say and hear: 'Date filter, Compare tab, Compare last three months to previous period' says 'Compare' twice in one breath, and the Pages line ends on the fragment 'biggest losses on top'. Make both read naturally aloud, e.g. 'Tap Date, then Compare, last three months to the previous period.' Also match the on-screen option label to Search Console's real wording. The visual says 'last 3 months vs previous', but the real option is 'Compare last 3 months to previous period'.",
+  "(polish) The payoff that you can 'see which searches lost clicks' is not really shown: three unlabelled grey bars read as nothing at phone size. Either drop the Queries step from the picture or make the bars clearly read as searches losing clicks (a short down arrow on each, tied to the flower). The bug as 'the page's problem' also stretches the rule that bugs stand for errors and broken links, since a click drop found this way is usually not an error.",
+  "(polish) Flowra never appears before the bare address, so 'useflowra.com' has no reason behind it. The facts allow saying that Flowra's content decay report finds these falling pages from Search Console and queues them to fix, with a basic version on the Free plan. Leaving out the end card for loop purity also means the address only shows as a caption for about a second; consider PROPS.endCard over the final beat, or a clear brand tie in the go line.",
+  "(polish) Continuity problems: the fifth flower fades to beige in beat 3 but is 'a little pale' in the opening and final frames, and the url beat has to undo the narrowed table, the Queries bars and the eaten bug in about one second. Also, the ominous hook pairs with a throat flash, which is her proud or excited move, and shuttle is a celebration display, not a chase. Use dart or reach to catch the bug.",
+  "(polish) Several named sounds are not in the sfx kit: pop, pencil-scratch, descending blips, buzz, snap and gulp, chime and whoosh. Map each one to a kit sound (swish, tk, pluck, tap, ting, bloom, rustle, brrt, flutter, shimmer, zipoff, chip) so the animator is not guessing."
+ ],
+ "template": "../drafts/r002-find-the-pages-quietly-losing-traffic-in/scene.html"
+}
