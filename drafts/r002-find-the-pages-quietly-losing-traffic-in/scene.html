@@ -390,11 +390,21 @@ window.render = function (t) {
     const y = ROW_Y + i * RH, k = clamp(W.qAll * 4 - i * 0.6);
     if (k > 0) tbl += `<g transform="translate(${((1 - k) * 30).toFixed(1)} 0)">${gateAll(rowSvg(r, y, k, INK), vis(IX0, y, IX1, y + RH))}</g>`;
   });
+  // The rows reorder twice (sort descending, then ascending), each a full reversal of
+  // the previous order. A plain linear cross of each row's own slot can bring two (or
+  // all four) rows arbitrarily close together mid-transition, in either stage, not just
+  // at one hand-timeable instant. Measure the real minimum gap between rows every frame
+  // and fade them through it when it gets tight, instead of hand-timing each danger window.
+  const posOf = (r) => r.o[0] + (r.o[1] - r.o[0]) * W.s1 + (r.o[2] - r.o[1]) * W.s2;
+  const positions = PAGES.map(posOf);
+  let minGap = Infinity;
+  for (let a = 0; a < positions.length; a++) for (let b = a + 1; b < positions.length; b++) minGap = Math.min(minGap, Math.abs(positions[a] - positions[b]));
+  const crossFade = minGap <= 0.6 ? 0.05 : minGap >= 0.9 ? 1 : 0.05 + 0.95 * (minGap - 0.6) / 0.3;
   if (W.rows > 0.01) PAGES.forEach((r, i) => {
-    const pos = r.o[0] + (r.o[1] - r.o[0]) * W.s1 + (r.o[2] - r.o[1]) * W.s2;
+    const pos = positions[i];
     const moving = Math.sin(W.s1 * Math.PI) + Math.sin(W.s2 * Math.PI), dx = (r.diff < 0 ? 1 : -1) * 14 * moving;
     const y = ROW_Y + pos * RH, keep = r.fl === "F3" ? 1 : 1 - W.narrow;
-    const k = clamp(W.rows * 4 - i * 0.6) * keep, col = fadeCol(r.fl, W["h" + r.fl[1]]);
+    const k = clamp(W.rows * 4 - i * 0.6) * keep * crossFade, col = fadeCol(r.fl, W["h" + r.fl[1]]);
     if (k <= 0.01) return;
     let row = "";
     if (r.fl === "F3" && W.glow > 0.01) {
