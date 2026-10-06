@@ -1,0 +1,9 @@
+{
+ "pass": true,
+ "problems": [
+  "Minor, not blocking (frames 04-05): the source card disappears before the claim that a new title or snippet typically shows in 1 to 2 days. Keep the Gary Illyes / Search Central Live Barcelona card up through this line, or change the voice to 'Google says', so the claim doesn't look unsourced.",
+  "Minor, not blocking (frames 02, 03, 06): the source card sits on top of the flower stems and leaves. In frame 06 it covers most of the 'core update' flower's lower stem. Its second line (event and date) is small at phone size. It is still readable, but it could move lower or get slightly bigger text.",
+  "Minor, not blocking (frame 06): the healthy flower cut off at the right edge has pinkish petals and a green-arrow page. That makes it look like the first 'new title' flower, but the script says the first flower is out of frame. A plainer neighbour, or framing it out, would make 'separate case, separate place' clearer.",
+  "Minor, not blocking (frame 11): the spark logo sits at the middle of the left edge, not quite in a lower corner. It is intact, small and well clear of Floey, so no rule is broken."
+ ]
+}

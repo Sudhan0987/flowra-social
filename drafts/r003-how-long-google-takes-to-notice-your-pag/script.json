@@ -1,0 +1,93 @@
+{
+ "title": "Day 3 Is Too Soon: How Long Google Takes to Notice Your Update",
+ "beats": [
+  {
+   "role": "hook",
+   "say": "You fixed your page three days ago. Google likely hasn't recrawled it.",
+   "emotion": "ominous",
+   "caption": "You fixed your page 3 days ago. Google likely hasn't recrawled it.",
+   "visual": "Close shot: a freshly fixed page-flower, half coloured and holding at half health with a gentle sway, with a small pill tag reading 'updated' on its stem. The calendar day counter sits beside the flower head, well below the top band of the frame, reading DAY 3. Floey hovers nose to nose with the flower, blinks, then whips round to the viewer with a swish."
+  },
+  {
+   "role": "body",
+   "say": "Google showed its numbers in Barcelona: recrawling a known page typically takes about thirty days.",
+   "emotion": "curious",
+   "caption": "Google showed its numbers in Barcelona: recrawling a known page typically takes about 30 days.",
+   "visual": "Floey darts back with a swish and the camera eases out to the garden: pale, soft hills and clouds behind, the 'updated' flower the brightest thing in the row. The counter starts ticking, DAY 4, 5, 6, each with a soft pluck panned to the counter, then faster: 8, 11, 14. Floey tilts her head and points her beak at the counter."
+  },
+  {
+   "role": "body",
+   "say": "So we wait.",
+   "emotion": "worried",
+   "visual": "The counter speeds into a run with a brrt: DAY 17, 20, 23. Floey cycles through impatient behaviours: looks left and right, preens a wing, taps a petal with her beak (pluck), takes a quick sip. Around DAY 20 she switches to her sad mood and lands on a leaf, wings still. The flower holds at half health, swaying gently, unchanged."
+  },
+  {
+   "role": "body",
+   "say": "Once Google recrawls, your new title or snippet typically shows in one to two days.",
+   "emotion": "excited",
+   "caption": "Once Google recrawls, your new title or snippet typically shows in 1 to 2 days.",
+   "visual": "The counter lands on DAY 30 and small sparks burst on the flower head with a ting panned to the flower: the recrawl. Floey snaps out of her sad mood and lifts off the leaf. The counter ticks DAY 31, DAY 32 (pluck, pluck) and a new pill tag reading 'new title' appears on the flower head with a pluck. The flower brightens only a little and sways a touch more. No chart. Floey flashes her throat once."
+  },
+  {
+   "role": "body",
+   "say": "Core update recovery? Google showed three to six months.",
+   "emotion": "worried",
+   "caption": "Core update recovery? Google showed 3 to 6 months.",
+   "visual": "Separate case, separate place: the camera swishes across to a different flower at the far end of the garden, yellowed and drooping, with a pill tag reading 'core update' and its own calendar counter. That counter races ahead with a long brrt: DAY 30, 90, 180. Floey hovers beside it in her surprised mood, reverses a little, and gives a quick shake. The first flower is out of frame."
+  },
+  {
+   "role": "payoff",
+   "say": "Don't judge on day three. Let it settle, then Flowra compares before and after, adjusted for your whole site.",
+   "emotion": "determined",
+   "caption": "Don't judge on day 3. Let it settle, then Flowra compares before and after, adjusted for your whole site.",
+   "visual": "Swish back to the first flower with its 'new title' tag, counter on DAY 32. Floey lands on its leaf, turns to the viewer, then taps the 'updated' tag with her beak (pluck). A small clicks chart appears beside the flower with a markAt line at the day of the change, and a short bracket (the reel's one new prop) slides in just after the line to mark the settling period (ting). The chart line after the bracket stays flat and blank, still waiting to be drawn. Floey does a satisfied stretch and a tongue flick."
+  },
+  {
+   "role": "loop",
+   "say": "Right now, another fix is on day three.",
+   "emotion": "curious",
+   "caption": "Right now, another fix is on day 3.",
+   "visual": "Floey's head turns. The camera glides along the row to a different half-coloured flower; a fresh 'updated' pill tag appears on its stem with a pluck, and its counter reads DAY 3. Floey zips over with a swish and hovers nose to nose with it, in the same close framing as the opening shot."
+  },
+  {
+   "role": "go",
+   "say": "Come on, let's measure it the right way!",
+   "emotion": "excited",
+   "visual": "Floey spins to the camera and flashes her throat, then taps the new flower's 'updated' tag with her beak (pluck). The tag shimmers once with a ting: the change is tagged. The counter stays on DAY 3 and does not tick."
+  },
+  {
+   "role": "url",
+   "say": "useflowra.com.",
+   "emotion": "playful",
+   "visual": "After a short pause, the intact Flowra spark logo fades in small in a lower corner, well clear of Floey, then fades out. Floey settles back nose to nose with the half-coloured, 'updated' flower, counter on DAY 3, and blinks: the exact framing of the opening shot."
+  }
+ ],
+ "loopNote": "The last frame is Floey hovering nose to nose with a half-coloured flower that has a fresh 'updated' tag, with the counter on DAY 3. That is the same close framing, flower state and day as the hook, and the logo has already faded out. On replay, 'You fixed your page three days ago' starts this new page's wait.",
+ "caption": "You updated the page. Three days later the numbers haven't moved, and someone is already asking why.\n\nAt Search Central Live in Barcelona on October 2, Google's Gary Illyes showed internal timing ranges for crawling, indexing and serving. Google hasn't published the slides yet, so these come from attendee recaps. These are the typical times Google showed:\n\nRecrawling a page Google already knows: about 30 days\nA new title or snippet showing up after that: 1 to 2 days\nRecovering from a core update: 3 to 6 months\n\nThese steps are linked. A page has to be crawled before it can be indexed, so a delay in one step pushes back the next.\n\nSo day three is too early to judge a change. Let it settle, then compare the period before with the period after. Save this for the next time a boss or client asks why nothing has moved yet.",
+ "hashtags": [
+  "#seo",
+  "#googlesearch",
+  "#contentmarketing",
+  "#searchconsole",
+  "#seotips"
+ ],
+ "id": "r003-how-long-google-takes-to-notice-your-pag",
+ "format": "ticking-clock",
+ "goal": "save",
+ "topic": "How long Google takes to notice your page update: Google's own timing numbers, shown on a day counter",
+ "editorNotes": [
+  "The 'url' beat has no caption, and nothing puts useflowra.com on screen. The spark logo fades in and back out with no address beside it. The goal is 'save', so the viewer has to be able to read the address, not just hear it. After the pause, show the address on its own (for example PROPS.endCard or a measured URL card), clear of the captions band and of Floey. Fade it out before the final loop frame if you need to. A logo fading in a 'lower corner' could also sit in the 1440 to 1580 captions band, so place it deliberately.",
+  "The 'So we wait.' beat can't hold its visual. The line is about one second long, plus a pause of 0.75 s at most. In that time the visual asks for a counter run from 17 to 23, a look around, a wing preen, a petal tap, a sip, a mood change to sad and a landing on a leaf. Nobody can read that, and the animator can't time it. Either give this stretch a longer line with real content (for example what you're tempted to do while waiting), or cut it to one or two actions and the counter run.",
+  "Tagging the change is muddled, and some of it isn't backed by the facts. The 'updated' tag is on the flower from the first frame, so it already reads as tagged. In the payoff, Floey taps it on DAY 32 to 'start' a comparison for a change made a month earlier. In the 'go' beat she tags the new fix on DAY 3, saying 'the change is tagged', three days after it was made. The facts file says only 'tag a change on a page'. It doesn't say you can tag one after the fact or backdate it. Choose one true action. Either show the tag going on at the moment of the fix, or show the tap as opening the measurement on a change that's already tagged. Don't imply backdating unless the facts file supports it.",
+  "(polish) 'Google showed its numbers in Barcelona' is vague out of context. Whose numbers, and what event? A stranger hears 'its numbers' as filler. Say what was shown (Google's own timing data, at its Search Central event in Barcelona) so the news hook lands and the source sounds credible. Keep 'showed', not 'guarantees'.",
+  "(polish) The loop line 'Right now, another fix is on day three.' sounds odd on its own. Another fix by whom? It also breaks the direct-address rule. Make it the viewer's: 'your next fix' or 'your other page'.",
+  "(polish) 'adjusted for your whole site' is hard to follow when spoken. The viewer won't know what's being adjusted or why. Say what it does in plain words, for example 'so a sitewide swing doesn't fool you'. The line also doesn't mention that you tag the change; only the picture shows it. Since the goal is a save, the spoken takeaway should be the method: tag the change, let it settle, compare before and after.",
+  "(polish) There's a logic gap between the payoff and the body. The reel says a recrawl typically takes about 30 days, then says 'let it settle'. The bracket is Flowra's 14-day window, which is shorter than the typical recrawl, and nothing reconciles the two. Don't let the bracket or the line suggest the settling window covers the recrawl wait. A cleaner route is the backed fact that Flowra asks Google to recrawl when it publishes to WordPress. If you use it, say it doesn't guarantee reindexing. The core-update beat (3 to 6 months) next to this comparison also risks suggesting it measures core-update recovery.",
+  "(polish) The core-update beat cuts in with no bridge. The story is 'you fixed your page', then a different flower is suddenly in a core-update case. The voice should signal the switch (for example 'And if a core update hit you...') so the viewer doesn't think their fixed page is now in a 3 to 6 month wait.",
+  "(polish) Captions are inconsistent. 'So we wait.' and the 'go' beat have no caption field, while every other spoken line has one. Every spoken line should have a caption.",
+  "(polish) In the payoff, Floey lands on the leaf and then taps the 'updated' tag on the stem. She can't reach the tag while perched, so give the order: land, take off, reach, tap. Or drop the landing. Also, 'the chart line after the bracket stays flat and blank' contradicts itself. Say plainly that the chart draws only up to the change and the space after it is empty.",
+  "(polish) Some actions have no sound: Floey tilting her head and pointing her beak in beat 2, her head turn and the camera glide in the loop beat, and the logo fading in. Give each its own small sound, panned to where it happens.",
+  "(polish) The hook could be tighter and more urgent. 'Google likely hasn't recrawled it' is accurate but flat, and it doesn't say why that matters (nothing you see can reflect the fix yet). Consider a specific statement that also signals Google's own new data."
+ ],
+ "template": "../drafts/r003-how-long-google-takes-to-notice-your-pag/scene.html"
+}

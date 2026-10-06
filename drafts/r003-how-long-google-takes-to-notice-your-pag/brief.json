@@ -1,0 +1,55 @@
+{
+ "topic": "How long Google takes to notice your page update: Google's own timing numbers, shown on a day counter",
+ "angle": "You fixed your page, and three days later you're already checking whether it worked. At Search Central Live in Barcelona, Google's Gary Illyes showed internal timing data: for a page Google already knows, the typical recrawl takes about 30 days. Once it's recrawled, a new title or snippet typically shows in 1 to 2 days, and recovering from a core update typically takes 3 to 6 months. The reel shows that wait on Floey's day counter and ends with the useful part: judge a change by comparing the period before it with the period after it, once it's had time to settle, and not by a panicked check on day three.",
+ "whyNow": "On October 2, 2026, at Search Central Live Deep Dive Europe in Barcelona, Gary Illyes showed Google's internal tables of fastest, typical and slowest times for crawling, indexing and serving. Search Engine Journal, Search Engine Roundtable and the attendee recaps covered it between October 5 and 6. It gives a real answer from Google to the question every content team and agency client asks: \"I updated it, why hasn't anything changed?\"",
+ "goal": "save",
+ "audience": "Content leads, in-house SEOs and agency account managers who refresh or rewrite existing pages and then have to explain to a boss or client why the numbers haven't moved yet.",
+ "facts": [
+  {
+   "fact": "Gary Illyes of Google showed internal timing tables for crawling, indexing and serving at Search Central Live Deep Dive Europe in Barcelona on October 2, 2026.",
+   "source": "https://www.searchenginejournal.com/google-crawling-indexing-recovery-timing-ranges/591829/"
+  },
+  {
+   "fact": "For each process the tables gave a fastest, a typical and a slowest time, based on Google's internal analysis.",
+   "source": "https://www.seroundtable.com/google-crawling-indexing-serving-data-42225.html"
+  },
+  {
+   "fact": "Refreshing a URL Google already knows (recrawling it): about 30 days is typical; the slowest is weeks to never.",
+   "source": "https://weareroast.com/news/google-search-central-live-deep-dive-barcelona-day-3-recap/"
+  },
+  {
+   "fact": "Discovering a new URL: about 20 hours is typical.",
+   "source": "https://www.searchenginejournal.com/google-crawling-indexing-recovery-timing-ranges/591829/"
+  },
+  {
+   "fact": "End-to-end indexing: about 1.5 hours is typical once the process runs; the slowest is months or never, linked to quality.",
+   "source": "https://weareroast.com/news/google-search-central-live-deep-dive-barcelona-day-3-recap/"
+  },
+  {
+   "fact": "Title update in search results: 1 to 2 days is typical; the slowest is several weeks to months. Snippet updates have the same range.",
+   "source": "https://weareroast.com/news/google-search-central-live-deep-dive-barcelona-day-3-recap/"
+  },
+  {
+   "fact": "Recovering from a core update: 3 to 6 months is typical; the slowest is 6 months to 1 year (the next core update).",
+   "source": "https://weareroast.com/news/google-search-central-live-deep-dive-barcelona-day-3-recap/"
+  },
+  {
+   "fact": "Many of these processes are linked: a page has to be crawled before it can be indexed, so delays in one stage carry into the next.",
+   "source": "https://www.searchenginejournal.com/google-crawling-indexing-recovery-timing-ranges/591829/"
+  },
+  {
+   "fact": "The numbers come from attendee recaps of the slides; Google had not published the slides at the time of the SEJ article. In the script, say 'Google showed', not 'Google guarantees'.",
+   "source": "https://www.searchenginejournal.com/google-crawling-indexing-recovery-timing-ranges/591829/"
+  },
+  {
+   "fact": "Flowra can measure a change: tag a change on a page and Flowra compares the period before with the period after, using a 14 day settling window and an adjustment for the whole site's movement. It is a before-and-after comparison, not a split test.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "When Flowra publishes to WordPress, it asks Google to recrawl the URL. That does not guarantee reindexing.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "The day counter is the star. It opens on a freshly fixed page-flower with a tag reading \"updated\", which looks a little better (health about 0.5) and is waiting. Floey hovers next to it, and the counter reads DAY 1. The counter ticks quickly through the days while Floey shows impatience in small actions: she looks around, preens, taps the flower, sips, and droops into a \"sad\" mood around day 20. The flower holds steady and doesn't change. At about DAY 30, a soft ting marks Google's recrawl. Then, over a quick \"1 to 2 days\", the flower's health rises to 1, it glows and sways, and a small clicks chart beside it starts to tick upward. Floey flashes her throat and shuttles to celebrate. For the 3 to 6 months beat, show the counter zooming far ahead to make the core-update point. Then end on the action: Floey taps the tag to start a before-and-after comparison with a 14 day settling window, says \"Come on, let's go check it the right way!\", and after a beat, useflowra.com appears. The loop: the counter snaps back to DAY 1 on the same fresh flower from the opening shot.",
+ "pillar": "news"
+}
