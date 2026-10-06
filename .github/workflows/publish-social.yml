@@ -1,0 +1,92 @@
+# One-off manual publish to Instagram (as a Reel) and the Facebook Page, from a
+# video already hosted at a public URL (the caller is responsible for hosting
+# it there for as long as this takes — Meta fetches and transcodes it before
+# publishing). Never echoes META_ACCESS_TOKEN.
+#
+# Needs: secrets.META_ACCESS_TOKEN (checked by meta-check.yml)
+
+name: Publish to Instagram and Facebook
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: "Public HTTPS URL to the reel.mp4"
+        required: true
+      caption:
+        description: "Caption text (used for both IG and the FB Page post)"
+        required: true
+      ig_user_id:
+        description: "Instagram Business Account id"
+        required: true
+      page_id:
+        description: "Facebook Page id"
+        required: true
+
+permissions: {}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      T: ${{ secrets.META_ACCESS_TOKEN }}
+      VIDEO_URL: ${{ inputs.video_url }}
+      CAPTION: ${{ inputs.caption }}
+      IG_USER_ID: ${{ inputs.ig_user_id }}
+      PAGE_ID: ${{ inputs.page_id }}
+    steps:
+      - name: Publish the Instagram Reel
+        run: |
+          set -e
+          G=https://graph.facebook.com/v23.0
+          echo "== creating the IG media container"
+          CREATE=$(curl -s -X POST "$G/$IG_USER_ID/media" \
+            --data-urlencode "media_type=REELS" \
+            --data-urlencode "video_url=$VIDEO_URL" \
+            --data-urlencode "caption=$CAPTION" \
+            --data-urlencode "access_token=$T")
+          echo "$CREATE" | jq .
+          CID=$(echo "$CREATE" | jq -r '.id // empty')
+          if [ -z "$CID" ]; then echo "::error::no container id, see response above"; exit 1; fi
+          echo "container id: $CID"
+
+          echo "== waiting for Meta to finish processing the video"
+          for i in $(seq 1 40); do
+            STATUS=$(curl -s "$G/$CID?fields=status_code,status&access_token=$T")
+            CODE=$(echo "$STATUS" | jq -r '.status_code // empty')
+            echo "[$i] $STATUS"
+            if [ "$CODE" = "FINISHED" ]; then break; fi
+            if [ "$CODE" = "ERROR" ]; then echo "::error::Meta reported ERROR processing the video"; exit 1; fi
+            sleep 10
+          done
+          if [ "$CODE" != "FINISHED" ]; then echo "::error::container never reached FINISHED in time"; exit 1; fi
+
+          echo "== publishing the Reel"
+          PUB=$(curl -s -X POST "$G/$IG_USER_ID/media_publish" \
+            --data-urlencode "creation_id=$CID" \
+            --data-urlencode "access_token=$T")
+          echo "$PUB" | jq .
+          MID=$(echo "$PUB" | jq -r '.id // empty')
+          if [ -z "$MID" ]; then echo "::error::publish failed, see response above"; exit 1; fi
+          echo "PUBLISHED_IG_MEDIA_ID=$MID" >> "$GITHUB_ENV"
+          echo "Published Instagram media id: $MID"
+
+      - name: Publish the Facebook Page video
+        run: |
+          set -e
+          G=https://graph.facebook.com/v23.0
+          echo "== getting this Page's own access token"
+          PAGES=$(curl -s "$G/me/accounts?fields=id,name,access_token&access_token=$T")
+          PAGE_TOKEN=$(echo "$PAGES" | jq -r --arg PID "$PAGE_ID" '.data[]? | select(.id==$PID) | .access_token // empty')
+          if [ -z "$PAGE_TOKEN" ]; then echo "::error::could not find a page token for $PAGE_ID"; echo "$PAGES" | jq '{data:[.data[]?|{id,name}],error:.error.message}'; exit 1; fi
+
+          echo "== posting the video to the Page"
+          FB=$(curl -s -X POST "$G/$PAGE_ID/videos" \
+            --data-urlencode "file_url=$VIDEO_URL" \
+            --data-urlencode "description=$CAPTION" \
+            --data-urlencode "access_token=$PAGE_TOKEN")
+          echo "$FB" | jq .
+          FID=$(echo "$FB" | jq -r '.id // empty')
+          if [ -z "$FID" ]; then echo "::error::Facebook video post failed, see response above"; exit 1; fi
+          echo "Published Facebook video id: $FID"
