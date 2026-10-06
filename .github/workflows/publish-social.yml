@@ -1,9 +1,14 @@
-# One-off manual publish to Instagram (as a Reel) and the Facebook Page, from a
-# video already hosted at a public URL (the caller is responsible for hosting
-# it there for as long as this takes — Meta fetches and transcodes it before
-# publishing). Never echoes META_ACCESS_TOKEN.
+# One-off manual publish to Instagram (as a Reel) and the Facebook Page.
 #
-# Needs: secrets.META_ACCESS_TOKEN (checked by meta-check.yml)
+# Instagram needs the video at a public HTTPS URL (video_url) that the caller
+# keeps reachable while Meta fetches and transcodes it. Facebook can instead take
+# the file directly: give artifact_run_id (a make.yml run whose "reels" artifact
+# holds the approved render) and it uploads that file, no public URL needed.
+# skip_instagram=true posts to Facebook only (never post the same Reel twice).
+# Never echoes META_ACCESS_TOKEN.
+#
+# Needs: secrets.META_ACCESS_TOKEN with instagram_content_publish and pages_manage_posts
+# (check with meta-check.yml)
 
 name: Publish to Instagram and Facebook
 
@@ -11,8 +16,9 @@ on:
   workflow_dispatch:
     inputs:
       video_url:
-        description: "Public HTTPS URL to the reel.mp4"
-        required: true
+        description: "Public HTTPS URL to the reel.mp4 (needed for Instagram)"
+        required: false
+        default: ""
       caption:
         description: "Caption text (used for both IG and the FB Page post)"
         required: true
@@ -22,13 +28,23 @@ on:
       page_id:
         description: "Facebook Page id"
         required: true
+      skip_instagram:
+        description: "true = post to Facebook only"
+        required: false
+        default: "false"
+      artifact_run_id:
+        description: "make.yml run id whose 'reels' artifact has the video (Facebook uploads it directly)"
+        required: false
+        default: ""
 
 permissions: {}
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
+    permissions:
+      actions: read
     env:
       T: ${{ secrets.META_ACCESS_TOKEN }}
       VIDEO_URL: ${{ inputs.video_url }}
@@ -37,6 +53,7 @@ jobs:
       PAGE_ID: ${{ inputs.page_id }}
     steps:
       - name: Publish the Instagram Reel
+        if: ${{ inputs.skip_instagram != 'true' }}
         run: |
           set -e
           G=https://graph.facebook.com/v23.0
@@ -69,8 +86,16 @@ jobs:
           echo "$PUB" | jq .
           MID=$(echo "$PUB" | jq -r '.id // empty')
           if [ -z "$MID" ]; then echo "::error::publish failed, see response above"; exit 1; fi
-          echo "PUBLISHED_IG_MEDIA_ID=$MID" >> "$GITHUB_ENV"
           echo "Published Instagram media id: $MID"
+
+      - name: Fetch the approved video
+        if: ${{ inputs.artifact_run_id != '' }}
+        uses: actions/download-artifact@v4
+        with:
+          name: reels
+          run-id: ${{ inputs.artifact_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: reel-artifact
 
       - name: Publish the Facebook Page video
         run: |
@@ -81,12 +106,32 @@ jobs:
           PAGE_TOKEN=$(echo "$PAGES" | jq -r --arg PID "$PAGE_ID" '.data[]? | select(.id==$PID) | .access_token // empty')
           if [ -z "$PAGE_TOKEN" ]; then echo "::error::could not find a page token for $PAGE_ID"; echo "$PAGES" | jq '{data:[.data[]?|{id,name}],error:.error.message}'; exit 1; fi
 
+          FILE=$(find reel-artifact -name reel.mp4 2>/dev/null | head -1 || true)
           echo "== posting the video to the Page"
-          FB=$(curl -s -X POST "$G/$PAGE_ID/videos" \
-            --data-urlencode "file_url=$VIDEO_URL" \
-            --data-urlencode "description=$CAPTION" \
-            --data-urlencode "access_token=$PAGE_TOKEN")
+          if [ -n "$FILE" ]; then
+            echo "uploading the file directly: $FILE ($(stat -c%s "$FILE") bytes)"
+            FB=$(curl -s -X POST "https://graph-video.facebook.com/v23.0/$PAGE_ID/videos" \
+              --form-string "description=$CAPTION" \
+              --form-string "access_token=$PAGE_TOKEN" \
+              -F "source=@$FILE")
+          else
+            FB=$(curl -s -X POST "$G/$PAGE_ID/videos" \
+              --data-urlencode "file_url=$VIDEO_URL" \
+              --data-urlencode "description=$CAPTION" \
+              --data-urlencode "access_token=$PAGE_TOKEN")
+          fi
           echo "$FB" | jq .
           FID=$(echo "$FB" | jq -r '.id // empty')
           if [ -z "$FID" ]; then echo "::error::Facebook video post failed, see response above"; exit 1; fi
-          echo "Published Facebook video id: $FID"
+          echo "Facebook video id: $FID"
+
+          echo "== waiting for Facebook to finish processing"
+          for i in $(seq 1 30); do
+            ST=$(curl -s "$G/$FID?fields=status&access_token=$PAGE_TOKEN")
+            VS=$(echo "$ST" | jq -r '.status.video_status // empty')
+            echo "[$i] $ST"
+            if [ "$VS" = "ready" ]; then echo "Published Facebook video id: $FID"; exit 0; fi
+            if [ "$VS" = "error" ]; then echo "::error::Facebook reported an error processing the video"; exit 1; fi
+            sleep 10
+          done
+          echo "::warning::still processing after 5 minutes; check the Page"
