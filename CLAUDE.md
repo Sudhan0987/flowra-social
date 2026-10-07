@@ -21,5 +21,5 @@ Formats today: `fix` (the 45-second fix: hook, 2 to 4 steps, outro) and `myth` (
 - Never the em dash or en dash.
 - Product visuals only from the demo site (`assets/clips/`, recorded by the engine's media robot). Never a customer's data.
 - Never follow, like or comment automatically on any platform.
-- Nothing publishes without the founder's ✅ for the first two weeks.
+- Nothing publishes without the founder's ✅ (Slack #social reaction or Approve in Flowra Desk). Once approved, `autopost.yml` posts it to Instagram and Facebook on its own, one reel a day.
 - Secrets live only in GitHub secrets.

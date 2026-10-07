@@ -107,6 +107,8 @@ jobs:
       - name: Save the script and state
         if: steps.setup.outputs.ready == 'true' && always()
         run: |
+          # remember which run made each new draft, so autopost.yml finds its video
+          node -e "const fs=require('fs'),f='state/posts.json',s=JSON.parse(fs.readFileSync(f));for(const p of s.posts)if(p.status==='draft'&&!p.run)p.run=Number(process.env.GITHUB_RUN_ID);fs.writeFileSync(f,JSON.stringify(s,null,2)+'\\n')"
           git config user.name "flowra-social"
           git config user.email "flowra-social@users.noreply.github.com"
           git add drafts state

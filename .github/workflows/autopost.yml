@@ -1,0 +1,52 @@
+# Posts approved reels to Instagram (Reel) and the Facebook Page on its own
+# (src/autopost.ts). A ✅ on the draft in Slack #social, or Approve in Flowra
+# Desk, is all it needs. At most one reel a day, from 10:00 India time;
+# checks again every three hours for new approvals.
+#
+# Needs: secrets.META_ACCESS_TOKEN (instagram_content_publish, pages_manage_posts),
+# secrets.SLACK_BOT_TOKEN (reactions:read, optional). Never echoes a token.
+
+name: Post approved reels
+
+on:
+  schedule:
+    - cron: "30 4-16/3 * * *"
+  push:
+    branches: [main]
+    paths: [state/posts.json]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: social-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      IG_USER_ID: "17841426622354094"
+      FB_PAGE_ID: "1322809910922605"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Post the next approved reel
+        run: npx tsx src/autopost.ts
+      - name: Save
+        if: always()
+        run: |
+          git config user.name "flowra-social"
+          git config user.email "flowra-social@users.noreply.github.com"
+          git add state/posts.json
+          git diff --cached --quiet || (git commit -m "Posted / approvals $(date -u +%F)" && git pull --rebase -q && git push -q)
