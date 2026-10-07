@@ -1,0 +1,10 @@
+{
+  "note": "YouTube, first month (founder said go 2026-10-07). Shorts: every posted reel also goes to YouTube Shorts (by hand until the upload app is approved by Google). Tutorials: one every two weeks, made from the best blog articles, linked both ways. Review after 8 weeks: views, subscribers, visits to useflowra.com (utm_source=youtube).",
+  "items": [
+    { "date": "2026-10-08", "kind": "setup", "title": "Create the YouTube channel (@useflowra), add banner and profile picture", "owner": "you", "file": "youtube/channel-setup.md", "note": "Step by step in the guide. Banner and picture: Desktop/Flowra/YouTube." },
+    { "date": "2026-10-19", "kind": "youtube-video", "title": "Tutorial 1 video ready for your review: Why did my organic traffic drop?", "owner": "flowra", "file": "youtube/t001-why-did-my-traffic-drop/script.md", "note": "Script is written. Flowra builds the video (screens in the product film's style, Floey's voice) and sends it for review." },
+    { "date": "2026-10-22", "kind": "youtube-video", "title": "Publish Tutorial 1: Why did my organic traffic drop? Find the cause in 4 checks", "owner": "you", "file": "youtube/t001-why-did-my-traffic-drop/script.md", "note": "Title, description, chapters, tags and pinned comment are in the script file. Then embed it in the blog article." },
+    { "date": "2026-11-02", "kind": "youtube-video", "title": "Tutorial 2 video ready for your review: Content pruning, what to cut and what to keep", "owner": "flowra", "note": "From https://useflowra.com/blog/content-pruning" },
+    { "date": "2026-11-05", "kind": "youtube-video", "title": "Publish Tutorial 2: Content pruning, update, merge, redirect or delete?", "owner": "you", "note": "From https://useflowra.com/blog/content-pruning" }
+  ]
+}

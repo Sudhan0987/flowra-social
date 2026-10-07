@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T15:43:46.369Z",
+  "updated": "2026-10-07T16:38:25.290Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -8,13 +8,14 @@
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
       "status": "posted",
       "owner": "flowra",
       "ref": "r002-find-the-pages-quietly-losing-traffic-in",
-      "note": "On Instagram and Facebook. LinkedIn and X: post the video by hand with the text in its pack."
+      "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
       "date": "2026-10-07",
@@ -23,13 +24,14 @@
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
       "status": "posted",
       "owner": "flowra",
       "ref": "r003-how-long-google-takes-to-notice-your-pag",
-      "note": "On Instagram and Facebook. LinkedIn and X: post the video by hand with the text in its pack."
+      "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
       "date": "2026-10-07",
@@ -56,12 +58,25 @@
       "file": "posts/linkedin/2026-10-08.md"
     },
     {
+      "date": "2026-10-08",
+      "kind": "setup",
+      "title": "Create the YouTube channel (@useflowra), add banner and profile picture",
+      "channels": [
+        "youtube"
+      ],
+      "owner": "you",
+      "note": "Step by step in the guide. Banner and picture: Desktop/Flowra/YouTube.",
+      "file": "youtube/channel-setup.md",
+      "status": "ready"
+    },
+    {
       "date": "2026-10-09",
       "kind": "reel",
       "title": "What to do with old blog posts: prune, refresh, merge or leave",
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
@@ -79,6 +94,7 @@
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
@@ -108,6 +124,7 @@
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
@@ -137,6 +154,7 @@
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
@@ -155,6 +173,7 @@
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
@@ -166,6 +185,18 @@
         "https://citerank.thecompound.tech",
         "https://chatgpt.com/features/sites/"
       ]
+    },
+    {
+      "date": "2026-10-19",
+      "kind": "youtube-video",
+      "title": "Tutorial 1 video ready for your review: Why did my organic traffic drop?",
+      "channels": [
+        "youtube"
+      ],
+      "owner": "flowra",
+      "note": "Script is written. Flowra builds the video (screens in the product film's style, Floey's voice) and sends it for review.",
+      "file": "youtube/t001-why-did-my-traffic-drop/script.md",
+      "status": "planned"
     },
     {
       "date": "2026-10-20",
@@ -189,6 +220,7 @@
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
@@ -208,12 +240,25 @@
       "note": "Pull one useful idea out of the article and link to it."
     },
     {
+      "date": "2026-10-22",
+      "kind": "youtube-video",
+      "title": "Publish Tutorial 1: Why did my organic traffic drop? Find the cause in 4 checks",
+      "channels": [
+        "youtube"
+      ],
+      "owner": "you",
+      "note": "Title, description, chapters, tags and pinned comment are in the script file. Then embed it in the blog article.",
+      "file": "youtube/t001-why-did-my-traffic-drop/script.md",
+      "status": "planned"
+    },
+    {
       "date": "2026-10-23",
       "kind": "reel",
       "title": "Reel: Flowra picks this week's best topic",
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
@@ -228,6 +273,7 @@
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
@@ -256,6 +302,7 @@
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
@@ -281,12 +328,35 @@
       "channels": [
         "instagram",
         "facebook",
+        "youtube",
         "linkedin",
         "x"
       ],
       "status": "planned",
       "owner": "flowra",
       "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+    },
+    {
+      "date": "2026-11-02",
+      "kind": "youtube-video",
+      "title": "Tutorial 2 video ready for your review: Content pruning, what to cut and what to keep",
+      "channels": [
+        "youtube"
+      ],
+      "owner": "flowra",
+      "note": "From https://useflowra.com/blog/content-pruning",
+      "status": "planned"
+    },
+    {
+      "date": "2026-11-05",
+      "kind": "youtube-video",
+      "title": "Publish Tutorial 2: Content pruning, update, merge, redirect or delete?",
+      "channels": [
+        "youtube"
+      ],
+      "owner": "you",
+      "note": "From https://useflowra.com/blog/content-pruning",
+      "status": "planned"
     }
   ]
 }

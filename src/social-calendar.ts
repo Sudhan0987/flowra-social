@@ -27,10 +27,10 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (f: string) => readFileSync(path.join(ROOT, f), "utf8");
 const readJson = <T>(f: string, fallback: T): T => (existsSync(path.join(ROOT, f)) ? (JSON.parse(read(f)) as T) : fallback);
 
-type Channel = "instagram" | "facebook" | "linkedin" | "x";
+type Channel = "instagram" | "facebook" | "linkedin" | "x" | "youtube";
 export interface SocialItem {
   date: string;
-  kind: "reel" | "linkedin-post" | "setup";
+  kind: "reel" | "linkedin-post" | "setup" | "youtube-video";
   title: string;
   channels: Channel[];
   status: "posted" | "ready" | "needs-you" | "making" | "planned";
@@ -84,20 +84,27 @@ export function buildCalendar(): SocialItem[] {
     file: "posts/linkedin/2026-10-07-first-post.md",
   });
 
+  // YouTube: the channel, the tutorials (youtube/plan.json); Shorts ride along with every reel
+  for (const y of readJson<{ items: Array<{ date: string; kind: "setup" | "youtube-video"; title: string; owner: "you" | "flowra"; file?: string; note: string }> }>("youtube/plan.json", { items: [] }).items) {
+    const done = existsSync(path.join(ROOT, `youtube/.done-${y.date}-${y.kind}`));
+    items.push({ date: y.date, kind: y.kind, title: y.title, channels: ["youtube"], owner: y.owner, note: y.note, file: y.file,
+      status: done ? "posted" : y.owner === "you" && y.file && y.date <= addDays(today, 3) ? "ready" : y.date === today && y.owner === "flowra" ? "making" : "planned" });
+  }
+
   // reels that exist, on the day they went out (or were made)
   const reelDays = new Set<string>();
   for (const p of posts) {
     const made = day(new Date(p.madeAt));
     if (p.status === "published" && p.published?.at) {
       reelDays.add(p.published.at);
-      items.push({ date: p.published.at, kind: "reel", title: p.topic.split(":")[0], channels: ["instagram", "facebook", "linkedin", "x"], status: "posted", owner: "flowra", ref: p.id, note: "On Instagram and Facebook. LinkedIn and X: post the video by hand with the text in its pack." });
+      items.push({ date: p.published.at, kind: "reel", title: p.topic.split(":")[0], channels: ["instagram", "facebook", "youtube", "linkedin", "x"], status: "posted", owner: "flowra", ref: p.id, note: "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack." });
     } else if (p.status === "draft") {
       reelDays.add(made);
-      items.push({ date: made, kind: "reel", title: p.topic.split(":")[0], channels: ["instagram", "facebook", "linkedin", "x"], status: "needs-you", owner: "you", ref: p.id, note: "Approve or reject in Slack #social or here." });
+      items.push({ date: made, kind: "reel", title: p.topic.split(":")[0], channels: ["instagram", "facebook", "youtube", "linkedin", "x"], status: "needs-you", owner: "you", ref: p.id, note: "Approve or reject in Slack #social or here." });
     } else if (p.status === "approved") {
       if (p.reason) continue; // held on purpose (e.g. a repeat)
       reelDays.add(made);
-      items.push({ date: made, kind: "reel", title: p.topic.split(":")[0], channels: ["instagram", "facebook", "linkedin", "x"], status: "ready", owner: "you", ref: p.id, note: "Approved. Ask Claude to post it to Instagram and Facebook." });
+      items.push({ date: made, kind: "reel", title: p.topic.split(":")[0], channels: ["instagram", "facebook", "youtube", "linkedin", "x"], status: "ready", owner: "you", ref: p.id, note: "Approved. Ask Claude to post it to Instagram and Facebook." });
     }
   }
 
@@ -108,7 +115,7 @@ export function buildCalendar(): SocialItem[] {
     if ((w === 1 || w === 3 || w === 5) && d >= today && !reelDays.has(d)) {
       const idea = reelIdeas[r++];
       items.push({
-        date: d, kind: "reel", title: idea ? idea.title : "Reel: Flowra picks this week's best topic", channels: ["instagram", "facebook", "linkedin", "x"],
+        date: d, kind: "reel", title: idea ? idea.title : "Reel: Flowra picks this week's best topic", channels: ["instagram", "facebook", "youtube", "linkedin", "x"],
         status: d === today ? "making" : "planned", owner: "flowra",
         note: "Made at 10:30 India time and sent to Slack #social for your ✅." + (idea ? ` Likely topic from listening: ${idea.hook}` : ""),
         sources: idea?.sources,
