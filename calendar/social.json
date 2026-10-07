@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T14:49:51.579Z",
+  "updated": "2026-10-07T15:43:46.369Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -39,14 +39,14 @@
         "linkedin"
       ],
       "owner": "you",
-      "status": "ready",
+      "status": "posted",
       "note": "Cover: Desktop/Flowra/LinkedIn/linkedin-cover-1128x191@2x.png. Post text and image: Desktop/Flowra/LinkedIn/01-first-post.txt and 01-first-post-image-1200x1200@2x.png.",
       "file": "posts/linkedin/2026-10-07-first-post.md"
     },
     {
       "date": "2026-10-08",
       "kind": "linkedin-post",
-      "title": "Content pruning: clicks measure demand, not value",
+      "title": "Content pruning: low traffic is not low quality",
       "channels": [
         "linkedin"
       ],
@@ -92,7 +92,7 @@
     {
       "date": "2026-10-13",
       "kind": "linkedin-post",
-      "title": "AI Overviews traffic drop: a 3 step client call script",
+      "title": "A three step client script for AI Overview traffic drops",
       "channels": [
         "linkedin"
       ],
@@ -121,7 +121,7 @@
     {
       "date": "2026-10-15",
       "kind": "linkedin-post",
-      "title": "Map queries to sections before cutting",
+      "title": "Refresh old posts without losing rankings: map queries first",
       "channels": [
         "linkedin"
       ],
