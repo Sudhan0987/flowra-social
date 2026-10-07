@@ -319,41 +319,65 @@ def compare(line, path):
     print(path)
 
 
-# FOUNDER FEEDBACK 2026-10-02, not yet applied (do it on the next reel, not this one):
-# the voice reads at about the same loudness as the sfx/ambience/music bed; it should
-# sit clearly above them. Likely cause: the final `out / out.max() * 0.9` below
-# normalises the WHOLE mix to one peak sample, taken after sfx (e.g. "rustle" at gain
-# 1.8) and the voice's own 1.6x boost are summed in — a single sharp sfx transient can
-# set that peak and drag the voice's effective level down with it, even though voice
-# is boosted going in. A real fix likely needs voice loudness (RMS, not peak) set
-# independently of sfx/music, e.g. normalise voice on its own first, or duck sfx/music
-# harder under speech (mirroring the existing music duck at line below), then limit
-# only the sfx+music bed to the voice's peak rather than normalising everything together.
+# Voice first (founder feedback 2026-10-02, applied 2026-10-07): the voice must
+# read clearly above the hum, ambience, music and sfx. The old mix summed
+# everything and normalised the whole thing to one peak sample, so a sharp sfx
+# could set the ceiling and pull the voice down with it. Now the voice and the
+# bed are built apart: the voice is set to a fixed loudness (RMS while
+# speaking), the whole bed ducks under speech, the bed is held at least
+# BED_BELOW_DB under the voice and soft-limited below the voice's peaks, and
+# only then are the two summed. The final loudnorm in render keeps the ratio.
+VOICE_RMS = 0.12        # voice loudness while speaking (linear RMS)
+BED_BELOW_DB = 14       # the bed sits at least this far under the voice
+BED_DUCK = 0.45         # bed gain while Floey speaks (sfx included)
+
+
+def rms(x):
+    return float(np.sqrt(np.mean(np.square(x)))) if len(x) else 0.0
+
+
 def mix(cues_path, outdir, dur):
     data = json.load(open(cues_path))
-    out = hum(data["track"], dur) + ambience(dur)
-    if data.get("music"):
-        # a quiet music bed under everything, ducked while Floey talks
-        mb = music_bed(dur, data["music"], 5)[: len(out)]
-        duck = np.ones(len(out))
-        for c in data["cues"]:
-            if c["kind"] == "voice":
-                a, b = int(c["t"] * SR), int((c["t"] + c.get("len", 2)) * SR)
-                duck[max(0, a - 2000): b + 4000] = 0.55
-        duck = lowpass(duck, 8)
-        out[: len(mb)] += np.stack([mb, mb], axis=1) * duck[: len(mb), None] * 0.22
+    bed = hum(data["track"], dur) + ambience(dur)
+    voice = np.zeros_like(bed)
+    speaking = np.zeros(len(bed), dtype=bool)
     for c in data["cues"]:
         if c["kind"] == "voice":
             v, _ = sf.read(os.path.join(outdir, f"{c['id']}.wav"))
-            place_st(out, v * 1.6, c["t"], 540)  # voice stays centred
+            place_st(voice, v, c["t"], 540)  # voice stays centred
+            a = max(0, int(c["t"] * SR)); speaking[a: a + len(v)] = True
             continue
         if c["kind"] not in SOUNDS:
             print("unknown sound", c["kind"])
             continue
-        place_st(out, SOUNDS[c["kind"]](c) * GAIN[c["kind"]], c["t"], c.get("x0", c.get("x", 540)), c.get("x1"))
-    out = out / max(1e-9, np.abs(out).max()) * 0.9
+        place_st(bed, SOUNDS[c["kind"]](c) * GAIN[c["kind"]], c["t"], c.get("x0", c.get("x", 540)), c.get("x1"))
+    if data.get("music"):
+        mb = music_bed(dur, data["music"], 5)[: len(bed)]
+        bed[: len(mb)] += np.stack([mb, mb], axis=1) * 0.22
+
+    # the whole bed ducks while Floey talks, easing in and out
+    duck = np.where(speaking, BED_DUCK, 1.0)
+    duck = lowpass(duck, 8)[: len(bed)]
+    bed = bed * duck[:, None]
+
+    if speaking.any():
+        voice = voice * (VOICE_RMS / max(1e-9, rms(voice[speaking])))
+        target = VOICE_RMS * 10 ** (-BED_BELOW_DB / 20)
+        level = rms(bed[speaking])
+        if level > target:
+            bed = bed * (target / level)
+        # no bed transient may reach the voice's own peaks
+        ceil = 0.5 * np.abs(voice).max()
+        bed = np.tanh(bed / ceil) * ceil
+
+    out = voice + bed
+    peak = np.abs(out).max()
+    if peak > 0.95:  # one gain for both, so the voice-to-bed ratio survives
+        out = out * (0.95 / peak)
     sf.write(os.path.join(outdir, "mix.wav"), out, SR)
-    print(f"mix.wav {dur:.1f}s, {len(data['cues'])} cues")
+    vdb = 20 * np.log10(max(1e-9, rms(voice[speaking]))) if speaking.any() else float("nan")
+    bdb = 20 * np.log10(max(1e-9, rms(bed[speaking]))) if speaking.any() else float("nan")
+    print(f"mix.wav {dur:.1f}s, {len(data['cues'])} cues, voice {vdb:.1f} dB vs bed {bdb:.1f} dB while speaking")
 
 
 if __name__ == "__main__":

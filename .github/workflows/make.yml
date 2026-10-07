@@ -14,10 +14,10 @@
 name: Make a reel
 
 on:
-  # Paused 2026-10-01 while the director moves to Floey and the garden
-  # (the old style was rejected). Turn back on after the founder approves v2.
-  # schedule:
-  #   - cron: "0 5 * * 1,3,5"
+  # Back on 2026-10-07: the founder approved the Floey v2 reels (r002, r003).
+  # Drafts still wait for a ✅ in Slack #social before anything is posted.
+  schedule:
+    - cron: "0 5 * * 1,3,5"
   workflow_dispatch:
     inputs:
       topic:
