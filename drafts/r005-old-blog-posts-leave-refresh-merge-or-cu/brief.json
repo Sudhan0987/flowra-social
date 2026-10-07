@@ -1,0 +1,59 @@
+{
+ "topic": "Old blog posts: leave, refresh, merge or cut. How to pick for each page, based on what it does and not on how old it is",
+ "angle": "Most people prune old posts by date, and Google has said plainly that deleting content just because it is old is \"not a thing\". The reel walks Floey down an overgrown bed and tags each flower with one of four choices, judged by what the page does: still earning means LEAVE, was earning and fading means REFRESH (a real rewrite, not a new date), two posts on the same topic means MERGE into the stronger one with a 301, and a page that does nothing for anyone means CUT (a 404 is fine). It ends as a four-tag checklist people will save and run on their own blog.",
+ "whyNow": "This week the most common thread in Flowra's audience is cleaning up after scale. The r/SEO thread \"Old Blog Posts: What do you do with them?\" (https://www.reddit.com/r/SEO/comments/1wirxaq/old_blog_posts_what_do_you_do_with_them/) got 55 comments, and people still disagree on whether to delete, update or merge. After the September 2026 spam update, lots of teams are tempted to mass-delete. This reel answers that with Google's own words and doesn't repeat the recent reels on spotting decay or on update timing.",
+ "goal": "save",
+ "audience": "Content leads, in-house SEOs and agency account managers sitting on a blog with years of old posts (often hundreds). They're deciding right now whether to delete, update or consolidate, and some need a defensible rule to explain the choice to a client or boss.",
+ "facts": [
+  {
+   "fact": "Google's Search Liaison (Danny Sullivan), August 2023: \"Are you deleting content from your site because you somehow believe Google doesn't like 'old' content? That's not a thing!\"",
+   "source": "https://pageonepower.com/linkarati/should-you-delete-content-advice-from-google"
+  },
+  {
+   "fact": "John Mueller, August 2023: \"Delete what you don't want to keep... Just don't assume that deleting something only because it's old will improve your site's SEO magically.\"",
+   "source": "https://pageonepower.com/linkarati/should-you-delete-content-advice-from-google"
+  },
+  {
+   "fact": "John Mueller, August 2023: \"just because something doesn't get a lot of views doesn't mean it's not helpful for those who do view it.\"",
+   "source": "https://pageonepower.com/linkarati/should-you-delete-content-advice-from-google"
+  },
+  {
+   "fact": "John Mueller (2020): removing pages doesn't automatically lift the remaining pages: \"With regards to just having fewer pages and those fewer pages then ranking higher, I don't see that happening so much.\" He suggests asking whether to remove a page or significantly improve it.",
+   "source": "https://www.searchenginejournal.com/google-right-way-to-remove-content"
+  },
+  {
+   "fact": "Google's helpful content guidance asks: \"Are you changing the date of pages to make them seem fresh when the content has not substantially changed?\" It also says adding or removing lots of content just to seem 'fresh' won't help rankings: \"(No, it won't)\".",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "Google: a permanent redirect is a signal that the redirect target should be canonical, and redirects are useful when you removed a page and want to send users to a new page (the basis for MERGE: fold the weaker post into the stronger one and 301 it).",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/301-redirects"
+  },
+  {
+   "fact": "Google: all 4xx errors except 429 are treated the same. The indexing pipeline removes the URL from the index, and 4xx codes have no effect on crawl rate (so a CUT page returning 404 or 410 does not hurt the rest of the site).",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/http-network-errors"
+  },
+  {
+   "fact": "Flowra's content decay report finds pages whose clicks and impressions are falling, from Search Console data, and queues them to fix. A basic version is on the Free plan.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "Flowra's Rework Queue (Pro) rewrites only the sections of an existing page that need it, keeps what already works, and shows the changes before publishing.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "Flowra's keyword cannibalization reports (Pro) help find posts competing for the same queries, which are the candidates to merge.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "Flowra can tag a change on a page and compare the period before and after, with a 14 day settling window. It is a before-and-after comparison, not a split test.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "Any post count in the reel (for example \"200 old posts\") is an illustrative example, not a statistic.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "One long, overgrown flower bed that the camera pans along while Floey works through it with four tags. LEAVE: a bright, swaying flower with an up arrow. Floey sips from it and hangs the tag. REFRESH: a drooping, yellowing flower with a down arrow and a petal dropping. Floey tends it, its health climbs back to bright, and the tag goes on. MERGE: two half-faded flowers of the same colour side by side. Floey picks the petals off the weaker one and tosses them onto the stronger one, which swells and glows, and the weaker stem goes bare. CUT: a beige flower at health 0 with no arrow. Floey plucks it out and tosses it off screen (pluck sound). The hook beat can show a calendar date sticker on a healthy flower that Floey almost pulls before stopping (the \"deleting because it's old\" mistake). Close on the tidied bed with four clean tags in a row, the checklist people save. It loops back to the overgrown opening shot.",
+ "pillar": "problem"
+}
