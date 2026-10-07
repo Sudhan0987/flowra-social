@@ -124,7 +124,27 @@ async function postFacebook(file: string, text: string): Promise<string> {
   return String(v.id);
 }
 
+/** --check: upload the newest posted reel to Instagram and wait until it is processed, without publishing (the container lapses unused). */
+async function check() {
+  const p = load().posts.filter((x) => x.published).sort((a, b) => b.madeAt.localeCompare(a.madeAt))[0];
+  if (!p) throw new Error("No posted reel to test with.");
+  const file = await fetchVideo(p);
+  const size = statSync(file).size;
+  const c = await graph(`${G}/${IG}/media`, { method: "POST", body: new URLSearchParams({ media_type: "REELS", upload_type: "resumable", caption: "upload check", access_token: T }) });
+  const up = await fetch(`https://rupload.facebook.com/ig-api-upload/v23.0/${c.id}`, { method: "POST", headers: { Authorization: `OAuth ${T}`, offset: "0", file_size: String(size) }, body: readFileSync(file) });
+  console.log(`upload ${up.status}: ${JSON.stringify(await up.json().catch(() => ({}))).slice(0, 200)}`);
+  for (let i = 0; i < 40; i++) {
+    const st = await graph(`${G}/${c.id}?fields=status_code,status&access_token=${T}`);
+    console.log(`[${i}] ${st.status_code}`);
+    if (st.status_code === "FINISHED") return console.log("Instagram upload path works (not published).");
+    if (st.status_code === "ERROR") throw new Error(`Instagram processing: ${st.status}`);
+    await sleep(10000);
+  }
+  throw new Error("Instagram never finished processing.");
+}
+
 async function main() {
+  if (process.argv.includes("--check")) return check();
   const state = load();
   const notes = await slackDecisions(state);
   if (notes.length) { save(state); notes.forEach((n) => console.log(n)); }

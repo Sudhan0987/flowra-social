@@ -15,6 +15,11 @@ on:
     branches: [main]
     paths: [state/posts.json]
   workflow_dispatch:
+    inputs:
+      check:
+        description: "true = test the Instagram upload with the last posted reel, without publishing"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -42,7 +47,7 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - name: Post the next approved reel
-        run: npx tsx src/autopost.ts
+        run: npx tsx src/autopost.ts ${{ inputs.check == 'true' && '--check' || '' }}
       - name: Save
         if: always()
         run: |
