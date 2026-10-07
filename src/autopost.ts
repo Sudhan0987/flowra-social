@@ -34,7 +34,7 @@ interface Post {
 }
 const STATE = path.join(ROOT, "state/posts.json");
 const load = () => JSON.parse(readFileSync(STATE, "utf8")) as { posts: Post[] };
-const save = (s: { posts: Post[] }) => writeFileSync(STATE, JSON.stringify(s, null, 2) + "\n");
+const save = (s: { posts: Post[] }) => writeFileSync(STATE, JSON.stringify(s, null, 1) + "\n"); // the same layout cli.ts writes, so saves never rewrite the whole file
 const istDay = (d = new Date()) => new Date(d.getTime() + 5.5 * 3600000).toISOString().slice(0, 10);
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 

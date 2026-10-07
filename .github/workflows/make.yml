@@ -107,9 +107,18 @@ jobs:
       - name: Save the script and state
         if: steps.setup.outputs.ready == 'true' && always()
         run: |
-          # remember which run made each new draft, so autopost.yml finds its video
-          node -e "const fs=require('fs'),f='state/posts.json',s=JSON.parse(fs.readFileSync(f));for(const p of s.posts)if(p.status==='draft'&&!p.run)p.run=Number(process.env.GITHUB_RUN_ID);fs.writeFileSync(f,JSON.stringify(s,null,2)+'\\n')"
           git config user.name "flowra-social"
           git config user.email "flowra-social@users.noreply.github.com"
-          git add drafts state
-          git diff --cached --quiet || (git commit -m "Reel drafts $(date -u +%F)" && git pull --rebase -q && git push)
+          # this run's reels: drafts it touched; remember which run made each new draft (autopost.yml finds the video by it)
+          node -e "const fs=require('fs'),f='state/posts.json',s=JSON.parse(fs.readFileSync(f));for(const p of s.posts)if(p.status==='draft'&&!p.run)p.run=Number(process.env.GITHUB_RUN_ID);fs.writeFileSync(f,JSON.stringify(s,null,1)+'\\n')"
+          cp state/posts.json "$RUNNER_TEMP/mine.json"
+          git checkout -- state/posts.json
+          git add drafts
+          git diff --cached --quiet || git commit -q -m "Reel drafts $(date -u +%F)"
+          git pull --rebase -q
+          # posts.json: take GitHub's copy and put this run's entries into it by id, so approvals made meanwhile survive
+          ids=$(git diff --name-only "$GITHUB_SHA" HEAD -- drafts | cut -d/ -f2 | sort -u | tr '\n' ' ')
+          IDS="$ids $TOPIC" node -e "const fs=require('fs'),f='state/posts.json',mine=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+'/mine.json')).posts,cur=JSON.parse(fs.readFileSync(f)),ids=new Set(process.env.IDS.split(/\s+/).filter(Boolean));for(const m of mine){if(!ids.has(m.id))continue;const i=cur.posts.findIndex(p=>p.id===m.id);if(i<0)cur.posts.push(m);else cur.posts[i]=m}fs.writeFileSync(f,JSON.stringify(cur,null,1)+'\\n')"
+          git add state/posts.json
+          git diff --cached --quiet || git commit -q -m "Reel state $(date -u +%F)"
+          git push -q

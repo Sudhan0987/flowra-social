@@ -1,62 +1,63 @@
 {
-  "posts": [
-    {
-      "id": "r001-find-decaying-pages",
-      "status": "approved",
-      "topic": "Find the pages quietly losing traffic, in Search Console, in under a minute",
-      "format": "fix",
-      "madeAt": "2026-09-30T15:41:53.297Z",
-      "seconds": 35,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1790782912.921789"
-      },
-      "reason": "Same topic as r002, which is already posted; held so the feed does not repeat itself."
-    },
-    {
-      "id": "r002-find-the-pages-quietly-losing-traffic-in",
-      "status": "published",
-      "topic": "Find the pages quietly losing traffic in Search Console in under a minute: Compare last 3 months to previous period, Pages tab, sort by Clicks Difference",
-      "format": "before-after-bridge",
-      "madeAt": "2026-10-02T12:51:32.645Z",
-      "seconds": 38,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1790945492.032209"
-      },
-      "published": {
-        "at": "2026-10-06",
-        "instagram": "17925280614201804",
-        "facebook": true
-      }
-    },
-    {
-      "id": "r003-how-long-google-takes-to-notice-your-pag",
-      "status": "published",
-      "topic": "How long Google takes to notice your page update: Google's own timing numbers, shown on a day counter",
-      "format": "ticking-clock",
-      "madeAt": "2026-10-06T15:54:08.148Z",
-      "seconds": 36,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1791302046.654929"
-      },
-      "published": {
-        "at": "2026-10-07",
-        "instagram": "18136110796726726",
-        "facebook": "3226893170839219",
-        "linkedin": "pack ready, post by hand",
-        "x": "pack ready, post by hand"
-      }
-    },
-    {
-      "id": "r004-google-s-september-2026-spam-update-is-f",
-      "status": "failed",
-      "topic": "Google's September 2026 spam update is finishing its rollout: how to tell whether it caused your traffic drop, or something else did",
-      "format": "explain-like-five",
-      "madeAt": "2026-10-07T15:39:48.425Z",
-      "seconds": 37,
-      "reason": "Frame 04 ('like a broken page.'): Floey flies over the chart and covers the band tag, so it reads 'm update: Sep 24 to ~Oct 8'. She also hides the violet line where the dip starts, and three see-through motion ghosts spill below the card. On a phone this frame is a clutter of overlapping birds. The voice is about a broken page, but Floey is at the chart instead of catching the 404 bug on Flower A. The bug that was on the stem in frame 03 is just gone, and we never see her catch or eat it. That b"
-    }
-  ]
+ "posts": [
+  {
+   "id": "r001-find-decaying-pages",
+   "status": "approved",
+   "topic": "Find the pages quietly losing traffic, in Search Console, in under a minute",
+   "format": "fix",
+   "madeAt": "2026-09-30T15:41:53.297Z",
+   "seconds": 35,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1790782912.921789"
+   },
+   "reason": "Same topic as r002, which is already posted; held so the feed does not repeat itself."
+  },
+  {
+   "id": "r002-find-the-pages-quietly-losing-traffic-in",
+   "status": "published",
+   "topic": "Find the pages quietly losing traffic in Search Console in under a minute: Compare last 3 months to previous period, Pages tab, sort by Clicks Difference",
+   "format": "before-after-bridge",
+   "madeAt": "2026-10-02T12:51:32.645Z",
+   "seconds": 38,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1790945492.032209"
+   },
+   "published": {
+    "at": "2026-10-06",
+    "instagram": "17925280614201804",
+    "facebook": true
+   }
+  },
+  {
+   "id": "r003-how-long-google-takes-to-notice-your-pag",
+   "status": "published",
+   "topic": "How long Google takes to notice your page update: Google's own timing numbers, shown on a day counter",
+   "format": "ticking-clock",
+   "madeAt": "2026-10-06T15:54:08.148Z",
+   "seconds": 36,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1791302046.654929"
+   },
+   "published": {
+    "at": "2026-10-07",
+    "instagram": "18136110796726726",
+    "facebook": "3226893170839219",
+    "linkedin": "pack ready, post by hand",
+    "x": "pack ready, post by hand"
+   }
+  },
+  {
+   "id": "r004-google-s-september-2026-spam-update-is-f",
+   "status": "approved",
+   "topic": "Google's September 2026 spam update is finishing its rollout: how to tell whether it caused your traffic drop, or something else did",
+   "format": "explain-like-five",
+   "madeAt": "2026-10-07T15:39:48.425Z",
+   "seconds": 37,
+   "run": 37646934573,
+   "note": "Corrected in two director passes (7 Oct); founder asked for it to be posted. Known flaw: Floey briefly covers the chart tag in the Compare beat."
+  }
+ ]
 }

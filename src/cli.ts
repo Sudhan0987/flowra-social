@@ -9,7 +9,7 @@
 // keeps the video as a run artifact and in Slack).
 
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { costSoFar } from "./claude.ts";
@@ -81,7 +81,11 @@ const writeJson = (f: string, v: unknown) => writeFileSync(f, JSON.stringify(v, 
  */
 async function make(state: State, arg?: string): Promise<void> {
   const seed = arg ? topics().find((t) => t.id === arg) : undefined;
-  const resume = arg && !seed && existsSync(path.join(ROOT, "drafts", arg)) ? arg : undefined;
+  // with no topic, first finish an unfinished draft (researched, never recorded), e.g. one a cancelled run left behind
+  const next = `r${String(state.posts.length + 1).padStart(3, "0")}-`;
+  const leftover = !arg ? readdirSync(path.join(ROOT, "drafts")).find((d) => d.startsWith(next) && existsSync(path.join(ROOT, "drafts", d, "brief.json")) && !state.posts.some((p) => p.id === d)) : undefined;
+  if (leftover) console.log(`Finishing the unfinished draft ${leftover}`);
+  const resume = leftover ?? (arg && !seed && existsSync(path.join(ROOT, "drafts", arg)) ? arg : undefined);
   const recent = state.posts.map((p) => p.topic);
   const lastFormats = state.posts.map((p) => p.format);
 
