@@ -2,8 +2,17 @@
 
 About 20 minutes. Files are in Desktop/Flowra/YouTube.
 
-## 1. Pick the Google account
-Use a Flowra Google account, not your personal one, ideally the one that already owns useflowra.com in Search Console. Sign in to youtube.com with it.
+## 1. Make a Google account on your Hostinger address (no Gmail needed)
+YouTube needs a Google account, but it doesn't have to be Gmail. Google lets you sign up with an email you already have; the mail keeps arriving in Hostinger.
+1. On a computer, open a private/incognito window and go to **accounts.google.com/signup**.
+2. Enter a name (e.g. First name **Flowra**, Last name **Team**), then birthday and gender.
+3. On the "Choose your Gmail address" screen, click **Use your existing email** instead (if you only see Gmail suggestions, pick "Create your own Gmail address" and the link appears below the box).
+4. Type your company address, e.g. support@useflowra.com.
+5. Google sends a 6-digit code to that address. Open Hostinger webmail (mail.hostinger.com), copy the code, paste it into Google.
+6. Set a strong password (keep it in your password manager, not in a file) and add your phone number for recovery.
+7. Sign in to youtube.com with this new account.
+
+If Google says the address is already in use, someone made a Google account on it before: click "Forgot password" with that address and recover it instead.
 
 ## 2. Create the channel as a brand channel
 1. Click your profile picture (top right), then **Settings**.
