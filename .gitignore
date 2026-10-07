@@ -26,3 +26,5 @@ __pycache__/
 # the new pipeline's working folder (voices, frames, mix)
 drafts/*/build/
 .venv-cb/
+.last30days/
+.last30days-out/

@@ -1,0 +1,292 @@
+{
+  "updated": "2026-10-07T14:49:51.579Z",
+  "items": [
+    {
+      "date": "2026-10-06",
+      "kind": "reel",
+      "title": "Find the pages quietly losing traffic in Search Console in under a minute",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "posted",
+      "owner": "flowra",
+      "ref": "r002-find-the-pages-quietly-losing-traffic-in",
+      "note": "On Instagram and Facebook. LinkedIn and X: post the video by hand with the text in its pack."
+    },
+    {
+      "date": "2026-10-07",
+      "kind": "reel",
+      "title": "How long Google takes to notice your page update",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "posted",
+      "owner": "flowra",
+      "ref": "r003-how-long-google-takes-to-notice-your-pag",
+      "note": "On Instagram and Facebook. LinkedIn and X: post the video by hand with the text in its pack."
+    },
+    {
+      "date": "2026-10-07",
+      "kind": "setup",
+      "title": "Set up the LinkedIn page: cover photo and first post",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "status": "ready",
+      "note": "Cover: Desktop/Flowra/LinkedIn/linkedin-cover-1128x191@2x.png. Post text and image: Desktop/Flowra/LinkedIn/01-first-post.txt and 01-first-post-image-1200x1200@2x.png.",
+      "file": "posts/linkedin/2026-10-07-first-post.md"
+    },
+    {
+      "date": "2026-10-08",
+      "kind": "linkedin-post",
+      "title": "Content pruning: clicks measure demand, not value",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-08.md"
+    },
+    {
+      "date": "2026-10-09",
+      "kind": "reel",
+      "title": "What to do with old blog posts: prune, refresh, merge or leave",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Floey walks past an overgrown bed: \"You have 200 old posts. Which ones do you cut?\"",
+      "sources": [
+        "https://www.reddit.com/r/SEO/comments/1wirxaq/old_blog_posts_what_do_you_do_with_them/"
+      ]
+    },
+    {
+      "date": "2026-10-12",
+      "kind": "reel",
+      "title": "Tweaking keywords won't fix weak AI posts. Rewriting will",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: \"I've tried tweaking the SEO and keywords, but nothing has helped.\" Here's why.",
+      "sources": [
+        "https://www.reddit.com/r/SEO/comments/1wsatvq/how_can_i_recover_my_seo_after_publishing_a_lot/"
+      ]
+    },
+    {
+      "date": "2026-10-13",
+      "kind": "linkedin-post",
+      "title": "AI Overviews traffic drop: a 3 step client call script",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-13.md"
+    },
+    {
+      "date": "2026-10-14",
+      "kind": "reel",
+      "title": "Impressions are going up. So why are clicks flat?",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: 217K impressions. 1.14K clicks. One reply said: watch the CTR, not the impressions.",
+      "sources": [
+        "https://www.reddit.com/r/SEO/comments/1wesxz0/started_a_niche_website_in_march_now_at_217k/"
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "kind": "linkedin-post",
+      "title": "Map queries to sections before cutting",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-15.md"
+    },
+    {
+      "date": "2026-10-16",
+      "kind": "reel",
+      "title": "From 74,876 pages to 9,311: a programmatic SEO postmortem",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Floey plants 75,000 seeds at once. Then the weeds win.",
+      "sources": [
+        "https://www.reddit.com/r/SEO/comments/1wa0wey/johnmu_google_can_lose_faith_in_sites_based_on/",
+        "https://www.reddit.com/r/TechSEO/comments/1whus3o/programmatic_seo_postmortem_74876_urls_to_9311/"
+      ]
+    },
+    {
+      "date": "2026-10-19",
+      "kind": "reel",
+      "title": "Can you see your ChatGPT traffic? Visits yes, answers no",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: ChatGPT can mention your site and send you zero visits. Here's what you can actually measure.",
+      "sources": [
+        "https://www.reddit.com/r/WebsiteSEO/comments/1wxzspv/has_anyone_actually_increased_their_visibility_in/",
+        "https://citerank.thecompound.tech",
+        "https://chatgpt.com/features/sites/"
+      ]
+    },
+    {
+      "date": "2026-10-20",
+      "kind": "linkedin-post",
+      "title": "Hit by the September 2026 spam update? Check the date first",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "status": "planned",
+      "note": "From social listening: The announcement thread (32 comments) and a post about losing about 95% of Google traffic in one day during the update (21 comments) show people trying to tell the update apart from their own changes. Lining up the drop date with the release date is the first step, and tagging your fixes lets you compare before and after later.",
+      "sources": [
+        "https://www.reddit.com/r/SEO/comments/1wp6ml7/google_search_central_on_x_today_we_released_the/",
+        "https://www.reddit.com/r/SEO/comments/1wtnj5t/sudden_95_google_search_traffic_loss_in_1_day/"
+      ]
+    },
+    {
+      "date": "2026-10-21",
+      "kind": "reel",
+      "title": "Reel: Flowra picks this week's best topic",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+    },
+    {
+      "date": "2026-10-22",
+      "kind": "linkedin-post",
+      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "status": "planned",
+      "note": "Pull one useful idea out of the article and link to it."
+    },
+    {
+      "date": "2026-10-23",
+      "kind": "reel",
+      "title": "Reel: Flowra picks this week's best topic",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+    },
+    {
+      "date": "2026-10-26",
+      "kind": "reel",
+      "title": "Reel: Flowra picks this week's best topic",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+    },
+    {
+      "date": "2026-10-27",
+      "kind": "linkedin-post",
+      "title": "AI didn't take all your traffic. It took the top of the funnel",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "status": "planned",
+      "note": "From social listening: \"For sites losing Google traffic to AI, which traffic is actually disappearing?\" (26 comments) pushes back on \"AI killed my traffic.\" Commenters say informational queries are the ones fading. The post can show how to split your own GSC queries into informational and buying intent to see where the loss really is.",
+      "sources": [
+        "https://www.reddit.com/r/SEO/comments/1wx487f/for_sites_losing_google_traffic_to_ai_which/"
+      ]
+    },
+    {
+      "date": "2026-10-28",
+      "kind": "reel",
+      "title": "Reel: Flowra picks this week's best topic",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+    },
+    {
+      "date": "2026-10-29",
+      "kind": "linkedin-post",
+      "title": "Share the blog article: useflowra.com/blog/fresh-content-seo",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "status": "planned",
+      "note": "Pull one useful idea out of the article and link to it."
+    },
+    {
+      "date": "2026-10-30",
+      "kind": "reel",
+      "title": "Reel: Flowra picks this week's best topic",
+      "channels": [
+        "instagram",
+        "facebook",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+    }
+  ]
+}

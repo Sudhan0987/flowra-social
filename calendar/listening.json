@@ -1,0 +1,14 @@
+{
+  "note": "What the weekly social listening (src/trends.ts) searches. Free sources only: Reddit, Hacker News, YouTube. Edit the queries to steer it.",
+  "subreddits": "SEO,bigseo,TechSEO,content_marketing,juststart,marketing",
+  "sources": "reddit,hackernews,youtube",
+  "days": 30,
+  "queries": [
+    "Google Search Console traffic drop",
+    "AI Overviews clicks lost blog traffic",
+    "content decay updating old blog posts",
+    "Google core update recovery content",
+    "SEO client reporting agency",
+    "ChatGPT Perplexity referral traffic SEO"
+  ]
+}
