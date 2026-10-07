@@ -51,13 +51,18 @@
   },
   {
    "id": "r004-google-s-september-2026-spam-update-is-f",
-   "status": "approved",
+   "status": "published",
    "topic": "Google's September 2026 spam update is finishing its rollout: how to tell whether it caused your traffic drop, or something else did",
    "format": "explain-like-five",
    "madeAt": "2026-10-07T15:39:48.425Z",
    "seconds": 37,
    "run": 37646934573,
-   "note": "Corrected in two director passes (7 Oct); founder asked for it to be posted. Known flaw: Floey briefly covers the chart tag in the Compare beat."
+   "note": "Corrected in two director passes (7 Oct); founder asked for it to be posted. Known flaw: Floey briefly covers the chart tag in the Compare beat.",
+   "published": {
+    "at": "2026-10-08",
+    "instagram": "18162030133498062",
+    "facebook": "1644772320616309"
+   }
   }
  ]
 }
