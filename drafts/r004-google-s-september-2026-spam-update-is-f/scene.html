@@ -1,0 +1,476 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Public+Sans:wght@800&display=swap" rel="stylesheet">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/world/garden.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="lines.js"></script>
+<style>html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#f7f4ee}svg{display:block}</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r004: "The rollout window, explained with one frost". Format: explain-like-five.
+// One Performance chart hangs over the garden; its two lines match the two hero
+// flowers (coral B, indigo A), and each flower wears a little tag in its line's
+// colour. The spam update is a pale frost: a frosted band on the chart (Sep 24
+// to ~Oct 8) and a low frost bank that crosses the garden as the counter runs.
+// A slipped before the band (a 404 bug); B slipped inside it (check the spam
+// policies, then wait months). Flower states are their own values, so nothing
+// that was fixed droops again when the counter rewinds in the loop.
+// The camera only zooms past 1.1 on garden close-ups, where the chart is fully
+// out of frame, so the chart is never cut by the frame edge.
+const C = HUM.colors, M = window.MOUTHS || {};
+const LINES = window.LINES;
+const INK = C.ink, FONT = "Space Grotesk";
+const GAP = { hook0: 0.5, body1: 0.45, body2: 0.55, body3: 0.75, body4: 0.55, payoff5: 0.6, loop6: 0.35, go7: 1.0, url8: 1.6 };
+const { B, DUR } = PROPS.timing(LINES, M, GAP);
+const b = B;
+
+// ---------- the data (example numbers) ----------
+// day 0 = Sep 24 2026 (the update starts); day 14 = Oct 8 (the window closes)
+const clamp = (v, a = 0, z = 1) => Math.max(a, Math.min(z, v));
+const ss = (a, z, x) => { const k = clamp((x - a) / (z - a)); return k * k * (3 - 2 * k); };
+const bump = (d, c, w) => Math.exp(-(((d - c) / w) ** 2));
+const wig = (d, s) => 0.022 * Math.sin(d * 0.9 + s) + 0.012 * Math.sin(d * 2.3 + s * 2);
+const holiday = (d) => 0.12 * bump(d, -273, 8); // last December: a real seasonal dip, for the 16-month view
+const lineA = (d) => 0.6 + wig(d, 1) - holiday(d) - 0.3 * ss(-12, -6, d) + 0.13 * ss(20, 55, d); // slips from Sep 12, before the band
+const lineB = (d) => 0.82 + wig(d, 4) - holiday(d) - 0.48 * ss(7, 10, d) + 0.02 * ss(40, 70, d);  // slips inside the band, stays low
+const lastYearA = (d) => lineA(d - 364); // Compare: the same weeks a year earlier (no dip)
+const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const DAY0 = Date.UTC(2026, 8, 24), MS = 86400000;
+const dateOf = (d) => { const x = new Date(DAY0 + Math.round(d) * MS); return `${MON[x.getUTCMonth()]} ${x.getUTCDate()}`; };
+
+// ---------- the chart (world space, whole at zoom 1) ----------
+const CH = { x: 90, y: 190, w: 900, h: 610 };
+const ROW = 316, TAGROW = 384, PT = 428, PB = 700, PX0 = 130, PX1 = 950;
+const SPAN3 = 90, SPAN16 = 487, END0 = 21; // the plot shows "Last 3 months" ending at least on Oct 15
+const ICE = GARDEN.mix(C.indigo, "#ffffff", 0.86), ICE2 = GARDEN.mix(C.indigo, "#ffffff", 0.55), ICE3 = GARDEN.mix(C.indigo, "#ffffff", 0.7);
+const COL_B = PROPS.seriesColor(0), COL_A = PROPS.seriesColor(1);
+const TABS = { x: 600, w: 330 };
+const tabCenter = (i) => ({ x: TABS.x + TABS.w / 4 * (2 * i + 1), y: ROW + 8 });
+const ddW = (label) => 32 + PROPS.measure(label, `700 28px '${FONT}'`) + 40 + 30 + 30;
+const ddCenter = (label) => ({ x: CH.x + 34 + ddW(label) / 2, y: ROW });
+
+// ---------- the garden ----------
+const FLOWERS = {
+  A: { x: 330, base: 1720, h: 460, pal: [C.indigo, C.violet, C.indigo], dir: -1, seed: 3 },
+  B: { x: 760, base: 1720, h: 460, pal: [C.coral, C.amber, C.coral], dir: 1, seed: 11 },
+  // further back; only seen from the "go" line on, when the camera pulls back
+  P: { x: 515, base: 1580, h: 420, pal: [C.amber, C.magenta, C.amber], dir: -1, seed: 21, s: 0.64 },
+  Q: { x: 610, base: 1580, h: 420, pal: [C.magenta, C.violet, C.amber], dir: 1, seed: 29, s: 0.64 },
+};
+const HOOK_A = 0.32;
+const W = { camX: 540, camY: 960, zoom: 1, day: 0, span: SPAN3, band: 0, tagBand: 0, fx: 120, hA: HOOK_A, hB: 1, bfrost: 0, petal: 0,
+  dd16: 0, tab: 0, cmp: 0, ring1: 0, ring2: 0, ring3: 0, ring4: 0, ring5: 0, dip: 0, pop: 0, card: 0, published: 0, back: 0, tagP: 0, tagQ: 0,
+  logo: 0, shake: 0, src2: 0 };
+const bug = PROPS.bug;
+
+// a point on a flower's leaf (u along it), with the same lean and sway the flower draws
+function leafPoint(f, h, t, leaf, lx, ly) {
+  const [side, at, i] = leaf, seed = f.seed, dir = f.dir;
+  const sway = Math.sin(t * 1.25 + seed) * 1.6 * h + Math.sin(t * 2.9 + seed * 2) * 0.5 * h;
+  const lean = ((1 - h) * 26 * dir + sway) * Math.PI / 180;
+  const droop = ((1 - h) * 38 * -side + Math.sin(t * 1.6 + seed + i) * 3 * h) * Math.PI / 180;
+  const px = lx * side, py = ly;
+  const qx = f.x + px * Math.cos(droop) - py * Math.sin(droop), qy = f.base - f.h * at + px * Math.sin(droop) + py * Math.cos(droop);
+  const rx = qx - f.x, ry = qy - f.base;
+  return { x: f.x + rx * Math.cos(lean) - ry * Math.sin(lean), y: f.base + rx * Math.sin(lean) + ry * Math.cos(lean) };
+}
+
+// ---------- Floey's performance, cued to the voice ----------
+const F = FLOEY.create({ x: 1320, y: 980, facing: 1, scale: 1.15, mood: "determined" });
+const wt = gsap.timeline({ paused: true });
+wt.set(W, { camX: 540, camY: 960, zoom: 1 }, 0);
+
+// HOOK: Sep 24. A's indigo line has already slid and A droops (a petal falls);
+// B is bright and its coral line flat. The frost waits at the left edge. Floey
+// zips in from the right, brakes between the flowers, glances at the frost,
+// then turns to you with a narrowed, knowing look.
+wt.to(W, { hA: 0.22, duration: 1.8, ease: "sine.inOut" }, 0.4)
+  .to(W, { petal: 1, duration: 1.8, ease: "none" }, 0.6)
+  .to(W, { camX: 552, camY: 940, zoom: 1.05, duration: 1.8, ease: "power2.inOut" }, 2.5);
+F.sfx(0.6, "pluck").sfx(1.0, "swish");
+F.dart(1.2, 560, 990, 0.36, 1)
+ .say(b.hook0.start, M.hook0 || [], "hook0")
+ .look(2.4, -1, 0.6, 0.12)
+ .pivot(3.05, "front")
+ .look(3.1, 0, 0, 0.1);
+F.tl.to(F.S, { squint: 0.5, duration: 0.25 }, 3.35).to(F.S, { squint: 0, duration: 0.2 }, b.hook0.end + 0.15);
+
+// BODY1: the frost crosses the garden as the counter runs Sep 24 to ~Oct 8 and
+// the frosted band draws on the chart in step. It reaches B as B's coral line
+// dips inside the band, and B drains and droops.
+const s1 = b.body1.start, run = 3.0, run0 = s1 + 0.15;
+const FX0 = 120, FX1 = 1220;
+const tFrostB = run0 + run * ((FLOWERS.B.x - FX0) / (FX1 - FX0));
+wt.to(W, { camX: 540, camY: 960, zoom: 1, duration: 0.6, ease: "power2.inOut" }, s1 - 0.25)
+  .to(W, { tagBand: 1, duration: 0.3, ease: "back.out(2.2)" }, run0)
+  .to(W, { day: 14, band: 1, fx: FX1, duration: run, ease: "none" }, run0)
+  .to(W, { hB: 0.3, duration: 0.6, ease: "power2.out" }, tFrostB - 0.1)
+  .to(W, { bfrost: 1, duration: 0.5 }, tFrostB);
+F.pivot(s1, "side").mood(s1, "think")
+ .say(s1, M.body1 || [], "body1")
+ .look(s1 + 0.05, -0.2, -0.9)
+ .sfx(run0, "pluck").sfx(run0 + 0.1, "shimmer")
+ .move(s1 + 0.35, 690, 960, 0.5, "sine.inOut").face(s1 + 0.35, -1)
+ .move(s1 + 1.0, 790, 950, 0.7, "sine.inOut")
+ .mood(tFrostB, "surprised").sfx(tFrostB, "tk").look(tFrostB, -0.2, 1, 0.06)
+ .move(tFrostB + 0.02, 640, 920, 0.25, "power2.out")
+ .mood(tFrostB + 0.5, "worried");
+for (let i = 0; i < 6; i++) F.sfx(run0 + 0.2 + i * 0.5, "tk");
+
+// BODY2: to A. A ring pulses where A's line began to slide, days before the
+// band's left edge. Then she spots a 404 bug on A's page; close-up, snap, gulp.
+const s2 = b.body2.start;
+wt.to(W, { ring1: 1, duration: 0.7, ease: "power1.out" }, s2 + 0.35)
+  .to(W, { dip: 1, duration: 0.9, ease: "power1.out" }, s2 + 0.35)
+  // a cut in to the close-up as her eyes snap down to the bug, a slow drift, a cut back out
+  .set(W, { camX: 300, camY: 1345, zoom: 1.8 }, s2 + 1.5)
+  .to(W, { camX: 290, zoom: 1.86, duration: 2.3, ease: "sine.inOut" }, s2 + 1.5)
+  .set(W, { camX: 540, camY: 960, zoom: 1 }, s2 + 3.85);
+F.dart(s2 - 0.1, 450, 970, 0.32, 1)
+ .mood(s2 + 0.2, "determined")
+ .say(s2, M.body2 || [], "body2")
+ .look(s2 + 0.3, -0.5, -1, 0.1)
+ .sfx(s2 + 0.38, "ting")
+ .tiltTo(s2 + 0.8, 16, 0.2)
+ .sfx(s2 + 1.0, "flutter")
+ .look(s2 + 1.0, -0.6, 1, 0.06).mood(s2 + 1.0, "surprised")
+ .tiltTo(s2 + 1.05, 0, 0.15)
+ .move(s2 + 1.08, 340, 1120, 0.4, "power2.inOut")
+ .mood(s2 + 1.8, "determined");
+const tPick = s2 + 2.35, bp = PROPS.bugOn(FLOWERS.A, tPick, 0.22);
+F.reach(tPick - 0.38, bp.x, bp.y, 0.28)
+ .pick(tPick, bug(0, 0.62), "bug")
+ .eat(tPick + 0.35)
+ .tongue(tPick + 1.2, 2)
+ .move(s2 + 3.85, 440, 980, 0.5, "power2.inOut");
+wt.to(W, { shake: 1, duration: 0.3, ease: "none" }, tPick + 0.1);
+
+// BODY3: Date to "Last 16 months": the lines run back over a year (last
+// December's holiday dip shows what a seasonal dip looks like). Then Compare,
+// as Search Console offers it: the last 3 months against the same weeks a year
+// earlier. That dotted line sits flat under A's slide. She traces it flying
+// backwards and nods: not the season. Then the Filter tab, back to normal.
+const s3 = b.body3.start;
+const dd3 = ddCenter("Last 3 months"), cmpTab = tabCenter(1), filTab = tabCenter(0);
+F.mood(s3 - 0.45, "think")
+ .reach(s3 - 0.4, dd3.x + 70, dd3.y + 6, 0.3)
+ .sfx(s3 - 0.05, "tap")
+ .say(s3, M.body3 || [], "body3")
+ .sfx(s3 + 0.15, "swish")
+ .reach(s3 + 1.45, cmpTab.x, cmpTab.y + 4, 0.3)
+ .sfx(s3 + 1.8, "tap").sfx(s3 + 1.85, "ting");
+wt.to(W, { ring2: 1, duration: 0.5, ease: "power1.out" }, s3 - 0.05)
+  .set(W, { dd16: 1 }, s3 - 0.03)
+  .to(W, { span: SPAN16, duration: 0.9, ease: "power2.inOut" }, s3 + 0.1)
+  .to(W, { ring3: 1, duration: 0.5, ease: "power1.out" }, s3 + 1.8)
+  .set(W, { tab: 1, dd16: 2 }, s3 + 1.82)
+  .to(W, { span: SPAN3, duration: 0.6, ease: "power2.inOut" }, s3 + 1.85)
+  .to(W, { cmp: 1, duration: 0.7, ease: "power1.inOut" }, s3 + 2.3);
+// trace the dotted line, beak on the dots, flying backwards
+const X3 = (d) => PX1 - ((END0 - d) / SPAN3) * (PX1 - PX0), Y = (v) => PB - ((v - 0.12) / 0.8) * (PB - PT);
+const trace0 = { x: X3(11), y: Y(lastYearA(11)) }, trace1 = X3(-20);
+F.face(s3 + 2.3, -1)
+ .move(s3 + 2.35, trace0.x - 128, trace0.y + 52, 0.35, "power2.inOut")
+ .sfx(s3 + 2.35, "swish")
+ .look(s3 + 2.55, 0.6, 0.6, 0.1)
+ .reverse(s3 + 2.75, trace1 - 128, 1.05)
+ .mood(s3 + 3.85, "happy")
+ .tiltTo(s3 + 3.9, 16, 0.12).tiltTo(s3 + 4.04, 0, 0.18)
+ .chips(s3 + 4.0, 1)
+ .reach(s3 + 4.42, filTab.x, filTab.y + 4, 0.3)
+ .sfx(s3 + 4.76, "tap").sfx(s3 + 4.8, "pluck");
+wt.to(W, { ring4: 1, duration: 0.5, ease: "power1.out" }, s3 + 4.76)
+  .set(W, { dd16: 0, tab: 0 }, s3 + 4.77)
+  .to(W, { cmp: 0, duration: 0.25 }, s3 + 4.77);
+
+// BODY4: whip to B. A ring on B's slide, right inside the band. Close-up: she
+// drops onto B's leaf beside the frosted, drooping petals, glances up at the
+// band, then turns to you, determined, throat flashing.
+const s4 = b.body4.start;
+const perchB = leafPoint(FLOWERS.B, 0.3, s4 + 1.3, [1, 0.5, 1], -40, -44);
+F.mood(s4 - 0.15, "determined")
+ .dart(s4 - 0.1, 600, 960, 0.34, -1)
+ .say(s4, M.body4 || [], "body4")
+ .look(s4 + 0.3, 0.3, -1, 0.1)
+ .sfx(s4 + 0.35, "ting")
+ .land(s4 + 0.85, perchB.x + 4, perchB.y - 110, 0.5)
+ .look(s4 + 1.5, 0.7, 0.6, 0.12)
+ .look(s4 + 2.05, 0.2, -1, 0.1).mood(s4 + 2.05, "think")
+ .pivot(s4 + 2.6, "front").mood(s4 + 2.6, "determined").look(s4 + 2.62, 0, 0, 0.1)
+ .flash(s4 + 2.9);
+wt.to(W, { ring5: 1, duration: 0.7, ease: "power1.out" }, s4 + 0.35)
+  .set(W, { camX: 790, camY: 1410, zoom: 1.6 }, s4 + 1.0)
+  .to(W, { camX: 784, camY: 1420, zoom: 1.68, duration: 2.8, ease: "sine.inOut" }, s4 + 1.0);
+
+// PAYOFF: back out wide. A change preview pops up; she reads it and taps
+// Publish. Then the counter jumps whole weeks: A (bug fixed) lifts partway; B
+// only gets a hint of colour and its line stays flat. The frost leaves right.
+const s5 = b.payoff5.start, weeks = 8, wk = 0.22, wk0 = s5 + 1.75;
+const CARD = { x: 470, y: 1045, k: 1 };
+const btn = { x: CARD.x + 236 * CARD.k, y: CARD.y + 100 * CARD.k };
+wt.set(W, { camX: 540, camY: 960, zoom: 1 }, s5 - 0.45)
+  .to(W, { card: CARD.k, duration: 0.35, ease: "back.out(1.8)" }, s5 + 0.0)
+  .set(W, { src2: 1 }, s5)
+  .to(W, { published: 1, duration: 0.2 }, s5 + 0.98)
+  .to(W, { card: 0, duration: 0.3, ease: "power2.in" }, s5 + 1.45)
+  .to(W, { day: 14 + weeks * 7, duration: weeks * wk, ease: `steps(${weeks})` }, wk0)
+  .to(W, { fx: 1800, duration: 1.6, ease: "power1.in" }, wk0)
+  .to(W, { hA: 0.6, duration: weeks * wk, ease: "power1.inOut" }, wk0)
+  .to(W, { hB: 0.4, bfrost: 0.25, duration: weeks * wk, ease: "power1.inOut" }, wk0);
+F.pivot(s5 - 0.5, "side").face(s5 - 0.5, 1);
+F.pose(s5 - 0.45); // takeoff lifts from where she is at that moment
+F.takeoff(s5 - 0.45)
+ .say(s5, M.payoff5 || [], "payoff5")
+ .mood(s5 + 0.1, "think").look(s5 + 0.15, -0.6, 0.4, 0.12)
+ .sfx(s5 + 0.05, "pluck")
+ .tiltTo(s5 + 0.2, 12, 0.2).look(s5 + 0.45, -0.4, 0.9, 0.2).tiltTo(s5 + 0.55, 0, 0.15)
+ .reach(s5 + 0.62, btn.x, btn.y, 0.3)
+ .sfx(s5 + 0.97, "tap").sfx(s5 + 1.0, "ting")
+ .mood(s5 + 1.1, "hello")
+ .move(s5 + 1.45, 560, 990, 0.45, "power2.inOut").face(s5 + 1.45, -1)
+ .look(s5 + 1.95, 0.8, 0.7, 0.2).mood(s5 + 1.95, "think")
+ .sfx(wk0 + 4 * wk, "bloom")
+ .mood(b.payoff5.end - 0.2, "hello");
+for (let i = 1; i <= weeks; i++) F.sfx(wk0 + i * wk - 0.01, "tk");
+F.sfx(wk0 + 0.05, "swish");
+
+// LOOP: she snaps round to the left edge. The counter rewinds to Sep 24, the
+// frosted band redraws and the frost slides back in to wait at the left edge.
+// A keeps its partial recovery and B stays as it was.
+const s6 = b.loop6.start, rew = 1.0;
+wt.set(W, { band: 0, tagBand: 0, src2: 0 }, s6 + 0.2)
+  .to(W, { day: 0, duration: rew, ease: "power2.inOut" }, s6 + 0.2)
+  .to(W, { shake: 2, duration: 0.3, ease: "none" }, s6 + 0.2 + rew)
+  .to(W, { band: 1, duration: 0.5, ease: "power2.out" }, s6 + 0.25 + rew)
+  .to(W, { tagBand: 1, duration: 0.3, ease: "back.out(2.2)" }, s6 + 0.35 + rew)
+  .set(W, { fx: -420 }, s6 + 0.2)
+  .to(W, { fx: FX0, duration: 0.7, ease: "power2.out" }, s6 + 1.25);
+F.pivot(s6 + 0.05, "side").face(s6 + 0.05, 1).mood(s6 + 0.05, "worried")
+ .say(s6, M.loop6 || [], "loop6")
+ .sfx(s6 + 0.1, "swish")
+ .dart(s6 + 0.15, 470, 980, 0.3, 1)
+ .look(s6 + 0.5, -1, 0.6, 0.08);
+for (let i = 0; i < 5; i++) F.sfx(s6 + 0.25 + i * 0.2, "tk");
+F.sfx(s6 + 0.2 + rew, "tap").sfx(s6 + 0.3 + rew, "shimmer").sfx(s6 + 0.35 + rew, "pluck");
+
+// GO: fired up, she taps the chart (it pops), the camera pulls back and
+// "fading" tags pop onto drooping pages further back in the garden.
+const s7 = b.go7.start, tapPt = { x: 600, y: 560 };
+F.mood(s7 - 0.25, "party")
+ .reach(s7 - 0.12, tapPt.x, tapPt.y, 0.28)
+ .sfx(s7 + 0.18, "tap")
+ .say(s7, M.go7 || [], "go7")
+ .move(s7 + 0.45, 560, 940, 0.4, "power2.inOut")
+ .pivot(s7 + 0.75, "front")
+ .chips(b.go7.end - 0.05, 2);
+wt.to(W, { pop: 1, duration: 0.12, ease: "power2.out" }, s7 + 0.18)
+  .to(W, { pop: 0, duration: 0.45, ease: "elastic.out(1,.4)" }, s7 + 0.3)
+  .to(W, { camX: 540, camY: 990, zoom: 0.9, duration: 0.8, ease: "power2.inOut" }, s7 + 0.3)
+  .to(W, { back: 1, duration: 0.6, ease: "power1.out" }, s7 + 0.35)
+  .to(W, { tagP: 1, duration: 0.3, ease: "back.out(2.5)" }, s7 + 0.95)
+  .to(W, { tagQ: 1, duration: 0.3, ease: "back.out(2.5)" }, s7 + 1.4);
+F.sfx(s7 + 0.3, "swish").sfx(s7 + 0.95, "pluck").sfx(s7 + 1.4, "pluck");
+
+// URL: she zips off; the logo card comes up and the camera pulls far back
+// behind it (so she is small beside the spark). She comes in sideways and
+// perches on the spark's left arm, turns to you and flicks a wing. Then she
+// leaves, and the card dissolves into the opening frame.
+const s8 = b.url8.start, LZ = 0.6, LOGO = { x: 580, y: 760, r: 250 };
+const toWorld = (sx, sy) => ({ x: 540 + (sx - 540) / LZ, y: 960 + (sy - 960) / LZ });
+// feet on the arm's upper edge, close to its tip
+const armS = 0.06, armX = LOGO.x - LOGO.r * ((1 - armS) ** 2 + 2 * armS * (1 - armS) * 0.22), armY = LOGO.y - LOGO.r * (2 * armS * (1 - armS) * 0.22 + armS * armS);
+const feetW = toWorld(armX, armY), perch = { x: feetW.x + 4, y: feetW.y - 112 };
+const g7e = b.go7.end;
+F.pivot(g7e + 0.05, "side").face(g7e + 0.05, -1).mood(g7e + 0.05, "happy")
+ .exit(g7e + 0.15, 1500, 700, 0.3);
+F.tl.set(F.S, { x: perch.x - 1150, y: perch.y - 160 }, s8 - 0.72);
+F.face(s8 - 0.72, -1)
+ .land(s8 - 0.68, perch.x, perch.y, 0.5)
+ .say(s8, M.url8 || [], "url8")
+ .pivot(s8 + 0.1, "front")
+ .tiltTo(s8 + 0.1, 0, 0.1)
+ .stretch(s8 + 0.45, 0.5)
+ .chips(b.url8.end + 0.1, 1)
+ .pivot(b.url8.end + 0.5, "side").face(b.url8.end + 0.5, -1);
+// seated, she leans a touch toward the arm's tip so her wing stays clear of the spark
+F.tl.to(F.S, { rot: -32, duration: 0.25 }, s8 + 0.12).to(F.S, { rot: 0, duration: 0.15 }, b.url8.end + 0.45);
+F.pose(b.url8.end + 0.55);
+F.takeoff(b.url8.end + 0.55)
+ .exit(b.url8.end + 0.75, 2400, 300, 0.32);
+wt.to(W, { tagP: 0, tagQ: 0, duration: 0.2 }, g7e + 0.1)
+  .to(W, { logo: 1, duration: 0.4, ease: "back.out(1.6)" }, g7e + 0.15)
+  .to(W, { camX: 540, camY: 960, zoom: LZ, duration: 0.45, ease: "power2.inOut" }, g7e + 0.25)
+  // under the card: back to the opening frame (Sep 24, no band, A drooping, B bright)
+  .set(W, { day: 0, band: 0, tagBand: 0, fx: FX0, hA: HOOK_A, hB: 1, bfrost: 0, back: 0, petal: 0, src2: 0, published: 0, ring1: 0, ring5: 0, dip: 0 }, b.url8.end + 0.3)
+  .to(W, { camX: 540, camY: 960, zoom: 1, duration: 0.01 }, b.url8.end + 1.1)
+  .to(W, { logo: 0, duration: 0.55, ease: "power2.inOut" }, b.url8.end + 1.15);
+F.sfx(g7e + 0.15, "ting");
+wt.set({}, {}, DUR);
+
+// ---------- drawing ----------
+const pill = (cx, cy, text, o = {}) => {
+  const fs = o.fs ?? 26, w = PROPS.measure(text, `700 ${fs}px '${FONT}'`) + (o.pad ?? 36), h = fs + 22;
+  return `<rect x="${cx - w / 2}" y="${cy - h / 2}" width="${w}" height="${h}" rx="${h / 2}" fill="${o.bg ?? "#fffaf2"}" stroke="${o.stroke ?? INK}" stroke-width="${o.sw ?? 4}"/><text x="${cx}" y="${cy + fs * 0.36}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="${fs}" fill="${o.fg ?? INK}">${PROPS.esc(text)}</text>`;
+};
+// an ice crystal (the frost's mark: in the garden, on the band, on the band's tag)
+const crystal = (x, y, r, a, o, edge = ICE2) => {
+  const arm = `M${-r},0 H${r} M${r * 0.55},0 l${r * 0.25},${-r * 0.25} M${r * 0.55},0 l${r * 0.25},${r * 0.25} M${-r * 0.55},0 l${-r * 0.25},${-r * 0.25} M${-r * 0.55},0 l${-r * 0.25},${r * 0.25}`;
+  const arms = [0, 60, 120].map((r2) => `<g transform="rotate(${r2})"><path d="${arm}" stroke="${edge}" stroke-width="${Math.max(4, r * 0.38)}" stroke-linecap="round"/><path d="${arm}" stroke="#ffffff" stroke-width="${Math.max(2, r * 0.18)}" stroke-linecap="round"/></g>`).join("");
+  return `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${a.toFixed(1)})" opacity="${o.toFixed(3)}">${arms}</g>`;
+};
+
+function chart(t) {
+  const d = W.day, span = W.span, end = Math.max(d, END0), cx = CH.x + CH.w / 2, cy = CH.y + CH.h / 2, sc = 1 + W.pop * 0.04;
+  const X = (x) => PX1 - ((end - x) / span) * (PX1 - PX0), d0 = end - span;
+  let s = `<g transform="translate(${cx} ${cy}) scale(${sc}) translate(${-cx} ${-cy})">`;
+  s += PROPS.panel(1, CH.x, CH.y, CH.w, CH.h, { title: "Performance", accent: C.deep });
+  // the day counter, on the title bar
+  { const dl = dateOf(d), dw = PROPS.measure(dl, `700 28px '${FONT}'`) + 36; s += pill(CH.x + CH.w - 34 - dw / 2, CH.y + 38, dl, { fs: 28, sw: 0 }); }
+  const label = ["Last 3 months", "Last 16 months", "3 months vs last year"][Math.round(W.dd16)], dc = ddCenter(label);
+  s += PROPS.dropdown(1, dc.x, dc.y, label);
+  s += PROPS.tabs(1, TABS.x, ROW - 22, TABS.w, ["Filter", "Compare"], W.tab > 0.5 ? 1 : 0, C.deep);
+  // plot frame and month ticks
+  s += `<path d="M${PX0},${PB} H${PX1}" stroke="${INK}" stroke-width="3" opacity=".25"/>`;
+  const long = span > 200, start = new Date(DAY0 + Math.floor(d0) * MS);
+  let lastR = -1e9;
+  for (let y = start.getUTCFullYear(), m = start.getUTCMonth() + 1; ; m++) {
+    if (m > 11) { m = 0; y++; }
+    const md = (Date.UTC(y, m, 1) - DAY0) / MS; if (md > end) break;
+    const x = X(md); if (x < PX0) continue;
+    s += `<path d="M${x},${PB} v10" stroke="${INK}" stroke-width="3" opacity=".3"/>`;
+    if (long && m % 3 !== 0) continue;
+    const txt = long ? `${MON[m]} '${String(y).slice(2)}` : MON[m], w = PROPS.measure(txt, `700 24px '${FONT}'`);
+    if (x - w / 2 < PX0 - 20 || x + w / 2 > PX1 + 24 || x - w / 2 < lastR + 16) continue;
+    lastR = x + w / 2;
+    s += `<text x="${x}" y="${PB + 40}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}" opacity=".55">${txt}</text>`;
+  }
+  // the update window: a frosted band from Sep 24 to ~Oct 8
+  if (W.band > 0.005) {
+    const x0 = X(0), x1 = X(14 * W.band), bw = x1 - x0;
+    s += `<rect x="${x0}" y="${PT - 8}" width="${bw}" height="${PB - PT + 8}" fill="${ICE}"/>`;
+    s += `<path d="M${x0},${PT - 8} V${PB}" stroke="${ICE2}" stroke-width="5"/>`;
+    if (W.band > 0.98) s += `<path d="M${x1},${PT - 8} V${PB}" stroke="${ICE2}" stroke-width="5" stroke-dasharray="10 8"/>`;
+    if (bw > 60) for (let i = 0; i < 3; i++) { const fx = x0 + bw * (0.25 + i * 0.25); if (fx < x1 - 12) s += crystal(fx, PT + 30 + i * 74 + (i % 2) * 20, 11, i * 20 + t * 8, 0.85, ICE3); }
+  }
+  if (W.tagBand > 0.01) {
+    const k = W.tagBand, bt = "Spam update: Sep 24 to ~Oct 8", fs = 28, tw = PROPS.measure(bt, `700 ${fs}px '${FONT}'`), w = tw + 36 + 40, h = 50;
+    const bx = PX1 - w / 2, by = TAGROW;
+    s += `<g transform="translate(${bx} ${by}) scale(${k}) translate(${-bx} ${-by})"><rect x="${bx - w / 2}" y="${by - h / 2}" width="${w}" height="${h}" rx="${h / 2}" fill="${ICE}" stroke="${ICE2}" stroke-width="5"/>`;
+    s += crystal(bx - w / 2 + 34, by, 12, 0, 1, ICE2);
+    s += `<text x="${bx - w / 2 + 56}" y="${by + fs * 0.36}" font-family="${FONT}" font-weight="700" font-size="${fs}" fill="${C.deep}">${PROPS.esc(bt)}</text></g>`;
+  }
+  const poly = (f, a, z) => { const p = [], st = span / 180; for (let x = a; x <= z + 1e-6; x += st) p.push(`${X(x).toFixed(1)},${Y(f(x)).toFixed(1)}`); p.push(`${X(z).toFixed(1)},${Y(f(z)).toFixed(1)}`); return p.join(" "); };
+  // Compare: the same weeks a year earlier, faint dotted, under A's line
+  if (W.cmp > 0.01) {
+    const a = d0, z = a + (d - a) * W.cmp;
+    s += `<polyline points="${poly(lastYearA, a, z)}" fill="none" stroke="${COL_A}" stroke-width="7" stroke-dasharray="1 13" stroke-linecap="round" opacity=".7"/>`;
+    s += `<g opacity="${clamp(W.cmp * 3)}"><path d="M${PX0 + 6},${TAGROW} h44" stroke="${COL_A}" stroke-width="7" stroke-dasharray="1 13" stroke-linecap="round" opacity=".7"/><text x="${PX0 + 64}" y="${TAGROW + 9}" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}" opacity=".7">same weeks last year</text></g>`;
+  }
+  // this year: B coral (series 0) then A indigo (series 1), up to today
+  s += `<polyline points="${poly(lineB, d0, d)}" fill="none" stroke="${COL_B}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>`;
+  s += `<polyline points="${poly(lineA, d0, d)}" fill="none" stroke="${COL_A}" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>`;
+  // rings: where A began to slide (before the band), where B slid (inside it)
+  const ring = (k, x, y, col) => k > 0.01 && k < 0.99 ? `<circle cx="${x}" cy="${y}" r="${16 + k * 40}" fill="none" stroke="${col}" stroke-width="5" opacity="${(1 - k) * 0.9}"/>` : "";
+  s += ring(W.ring1, X(-12), Y(lineA(-12)), COL_A) + ring(W.ring5, X(8.5), Y(lineB(8.5)), COL_B);
+  if (W.dip > 0.01 && d < 30) { const x = X(-12); s += `<circle cx="${x}" cy="${Y(lineA(-12))}" r="12" fill="#fffaf2" stroke="${COL_A}" stroke-width="5" opacity="${Math.min(1, W.dip * 3)}"/>`; }
+  // today: the line-end dots, the same colours as the tags on the flowers
+  if (d < end - 0.5) s += `<path d="M${X(d)},${PT - 8} V${PB}" stroke="${INK}" stroke-width="3" stroke-dasharray="6 8" opacity=".3"/>`;
+  s += `<circle cx="${X(d)}" cy="${Y(lineB(d))}" r="13" fill="${COL_B}" stroke="${INK}" stroke-width="4"/><circle cx="${X(d)}" cy="${Y(lineA(d))}" r="13" fill="${COL_A}" stroke="${INK}" stroke-width="4"/>`;
+  // where the dates and the "months" come from
+  if (W.band > 0.5 || W.src2 > 0.5) s += `<text x="${PX0}" y="${CH.y + CH.h - 22}" font-family="${FONT}" font-weight="700" font-size="22" fill="${INK}" opacity=".5">${W.src2 > 0.5 ? "Source: Google, spam updates guide" : "Source: Google Search Status Dashboard"}</text>`;
+  return s + `</g>`;
+}
+
+// the frost: a pale, low bank with ice crystals rising off it
+function frost(t) {
+  const x = W.fx; if (x < -360 || x > 1500) return "";
+  const roll = Math.sin(t * 1.6) * 5, y = 1395;
+  let s = `<ellipse cx="${x}" cy="${y - 30}" rx="300" ry="150" fill="url(#gfrost)"/>`;
+  s += `<g transform="translate(${x} ${y}) scale(.95)"><path d="M-260,40 C-292,40 -292,2 -252,-4 C-244,${-40 + roll} -190,-50 -160,-28 C-138,${-64 - roll} -80,-68 -58,-36 C-38,${-74 + roll} 32,-74 52,-38 C82,${-62 - roll} 142,-54 150,-20 C190,-42 248,-28 250,4 C292,8 292,40 252,40Z" fill="#f7f8ff" stroke="${ICE2}" stroke-width="5" stroke-linejoin="round"/><path d="M-246,36 C-120,48 120,48 246,36" stroke="${ICE3}" stroke-width="14" fill="none" stroke-linecap="round"/></g>`;
+  for (let i = 0; i < 7; i++) {
+    const ph = (t * 0.45 + i * 0.37) % 1, cx = x - 210 + i * 70 + Math.sin(t * 1.3 + i) * 8, cy = y - 50 - ph * 170 - (i % 2) * 20;
+    s += crystal(cx, cy, 16 + (i % 3) * 5, t * 30 + i * 20, 0.35 + Math.sin(ph * Math.PI) * 0.65);
+  }
+  return s;
+}
+// frost glints on B's petals after the frost passed
+function frostOnB(t) {
+  if (W.bfrost < 0.01) return "";
+  const h = PROPS.head(FLOWERS.B, W.hB); let s = "";
+  for (let i = 0; i < 6; i++) { const a = i * 1.05 + 0.4, r = 70 + (i % 2) * 40, ph = (t * 0.9 + i * 0.29) % 1; s += crystal(h.x + Math.cos(a) * r, h.y + Math.sin(a) * r, 9 + (i % 2) * 3, i * 25, W.bfrost * (0.45 + 0.55 * Math.sin(ph * Math.PI))); }
+  return s;
+}
+// a round pin holding each flower's page, in the colour of its line on the chart
+// (follows the page exactly: the same lean, sway and page tilt the flower draws)
+function pagePin(f, h, t, col) {
+  const sway = Math.sin(t * 1.25 + f.seed) * 1.6 * h + Math.sin(t * 2.9 + f.seed * 2) * 0.5 * h;
+  const lean = ((1 - h) * 26 * f.dir + sway) * Math.PI / 180, tilt = (1 - h) * 6 * f.dir * Math.PI / 180;
+  const hx = f.x + Math.sin(lean) * f.h, hy = f.base - Math.cos(lean) * f.h, a = lean + tilt, ox = 0, oy = -74;
+  const x = hx + ox * Math.cos(a) - oy * Math.sin(a), y = hy + ox * Math.sin(a) + oy * Math.cos(a);
+  return `<circle cx="${x}" cy="${y}" r="22" fill="${col}" stroke="${INK}" stroke-width="5"/><circle cx="${x - 7}" cy="${y - 7}" r="6" fill="#fff" opacity=".6"/>`;
+}
+function backFlower(f, h, t, o) {
+  if (o <= 0.01) return "";
+  return `<g opacity="${o.toFixed(3)}" transform="translate(${f.x} ${f.base}) scale(${f.s}) translate(${-f.x} ${-f.base})">${GARDEN.flower({ ...f, base: f.base }, h, t)}</g>`;
+}
+const backHead = (f, h) => { const p = PROPS.head(f, h); return { x: f.x + (p.x - f.x) * f.s, y: f.base - (f.base - p.y) * f.s }; };
+// the logo card: the Flowra spark, whole and in its own colour, with the address
+function logoCard(k) {
+  if (k <= 0.01) return "";
+  const url = "useflowra.com", tw = PROPS.measure(url, `700 72px '${FONT}'`), w = Math.max(680, tw + 140), y0 = 440, h = 820;
+  let s = `<rect width="1080" height="1920" fill="#f6efe3" opacity="${(0.93 * k).toFixed(3)}"/>`;
+  s += `<g opacity="${Math.min(1, k * 1.5).toFixed(3)}" transform="translate(540 ${y0 + h / 2}) scale(${(0.92 + 0.08 * k).toFixed(3)}) translate(-540 ${-(y0 + h / 2)})">`;
+  s += `<rect x="${540 - w / 2}" y="${y0}" width="${w}" height="${h}" rx="44" fill="#fffaf2" stroke="${INK}" stroke-width="5"/>`;
+  s += HUM.spark(LOGO.x, LOGO.y, LOGO.r, C.coral);
+  s += `<text x="540" y="${y0 + 700}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="72" fill="${INK}">${url}</text>`;
+  s += `<text x="540" y="${y0 + 764}" text-anchor="middle" font-family="${FONT}" font-weight="600" font-size="34" fill="${C.magenta}">Start free</text>`;
+  return s + `</g>`;
+}
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  F.pose(t);
+  // a small camera jolt on the snap (bug) and on the rewind landing
+  const jolt = (W.shake > 0 && W.shake < 1) ? Math.sin(W.shake * 40) * (1 - W.shake) * 10 : (W.shake > 1 && W.shake < 2) ? Math.sin((W.shake - 1) * 40) * (2 - W.shake) * 7 : 0;
+  const cam = { camX: W.camX + jolt, camY: W.camY, zoom: W.zoom };
+  const camG = `<g transform="translate(540 960) scale(${cam.zoom}) translate(${-cam.camX} ${-cam.camY})">`;
+  let s = GARDEN.defs() + `<defs><radialGradient id="gfrost" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffffff" stop-opacity=".9"/><stop offset=".55" stop-color="${ICE}" stop-opacity=".6"/><stop offset="1" stop-color="${ICE}" stop-opacity="0"/></radialGradient></defs>`;
+  s += GARDEN.background(t, cam);
+  s += camG + GARDEN.ground();
+  s += backFlower(FLOWERS.P, 0.15, t, W.back) + backFlower(FLOWERS.Q, 0.2, t, W.back);
+  s += frost(t);
+  s += GARDEN.flower(FLOWERS.B, W.hB, t);
+  s += GARDEN.flower(FLOWERS.A, W.hA, t, { dropPetal: W.petal });
+  { const p0 = PROPS.head(FLOWERS.A, W.hA); s += GARDEN.fallingPetal(FLOWERS.A, W.hA, p0.x - 30, p0.y + 30, W.petal); }
+  s += pagePin(FLOWERS.A, W.hA, t, COL_A) + pagePin(FLOWERS.B, W.hB, t, COL_B);
+  // the 404 bug on A's page, from body2 until she catches it
+  const pk = F.events.find((e) => e.type === "picked");
+  if (t > s2 - 0.4 && t < s2 + 4 && (!pk || t < pk.t)) { const q = PROPS.bugOn(FLOWERS.A, t, W.hA), k = clamp((t - (s2 - 0.4)) / 0.3); s += `<g transform="translate(${q.x} ${q.y}) rotate(${q.a})">${bug(t, 0.62 * k)}</g>`; }
+  s += frostOnB(t);
+  s += PROPS.sparks(t, PROPS.head(FLOWERS.A, 0.6).x, PROPS.head(FLOWERS.A, 0.6).y, wk0 + 4 * wk, 8, 22);
+  // the chart is left out only while it is wholly above the frame (garden close-ups)
+  if ((CH.y + CH.h + 10 - cam.camY) * cam.zoom + 960 > 0) s += chart(t);
+  s += PROPS.cursor(W.ring2, dd3.x + 70, ROW) + PROPS.cursor(W.ring3, cmpTab.x, cmpTab.y) + PROPS.cursor(W.ring4, filTab.x, filTab.y);
+  s += PROPS.reviewCard(W.card, { x: CARD.x, y: CARD.y, published: W.published });
+  // "fading" on the pages fading right now (go)
+  { const q = backHead(FLOWERS.P, 0.15); s += PROPS.tag(q.x, q.y - 120, W.tagP, "fading", "#d24b4b"); }
+  { const q = backHead(FLOWERS.Q, 0.2); s += PROPS.tag(q.x, q.y - 120, W.tagQ, "fading", "#d24b4b"); }
+  s += `</g>`;
+  s += logoCard(W.logo);
+  s += camG + F.trail(t) + F.svg(t) + `</g>`;
+  s += GARDEN.pollen(t, cam) + GARDEN.vignette();
+  s += PROPS.captions(LINES, B, t);
+  document.getElementById("stage").innerHTML = s;
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), music: Object.values(B).map((x) => x.start) });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.render(0);
+</script></body></html>

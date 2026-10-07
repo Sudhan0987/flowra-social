@@ -1,0 +1,63 @@
+{
+ "topic": "Google's September 2026 spam update is finishing its rollout: how to tell whether it caused your traffic drop, or something else did",
+ "angle": "Google's spam update started on September 24 and was given up to two weeks to roll out, so this week a lot of people will blame it for any dip they see. The reel lays the rollout window over your clicks chart. If your page's flower started drooping before the window, it is probably something else, like a technical error (a bug Floey eats), seasonality or a change in what people search for. If it dropped inside the window, Google's advice is to review its spam policies and expect recovery to take months, not days.",
+ "whyNow": "Google's September 2026 spam update started on September 24 with a rollout of up to two weeks, so it should finish around October 8. That is much longer than the earlier 2026 spam updates, which took under 3 days each. Its last wave of ranking changes was reported on October 4 to 6, and people are seeing drops in Search Console right now.",
+ "goal": "save",
+ "audience": "In-house content and SEO leads and agency account managers who opened Search Console this week, saw a drop on a site or a client's site, and have to explain whether the spam update caused it.",
+ "facts": [
+  {
+   "fact": "Google's September 2026 spam update started on 24 September 2026, according to Google's Search Status Dashboard, which still showed it as ongoing (no duration listed) in early October.",
+   "source": "https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history"
+  },
+  {
+   "fact": "The September 2026 spam update applies globally, in all languages, and may take up to two weeks to complete.",
+   "source": "https://www.seroundtable.com/google-september-2026-spam-update-phase-3-42239.html"
+  },
+  {
+   "fact": "The earlier 2026 spam updates were much shorter: March took 19 hours 30 minutes, June took 2 days 1 hour, and August took 2 days 16 hours.",
+   "source": "https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history"
+  },
+  {
+   "fact": "The update came in waves: September 25 to 27, September 30, and a third phase from October 4 to 6 (as reported from community and tracking-tool data, not by Google).",
+   "source": "https://www.seroundtable.com/google-september-2026-spam-update-phase-3-42239.html"
+  },
+  {
+   "fact": "Google lists the main causes of search traffic drops as algorithmic updates, technical issues (for example server availability, robots.txt fetching, 'page not found'), security issues, spam policy violations, and seasonality or changing interests.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google suggests setting the Performance report date range to 'Last 16 months' to spot patterns and yearly seasonality, and using Compare to check the drop against similar earlier periods.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google says a small drop in position, such as going from 2 to 4, can happen at any time and often needs no action. A large drop, such as falling from the top 10 to position 29 across many terms, is a reason to review the site more broadly.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google: 'Sites that see a change after a spam update should review our spam policies to ensure they are complying with those.'",
+   "source": "https://developers.google.com/search/docs/appearance/spam-updates"
+  },
+  {
+   "fact": "Google: making changes may help a site improve 'if our automated systems learn over a period of months that the site complies with our spam policies.' After a link spam update, changes might not bring an improvement, because any ranking benefit from spammy links is gone once Google removes their effect.",
+   "source": "https://developers.google.com/search/docs/appearance/spam-updates"
+  },
+  {
+   "fact": "For core updates (not spam updates), Google recommends waiting at least a full week after the update completes before analysing in Search Console, then comparing that week with the week before the rollout started. If the reel uses this, frame it as Google's core update advice.",
+   "source": "https://developers.google.com/search/docs/appearance/core-updates"
+  },
+  {
+   "fact": "After making fixes, Google says you will likely want to wait a few weeks before checking Search Console again to see if they helped.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Flowra's content decay report finds pages whose clicks and impressions are falling, from Search Console data, and puts them in a queue to fix (on every plan, including Free). Use only as a light close, if at all.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "Flowra can tag a change on a page and compare before and after, with a 14 day settling window and an adjustment for the whole site's movement. This is a before-and-after comparison, never a split test. Optional, for the 'measure your fix' beat.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "One clicks chart standing over the garden, with a soft amber band tagged \"SPAM UPDATE · SEP 24 → ~OCT 8\" (the day counter ticks across it). Below it are two drooping flowers, each with its line on the chart. Floey hovers along the chart and lines up each dip with the band. Flower A started drooping days before the band, so she darts in and finds a little 404 bug on its stem, eats it, and the flower lifts back to health. Flower B dropped right inside the band, so she pivots to the viewer looking determined. The day counter then runs forward in weeks, not days, while the flower slowly regains colour, showing that Google says recovery takes months. Loop: the counter snaps back to Sep 24 and the band reappears over the chart from the opening shot.",
+ "pillar": "news"
+}

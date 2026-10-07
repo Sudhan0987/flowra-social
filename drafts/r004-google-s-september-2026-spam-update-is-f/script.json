@@ -1,0 +1,93 @@
+{
+ "title": "The rollout window, explained with one frost",
+ "beats": [
+  {
+   "role": "hook",
+   "say": "Your drop only fits Google's spam update if it started after September twenty fourth.",
+   "emotion": "ominous",
+   "caption": "Your drop only fits Google's spam update if it started after September 24.",
+   "visual": "Opening frame: a small clicks chart hangs above the garden with two lines, one violet and one coral. Each colour matches a flower below it, and a tiny matching dot marks each line's end. The day counter reads Sep 24. The violet line is already dipping, and its flower, Flower A (violet), droops and fades. The coral line is still flat, and Flower B (coral) stands bright and sways. A pale, soft frost shimmer waits low at the left edge of the garden. Floey darts in from the right, stops mid-hover between the two flowers and turns to the viewer with a narrowed look."
+  },
+  {
+   "role": "body",
+   "say": "Think of it as a frost crossing the garden for up to two weeks.",
+   "emotion": "curious",
+   "visual": "The pale frost shimmer drifts slowly right along the ground. On the chart, a pale ice-blue band draws itself in step with the frost, tagged 'SPAM UPDATE · SEP 24 → ~OCT 8', large enough to read at phone size. The day counter ticks from Sep 24 toward ~Oct 8. When the frost reaches Flower B, the coral flower loses colour and droops, and at the same moment its coral line dips inside the band. Floey hovers along the band's edges, wings humming, to trace where it starts and ends."
+  },
+  {
+   "role": "body",
+   "say": "Your page slipped before the frost? Then look elsewhere, like a broken page.",
+   "emotion": "determined",
+   "visual": "Floey zips to Flower A and holds her beak up to the chart. The violet dip clearly starts days before the band's left edge. She tilts her head, then spots a little 404 bug crawling on the violet flower's stem. She snaps it out of the air and gulps it, with a tiny tongue flick. A small day counter beside Flower A skips forward three weeks, and only then does the flower lift partway and get some of its colour back. Its violet line edges up a little."
+  },
+  {
+   "role": "body",
+   "say": "Set Performance to Last sixteen months and use Compare to spot seasonal dips.",
+   "emotion": "curious",
+   "caption": "Set Performance to Last 16 months and use Compare to spot seasonal dips.",
+   "visual": "Floey darts to the chart and reaches out to tap it with her beak. The chart widens to a longer view labelled 'Last 16 months', and a small 'Compare' tab lights up. A faint dotted line for the same weeks a year earlier appears under the violet line. Floey runs her beak along it: there is no matching dip last year, so this one was not the season. She gives a satisfied little nod."
+  },
+  {
+   "role": "body",
+   "say": "Slipped right under it? Check your page against Google's spam policies.",
+   "emotion": "worried",
+   "visual": "Floey flies over to Flower B. Its coral line sits low, right inside the ice-blue band, and the coral flower is still pale and drooping, with a few frost sparkles on its petals. Floey lands on a leaf beside it, glances up at the band, then turns to the viewer with a determined look and her throat flashing."
+  },
+  {
+   "role": "payoff",
+   "say": "If the update hit your page, fixes may take months to show.",
+   "emotion": "warm",
+   "visual": "Floey pops up a change preview card beside Flower B, reads it over with her head tilted, then taps its Publish button. The frost drifts out of frame on the right, and the band stays on the chart as a marker. The day counter starts jumping in whole weeks instead of days. Flower B gets back only a hint of colour and stays partly drooped. Its coral line runs on as a faint dotted line with no promise of a climb. Floey hovers beside it, watching patiently."
+  },
+  {
+   "role": "loop",
+   "say": "And this week's drops all land inside that frost.",
+   "emotion": "worried",
+   "visual": "Floey turns sharply toward the left edge. The day counter rewinds and snaps back to Sep 24, the ice-blue band redraws over the chart, and the pale frost shimmer slides back in to wait at the left edge, as in the opening frame. Flower A keeps its partial recovery and Flower B stays as it was. Nothing that was fixed droops again."
+  },
+  {
+   "role": "go",
+   "say": "Come on, let's find your fading pages!",
+   "emotion": "excited",
+   "visual": "Floey darts up to the clicks chart and reaches out to tap it with her beak, and the chart pops forward a little. Small 'Fading' pill tags pop onto drooping flowers further back in the garden, one after another, each with a soft click."
+  },
+  {
+   "role": "url",
+   "say": "useflowra.com.",
+   "emotion": "playful",
+   "visual": "After a short beat, Floey darts to the Flowra logo, comes in sideways and perches on the spark's left arm, then turns to face the camera and gives a little wing flick. The logo stays fully visible and keeps its colours. Then the end card dissolves into the opening composition: the chart at Sep 24, the frost waiting at the left edge, the violet flower drooping and the coral flower bright."
+  }
+ ],
+ "loopNote": "In the loop beat the counter rewinds to Sep 24 and the ice-blue band and frost come back without the fixed flowers drooping again. After the go line and the address, the end card with Floey on the logo dissolves into the hook's exact opening frame: chart at Sep 24, frost waiting at the left edge, Flower A drooping, Flower B still bright. A replay then picks up with Floey darting in to line the drops up with the window again.",
+ "caption": "Save this for the next time someone asks \"was it the spam update?\"\n\nGoogle's September 2026 spam update started on September 24 with up to two weeks to roll out, so it should finish around October 8. The earlier 2026 spam updates each took under 3 days.\n\nRead your chart against that window:\n1. Drop started before September 24? Look elsewhere. Google also lists technical issues like page not found errors, security issues and seasonality.\n2. In Search Console, set Performance to Last 16 months and use Compare to spot seasonal dips.\n3. Dropped inside the window? Google says to review Google's spam policies. Improvement may take months, and after a link spam update, changes might not help at all.\n4. A small slip, like position 2 to 4, often needs no action.\n\nAfter a fix, wait a few weeks before checking Search Console again.\n\nFlowra's content decay report finds pages with falling clicks and impressions, on every plan, including Free.",
+ "hashtags": [
+  "#seo",
+  "#googleupdate",
+  "#searchconsole",
+  "#contentmarketing",
+  "#seotips"
+ ],
+ "id": "r004-google-s-september-2026-spam-update-is-f",
+ "format": "explain-like-five",
+ "goal": "save",
+ "topic": "Google's September 2026 spam update is finishing its rollout: how to tell whether it caused your traffic drop, or something else did",
+ "editorNotes": [
+  "Hook: \"Your drop\" doesn't say a drop in what, so a stranger has to guess in the first 2 seconds. It also says \"after September twenty fourth\", but the window opens on the 24th and closes around October 8, so a drop in November would also \"start after\" the 24th. Name traffic or clicks and give the window, for example \"Your traffic drop can only be the spam update if it started inside its two weeks from September 24.\" The hook also has no news hook: say the rollout is ending now.",
+  "The frost metaphor is untrue to the facts. A frost hits every flower in its path, and the visual has Flower B drained just because the frost reached it. A spam update targets pages that break spam policies; it doesn't sweep the whole garden. The viewer learns that the update hurts innocent pages at random, then gets told to check spam policies. It also adds a layer the viewer has to decode (the word frost is used in four lines), which makes the reel more abstract. Drop the frost. Use the brief's band on the clicks chart, with the day counter ticking across it, and say \"the update\" or \"the window\".",
+  "Too many new props. The script adds a drifting frost shimmer across the ground, frost sparkles on petals, an ice-blue band, a second small day counter beside Flower A, a 'Last 16 months' widened chart view, a 'Compare' tab and a dotted last-year line. The studio allows one or two simple new props. Cut back to the band on the chart, plus at most the last-year dotted line.",
+  "Ice-blue isn't in HUM.colors (ink, cream, paper, amber, coral, magenta, violet, indigo, deep). The brief asked for a soft amber band. Use pale amber.",
+  "Loop line \"And this week's drops all land inside that frost.\" sounds like it claims every drop this week was caused by the update. That is the exact mistake the reel is warning against, so it is overstated and confusing. Make the loop line point back to checking the start date against the window, without claiming cause.",
+  "\"Then look elsewhere, like a broken page.\" sounds unnatural spoken and parses badly: it can be heard as 'look the way a broken page does'. Say it plainly, for example \"Then it's probably something else, like a broken page or the season.\"",
+  "The steps are in the wrong order. Floey finds and eats Flower A's 404 bug and the flower recovers. Only afterwards does she check seasonality on that same line. Checking seasonality after the cause is found and fixed would not work as a diagnosis. Rule out season and timing first, then find the bug. Or show seasonality on a separate step before the fix.",
+  "\"Set Performance to Last sixteen months\" doesn't make sense out of context: a viewer won't know Performance is a Search Console report. Say \"In Search Console, set Performance to the last 16 months\" or similar. The line also says \"spot seasonal dips\" while the visual shows there is no seasonal dip. Make it clear the check is whether the same dip happened last year.",
+  "The timeline is confusing. The main counter reaches about Oct 8, then a second counter beside Flower A jumps three weeks, then the chart turns into a 16-month view, then the main counter jumps weeks again in the payoff. Viewers can't tell what time it is or which chart they are looking at. Use one counter and one chart scale throughout.",
+  "Beats 1, 3 and 6 pack far too much action into lines of about 3 to 4 seconds. Beat 3, for example, has a zip, holding up to the chart, a head tilt, spotting the bug, snapping it, a gulp, a tongue flick, a three-week counter jump, the flower lifting and the line rising. None of it will read on a phone. Cut each beat to one or two clear actions, or give the bug fix its own line.",
+  "The payoff isn't clearly shown. Its only outcome is a flower that \"stays partly drooped\" with \"no promise of a climb\". The real payoff is the diagnosis: started before the window means look elsewhere, started inside it means review the spam policies and expect months. Show that resolve clearly, side by side: Flower A recovered, Flower B being patiently tended. Keep the honest message that recovery takes months.",
+  "(polish) The payoff has Floey publish a Flowra review card as the fix for a spam hit. That suggests Flowra resolves spam-policy problems, which the facts file doesn't support. Show a generic policy review instead. If Flowra appears there, use only the facts-file before-and-after tag with its 14 day settling window, framed as measuring the change.",
+  "(polish) Mismatch with the opening frame: the hook frame has no band, but the loop beat redraws the band and leaves Flower B drooping. The final dissolve then shows B bright with no band. Make the loop state and the closing dissolve match the opening frame exactly: B bright, and the band either present in both or absent in both.",
+  "(polish) The chart is called 'small' in the hook, but the band tag must be 'large enough to read at phone size'. Size the chart so the tag fits, using PROPS.measure. Line colours should follow PROPS.seriesColor order (coral, then indigo), not violet then coral.",
+  "(polish) Beat 5 says \"Slipped right under it?\" and the \"it\" (the frost or window) is vague by then. Name the window. The beat also leaves out Google's point that a small slip (like 2 to 4) often needs no action, which would sharpen the advice for an audience that has to explain drops to clients.",
+  "(polish) The goal is save, but nothing gives the viewer a reason to save. The two-check method (start date vs the window, then last year) could be framed as a checklist worth keeping."
+ ],
+ "template": "../drafts/r004-google-s-september-2026-spam-update-is-f/scene.html"
+}

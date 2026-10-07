@@ -1,0 +1,295 @@
+{
+ "style": "Floey's page-flower garden in soft daylight: the sun, clouds, hills and mountains stay pale and quiet so Floey and the two hero flowers are the brightest things. Flower A (violet) stands left at about x 300 and Flower B (coral) stands right at about x 760. A hand-drawn clicks chart (ink outlines, paper fill #fffaf2, Space Grotesk 700) hangs above them at about y 300 to 640. Its violet and coral lines match the flowers and each ends in a dot of the same colour. A small day-counter pill sits on the chart's top right. One new prop: a pale ice-blue frost shimmer that moves along the ground, kept low and soft so it never outshines the flowers, plus a matching pale ice-blue band on the chart. Floey is the only character, at scale 1.35 (1.0 in wide shots). The Flowra spark logo appears only on the end card, never recoloured or covered. All subjects stay inside x 80 to 960 and y 250 to 1300, with nothing in the caption band.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "The whole garden. The clicks chart hangs above with a violet line and a coral line, each ending in a matching dot, and the day counter on its corner. Below it, violet Flower A (left) is drooping and coral Flower B (right) is bright. A pale ice-blue frost shimmer waits low at the left edge (x 90 to 200, y 1250).",
+   "action": "The violet line is already dipping, and Flower A's health slides down: it loses colour, droops and its page yellows. Flower B sways and glows while the coral line stays flat. At 1.2 s Floey darts in from off screen right with a stretched zip, brakes hard between the two flowers (about x 540, y 820) and overshoots a little before settling into a hover.",
+   "onScreenData": "Sep 24",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 2.5,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "Floey hovering between the fading violet flower and the bright coral flower, with the chart's two lines just visible above her.",
+   "action": "She glances left at the waiting frost, then pivots to face the viewer. Her eyes narrow into a knowing, determined look and she gives one slow blink. Wings keep humming and Flower B keeps swaying behind her.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pan",
+   "subject": "The frost shimmer, the chart with a pale ice-blue band drawing on, coral Flower B, and Floey near the chart.",
+   "action": "The frost drifts slowly right along the ground and the camera pans gently with it. In step, a pale ice-blue band draws across the chart from left to right, and a tag sized to its text pops onto it. The day counter ticks forward through the days. Floey hovers along the band's left edge and then flies to its right edge, tracing where it starts and ends. At 2.0 s the frost reaches Flower B: the coral flower loses colour and droops, and at the same moment the coral line dips inside the band.",
+   "onScreenData": "SPAM UPDATE · SEP 24 → ~OCT 8",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "pop"
+    },
+    {
+     "at": 1,
+     "kind": "type"
+    },
+    {
+     "at": 2,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "whip",
+   "subject": "Violet Flower A with the chart's violet line above it, the band's left edge, and Floey.",
+   "action": "The camera whips left as Floey zips to Flower A and points her beak up at the chart. The violet dip clearly starts days before the band's left edge. She tilts her head, then her eyes snap down to a little 404 bug crawling up the violet stem.",
+   "onScreenData": "404",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.4,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 2,
+   "shot": "close",
+   "camera": "shake",
+   "subject": "Floey, the 404 bug and Flower A's head, with a small day counter beside the flower.",
+   "action": "The bug hops off the stem and Floey snaps it out of the air (a short shake on the snap), gulps it down and flicks her tongue. The small counter beside Flower A skips forward three weeks, and only then does the flower lift partway and regain some colour. Its violet line edges up a little.",
+   "onScreenData": "+3 weeks",
+   "sfx": [
+    {
+     "at": 0.25,
+     "kind": "pop"
+    },
+    {
+     "at": 1.1,
+     "kind": "type"
+    },
+    {
+     "at": 1.7,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "insert",
+   "camera": "push-in",
+   "subject": "The chart, now drawn as a Performance panel with a Date dropdown on its title bar, and Floey reaching in.",
+   "action": "Floey darts up and taps the Date dropdown with her beak, and a tap ring lands there. The dropdown reads Last 16 months. The camera then eases back as the chart's line stretches out into a much longer timeline.",
+   "onScreenData": "Last 16 months",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.7,
+     "kind": "pop"
+    },
+    {
+     "at": 1.3,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 2.2,
+   "shot": "close",
+   "camera": "drift",
+   "subject": "The chart's tab row with a Compare tab, the violet line, a faint dotted line for the same weeks a year earlier, and Floey.",
+   "action": "The Compare tab lights up and its underline slides in. A faint dotted line draws in under the violet line. Floey flies backwards along it with her beak tracing the dots. There is no matching dip a year earlier, so she gives a small satisfied nod.",
+   "onScreenData": "Compare",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "ding"
+    },
+    {
+     "at": 0.7,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.8,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "medium",
+   "camera": "whip",
+   "subject": "Coral Flower B, pale and drooping with frost sparkles on its petals, the coral line sitting low inside the ice-blue band above, and Floey.",
+   "action": "The camera whips right as Floey flies over to Flower B. She brakes, then drops onto a leaf beside the flower and folds her wings as she lands. The frost sparkles twinkle on the drooping petals.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.9,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1.9,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "Floey perched on Flower B's leaf, with the frosted coral petals beside her.",
+   "action": "She glances up at the band, then pivots to face the viewer with a determined look, and her throat flashes a bright shimmer.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Floey, Flower B and a change preview card that pops up beside the flower, with its Publish button.",
+   "action": "The review card pops up beside Flower B with a little overshoot. Floey tilts her head and her eyes scan down the card. Then she reaches out and taps Publish, and the button turns to its confirmed state.",
+   "onScreenData": "Publish",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    },
+    {
+     "at": 1.1,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 1.6,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "The garden with the chart above (the band stays as a marker), Flower B, Floey hovering beside it, and the frost leaving on the right.",
+   "action": "The frost drifts out of frame on the right. The day counter jumps in whole weeks. Flower B gets back only a hint of colour and stays partly drooped. The coral line runs on as a faint, flat dotted line with no climb. Floey hovers beside the flower watching patiently, and blinks.",
+   "onScreenData": "+1 week",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.7,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "wide",
+   "camera": "whip",
+   "subject": "The full opening composition coming back: the chart, Flower A (partly recovered), Flower B (as it was), the left edge of the garden, and Floey.",
+   "action": "Floey turns sharply toward the left edge and the camera whips with her. The day counter rewinds and snaps back to Sep 24, the ice-blue band redraws over the chart, and the pale frost slides back in to wait at the left edge. Neither flower droops any further.",
+   "onScreenData": "Sep 24",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.7,
+     "kind": "type"
+    },
+    {
+     "at": 1.3,
+     "kind": "slam"
+    },
+    {
+     "at": 1.9,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "medium",
+   "camera": "pull-out",
+   "subject": "Floey at the clicks chart, then the deeper garden behind her with more drooping flowers.",
+   "action": "Floey darts up and taps the chart with her beak, and the chart pops forward a little. The camera pulls back to show drooping flowers further back in the garden, and a small Fading pill pops onto each of them, one after another.",
+   "onScreenData": "Fading",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.5,
+     "kind": "pop"
+    },
+    {
+     "at": 0.95,
+     "kind": "pop"
+    },
+    {
+     "at": 1.4,
+     "kind": "pop"
+    },
+    {
+     "at": 1.85,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "The end card with the full-colour Flowra spark logo, the address sized to its box, and Floey.",
+   "action": "After a short beat, Floey comes in sideways and perches on the spark's left arm like a bird on a branch. She turns to face the camera and gives a little wing flick, and the logo stays fully visible. The end card then dissolves into the opening composition: the chart at Sep 24, the frost waiting at the left edge, Flower A drooping and Flower B bright.",
+   "onScreenData": "useflowra.com",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.5,
+     "kind": "step"
+    },
+    {
+     "at": 0.95,
+     "kind": "ding"
+    }
+   ]
+  }
+ ],
+ "posterAt": 3
+}
