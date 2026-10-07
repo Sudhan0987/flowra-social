@@ -128,6 +128,16 @@ async function make(state: State, arg?: string): Promise<void> {
     priorLog.push(...d.log);
     writeJson(f("director.json"), priorLog);
   }
+  // resuming a draft that failed its final test: fix what the test found before rendering again
+  if (resume && existsSync(f("qa.json"))) {
+    const prev = readJson<{ pass: boolean; problems: string[] }>(f("qa.json"));
+    if (!prev.pass && prev.problems.length) {
+      console.log("5-6. Director: correcting what the last final test found");
+      const d = await directFloey(dir, HOUSE, { lines, story: story0, board, seconds: voice, notes: prev.problems.map((x) => `- ${x}`).join("\n") });
+      priorLog.push(...d.log);
+      writeJson(f("director.json"), priorLog);
+    }
+  }
   console.log("7. Render");
   let r = renderReel(dir, board.posterAt);
   console.log("8. Final test");
