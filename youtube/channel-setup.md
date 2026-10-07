@@ -1,5 +1,7 @@
 # Create the Flowra YouTube channel
 
+DONE 7 Oct 2026: **Flowra SEO**, https://www.youtube.com/@useflowra, on the Google account support@useflowra.com (Flowra Team). YouTube refused the plain name "Flowra" at creation; it can be retried later in Studio > Customization > Basic info.
+
 About 20 minutes. Files are in Desktop/Flowra/YouTube.
 
 ## 1. Make a Google account on your Hostinger address (no Gmail needed)
