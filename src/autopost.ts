@@ -96,7 +96,7 @@ async function postInstagram(file: string, text: string): Promise<string> {
   const c = await graph(`${G}/${IG}/media`, { method: "POST", body: new URLSearchParams({ media_type: "REELS", upload_type: "resumable", caption: text, access_token: T }) });
   const up = await fetch(`https://rupload.facebook.com/ig-api-upload/v23.0/${c.id}`, {
     method: "POST",
-    headers: { Authorization: `OAuth ${T}`, offset: "0", file_size: String(size) },
+    headers: { Authorization: `OAuth ${T}`, offset: "0", file_size: String(size), "Content-Type": "application/octet-stream", "Content-Length": String(size) },
     body: readFileSync(file),
   });
   const uj = (await up.json().catch(() => ({}))) as Record<string, any>;
@@ -110,6 +110,35 @@ async function postInstagram(file: string, text: string): Promise<string> {
   }
   const pub = await graph(`${G}/${IG}/media_publish`, { method: "POST", body: new URLSearchParams({ creation_id: c.id, access_token: T }) });
   return String(pub.id);
+}
+
+/** Fallback: Instagram fetches the video from the public link Facebook made for the same upload. */
+async function fbSource(videoId: string): Promise<string> {
+  const pages = await graph(`${G}/me/accounts?fields=id,access_token&access_token=${T}`);
+  const pt = (pages.data as { id: string; access_token: string }[]).find((x) => x.id === PAGE)?.access_token;
+  if (!pt) throw new Error("No access to the Facebook Page with this token.");
+  for (let i = 0; i < 40; i++) {
+    const v = await graph(`${G}/${videoId}?fields=source,status&access_token=${pt}`);
+    if (v.source && v.status?.video_status === "ready") return String(v.source);
+    await sleep(10000);
+  }
+  throw new Error("Facebook never gave a video link.");
+}
+async function waitAndPublish(id: string, publish = true): Promise<string> {
+  for (let i = 0; i < 60; i++) {
+    const s = await graph(`${G}/${id}?fields=status_code,status&access_token=${T}`);
+    if (s.status_code === "FINISHED") break;
+    if (s.status_code === "ERROR") throw new Error(`Instagram processing: ${s.status}`);
+    if (i === 59) throw new Error("Instagram never finished processing.");
+    await sleep(10000);
+  }
+  if (!publish) return id;
+  const pub = await graph(`${G}/${IG}/media_publish`, { method: "POST", body: new URLSearchParams({ creation_id: id, access_token: T }) });
+  return String(pub.id);
+}
+async function igFromUrl(url: string, text: string, publish = true): Promise<string> {
+  const c = await graph(`${G}/${IG}/media`, { method: "POST", body: new URLSearchParams({ media_type: "REELS", video_url: url, caption: text, access_token: T }) });
+  return waitAndPublish(String(c.id), publish);
 }
 
 async function postFacebook(file: string, text: string): Promise<string> {
@@ -131,8 +160,12 @@ async function check() {
   const file = await fetchVideo(p);
   const size = statSync(file).size;
   const c = await graph(`${G}/${IG}/media`, { method: "POST", body: new URLSearchParams({ media_type: "REELS", upload_type: "resumable", caption: "upload check", access_token: T }) });
-  const up = await fetch(`https://rupload.facebook.com/ig-api-upload/v23.0/${c.id}`, { method: "POST", headers: { Authorization: `OAuth ${T}`, offset: "0", file_size: String(size) }, body: readFileSync(file) });
+  const up = await fetch(`https://rupload.facebook.com/ig-api-upload/v23.0/${c.id}`, { method: "POST", headers: { Authorization: `OAuth ${T}`, offset: "0", file_size: String(size), "Content-Type": "application/octet-stream", "Content-Length": String(size) }, body: readFileSync(file) });
   console.log(`upload ${up.status}: ${JSON.stringify(await up.json().catch(() => ({}))).slice(0, 200)}`);
+  if (typeof p.published?.facebook === "string") {
+    try { await igFromUrl(await fbSource(p.published.facebook), "upload check", false); console.log("Fallback path works: Instagram took the Facebook video link (not published)."); }
+    catch (e) { console.log(`Fallback path failed: ${(e as Error).message}`); }
+  }
   for (let i = 0; i < 40; i++) {
     const st = await graph(`${G}/${c.id}?fields=status_code,status&access_token=${T}`);
     console.log(`[${i}] ${st.status_code}`);
@@ -157,10 +190,16 @@ async function main() {
   if (DRY) return console.log("dry run: caption ok,", text.length, "characters");
   if (!T) throw new Error("META_ACCESS_TOKEN is not set.");
   const file = await fetchVideo(next);
-  const ig = await postInstagram(file, text);
-  console.log(`Instagram: ${ig}`);
   let fb: string | boolean = false;
   try { fb = await postFacebook(file, text); console.log(`Facebook: ${fb}`); } catch (e) { console.log(`Facebook failed: ${(e as Error).message}`); }
+  let ig: string;
+  try { ig = await postInstagram(file, text); }
+  catch (e) {
+    if (typeof fb !== "string") throw e;
+    console.log(`Instagram direct upload failed (${(e as Error).message}); using Facebook's video link instead.`);
+    ig = await igFromUrl(await fbSource(fb), text);
+  }
+  console.log(`Instagram: ${ig}`);
   const fresh = load();
   const p = fresh.posts.find((x) => x.id === next.id)!;
   p.status = "published";
