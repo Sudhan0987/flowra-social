@@ -1,10 +1,59 @@
 {
-  "note": "YouTube, first month (founder said go 2026-10-07). Shorts: every posted reel also goes to YouTube Shorts (by hand until the upload app is approved by Google). Tutorials: one every two weeks, made from the best blog articles, linked both ways. Review after 8 weeks: views, subscribers, visits to useflowra.com (utm_source=youtube).",
-  "items": [
-    { "date": "2026-10-08", "kind": "setup", "title": "Create the YouTube channel (@useflowra), add banner and profile picture", "owner": "you", "file": "youtube/channel-setup.md", "note": "Step by step in the guide. Banner and picture: Desktop/Flowra/YouTube." },
-    { "date": "2026-10-19", "kind": "youtube-video", "title": "Tutorial 1 video ready for your review: Why did my organic traffic drop?", "owner": "flowra", "file": "youtube/t001-why-did-my-traffic-drop/script.md", "note": "Script is written. Flowra builds the video (screens in the product film's style, Floey's voice) and sends it for review." },
-    { "date": "2026-10-22", "kind": "youtube-video", "title": "Publish Tutorial 1: Why did my organic traffic drop? Find the cause in 4 checks", "owner": "you", "file": "youtube/t001-why-did-my-traffic-drop/script.md", "note": "Title, description, chapters, tags and pinned comment are in the script file. Then embed it in the blog article." },
-    { "date": "2026-11-02", "kind": "youtube-video", "title": "Tutorial 2 video ready for your review: Content pruning, what to cut and what to keep", "owner": "flowra", "note": "From https://useflowra.com/blog/content-pruning" },
-    { "date": "2026-11-05", "kind": "youtube-video", "title": "Publish Tutorial 2: Content pruning, update, merge, redirect or delete?", "owner": "you", "note": "From https://useflowra.com/blog/content-pruning" }
-  ]
+ "note": "YouTube. Shorts: every posted reel also goes to YouTube Shorts (by hand until the upload app is approved by Google), with the pack in Social Reels (published)/<id>/youtube-short.txt. Tutorials: one every two weeks, 6 to 9 minutes, from the blog articles and from new Search Console features, linked both ways; title carries the exact search phrase, custom thumbnail with 3 words max, chapters, pinned comment with the written guide. Order decided 2026-10-08 (research/2026-10-08-calendar-research.md): T2 is the new Search Console AI performance report (global since 31 Aug 2026, still thin on YouTube), T3 is content pruning. Review after 8 weeks: views, average view duration, subscribers, visits to useflowra.com (utm_source=youtube).",
+ "items": [
+  {
+   "date": "2026-10-08",
+   "kind": "setup",
+   "title": "Create the YouTube channel (@useflowra), add banner and profile picture",
+   "owner": "you",
+   "file": "youtube/channel-setup.md",
+   "note": "Step by step in the guide. Banner and picture: Desktop/Flowra/YouTube."
+  },
+  {
+   "date": "2026-10-19",
+   "kind": "youtube-video",
+   "title": "Tutorial 1 video ready for your review: Why did my organic traffic drop?",
+   "owner": "flowra",
+   "file": "youtube/t001-why-did-my-traffic-drop/script.md",
+   "note": "Script is written. Flowra builds the video (screens in the product film's style, Floey's voice) and sends it for review."
+  },
+  {
+   "date": "2026-10-22",
+   "kind": "youtube-video",
+   "title": "Publish Tutorial 1: Why did my organic traffic drop? Find the cause in 4 checks",
+   "owner": "you",
+   "file": "youtube/t001-why-did-my-traffic-drop/script.md",
+   "note": "Title, description, chapters, tags and pinned comment are in the script file. Then embed it in the blog article."
+  },
+  {
+   "date": "2026-11-02",
+   "kind": "youtube-video",
+   "title": "Tutorial 2 video ready for your review: See your AI Overviews and AI Mode traffic in Search Console (the new AI performance report)",
+   "owner": "flowra",
+   "file": "youtube/t002-search-console-ai-performance-report/script.md",
+   "note": "New report, global since 31 Aug 2026 (Google Search Central). Shows impressions, pages, countries and devices for AI Overviews and AI Mode. Screens on the demo site, labelled Example data. Pairs with the AI traffic tracking feature page."
+  },
+  {
+   "date": "2026-11-05",
+   "kind": "youtube-video",
+   "title": "Publish Tutorial 2: How to see your AI Overviews traffic in Google Search Console (new AI performance report)",
+   "owner": "you",
+   "file": "youtube/t002-search-console-ai-performance-report/script.md",
+   "note": "Title carries the search phrase. Then embed it in the matching blog article when it exists."
+  },
+  {
+   "date": "2026-11-16",
+   "kind": "youtube-video",
+   "title": "Tutorial 3 video ready for your review: Content pruning, what to cut and what to keep",
+   "owner": "flowra",
+   "note": "From https://useflowra.com/blog/content-pruning"
+  },
+  {
+   "date": "2026-11-19",
+   "kind": "youtube-video",
+   "title": "Publish Tutorial 3: Content pruning, update, merge, redirect or delete?",
+   "owner": "you",
+   "note": "From https://useflowra.com/blog/content-pruning"
+  }
+ ]
 }

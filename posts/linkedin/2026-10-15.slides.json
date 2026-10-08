@@ -1,0 +1,48 @@
+[
+ {
+  "kicker": "",
+  "title": "Your most dated section may earn clicks",
+  "body": "For anyone refreshing old blog posts, on their own site or for clients."
+ },
+ {
+  "kicker": "The instinct",
+  "title": "Trim whatever reads old",
+  "body": "An old year, tool or price. Cutting it feels like cleanup."
+ },
+ {
+  "kicker": "The risk",
+  "title": "Dated sections can still answer real queries",
+  "body": "Cut them and their traffic leaves with them."
+ },
+ {
+  "kicker": "Step 1",
+  "title": "Export the page's queries",
+  "body": "In Search Console, filter the Performance report to this one page."
+ },
+ {
+  "kicker": "Step 2",
+  "title": "Sort them by impressions",
+  "body": "The top of the list shows what the page is really found for."
+ },
+ {
+  "kicker": "Step 3",
+  "title": "Ctrl+F each query's main words",
+  "body": "Find the section that answers it and note its heading."
+ },
+ {
+  "kicker": "Step 4",
+  "title": "Label every section",
+  "body": "\"Earns traffic\" or \"no queries found.\" Only the second kind goes."
+ },
+ {
+  "kicker": "Before you judge",
+  "title": "Wait, then compare",
+  "body": "If clicks drop, restore the sections you cut first.",
+  "stat": "14 days"
+ },
+ {
+  "kicker": "Do this now",
+  "title": "Pick one post due a refresh",
+  "body": "Pull its queries and label each section before editing anything."
+ }
+]

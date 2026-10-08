@@ -183,10 +183,12 @@ async function main() {
   if (notes.length) { save(state); notes.forEach((n) => console.log(n)); }
   const today = istDay();
   if (state.posts.some((p) => p.published?.at === today)) return console.log(`A reel already went out today (${today}); next one tomorrow.`);
-  // Only 10:00-21:59 India time. GitHub can run a scheduled check hours late, and a
-  // late 16:30 UTC run once posted at 02:56 IST because the IST day had just turned.
+  // Only 18:00-22:59 India time, so the 19:00 IST run posts (09:30 New York, 14:30 London,
+  // India's evening peak) and the 22:00 run is the fallback. Research note:
+  // research/2026-10-08-calendar-research.md. Also guards against GitHub starting a
+  // scheduled check hours late: one such run posted r004 at 02:56 IST.
   const istHour = new Date(Date.now() + 5.5 * 3600000).getUTCHours();
-  if (istHour < 10 || istHour >= 22) return console.log(`Outside the 10:00-22:00 India posting window (now ${istHour}:xx IST); waiting.`);
+  if (istHour < 18 || istHour >= 23) return console.log(`Outside the 18:00-23:00 India posting window (now ${istHour}:xx IST); waiting.`);
   const next = state.posts.filter((p) => p.status === "approved" && !p.reason && !p.published).sort((a, b) => a.madeAt.localeCompare(b.madeAt))[0];
   if (!next) return console.log("Nothing approved and waiting.");
   console.log(`Posting ${next.id}`);

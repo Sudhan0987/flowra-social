@@ -1,7 +1,54 @@
 {
   "date": "2026-10-07",
-  "summary": "Flowra's audience is mostly talking about cleaning up after scale: what to do with old blog posts, how to recover after publishing lots of AI posts, and Google's warnings about low value programmatic and AI content. The September 2026 spam update and AI Overviews are behind many traffic drop threads, and agencies keep asking how to explain those drops to clients. People also want to know if they get traffic from ChatGPT and Perplexity, and many still treat rising impressions as proof that things are working.",
+  "summary": "Flowra's audience is mostly talking about cleaning up after scale: what to do with old blog posts, how to recover after publishing lots of AI posts, and Google's warnings about low value programmatic and AI content. The September 2026 spam update and AI Overviews are behind many traffic drop threads, and agencies keep asking how to explain those drops to clients. People also want to know if they get traffic from ChatGPT and Perplexity, and many still treat rising impressions as proof that things are working. Added 2026-10-08 from the calendar research (research/2026-10-08-calendar-research.md): three news hooks worth a reel this week (Search Console's AI performance report, AI Overviews on 8 in 10 branded searches, the spam update still rolling) and one LinkedIn post (Google paying publishers for AI citations).",
   "ideas": [
+    {
+      "title": "Search Console now shows how often you appear in AI Overviews and AI Mode",
+      "channel": "reel",
+      "pillar": "news",
+      "goal": "send",
+      "hook": "Floey opens a drawer in the Search Console filing cabinet nobody has opened yet: a new report, and it says how often Google's AI used your pages.",
+      "why": "Google's generative AI performance report went global on 31 August 2026 (impressions, pages, countries, devices for AI Overviews and AI Mode), and most people still don't know it exists: the Reddit threads about 'am I getting traffic from AI' never mention it. A 30 second 'open this report' walkthrough is sendable to a colleague and saveable. One Flowra line at the end: it reads the same data next to GA4's AI referrals.",
+      "sources": [
+        "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
+        "https://support.google.com/webmasters/answer/16984139?hl=en",
+        "https://www.searchenginejournal.com/google-search-console-ai-reports-rolled-out-worldwide/587836/"
+      ]
+    },
+    {
+      "title": "Google now answers your own brand name with AI: 8 in 10 branded searches",
+      "channel": "reel",
+      "pillar": "news",
+      "goal": "send",
+      "hook": "Floey searches for her own name. Google answers before her site does.",
+      "why": "Two independent datasets agree: DemandSphere saw AI Overviews on about 26% of tracked branded queries in early September and 82% by 29 September; Ahrefs saw 82.9% across 92.5 million branded crawls on the same day. Branded clicks are the clicks agencies thought were safe. The reel: what changed in one month, then the one check (Search Console, Query filter with your brand name, Compare September to August).",
+      "sources": [
+        "https://www.demandsphere.com/blog/branded-ai-overviews-september-2026/",
+        "https://ahrefs.com/blog/ai-overviews-on-branded-searches/"
+      ]
+    },
+    {
+      "title": "The spam update that would not end: 15 days and counting",
+      "channel": "reel",
+      "pillar": "news",
+      "goal": "send",
+      "hook": "Floey waits by a 'rollout in progress' sign. The other three spam updates this year each took under three days. This one started 24 September.",
+      "why": "Google's Search Status Dashboard shows the September 2026 spam update still ongoing while March took 19 hours, June 2 days, August under 3 days. People in r/SEO are blaming it for every drop. Ticking-clock format: the dates, then 'before you blame it, check the date your drop started' (the r004 check), then wait for the end date before judging a fix.",
+      "sources": [
+        "https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history",
+        "https://seroundtable.com/google-september-2026-spam-update-phase-3-42239.html"
+      ]
+    },
+    {
+      "title": "Google is paying about 100 publishers for the content its AI answers use",
+      "channel": "linkedin",
+      "pillar": "news",
+      "hook": "Google is now paying publishers whose pages shape AI Overviews. About 100 of them. 0.1% of ad revenue.",
+      "why": "The AI Contribution pilot shows up as an earnings widget in Search Console for a small group of publishers. It is the first time Google has put a price on being cited by its AI, and the price is small. A LinkedIn post can lay out what is known, what it means for everyone not in the pilot (citations are now a measured, monetised thing), and the one practical step: check the new AI performance report to see whether you are cited at all.",
+      "sources": [
+        "https://www.seroundtable.com/october-2026-google-webmaster-report-42185.html"
+      ]
+    },
     {
       "title": "What to do with old blog posts: prune, refresh, merge or leave",
       "channel": "reel",

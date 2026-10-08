@@ -37,5 +37,5 @@ jobs:
           PT=$(curl -s "$G/me/accounts?fields=id,access_token&access_token=$T" | jq -r ".data[] | select(.id==\"$PAGE\") | .access_token")
           echo "== facebook reel insights"
           for id in $(curl -s "$G/$PAGE/videos?fields=id&limit=25&access_token=$PT" | jq -r '.data[].id'); do
-            curl -s "$G/$id/video_insights?metric=total_video_views,total_video_impressions,total_video_avg_time_watched,post_video_social_actions&access_token=$PT" | jq -c --arg id "$id" '{id:$id, m:(if .data then ([.data[] | {(.name): .values[0].value}] | add) else .error.message end)}'
+            curl -s "$G/$id/video_insights?metric=blue_reels_play_count,post_impressions_unique,post_video_avg_time_watched,post_video_social_actions&access_token=$PT" | jq -c --arg id "$id" '{id:$id, m:(if .data then ([.data[] | {(.name): .values[0].value}] | add) else .error.message end)}'
           done

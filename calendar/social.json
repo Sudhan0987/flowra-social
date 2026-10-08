@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T16:38:25.290Z",
+  "updated": "2026-10-08T06:33:03.259Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -53,9 +53,26 @@
         "linkedin"
       ],
       "owner": "you",
+      "format": "carousel",
       "status": "ready",
       "note": "Text is ready. Post it from the Flowra page.",
       "file": "posts/linkedin/2026-10-08.md"
+    },
+    {
+      "date": "2026-10-08",
+      "kind": "reel",
+      "title": "Google's September 2026 spam update is finishing its rollout",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "posted",
+      "owner": "flowra",
+      "ref": "r004-google-s-september-2026-spam-update-is-f",
+      "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
       "date": "2026-10-08",
@@ -67,10 +84,94 @@
       "owner": "you",
       "note": "Step by step in the guide. Banner and picture: Desktop/Flowra/YouTube.",
       "file": "youtube/channel-setup.md",
-      "status": "ready"
+      "status": "posted"
     },
     {
       "date": "2026-10-09",
+      "kind": "reel",
+      "title": "Search Console now shows how often you appear in AI Overviews and AI Mode",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Floey opens a drawer in the Search Console filing cabinet nobody has opened yet: a new report, and it says how often Google's AI used your pages.",
+      "sources": [
+        "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
+        "https://support.google.com/webmasters/answer/16984139?hl=en",
+        "https://www.searchenginejournal.com/google-search-console-ai-reports-rolled-out-worldwide/587836/"
+      ]
+    },
+    {
+      "date": "2026-10-12",
+      "kind": "reel",
+      "title": "Google now answers your own brand name with AI: 8 in 10 branded searches",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Floey searches for her own name. Google answers before her site does.",
+      "sources": [
+        "https://www.demandsphere.com/blog/branded-ai-overviews-september-2026/",
+        "https://ahrefs.com/blog/ai-overviews-on-branded-searches/"
+      ]
+    },
+    {
+      "date": "2026-10-13",
+      "kind": "linkedin-post",
+      "title": "A three step client script for AI Overview traffic drops",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-13.md"
+    },
+    {
+      "date": "2026-10-14",
+      "kind": "reel",
+      "title": "The spam update that would not end: 15 days and counting",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Floey waits by a 'rollout in progress' sign. The other three spam updates this year each took under three days. This one started 24 September.",
+      "sources": [
+        "https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history",
+        "https://seroundtable.com/google-september-2026-spam-update-phase-3-42239.html"
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "kind": "linkedin-post",
+      "title": "Check section queries before cutting dated content",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "carousel",
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page as a document: attach posts/linkedin/2026-10-15.pdf.",
+      "file": "posts/linkedin/2026-10-15.md"
+    },
+    {
+      "date": "2026-10-16",
       "kind": "reel",
       "title": "What to do with old blog posts: prune, refresh, merge or leave",
       "channels": [
@@ -88,7 +189,7 @@
       ]
     },
     {
-      "date": "2026-10-12",
+      "date": "2026-10-19",
       "kind": "reel",
       "title": "Tweaking keywords won't fix weak AI posts. Rewriting will",
       "channels": [
@@ -106,19 +207,35 @@
       ]
     },
     {
-      "date": "2026-10-13",
+      "date": "2026-10-19",
+      "kind": "youtube-video",
+      "title": "Tutorial 1 video ready for your review: Why did my organic traffic drop?",
+      "channels": [
+        "youtube"
+      ],
+      "owner": "flowra",
+      "note": "Script is written. Flowra builds the video (screens in the product film's style, Floey's voice) and sends it for review.",
+      "file": "youtube/t001-why-did-my-traffic-drop/script.md",
+      "status": "planned"
+    },
+    {
+      "date": "2026-10-20",
       "kind": "linkedin-post",
-      "title": "A three step client script for AI Overview traffic drops",
+      "title": "Google now says: fact-check your AI content before you publish",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
-      "status": "ready",
-      "note": "Text is ready. Post it from the Flowra page.",
-      "file": "posts/linkedin/2026-10-13.md"
+      "format": "text",
+      "status": "planned",
+      "note": "From social listening: The guidance thread is the highest scoring post here (124 score, 65 comments), and commenters doubt Google's motives (\"so that Gemini can steal accurate data\"). Explain what Search Engine Journal says it means in practice, then show the outline first workflow, where a person approves the outline before anything is written.",
+      "sources": [
+        "https://www.reddit.com/r/SEO/comments/1wvg28v/google_updates_critical_guidance_for_ai_content/",
+        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/"
+      ]
     },
     {
-      "date": "2026-10-14",
+      "date": "2026-10-21",
       "kind": "reel",
       "title": "Impressions are going up. So why are clicks flat?",
       "channels": [
@@ -136,19 +253,31 @@
       ]
     },
     {
-      "date": "2026-10-15",
+      "date": "2026-10-22",
       "kind": "linkedin-post",
-      "title": "Refresh old posts without losing rankings: map queries first",
+      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
-      "status": "ready",
-      "note": "Text is ready. Post it from the Flowra page.",
-      "file": "posts/linkedin/2026-10-15.md"
+      "format": "carousel",
+      "status": "planned",
+      "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
     },
     {
-      "date": "2026-10-16",
+      "date": "2026-10-22",
+      "kind": "youtube-video",
+      "title": "Publish Tutorial 1: Why did my organic traffic drop? Find the cause in 4 checks",
+      "channels": [
+        "youtube"
+      ],
+      "owner": "you",
+      "note": "Title, description, chapters, tags and pinned comment are in the script file. Then embed it in the blog article.",
+      "file": "youtube/t001-why-did-my-traffic-drop/script.md",
+      "status": "planned"
+    },
+    {
+      "date": "2026-10-23",
       "kind": "reel",
       "title": "From 74,876 pages to 9,311: a programmatic SEO postmortem",
       "channels": [
@@ -167,7 +296,7 @@
       ]
     },
     {
-      "date": "2026-10-19",
+      "date": "2026-10-26",
       "kind": "reel",
       "title": "Can you see your ChatGPT traffic? Visits yes, answers no",
       "channels": [
@@ -187,112 +316,19 @@
       ]
     },
     {
-      "date": "2026-10-19",
-      "kind": "youtube-video",
-      "title": "Tutorial 1 video ready for your review: Why did my organic traffic drop?",
-      "channels": [
-        "youtube"
-      ],
-      "owner": "flowra",
-      "note": "Script is written. Flowra builds the video (screens in the product film's style, Floey's voice) and sends it for review.",
-      "file": "youtube/t001-why-did-my-traffic-drop/script.md",
-      "status": "planned"
-    },
-    {
-      "date": "2026-10-20",
+      "date": "2026-10-27",
       "kind": "linkedin-post",
       "title": "Hit by the September 2026 spam update? Check the date first",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
+      "format": "text",
       "status": "planned",
       "note": "From social listening: The announcement thread (32 comments) and a post about losing about 95% of Google traffic in one day during the update (21 comments) show people trying to tell the update apart from their own changes. Lining up the drop date with the release date is the first step, and tagging your fixes lets you compare before and after later.",
       "sources": [
         "https://www.reddit.com/r/SEO/comments/1wp6ml7/google_search_central_on_x_today_we_released_the/",
         "https://www.reddit.com/r/SEO/comments/1wtnj5t/sudden_95_google_search_traffic_loss_in_1_day/"
-      ]
-    },
-    {
-      "date": "2026-10-21",
-      "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
-      "channels": [
-        "instagram",
-        "facebook",
-        "youtube",
-        "linkedin",
-        "x"
-      ],
-      "status": "planned",
-      "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
-    },
-    {
-      "date": "2026-10-22",
-      "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
-      "channels": [
-        "linkedin"
-      ],
-      "owner": "you",
-      "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it."
-    },
-    {
-      "date": "2026-10-22",
-      "kind": "youtube-video",
-      "title": "Publish Tutorial 1: Why did my organic traffic drop? Find the cause in 4 checks",
-      "channels": [
-        "youtube"
-      ],
-      "owner": "you",
-      "note": "Title, description, chapters, tags and pinned comment are in the script file. Then embed it in the blog article.",
-      "file": "youtube/t001-why-did-my-traffic-drop/script.md",
-      "status": "planned"
-    },
-    {
-      "date": "2026-10-23",
-      "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
-      "channels": [
-        "instagram",
-        "facebook",
-        "youtube",
-        "linkedin",
-        "x"
-      ],
-      "status": "planned",
-      "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
-    },
-    {
-      "date": "2026-10-26",
-      "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
-      "channels": [
-        "instagram",
-        "facebook",
-        "youtube",
-        "linkedin",
-        "x"
-      ],
-      "status": "planned",
-      "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
-    },
-    {
-      "date": "2026-10-27",
-      "kind": "linkedin-post",
-      "title": "AI didn't take all your traffic. It took the top of the funnel",
-      "channels": [
-        "linkedin"
-      ],
-      "owner": "you",
-      "status": "planned",
-      "note": "From social listening: \"For sites losing Google traffic to AI, which traffic is actually disappearing?\" (26 comments) pushes back on \"AI killed my traffic.\" Commenters say informational queries are the ones fading. The post can show how to split your own GSC queries into informational and buying intent to see where the loss really is.",
-      "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wx487f/for_sites_losing_google_traffic_to_ai_which/"
       ]
     },
     {
@@ -318,8 +354,9 @@
         "linkedin"
       ],
       "owner": "you",
+      "format": "carousel",
       "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it."
+      "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
     },
     {
       "date": "2026-10-30",
@@ -339,7 +376,31 @@
     {
       "date": "2026-11-02",
       "kind": "youtube-video",
-      "title": "Tutorial 2 video ready for your review: Content pruning, what to cut and what to keep",
+      "title": "Tutorial 2 video ready for your review: See your AI Overviews and AI Mode traffic in Search Console (the new AI performance report)",
+      "channels": [
+        "youtube"
+      ],
+      "owner": "flowra",
+      "note": "New report, global since 31 Aug 2026 (Google Search Central). Shows impressions, pages, countries and devices for AI Overviews and AI Mode. Screens on the demo site, labelled Example data. Pairs with the AI traffic tracking feature page.",
+      "file": "youtube/t002-search-console-ai-performance-report/script.md",
+      "status": "planned"
+    },
+    {
+      "date": "2026-11-05",
+      "kind": "youtube-video",
+      "title": "Publish Tutorial 2: How to see your AI Overviews traffic in Google Search Console (new AI performance report)",
+      "channels": [
+        "youtube"
+      ],
+      "owner": "you",
+      "note": "Title carries the search phrase. Then embed it in the matching blog article when it exists.",
+      "file": "youtube/t002-search-console-ai-performance-report/script.md",
+      "status": "planned"
+    },
+    {
+      "date": "2026-11-16",
+      "kind": "youtube-video",
+      "title": "Tutorial 3 video ready for your review: Content pruning, what to cut and what to keep",
       "channels": [
         "youtube"
       ],
@@ -348,9 +409,9 @@
       "status": "planned"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-19",
       "kind": "youtube-video",
-      "title": "Publish Tutorial 2: Content pruning, update, merge, redirect or delete?",
+      "title": "Publish Tutorial 3: Content pruning, update, merge, redirect or delete?",
       "channels": [
         "youtube"
       ],
