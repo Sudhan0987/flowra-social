@@ -1,6 +1,7 @@
 # Posts approved reels to Instagram (Reel) and the Facebook Page on its own
 # (src/autopost.ts). A ✅ on the draft in Slack #social, or Approve in Flowra
-# Desk, is all it needs. At most one reel a day, from 10:00 India time;
+# Desk, is all it needs. At most one reel a day, only between 10:00 and 22:00
+# India time (enforced in the script, since scheduled runs can start hours late);
 # checks again every three hours for new approvals.
 #
 # Needs: secrets.META_ACCESS_TOKEN (instagram_content_publish, pages_manage_posts),
