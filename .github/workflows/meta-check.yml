@@ -15,3 +15,12 @@ jobs:
           echo "== who"; curl -s "$G/me?fields=id,name&access_token=$T" | jq '{id,name,error:.error.message}'
           echo "== token"; curl -s "$G/debug_token?input_token=$T&access_token=$T" | jq '.data | {app_id,application,type,is_valid,expires_at,scopes,error:.error.message}'
           echo "== pages and instagram"; curl -s "$G/me/accounts?fields=id,name,instagram_business_account%7Bid,username%7D&access_token=$T" | jq '{pages:[.data[]? | {id,name,instagram:.instagram_business_account}], error:.error.message}'
+      - name: What is actually live (read-only)
+        env:
+          T: ${{ secrets.META_ACCESS_TOKEN }}
+        run: |
+          G=https://graph.facebook.com/v23.0
+          IG=17841426622354094; PAGE=1322809910922605
+          echo "== instagram media"; curl -s "$G/$IG/media?fields=id,timestamp,media_type,media_product_type,permalink,caption&limit=25&access_token=$T" | jq '[.data[]? | {id,timestamp,type:.media_product_type,permalink,caption:(.caption // "" | .[0:70])}], .error.message'
+          PT=$(curl -s "$G/me/accounts?fields=id,access_token&access_token=$T" | jq -r ".data[] | select(.id==\"$PAGE\") | .access_token")
+          echo "== facebook page videos"; curl -s "$G/$PAGE/videos?fields=id,created_time,permalink_url,description&limit=25&access_token=$PT" | jq '[.data[]? | {id,created_time,permalink_url,description:(.description // "" | .[0:70])}], .error.message'
