@@ -24,3 +24,18 @@ jobs:
           echo "== instagram media"; curl -s "$G/$IG/media?fields=id,timestamp,media_type,media_product_type,permalink,caption&limit=25&access_token=$T" | jq '[.data[]? | {id,timestamp,type:.media_product_type,permalink,caption:(.caption // "" | .[0:70])}], .error.message'
           PT=$(curl -s "$G/me/accounts?fields=id,access_token&access_token=$T" | jq -r ".data[] | select(.id==\"$PAGE\") | .access_token")
           echo "== facebook page videos"; curl -s "$G/$PAGE/videos?fields=id,created_time,permalink_url,description&limit=25&access_token=$PT" | jq '[.data[]? | {id,created_time,permalink_url,description:(.description // "" | .[0:70])}], .error.message'
+      - name: How each reel performed (read-only insights)
+        env:
+          T: ${{ secrets.META_ACCESS_TOKEN }}
+        run: |
+          G=https://graph.facebook.com/v23.0
+          IG=17841426622354094; PAGE=1322809910922605
+          echo "== instagram reel insights"
+          for id in $(curl -s "$G/$IG/media?fields=id&limit=25&access_token=$T" | jq -r '.data[].id'); do
+            curl -s "$G/$id/insights?metric=views,reach,likes,comments,saved,shares,total_interactions&access_token=$T" | jq -c --arg id "$id" '{id:$id, m:(if .data then ([.data[] | {(.name): .values[0].value}] | add) else .error.message end)}'
+          done
+          PT=$(curl -s "$G/me/accounts?fields=id,access_token&access_token=$T" | jq -r ".data[] | select(.id==\"$PAGE\") | .access_token")
+          echo "== facebook reel insights"
+          for id in $(curl -s "$G/$PAGE/videos?fields=id&limit=25&access_token=$PT" | jq -r '.data[].id'); do
+            curl -s "$G/$id/video_insights?metric=total_video_views,total_video_impressions,total_video_avg_time_watched,post_video_social_actions&access_token=$PT" | jq -c --arg id "$id" '{id:$id, m:(if .data then ([.data[] | {(.name): .values[0].value}] | add) else .error.message end)}'
+          done
