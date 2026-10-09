@@ -24,6 +24,7 @@ import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { askJson } from "./claude.ts";
 import { renderCarousel, slideProblems, Slides } from "./carousel.ts";
+import { reelIdeas as listeningReelIdeas, unusedReelIdeas } from "./ideas.ts";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (f: string) => readFileSync(path.join(ROOT, f), "utf8");
@@ -45,7 +46,7 @@ export interface SocialItem {
   sources?: string[];
 }
 
-interface Post { id: string; status: string; topic: string; madeAt: string; reason?: string; published?: { at: string; instagram?: string; facebook?: string | boolean } }
+interface Post { id: string; status: string; topic: string; madeAt: string; reason?: string; idea?: string; published?: { at: string; instagram?: string; facebook?: string | boolean } }
 interface Idea { title: string; channel: string; pillar: string; hook: string; why: string; sources: string[] }
 interface Article { id: string; url: string; at: string; title?: string }
 
@@ -71,7 +72,8 @@ export function buildCalendar(): SocialItem[] {
   const end = addDays(start, 27); // four weeks
   const posts = readJson<{ posts: Post[] }>("state/posts.json", { posts: [] }).posts;
   const listening = readJson<{ date?: string; ideas: Idea[] }>("research/latest.json", { ideas: [] });
-  const reelIdeas = listening.ideas.filter((i) => i.channel === "reel" || i.channel === "carousel");
+  // the same list, in the same order, the maker takes its next reel from
+  const reelIdeas = unusedReelIdeas(listeningReelIdeas(ROOT), posts);
   // ideas already turned into a draft (their source links are in it) are not offered again
   const draftsDir = path.join(ROOT, "posts/linkedin");
   const drafted = existsSync(draftsDir) ? readdirSync(draftsDir).filter((f) => f.endsWith(".md")).map((f) => readFileSync(path.join(draftsDir, f), "utf8")).join("\n") : "";

@@ -14,6 +14,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { costSoFar } from "./claude.ts";
 import { writeScript, type Script, type Topic } from "./script.ts";
+import { reelIdeas, unusedReelIdeas } from "./ideas.ts";
 import { postDraft, say } from "./slack.ts";
 import { HOUSE, finalTest, pickFormat, research, storyboard, writeStory, type Board, type Brief, type Story } from "./pipeline.ts";
 import { directFloey } from "./studio.ts";
@@ -31,6 +32,8 @@ interface Post {
   seconds?: number;
   slack?: { channel: string; ts: string };
   reason?: string;
+  /** The listening idea (or seed topic) it was made from; see ideas.ts. */
+  idea?: string;
 }
 interface State { posts: Post[] }
 
@@ -80,24 +83,32 @@ const writeJson = (f: string, v: unknown) => writeFileSync(f, JSON.stringify(v, 
  * steers the research instead of letting it pick.
  */
 async function make(state: State, arg?: string): Promise<void> {
-  const seed = arg ? topics().find((t) => t.id === arg) : undefined;
+  const picked = arg ? topics().find((t) => t.id === arg) : undefined;
   // with no topic, first finish an unfinished draft (researched, never recorded), e.g. one a cancelled run left behind
   const next = `r${String(state.posts.length + 1).padStart(3, "0")}-`;
   const leftover = !arg ? readdirSync(path.join(ROOT, "drafts")).find((d) => d.startsWith(next) && existsSync(path.join(ROOT, "drafts", d, "brief.json")) && !state.posts.some((p) => p.id === d)) : undefined;
   if (leftover) console.log(`Finishing the unfinished draft ${leftover}`);
-  const resume = leftover ?? (arg && !seed && existsSync(path.join(ROOT, "drafts", arg)) ? arg : undefined);
+  const resume = leftover ?? (arg && !picked && existsSync(path.join(ROOT, "drafts", arg)) ? arg : undefined);
   const recent = state.posts.map((p) => p.topic);
   const lastFormats = state.posts.map((p) => p.format);
 
   let id = resume ?? "";
   let brief: Brief;
-  if (resume) brief = readJson(path.join(ROOT, "drafts", id, "brief.json"));
-  else {
-    console.log("1. Research");
-    brief = await research(recent, seed ? { topic: seed.topic, angle: seed.angle } : undefined);
+  let idea: string | undefined;
+  if (resume) {
+    brief = readJson(path.join(ROOT, "drafts", id, "brief.json"));
+    idea = (brief as Brief & { idea?: string }).idea;
+  } else {
+    // A topic id given by hand wins; otherwise the next idea the calendar is
+    // showing, so the reel made is the one Desk promised (see ideas.ts).
+    const next = picked ? undefined : unusedReelIdeas(reelIdeas(ROOT), state.posts)[0];
+    const seed = picked ? { topic: picked.topic, angle: picked.angle } : next ? { topic: next.title, angle: `${next.hook} Why it matters: ${next.why} Sources to start from: ${next.sources.slice(0, 3).join(", ")}` } : undefined;
+    idea = seed?.topic;
+    console.log(`1. Research${seed ? `: ${seed.topic}` : " (free choice: no unused listening idea)"}`);
+    brief = await research(recent, seed);
     id = `r${String(state.posts.length + 1).padStart(3, "0")}-${slug(brief.topic)}`;
     mkdirSync(path.join(ROOT, "drafts", id), { recursive: true });
-    writeJson(path.join(ROOT, "drafts", id, "brief.json"), brief);
+    writeJson(path.join(ROOT, "drafts", id, "brief.json"), { ...brief, idea });
   }
   const dir = path.join(ROOT, "drafts", id);
   const f = (name: string) => path.join(dir, name);
@@ -158,12 +169,12 @@ async function make(state: State, arg?: string): Promise<void> {
   const story = readJson<Story & { format: string }>(f("script.json"));
   state.posts = state.posts.filter((p) => p.id !== id);
   if (!qa.pass) {
-    state.posts.push({ id, status: "failed", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), reason: qa.problems.join(" ").slice(0, 500) });
+    state.posts.push({ id, status: "failed", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), reason: qa.problems.join(" ").slice(0, 500), idea });
     await say(`:warning: The reel "${story.title}" didn't pass its final test twice, so it isn't posted:\n${qa.problems.map((x) => `• ${x}`).join("\n").slice(0, 1500)}`);
     return;
   }
   const slack = await postDraft(r.mp4, message(story as unknown as Script, r.seconds));
-  state.posts.push({ id, status: "draft", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), slack });
+  state.posts.push({ id, status: "draft", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), slack, idea });
   console.log(`Made ${id}: ${r.mp4} (${r.seconds.toFixed(1)}s). Claude usage, API-equivalent: $${costSoFar().toFixed(2)}.`);
 }
 
