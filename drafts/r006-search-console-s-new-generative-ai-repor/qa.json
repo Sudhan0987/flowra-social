@@ -1,0 +1,12 @@
+{
+ "pass": false,
+ "problems": [
+  "Frame 08 (claim vs picture): the voice says Flowra's decay report queues pages whose clicks AND impressions are falling, but the reel's whole point is that flower A's impressions keep rising (counter goes 1,363 → 1,409) while its clicks fall. Tagging flower A 'Decay' tells viewers the report would catch exactly the page it, by its own description, would not. Either change the line, for example to 'pages whose clicks are falling', or don't put the Decay tag on flower A. Also confirm with a source that the report is free and works this way before posting.",
+  "Frame 10: the fix happens without any visible cause. Flower A is already bright and Floey is sipping on 'let's go fix it!', but the scripted change preview card, the Publish tap and the day counter are not visible. Viewers see the page heal by magic, and it is fixed before the line says 'let's go fix it'.",
+  "Frame 11: the end card is missing Floey. She is not perched on the spark's left arm and is nowhere in frame. The garden has faded to a blank beige, which reads as empty, and a faint ghost stem shows through below the card (around x 190, y 630–710). Two stray specks sit on the spark logo. They look like dirt on the logo, not part of it.",
+  "Frame 11 / loop: the last sampled frame is a static end card. Nothing shows the camera easing back into the opening shot (flower A bright, 'AI Overviews' tag, counter ticking), so the loop back to the start is not shown and the reel appears to end on a dead card.",
+  "Frame 07: at the key moment ('That's your first page to fix'), Floey hovers right on top of the drooping flower A and covers most of its head and the page icon. The visual proof that the page is fading is mostly hidden. Move her beside the flower, not in front of it.",
+  "Frame 02: Floey faces the camera with her beak drawn as a flat black bar across her face. At phone size it reads as a moustache, not a beak, and looks off-model next to her side views.",
+  "Frames 01–02, 05: the panels sit empty while the voice is already naming what is in them. In frame 01 'Step one: open' shows a blank Generative AI panel, and in frame 05 'in Search results,' shows a mostly blank panel with only a Date pill. These are short gaps, but the picture runs behind the voice. Fill the panels in sooner."
+ ]
+}

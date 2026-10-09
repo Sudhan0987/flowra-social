@@ -1,0 +1,82 @@
+{
+ "title": "One Search Console check: is Google's AI showing your page while its clicks fall?",
+ "beats": [
+  {
+   "role": "hook",
+   "say": "Google's AI may keep showing your page while its clicks quietly fall.",
+   "emotion": "ominous",
+   "visual": "Cold open, close on one bright, glowing page-flower (flower A) swaying gently, a pill tag on its stem reading 'AI Overviews'. Above it floats the reel's one new prop: a small impressions counter that ticks up with a soft click every second. Floey darts in from the left and brakes hard into a hover beside the flower, mood surprised, looks up at the ticking counter, then turns to the viewer. Sun, clouds and hills behind stay pale and soft."
+  },
+  {
+   "role": "body",
+   "say": "Step one: open Search Console's Generative AI report, if you have it. Click Pages.",
+   "emotion": "curious",
+   "visual": "Floey taps the air and a panel slides up beside flower A with a soft whoosh, its header labelled 'Generative AI'. Under the header, a row of tabs: 'Pages', 'Countries', 'Devices', 'Dates'. Floey pecks 'Pages' (tap sound) and a short table fills in, row by row, with a tick for each row. Micro payoff: the top row lights up as the counter above flower A clicks again, and Floey blinks and gives a quick tongue flick, pleased."
+  },
+  {
+   "role": "body",
+   "say": "Step two: note the pages shown most in AI Overviews and AI Mode. Impressions only, no clicks.",
+   "emotion": "worried",
+   "visual": "Floey shuttles between the panel and the counter, matching the ticking number to the top row's 'Impressions' column. She hovers along the table's header looking for a clicks column; there is only 'Impressions'. Her mood turns worried and she gives a small head shake (a soft feather rustle). Micro payoff: she lands on the edge of the panel and taps the 'Impressions' header twice, looking at the viewer as if to say 'that's all you get here'."
+  },
+  {
+   "role": "payoff",
+   "say": "Step three: in Search results, open Pages and compare with an earlier period. Shown a lot but clicks falling? That's your first page to fix.",
+   "emotion": "determined",
+   "visual": "The Generative AI panel slides off to the left (whoosh left) and a second, separate panel slides in from the right (whoosh right), its header labelled 'Search results', so it is clearly a different report. Floey taps its 'Pages' tab, then a 'Compare' pill (two taps). A small clicks chart unrolls: a faint line for the earlier period above, and this period's line sloping down with a descending whistle. As the line falls, flower A loses colour, yellows at the edges and droops, while the counter above it keeps ticking up. Floey taps the flower's 'AI Overviews' tag, then the top row of the Search results table, and a matching 'AI Overviews' pill snaps onto that row (click): same page, both reports. Micro payoff: Floey flashes her throat bright magenta and plants herself in front of the drooping flower."
+  },
+  {
+   "role": "body",
+   "say": "Flowra's free content decay report queues up pages whose clicks and impressions are falling.",
+   "emotion": "bright",
+   "visual": "The camera eases back to show a few flowers further along the garden that are also drooping. Floey shuttles past them, and as she passes each one a small 'Decay' pill tag pops onto its stem with a light pop, panned left to right as she goes. Flower A stays in the foreground, still drooping, its counter still ticking."
+  },
+  {
+   "role": "loop",
+   "say": "Meanwhile, that counter keeps ticking.",
+   "emotion": "ominous",
+   "visual": "Floey turns back to flower A. The counter above it ticks once, loud and close, with the same soft click as the opening. Floey looks up at it, mood worried, then at the viewer."
+  },
+  {
+   "role": "go",
+   "say": "Come on, let's go fix it!",
+   "emotion": "excited",
+   "visual": "Floey darts to flower A and a change preview card slides in beside it with a Publish button. She taps Publish (bright chime), the day counter on the card rolls forward a few days, and flower A lifts, its colour flows back, and it glows and sways. Floey sips from it with a happy tongue flick, then flashes her throat."
+  },
+  {
+   "role": "url",
+   "say": "useflowra.com.",
+   "emotion": "playful",
+   "visual": "A beat of quiet, then the end card: the intact Flowra spark logo with useflowra.com beneath it, text sized inside its box. Floey arrives sideways and perches on the spark's left arm like a bird on a branch, turns to face the camera and preens once. Then she darts out of frame to the left, the card slides away, and the camera eases into the exact opening framing: flower A bright and glowing, 'AI Overviews' tag on its stem, the counter ticking with its soft click."
+  }
+ ],
+ "loopNote": "Floey fixes flower A on screen in the go beat, so after the end card the camera settles back on it bright, glowing and tagged, with the counter ticking. That's the same image as the first frame. Floey darts out to the left in the last frames, and the replay opens with her darting in from the left and braking beside the flower, as the hook says her page could be shown a lot while its clicks fall. The ominous loop line about the ticking counter sets up that tick, so the replay picks up a sound the viewer just heard.",
+ "caption": "Save this for the next time your boss or client asks whether Google's AI answers are costing you clicks.\n\nGoogle says Search Console's Generative AI report reached all websites worldwide on 31 August 2026. Its help page still says the rollout is in progress, though, and sites with too few AI impressions may not see the report. It shows how often your pages were shown in AI Overviews and AI Mode. It shows impressions only: no clicks, no CTR, no position.\n\nThe check:\n1. Open the Generative AI report, then Pages.\n2. Note the pages shown most.\n3. In the Search results report, open Pages and compare with an earlier period.\n\nShown a lot while clicks fall? That doesn't prove the AI caused it, but it's the first page to look at.\n\nAI impressions are already counted in your Search results totals, so don't add the two numbers together.\n\nFlowra's free content decay report also queues up pages whose clicks and impressions are falling.",
+ "hashtags": [
+  "#searchconsole",
+  "#seo",
+  "#aioverviews",
+  "#contentmarketing",
+  "#seotips"
+ ],
+ "id": "r006-search-console-s-new-generative-ai-repor",
+ "format": "countdown",
+ "goal": "save",
+ "topic": "Search Console's new Generative AI report: see how often your pages show up in AI Overviews and AI Mode, then check whether those pages still get clicks",
+ "editorNotes": [
+  "Payoff line: \"in Search results, open Pages\" is confusing when spoken. A viewer hears \"search results\" as Google's results page, not a Search Console report. Name it so it can't be misheard, for example \"the normal Search results report\" or \"your usual Performance report\". The line is also about 25 words carrying three instructions plus the verdict. Split it so the step and the \"shown a lot but clicks falling\" verdict each get their own breath.",
+  "Go beat makes an unsupported claim. After Publish, the day counter rolls forward and flower A recovers its colour and glow. That shows a page losing clicks to AI Overviews being fixed and its clicks coming back within days. Nothing in the facts supports that result, and it overstates what a fix can do against AI answers. Show Floey starting the fix (the card and Publish, the flower beginning to lift), or frame any recovery clearly as an example. Do not present it as a sure outcome.",
+  "Studio rule broken: never more than one panel of invented numbers. The reel draws two: the Generative AI table with impression rows, then the Search results panel with a table and a clicks chart. Neither the voice nor the captions call them example numbers. Cut it to one data panel (for example, make the Generative AI panel tabs plus a single impressions value, with no invented rows). Then label the remaining figures as example numbers.",
+  "Loop line \"Meanwhile, that counter keeps ticking.\" is unclear out of context. The voice never names the counter as AI impressions. Rising impressions on their own are not bad news, so the ominous delivery points at the wrong threat. The danger is being shown while clicks fall. Either name the counter in the voice (\"AI keeps showing it\") and tie it to the clicks falling, or cut the line. Its role is also mislabelled: it is not the loop. The loop happens in the url beat's visual.",
+  "The go and url beats can't fit the time they get. PROPS.timing gives about a 1.5 s line plus at most 0.75 s gap for \"Come on, let's go fix it!\". The script fits Publish, a day roll, the flower's full recovery, a sip and a throat flash into that window. \"useflowra.com.\" is about 1 s, yet its visual has a perch, a turn to camera, a preen, a dart out, the card sliding away and a camera ease back to the opening. That would also pull the address off screen almost as soon as it appears. Trim each beat to one or two actions, and keep the end card up long enough to read before the loop transition.",
+  "The hook visual doesn't show what the voice says. The line is \"showing your page while its clicks quietly fall\", but flower A stays bright and glowing. Falling clicks are not shown until the payoff, about 18 s in. A scroller needs the contrast within 2 seconds: the counter going up while the flower starts to droop on \"quietly fall\". Standing rule: if the voice says a page is fading, the flower visibly fades. The flower can still start bright for the loop match.",
+  "Payoff visual is overloaded for one line and a phone screen. It has two panels swapping, a Pages tab tap, a Compare tap, a chart with two lines, a table, the flower fading, the counter ticking, a tag tap, a pill snapping onto a row, a throat flash and Floey planting herself. The chart and table share one panel next to the flower, counter and tag, so overlapping text and unreadable labels are likely. Pick the essential sequence (open Search results, compare, line falls, flower fades, same-page tag match) and drop the rest.",
+  "(polish) \"Compare\" pill is an invented control. In Search Console you compare periods through the Date filter. Draw it with PROPS.dropdown(\"Date\") as the studio asks for filters, not a new pill.",
+  "(polish) Beat 3 uses shuttle() for checking the counter against the table. shuttle is the celebration display flight, so it reads as celebrating during a worried line. Use move or look between the two.",
+  "(polish) The \"AI Overviews\" tag and the matching row pill leave out AI Mode, which the report also covers and the voice names. Use a label that covers both, such as \"Gen AI\" or \"AI\".",
+  "(polish) Decay beat: other flowers get \"Decay\" tags but flower A doesn't, even though it is the page with falling clicks. Tag flower A first so the viewer sees Flowra's queue catching the page from the check. The beat also lands after the payoff and flattens the energy before the CTA. Think about moving it, or tightening it, so the reel still builds toward \"let's go fix it\".",
+  "(polish) This is a news-pillar reel, but neither the hook nor the first step tells the viewer the report is new. Add a short news cue to the hook or step one, such as \"Search Console's new Generative AI report\", so the timeliness lands and the save goal is earned.",
+  "(polish) Beat 2's micro payoff lights up the top row as flower A's row, and beat 4 matches flower A to the top row of the Search results table. A page shown most in AI won't necessarily be the top row when sorted by clicks. Say the matching row is found, not assumed to be first."
+ ],
+ "template": "../drafts/r006-search-console-s-new-generative-ai-repor/scene.html"
+}

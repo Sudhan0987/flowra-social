@@ -1,0 +1,459 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Public+Sans:wght@800&display=swap" rel="stylesheet">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/world/garden.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="lines.js"></script>
+<style>html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#f7f4ee}svg{display:block}</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r006: Search Console's Generative AI report. Format: countdown (three steps).
+// One bright page-flower (A) with an "AI Overviews" tag on its stem, and the
+// reel's one new prop floating above it: an AI impressions counter that keeps
+// ticking up. The hook drops one petal on "quietly fall"; A stays bright through
+// steps one and two (the report only shows impressions) and only drains in step
+// three, as the Search results report shows its clicks falling. Flowra's decay
+// report tags A first, then the other fading pages. On "let's go fix it" Floey
+// publishes the fix and A blooms back. The end card has the whole spark with
+// Floey perched on its left arm; then she zips off left and the card lifts on
+// the opening shot: A bright, tagged, the counter ticking.
+const C = HUM.colors, M = window.MOUTHS || {};
+const LINES = window.LINES;
+const INK = C.ink, FONT = "Space Grotesk";
+const GAP = { hook0: 0.45, body1: 0.4, body2: 0.45, payoff3: 0.55, body4: 0.4, loop5: 0.3, go6: 0.75, url7: 0.4 };
+const { B, DUR } = PROPS.timing(LINES, M, GAP, { tail: 2.3 });
+const b = B;
+const clamp = (v, a = 0, z = 1) => Math.max(a, Math.min(z, v));
+const esc = PROPS.esc;
+const s0 = b.hook0.start, s1 = b.body1.start, s2 = b.body2.start, s3 = b.payoff3.start, s4 = b.body4.start, s5 = b.loop5.start, s6 = b.go6.start, s7 = b.url7.start, e6 = b.go6.end, e7 = b.url7.end;
+
+// ---------- the garden ----------
+const A = { x: 280, base: 1720, h: 700, pal: [C.coral, C.magenta, C.amber], dir: -0.28, seed: 7 };
+// the other fading pages, a row further back (drawn smaller), revealed by the decay report
+const BACK = [
+  { x: 570, base: 1700, h: 500, s: 0.72, pal: [C.amber, C.coral, C.violet], dir: -0.3, seed: 11, hp: 0.3 },
+  { x: 780, base: 1700, h: 390, s: 0.72, pal: [C.violet, C.indigo, C.magenta], dir: -0.3, seed: 13, hp: 0.24 },
+  { x: 990, base: 1700, h: 540, s: 0.72, pal: [C.magenta, C.amber, C.coral], dir: -0.3, seed: 17, hp: 0.34 },
+];
+
+// camera framings
+const OPEN = { camX: 430, camY: 1000, zoom: 1.38 };      // first frame and last frame
+const PANEL = { camX: 540, camY: 855, zoom: 1.04 };      // flower left, report on the right
+const MATCHF = { camX: 540, camY: 930, zoom: 1.08 };    // tag and table row together
+const DECAY = { camX: 610, camY: 1150, zoom: 1.0 };   // A in front, the fading row behind
+const CLOSE = { camX: 400, camY: 1040, zoom: 1.25 };     // back on A and its counter
+const GO = { camX: 560, camY: 880, zoom: 1.0 };          // A and the change preview
+const LZ = 0.6;                                          // pulled far back behind the end card
+const HOME = { x: 590, y: 1010 };                        // Floey's hover under the report
+
+// a flower's lean and a point u of the way up its stem (u 1 = the head)
+const leanOf = (f, h, t) => (1 - h) * 26 * f.dir + Math.sin(t * 1.25 + f.seed) * 1.6 * h + Math.sin(t * 2.9 + f.seed * 2) * 0.5 * h;
+function stemPt(f, h, t, u) {
+  const a = leanOf(f, h, t) * Math.PI / 180, r = f.h * u;
+  return { x: f.x + Math.sin(a) * r, y: f.base - Math.cos(a) * r };
+}
+const TAG_U = 0.68, DEC_U = 0.53;
+
+// ---------- the report panels (Floey's paper version, never a screenshot) ----------
+const PX = 480, PY = 300, PW = 540, PH = 560;
+const BODY = PROPS.panelBody(PX, PY, PW, PH, { title: "x" }); // x 514, y 396, w 472
+const TAB_Y = BODY.y, HDR_Y = 500;
+const tabX = (i, n) => BODY.x + (BODY.w / n) * (i + 0.5);
+// Generative AI report: which pages were shown, impressions only (bars, no figures)
+const GA_ROWS = [["/seo-guide", 0.92], ["/pricing", 0.6], ["/blog/ai-tips", 0.38]];
+const GA_ROW_Y = 516, GA_RH = 72, IMP_X = 700, SLOT_X = 862;
+// Search results report: Pages, compared with an earlier period (example numbers)
+const SR_ROWS = [{ label: "/pricing", diff: 12 }, { label: "/seo-guide", diff: -41 }, { label: "/blog/ai-tips", diff: -3 }];
+const SR_ROW_Y = 600, SR_RH = 64, SR_HDR_Y = 584;
+// where Floey's beak lands
+const AIR = { x: 700, y: 700 };
+const GA_PAGES = { x: tabX(0, 3), y: TAB_Y + 22 };
+const SR_PAGES = { x: tabX(1, 3), y: TAB_Y + 22 };
+const DROP = { x: BODY.x + 40, y: HDR_Y };
+const MATCH = { x: 780, y: SR_ROW_Y + SR_RH * 1.5 };
+const CARD = { x: 700, y: 420 }, BTN = { x: CARD.x - 290 + 58, y: CARD.y + 100 }; // the button's left end
+
+const W = { ...OPEN, A: 1, petal: 0, down: 0,
+  ga: 0, gaTabs: 0, gaTab: 0, gaRows: 0, gaHi: 0, noClk: 0, gaOut: 0,
+  sr: 0, srTabs: 0, srTab: 0, cmp: 0, srRows: 0, fly: 0, match: 0, srOut: 0, tagHit: 0,
+  back: 0, decA: 0, dec0: 0, dec1: 0, dec2: 0, decB: 1, card: 0, published: 0, logo: 0 };
+
+// ---------- the counter: AI impressions, ticking up (example figures) ----------
+const TICKS = [0.2, 1.3, 2.4, 3.4, s1 + 2.0, s2 + 1.45, s3 + 4.4, s3 + 5.2, s4 + 0.5, s4 + 4.2, s5 + 0.55];
+const INC = [13, 9, 17, 11, 21, 8, 15, 19, 12, 14, 16];
+const V0 = 1284, T_RESET = e7 + 0.3, T_LAST = DUR - 0.45, INC_LAST = 11;
+const COUNTER = { x: 280, y: 730 };
+function counterAt(t) {
+  if (t >= T_RESET) return t >= T_LAST ? { v: V0, k: clamp((t - T_LAST) / 0.2) } : { v: V0 - INC_LAST, k: 1 };
+  let v = V0, last = -9;
+  TICKS.forEach((tk, i) => { if (t >= tk) { v += INC[i]; last = tk; } });
+  return { v, k: clamp((t - last) / 0.2) };
+}
+function counter(x, y, v, k, t, head) {
+  const num = v.toLocaleString("en-US"), sub = "AI impressions (example)";
+  const nw = PROPS.measure(num, `700 42px '${FONT}'`), sw = PROPS.measure(sub, `700 20px '${FONT}'`);
+  const w = Math.max(52 + 14 + nw, sw) + 48, h = 108, x0 = -w / 2, y0 = -h / 2;
+  const bob = Math.sin(t * 2.1) * 4, pop = 1 + Math.sin(k * Math.PI) * 0.06;
+  const ix = x0 + 24 + (w - 48 - (52 + 14 + nw)) / 2;
+  // a dotted tether down to the page it counts
+  let s = `<path d="M${x},${(y + bob - y0).toFixed(1)} L${head.x.toFixed(1)},${(head.y - 150).toFixed(1)}" stroke="${INK}" stroke-width="3" stroke-dasharray="3 9" stroke-linecap="round" opacity=".35"/>`;
+  s += `<g transform="translate(${x} ${(y + bob).toFixed(1)}) scale(${pop.toFixed(3)})">`;
+  s += `<rect x="${x0}" y="${y0}" width="${w}" height="${h}" rx="24" fill="#fffaf2" stroke="${INK}" stroke-width="5.5"/>`;
+  // the eye
+  s += `<g transform="translate(${ix + 26} ${y0 + 42})"><path d="M-24,0 Q0,-22 24,0 Q0,22 -24,0Z" fill="#fff" stroke="${INK}" stroke-width="4.5" stroke-linejoin="round"/><circle r="8" fill="${C.violet}"/><circle r="3.4" fill="${INK}"/></g>`;
+  // the digits drop in on each tick
+  s += `<text x="${ix + 66}" y="${(y0 + 58 - (1 - k) * 14).toFixed(1)}" opacity="${(0.3 + 0.7 * k).toFixed(2)}" font-family="${FONT}" font-weight="700" font-size="42" fill="${INK}">${num}</text>`;
+  s += `<text x="0" y="${y0 + 92}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="20" fill="${INK}" opacity=".6">${sub}</text>`;
+  return s + `</g>`;
+}
+
+// a small pill, sized to its text (the "AI Overviews" mark on a table row)
+function miniPill(x, y, k, text, bg, fs = 20) {
+  if (k <= 0.01) return "";
+  const w = PROPS.measure(text, `700 ${fs}px '${FONT}'`) + 30, h = fs + 18;
+  return `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${k.toFixed(3)})"><rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="${h / 2}" fill="${bg}" stroke="${INK}" stroke-width="3.5"/><text x="0" y="${(fs * 0.36).toFixed(1)}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="${fs}" fill="#fff">${esc(text)}</text></g>`;
+}
+
+function gaPanel(t) {
+  if (W.ga <= 0.01 || W.gaOut >= 0.999) return "";
+  const o = W.gaOut, dx = -o * 1000, dy = (1 - W.ga) * 160 - o * 120;
+  let s = `<g transform="translate(${dx.toFixed(1)} ${dy.toFixed(1)}) rotate(${(-o * 10).toFixed(2)} ${PX + PW / 2} ${PY + PH / 2})">`;
+  s += PROPS.panel(W.ga, PX, PY, PW, PH, { title: "Generative AI", accent: C.violet });
+  s += PROPS.tabs(W.gaTabs, BODY.x, TAB_Y, BODY.w, ["Pages", "Countries", "Dates"], W.gaTab > 0.5 ? 0 : -1, C.violet);
+  if (W.gaRows > 0.01) {
+    const hk = Math.min(1, W.gaRows * 4);
+    s += `<g opacity="${(0.55 * hk).toFixed(2)}"><text x="${BODY.x}" y="${HDR_Y}" font-family="${FONT}" font-weight="700" font-size="22" fill="${INK}">Page</text><text x="${IMP_X}" y="${HDR_Y}" font-family="${FONT}" font-weight="700" font-size="22" fill="${INK}">Impressions</text></g>`;
+    GA_ROWS.forEach(([label, v], i) => {
+      const op = clamp(W.gaRows * 3 - i), y = GA_ROW_Y + i * GA_RH;
+      if (op <= 0) return;
+      s += `<g opacity="${op.toFixed(2)}" transform="translate(0 ${((1 - op) * -12).toFixed(1)})">`;
+      if (i === 0 && W.gaHi > 0.01) s += `<rect x="${BODY.x - 14}" y="${y + 6}" width="${SLOT_X - BODY.x}" height="${GA_RH - 12}" rx="16" fill="${C.violet}" opacity="${(0.2 * W.gaHi).toFixed(2)}"/>`;
+      if (i > 0) s += `<path d="M${BODY.x},${y} H${SLOT_X - 16}" stroke="${INK}" stroke-width="2" opacity=".12"/>`;
+      s += `<text x="${BODY.x}" y="${y + 45}" font-family="${FONT}" font-weight="700" font-size="24" fill="${INK}">${esc(label)}</text>`;
+      s += `<rect x="${IMP_X}" y="${y + 28}" width="${(v * 140 * clamp(op * 1.4)).toFixed(1)}" height="16" rx="8" fill="${C.violet}"/>`;
+      s += `</g>`;
+    });
+    // where a clicks column would be: empty paper
+    if (W.noClk > 0.01) {
+      const nk = W.noClk;
+      s += `<g opacity="${nk.toFixed(2)}"><rect x="${SLOT_X}" y="${HDR_Y - 30}" width="${BODY.x + BODY.w - SLOT_X}" height="${GA_ROW_Y + GA_RH * 3 - HDR_Y + 22}" rx="14" fill="none" stroke="${INK}" stroke-width="3" stroke-dasharray="10 9" opacity=".45"/>`;
+      s += `<text x="${SLOT_X + 62}" y="${HDR_Y}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="22" fill="${INK}" opacity=".45">Clicks</text>`;
+      const cw = PROPS.measure("Clicks", `700 22px '${FONT}'`);
+      s += `<path d="M${SLOT_X + 62 - cw / 2 - 6},${HDR_Y - 7} H${SLOT_X + 62 - cw / 2 - 6 + (cw + 12) * clamp(nk * 1.5 - 0.3)}" stroke="#d24b4b" stroke-width="4" stroke-linecap="round"/></g>`;
+    }
+  }
+  return s + `</g>`;
+}
+
+function srPanel(t) {
+  if (W.sr <= 0.01 || W.srOut >= 0.999) return "";
+  const dx = (1 - W.sr) * 720 + W.srOut * 900;
+  let s = `<g transform="translate(${dx.toFixed(1)} 0)">`;
+  s += PROPS.panel(Math.min(1, W.sr * 1.5), PX, PY, PW, PH, { title: "Search results", accent: C.indigo });
+  s += PROPS.tabs(W.srTabs, BODY.x, TAB_Y, BODY.w, ["Queries", "Pages", "Countries"], W.srTab > 0.5 ? 1 : -1, C.indigo);
+  const dl = W.cmp > 0.5 ? "Date: compare" : "Date", dw = PROPS.measure(dl, `700 28px '${FONT}'`) + 132;
+  s += PROPS.dropdown(W.srTabs, BODY.x + dw / 2, HDR_Y, dl);
+  if (W.srRows > 0.01) {
+    const hk = Math.min(1, W.srRows * 4);
+    s += `<g opacity="${(0.55 * hk).toFixed(2)}"><text x="${BODY.x}" y="${SR_HDR_Y}" font-family="${FONT}" font-weight="700" font-size="22" fill="${INK}">Page</text><text x="${BODY.x + BODY.w}" y="${SR_HDR_Y}" text-anchor="end" font-family="${FONT}" font-weight="700" font-size="22" fill="${INK}">Clicks, change</text></g>`;
+    if (W.match > 0.01) s += `<rect x="${BODY.x - 14}" y="${SR_ROW_Y + SR_RH + 5}" width="${BODY.w + 28}" height="${SR_RH - 10}" rx="16" fill="${C.violet}" opacity="${(0.16 * Math.min(1, W.match)).toFixed(2)}"/>`;
+    s += PROPS.table(W.srRows, BODY.x, SR_ROW_Y, BODY.w, SR_ROWS);
+    s += `<text x="${BODY.x + BODY.w}" y="${PY + PH - 30}" text-anchor="end" font-family="${FONT}" font-weight="700" font-size="20" fill="${INK}" opacity="${(0.5 * hk).toFixed(2)}">example numbers</text>`;
+    // the same page, both reports: the "AI Overviews" mark snaps onto its row
+    const mk = W.match, shake = mk > 0 && mk < 1 ? Math.sin(mk * 30) * 8 * (1 - mk) : 0;
+    s += `<g transform="rotate(${shake.toFixed(1)} ${MATCH.x} ${MATCH.y})">${miniPill(MATCH.x, MATCH.y, mk > 0.01 ? 1 : 0, "AI Overviews", C.violet)}</g>`;
+  }
+  return s + `</g>`;
+}
+
+// ---------- Floey's performance, cued to the voice ----------
+const F = FLOEY.create({ x: -330, y: 960, facing: -1, scale: 1.35, mood: "determined" });
+const wt = gsap.timeline({ paused: true });
+const TAPS = [];
+const tap = (t, x, y) => { TAPS.push({ t, x, y }); F.sfx(t, "tap"); };
+TICKS.forEach((tk) => F.sfx(tk, "tk"));
+F.sfx(T_LAST, "tk");
+
+// HOOK: close on A, bright and swaying, the counter ticking. Floey zips in past
+// it, brakes, spins back to it and looks up at the counter, then turns to you.
+// On "quietly fall" one petal lets go and the page dips a little.
+wt.set(W, { ...OPEN }, 0)
+  .to(W, { camX: 420, zoom: 1.44, duration: 2.4, ease: "sine.inOut" }, 0)
+  .to(W, { camX: 430, zoom: 1.38, duration: 1.2, ease: "sine.inOut" }, 3.0)
+  .to(W, { A: 0.88, duration: 1.2, ease: "power1.inOut" }, 2.9)
+  .to(W, { petal: 1, duration: 1.7, ease: "none" }, 2.95);
+F.dart(0.75, 600, 985, 0.34, -1)
+ .say(s0, M.hook0 || [], "hook0")
+ .face(1.35, 1).mood(1.35, "surprised")
+ .look(1.5, -0.4, -1, 0.08)
+ .look(2.25, 0, -0.2, 0.1)
+ .pivot(2.55, "front").mood(2.55, "worried").look(2.6, 0, 0, 0.1)
+ .look(3.05, -0.7, 0.6, 0.12)
+ .sfx(2.95, "rustle", { n: 1 })
+ .look(4.0, 0, 0, 0.1);
+
+// STEP ONE: she taps the air and the "Generative AI" panel slides up beside
+// A; tabs unfold. "If you have it": a knowing wink at you. On "Click Pages"
+// she pecks the Pages tab and the page rows drop in, one tick each.
+F.pivot(s1 - 0.25, "side").face(s1 - 0.25, -1).mood(s1 - 0.25, "think")
+ .say(s1, M.body1 || [], "body1")
+ .reach(s1 + 0.05, AIR.x, AIR.y, 0.28);
+tap(s1 + 0.33, AIR.x, AIR.y);
+F.sfx(s1 + 0.4, "swish").sfx(s1 + 0.85, "pluck")
+ .move(s1 + 0.9, HOME.x, HOME.y, 0.45, "power2.inOut")
+ .look(s1 + 1.3, 0.4, -1, 0.1)
+ .pivot(s1 + 2.85, "front").mood(s1 + 2.85, "hello").look(s1 + 2.9, 0, 0, 0.1)
+ .wink(s1 + 3.3)
+ .pivot(s1 + 3.8, "side").face(s1 + 3.8, -1).mood(s1 + 3.8, "determined")
+ .move(s1 + 3.8, 430, 760, 0.35, "power2.inOut")
+ .reach(s1 + 4.25, GA_PAGES.x, GA_PAGES.y, 0.28);
+tap(s1 + 4.53, GA_PAGES.x, GA_PAGES.y);
+F.move(s1 + 4.85, HOME.x, HOME.y, 0.4, "power2.inOut")
+ .look(s1 + 5.2, 0.4, -1, 0.1)
+ .mood(s1 + 5.5, "happy").tongue(s1 + 5.65, 2);
+wt.to(W, { ...PANEL, duration: 0.9, ease: "power2.inOut" }, s1 - 0.2)
+  .to(W, { ga: 1, duration: 0.55, ease: "back.out(1.6)" }, s1 + 0.38)
+  .to(W, { gaTabs: 1, duration: 0.3, ease: "power2.out" }, s1 + 0.8)
+  .set(W, { gaTab: 1 }, s1 + 4.53)
+  .to(W, { gaRows: 1, duration: 0.9, ease: "none" }, s1 + 4.75);
+F.sfx(s1 + 4.8, "tk").sfx(s1 + 5.1, "tk").sfx(s1 + 5.4, "tk");
+
+// STEP TWO: she looks from the counter to the table; the top row lights up as
+// the counter ticks (the same page). Then she looks along the header for a
+// clicks column: only empty paper. A worried shake, then to you. She stays
+// below the table so every row stays readable.
+F.mood(s2 - 0.2, "think")
+ .say(s2, M.body2 || [], "body2")
+ .move(s2 + 0.2, 540, 950, 0.45, "power2.inOut").face(s2 + 0.2, 1).look(s2 + 0.6, -0.3, -1, 0.1)
+ .sfx(s2 + 1.5, "ting")
+ .face(s2 + 1.7, -1).look(s2 + 1.75, 0.5, -1, 0.1)
+ .move(s2 + 2.5, 580, 975, 0.35, "power2.inOut")
+ .face(s2 + 3.3, 1).look(s2 + 3.35, -0.3, -1, 0.1)
+ .face(s2 + 4.2, -1).move(s2 + 4.2, 700, 1020, 0.4, "power2.inOut").look(s2 + 4.4, 0.6, -1, 0.1)
+ .mood(s2 + 5.1, "worried").shake(s2 + 5.4)
+ .pivot(s2 + 6.0, "front").look(s2 + 6.05, 0, 0, 0.1);
+wt.to(W, { gaHi: 1, duration: 0.25, ease: "power2.out" }, s2 + 1.45)
+  .to(W, { noClk: 1, duration: 0.5, ease: "power2.out" }, s2 + 4.7);
+
+// STEP THREE: the Generative AI panel whips off left, a separate "Search
+// results" panel slides in from the right. Pages, then Date: compare. The
+// example rows land; this page's clicks are falling, and A drains and droops
+// while its counter keeps climbing. She taps A's "AI Overviews" tag and a
+// copy flies to the same page's row: same page, both reports. A throat flash.
+const tagA = stemPt(A, 0.2, s3 + 5.9, TAG_U);
+F.pivot(s3 - 0.15, "side").face(s3 - 0.15, -1).mood(s3 - 0.15, "determined")
+ .say(s3, M.payoff3 || [], "payoff3")
+ .sfx(s3 + 0.05, "swish").sfx(s3 + 0.45, "swish").sfx(s3 + 0.95, "pluck")
+ .move(s3 + 1.0, 560, 760, 0.4, "power2.inOut")
+ .reach(s3 + 1.55, SR_PAGES.x, SR_PAGES.y, 0.28);
+tap(s3 + 1.83, SR_PAGES.x, SR_PAGES.y);
+F.move(s3 + 2.05, 360, 720, 0.3, "power2.inOut")
+ .reach(s3 + 2.4, DROP.x, DROP.y, 0.26);
+tap(s3 + 2.66, DROP.x, DROP.y);
+F.sfx(s3 + 2.68, "ting")
+ .move(s3 + 2.95, HOME.x, HOME.y, 0.4, "power2.inOut")
+ .sfx(s3 + 3.1, "tk").sfx(s3 + 3.4, "tk").sfx(s3 + 3.7, "tk")
+ .face(s3 + 3.95, 1).mood(s3 + 4.0, "worried").look(s3 + 4.0, -0.4, 0.4, 0.1)
+ .sfx(s3 + 4.2, "rustle", { n: 3 })
+ .look(s3 + 4.5, -0.3, -1, 0.1)
+ .mood(s3 + 5.3, "determined")
+ .reach(s3 + 5.6, tagA.x + 110, tagA.y, 0.28);
+tap(s3 + 5.9, tagA.x + 110, tagA.y);
+F.sfx(s3 + 5.95, "swish").sfx(s3 + 6.45, "pluck").sfx(s3 + 6.48, "tk")
+ .face(s3 + 6.0, -1).look(s3 + 6.05, 0.6, -0.8, 0.1)
+ .move(s3 + 6.75, 430, 1040, 0.4, "power2.inOut")
+ .pivot(s3 + 7.2, "front").look(s3 + 7.25, 0, 0, 0.1).flash(s3 + 7.45);
+wt.to(W, { gaOut: 1, duration: 0.35, ease: "power2.in" }, s3 + 0.05)
+  .to(W, { sr: 1, duration: 0.55, ease: "back.out(1.4)" }, s3 + 0.45)
+  .to(W, { srTabs: 1, duration: 0.3, ease: "power2.out" }, s3 + 0.9)
+  .set(W, { srTab: 1 }, s3 + 1.83)
+  .set(W, { cmp: 1 }, s3 + 2.66)
+  .to(W, { srRows: 1, duration: 0.9, ease: "none" }, s3 + 3.05)
+  .set(W, { down: 1 }, s3 + 4.05)
+  .to(W, { A: 0.2, duration: 1.6, ease: "power1.inOut" }, s3 + 4.0)
+  .to(W, { ...MATCHF, duration: 0.6, ease: "power2.inOut" }, s3 + 5.2)
+  .to(W, { tagHit: 1, duration: 0.5, ease: "none" }, s3 + 5.9)
+  .to(W, { fly: 1, duration: 0.5, ease: "power2.inOut" }, s3 + 5.95)
+  .to(W, { match: 1, duration: 0.45, ease: "none" }, s3 + 6.45);
+
+// DECAY REPORT: the Search results panel slides away and the camera eases
+// back: A stays in front, a row of fading pages appears behind it. Flowra's
+// queue: A gets its "Decay" tag first, then each fading page as Floey passes.
+const decAt = stemPt(A, 0.2, s4 + 0.5, DEC_U);
+const backHead = (f, h) => { const p = PROPS.head(f, h); return { x: f.x + (p.x - f.x) * f.s, y: f.base - (f.base - p.y) * f.s }; };
+const hB = BACK.map((f) => backHead(f, f.hp));
+F.pivot(s4 - 0.3, "side").face(s4 - 0.3, 1).mood(s4 - 0.3, "hello")
+ .say(s4, M.body4 || [], "body4")
+ .sfx(s4 - 0.35, "swish")
+ .reach(s4 + 0.1, decAt.x + 95, decAt.y, 0.3);
+tap(s4 + 0.42, decAt.x + 95, decAt.y);
+F.sfx(s4 + 0.45, "pluck")
+ .dart(s4 + 1.3, hB[0].x + 10, 1040, 0.34, -1).sfx(s4 + 1.7, "pluck")
+ .dart(s4 + 2.2, hB[1].x + 10, 1040, 0.3, -1).sfx(s4 + 2.56, "pluck")
+ .dart(s4 + 3.05, hB[2].x - 30, 1020, 0.3, -1).sfx(s4 + 3.41, "pluck")
+ .mood(s4 + 3.6, "happy").chips(s4 + 3.75, 2)
+ .face(s4 + 4.0, 1).move(s4 + 4.0, 880, 960, 0.4, "power2.inOut").look(s4 + 4.05, -0.8, 0.4, 0.1)
+ .look(s4 + 4.25, -0.9, -0.6, 0.1);
+wt.to(W, { srOut: 1, duration: 0.4, ease: "power2.in" }, s4 - 0.35)
+  .to(W, { ...DECAY, duration: 1.1, ease: "power2.inOut" }, s4 - 0.15)
+  .to(W, { back: 1, duration: 1.0, ease: "power2.out" }, s4 + 0.1)
+  .to(W, { decA: 1, duration: 0.3, ease: "back.out(2.5)" }, s4 + 0.45)
+  .to(W, { dec0: 1, duration: 0.3, ease: "back.out(2.5)" }, s4 + 1.66)
+  .to(W, { dec1: 1, duration: 0.3, ease: "back.out(2.5)" }, s4 + 2.52)
+  .to(W, { dec2: 1, duration: 0.3, ease: "back.out(2.5)" }, s4 + 3.37);
+
+// LOOP LINE: back to A, close. The counter ticks, loud and near. She looks up
+// at it, worried, then at you. (The back row's tags fold away as we push in.)
+F.mood(s5 - 0.5, "worried")
+ .dart(s5 - 0.4, 610, 975, 0.4, 1)
+ .say(s5, M.loop5 || [], "loop5")
+ .look(s5 + 0.4, -0.4, -1, 0.08)
+ .pivot(s5 + 1.4, "front").look(s5 + 1.45, 0, 0, 0.1);
+wt.to(W, { ...CLOSE, duration: 0.7, ease: "power3.inOut" }, s5 - 0.45)
+  .to(W, { decB: 0, duration: 0.3, ease: "power2.in" }, s5 - 0.45);
+
+// GO: fired up. The change preview slides in; she taps Publish from the left
+// so its label stays clear. A blooms back, its Decay tag pops off, sparks.
+// She dips in for a sip and flashes her throat.
+F.mood(s6 - 0.3, "party").pivot(s6 - 0.3, "side").face(s6 - 0.3, -1)
+ .move(s6 - 0.3, 250, 600, 0.3, "power2.inOut")
+ .say(s6, M.go6 || [], "go6")
+ .mood(s6 + 0.05, "determined")
+ .reach(s6 + 0.08, BTN.x, BTN.y, 0.26);
+tap(s6 + 0.36, BTN.x, BTN.y);
+F.sfx(s6 + 0.38, "ting").sfx(s6 + 0.8, "bloom")
+ .mood(s6 + 0.6, "party")
+ .move(s6 + 0.55, 600, 900, 0.25, "power2.inOut")
+ .reach(s6 + 0.85, 430, 985, 0.25)
+ .sip(s6 + 1.15, 1)
+ .flash(s6 + 1.4);
+wt.to(W, { ...GO, duration: 0.45, ease: "power2.out" }, s6 - 0.4)
+  .to(W, { card: 1, duration: 0.35, ease: "back.out(1.8)" }, s6 - 0.3)
+  .to(W, { published: 1, duration: 0.2 }, s6 + 0.36)
+  .to(W, { card: 0, duration: 0.25, ease: "power2.in" }, s6 + 0.7)
+  .set(W, { down: 0, petal: 0 }, s6 + 0.78)
+  .to(W, { A: 1, duration: 0.7, ease: "back.out(2)" }, s6 + 0.78)
+  .to(W, { decA: 0, duration: 0.25, ease: "back.in(2)" }, s6 + 0.78);
+F.sfx(s6 - 0.3, "swish");
+
+// URL: she zips off; the end card comes up with the whole spark, and the camera
+// pulls far back behind it (so she is small beside the spark). She comes in
+// sideways, perches on the spark's left arm, turns to you and stretches. Then
+// she zips off left and the card lifts on the opening shot.
+const LOGO = { x: 580, y: 760, r: 250 };
+const toWorld = (sx, sy) => ({ x: 540 + (sx - 540) / LZ, y: 960 + (sy - 960) / LZ });
+// feet on the arm's upper edge, close to its tip
+const armS = 0.06, armX = LOGO.x - LOGO.r * ((1 - armS) ** 2 + 2 * armS * (1 - armS) * 0.22), armY = LOGO.y - LOGO.r * (2 * armS * (1 - armS) * 0.22 + armS * armS);
+const feetW = toWorld(armX, armY), perch = { x: feetW.x + 4, y: feetW.y - 112 };
+const T_OFF = s6 + 1.85;
+F.pivot(T_OFF - 0.1, "side").face(T_OFF - 0.1, -1).mood(T_OFF - 0.1, "happy")
+ .exit(T_OFF, 1700, 700, 0.28);
+F.tl.set(F.S, { x: perch.x - 1150, y: perch.y - 160 }, s7 - 0.05);
+F.face(s7 - 0.05, -1)
+ .land(s7, perch.x, perch.y, 0.5)
+ .say(s7, M.url7 || [], "url7")
+ .pivot(s7 + 0.6, "front")
+ .tiltTo(s7 + 0.6, 0, 0.1)
+ .stretch(s7 + 0.85, 0.45)
+ .chips(e7 + 0.1, 1)
+ .pivot(e7 + 0.45, "side").face(e7 + 0.45, 1);
+// seated, she leans a touch toward the arm's tip so her wing stays clear of the spark
+F.tl.to(F.S, { rot: -32, duration: 0.25 }, s7 + 0.62).to(F.S, { rot: 0, duration: 0.15 }, e7 + 0.4);
+F.pose(e7 + 0.55);
+F.takeoff(e7 + 0.55)
+ .exit(e7 + 0.75, -1400, 500, 0.32);
+const T_CAM = e7 + 1.1;
+wt.to(W, { logo: 1, duration: 0.4, ease: "back.out(1.6)" }, T_OFF + 0.1)
+  .to(W, { camX: 540, camY: 960, zoom: LZ, duration: 0.4, ease: "power2.inOut" }, T_OFF + 0.05)
+  // under the card: the garden goes back to the opening (A bright, no queue)
+  .set(W, { back: 0, dec0: 0, dec1: 0, dec2: 0, decB: 1, match: 0, fly: 0 }, T_RESET)
+  .set(W, { camX: 470, camY: 1030, zoom: 1.18 }, T_CAM)
+  .to(W, { logo: 0, duration: 0.55, ease: "power2.inOut" }, T_CAM + 0.05)
+  .to(W, { ...OPEN, duration: Math.min(1.2, DUR - T_CAM - 0.1), ease: "power3.out" }, T_CAM + 0.05);
+F.sfx(T_OFF, "ting").sfx(T_CAM + 0.05, "swish");
+wt.set({}, {}, DUR);
+
+// ---------- drawing ----------
+function backFlower(f, t) {
+  if (W.back <= 0.01) return "";
+  const rise = (1 - W.back) * 50;
+  return `<g opacity="${W.back.toFixed(3)}" transform="translate(0 ${rise.toFixed(1)}) translate(${f.x} ${f.base}) scale(${f.s}) translate(${-f.x} ${-f.base})">${GARDEN.flower(f, f.hp, t, { arrow: "down" })}</g>`;
+}
+function flowerTags(t) {
+  let s = "";
+  // "AI Overviews" on A's stem, a wobble when she taps it
+  const ga = stemPt(A, W.A, t, TAG_U), wob = W.tagHit > 0 && W.tagHit < 1 ? Math.sin(W.tagHit * Math.PI * 4) * 8 * (1 - W.tagHit) : 0;
+  s += `<g transform="rotate(${wob.toFixed(1)} ${ga.x.toFixed(1)} ${ga.y.toFixed(1)})">${PROPS.tag(ga.x, ga.y, 1, "AI Overviews", C.violet)}</g>`;
+  // Flowra's decay queue: on A's stem, then on each fading page behind
+  const da = stemPt(A, W.A, t, DEC_U);
+  s += PROPS.tag(da.x, da.y, W.decA, "Decay", "#d24b4b");
+  BACK.forEach((f, i) => { const k = W["dec" + i] * W.decB * W.back; if (k > 0.01) { const h = backHead(f, f.hp); s += `<g transform="translate(${h.x} ${h.y - 132}) scale(${f.s})">${PROPS.tag(0, 0, k, "Decay", "#d24b4b")}</g>`; } });
+  return s;
+}
+// the copy of A's tag flying to the matching table row
+function flyingTag(t) {
+  if (W.fly <= 0.01 || W.match > 0.01) return "";
+  const k = W.fly, x = tagA.x + (MATCH.x - tagA.x) * k, y = tagA.y + (MATCH.y - tagA.y) * k - Math.sin(k * Math.PI) * 160;
+  return miniPill(x, y, 1, "AI Overviews", C.violet, 32 - 12 * k);
+}
+// the end card: the whole Flowra spark, in its own colour, with the address under it
+function logoCard(k) {
+  if (k <= 0.01) return "";
+  const url = "useflowra.com", tw = PROPS.measure(url, `700 72px '${FONT}'`), w = Math.max(680, tw + 140), y0 = 440, h = 820;
+  let s = `<rect width="1080" height="1920" fill="#f6efe3" opacity="${(0.93 * k).toFixed(3)}"/>`;
+  s += `<g opacity="${Math.min(1, k * 1.5).toFixed(3)}" transform="translate(540 ${y0 + h / 2}) scale(${(0.92 + 0.08 * k).toFixed(3)}) translate(-540 ${-(y0 + h / 2)})">`;
+  s += `<rect x="${540 - w / 2}" y="${y0}" width="${w}" height="${h}" rx="44" fill="#fffaf2" stroke="${INK}" stroke-width="5"/>`;
+  s += HUM.spark(LOGO.x, LOGO.y, LOGO.r, C.coral);
+  s += `<text x="540" y="${y0 + 700}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="72" fill="${INK}">${url}</text>`;
+  s += `<text x="540" y="${y0 + 764}" text-anchor="middle" font-family="${FONT}" font-weight="600" font-size="34" fill="${C.magenta}">Start free</text>`;
+  return s + `</g>`;
+}
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  F.pose(t);
+  const cam = { camX: W.camX, camY: W.camY, zoom: W.zoom };
+  const camG = `<g transform="translate(540 960) scale(${W.zoom}) translate(${-W.camX} ${-W.camY})">`;
+  const words = W.logo < 0.5; // the garden's labels hide once the end card covers them
+  let s = GARDEN.defs() + GARDEN.background(t, cam);
+  s += camG + GARDEN.ground();
+  BACK.forEach((f) => s += backFlower(f, t));
+  s += GARDEN.flower(A, W.A, t, { arrow: W.down > 0.5 ? "down" : "up", dropPetal: W.petal });
+  { const p0 = stemPt(A, 0.88, 2.95, 1); s += GARDEN.fallingPetal(A, W.A, p0.x + 40, p0.y + 30, W.petal); }
+  if (words) {
+    s += flowerTags(t);
+    const c = counterAt(t); s += counter(COUNTER.x, COUNTER.y, c.v, c.k, t, stemPt(A, W.A, t, 1));
+    s += gaPanel(t) + srPanel(t);
+    s += PROPS.reviewCard(W.card, { ...CARD, published: W.published });
+    s += flyingTag(t);
+  }
+  for (const p of TAPS) { const k = (t - p.t) / 0.4; if (k > 0 && k < 1) s += PROPS.cursor(k, p.x, p.y); }
+  { const h = stemPt(A, 1, t, 1); s += PROPS.sparks(t, h.x, h.y, s6 + 0.8, 12, 26); }
+  s += PROPS.sparks(t, MATCH.x, MATCH.y, s3 + 6.45, 6, 16);
+  s += `</g>`;
+  s += logoCard(W.logo);
+  // Floey over the card; her motion trail only while she is well inside the frame
+  const p = F.pose(t), sx = 540 + (p.x - W.camX) * W.zoom;
+  s += camG + (sx > 160 && sx < 920 ? F.trail(t) : "") + F.svg(t) + `</g>`;
+  s += GARDEN.pollen(t, cam) + GARDEN.vignette();
+  s += PROPS.captions(LINES, B, t);
+  const stage = document.getElementById("stage");
+  stage.innerHTML = s;
+  // a label half out of the frame (mid-slide) shows as a blank pill for those few frames
+  for (const e of stage.querySelectorAll("text")) {
+    const r = e.getBoundingClientRect();
+    if (r.width > 0 && (r.left < 0 || r.right > 1080 || (r.top + r.bottom) / 2 < 150)) e.setAttribute("display", "none");
+  }
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), music: Object.values(B).map((x) => x.start) });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.render(0);
+</script></body></html>

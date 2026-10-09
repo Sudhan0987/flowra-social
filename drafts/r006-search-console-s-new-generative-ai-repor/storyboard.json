@@ -1,0 +1,403 @@
+{
+ "style": "Floey's page-flower garden in soft daylight: pale cream sky, faint sun, clouds and hills kept low-contrast behind; flower A (coral, magenta and amber, left of centre around x 300) is the hero page with an 'AI Overviews' pill on its stem and a small paper impressions counter floating above it (an eye icon with digits that roll as an illustrative example, no real figures); Search Console screens are drawn in Floey's hand as paper panels with ink outlines and Space Grotesk 700, on the right around x 520 to 960, one report per panel; Floey (scale 1.35, 1.0 in wide shots) is the only character, and she and the flowers stay the brightest things in frame; subjects stay inside x 80 to 960, y 250 to 1300, and nothing goes in the caption band.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "Flower A bright, glowing and swaying, 'AI Overviews' pill on its stem, impressions counter floating above its page; Floey enters from the left edge",
+   "action": "The counter ticks up with a soft click while the camera slowly pushes in. Floey darts in from the left, stretches through the zip and brakes hard into a hover beside the flower. Her tail fans forward on the brake as follow-through.",
+   "onScreenData": "AI Overviews",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "type"
+    },
+    {
+     "at": 0.7,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.3,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 2.2,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Floey hovering beside flower A, the counter above them both",
+   "action": "Mood surprised. Floey's eyes snap up to the counter just as it ticks again, she blinks, then pivots front to face the viewer.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.4,
+     "kind": "type"
+    },
+    {
+     "at": 3.4,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "pull-out",
+   "subject": "Floey, flower A on the left, a paper panel rising on the right",
+   "action": "Floey taps the air with her beak and a 'Generative AI' panel slides up beside flower A with a little overshoot and settle. A tab row unfolds under its header: Pages, Countries, Devices, Dates. The camera pulls back just enough to hold flower, Floey and panel together.",
+   "onScreenData": "Generative AI",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "pop"
+    },
+    {
+     "at": 0.6,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 2,
+   "shot": "insert",
+   "camera": "push-in",
+   "subject": "The tab row and the table area under it, with Floey's beak coming in from the left",
+   "action": "Floey pecks the 'Pages' tab and its underline slides under it. A short table of page rows (labels only, no figures) fills in one row at a time, ticking as each row drops in.",
+   "onScreenData": "Pages",
+   "sfx": [
+    {
+     "at": 2.2,
+     "kind": "pop"
+    },
+    {
+     "at": 2.7,
+     "kind": "type"
+    },
+    {
+     "at": 3.1,
+     "kind": "type"
+    },
+    {
+     "at": 3.5,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 3.9,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Floey between the table and the counter over flower A",
+   "action": "The counter clicks and at the same moment the table's top row lights up, so the two are linked. Floey blinks and gives a quick, pleased tongue flick.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4,
+     "kind": "type"
+    },
+    {
+     "at": 4.5,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "pan",
+   "subject": "Floey, the counter above flower A, and the top row of the Generative AI table",
+   "action": "Floey shuttles back and forth between the counter and the top row's Impressions cell, twice. The camera pans gently with her and the counter ticks as she reaches it.",
+   "onScreenData": "Impressions",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.2,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.8,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 2.3,
+   "shot": "close",
+   "camera": "drift",
+   "subject": "The table's header row with Floey hovering along it",
+   "action": "Floey hovers along the header, peering past 'Impressions' for a clicks column, and finds only empty paper. She slows down, her mood turns worried, and she gives a small head shake that ruffles her feathers.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 3.3,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 4.6,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Floey perched on the top edge of the Generative AI panel",
+   "action": "Floey lands on the panel's edge with a little bounce, taps the 'Impressions' header twice with her beak, then pivots front to look straight at the viewer.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.7,
+     "kind": "step"
+    },
+    {
+     "at": 5.3,
+     "kind": "pop"
+    },
+    {
+     "at": 5.8,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "wide",
+   "camera": "whip",
+   "subject": "Both report panels changing places beside flower A, with Floey hovering in the middle",
+   "action": "Floey takes off. The Generative AI panel whips off to the left and a new 'Search results' panel slides in from the right, with a slight overshoot and settle, so it reads clearly as a different report.",
+   "onScreenData": "Search results",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.6,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 1.6,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The Search results tab row and a 'Compare' pill, with Floey's beak",
+   "action": "Floey pecks the 'Pages' tab, then reaches over and pecks a 'Compare' pill, which fills with ink when she taps it.",
+   "onScreenData": "Compare",
+   "sfx": [
+    {
+     "at": 1.9,
+     "kind": "pop"
+    },
+    {
+     "at": 2.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 3.2,
+   "shot": "medium",
+   "camera": "pull-out",
+   "subject": "A small clicks chart in the Search results panel, with flower A and its counter on the left",
+   "action": "The chart unrolls. A faint earlier-period line runs above while this period's line slopes down. As the line falls, flower A drains to beige, yellows at the edges and droops, while the counter above it keeps ticking up. The camera pulls out so both the chart and the flower are in frame.",
+   "onScreenData": "Clicks",
+   "sfx": [
+    {
+     "at": 3.5,
+     "kind": "whoosh"
+    },
+    {
+     "at": 4.3,
+     "kind": "type"
+    },
+    {
+     "at": 5.2,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 5.6,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "Floey, flower A's 'AI Overviews' tag and the top row of the Search results table",
+   "action": "Floey taps the flower's 'AI Overviews' tag, zips over and taps the table's top row, and a matching 'AI Overviews' pill snaps onto that row with a small shake: same page, both reports. Floey then plants herself in front of the drooping flower and flashes her throat bright magenta.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 5.8,
+     "kind": "pop"
+    },
+    {
+     "at": 6.4,
+     "kind": "pop"
+    },
+    {
+     "at": 6.9,
+     "kind": "slam"
+    },
+    {
+     "at": 7.6,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "Flower A drooping in the foreground with its counter, and three more fading flowers further along the garden",
+   "action": "The camera eases back to reveal more pages drooping in a row. Flower A's counter ticks once more in the foreground.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1.6,
+   "shot": "wide",
+   "camera": "pan",
+   "subject": "Floey (scale 1.0) flying past the row of fading flowers",
+   "action": "Floey shuttles left to right past each fading flower. As she passes each one, a 'Decay' pill pops onto its stem with a little overshoot, each pop panned to where it lands.",
+   "onScreenData": "Decay",
+   "sfx": [
+    {
+     "at": 2,
+     "kind": "pop"
+    },
+    {
+     "at": 2.6,
+     "kind": "pop"
+    },
+    {
+     "at": 3.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 3.8,
+   "shot": "medium",
+   "camera": "drift",
+   "subject": "The row of tagged flowers lined up like a queue, flower A still drooping in front, Floey braking at the end of the row",
+   "action": "Floey brakes and turns back, and the tagged flowers sway together like a lined-up queue. Flower A's counter ticks again.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.2,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "Floey and the counter above drooping flower A, close",
+   "action": "Floey turns back to flower A. The counter ticks once, loud and close, with the same click as the opening. Mood worried, she looks up at it, then pivots front to the viewer.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.6,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Floey, flower A and a change preview card with a Publish button",
+   "action": "Floey darts to flower A and the preview card slides in beside it. She taps Publish, the card's day counter rolls forward a few days, and flower A lifts, its colour flows back, and it glows and sways. Floey sips from it with a happy tongue flick and flashes her throat.",
+   "onScreenData": "Publish",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.6,
+     "kind": "ding"
+    },
+    {
+     "at": 1,
+     "kind": "type"
+    },
+    {
+     "at": 1.5,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "The end card: the intact Flowra spark logo with useflowra.com beneath it in a box sized to the text; Floey arriving",
+   "action": "After a beat of quiet the end card settles in. Floey flies in sideways and perches on the spark's left arm like a bird on a branch, never covering the spark. She turns to face the camera and preens once.",
+   "onScreenData": "useflowra.com",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.6,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 2.4,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "Flower A bright and glowing with its 'AI Overviews' tag and the counter above, matching the opening frame",
+   "action": "Floey darts out of frame to the left and the end card slides away. The camera eases into the exact opening framing: flower A glowing and swaying, the counter ticking with its soft click, ready to loop.",
+   "onScreenData": "AI Overviews",
+   "sfx": [
+    {
+     "at": 2.5,
+     "kind": "whoosh"
+    },
+    {
+     "at": 3,
+     "kind": "whoosh"
+    },
+    {
+     "at": 3.6,
+     "kind": "type"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1.8
+}

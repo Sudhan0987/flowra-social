@@ -1,0 +1,67 @@
+{
+ "topic": "Search Console's new Generative AI report: see how often your pages show up in AI Overviews and AI Mode, then check whether those pages still get clicks",
+ "angle": "Search Console now has a report showing how often your pages appear in AI Overviews and AI Mode. It shows only impressions, though, with no clicks. So the reel walks through the one check that matters: in the Generative AI report, open the Pages tab and find your most-seen pages. Then look up those same pages in the normal Search results report and see whether their clicks dropped. A page Google's AI shows a lot, while its clicks fall, is your first page to fix.",
+ "whyNow": "Google rolled the Generative AI performance report out to all sites worldwide on 31 August 2026. Its help page still says the rollout is in progress. Reddit threads asking \"am I getting traffic from AI?\" almost never mention it, and agencies want something concrete to show clients after this autumn's drops (the September spam update, AI Overviews).",
+ "goal": "save",
+ "audience": "In-house content and SEO leads and agency account managers who already use Search Console. Their boss or client asks \"are we showing up in Google's AI answers, and is it costing us clicks?\" and they need a 30 second way to answer from their own data.",
+ "facts": [
+  {
+   "fact": "Google announced the Search Generative AI performance reports in Search Console on 3 June 2026 and first rolled them out to a subset of websites.",
+   "source": "https://ppc.land/google-finally-gives-search-console-its-own-generative-ai-visibility-reports/"
+  },
+  {
+   "fact": "Google's help page says: \"As of August 31, 2026, we've rolled out these insights to all websites worldwide.\"",
+   "source": "https://support.google.com/webmasters/answer/16984139?hl=en"
+  },
+  {
+   "fact": "The report covers generative AI features on Google Search: AI Overviews and AI Mode. Search Labs experiments are not included.",
+   "source": "https://support.google.com/webmasters/answer/16984139?hl=en"
+  },
+  {
+   "fact": "Google defines impressions in this report as how many times links to your site were shown to a user in a generative AI feature on Google Search.",
+   "source": "https://support.google.com/webmasters/answer/16984139?hl=en"
+  },
+  {
+   "fact": "You can break the report down by Pages, Countries, Devices and Dates.",
+   "source": "https://support.google.com/webmasters/answer/16984139?hl=en"
+  },
+  {
+   "fact": "The report shows impressions and no click data.",
+   "source": "https://www.searchenginejournal.com/google-search-console-ai-reports-rolled-out-worldwide/587836/"
+  },
+  {
+   "fact": "The report has no clicks, no click-through rate and no average position.",
+   "source": "https://www.seroundtable.com/google-ai-performance-report-expands-41549.html"
+  },
+  {
+   "fact": "The Generative AI report includes data from the Web search type in the normal Performance report (Search results). AI impressions are already counted in your usual totals, so do not add the two numbers together.",
+   "source": "https://support.google.com/webmasters/answer/16984139?hl=en"
+  },
+  {
+   "fact": "If your site has not had enough impressions in Google's AI features, the report may not appear for you.",
+   "source": "https://support.google.com/webmasters/answer/16984139?hl=en"
+  },
+  {
+   "fact": "Search Engine Journal notes that the help pages still say the rollout is in progress, so some properties may not have the report yet.",
+   "source": "https://www.searchenginejournal.com/google-search-console-ai-reports-rolled-out-worldwide/587836/"
+  },
+  {
+   "fact": "Google said it is \"continuing to work with website owners to understand what insights and data would be most helpful\" and may add more metrics over time.",
+   "source": "https://ppc.land/google-finally-gives-search-console-its-own-generative-ai-visibility-reports/"
+  },
+  {
+   "fact": "The normal Search results report shows clicks, impressions, CTR and average position, and has a Pages tab.",
+   "source": "https://support.google.com/webmasters/answer/7576553?hl=en"
+  },
+  {
+   "fact": "Flowra's content decay report finds pages whose clicks and impressions are falling in Search Console data and puts them in a queue to fix. It is included on the Free plan.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "Flowra's AI traffic tracking reads visits referred by ChatGPT, Perplexity and other AI assistants from GA4. It measures visits that arrive and cannot see answers that did not send a click.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "One flower carries the whole reel. Floey hovers at a bright, glowing page-flower that has a new \"AI Overviews\" tag. A counter above it ticks up (seen, seen, seen) as the flower is shown again and again. Next to it, the clicks chart for the same flower slopes down, and the flower droops and yellows as the line falls. Floey looks from the climbing counter to the falling chart (surprised, then think). She taps the review card, which reads \"Generative AI: impressions only. Search results: clicks.\" She pulls the falling flower's tag onto the card to show it is the same page in both reports. Then she says, determined, \"Come on, let's go fix it!\" A beat later, the end card shows useflowra.com. The loop ends back on the glowing tagged flower as the counter ticks again. Keep the PAGE 1 line out; the focus is AI impressions against clicks.",
+ "pillar": "news"
+}
