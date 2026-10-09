@@ -72,6 +72,15 @@
    "madeAt": "2026-10-09T12:41:54.069Z",
    "seconds": 37,
    "reason": "Frame 03: Voice says 'Instead, ask what each page does' but Floey just hovers with an empty beak. The four blank tags she should fan out like cards never appear, so nothing on screen explains the line. A single blank tag is left lying in the grass from when she dropped it in frame 02. It reads as a stray white blob and almost touches the caption box. Frame 09: Voice says 'Flowra finds fading posts and overlaps' but only the two 'fading' labels appear. No ring links the two purple flowers leaning"
+  },
+  {
+   "id": "r006-search-console-s-new-generative-ai-repor",
+   "status": "failed",
+   "topic": "Search Console's new Generative AI report: see how often your pages show up in AI Overviews and AI Mode, then check whether those pages still get clicks",
+   "format": "countdown",
+   "madeAt": "2026-10-09T15:20:22.951Z",
+   "seconds": 41,
+   "reason": "Frame 08 (claim vs picture): the voice says Flowra's decay report queues pages whose clicks AND impressions are falling, but the reel's whole point is that flower A's impressions keep rising (counter goes 1,363 → 1,409) while its clicks fall. Tagging flower A 'Decay' tells viewers the report would catch exactly the page it, by its own description, would not. Either change the line, for example to 'pages whose clicks are falling', or don't put the Decay tag on flower A. Also confirm with a source"
   }
  ]
 }
