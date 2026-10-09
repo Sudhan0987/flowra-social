@@ -1,0 +1,649 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Public+Sans:wght@800&display=swap" rel="stylesheet">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/world/garden.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="lines.js"></script>
+<style>html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#f7f4ee}svg{display:block}</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r005: "Old posts: leave, refresh, merge or cut, by what they do". Format: expert-contrast.
+// One crowded stretch of five page-flowers, each wearing a calendar date
+// sticker on its stem (new prop 1). Floey judges them by what they do, not
+// their date: LEAVE the oldest (2016, still bright), REFRESH the drooping one
+// (a rewrite; she starts to swap its date, stops, and the colour climbs slowly
+// while a day counter runs), MERGE the two violet flowers on one topic (the
+// weaker one's petals go to the stronger; a "301" signpost, new prop 2, goes on
+// the bare stem), CUT the beige 2022 page nobody needs (its flat clicks chart
+// sits right above it). The tags hang centred under each stem, so the payoff
+// reads as one tidy row. The loop pans to the next stretch (same layout, new
+// dates) and ends on the opening composition: Floey hovering with a blank tag.
+const C = HUM.colors, M = window.MOUTHS || {};
+const LINES = window.LINES;
+const INK = C.ink, FONT = "Space Grotesk";
+const GAP = { hook0: 0.45, body1: 0.35, body2: 0.6, body3: 0.3, body4: 0.4, body5: 0.4, payoff6: 0.5, loop7: 0.3, go8: 0.75, url9: 0.6 };
+const { B, DUR } = PROPS.timing(LINES, M, GAP);
+const b = B;
+const clamp = (v, a = 0, z = 1) => Math.max(a, Math.min(z, v));
+const lerp = (a, z, k) => a + (z - a) * k;
+const ease = (k) => k * k * (3 - 2 * k);
+
+// ---------- the bed ----------
+const BASE = 1720, P = 1500, SC = 0.8, TIE = 1606; // P: the next stretch; SC: flower size; TIE: where tags hang
+const FL = {
+  L: { x: 165, base: BASE, h: 680, pal: [C.coral, C.amber, C.magenta], dir: -1, seed: 3, year: "2016", next: "2014", su: 0.58 },
+  X: { x: 350, base: BASE, h: 430, pal: [C.magenta, C.coral, C.amber], dir: 0.15, seed: 17, year: "2022", next: "2023", su: 0.5 },
+  R: { x: 530, base: BASE, h: 600, pal: [C.amber, C.coral, C.amber], dir: 0.25, seed: 7, year: "2019", next: "2018", su: 0.55 },
+  M1: { x: 705, base: BASE, h: 500, pal: [C.violet, C.indigo, C.violet], dir: 0.4, seed: 11, year: "2020", next: "2021", su: 0.5 },
+  M2: { x: 905, base: BASE, h: 620, pal: [C.violet, C.indigo, C.violet], dir: -0.4, seed: 13, year: "2021", next: "2017", su: 0.55 },
+};
+const OPEN = { L: 1, X: 0, R: 0.15, M1: 0.4, M2: 0.55 }; // the crowded stretch, as it opens (and as the next one looks)
+const ORDER = ["X", "L", "M2", "R", "M1"]; // draw order, back to front (the oldest's date always in front)
+const TAG_KEYS = ["L", "X", "R", "M2"]; // the four tags, in the row's left-to-right order
+const TAGS = { L: ["LEAVE", C.indigo], X: ["CUT", C.deep], R: ["REFRESH", C.coral], M2: ["MERGE", C.violet] };
+
+// camera: the wide is the opening frame; the end frame is the same, one stretch on
+const WIDE = { camX: 540, camY: 1280, zoom: 1 };
+const HOME = { x: 360, y: 1050 }; // Floey's hover in the opening frame
+
+// a label's text is only drawn when it sits wholly inside the frame (the
+// checker reads half-cut text as overflow); a close-up (zoom 2+) crops on purpose
+let CAM = WIDE, OX = 0;
+const inFrame = (wx0, wx1) => { if (CAM.zoom >= 2) return true; const a = 540 + (wx0 + OX - CAM.camX) * CAM.zoom, z = 540 + (wx1 + OX - CAM.camX) * CAM.zoom; return a >= 4 && z <= 1076; };
+
+const W = { ...WIDE, bgk: 0,
+  hL: OPEN.L, hX: OPEN.X, hR: OPEN.R, hM1: OPEN.M1, hM2: OPEN.M2,
+  swayL: 0, glowL: 0, dropL: 1, joyL: 0, peel: 0, src: 0,
+  sM2: 1, poured: 0, signK: 0, flingX: 0, cutFall: 0,
+  chart: 0, dip: 0, chartX: 0, cal: 0, calPop: 0,
+  drop: 0, row: 0, fly: 0,
+  flipL: 0, flipX: 0, flipR: 0, flipM2: 0, wave: 0,
+  fadeA: 0, fadeB: 0, bump2: 0, overlap: 0, newTag: 0, logo: 0 };
+
+// lean of a flower (the same lean and sway GARDEN.flower draws)
+function leanOf(f, h, t) {
+  const sway = Math.sin(t * 1.25 + f.seed) * 1.6 * h + Math.sin(t * 2.9 + f.seed * 2) * 0.5 * h;
+  return (1 - h) * 26 * f.dir + sway;
+}
+function rotAbout(x, y, cx, cy, deg) {
+  const a = deg * Math.PI / 180, dx = x - cx, dy = y - cy;
+  return { x: cx + dx * Math.cos(a) - dy * Math.sin(a), y: cy + dx * Math.sin(a) + dy * Math.cos(a) };
+}
+// a point u of the way up a flower's stem (u 1 = the head), in world units, before any outer move
+function ptOn(f, h, t, u) {
+  const p = rotAbout(f.x, f.base - f.h * u, f.x, f.base, leanOf(f, h, t));
+  return { x: f.x + (p.x - f.x) * SC, y: f.base + (p.y - f.base) * SC };
+}
+const headAt = (f, h, t) => ptOn(f, h, t, 1);
+const tieU = (f) => (f.base - TIE) / (f.h * SC);
+
+// GARDEN.flower, plus two things this reel needs: petals that can be taken
+// away (the weaker flower in MERGE) and no arrow (the flower nobody needs)
+const petalPath = (len, wid) => `M0,0 C${wid},${-len * 0.25} ${wid * 0.9},${-len * 0.85} ${wid * 0.18},${-len} Q0,${-len * 0.9} ${-wid * 0.18},${-len} C${-wid * 0.9},${-len * 0.85} ${-wid},${-len * 0.25} 0,0Z`;
+function flowerX(f, health, t, o = {}) {
+  const mix = GARDEN.mix, fade = GARDEN.fade;
+  const h = clamp(health), dir = f.dir, seed = f.seed;
+  const lean = leanOf(f, h, t), gone = o.gone || [], pageK = o.page ?? 1;
+  const hx = f.x, hy = f.base - f.h, stemCol = mix("#5c8a4f", "#a39257", (1 - h) * 0.9), leafCol = mix("#76a865", "#b8a86a", (1 - h) * 0.85);
+  let s = `<ellipse cx="${f.x}" cy="${f.base + 4}" rx="70" ry="14" fill="${INK}" opacity=".08"/><g transform="rotate(${lean} ${f.x} ${f.base})">`;
+  const top = gone.length >= 14 ? hy + 20 : hy + 60;
+  s += `<path d="M${hx},${f.base} C${hx - 8},${f.base - f.h * 0.3} ${hx + 8},${f.base - f.h * 0.65} ${hx},${top}" stroke="${INK}" stroke-width="20" fill="none" stroke-linecap="round"/><path d="M${hx},${f.base} C${hx - 8},${f.base - f.h * 0.3} ${hx + 8},${f.base - f.h * 0.65} ${hx},${top}" stroke="${stemCol}" stroke-width="11" fill="none" stroke-linecap="round"/>`;
+  [[-1, 0.3, 0], [1, 0.5, 1]].forEach(([side, at, i]) => {
+    const ly = f.base - f.h * at, droop = (1 - h) * 38 * -side + Math.sin(t * 1.6 + seed + i) * 3 * h;
+    s += `<g transform="translate(${hx} ${ly}) rotate(${droop}) scale(${side} 1)"><path d="M0,0 C-30,-6 -70,-30 -96,-64 C-50,-62 -14,-36 0,0Z" fill="${leafCol}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/><path d="M-4,-4 C-30,-18 -56,-34 -82,-56" stroke="${mix(leafCol, "#ffffff", 0.35)}" stroke-width="3" fill="none" stroke-linecap="round"/></g>`;
+  });
+  for (const ring of [0, 1]) for (let i = 0; i < 7; i++) {
+    if (gone.includes(ring * 7 + i)) continue;
+    const a = (i / 7) * 360 + (ring ? 0 : 180 / 7), down = Math.cos((a * Math.PI) / 180);
+    const droopRot = (1 - h) * 34 * Math.sign(Math.sin((a * Math.PI) / 180) || 1) * Math.max(0, -down * 0.4 + 0.6);
+    const base = f.pal[i % f.pal.length], col = fade(ring ? base : mix(base, INK, 0.18), h);
+    const len = (ring ? 150 : 166) * (0.82 + h * 0.18), wid = (ring ? 60 : 54) * (0.8 + h * 0.2) * (1 - (1 - h) * 0.25);
+    s += `<g transform="translate(${hx} ${hy}) rotate(${a + droopRot})"><path d="${petalPath(len, wid)}" fill="${col}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>`;
+    if (h < 0.5) s += `<path d="M${-wid * 0.5},${-len * 0.7} q${wid * 0.25},6 ${wid * 0.5},0" stroke="${INK}" stroke-width="2.5" fill="none" opacity="${(0.5 - h) * 1.2}"/>`;
+    s += `</g>`;
+  }
+  if (pageK > 0.02) {
+    const paper = mix("#fffaf2", "#eadbb8", (1 - h) * 1.1), lineGrey = mix("#d9d2c6", "#c9b99a", 1 - h);
+    s += `<g transform="translate(${hx} ${hy}) scale(${pageK}) rotate(${(1 - h) * 6 * dir}) translate(${-hx} ${-hy})"><rect x="${hx - 62}" y="${hy - 74}" width="124" height="150" rx="14" fill="${paper}" stroke="${INK}" stroke-width="6"/>`;
+    if (h < 0.55) { const c = (0.55 - h) * 60; s += `<path d="M${hx + 62 - c},${hy - 74} L${hx + 62},${hy - 74 + c} L${hx + 62 - c},${hy - 74 + c}Z" fill="${mix(paper, INK, 0.12)}" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>`; }
+    [0, 1, 2, 3].forEach((i) => s += `<rect x="${hx - 40}" y="${hy - 46 + i * 28}" width="${[80, 64, 76, 50][i]}" height="10" rx="5" fill="${i === 0 || i === 3 ? fade(f.pal[i ? 1 : 0], h) : lineGrey}"/>`);
+    if (o.arrow !== "none") { const up = o.arrow ? o.arrow === "up" : h > 0.6, k = up ? -1 : 1; s += `<path d="M${hx + 34},${hy + 40 - 13 * k} l0,${26 * k} m-10,${-10 * k} l10,${10 * k} l10,${-10 * k}" stroke="${up ? "#2f9e62" : "#d24b4b"}" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`; }
+    s += `</g>`;
+  }
+  return s + `</g>`;
+}
+
+// ---------- the two new props ----------
+// 1. a calendar date sticker wrapped round a stem, measured to its year. peel lifts its right half.
+const ST_FS = 40, ST_H = 76;
+const stickerW = (year) => PROPS.measure(year, `700 ${ST_FS}px '${FONT}'`) + 34;
+function sticker(x, y, year, rot = 0, peel = 0) {
+  const w = stickerW(year), h = ST_H, x0 = -w / 2, tw = w - 34;
+  let s = `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rot.toFixed(1)})">`;
+  s += `<g transform="translate(${x0} 0) rotate(${(-peel * 26).toFixed(1)}) translate(${-x0} 0)">`;
+  s += `<rect x="${x0}" y="${-h / 2}" width="${w}" height="${h}" rx="11" fill="#fffaf2" stroke="${INK}" stroke-width="5"/>`;
+  s += `<path d="M${x0 + 2.5},${-h / 2 + 9} H${-x0 - 2.5}" stroke="${C.coral}" stroke-width="12"/><path d="M${x0 + 2.5},${-h / 2 + 16} H${-x0 - 2.5}" stroke="${INK}" stroke-width="3"/>`;
+  s += `<circle cx="${x0 + 17}" cy="${-h / 2 + 1}" r="4.5" fill="${INK}"/><circle cx="${-x0 - 17}" cy="${-h / 2 + 1}" r="4.5" fill="${INK}"/>`;
+  if (inFrame(x - tw / 2, x + tw / 2)) s += `<text x="0" y="${h / 2 - 10}" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="${ST_FS}" fill="${INK}">${year}</text>`;
+  return s + `</g></g>`;
+}
+// 2. a little arrow signpost, "301": this page now points to its neighbour
+function signpost(x, y, k, rot = 0) {
+  if (k <= 0.01) return "";
+  const fs = 34, tw = PROPS.measure("301", `700 ${fs}px '${FONT}'`), w = tw + 72, h = 60, x0 = -24;
+  let s = `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rot.toFixed(1)}) scale(${k.toFixed(3)})">
+    <path d="M0,26 V-40" stroke="${INK}" stroke-width="16" stroke-linecap="round"/><path d="M0,26 V-40" stroke="#c9a46a" stroke-width="7" stroke-linecap="round"/>
+    <path d="M${x0},${-40 - h / 2} H${x0 + w - 28} L${x0 + w},-40 L${x0 + w - 28},${-40 + h / 2} H${x0} Z" fill="#fffaf2" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/>`;
+  if (inFrame(x + x0 + 18, x + x0 + 22 + tw)) s += `<rect x="${x0 + 14}" y="${-40 - h / 2 + 8}" width="${tw + 14}" height="${h - 16}" fill="none"/><text x="${x0 + 21}" y="${-40 + fs * 0.36}" font-family="${FONT}" font-weight="700" font-size="${fs}" fill="${INK}">301</text>`;
+  return s + `</g>`;
+}
+// a judgement tag hanging from (x, y): a short string, then a pill with its
+// eyelet above the text (blank paper until it flips to its label)
+const TS = 1.12;
+const tagW = (label) => Math.max(150, PROPS.measure(label, `700 34px '${FONT}'`) + 64);
+function hangTag(x, y, k, label, col, flip = 1, swing = 0, string = true) {
+  if (k <= 0.01) return "";
+  const shown = flip >= 0.5 ? label : "", w = tagW(shown), sx = Math.abs(Math.cos(flip * Math.PI));
+  const visible = inFrame(x - (w / 2) * TS * k, x + (w / 2) * TS * k);
+  let s = `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${swing.toFixed(1)}) scale(${(TS * k).toFixed(3)})">`;
+  if (string) s += `<path d="M0,0 V30" stroke="${INK}" stroke-width="3.5"/>`;
+  s += `<g transform="scale(${sx.toFixed(3)} 1)"><rect x="${-w / 2}" y="22" width="${w}" height="72" rx="30" fill="${shown ? col : "#fffaf2"}" stroke="${INK}" stroke-width="5"/>`;
+  if (shown && visible) s += `<text x="0" y="78" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="34" fill="#fff">${shown}</text>`;
+  s += `<circle cx="0" cy="34" r="6.5" fill="#fffaf2" stroke="${INK}" stroke-width="4"/></g>`;
+  return s + `</g>`;
+}
+// the same blank tag, in Floey's beak (drawn in her own units, hanging from the beak tip)
+const BEAK_TAG = `<g transform="rotate(-6)"><path d="M0,0 L4,14" stroke="${INK}" stroke-width="3.5"/><g transform="translate(6 10) scale(.6)"><rect x="-75" y="22" width="150" height="72" rx="30" fill="#fffaf2" stroke="${INK}" stroke-width="6"/><circle cx="0" cy="34" r="6.5" fill="#fffaf2" stroke="${INK}" stroke-width="4"/></g></g>`;
+const BEAK_PETAL = `<g transform="rotate(170)"><path d="${petalPath(90, 40)}" fill="${GARDEN.fade(C.violet, 0.5)}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/></g>`;
+// where "Google said so" comes from (screen space)
+function sourceCard(k) {
+  if (k <= 0.01) return "";
+  const q = "“That's not a thing!”", who = "Google Search Liaison, Aug 2023";
+  const w = Math.max(PROPS.measure(q, `700 44px '${FONT}'`), PROPS.measure(who, `600 30px '${FONT}'`)) + 80, h = 146;
+  return `<g opacity="${Math.min(1, k * 2)}" transform="translate(540 300) scale(${0.85 + 0.15 * k})"><rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="30" fill="#fffaf2" stroke="${INK}" stroke-width="6"/><text x="0" y="-6" text-anchor="middle" font-family="${FONT}" font-weight="700" font-size="44" fill="${INK}">${PROPS.esc(q)}</text><text x="0" y="44" text-anchor="middle" font-family="${FONT}" font-weight="600" font-size="30" fill="${C.magenta}">${who}</text></g>`;
+}
+
+// ---------- Floey's performance, cued to the voice ----------
+const F = FLOEY.create({ x: HOME.x, y: HOME.y, facing: 1, scale: 1.35, mood: "think" });
+const wt = gsap.timeline({ paused: true });
+wt.set(W, { ...WIDE }, 0);
+
+// HOOK: the crowded stretch, every stem dated. She darts down to the oldest
+// sticker; push in close on "2016". The flower answers with a big healthy sway
+// and a glow, and her head tilts. On "Google said so", the source pops up.
+const h0 = b.hook0.start, he = b.hook0.end;
+const stL = ptOn(FL.L, 1, 1.3, FL.L.su), readSpot = { x: stL.x + stickerW("2016") / 2 + 96 + 155, y: stL.y - 22 };
+wt.to(W, { zoom: 1.03, duration: 1.0, ease: "sine.inOut" }, 0)
+  .to(W, { camX: 300, camY: 1400, zoom: 2.0, duration: 0.9, ease: "power3.inOut" }, 1.15)
+  .to(W, { swayL: 1, duration: 1.2, ease: "none" }, 2.4)
+  .to(W, { glowL: 1, duration: 0.45, ease: "power2.out" }, 2.85)
+  .to(W, { camX: 472, camY: 1310, zoom: 1.12, duration: 0.8, ease: "power3.inOut" }, 3.55)
+  .to(W, { src: 1, duration: 0.4, ease: "back.out(1.8)" }, 3.85)
+  .to(W, { glowL: 0, duration: 0.6, ease: "power1.in" }, he + 0.2);
+F.chips(0.2, 1)
+ .look(0.45, -0.5, 0.7, 0.12)
+ .say(h0, M.hook0 || [], "hook0")
+ .dart(0.95, readSpot.x, readSpot.y, 0.34, 1)
+ .look(1.4, -0.2, 0.2, 0.1).mood(1.4, "think")
+ .sfx(2.4, "rustle", { n: 3 }).sfx(2.85, "bloom")
+ .mood(2.6, "surprised").look(2.6, 0, -1, 0.08)
+ .tiltTo(3.1, 16, 0.2).mood(3.25, "think")
+ .tiltTo(3.75, 0, 0.15)
+ .move(3.7, 470, 1250, 0.5, "power2.inOut")
+ .sfx(3.85, "pluck").look(3.95, 0.2, -1, 0.1);
+F.tl.to(F.S, { squint: 0.55, duration: 0.2 }, 1.45).to(F.S, { squint: 0, duration: 0.12 }, 2.55);
+
+// BODY1: "the usual move". She lets the blank tag fall, clamps the stem in her
+// beak and yanks the oldest flower half out (roots show, the glow snuffs out).
+// Its clicks chart drops with a thud. Wide eyes.
+const s1 = b.body1.start;
+const T_DROP = s1 - 0.25;
+const gripL = ptOn(FL.L, 1, s1 + 0.4, 0.4), LIFT = 200;
+F.mood(s1 - 0.4, "worried").look(s1 - 0.4, 0, 0, 0.1)
+ .chips(T_DROP - 0.04, 1)
+ .say(s1, M.body1 || [], "body1")
+ .reach(s1 + 0.05, gripL.x, gripL.y, 0.3)
+ .sfx(s1 + 0.45, "tk")
+ .mood(s1 + 0.5, "determined");
+const T_GRIP_L = s1 + 0.5;
+const gp = (() => { F.pose(s1 + 0.55); return { x: F.S.x, y: F.S.y }; })();
+F.tl.to(F.S, { x: gp.x + 18, y: gp.y + 10, rot: 10, duration: 0.18, ease: "power1.in" }, s1 + 0.6)
+    .to(F.S, { x: gp.x + 12, y: gp.y - LIFT, rot: -8, duration: 0.42, ease: "power2.out" }, s1 + 0.8)
+    .to(F.S, { rot: 3, duration: 0.6, ease: "elastic.out(1,.4)" }, s1 + 1.22);
+F.sfx(s1 + 0.8, "flick").sfx(s1 + 0.84, "rustle", { n: 3 })
+ .sfx(s1 + 2.0, "tap").sfx(s1 + 2.02, "tk")
+ .look(s1 + 2.05, 0.9, -0.8, 0.08).mood(s1 + 2.05, "surprised")
+ .mood(s1 + 3.0, "worried");
+wt.to(W, { camX: 340, camY: 1340, zoom: 1.2, duration: 0.7, ease: "power2.inOut" }, s1 - 0.45)
+  .to(W, { src: 0, duration: 0.3, ease: "power2.in" }, s1 + 0.15)
+  .to(W, { drop: 1, duration: 0.6, ease: "power2.in" }, T_DROP)
+  .to(W, { chart: 1, duration: 0.8, ease: "power1.out" }, s1 + 0.4)
+  .to(W, { hL: 0.7, duration: 0.3 }, s1 + 0.85)
+  .to(W, { dip: 1, duration: 0.35, ease: "power3.in" }, s1 + 1.7);
+
+// BODY2: she lets go. The flower drops home with a bounce; its glow and its
+// clicks come back. Throat flash, then four blank tags pop up in a row (the
+// dropped one springs back first). In the pause they fly to their stems.
+const s2 = b.body2.start, T_REL_L = s2 - 0.25;
+const ROWP = [212, 400, 588, 776].map((x) => ({ x, y: 790 }));
+F.chips(T_REL_L, 1).sfx(T_REL_L, "tk").mood(T_REL_L, "determined")
+ .move(s2 + 0.1, 490, 1090, 0.45, "power2.inOut")
+ .say(s2, M.body2 || [], "body2")
+ .pivot(s2 + 0.45, "front").look(s2 + 0.5, 0, 0, 0.1)
+ .flash(s2 + 0.55)
+ .sfx(s2 + 0.85, "swish");
+[0, 1, 2, 3].forEach((i) => F.sfx(s2 + 0.9 + i * 0.13, i === 3 ? "ting" : "pluck"));
+F.look(s2 + 1.0, 0, -1, 0.1).chips(b.body2.end - 0.1, 2)
+ .pivot(b.body2.end + 0.1, "side").face(b.body2.end + 0.1, 1);
+wt.to(W, { dropL: 0, duration: 0.5, ease: "bounce.out" }, T_REL_L)
+  .to(W, { hL: 1, duration: 0.35, ease: "power2.out" }, s2)
+  .to(W, { dip: 0, duration: 0.6, ease: "back.out(1.6)" }, s2 + 0.1)
+  .to(W, { chart: 0, duration: 0.25 }, s2 + 0.6)
+  .to(W, { camX: 480, camY: 1270, zoom: 1.1, duration: 0.6, ease: "power2.inOut" }, s2 + 0.1)
+  .to(W, { row: 1, duration: 0.6, ease: "none" }, s2 + 0.85)
+  .to(W, { fly: 1, duration: 0.6, ease: "none" }, b.body2.end + 0.05);
+F.sfx(b.body2.end + 0.08, "swish").sfx(b.body2.end + 0.5, "tap");
+F.sfx(s2 + 0.1, "bloom");
+
+// BODY3 (LEAVE): she sips from the oldest flower (still bright) and taps its
+// tag: LEAVE. (REFRESH): pan to the drooping one, tap: REFRESH. A real rewrite:
+// she works on its page (taps, sparks). "Not a new date": she starts to peel
+// its sticker, stops, shakes her head and presses it back. Then the days run
+// and the colour climbs slowly, only halfway.
+const s3 = b.body3.start;
+const hdL = headAt(FL.L, 1, s3);
+const tapOf = (k, dx = 22) => ({ x: FL[k].x + dx, y: TIE + 52 });
+F.pivot(s3 - 0.4, "side").mood(s3 - 0.4, "happy")
+ .reach(s3 - 0.35, hdL.x + 70, hdL.y - 4, 0.3)
+ .say(s3, M.body3 || [], "body3")
+ .sip(s3 + 0.02, 2, 0.24)
+ .reach(s3 + 0.68, tapOf("L").x, tapOf("L").y, 0.28)
+ .sfx(s3 + 0.98, "tap").sfx(s3 + 1.0, "ting").chips(s3 + 1.1, 1)
+ .move(s3 + 1.06, tapOf("L").x + 260, TIE - 230, 0.22, "power2.out");
+wt.to(W, { camX: 250, camY: 1360, zoom: 1.25, duration: 0.6, ease: "power2.inOut" }, s3 - 0.5)
+  .to(W, { flipL: 1, duration: 0.3, ease: "power2.inOut" }, s3 + 0.98)
+  .to(W, { joyL: 1, duration: 1.0, ease: "none" }, s3 + 1.05);
+const hdR = headAt(FL.R, 0.3, s3 + 2.2), stR = ptOn(FL.R, 0.3, s3 + 3.2, FL.R.su), stRw = stickerW(FL.R.year);
+const rTaps = [[-34, -26], [26, 6], [-12, 36]].map(([dx, dy]) => ({ x: hdR.x + dx, y: hdR.y + dy }));
+F.mood(s3 + 1.2, "determined")
+ .reach(s3 + 1.38, tapOf("R").x, tapOf("R").y, 0.3)
+ .sfx(s3 + 1.7, "tap").sfx(s3 + 1.72, "ting")
+ .mood(s3 + 1.9, "think");
+rTaps.forEach((p, i) => F.reach(s3 + 1.95 + i * 0.3, p.x, p.y, 0.16).sfx(s3 + 2.12 + i * 0.3, "tap").sfx(s3 + 2.15 + i * 0.3, "shimmer"));
+// she comes at the sticker from the right, so her head never hides the date
+F.move(s3 + 2.85, stR.x + stRw / 2 + 175, stR.y - 50, 0.22, "power2.out").face(s3 + 2.85, 1)
+ .reach(s3 + 3.08, stR.x + stRw / 2 - 6, stR.y - 24, 0.18)
+ .sfx(s3 + 3.3, "tk")
+ .mood(s3 + 3.45, "surprised")
+ .shake(s3 + 3.55).mood(s3 + 3.6, "determined")
+ .sfx(s3 + 3.95, "tap")
+ .move(s3 + 4.05, stR.x + 250, stR.y - 160, 0.35, "power2.inOut")
+ .look(s3 + 4.2, 0.6, -1, 0.1).mood(s3 + 4.2, "happy");
+wt.to(W, { camX: 480, camY: 1360, zoom: 1.2, duration: 0.5, ease: "power2.inOut" }, s3 + 1.2)
+  .to(W, { flipR: 1, duration: 0.3, ease: "power2.inOut" }, s3 + 1.7)
+  .to(W, { hR: 0.21, duration: 0.25, ease: "power2.out" }, s3 + 2.14)
+  .to(W, { hR: 0.27, duration: 0.25, ease: "power2.out" }, s3 + 2.44)
+  .to(W, { hR: 0.32, duration: 0.25, ease: "power2.out" }, s3 + 2.74)
+  .to(W, { peel: 1, duration: 0.2, ease: "power2.out" }, s3 + 3.3)
+  .to(W, { peel: 0, duration: 0.18, ease: "power2.in" }, s3 + 3.85)
+  .to(W, { calPop: 1, duration: 0.3, ease: "back.out(2)" }, s3 + 3.6)
+  .to(W, { cal: 1, duration: 0.85, ease: "power1.inOut" }, s3 + 3.7)
+  .to(W, { hR: 0.55, duration: 0.85, ease: "power1.inOut" }, s3 + 3.7)
+  .to(W, { calPop: 0, duration: 0.25, ease: "power2.in" }, s3 + 5.0);
+F.sfx(s3 + 3.63, "pluck").sfx(s3 + 3.75, "rustle", { n: 4 });
+
+// BODY4: MERGE. Two violet pages on one topic lean on each other. She takes
+// the weaker one's petals to the stronger one; the rest pour over with the
+// page, and the stronger one swells and glows. A "301" signpost springs up on
+// the bare stem, pointing to its neighbour. She taps the tag: MERGE.
+const s4 = b.body4.start;
+const m1h = headAt(FL.M1, OPEN.M1, s4);
+const pickA = { x: m1h.x - 62, y: m1h.y - 70 }, pickB = { x: m1h.x - 84, y: m1h.y + 30 };
+const m2top = (h, t) => headAt(FL.M2, h, t);
+const d1 = m2top(0.6, s4 + 0.55), d2 = m2top(0.75, s4 + 1.5);
+F.pivot(s4 - 0.4, "side").mood(s4 - 0.4, "determined")
+ .say(s4, M.body4 || [], "body4")
+ .reach(s4 - 0.2, pickA.x, pickA.y, 0.28)
+ .pick(s4 + 0.12, BEAK_PETAL, "petal1")
+ .move(s4 + 0.42, d1.x - 40 + 150, d1.y - 190, 0.3, "power2.inOut")
+ .toss(s4 + 0.72, 1)
+ .reach(s4 + 1.0, pickB.x, pickB.y, 0.24)
+ .pick(s4 + 1.28, BEAK_PETAL, "petal2")
+ .move(s4 + 1.54, d2.x - 40 + 150, d2.y - 190, 0.28, "power2.inOut")
+ .toss(s4 + 1.82, 1)
+ .mood(s4 + 2.1, "happy")
+ .look(s4 + 2.4, 0.6, 0.6, 0.1)
+ .sfx(s4 + 2.5, "pluck").sfx(s4 + 2.55, "tk");
+const T_LAND1 = s4 + 0.89 + 0.32, T_LAND2 = s4 + 1.99 + 0.32, T_POUR = s4 + 2.0;
+const tapM2 = { x: FL.M2.x - 24, y: BASE - (BASE - TIE) * 1.1 + 52 };
+F.move(s4 + 2.3, tapM2.x - 320, tapM2.y - 140, 0.35, "power2.inOut").face(s4 + 2.3, -1)
+ .reach(s4 + 2.75, tapM2.x, tapM2.y, 0.28).sfx(s4 + 3.05, "tap").sfx(s4 + 3.07, "ting").chips(s4 + 3.2, 2);
+wt.to(W, { camX: 700, camY: 1360, zoom: 1.2, duration: 0.6, ease: "power2.inOut" }, s4 - 0.1)
+  .to(W, { hM2: 0.7, sM2: 1.03, duration: 0.3, ease: "back.out(2)" }, T_LAND1)
+  .to(W, { hM2: 0.82, sM2: 1.05, duration: 0.3, ease: "back.out(2)" }, T_LAND2 - 0.1)
+  .to(W, { poured: 1, duration: 0.6, ease: "power1.in" }, T_POUR)
+  .to(W, { hM1: 0.85, duration: 0.5, ease: "power2.out" }, T_POUR + 0.35)
+  .to(W, { hM2: 1, sM2: 1.1, duration: 0.45, ease: "back.out(2.2)" }, T_POUR + 0.55)
+  .to(W, { signK: 1, duration: 0.45, ease: "back.out(2.6)" }, s4 + 2.45)
+  .to(W, { flipM2: 1, duration: 0.3, ease: "power2.inOut" }, s4 + 3.05);
+F.sfx(T_LAND1, "pluck").sfx(T_LAND1 + 0.02, "ting").sfx(T_LAND2 - 0.1, "pluck")
+ .sfx(T_POUR, "rustle", { n: 4 }).sfx(T_POUR + 0.55, "bloom").sfx(s4 + 2.45, "brrt");
+
+// BODY5: CUT. A beige page, no arrow; its own clicks chart, right above it,
+// lies flat at zero. She looks around: nobody needs it. She grips it, plucks
+// it out with a pop and flicks it away. Its tag drops onto the soil: CUT.
+const s5 = b.body5.start;
+const xGrip = ptOn(FL.X, 0, s5 + 1.2, 0.7);
+F.mood(s5 - 0.35, "think").pivot(s5 - 0.35, "side")
+ .move(s5 - 0.3, 480, 1215, 0.45, "power2.inOut").face(s5 - 0.3, 1)
+ .say(s5, M.body5 || [], "body5")
+ .look(s5 + 0.15, -0.5, 0.6, 0.1)
+ .lookAround(s5 + 0.45, 0.8)
+ .mood(s5 + 1.05, "determined")
+ .reach(s5 + 1.1, xGrip.x, xGrip.y, 0.26)
+ .sfx(s5 + 1.38, "tk");
+const T_GRIP_X = s5 + 1.4, T_FLING = s5 + 1.95;
+const xp = (() => { F.pose(s5 + 1.42); return { x: F.S.x, y: F.S.y }; })();
+F.tl.to(F.S, { x: xp.x + 16, y: xp.y + 8, rot: 12, duration: 0.14, ease: "power1.in" }, s5 + 1.44)
+    .to(F.S, { x: xp.x + 30, y: xp.y - 150, rot: -14, duration: 0.24, ease: "power3.out" }, s5 + 1.6)
+    .to(F.S, { rot: 0, duration: 0.4, ease: "elastic.out(1,.4)" }, s5 + 2.05);
+F.sfx(s5 + 1.6, "pluck").sfx(s5 + 1.63, "tap")
+ .tiltTo(T_FLING - 0.12, 20, 0.1).tiltTo(T_FLING, -30, 0.07).tiltTo(T_FLING + 0.1, 0, 0.3)
+ .sfx(T_FLING, "flick").sfx(T_FLING + 0.03, "swish")
+ .sfx(s5 + 2.3, "tk").sfx(s5 + 2.48, "ting")
+ .mood(s5 + 2.4, "happy").chips(s5 + 2.55, 1);
+wt.to(W, { camX: 340, camY: 1360, zoom: 1.15, duration: 0.65, ease: "power2.inOut" }, s5 - 0.45)
+  .to(W, { chartX: 1, duration: 0.5, ease: "power1.out" }, s5 + 0.05)
+  .to(W, { flingX: 1, duration: 0.5, ease: "power2.in" }, T_FLING)
+  .to(W, { cutFall: 1, duration: 0.42, ease: "bounce.out" }, T_FLING + 0.02)
+  .to(W, { flipX: 1, duration: 0.3, ease: "power2.inOut" }, s5 + 2.45)
+  .to(W, { chartX: 0, duration: 0.3 }, b.body5.end + 0.1);
+
+// PAYOFF: pull back to the opening framing: crowded then, tidy now. The four
+// tags make one row; they bounce in turn. Floey lands on the oldest flower,
+// preens and turns to you, proud.
+const s6 = b.payoff6.start, hdL6 = headAt(FL.L, 1, s6 + 0.9);
+const perchL = { x: hdL6.x + 6, y: hdL6.y - 74 * SC - 128 };
+F.mood(s6 - 0.5, "happy").face(s6 - 0.45, 1)
+ .move(s6 - 0.45, 560, 900, 0.5, "power2.inOut")
+ .say(s6, M.payoff6 || [], "payoff6")
+ .land(s6 + 0.1, perchL.x, perchL.y, 0.7)
+ .preen(s6 + 0.95, 0.75)
+ .pivot(b.payoff6.end - 0.5, "front").mood(b.payoff6.end - 0.5, "hello")
+ .flash(b.payoff6.end - 0.35);
+wt.to(W, { ...WIDE, duration: 1.0, ease: "power3.inOut" }, s6 - 0.35)
+  .to(W, { wave: 1, duration: 1.0, ease: "none" }, s6 + 0.7);
+TAG_KEYS.forEach((k, i) => F.sfx(s6 + 0.7 + i * 0.22, "pluck"));
+F.sfx(s6 - 0.35, "swish");
+
+// LOOP: she hops off and darts right; the camera pans one stretch along the
+// bed to a crowded stretch laid out like the first, with new dates. "fading"
+// pops over two drooping pages; the two violet pages bump: same topic twice.
+const s7 = b.loop7.start, home2 = { x: HOME.x + P, y: HOME.y };
+F.pivot(s7 - 0.2, "side").face(s7 - 0.2, -1).mood(s7 - 0.2, "determined")
+ .takeoff(s7 - 0.1)
+ .say(s7, M.loop7 || [], "loop7")
+ .dart(s7 + 0.3, home2.x - 70, home2.y - 110, 0.6, -1)
+ .face(s7 + 1.1, 1).mood(s7 + 1.1, "think")
+ .look(s7 + 1.35, -0.2, 1, 0.1)
+ .look(s7 + 1.8, 0.3, 0.6, 0.1)
+ .look(s7 + 2.4, 0.9, 0.5, 0.1)
+ .look(s7 + 3.4, 0, 0, 0.1).mood(s7 + 3.4, "determined");
+wt.to(W, { camX: WIDE.camX + P, bgk: 1, duration: 0.9, ease: "power3.inOut" }, s7 + 0.2)
+  .to(W, { fadeA: 1, duration: 0.3, ease: "back.out(2.5)" }, s7 + 1.35)
+  .to(W, { fadeB: 1, duration: 0.3, ease: "back.out(2.5)" }, s7 + 1.8)
+  .to(W, { bump2: 1, duration: 0.8, ease: "none" }, s7 + 2.3)
+  .to(W, { overlap: 1, duration: 0.3, ease: "back.out(2.5)" }, s7 + 2.45);
+F.sfx(s7 + 0.25, "swish").sfx(s7 + 1.35, "pluck").sfx(s7 + 1.8, "pluck").sfx(s7 + 2.35, "tk").sfx(s7 + 2.45, "ting");
+
+// GO: to you, fired up. A blank tag pops up beside her; she snaps it, loops
+// the loop (wings blurring, sparks), and swoops back to her opening hover.
+const s8 = b.go8.start, e8 = b.go8.end;
+F.pivot(s8 - 0.2, "front").mood(s8 - 0.2, "party")
+ .say(s8, M.go8 || [], "go8")
+ .chips(e8 - 0.05, 2)
+ .pivot(e8 + 0.02, "side").face(e8 + 0.02, -1).mood(e8 + 0.02, "determined");
+F.pick(e8 + 0.12, BEAK_TAG, "tag");
+const LC = { x: home2.x + 60, y: home2.y - 30 }, LR = 95, T_LOOP = e8 + 0.42, D_LOOP = 0.5;
+F.tl.to(F.S, { rot: -360, duration: D_LOOP, ease: "none" }, T_LOOP).set(F.S, { rot: 0 }, T_LOOP + D_LOOP);
+for (let i = 1; i <= 10; i++) {
+  const a = (i / 10) * Math.PI * 2;
+  F.tl.to(F.S, { x: LC.x - Math.sin(a) * LR, y: LC.y + LR - (1 - Math.cos(a)) * LR, duration: D_LOOP / 10, ease: "none" }, T_LOOP + (i - 1) * D_LOOP / 10);
+}
+F.sfx(T_LOOP, "flutter").sfx(T_LOOP + 0.05, "swish").sfx(T_LOOP + D_LOOP, "shimmer")
+ .move(T_LOOP + D_LOOP + 0.05, home2.x, home2.y, 0.45, "power2.inOut")
+ .face(T_LOOP + D_LOOP + 0.3, 1).mood(T_LOOP + D_LOOP + 0.3, "happy");
+wt.to(W, { newTag: 1, duration: 0.25, ease: "back.out(2.5)" }, e8 - 0.2)
+  .to(W, { fadeA: 0, fadeB: 0, overlap: 0, duration: 0.25 }, s8 - 0.1)
+  .to(W, { bump2: 0, duration: 0.01 }, s8 + 0.2);
+F.sfx(e8 - 0.2, "pluck");
+
+// URL: back in her opening hover with the tag; a wink, ready to judge. The
+// address card sits in the sky, then clears before the loop frame.
+const s9 = b.url9.start;
+F.say(s9, M.url9 || [], "url9")
+ .look(s9 + 0.5, 0, 0, 0.1)
+ .wink(s9 + 0.85)
+ .mood(b.url9.end + 0.15, "think")
+ .look(b.url9.end + 0.25, -0.5, 0.7, 0.12)
+ .chips(b.url9.end + 0.05, 1);
+wt.to(W, { logo: 1, duration: 0.35, ease: "back.out(1.6)" }, s9 - 0.15)
+  .to(W, { logo: 0, duration: 0.35, ease: "power2.in" }, DUR - 0.6);
+wt.set({}, {}, DUR);
+
+// she holds the blank tag in the opening, until she lets it fall
+const poseBase = F.pose;
+F.pose = (t) => { const p = poseBase(t); if (t < T_DROP && p.view === "side") p.hold = BEAK_TAG; return p; };
+
+// ---------- flowers pulled by the beak ----------
+// while she grips a stem the flower follows her beak tip (it can rise, never sink)
+const beakD = (t0, t) => { const a = F.beakTip(t0), z = F.beakTip(t); return { x: z[0] - a[0], y: Math.min(0, z[1] - a[1]) }; };
+let relL = null, relX = null;
+function outerL(t) {
+  const sw = Math.sin(W.swayL * Math.PI * 3) * (1 - W.swayL) * 9 + Math.sin(W.joyL * Math.PI * 2) * (1 - W.joyL) * 5;
+  let d = { x: 0, y: 0 };
+  if (t >= T_GRIP_L && t < T_REL_L) d = beakD(T_GRIP_L, t);
+  else if (t >= T_REL_L && W.dropL > 0) { relL ??= beakD(T_GRIP_L, T_REL_L); d = { x: relL.x * W.dropL, y: relL.y * W.dropL }; }
+  return { dx: d.x, dy: d.y, rot: sw, cx: FL.L.x, cy: BASE, s: 1 };
+}
+function outerX(t) {
+  let d = { x: 0, y: 0 }, rot = 0;
+  if (t >= T_GRIP_X && t < T_FLING) d = beakD(T_GRIP_X, t);
+  else if (t >= T_FLING) { relX ??= beakD(T_GRIP_X, T_FLING); const k = W.flingX; d = { x: relX.x - 820 * k, y: relX.y - Math.sin(k * Math.PI) * 240 + k * k * 160 }; rot = -230 * k; }
+  return { dx: d.x, dy: d.y, rot, cx: FL.X.x, cy: BASE - 180, s: 1 };
+}
+const outerOf = (k, t, live) => !live ? null : k === "L" ? outerL(t) : k === "X" ? outerX(t) : k === "M2" ? { dx: 0, dy: 0, rot: 0, cx: 0, cy: 0, s: W.sM2 } : null;
+const wrapOuter = (f, o, svg) => !o ? svg : `<g transform="translate(${o.dx.toFixed(1)} ${o.dy.toFixed(1)}) rotate(${o.rot.toFixed(2)} ${o.cx} ${o.cy}) translate(${f.x} ${BASE}) scale(${o.s}) translate(${-f.x} ${-BASE})">${svg}</g>`;
+const mapOuter = (f, o, p) => { if (!o) return p; let q = { x: f.x + (p.x - f.x) * o.s, y: BASE + (p.y - BASE) * o.s }; q = rotAbout(q.x, q.y, o.cx, o.cy, o.rot); return { x: q.x + o.dx, y: q.y + o.dy }; };
+
+// ---------- drawing ----------
+const tossT = (n) => F.events.filter((e) => e.type === "tossed")[n]?.t ?? 1e9;
+function stretch(t, ox, st, live) {
+  OX = ox;
+  let s = `<g transform="translate(${ox} 0)">`;
+  // soil where a flower was pulled
+  if (live) {
+    const oL = outerL(t);
+    if (oL.dy < -4) s += `<ellipse cx="${FL.L.x}" cy="${BASE + 4}" rx="58" ry="16" fill="#8a6a48" stroke="${INK}" stroke-width="4"/>`;
+    if (t >= T_GRIP_X && outerX(t).dy < -4 || t >= T_FLING) s += `<ellipse cx="${FL.X.x}" cy="${BASE + 4}" rx="62" ry="16" fill="#8a6a48" stroke="${INK}" stroke-width="4"/><ellipse cx="${FL.X.x}" cy="${BASE}" rx="34" ry="8" fill="#6f5238"/>`;
+  }
+  for (const k of ORDER) {
+    const f = FL[k], h = st[k], o = outerOf(k, t, live);
+    if (k === "X" && live && W.flingX >= 1) continue;
+    let g = "";
+    if (k === "M1") {
+      // the weaker page: petals go one by one, then the rest pour over
+      const gone = [];
+      if (live) {
+        const pickedAt = (id) => F.events.find((e) => e.id === id)?.t ?? 1e9;
+        if (t >= pickedAt("petal1")) gone.push(8);
+        if (t >= pickedAt("petal2")) gone.push(11);
+        if (W.poured > 0) for (let i = 0; i < 14; i++) if (!gone.includes(i) && W.poured * 14 > ((i * 5) % 14)) gone.push(i);
+      }
+      g = flowerX(f, h, t, { gone, page: live ? 1 - clamp(W.poured * 1.6) : 1 });
+    } else if (k === "X") g = flowerX(f, h, t, { arrow: "none" });
+    else g = GARDEN.flower(f, h, t);
+    g = `<g transform="translate(${f.x} ${BASE}) scale(${SC}) translate(${-f.x} ${-BASE})">${g}</g>`;
+    // the oldest flower's glow swells when it answers her
+    if (k === "L" && live && W.glowL > 0.01) { const hd = headAt(f, h, t); g = `<circle cx="${hd.x}" cy="${hd.y}" r="${170 + 50 * W.glowL}" fill="url(#gglow)" opacity="${W.glowL}"/>` + g; }
+    // roots, when it is pulled
+    if (o && (k === "L" || k === "X") && o.dy < -4) g = `<g stroke="${INK}" stroke-width="5" fill="none" stroke-linecap="round"><path d="M${f.x},${BASE - 4} q-14,${Math.min(80, -o.dy * 0.4)} -34,${Math.min(140, -o.dy * 0.7)}"/><path d="M${f.x},${BASE - 4} q4,${Math.min(90, -o.dy * 0.5)} 6,${Math.min(160, -o.dy * 0.85)}"/><path d="M${f.x},${BASE - 4} q16,${Math.min(70, -o.dy * 0.35)} 36,${Math.min(120, -o.dy * 0.6)}"/></g><ellipse cx="${f.x}" cy="${BASE + 2}" rx="26" ry="14" fill="#8a6a48" stroke="${INK}" stroke-width="4"/>` + g;
+    // the date sticker wraps the stem and moves with it
+    const sp = ptOn(f, h, t, f.su);
+    let stk = sticker(sp.x, sp.y, live ? f.year : f.next, leanOf(f, h, t), k === "R" && live ? W.peel : 0);
+    if (o) { // text visibility follows where the sticker really is
+      const q = mapOuter(f, o, sp); stk = sticker(sp.x, sp.y, live ? f.year : f.next, leanOf(f, h, t), 0);
+      if (!inFrame(q.x - 50, q.x + 50)) stk = stk.replace(/<text[^>]*>[^<]*<\/text>/g, "");
+    }
+    g = wrapOuter(f, o, g + stk);
+    // overlap in the next stretch: the two violet pages bump together
+    if (!live && (k === "M1" || k === "M2") && W.bump2 > 0) {
+      const bk = Math.sin(clamp(W.bump2 * 2.2) * Math.PI) * (1 - W.bump2 * 0.6);
+      g = `<g transform="rotate(${(k === "M1" ? 5 : -5) * bk} ${f.x} ${BASE})">${g}</g>`;
+    }
+    s += g;
+  }
+  if (live) {
+    // the 301 signpost on the weaker stem, pointing at its neighbour
+    const sp = ptOn(FL.M1, W.hM1, t, 0.86);
+    s += signpost(sp.x, sp.y, W.signK, leanOf(FL.M1, W.hM1, t) * 0.5);
+    // petals pouring from the weaker page into the stronger one
+    if (W.poured > 0.01 && W.poured < 0.999) {
+      const a = headAt(FL.M1, OPEN.M1, t), z = mapOuter(FL.M2, outerOf("M2", t, true), headAt(FL.M2, W.hM2, t));
+      for (let i = 0; i < 12; i++) {
+        const k = clamp(W.poured * 1.6 - (i % 6) * 0.1); if (k <= 0 || k >= 1) continue;
+        const ang = i * 0.52 + 0.3, sx = a.x + Math.cos(ang) * 75, sy = a.y + Math.sin(ang) * 75;
+        const x = lerp(sx, z.x, ease(k)), y = lerp(sy, z.y, ease(k)) - Math.sin(k * Math.PI) * 120;
+        s += `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${ang * 57 + k * 260}) scale(${(1 - k * 0.5) * SC})" opacity="${1 - k * 0.3}"><path d="${petalPath(90, 40)}" fill="${GARDEN.fade(i % 2 ? C.indigo : C.violet, 0.5)}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/></g>`;
+      }
+    }
+    // the two petals she carried, falling from her beak into the stronger page
+    [0, 1].forEach((n) => {
+      const t0 = tossT(n), k = (t - t0) / 0.32; if (k < 0 || k >= 1) return;
+      const [bx, by] = F.beakTip(t0), z = mapOuter(FL.M2, outerOf("M2", t, true), headAt(FL.M2, W.hM2, t));
+      const x = lerp(bx, z.x, k), y = lerp(by, z.y, k * k);
+      s += `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${170 + k * 200}) scale(${1.1 - k * 0.4})"><path d="${petalPath(90, 40)}" fill="${GARDEN.fade(C.violet, 0.5)}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/></g>`;
+    });
+    s += tags(t);
+  } else {
+    // what Flowra finds in the next stretch: two fading pages and one overlap
+    const hR2 = headAt(FL.R, st.R, t), hX2 = headAt(FL.X, st.X, t), m1 = headAt(FL.M1, st.M1, t), m2 = headAt(FL.M2, st.M2, t);
+    const pill = (x, y, k, text, col) => { const svg = PROPS.tag(x, y, k, text, col), w = tagW(text) / 2; return inFrame(x - w, x + w) ? svg : svg.replace(/<text[^>]*>[^<]*<\/text>/g, ""); };
+    s += pill(hR2.x + 10, hR2.y - 150, W.fadeA, "fading", "#d24b4b");
+    s += pill(hX2.x + 30, hX2.y - 140, W.fadeB, "fading", "#d24b4b");
+    s += pill((m1.x + m2.x) / 2 + 10, Math.min(m1.y, m2.y) - 150, W.overlap, "overlap", C.violet);
+  }
+  OX = 0;
+  return s + `</g>`;
+}
+
+// the four tags: the dropped one, the row of four, then each on its stem
+const TAG_FLOOR = { x: 445, y: 1640 };
+function tags(t) {
+  let s = "";
+  const T_FLY = b.body2.end + 0.05;
+  TAG_KEYS.forEach((k, i) => {
+    const [label, col] = TAGS[k], flip = W["flip" + k], f = FL[k], h = W["h" + k];
+    const o = outerOf(k, t, true);
+    let tie = mapOuter(f, o, ptOn(f, h, t, tieU(f)));
+    if (k === "X" && t >= T_FLING) {
+      // the cut page's tag falls onto the cleared soil
+      const from = mapOuter(f, { ...outerX(T_FLING), rot: 0 }, ptOn(f, 0, T_FLING, tieU(f))), floor = { x: FL.X.x - 10, y: BASE - 82 };
+      tie = { x: lerp(from.x, floor.x, W.cutFall), y: lerp(from.y, floor.y, W.cutFall) };
+    }
+    const rp = ROWP[i];
+    const rk = clamp(W.row * 4 - i * 0.8); // the dropped tag first, then three pop
+    const flyK = clamp(W.fly * 1.4 - i * 0.13);
+    if (W.row <= 0.001) {
+      // before the row: only the dropped tag, falling from her beak and lying on the soil
+      if (i === 0 && t >= T_DROP) {
+        const [bx, by] = F.beakTip(T_DROP), k2 = W.drop;
+        const x = lerp(bx + 8, TAG_FLOOR.x, k2) + Math.sin(k2 * 7) * 26 * (1 - k2), y = lerp(by + 10, TAG_FLOOR.y, k2);
+        s += hangTag(x, y, 0.62 + 0.2 * k2, "", "", 0, lerp(-8, -4, k2) + Math.sin(k2 * 9) * 22 * (1 - k2), false);
+      }
+      return;
+    }
+    if (flyK <= 0) {
+      if (i === 0) {
+        const x = lerp(TAG_FLOOR.x, rp.x, ease(rk)), y = lerp(TAG_FLOOR.y, rp.y, ease(rk)) - Math.sin(rk * Math.PI) * 120;
+        s += hangTag(x, y, 0.82 + 0.18 * rk, "", "", 0, lerp(-4, 0, rk), false);
+      } else {
+        const pk = rk, pop = pk <= 0 ? 0 : pk < 0.6 ? (pk / 0.6) * 1.15 : 1.15 - 0.15 * ((pk - 0.6) / 0.4);
+        s += hangTag(rp.x, rp.y, pop, "", "", 0, Math.sin(t * 5 + i) * 3, false);
+      }
+      return;
+    }
+    // flying from the row to its stem, then hanging with a swing that settles
+    const fe = ease(flyK), land = T_FLY + (0.6 / 1.4) * (1 + i * 0.13);
+    const x = lerp(rp.x, tie.x, fe), y = lerp(rp.y, tie.y, fe) - Math.sin(flyK * Math.PI) * 160;
+    let sw = flyK >= 1 ? Math.sin((t - land) * 9) * 14 * Math.exp(-(t - land) * 2.6) : 0;
+    const fl = W["flip" + k]; if (fl > 0 && fl < 1) sw += Math.sin(fl * Math.PI) * 10;
+    if (k === "X" && t >= T_FLING) sw = lerp(sw, -5, W.cutFall);
+    const wk = clamp(W.wave * 4 - i * 0.7), bump = Math.sin(wk * Math.PI) * 0.14;
+    const hanging = flyK >= 1 && !(k === "X" && t >= T_FLING);
+    if (hanging) s += `<ellipse cx="${tie.x.toFixed(1)}" cy="${tie.y.toFixed(1)}" rx="13" ry="6" fill="none" stroke="${INK}" stroke-width="4"/>`;
+    s += hangTag(x, y, 1 + bump, label, col, fl, sw, hanging);
+  });
+  return s;
+}
+
+// the clicks charts: the oldest flower's (still earning), and the cut one's (flat at zero)
+const CH1 = { x: 430, y: 880, w: 300, h: 230 };
+const CH2 = { x: 220, y: 880, w: 300, h: 210 };
+function charts(t) {
+  let s = "";
+  if (W.chart > 0.01) {
+    const base = [0.52, 0.58, 0.5, 0.62, 0.56, 0.64, 0.6];
+    const pts = base.map((v, i) => i < 4 ? v : lerp(v, 0.04, W.dip * Math.min(1, (i - 3) / 2)));
+    s += PROPS.chart(W.chart, CH1.x, CH1.y, { title: "Clicks", points: pts, w: CH1.w, h: CH1.h, color: W.dip > 0.3 ? "#d24b4b" : "#2f9e62" });
+  }
+  if (W.chartX > 0.01) {
+    const hx = headAt(FL.X, 0, t);
+    s += `<path d="M${CH2.x + CH2.w / 2},${CH2.y + CH2.h + 6} L${hx.x + 6},${hx.y - 96}" stroke="${INK}" stroke-width="4" stroke-dasharray="4 10" stroke-linecap="round" opacity="${0.55 * Math.min(1, W.chartX * 3)}"/>`;
+    s += PROPS.chart(W.chartX, CH2.x, CH2.y, { title: "Clicks", points: [0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02], w: CH2.w, h: CH2.h, color: "#a8957c" });
+  }
+  // the day counter beside the refreshed page
+  if (W.calPop > 0.01) { const cx = 690, cy = 930; s += `<g transform="translate(${cx} ${cy}) scale(${(0.56 * W.calPop).toFixed(3)}) translate(${-cx} ${-cy})">${PROPS.calendar(Math.max(0.34, W.cal), cx, cy, 14, "DAY")}</g>`; }
+  return s;
+}
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  F.pose(t);
+  const cam = { camX: W.camX, camY: W.camY, zoom: W.zoom };
+  CAM = cam;
+  const bgCam = { camX: W.camX - P * W.bgk, camY: W.camY, zoom: W.zoom };
+  let s = GARDEN.defs() + GARDEN.background(t, bgCam);
+  s += `<g transform="translate(540 960) scale(${W.zoom}) translate(${-W.camX} ${-W.camY})">`;
+  for (const k of [-1, 0, 1, 2]) s += `<g transform="translate(${k * P} 0)">${GARDEN.ground()}</g>`;
+  s += stretch(t, P, OPEN, false);
+  s += stretch(t, 0, { L: W.hL, X: W.hX, R: W.hR, M1: W.hM1, M2: W.hM2 }, true);
+  s += charts(t);
+  // sparks: the refresh taps, the merge bloom, the cut, the loop-the-loop
+  rTaps.forEach((p, i) => s += PROPS.sparks(t, p.x, p.y, s3 + 2.14 + i * 0.3, 6, 18));
+  { const z = mapOuter(FL.M2, outerOf("M2", t, true), headAt(FL.M2, 1, t)); s += PROPS.sparks(t, z.x, z.y, T_POUR + 0.55, 12, 26); }
+  s += PROPS.sparks(t, FL.X.x, BASE - 50, s5 + 2.45, 8, 22);
+  s += PROPS.sparks(t, LC.x, LC.y + LR, T_LOOP + 0.1, 10, 24) + PROPS.sparks(t, LC.x, LC.y, T_LOOP + 0.35, 10, 24);
+  // the blank tag that pops up for her to snap
+  const pk = F.events.find((e) => e.id === "tag");
+  if (W.newTag > 0.01 && pk && t < pk.t) { const [bx, by] = F.beakTip(pk.t); s += hangTag(bx + 6, by + 4, W.newTag * 0.68, "", "", 0, -6, false); }
+  s += F.trail(t) + F.svg(t);
+  s += `</g>`;
+  s += GARDEN.pollen(t, bgCam) + GARDEN.vignette();
+  s += sourceCard(W.src);
+  s += PROPS.captions(LINES, B, t);
+  s += PROPS.endCard(W.logo, "useflowra.com", "Start free", 330);
+  document.getElementById("stage").innerHTML = s;
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), music: Object.values(B).map((x) => x.start) });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.render(0);
+</script></body></html>

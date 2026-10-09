@@ -1,0 +1,94 @@
+{
+ "title": "Old posts: leave, refresh, merge or cut, by what they do",
+ "beats": [
+  {
+   "role": "hook",
+   "say": "Deleting your posts just because they're old won't lift your site. Google said so.",
+   "emotion": "ominous",
+   "visual": "First frame: wide shot of one long, overgrown flower bed under a pale, soft sun and hills. The flowers are crowded and tangled, and every one wears a small calendar date sticker on its stem (new prop 1). Floey hovers in the foreground with one blank pill tag in her beak. As the line starts she darts to the front flower, which is bright, swaying and wearing the oldest sticker. She squints at the sticker. The flower gives a big healthy sway and glows brighter, and Floey's head tilts."
+  },
+  {
+   "role": "body",
+   "say": "The usual move: cut the oldest, even posts still earning clicks.",
+   "emotion": "worried",
+   "visual": "One action. Floey grips the stem of the bright flower with the oldest sticker and tugs it halfway out of the soil. Its glow snuffs out, and a small clicks chart beside the bed dips down with a soft thud."
+  },
+  {
+   "role": "body",
+   "say": "Instead, ask what each page does.",
+   "emotion": "determined",
+   "visual": "Floey lets go. The flower drops back into the soil, its glow comes back and the chart line recovers. She flashes her throat and fans out four blank pill tags like a tiny hand of cards."
+  },
+  {
+   "role": "body",
+   "say": "Still earning? Leave it. Fading? Refresh it: a real rewrite, not a new date.",
+   "emotion": "bright",
+   "visual": "The same bright flower with the oldest sticker: Floey sips from it with a tongue flick and hangs a LEAVE tag on the stem, sticker and all. The camera pans to the next flower, which droops and yellows, with a small down arrow. Floey hangs a REFRESH tag and preens its petals carefully. Its date sticker stays exactly as it was. A small day counter beside it ticks from 1 to 14 while colour slowly climbs halfway up the stem and the flower starts to lift."
+  },
+  {
+   "role": "body",
+   "say": "Same topic twice? Merge into the stronger one and redirect.",
+   "emotion": "determined",
+   "visual": "Two half-faded flowers of the same colour lean on each other. Floey plucks the weaker one's petals and drops them onto the stronger one, which swells and glows. A small arrow signpost (new prop 2) pops up on the bare stem, pointing at its neighbour. Floey hangs a MERGE tag on the stronger flower."
+  },
+  {
+   "role": "body",
+   "say": "No clicks, no links, nobody needs it? Cut it.",
+   "emotion": "determined",
+   "visual": "A beige flower at zero health with no arrow. Its little clicks chart lies flat at zero, and Floey glances around: no signpost anywhere points to it. She plucks it out with a pop and flicks it off screen. A CUT tag hangs on a small stake in the neat, empty soil."
+  },
+  {
+   "role": "payoff",
+   "say": "Tag every page by what it does, not its date.",
+   "emotion": "proud",
+   "visual": "The camera pulls back to the same framing as the opening wide shot, so this stretch reads as a clear before and after: tangled then, tidy now. Four tags sit in a clean row at the front: LEAVE on the glowing oldest flower, REFRESH on the lifted flower, MERGE on the big glowing flower beside its signposted stem, and CUT on the cleared soil. Floey lands on the LEAVE flower, preens a wing and turns to the viewer."
+  },
+  {
+   "role": "loop",
+   "say": "Flowra finds fading posts and overlaps. The rest of your blog is waiting.",
+   "emotion": "worried",
+   "visual": "Floey hops off and darts along the bed. The camera follows her past the tidy row to the next stretch: overgrown and tangled, every flower wearing a date sticker, laid out just like the opening stretch. Small down arrows pop up over two drooping flowers, and a thin ring links two leaning flowers of the same colour."
+  },
+  {
+   "role": "go",
+   "say": "Come on, let's go tag them!",
+   "emotion": "excited",
+   "visual": "Floey takes one blank tag in her beak, does a quick loop in the air with blurring wings and a trail of pollen sparkles, and swoops to the foreground of the overgrown stretch."
+  },
+  {
+   "role": "url",
+   "say": "useflowra.com.",
+   "emotion": "playful",
+   "visual": "Floey settles into a hover in the foreground with the blank tag in her beak, the tangled, stickered bed behind her and the bright flower with the oldest sticker at the front. She winks at the viewer, ready to judge. This frame matches the reel's first frame."
+  }
+ ],
+ "loopNote": "The last frame shows Floey hovering in the foreground with a blank tag in her beak, in front of an overgrown, date-stickered stretch laid out exactly like the opening stretch. The first frame is that same composition. On replay she darts to the front flower and reads its sticker, so the reel restarts as 'judge this one', not 'yank it again'. The new stretch is drawn to match the opening, so the replay looks like her moving on to the next part of the bed.",
+ "caption": "Before you delete half your blog, save this.\n\nGoogle's Search Liaison in 2023, on deleting posts because Google supposedly dislikes \"old\" content: \"That's not a thing!\" John Mueller added that deleting something only because it's old won't magically improve your SEO.\n\nSo tag each old post by what it does, not by its date:\nLEAVE: it's still earning clicks.\nREFRESH: it used to earn and is fading. Do a real rewrite, not a new date.\nMERGE: two posts on one topic. Fold the weaker into the stronger and 301 redirect it.\nCUT: no clicks, no links, nobody needs it. A 404 or 410 is fine. Low views alone aren't the test: Mueller says a page can still help the people who do read it.\n\nTry it on your 20 oldest posts this week. Flowra's content decay report finds the fading ones from your Search Console data (a basic version is free), and the Pro cannibalization reports find posts competing for the same searches.",
+ "hashtags": [
+  "#seo",
+  "#contentmarketing",
+  "#blogging",
+  "#contentstrategy",
+  "#googlesearchconsole"
+ ],
+ "id": "r005-old-blog-posts-leave-refresh-merge-or-cu",
+ "format": "expert-contrast",
+ "goal": "save",
+ "topic": "Old blog posts: leave, refresh, merge or cut. How to pick for each page, based on what it does and not on how old it is",
+ "editorNotes": [
+  "Too many new props. The studio allows one or two per reel, but this script adds four: the date sticker on every stem, the arrow signpost, the stake that holds the CUT tag, and the 'thin ring' linking two flowers in the loop beat. Keep at most two (the sticker and the signpost are the ones the story needs). Hang the CUT tag on something that already exists, such as the bare stem stub or a tag lying flat on the soil. Show the overlap in the loop with flowers of the same colour leaning together, not a ring.",
+  "The REFRESH beat implies a result the brief doesn't support. A day counter going from 1 to 14 while the flower's colour climbs tells the viewer a refresh recovers in about two weeks. The brief's 14 days is Flowra's settling window for a before-and-after comparison, not a recovery time, and the voice never mentions it, so it's also unexplained. Cut the counter. Show the rewrite (Floey working on the flower, health rising) with no timeline.",
+  "Beat 4 has too much happening for one spoken line. In about 4 seconds it has a sip, a tongue flick, the LEAVE tag, a pan, the REFRESH tag, petal tending, an unchanged sticker and a counter. At phone speed the viewer can't follow two decisions plus a 'date stays the same' detail. Split it into two beats (LEAVE / REFRESH) with a gap, or cut it down to one clear action per decision.",
+  "'Not a new date' is the key point of REFRESH, but the only visual for it is 'its date sticker stays exactly as it was'. A tiny unchanged sticker means nothing at phone size, because nothing happens. Show the mistake and the fix: for example, Floey starts to swap the sticker, stops, and works on the flower instead. Or drop the date detail from the visual and let the caption carry it.",
+  "Floey can't draw 'fans out four blank pill tags like a tiny hand of cards'. She has a beak and no hands, and pick() holds one item. Have the four tags pop up in a row beside her (with sparks or a ting), or have her carry one tag at a time.",
+  "(polish) Beak continuity. In the hook she holds a blank tag in her beak, then in beat 2 she grips and tugs a stem, which she'd also do with her beak. Say where the tag goes (she drops it, or she starts without it) so the animator doesn't have to work it out.",
+  "(polish) 'The usual move: cut the oldest, even posts still earning clicks.' This sounds clipped when spoken ('even posts still earning clicks' has no verb). It also states as fact that most people prune by date, which no fact in the brief backs up. It also drops direct address. Make it about the viewer's own urge and give it a full spoken sentence, e.g. that your first instinct is to cut the oldest, even the ones still bringing clicks.",
+  "(polish) MERGE: 'merge into the stronger one and redirect' is unclear about which URL redirects to which, and it says nothing about the redirect being permanent. That's what the Google fact is based on. Say 'redirect the weaker one there' or '301 the weaker one to it' so the steps actually work if the viewer follows them.",
+  "(polish) CUT: the brief's reassurance that a 404 is fine and doesn't hurt the rest of the site is the thing this audience is scared of, and it's missing. Also, using 'no signpost points to it' to stand for 'no links' is a muddle, because the signpost already means a redirect in the MERGE beat. Show 'no links' differently, or rely on the flat chart and the zero-health flower.",
+  "(polish) 'Preens its petals' isn't a behaviour Floey can do. preen() is her grooming her own feathers. For tending the flower, use reach() taps on the petals with sfx, so the animator doesn't misuse preen.",
+  "(polish) Product line wording and emotion. 'Fading posts and overlaps' is vague when spoken. 'Posts that compete for the same searches' says what the cannibalization report does. 'Finds' slightly overstates the cannibalization reports, which 'help find' candidates. The 'worried' delivery also sinks the energy between a proud payoff and an excited sign-off. Use warm or determined instead.",
+  "(polish) The before and after doesn't add up. The opening bed is crowded with tangled flowers, but only five are handled (leave, refresh, the merge pair, cut). When the camera pulls back to the same wide framing as the opening, say what happened to the rest, or open with just these five crowded together so the tidy shot looks believable.",
+  "(polish) Loop and end card. The goal is a save and the rules call for the address on its own. If PROPS.endCard appears on the url line, it covers the frame that is supposed to match the first frame. Say whether the end card is shown and how it gets out of the way before the loop frame."
+ ],
+ "template": "../drafts/r005-old-blog-posts-leave-refresh-merge-or-cu/scene.html"
+}

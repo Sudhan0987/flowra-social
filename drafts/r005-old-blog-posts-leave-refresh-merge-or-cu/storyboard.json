@@ -1,0 +1,287 @@
+{
+ "style": "Floey's page-flower garden in HUM colours: one long flower bed on cream ground under a pale, soft sun, clouds and hills (always paler than the flowers). Floey (scale 1.35, 1.0 in wide shots) is the only character. Two new props, both ink outline 6 px on paper #fffaf2 in Space Grotesk 700 and sized with PROPS.measure: small calendar date stickers on every stem, and a little arrow signpost. Judgement tags (LEAVE, REFRESH, MERGE, CUT) are PROPS.tag pills. The opening stretch and the next stretch share the same layout so the reel loops. Everything stays inside x 80 to 960, y 250 to 1300.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "drift",
+   "subject": "An overgrown bed of six crowded, tangled flowers spread from x 140 to 940 (base y 1300). Every stem wears a small calendar date sticker. Floey hovers in the left foreground (x 300, y 720) holding one blank pill tag in her beak. Pale sun and hills sit soft behind.",
+   "action": "Floey hovers and blinks while the blank tag swings in her beak. At 1.0 s she dips back to wind up, then darts right to the front flower (x 620), with a stretch and a brake.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.7,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "The bright front flower at x 620 and its oldest date sticker at stem height (y 1050). Floey stays beside it at beak level.",
+   "action": "The camera pushes in on the sticker as Floey squints at it. At 2.5 s the flower gives a big, healthy sway and follows through, then its glow swells brighter. Floey's head tilts, puzzled.",
+   "onScreenData": "2016",
+   "sfx": [
+    {
+     "at": 2.5,
+     "kind": "boing"
+    },
+    {
+     "at": 3.4,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Floey and the bright flower with the oldest sticker. A small clicks chart prop sits just off to the right of the bed.",
+   "action": "Floey clamps the stem in her beak, leans back to wind up and tugs. The flower rises halfway out of the soil with its roots showing, and its glow snuffs out.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.7,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 2,
+   "shot": "medium",
+   "camera": "pan",
+   "subject": "The camera pans right. The half-pulled flower stays at the left of frame (x 280) and the clicks chart is at the right (x 700, y 800).",
+   "action": "The chart line dips sharply down and lands with a soft thud. Floey, still gripping the stem, glances at the chart with wide eyes.",
+   "onScreenData": "Clicks",
+   "sfx": [
+    {
+     "at": 2.6,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Floey, the flower with the oldest sticker and the clicks chart, all in one frame.",
+   "action": "Floey lets go. The flower drops back into the soil with a little bounce, its glow returns and the chart line climbs back up. Floey flashes her throat shimmer, then fans out four blank pill tags in front of her like a tiny hand of cards.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.15,
+     "kind": "bonk"
+    },
+    {
+     "at": 1.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "The bright flower with the oldest sticker, and Floey at its blossom.",
+   "action": "Floey sips from the flower with a quick tongue flick, then drops down and hangs a LEAVE tag on the stem right next to the old sticker. The flower sways happily.",
+   "onScreenData": "LEAVE",
+   "sfx": [
+    {
+     "at": 1.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 1.9,
+   "shot": "medium",
+   "camera": "pan",
+   "subject": "The camera pans right to the next flower (x 560), which is drooping and yellowed with a small down arrow over it. It has its own date sticker and a small day counter beside it.",
+   "action": "Floey hangs a REFRESH tag and carefully preens its petals with her beak. The date sticker never changes. The day counter ticks from 1 up to 14 while colour climbs halfway up the stem and the flower starts to lift.",
+   "onScreenData": "Day 14",
+   "sfx": [
+    {
+     "at": 1.9,
+     "kind": "whoosh"
+    },
+    {
+     "at": 2.5,
+     "kind": "pop"
+    },
+    {
+     "at": 3.1,
+     "kind": "type"
+    },
+    {
+     "at": 3.9,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "Two half-faded violet flowers lean on each other (x 420 and x 640), with Floey between them.",
+   "action": "Floey plucks petals from the weaker left flower one at a time and drops them onto the stronger right one, which swells and starts to glow.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "pop"
+    },
+    {
+     "at": 1,
+     "kind": "pop"
+    },
+    {
+     "at": 1.5,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1.8,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "The bare left stem, the big glowing right flower and Floey.",
+   "action": "A small arrow signpost springs up on the bare stem, overshoots and settles, pointing at its neighbour. Floey hangs a MERGE tag on the stronger flower.",
+   "onScreenData": "MERGE",
+   "sfx": [
+    {
+     "at": 2,
+     "kind": "boing"
+    },
+    {
+     "at": 2.8,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "A beige flower at zero health with no arrow (x 560). Its tiny clicks chart lies flat beside it. Floey hovers to its left.",
+   "action": "Floey looks around: no signpost anywhere points to this flower. She winds up, plucks it out with a pop and flicks it off screen to the right. A CUT tag on a little stake drops into the neat, empty soil.",
+   "onScreenData": "0",
+   "sfx": [
+    {
+     "at": 1.1,
+     "kind": "pop"
+    },
+    {
+     "at": 1.6,
+     "kind": "whoosh"
+    },
+    {
+     "at": 2.2,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "The same framing as the opening wide shot, now tidy. Four tags sit in a clean row at the front: LEAVE on the glowing oldest flower, REFRESH on the lifted flower, MERGE on the big glowing flower beside its signposted stem, and CUT on the cleared soil.",
+   "action": "The camera pulls back to the opening framing. Floey lands on the LEAVE flower, preens a wing and turns to face the viewer.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "whip",
+   "subject": "Floey leaving the tidy row. The camera whips right to the next stretch of the bed.",
+   "action": "Floey hops off, crouches to wind up and darts right along the bed. The camera whip-pans with her past the tidy row and lands on an overgrown, tangled stretch where every flower wears a date sticker, laid out just like the opening.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 2,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "The new overgrown stretch, with Floey hovering in the left foreground (x 300, y 720).",
+   "action": "Small down arrows pop up over two drooping flowers, one after the other. Then a thin ring draws itself around two leaning flowers of the same colour. Floey's eyes track each one.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.4,
+     "kind": "pop"
+    },
+    {
+     "at": 2.9,
+     "kind": "pop"
+    },
+    {
+     "at": 3.5,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "medium",
+   "camera": "drift",
+   "subject": "Floey in mid-air in front of the overgrown stretch.",
+   "action": "Floey snaps up one blank tag in her beak, does a quick loop in the air with blurring wings and a trail of pollen sparkles, then swoops down into the foreground.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    },
+    {
+     "at": 0.6,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "This frame matches the first frame. Floey hovers in the left foreground (x 300, y 720) with the blank tag in her beak. Behind her are the tangled, stickered bed and the bright front flower with the oldest sticker. A small end card sits at y 1200, sized to its text, with the Flowra spark intact.",
+   "action": "Floey settles into her hover, faces the viewer and winks, ready to judge. The end card pops in gently below her.",
+   "onScreenData": "useflowra.com",
+   "sfx": [
+    {
+     "at": 0.6,
+     "kind": "ding"
+    }
+   ]
+  }
+ ],
+ "posterAt": 3.2
+}
