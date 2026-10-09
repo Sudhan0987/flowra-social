@@ -8,16 +8,22 @@
 // 3. The video comes from the reel's own make.yml artifact. Instagram gets it
 //    through the resumable upload (no public URL needed); Facebook gets the
 //    file directly.
-// 4. posts.json records what went out (ids and date); the workflow commits it.
+// 4. The same video goes to YouTube as a Short (src/youtube.ts) when the
+//    YouTube secrets are set. A YouTube failure never undoes the other posts.
+// 5. posts.json records what went out (ids and date); the workflow commits it.
+//
+// `--youtube=<reel id>` uploads one already-posted reel to YouTube only.
 //
 // Env: META_ACCESS_TOKEN, GITHUB_TOKEN, GITHUB_REPOSITORY, SLACK_BOT_TOKEN
-// (optional), IG_USER_ID, FB_PAGE_ID. Never prints a token.
+// (optional), IG_USER_ID, FB_PAGE_ID, YT_CLIENT_ID, YT_CLIENT_SECRET,
+// YT_REFRESH_TOKEN (optional). Never prints a token.
 
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdtempSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { shortMeta, uploadShort, youtubeReady } from "./youtube.ts";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const G = "https://graph.facebook.com/v23.0";
@@ -30,7 +36,7 @@ const DRY = process.argv.includes("--dry");
 interface Post {
   id: string; status: string; topic: string; madeAt: string; reason?: string; note?: string; run?: number;
   slack?: { channel: string; ts: string };
-  published?: { at: string; instagram?: string; facebook?: string | boolean };
+  published?: { at: string; instagram?: string; facebook?: string | boolean; youtube?: string; youtubePrivacy?: string };
 }
 const STATE = path.join(ROOT, "state/posts.json");
 const load = () => JSON.parse(readFileSync(STATE, "utf8")) as { posts: Post[] };
@@ -89,6 +95,14 @@ function caption(p: Post): string {
   const text = `${s.caption.trim()}${s.hashtags?.length ? "\n\n" + s.hashtags.join(" ") : ""}`;
   if (/[—–]/.test(text)) throw new Error("Caption has an em or en dash.");
   return text.slice(0, 2200);
+}
+
+/** The reel as a YouTube Short, with the same words as the Instagram caption. */
+async function postYouTube(p: Post, file: string): Promise<{ id: string; privacy: string }> {
+  const s = JSON.parse(readFileSync(path.join(ROOT, "drafts", p.id, "script.json"), "utf8")) as { title: string; caption: string; hashtags?: string[] };
+  const r = await uploadShort(file, shortMeta(s));
+  console.log(`YouTube: https://youtube.com/shorts/${r.id} (${r.privacy}${r.privacy === "private" ? ": switch it to Public in YouTube Studio until Google's API audit passes" : ""})`);
+  return r;
 }
 
 async function postInstagram(file: string, text: string): Promise<string> {
@@ -176,8 +190,23 @@ async function check() {
   throw new Error("Instagram never finished processing.");
 }
 
+async function youtubeOnly(id: string) {
+  if (!youtubeReady()) throw new Error("The YouTube secrets are not set.");
+  const state = load();
+  const p = state.posts.find((x) => x.id === id || x.id.startsWith(id));
+  if (!p?.published) throw new Error(`${id} has not been posted yet; approve it and let the normal run post it everywhere.`);
+  if (p.published.youtube) return console.log(`${p.id} is already on YouTube: https://youtube.com/shorts/${p.published.youtube}`);
+  const r = await postYouTube(p, await fetchVideo(p));
+  const fresh = load();
+  const q = fresh.posts.find((x) => x.id === p.id)!;
+  q.published = { ...q.published!, youtube: r.id, youtubePrivacy: r.privacy };
+  save(fresh);
+}
+
 async function main() {
   if (process.argv.includes("--check")) return check();
+  const yo = process.argv.find((a) => a.startsWith("--youtube="));
+  if (yo) return youtubeOnly(yo.split("=")[1]);
   const state = load();
   const notes = await slackDecisions(state);
   if (notes.length) { save(state); notes.forEach((n) => console.log(n)); }
@@ -206,10 +235,14 @@ async function main() {
     ig = await igFromUrl(await fbSource(fb), text);
   }
   console.log(`Instagram: ${ig}`);
+  let yt: { id: string; privacy: string } | undefined;
+  if (youtubeReady()) {
+    try { yt = await postYouTube(next, file); } catch (e) { console.log(`YouTube failed: ${(e as Error).message}`); }
+  }
   const fresh = load();
   const p = fresh.posts.find((x) => x.id === next.id)!;
   p.status = "published";
-  p.published = { at: today, instagram: ig, facebook: fb };
+  p.published = { at: today, instagram: ig, facebook: fb, ...(yt ? { youtube: yt.id, youtubePrivacy: yt.privacy } : {}) };
   save(fresh);
 }
 

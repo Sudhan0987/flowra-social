@@ -1,4 +1,4 @@
-# Posts approved reels to Instagram (Reel) and the Facebook Page on its own
+# Posts approved reels to Instagram (Reel), the Facebook Page and YouTube Shorts on its own
 # (src/autopost.ts). A ✅ on the draft in Slack #social, or Approve in Flowra
 # Desk, is all it needs. At most one reel a day, posted by the 19:00 India run
 # (09:30 New York, 14:30 London), with 22:00 as the fallback; the script refuses
@@ -22,6 +22,10 @@ on:
         description: "true = test the Instagram upload with the last posted reel, without publishing"
         required: false
         default: "false"
+      youtube:
+        description: "Reel id already posted on Instagram to upload to YouTube only (optional)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -38,6 +42,9 @@ jobs:
     env:
       META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
       SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       IG_USER_ID: "17841426622354094"
       FB_PAGE_ID: "1322809910922605"
@@ -49,7 +56,7 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - name: Post the next approved reel
-        run: npx tsx src/autopost.ts ${{ inputs.check == 'true' && '--check' || '' }}
+        run: npx tsx src/autopost.ts ${{ inputs.check == 'true' && '--check' || '' }} ${{ inputs.youtube != '' && format('--youtube={0}', inputs.youtube) || '' }}
       - name: Save
         if: always()
         run: |
