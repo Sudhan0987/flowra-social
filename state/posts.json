@@ -75,12 +75,14 @@
   },
   {
    "id": "r006-search-console-s-new-generative-ai-repor",
-   "status": "failed",
+   "status": "draft",
    "topic": "Search Console's new Generative AI report: see how often your pages show up in AI Overviews and AI Mode, then check whether those pages still get clicks",
    "format": "countdown",
-   "madeAt": "2026-10-09T15:20:22.951Z",
-   "seconds": 41,
-   "reason": "Frame 08 (claim vs picture): the voice says Flowra's decay report queues pages whose clicks AND impressions are falling, but the reel's whole point is that flower A's impressions keep rising (counter goes 1,363 → 1,409) while its clicks fall. Tagging flower A 'Decay' tells viewers the report would catch exactly the page it, by its own description, would not. Either change the line, for example to 'pages whose clicks are falling', or don't put the Decay tag on flower A. Also confirm with a source"
+   "madeAt": "2026-10-09T15:55:00.000Z",
+   "seconds": 42,
+   "run": 37951171503,
+   "idea": "Search Console now shows how often you appear in AI Overviews and AI Mode",
+   "note": "Passed its final test on the repair run; that run could not save its state (git pull refused), so this record was written by hand."
   }
  ]
 }

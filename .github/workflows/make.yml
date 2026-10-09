@@ -115,7 +115,7 @@ jobs:
           git checkout -- state/posts.json
           git add drafts
           git diff --cached --quiet || git commit -q -m "Reel drafts $(date -u +%F)"
-          git pull --rebase -q
+          git pull --rebase --autostash -q  # a stray tracked file must not lose a finished reel (9 Oct 2026)
           # posts.json: take GitHub's copy and put this run's entries into it by id, so approvals made meanwhile survive
           ids=$(git diff --name-only "$GITHUB_SHA" HEAD -- drafts | cut -d/ -f2 | sort -u | tr '\n' ' ')
           IDS="$ids $TOPIC" node -e "const fs=require('fs'),f='state/posts.json',mine=JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP+'/mine.json')).posts,cur=JSON.parse(fs.readFileSync(f)),ids=new Set(process.env.IDS.split(/\s+/).filter(Boolean));for(const m of mine){if(!ids.has(m.id))continue;const i=cur.posts.findIndex(p=>p.id===m.id);if(i<0)cur.posts.push(m);else cur.posts[i]=m}fs.writeFileSync(f,JSON.stringify(cur,null,1)+'\\n')"
