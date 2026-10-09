@@ -75,14 +75,14 @@
   },
   {
    "id": "r006-search-console-s-new-generative-ai-repor",
-   "status": "draft",
+   "status": "approved",
    "topic": "Search Console's new Generative AI report: see how often your pages show up in AI Overviews and AI Mode, then check whether those pages still get clicks",
    "format": "countdown",
    "madeAt": "2026-10-09T15:55:00.000Z",
    "seconds": 42,
    "run": 37951171503,
    "idea": "Search Console now shows how often you appear in AI Overviews and AI Mode",
-   "note": "Passed its final test on the repair run; that run could not save its state (git pull refused), so this record was written by hand."
+   "note": "Passed its final test on the repair run; that run could not save its state (git pull refused), so this record was written by hand. Approved by the founder in chat, 9 Oct 21:4x IST."
   }
  ]
 }
