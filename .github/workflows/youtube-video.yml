@@ -1,0 +1,50 @@
+# Uploads one long video (the launch film, a tutorial) to the Flowra SEO
+# channel, with its thumbnail and an optional scheduled go-live time, from
+# youtube/videos/<folder>/meta.json. The video file is a release asset (too
+# big for git): attach it to a release, then run this with the folder and the
+# release tag. Records the result in the folder's published.json.
+#
+# Needs: secrets.YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN.
+
+name: Upload a YouTube video
+
+on:
+  workflow_dispatch:
+    inputs:
+      folder:
+        description: "Folder under youtube/videos (e.g. launch-film)"
+        required: true
+      release:
+        description: "Release tag holding the .mp4 (e.g. video-launch-film)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Get the video from the release
+        run: gh release download "${{ inputs.release }}" --pattern "*.mp4" --dir "$RUNNER_TEMP/video" --repo "$GITHUB_REPOSITORY"
+      - name: Upload to YouTube
+        run: npx tsx src/youtube-video.ts "youtube/videos/${{ inputs.folder }}" "$(ls "$RUNNER_TEMP"/video/*.mp4 | head -1)"
+      - name: Save
+        if: always()
+        run: |
+          git config user.name "flowra-social"
+          git config user.email "flowra-social@users.noreply.github.com"
+          git add youtube/videos
+          git diff --cached --quiet || (git commit -m "YouTube upload: ${{ inputs.folder }}" && git pull --rebase --autostash -q && git push -q)

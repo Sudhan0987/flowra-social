@@ -49,22 +49,50 @@ export function shortMeta(script: { title: string; caption: string; hashtags?: s
   return { title: title + tag, description, tags: tags.slice(0, 12) };
 }
 
-/** Uploads the file as a public Short (not made for kids). Returns the video id and the privacy YouTube actually set. */
-export async function uploadShort(file: string, meta: ShortMeta): Promise<{ id: string; privacy: string }> {
+export interface VideoMeta extends ShortMeta {
+  categoryId?: string; // "28" Science & Technology
+  /** ISO time to go live on its own. The video waits as private until then (YouTube's rule for scheduling). */
+  publishAt?: string;
+}
+
+/**
+ * Uploads a video (a Short or a long video) to the channel, not made for kids.
+ * Public at once, or private until `publishAt`. Returns the id and the privacy
+ * YouTube actually set (an unaudited API project can be forced to private).
+ */
+export async function uploadVideo(file: string, meta: VideoMeta): Promise<{ id: string; privacy: string; publishAt?: string }> {
   const token = await accessToken();
   const size = statSync(file).size;
+  const status: Record<string, unknown> = { privacyStatus: meta.publishAt ? "private" : "public", selfDeclaredMadeForKids: false, embeddable: true };
+  if (meta.publishAt) {
+    if (!(Date.parse(meta.publishAt) > Date.now() + 15 * 60000)) throw new Error(`publishAt ${meta.publishAt} must be at least 15 minutes ahead.`);
+    status.publishAt = new Date(meta.publishAt).toISOString();
+  }
   const start = await fetch("https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status", {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json; charset=UTF-8", "X-Upload-Content-Length": String(size), "X-Upload-Content-Type": "video/mp4" },
     body: JSON.stringify({
-      snippet: { title: meta.title, description: meta.description, tags: meta.tags, categoryId: "28" }, // Science & Technology
-      status: { privacyStatus: "public", selfDeclaredMadeForKids: false, embeddable: true },
+      snippet: { title: meta.title, description: meta.description, tags: meta.tags, categoryId: meta.categoryId ?? "28", defaultLanguage: "en", defaultAudioLanguage: "en" },
+      status,
     }),
   });
   const where = start.headers.get("location");
   if (!start.ok || !where) throw new Error(`YouTube upload refused: ${start.status} ${(await start.text()).slice(0, 300)}`);
   const put = await fetch(where, { method: "PUT", headers: { "Content-Type": "video/mp4", "Content-Length": String(size) }, body: readFileSync(file) });
-  const v = (await put.json().catch(() => ({}))) as { id?: string; status?: { privacyStatus?: string }; error?: { message?: string } };
+  const v = (await put.json().catch(() => ({}))) as { id?: string; status?: { privacyStatus?: string; publishAt?: string }; error?: { message?: string } };
   if (!put.ok || !v.id) throw new Error(`YouTube upload failed: ${put.status} ${v.error?.message ?? ""}`);
-  return { id: v.id, privacy: v.status?.privacyStatus ?? "unknown" };
+  return { id: v.id, privacy: v.status?.privacyStatus ?? "unknown", publishAt: v.status?.publishAt };
+}
+
+/** Uploads the file as a public Short (not made for kids). */
+export const uploadShort = (file: string, meta: ShortMeta) => uploadVideo(file, meta);
+
+/** Sets a custom thumbnail (JPG or PNG, under 2 MB, 1280x720). Needs a phone-verified channel. */
+export async function setThumbnail(videoId: string, image: string): Promise<void> {
+  const token = await accessToken();
+  const type = /\.png$/i.test(image) ? "image/png" : "image/jpeg";
+  const r = await fetch(`https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId=${videoId}&uploadType=media`, {
+    method: "POST", headers: { Authorization: `Bearer ${token}`, "Content-Type": type }, body: readFileSync(image),
+  });
+  if (!r.ok) throw new Error(`Thumbnail refused: ${r.status} ${(await r.text()).slice(0, 300)}`);
 }
