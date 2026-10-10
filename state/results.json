@@ -28,7 +28,13 @@
      "ig_reels_video_view_total_time": 337690
     },
     "facebook": {},
-    "youtube": {}
+    "youtube": {
+     "viewCount": 6,
+     "likeCount": 0,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
    },
    "history": [
     {
@@ -46,7 +52,13 @@
       "ig_reels_video_view_total_time": 337690
      },
      "facebook": {},
-     "youtube": {}
+     "youtube": {
+      "viewCount": 6,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -77,7 +89,13 @@
      "ig_reels_video_view_total_time": 38030
     },
     "facebook": {},
-    "youtube": {}
+    "youtube": {
+     "viewCount": 48,
+     "likeCount": 0,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
    },
    "history": [
     {
@@ -95,7 +113,13 @@
       "ig_reels_video_view_total_time": 38030
      },
      "facebook": {},
-     "youtube": {}
+     "youtube": {
+      "viewCount": 48,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -126,7 +150,13 @@
      "ig_reels_video_view_total_time": 52666
     },
     "facebook": {},
-    "youtube": {}
+    "youtube": {
+     "viewCount": 117,
+     "likeCount": 0,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
    },
    "history": [
     {
@@ -144,7 +174,13 @@
       "ig_reels_video_view_total_time": 52666
      },
      "facebook": {},
-     "youtube": {}
+     "youtube": {
+      "viewCount": 117,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
