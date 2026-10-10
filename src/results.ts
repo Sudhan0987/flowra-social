@@ -159,10 +159,10 @@ async function learn(reels: ReelResult[]): Promise<Learnings> {
       "You are the analyst for Flowra's short videos (Instagram Reels, the Facebook Page and YouTube Shorts, the same video on all three). Flowra sells an SEO tool to content teams and agencies, so the numbers that matter most are the ones that lead to customers: follows, profile visits and saves first, then shares and how much of the video people watched, then views. Likes matter least.",
       "Compare the reels against each other and find what the better ones did differently: the hook and its pattern, the story structure, the pillar, the goal (send or save), the length. Account for age: a reel posted yesterday has had less time; compare at similar ages using the growth snapshots. watchShare is average watch time divided by length (Instagram), the best sign of whether the hook and story held people.",
       "Instagram does not report follows or profile visits per Reel, so do not ask for them; use saves, shares and watch time instead. Facebook's numbers are whatever its video insights return (plays, reach, watch time); YouTube gives views, likes and comments only.",
-      "Be honest about the sample: with a handful of reels, every finding is an early signal, never a rule. Never invent a number; use only the data given. When there is too little to say something, say so. Keep last week's findings that still hold, and update or drop the rest. Plain words, short sentences. Never the em dash or en dash.",
+      "Be honest about the sample: with a handful of reels, every finding is an early signal, never a rule. Never invent a number; use only the data given. When there is too little to say something, say so. Keep the previous findings that still hold, and update or drop the rest. Plain words, short sentences. Never the em dash or en dash.",
     ].join("\n\n"),
     prompt: [
-      "Last week's learnings:",
+      `The previous learnings${previous.date ? ` (${previous.date})` : ""}:`,
       previous.summary ? JSON.stringify({ summary: previous.summary, signals: previous.signals, tryNext: previous.tryNext }) : "none yet",
       "",
       "Every published reel, newest last:",
