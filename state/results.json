@@ -1,0 +1,213 @@
+{
+ "updated": "2026-10-10",
+ "reels": [
+  {
+   "id": "r002-find-the-pages-quietly-losing-traffic-in",
+   "title": "Find the pages fading inside your flat clicks line",
+   "hook": "Flat clicks can hide fading pages. Search Console finds yours in a minute.",
+   "hookPattern": "",
+   "format": "before-after-bridge",
+   "pillar": "problem",
+   "goal": "save",
+   "topic": "Find the pages quietly losing traffic in Search Console in under a minute: Compare last 3 months to previous period, Pages tab, sort by Clicks Difference",
+   "postedAt": "2026-10-06T15:11:43+0000",
+   "seconds": 38,
+   "idea": "",
+   "latest": {
+    "date": "2026-10-10",
+    "ageDays": 3.6,
+    "instagram": {
+     "views": 87,
+     "reach": 76,
+     "saved": 0,
+     "shares": 0,
+     "likes": 2,
+     "comments": 0,
+     "total_interactions": 2,
+     "ig_reels_avg_watch_time": 3926,
+     "ig_reels_video_view_total_time": 337690
+    },
+    "facebook": {},
+    "youtube": {}
+   },
+   "history": [
+    {
+     "date": "2026-10-10",
+     "ageDays": 3.6,
+     "instagram": {
+      "views": 87,
+      "reach": 76,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 3926,
+      "ig_reels_video_view_total_time": 337690
+     },
+     "facebook": {},
+     "youtube": {}
+    }
+   ]
+  },
+  {
+   "id": "r003-how-long-google-takes-to-notice-your-pag",
+   "title": "Day 3 Is Too Soon: How Long Google Takes to Notice Your Update",
+   "hook": "You fixed your page three days ago. Google likely hasn't recrawled it.",
+   "hookPattern": "",
+   "format": "ticking-clock",
+   "pillar": "news",
+   "goal": "save",
+   "topic": "How long Google takes to notice your page update: Google's own timing numbers, shown on a day counter",
+   "postedAt": "2026-10-07T14:32:35+0000",
+   "seconds": 36,
+   "idea": "",
+   "latest": {
+    "date": "2026-10-10",
+    "ageDays": 2.6,
+    "instagram": {
+     "views": 15,
+     "reach": 16,
+     "saved": 0,
+     "shares": 0,
+     "likes": 0,
+     "comments": 0,
+     "total_interactions": 0,
+     "ig_reels_avg_watch_time": 2376,
+     "ig_reels_video_view_total_time": 38030
+    },
+    "facebook": {},
+    "youtube": {}
+   },
+   "history": [
+    {
+     "date": "2026-10-10",
+     "ageDays": 2.6,
+     "instagram": {
+      "views": 15,
+      "reach": 16,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2376,
+      "ig_reels_video_view_total_time": 38030
+     },
+     "facebook": {},
+     "youtube": {}
+    }
+   ]
+  },
+  {
+   "id": "r004-google-s-september-2026-spam-update-is-f",
+   "title": "The rollout window, explained with one frost",
+   "hook": "Your drop only fits Google's spam update if it started after September twenty fourth.",
+   "hookPattern": "",
+   "format": "explain-like-five",
+   "pillar": "news",
+   "goal": "save",
+   "topic": "Google's September 2026 spam update is finishing its rollout: how to tell whether it caused your traffic drop, or something else did",
+   "postedAt": "2026-10-07T21:26:51+0000",
+   "seconds": 37,
+   "idea": "",
+   "latest": {
+    "date": "2026-10-10",
+    "ageDays": 2.3,
+    "instagram": {
+     "views": 2,
+     "reach": 3,
+     "saved": 0,
+     "shares": 0,
+     "likes": 1,
+     "comments": 0,
+     "total_interactions": 1,
+     "ig_reels_avg_watch_time": 13166,
+     "ig_reels_video_view_total_time": 52666
+    },
+    "facebook": {},
+    "youtube": {}
+   },
+   "history": [
+    {
+     "date": "2026-10-10",
+     "ageDays": 2.3,
+     "instagram": {
+      "views": 2,
+      "reach": 3,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 13166,
+      "ig_reels_video_view_total_time": 52666
+     },
+     "facebook": {},
+     "youtube": {}
+    }
+   ]
+  },
+  {
+   "id": "r006-search-console-s-new-generative-ai-repor",
+   "title": "One Search Console check: is Google's AI showing your page while its clicks fall?",
+   "hook": "Google's AI may keep showing your page while its clicks quietly fall.",
+   "hookPattern": "",
+   "format": "countdown",
+   "pillar": "news",
+   "goal": "save",
+   "topic": "Search Console's new Generative AI report: see how often your pages show up in AI Overviews and AI Mode, then check whether those pages still get clicks",
+   "postedAt": "2026-10-09T17:11:20+0000",
+   "seconds": 42,
+   "idea": "Search Console now shows how often you appear in AI Overviews and AI Mode",
+   "latest": {
+    "date": "2026-10-10",
+    "ageDays": 0.5,
+    "instagram": {
+     "views": 6,
+     "reach": 6,
+     "saved": 0,
+     "shares": 0,
+     "likes": 0,
+     "comments": 0,
+     "total_interactions": 0,
+     "ig_reels_avg_watch_time": 745,
+     "ig_reels_video_view_total_time": 4474
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 18,
+     "likeCount": 0,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-10-10",
+     "ageDays": 0.5,
+     "instagram": {
+      "views": 6,
+      "reach": 6,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 745,
+      "ig_reels_video_view_total_time": 4474
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 18,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  }
+ ]
+}
