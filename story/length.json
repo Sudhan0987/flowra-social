@@ -1,0 +1,14 @@
+{
+  "note": "How long a reel is. 'standard' is the usual length; 'test' overrides it for the next `reels` reels (failed reels do not count), recorded as `experiment` on each post so the weekly results can compare. Floey speaks about 2.4 words a second, plus the ending.",
+  "standard": { "words": [60, 100], "aim": "65 to 95", "seconds": "25 to 35", "beats": [6, 10] },
+  "test": {
+    "name": "short-first-frame",
+    "since": "2026-10-11",
+    "reels": 2,
+    "words": [44, 64],
+    "aim": "50 to 60",
+    "seconds": "20 to 26",
+    "beats": [5, 8],
+    "why": "10 Oct results: Instagram viewers left after 0.7 to 3.9 seconds of 36 to 42 second reels (research/2026-10-10/learnings.md). Founder: do whatever is best for reach. Shorter reels with the problem on screen from frame one, then compare watch share and views with r002 to r006."
+  }
+}

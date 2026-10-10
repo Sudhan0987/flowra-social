@@ -93,15 +93,35 @@ const Story = z.object({
   caption: z.string(),
   hashtags: z.array(z.string()),
 });
-export type Story = z.infer<typeof Story> & { id: string; format: string; goal: string; topic: string; editorNotes?: string[] };
+export type Story = z.infer<typeof Story> & { id: string; format: string; goal: string; topic: string; editorNotes?: string[]; experiment?: string };
 
 const words = (s: string) => s.split(/\s+/).filter(Boolean).length;
-export function storyProblems(s: Story): string[] {
+
+/** A reel length (story/length.json): spoken word range, how to phrase it, beat range; `name` only for a test. */
+export interface Length { words: [number, number]; aim: string; seconds: string; beats: [number, number]; name?: string; reels?: number }
+export const STANDARD: Length = { words: [60, 100], aim: "65 to 95", seconds: "25 to 35", beats: [6, 10] };
+
+/**
+ * The length for the next reel: the running test until it has made its
+ * `reels` reels (failed ones do not count), then the standard.
+ */
+export function lengthFor(posts: Array<{ status: string; experiment?: string }>, root = ROOT): Length {
+  const f = path.join(root, "story/length.json");
+  if (!existsSync(f)) return STANDARD;
+  const cfg = json<{ standard?: Length; test?: Length }>(f);
+  const std = cfg.standard ?? STANDARD;
+  const t = cfg.test;
+  if (!t?.name) return std;
+  const made = posts.filter((p) => p.experiment === t.name && p.status !== "failed").length;
+  return made < (t.reels ?? 0) ? t : std;
+}
+
+export function storyProblems(s: Story, len: Length = STANDARD): string[] {
   const out: string[] = [];
   const all = JSON.stringify(s);
   if (/[–—]/.test(all)) out.push("Contains an em dash or en dash.");
   const n = s.beats.reduce((a, b) => a + words(b.say), 0);
-  if (n < 60 || n > 100) out.push(`The voice says ${n} words; aim for 65 to 95 (25 to 35 seconds).`);
+  if (n < len.words[0] || n > len.words[1]) out.push(`The voice says ${n} words; aim for ${len.aim} (${len.seconds} seconds).`);
   if (s.beats[0]?.role !== "hook") out.push("The first beat must be the hook.");
   if (words(s.beats[0]?.say ?? "") > 14) out.push("The hook is over 14 words: it must land in 2 seconds.");
   const hook = s.beats[0]?.say ?? "";
@@ -113,7 +133,7 @@ export function storyProblems(s: Story): string[] {
   if (s.beats[n3 - 3]?.role !== "loop" || s.beats[n3 - 2]?.role !== "go" || s.beats[n3 - 1]?.role !== "url") out.push("End with three beats in this order: loop (leads back to the opening), go (Floey calls the viewer to act with energy, like 'Come on, let's go fix it!'), url (only 'useflowra.com.').");
   if (s.beats[n3 - 1] && s.beats[n3 - 1].say.trim().toLowerCase() !== "useflowra.com.") out.push("The url beat says only 'useflowra.com.'.");
   if (s.beats[n3 - 2] && words(s.beats[n3 - 2].say) > 8) out.push("The go beat is a short, energetic call of at most 8 words.");
-  if (s.beats.length < 6 || s.beats.length > 10) out.push(`Use 6 to 10 beats, not ${s.beats.length}.`);
+  if (s.beats.length < len.beats[0] || s.beats.length > len.beats[1]) out.push(`Use ${len.beats[0]} to ${len.beats[1]} beats, not ${s.beats.length}.`);
   if (s.beats.some((b) => /text on screen|title card|words appear/i.test(b.visual))) out.push("A visual is a text card; every beat needs a picture that explains it.");
   if (s.hashtags.length < 3 || s.hashtags.length > 6 || s.hashtags.some((h) => !/^#[a-z0-9]+$/.test(h))) out.push("3 to 6 lowercase hashtags like #seo.");
   if (s.caption.length < 150 || s.caption.length > 1200) out.push("Caption 150 to 1200 characters.");
@@ -129,19 +149,21 @@ export function pickFormat(brief: Brief, lastFormats: string[]): Format {
   return pool[lastFormats.length % pool.length];
 }
 
-export async function writeStory(id: string, brief: Brief, format: Format): Promise<Story> {
+export async function writeStory(id: string, brief: Brief, format: Format, len: Length = STANDARD): Promise<Story> {
   const system = [
-    "You write 25 to 35 second animated reels for Flowra's Instagram, told by Floey, Flowra's hummingbird, in her garden where every web page is a flower. Floey speaks every line to the viewer, in her own warm, quick, curious voice; she may say I and we. Captions of her voice are burned in, so the picture must never repeat the words as text: it shows the idea.",
+    `You write ${len.seconds} second animated reels for Flowra's Instagram, told by Floey, Flowra's hummingbird, in her garden where every web page is a flower. Floey speaks every line to the viewer, in her own warm, quick, curious voice; she may say I and we. Captions of her voice are burned in, so the picture must never repeat the words as text: it shows the idea.`,
     HOUSE,
     `Story structure for this reel: ${format.name}. Beats: ${format.beats.join(" | ")}. Visual approach: ${format.visual}`,
     "The world (use it, do not invent other characters): pages are flowers; a fading page loses colour and droops, a thriving one glows and sways; problems on a site (404s, broken links, errors) are little bugs Floey catches and eats; a dashed PAGE 1 line in the garden is page one of Google; Floey can show a change preview card with a Publish button, a day counter, a small clicks chart, pill tags on flowers. She can dart, hover, land, sip, preen, flash her throat, eat bugs, tap buttons, and turn to the viewer to talk.",
-    "Rules: the hook lands in the first 2 seconds and is at most 14 words, a specific tension, never a greeting. A small payoff every 6 to 8 seconds. The story ends with three beats: loop (a line that leads naturally back to the first frame, so a replay continues), go (Floey calls the viewer to act with energy, at most 8 words, e.g. 'Come on, let's go fix it!'), url (only 'useflowra.com.'). Total 65 to 95 spoken words. Mention Flowra only near the end, if at all, and never as hype.",
+    `Rules: the hook lands in the first 2 seconds and is at most 14 words, a specific tension, never a greeting. A small payoff every 6 to 8 seconds. The story ends with three beats: loop (a line that leads naturally back to the first frame, so a replay continues), go (Floey calls the viewer to act with energy, at most 8 words, e.g. 'Come on, let's go fix it!'), url (only 'useflowra.com.'). Total ${len.aim} spoken words, ${len.beats[0]} to ${len.beats[1]} beats. Mention Flowra only near the end, if at all, and never as hype.`,
     "The brief's visual idea is a starting point; if any part of it cannot be drawn with the studio, drop that part. The studio always wins. The Instagram caption is 150 to 1000 characters with 3 to 6 lowercase hashtags.",
     "THE APPROVED EXAMPLE (reel 000, the founder loved it). Its lines, with the emotion of each:\n" + JSON.stringify((() => { const m = read("reels/r000-floey-intro/scene.html").match(/const LINES = (\[[\s\S]*?\]);/); return m ? m[1] : ""; })()) + "\nWhy it works: the hook is a specific, slightly alarming claim about the viewer's own site that they cannot check right now ('One of your pages is losing clicks right now. You just can't see it.'); every next line answers the question the last one raised; the payoff is shown (a flower blooming, a chart climbing); the loop line restarts the problem; the ending is pure energy, then the address. Hooks that fail: a label or caption ('Your pages, lined up worst first'), a tautology true of every site ('One page lost more than the others'), a yes or no question, a greeting.",
     "Talk to the viewer, not about a stranger: say you and your (your traffic, your page, your client's site), never 'a site owner', 'a marketer', 'one SEO' or 'many people'. The hook is a specific statement aimed at the viewer, never a yes or no question.",
     "Draw only with the studio's parts (listed in the world above) plus at most one or two simple new props for the whole reel; flowers stay rooted (they change health, sway, droop, glow), the camera and Floey do the moving. Name the real thing (pages, clicks, traffic) in the spoken hook; the picture carries the flower metaphor. Never put the spoken sentence on screen; short interface labels a viewer needs to follow along (a tab or column name like 'Compare' or 'Difference', one number) are fine.",
     "Give every line an emotion that matches the moment (ominous or worried for a problem, curious for a question, determined for the fix, proud or excited for the payoff, playful for the address).",
     "Each beat's visual is a concrete garden scene an animator could draw: what Floey does, which flower changes and how, any prop.",
+    "The first frame is what a scrolling viewer sees, and the cover is never seen in the feed: the hook's problem must be visible in the picture from the very first frame (a fading flower, a falling chart, a bug already on the page), not after an establishing shot or Floey flying in.",
+    len.name ? `This reel is part of a length test (${len.name}): keep it to ${len.seconds} seconds. Cut setup, not the payoff: the hook states the problem, the next beat already starts showing the fix, and the payoff is shown, not described.` : "",
     hookBrief(),
     learnedBrief(),
   ].filter(Boolean).join("\n\n");
@@ -153,7 +175,7 @@ export async function writeStory(id: string, brief: Brief, format: Format): Prom
     const hashtags = [...new Set(d.hashtags.map((h) => "#" + h.toLowerCase().replace(/[^a-z0-9]/g, "")).filter((h) => h.length > 2))].slice(0, 6);
     return { ...d, beats, hashtags };
   };
-  const as = (d: typeof draft): Story => ({ ...tidy(d), id, format: format.id, goal: brief.goal, topic: brief.topic });
+  const as = (d: typeof draft): Story => ({ ...tidy(d), id, format: format.id, goal: brief.goal, topic: brief.topic, ...(len.name ? { experiment: len.name } : {}) });
   // every earlier note travels with each rewrite, so a fix is never undone by the next one
   const history: string[] = [];
   const rewrite = async (notes: string[]) => {
@@ -164,7 +186,7 @@ export async function writeStory(id: string, brief: Brief, format: Format): Prom
   // code checks (cheap) get two rewrites per draft; the editor one
   let checks = 0, edits = 0;
   for (;;) {
-    const issues = storyProblems(as(draft));
+    const issues = storyProblems(as(draft), len);
     if (issues.length) {
       if (checks++ === 2) throw new Error(`The story for ${id} still fails its checks: ${issues.join(" ")}`);
       console.log(`   story checks: ${issues.join(" | ")}`);

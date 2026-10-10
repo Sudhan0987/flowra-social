@@ -45,3 +45,18 @@ test("watch share is average watch time over length", () => {
   assert.equal(watchShare({ seconds: 40, latest: { ...snap("d", 1), instagram: { ig_reels_avg_watch_time: 10_000 } } }), 0.25);
   assert.equal(watchShare({ seconds: 40, latest: snap("d", 1) }), undefined);
 });
+
+import { mkdtempSync, mkdirSync as mk, writeFileSync as wf } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { STANDARD, lengthFor } from "../src/pipeline.ts";
+
+test("the length test runs for its reels, failed ones not counting, then the standard returns", () => {
+  const root = mkdtempSync(join(tmpdir(), "len-"));
+  mk(join(root, "story"));
+  wf(join(root, "story/length.json"), JSON.stringify({ standard: STANDARD, test: { name: "short", reels: 2, words: [44, 64], aim: "50 to 60", seconds: "20 to 26", beats: [5, 8] } }));
+  assert.equal(lengthFor([], root).name, "short");
+  assert.equal(lengthFor([{ status: "published", experiment: "short" }, { status: "failed", experiment: "short" }], root).name, "short");
+  assert.equal(lengthFor([{ status: "published", experiment: "short" }, { status: "draft", experiment: "short" }], root).name, undefined);
+  assert.deepEqual(lengthFor([], join(root, "nowhere")), STANDARD);
+});

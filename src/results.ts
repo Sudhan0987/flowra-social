@@ -28,12 +28,12 @@ const G = "https://graph.facebook.com/v23.0";
 const PAGE = "1322809910922605";
 const readJson = <T>(f: string, fallback: T): T => (existsSync(path.join(ROOT, f)) ? (JSON.parse(readFileSync(path.join(ROOT, f), "utf8")) as T) : fallback);
 
-interface Post { id: string; status: string; topic: string; format?: string; seconds?: number; idea?: string; published?: { at: string; instagram?: string; facebook?: string | boolean; youtube?: string } }
+interface Post { id: string; status: string; topic: string; format?: string; seconds?: number; idea?: string; experiment?: string; published?: { at: string; instagram?: string; facebook?: string | boolean; youtube?: string } }
 type Numbers = Record<string, number>;
 export interface Snapshot { date: string; ageDays: number; instagram: Numbers; facebook: Numbers; youtube: Numbers }
 export interface ReelResult {
   id: string; title: string; topic: string; postedAt: string; seconds: number;
-  hook: string; hookPattern: string; format: string; pillar: string; goal: string; idea: string;
+  hook: string; hookPattern: string; format: string; pillar: string; goal: string; idea: string; experiment: string;
   latest: Snapshot; history: Snapshot[];
 }
 
@@ -128,7 +128,7 @@ async function collect(): Promise<ReelResult[]> {
     const ageDays = Math.max(0, Math.round(((Date.now() - Date.parse(postedAt)) / 86400000) * 10) / 10);
     const snap: Snapshot = { date: today, ageDays, instagram: ig, facebook: fb, youtube: pub.youtube ? yt.get(pub.youtube) ?? {} : {} };
     const m = made(p.id);
-    out.push({ id: p.id, ...m, title: m.title || p.topic, topic: p.topic, postedAt, seconds: p.seconds ?? 0, format: m.format || p.format || "", idea: p.idea ?? "", latest: snap, history: addSnapshot(old.get(p.id)?.history ?? [], snap) });
+    out.push({ id: p.id, ...m, title: m.title || p.topic, topic: p.topic, postedAt, seconds: p.seconds ?? 0, format: m.format || p.format || "", idea: p.idea ?? "", experiment: p.experiment ?? "", latest: snap, history: addSnapshot(old.get(p.id)?.history ?? [], snap) });
     console.log(`${p.id}: IG ${ig.views ?? "?"} views, ${ig.saved ?? "?"} saves | FB ${fb.blue_reels_play_count ?? "?"} plays | YT ${snap.youtube.viewCount ?? "-"} views`);
   }
   return out;
@@ -150,14 +150,14 @@ export type Learnings = z.infer<typeof Learnings> & { date: string; reels: numbe
 async function learn(reels: ReelResult[]): Promise<Learnings> {
   const previous = readJson<Partial<Learnings>>("research/learnings.json", {});
   const table = reels.map((r) => ({
-    id: r.id, title: r.title, hook: r.hook, hookPattern: r.hookPattern || "not recorded", format: r.format, pillar: r.pillar, goal: r.goal, seconds: r.seconds, ageDays: r.latest.ageDays,
+    id: r.id, title: r.title, hook: r.hook, hookPattern: r.hookPattern || "not recorded", format: r.format, pillar: r.pillar, goal: r.goal, seconds: r.seconds, experiment: r.experiment || "none", ageDays: r.latest.ageDays,
     watchShare: watchShare(r), instagram: r.latest.instagram, facebook: r.latest.facebook, youtube: r.latest.youtube,
     growth: r.history.map((h) => ({ date: h.date, ageDays: h.ageDays, igViews: h.instagram.views, fbPlays: h.facebook.blue_reels_play_count, ytViews: h.youtube.viewCount })),
   }));
   const lib = await askJson({
     system: [
       "You are the analyst for Flowra's short videos (Instagram Reels, the Facebook Page and YouTube Shorts, the same video on all three). Flowra sells an SEO tool to content teams and agencies, so the numbers that matter most are the ones that lead to customers: follows, profile visits and saves first, then shares and how much of the video people watched, then views. Likes matter least.",
-      "Compare the reels against each other and find what the better ones did differently: the hook and its pattern, the story structure, the pillar, the goal (send or save), the length. Account for age: a reel posted yesterday has had less time; compare at similar ages using the growth snapshots. watchShare is average watch time divided by length (Instagram), the best sign of whether the hook and story held people.",
+      "Compare the reels against each other and find what the better ones did differently (a reel's experiment names the test it was made under, e.g. a shorter length; say whether the test is working once its reels have had a few days): the hook and its pattern, the story structure, the pillar, the goal (send or save), the length. Account for age: a reel posted yesterday has had less time; compare at similar ages using the growth snapshots. watchShare is average watch time divided by length (Instagram), the best sign of whether the hook and story held people.",
       "Instagram does not report follows or profile visits per Reel, so do not ask for them; use saves, shares and watch time instead. Facebook's numbers are whatever its video insights return (plays, reach, watch time); YouTube gives views, likes and comments only.",
       "Be honest about the sample: with a handful of reels, every finding is an early signal, never a rule. Never invent a number; use only the data given. When there is too little to say something, say so. Keep the previous findings that still hold, and update or drop the rest. Plain words, short sentences. Never the em dash or en dash.",
     ].join("\n\n"),

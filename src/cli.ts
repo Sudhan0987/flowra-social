@@ -16,7 +16,7 @@ import { costSoFar } from "./claude.ts";
 import { writeScript, type Script, type Topic } from "./script.ts";
 import { reelIdeas, unusedReelIdeas } from "./ideas.ts";
 import { postDraft, say } from "./slack.ts";
-import { HOUSE, finalTest, pickFormat, research, storyboard, writeStory, type Board, type Brief, type Story } from "./pipeline.ts";
+import { HOUSE, finalTest, lengthFor, pickFormat, research, storyboard, writeStory, type Board, type Brief, type Story } from "./pipeline.ts";
 import { directFloey } from "./studio.ts";
 import type { Line } from "./scenecheck.ts";
 
@@ -34,6 +34,8 @@ interface Post {
   reason?: string;
   /** The listening idea (or seed topic) it was made from; see ideas.ts. */
   idea?: string;
+  /** The length test it was made under (story/length.json), if any. */
+  experiment?: string;
 }
 interface State { posts: Post[] }
 
@@ -117,7 +119,9 @@ async function make(state: State, arg?: string): Promise<void> {
   if (!existsSync(f("script.json"))) {
     const format = pickFormat(brief, lastFormats);
     console.log(`2. Story, as "${format.name}"`);
-    const story = await writeStory(id, brief, format);
+    const len = lengthFor(state.posts);
+    if (len.name) console.log(`   length test "${len.name}": ${len.seconds} seconds`);
+    const story = await writeStory(id, brief, format, len);
     writeJson(f("script.json"), { ...story, template: `../drafts/${id}/scene.html` });
   }
   // Floey's lines, exactly as she will say them (the scene reads lines.js and never changes it)
@@ -167,14 +171,15 @@ async function make(state: State, arg?: string): Promise<void> {
   }
   writeJson(f("qa.json"), qa);
   const story = readJson<Story & { format: string }>(f("script.json"));
+  const experiment = story.experiment;
   state.posts = state.posts.filter((p) => p.id !== id);
   if (!qa.pass) {
-    state.posts.push({ id, status: "failed", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), reason: qa.problems.join(" ").slice(0, 500), idea });
+    state.posts.push({ id, status: "failed", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), reason: qa.problems.join(" ").slice(0, 500), idea, experiment });
     await say(`:warning: The reel "${story.title}" didn't pass its final test twice, so it isn't posted:\n${qa.problems.map((x) => `• ${x}`).join("\n").slice(0, 1500)}`);
     return;
   }
   const slack = await postDraft(r.mp4, message(story as unknown as Script, r.seconds));
-  state.posts.push({ id, status: "draft", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), slack, idea });
+  state.posts.push({ id, status: "draft", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), slack, idea, experiment });
   console.log(`Made ${id}: ${r.mp4} (${r.seconds.toFixed(1)}s). Claude usage, API-equivalent: $${costSoFar().toFixed(2)}.`);
 }
 
