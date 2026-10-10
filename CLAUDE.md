@@ -14,6 +14,13 @@ The founder is not technical: plain words, short sentences.
 
 Formats today: `fix` (the 45-second fix: hook, 2 to 4 steps, outro) and `myth` (myth vs fact pairs). Beat kinds: hook, point, step, myth, fact, clip, outro.
 
+## How it learns (weekly, research.yml, Sundays)
+
+- `src/results.ts`: every published reel's numbers (Instagram, Facebook, YouTube; read-only; a refused metric is left out) joined with how it was made (hook, `hookPattern`, structure, pillar, goal, length), dated snapshots in `state/results.json`. Claude writes `research/learnings.json` (signals with confidence, do more, do less, try next) and a note goes to Slack #social. Few reels means early signals, never rules.
+- `src/hooks.ts`: the top Shorts of the last 90 days on `hookQueries` (calendar/listening.json) through the YouTube Data API, ranked by views per subscriber (breakouts, not big channels). For each: three frames from the first 4 seconds and the spoken words (yt-dlp clip + `src/transcribe.py`, faster-whisper tiny.en, low-confidence speech dropped because whisper invents "thank you for watching" over music). Captions are not used (YouTube 429s them). If YouTube refuses the download on GitHub's servers, the cover stands in and `captured` is false. Claude writes `research/hooks.json`: named patterns, each with real examples and a Flowra example.
+- The researcher, the story writer and the weekly ranking read both. The story writer must build the hook on a pattern (adapt, never copy) and records which one in `script.json` `hookPattern`, so the next results can show which patterns work for us.
+- Run only the learning steps by hand: Actions, "Social listening", step = learn.
+
 ## Rules
 
 - Facts about Flowra only from `facts/flowra.md` (copied from flowra-content-engine; update both when the app changes). Never a price from memory.

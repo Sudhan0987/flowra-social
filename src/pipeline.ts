@@ -8,6 +8,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { askJson } from "./claude.ts";
+import { hookBrief } from "./hooks.ts";
+import { learnedBrief } from "./results.ts";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (f: string) => readFileSync(path.join(ROOT, f), "utf8");
@@ -60,6 +62,7 @@ export async function research(recent: string[], seed?: { topic: string; angle: 
       "Research like a strategist: search this week's SEO and AI search news (Google updates, AI Overviews, ChatGPT search, crawler changes), questions people ask on Reddit (r/SEO, r/bigseo, r/content_marketing) and forums, and what similar accounts post. Prefer a topic where the reel can show something, not just say it.",
       "Every fact must have a source. If you cannot source it, leave it out.",
       listening(),
+      learnedBrief(),
     "The reel will be animated in Floey's garden with a fixed set of parts; propose a visual idea that those parts can tell:\n" + read("brand/studio/README.md").split("## Props")[0],
       "The facts file:",
       read("facts/flowra.md"),
@@ -84,6 +87,7 @@ const Beat = z.object({
 });
 const Story = z.object({
   title: z.string(),
+  hookPattern: z.string().describe("The proven hook pattern the opening line is built on, by its name in the hook library, or 'own' if none fits. Recorded so results can show which patterns work for us."),
   beats: z.array(Beat),
   loopNote: z.string().describe("How the last beat leads back into the first frame, so a replay feels continuous."),
   caption: z.string(),
@@ -138,7 +142,9 @@ export async function writeStory(id: string, brief: Brief, format: Format): Prom
     "Draw only with the studio's parts (listed in the world above) plus at most one or two simple new props for the whole reel; flowers stay rooted (they change health, sway, droop, glow), the camera and Floey do the moving. Name the real thing (pages, clicks, traffic) in the spoken hook; the picture carries the flower metaphor. Never put the spoken sentence on screen; short interface labels a viewer needs to follow along (a tab or column name like 'Compare' or 'Difference', one number) are fine.",
     "Give every line an emotion that matches the moment (ominous or worried for a problem, curious for a question, determined for the fix, proud or excited for the payoff, playful for the address).",
     "Each beat's visual is a concrete garden scene an animator could draw: what Floey does, which flower changes and how, any prop.",
-  ].join("\n\n");
+    hookBrief(),
+    learnedBrief(),
+  ].filter(Boolean).join("\n\n");
   const prompt = `The brief:\n${JSON.stringify(brief, null, 1)}\n\nWrite the reel. Use only the brief's facts.`;
   let draft = await askJson({ system, prompt, schema: Story, effort: "high" });
   // trivial format slips are repaired in code, not with a rewrite

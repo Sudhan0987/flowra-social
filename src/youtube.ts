@@ -96,3 +96,16 @@ export async function setThumbnail(videoId: string, image: string): Promise<void
   });
   if (!r.ok) throw new Error(`Thumbnail refused: ${r.status} ${(await r.text()).slice(0, 300)}`);
 }
+
+/**
+ * A read-only Data API call as the channel (youtube.readonly is enough for
+ * search, videos and channels). Search costs 100 units, the others 1, of the
+ * 10,000 a day.
+ */
+export async function ytGet<T>(endpoint: string, params: Record<string, string | number>): Promise<T> {
+  const token = await accessToken();
+  const q = new URLSearchParams(Object.entries(params).map(([k, v]) => [k, String(v)]));
+  const r = await fetch(`https://www.googleapis.com/youtube/v3/${endpoint}?${q}`, { headers: { Authorization: `Bearer ${token}` } });
+  if (!r.ok) throw new Error(`YouTube ${endpoint}: ${r.status} ${(await r.text()).slice(0, 300)}`);
+  return (await r.json()) as T;
+}

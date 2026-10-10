@@ -6,7 +6,8 @@
   "scripts": {
     "make": "tsx src/cli.ts make",
     "status": "tsx src/cli.ts status",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "tsx --test test/*.test.ts"
   },
   "engines": {
     "node": ">=22"

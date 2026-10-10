@@ -18,6 +18,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { askJson } from "./claude.ts";
+import { hookBrief } from "./hooks.ts";
+import { learnedBrief } from "./results.ts";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (f: string) => readFileSync(path.join(ROOT, f), "utf8");
@@ -86,7 +88,9 @@ async function main() {
       "Pick what to post next: questions people keep asking, frustrations, news they are confused by, myths they repeat. Prefer ideas with real engagement and ones our garden-and-Floey reels can show. Never invent statistics; anything factual must come from the evidence or the facts file. Never the em dash or en dash.",
       "Flowra facts (the only source for product claims):",
       read("facts/flowra.md"),
-    ].join("\n\n"),
+      learnedBrief(ROOT) ? learnedBrief(ROOT) + "\nRank with these results in mind: favour the kinds of reel that held people and led to saves or follows." : "",
+      hookBrief(ROOT) ? hookBrief(ROOT).replace("Name the pattern you used in hookPattern.", "Write each idea's hook on one of these patterns.") : "",
+    ].filter(Boolean).join("\n\n"),
     prompt: [
       "Already posted or made (do not repeat):",
       ...posts.map((p) => `- ${p.topic} (${p.status})`),

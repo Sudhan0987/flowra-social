@@ -3,9 +3,16 @@
 # then Claude ranks what to post next. Writes research/<date>/ and
 # research/latest.json, which the reel researcher and Flowra Desk read; then
 # rebuilds calendar/social.json and drafts the coming week's LinkedIn posts.
-# Sundays 08:00 India time, before Monday's reel; or by hand.
+# Before that, two learning steps: our own reels' results (src/results.ts ->
+# state/results.json, research/learnings.json, a note in Slack #social) and
+# the hook library from the top Shorts on our topics (src/hooks.ts ->
+# research/hooks.json). The story writer and this ranking read both.
+# Sundays 08:00 India time, before Monday's reel; or by hand ("learn" runs
+# only the two learning steps, leaving the ranked ideas and calendar alone).
 #
-# Needs: secrets.CLAUDE_CODE_OAUTH_TOKEN (from `claude setup-token`).
+# Needs: secrets.CLAUDE_CODE_OAUTH_TOKEN (from `claude setup-token`),
+# META_ACCESS_TOKEN, YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKEN,
+# SLACK_BOT_TOKEN.
 
 name: Social listening
 
@@ -13,6 +20,12 @@ on:
   schedule:
     - cron: "30 2 * * 0"
   workflow_dispatch:
+    inputs:
+      step:
+        description: "all = learn, then listen and plan; learn = results and hook library only"
+        type: choice
+        options: [all, learn]
+        default: all
 
 permissions:
   contents: write
@@ -29,6 +42,12 @@ jobs:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'opus' }}
       L30: ${{ github.workspace }}/.last30days/skills/last30days/scripts/last30days.py
+      META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      LEARN_ONLY: ${{ inputs.step == 'learn' }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -43,16 +62,31 @@ jobs:
           git clone -q https://github.com/mvanhorn/last30days-skill .last30days
           git -C .last30days checkout -q 7f582ad8c2e140eca08098b245f9e31b68e28b60
           pip install -q yt-dlp
+      - name: Tools for the hook library (ffmpeg; faster-whisper, MIT)
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ffmpeg
+          pip install -q faster-whisper
+          echo "PYTHON=$(which python)" >> "$GITHUB_ENV"
       - run: npm ci
       - run: npm install -g @anthropic-ai/claude-code
+      # The learning steps never stop the listening: a failure is shown and the rest runs.
+      - name: Our reels' results and what they teach
+        continue-on-error: true
+        run: npx tsx src/results.ts
+      - name: Hook library from the top Shorts on our topics
+        continue-on-error: true
+        run: npx tsx src/hooks.ts
       - name: Listen and rank
+        if: env.LEARN_ONLY != 'true'
         run: npx tsx src/trends.ts
       - name: Social calendar and next week's LinkedIn drafts
+        if: env.LEARN_ONLY != 'true'
         run: npx tsx src/social-calendar.ts --drafts
       - name: Save
         run: |
           git config user.name "flowra-social"
           git config user.email "flowra-social@users.noreply.github.com"
           git add research calendar posts
+          if [ -f state/results.json ]; then git add state/results.json; fi
           git commit -m "Social listening $(date -u +%F)" || echo "nothing new"
           git pull --rebase -q && git push -q

@@ -10,5 +10,17 @@
     "Google core update recovery content",
     "SEO client reporting agency",
     "ChatGPT Perplexity referral traffic SEO"
+  ],
+  "hookNote": "What the hook library (src/hooks.ts) studies: top Shorts from the last hookDays days on these searches, through the YouTube Data API (100 units per search of 10,000 a day). Broad searches find more breakout videos than narrow ones.",
+  "hookDays": 90,
+  "hookQueries": [
+    "SEO tips",
+    "Google Search Console",
+    "AI Overviews",
+    "blog traffic",
+    "content marketing tips",
+    "Google algorithm update",
+    "ChatGPT SEO",
+    "website traffic"
   ]
 }
