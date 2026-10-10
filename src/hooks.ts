@@ -59,6 +59,9 @@ export function pickBreakouts(all: Candidate[], n = 14, minViews = 5000): Candid
   return out;
 }
 
+/** A title in another script (Devanagari, Arabic, Cyrillic, CJK, Thai, Korean...): search's language hint is only a hint. */
+export const nonLatin = (t: string) => /[\u0400-\u04FF\u0600-\u06FF\u0900-\u0DFF\u0E00-\u0E7F\u3040-\u30FF\u4E00-\u9FFF\uAC00-\uD7AF]/.test(t);
+
 /** Views per subscriber, floored so a 40-subscriber channel's lucky video does not top everything. */
 export const breakout = (views: number, subs: number) => views / Math.max(subs, 2000);
 
@@ -67,7 +70,7 @@ async function find(queries: string[], days: number): Promise<Candidate[]> {
   const hits = new Map<string, string>();
   for (const q of queries) {
     const s = await ytGet<{ items: Array<{ id: { videoId: string } }> }>("search", {
-      part: "snippet", q, type: "video", videoDuration: "short", order: "viewCount", publishedAfter: after, maxResults: 25, relevanceLanguage: "en", safeSearch: "strict",
+      part: "snippet", q, type: "video", videoDuration: "short", order: "viewCount", publishedAfter: after, maxResults: 25, relevanceLanguage: "en", regionCode: "US", safeSearch: "strict",
     });
     for (const i of s.items) if (!hits.has(i.id.videoId)) hits.set(i.id.videoId, q);
     console.log(`${q}: ${s.items.length} videos`);
@@ -85,7 +88,7 @@ async function find(queries: string[], days: number): Promise<Candidate[]> {
     for (const x of c.items) subs.set(x.id, Number(x.statistics.subscriberCount ?? 0));
   }
   return videos
-    .filter((v) => !v.snippet.defaultAudioLanguage || v.snippet.defaultAudioLanguage.startsWith("en"))
+    .filter((v) => (!v.snippet.defaultAudioLanguage || v.snippet.defaultAudioLanguage.startsWith("en")) && !nonLatin(v.snippet.title))
     .map((v) => {
       const views = Number(v.statistics.viewCount ?? 0), s = subs.get(v.snippet.channelId) ?? 0;
       return { id: v.id, title: v.snippet.title, channel: v.snippet.channelTitle, channelId: v.snippet.channelId, views, subs: s, seconds: isoSeconds(v.contentDetails.duration), published: v.snippet.publishedAt.slice(0, 10), query: hits.get(v.id) ?? "", score: Math.round(breakout(views, s) * 100) / 100 };
@@ -99,6 +102,7 @@ async function find(queries: string[], days: number): Promise<Candidate[]> {
  * home connection. On GitHub's servers YouTube may refuse the download
  * altogether; then the cover stands in and `captured` is false.
  */
+let loggedFailure = false;
 export function capture(c: Candidate, dir: string): Opening & { wav: string } {
   const url = `https://www.youtube.com/shorts/${c.id}`;
   const base = { id: c.id, url, title: c.title, channel: c.channel, views: c.views, subs: c.subs, score: c.score, seconds: c.seconds };
@@ -117,7 +121,10 @@ export function capture(c: Candidate, dir: string): Opening & { wav: string } {
         execFileSync("ffmpeg", ["-v", "error", "-y", "-i", src, "-t", "4", "-vn", "-ac", "1", "-ar", "16000", wav], { timeout: 60_000 });
       } catch { /* a silent Short has no audio stream */ }
     }
-  } catch { /* refused: fall back to the cover */ }
+  } catch (e) {
+    // refused: fall back to the cover, and say why once so a blocked runner is visible in the log
+    if (!loggedFailure) { loggedFailure = true; console.log(`yt-dlp could not get ${c.id}: ${String((e as { stderr?: Buffer }).stderr ?? (e as Error).message).trim().split("\n").pop()?.slice(0, 300)}`); }
+  }
   if (!captured) {
     try {
       execFileSync("curl", ["-sfL", "-o", frames, `https://i.ytimg.com/vi/${c.id}/hqdefault.jpg`], { timeout: 30_000 });

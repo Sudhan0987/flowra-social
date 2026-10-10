@@ -62,6 +62,10 @@ jobs:
           git clone -q https://github.com/mvanhorn/last30days-skill .last30days
           git -C .last30days checkout -q 7f582ad8c2e140eca08098b245f9e31b68e28b60
           pip install -q yt-dlp
+      # yt-dlp needs a JavaScript runtime to solve YouTube's player challenge; without one no video formats are offered
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
       - name: Tools for the hook library (ffmpeg; faster-whisper, MIT)
         run: |
           sudo apt-get update -q && sudo apt-get install -y -q ffmpeg

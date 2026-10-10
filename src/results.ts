@@ -28,7 +28,7 @@ const G = "https://graph.facebook.com/v23.0";
 const PAGE = "1322809910922605";
 const readJson = <T>(f: string, fallback: T): T => (existsSync(path.join(ROOT, f)) ? (JSON.parse(readFileSync(path.join(ROOT, f), "utf8")) as T) : fallback);
 
-interface Post { id: string; status: string; topic: string; format?: string; seconds?: number; idea?: string; published?: { at: string; instagram?: string; facebook?: string; youtube?: string } }
+interface Post { id: string; status: string; topic: string; format?: string; seconds?: number; idea?: string; published?: { at: string; instagram?: string; facebook?: string | boolean; youtube?: string } }
 type Numbers = Record<string, number>;
 export interface Snapshot { date: string; ageDays: number; instagram: Numbers; facebook: Numbers; youtube: Numbers }
 export interface ReelResult {
@@ -59,8 +59,30 @@ async function metrics(base: string, names: string[], token: string): Promise<Nu
   return out;
 }
 
+// follows and profile_visits are asked for but Instagram does not report them for Reels (10 Oct 2026)
 const IG_METRICS = ["views", "reach", "saved", "shares", "likes", "comments", "total_interactions", "ig_reels_avg_watch_time", "ig_reels_video_view_total_time", "follows", "profile_visits"];
-const FB_METRICS = ["blue_reels_play_count", "post_impressions_unique", "post_video_avg_time_watched", "post_video_view_time", "post_video_followers", "post_video_social_actions"];
+/**
+ * Every lifetime metric Facebook has for the video, in one call: asking for
+ * named metrics returned nothing on 10 Oct 2026 (the names differ for reels).
+ * Meta's error message is printed once (it never contains the token).
+ */
+let fbLogged = false;
+async function fbInsights(video: string, token: string): Promise<Numbers> {
+  const r = await fetch(`${G}/${video}/video_insights?access_token=${token}`);
+  const j = (await r.json()) as { data?: Array<{ name: string; period?: string; values?: Array<{ value: unknown }> }>; error?: { message?: string } };
+  if (j.error || !j.data) {
+    if (!fbLogged) { fbLogged = true; console.log(`Facebook insights refused for ${video}: ${j.error?.message ?? r.status}`); }
+    return {};
+  }
+  const out: Numbers = {};
+  for (const d of j.data) {
+    if (d.period && d.period !== "lifetime") continue;
+    const v = d.values?.[0]?.value;
+    if (typeof v === "number") out[d.name] = v;
+    else if (v && typeof v === "object") for (const [k, n] of Object.entries(v as Record<string, unknown>)) if (typeof n === "number") out[`${d.name}.${k}`] = n;
+  }
+  return out;
+}
 
 /** How the reel was made, from its draft folder. Missing files leave blanks. */
 function made(id: string): { title: string; hook: string; hookPattern: string; format: string; pillar: string; goal: string } {
@@ -101,7 +123,7 @@ async function collect(): Promise<ReelResult[]> {
     const pub = p.published!;
     const ig = pub.instagram ? await metrics(`${G}/${pub.instagram}/insights`, IG_METRICS, token) : {};
     const igMeta = pub.instagram ? await graph<{ timestamp?: string }>(`${G}/${pub.instagram}?fields=timestamp&access_token=${token}`) : undefined;
-    const fb = pub.facebook && pageToken ? await metrics(`${G}/${pub.facebook}/video_insights`, FB_METRICS, pageToken) : {};
+    const fb = typeof pub.facebook === "string" && pageToken ? await fbInsights(pub.facebook, pageToken) : {};
     const postedAt = igMeta?.timestamp ?? `${pub.at}T00:00:00Z`;
     const ageDays = Math.max(0, Math.round(((Date.now() - Date.parse(postedAt)) / 86400000) * 10) / 10);
     const snap: Snapshot = { date: today, ageDays, instagram: ig, facebook: fb, youtube: pub.youtube ? yt.get(pub.youtube) ?? {} : {} };
@@ -136,6 +158,7 @@ async function learn(reels: ReelResult[]): Promise<Learnings> {
     system: [
       "You are the analyst for Flowra's short videos (Instagram Reels, the Facebook Page and YouTube Shorts, the same video on all three). Flowra sells an SEO tool to content teams and agencies, so the numbers that matter most are the ones that lead to customers: follows, profile visits and saves first, then shares and how much of the video people watched, then views. Likes matter least.",
       "Compare the reels against each other and find what the better ones did differently: the hook and its pattern, the story structure, the pillar, the goal (send or save), the length. Account for age: a reel posted yesterday has had less time; compare at similar ages using the growth snapshots. watchShare is average watch time divided by length (Instagram), the best sign of whether the hook and story held people.",
+      "Instagram does not report follows or profile visits per Reel, so do not ask for them; use saves, shares and watch time instead. Facebook's numbers are whatever its video insights return (plays, reach, watch time); YouTube gives views, likes and comments only.",
       "Be honest about the sample: with a handful of reels, every finding is an early signal, never a rule. Never invent a number; use only the data given. When there is too little to say something, say so. Keep last week's findings that still hold, and update or drop the rest. Plain words, short sentences. Never the em dash or en dash.",
     ].join("\n\n"),
     prompt: [
