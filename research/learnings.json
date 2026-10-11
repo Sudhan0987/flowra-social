@@ -1,60 +1,68 @@
 {
- "date": "2026-10-10",
+ "date": "2026-10-11",
  "reels": 4,
- "summary": "Nothing has really changed since last week. We still have the same four reels, each with one snapshot dated today (2026-10-10), and no new posts. The only changes are YouTube counts that moved by one view each, which is noise. So every finding below is still an early signal, not a rule. On Instagram, people still leave within the first few seconds, and no reel has earned a save or a share on any platform. The problem reel leads on Instagram and the news reels, especially r004, lead on YouTube. We need new reels and later snapshots before we can say more.",
+ "summary": "We now have the first saves and shares. r006, a news reel about Google's AI showing your page while its clicks fall, jumped from 6 to 115 Instagram views in one day and got 2 saves and 1 share. Instagram viewers still leave within about 2 to 4 seconds on every reel. With only four reels and two snapshots each, all of this is still an early signal, not a rule.",
  "signals": [
   {
-   "finding": "Instagram viewers leave in the first few seconds, so the hooks are not holding people yet.",
-   "evidence": "Average Instagram watch time was 3.9s of 38s on r002 (watchShare 0.10), 2.4s of 36s on r003 (0.07) and 0.7s of 42s on r006 (0.02). r004 shows 0.36 (13.2s of 37s), but that comes from only 2 Instagram views, so it tells us nothing. All four reels are 36 to 42 seconds long, so we cannot yet say whether length matters.",
+   "finding": "Instagram viewers still leave in the first few seconds, so the hooks are not holding people yet.",
+   "evidence": "Average Instagram watch time: 3.9s of 38s on r002 (watchShare 0.10), 3.1s of 42s on r006 (0.07, now on 115 views, up from 0.7s on 6 views) and 2.2s of 36s on r003 (0.06). r004 shows 0.31 (11.6s of 37s), but only on 4 views, so it tells us nothing. All four reels are 36 to 42 seconds long and none ran an experiment, so we still cannot say whether length matters.",
+   "confidence": "medium"
+  },
+  {
+   "finding": "r006 is the first reel to earn saves and shares, and it is now our biggest Instagram reel.",
+   "evidence": "r006 has 2 saves, 1 share and 3 likes from 102 reach (115 views) at 1.7 days old. Every other reel still has 0 saves and 0 shares on Instagram. YouTube likes and comments are 0 on all four.",
    "confidence": "low"
   },
   {
-   "finding": "No reel has turned viewers into savers or sharers yet, even though all four aimed for saves.",
-   "evidence": "Instagram saves and shares are 0 on all four reels. The reel with the most Instagram views, r002 (87 views, 76 reach), got only 2 likes. YouTube likes and comments are 0 on all four.",
+   "finding": "Both Instagram leaders are about clicks quietly falling and a Search Console check. The YouTube leaders are about Google's timing.",
+   "evidence": "Instagram: r006 115 views ('clicks quietly fall', 'One Search Console check' in the title) and r002 87 views ('Flat clicks can hide fading pages. Search Console finds yours'). YouTube: r004 127 views (spam update date) and r003 49 views (recrawl timing). This replaces last week's idea that the problem pillar wins Instagram: r006 is a news reel and it now leads there. It rests on two reels per side.",
    "confidence": "low"
   },
   {
-   "finding": "The two platforms rank the reels in opposite order. The problem reel leads on Instagram, while the news reels lead on YouTube.",
-   "evidence": "Instagram views: r002 (problem) 87, r003 (news) 15, r006 (news) 6, r004 (news) 2. YouTube views: r004 116, r003 49, r006 17, r002 6. Since last week, YouTube moved by one view on three reels (r003 48 to 49, r004 117 to 116, r006 18 to 17), which is noise. Each reel still has only one snapshot, taken at a different age (0.5 to 3.6 days), so we cannot compare them at the same age. As a rough check, r004 has about 50 YouTube views per day of age and r002 under 2, so the gap is too big to be only about age.",
+   "finding": "Each platform ranks the reels almost in reverse.",
+   "evidence": "Instagram views: r006 115, r002 87, r003 16, r004 4. YouTube views: r004 127, r003 49, r006 21, r002 6. The reels that do well on one platform do poorly on the other.",
    "confidence": "low"
   },
   {
-   "finding": "The hooks that led on each platform both opened with one specific, concrete detail.",
-   "evidence": "r002 led on Instagram with 'Search Console finds yours in a minute' (a named tool and a time frame). r004 led on YouTube with 'only fits Google's spam update if it started after September twenty fourth' (an exact date), in the explain-like-five format. The weaker hooks either warn ('likely hasn't recrawled it') or hedge ('may keep showing'). This rests on one reel per platform, every reel used a different format, and no hook pattern was recorded for any reel.",
+   "finding": "Instagram views seem to arrive in the first one to two days and then stop. YouTube views can keep coming.",
+   "evidence": "r006 went from 6 to 115 Instagram views between day 0.5 and day 1.7. r002 stayed at 87 from day 3.6 to 4.7, and r003 went only from 15 to 16 between day 2.6 and 3.8. On YouTube, r004 grew from 116 to 127 between day 2.3 and 3.5, while r002 (6) and r003 (49) did not move. At a similar early age, r006 already has more Instagram views than r002 has after almost 5 days.",
+   "confidence": "low"
+  },
+  {
+   "finding": "The idea that concrete-detail hooks win is weaker now.",
+   "evidence": "r006 leads Instagram with a hedged hook ('may keep showing'), which we had grouped with the weaker hooks last week. No hook pattern has been recorded for any reel, so we cannot compare patterns.",
    "confidence": "low"
   },
   {
    "finding": "We still have no Facebook numbers.",
-   "evidence": "The Facebook field is empty on all four reels, so we cannot compare Facebook plays, reach or watch time.",
+   "evidence": "The Facebook field is empty on all four reels.",
    "confidence": "low"
   }
  ],
  "doMore": [
-  "Open the hook with one concrete detail, such as a named tool, an exact date or a time frame, as r002 and r004 did.",
-  "Record the hook pattern for every new reel. All four say 'not recorded', so we cannot compare patterns yet.",
-  "Take growth snapshots at fixed ages (day 1, day 3, day 7) so reels can be compared at the same age.",
-  "Check why the Facebook numbers are not coming through, so we can see the third platform."
+  "Topics about clicks falling quietly with a single Search Console check people can do (r006 and r002 lead Instagram, and r006 earned our only saves and shares).",
+  "Google timing topics with an exact date or time frame for YouTube (r004 is still growing there at 127 views).",
+  "Judge Instagram at day 1 to 2 and YouTube over a longer window, since Instagram views seem to stop early."
  ],
  "doLess": [
-  "Hedging or warning hooks with no concrete payoff, like 'may keep showing' (r006, watchShare 0.02) or 'likely hasn't recrawled it' (r003, 0.07).",
-  "Making all reels 36 to 42 seconds long. Viewers leave after 1 to 4 seconds on Instagram, and with no shorter reels we cannot test length.",
-  "Reading the platform results as one number. Instagram and YouTube rank our reels in opposite order, so judge each separately."
+  "Long setups before the payoff: viewers leave after 2 to 4 seconds on 36 to 42 second reels.",
+  "Publishing without a recorded hook pattern or experiment, since it stops us from learning what worked."
  ],
  "tryNext": [
   {
-   "experiment": "Make the next two reels 20 to 25 seconds long, and show the payoff (the screen, the number or the result) in the first 2 seconds, before any explanation.",
-   "why": "On Instagram, viewers leave after 1 to 4 seconds on our 36 to 42 second reels. A shorter reel that pays off sooner should hold more of them. It would also be our first test of length.",
-   "measure": "Instagram average watch time and watchShare, compared with the current 0.02 to 0.10."
+   "experiment": "Make the next two reels 20 to 25 seconds long and show the payoff (the Search Console screen or the number) in the first 2 seconds. Label them with a 'shorter length' experiment and record the hook pattern.",
+   "why": "Watch time is 0.06 to 0.10 of the reel on every reel with real views. A shorter reel that pays off sooner should hold more people, and it would be our first real test of length.",
+   "measure": "Instagram average watch time and watchShare at day 1 to 2, compared with 0.06 to 0.10 now."
   },
   {
-   "experiment": "Post one problem reel and one news reel in the same week, both with a concrete-detail hook, and compare them at day 1 and day 3 on each platform separately.",
-   "why": "Instagram favored the problem reel and YouTube favored the news reels, but the reels were different ages. A matched test separates the topic and the platform from the extra time.",
-   "measure": "Instagram views, reach, saves and shares, plus YouTube views, from the day 1 and day 3 growth snapshots."
+   "experiment": "Make a follow-up to r006: another 'clicks quietly falling' reel with one Search Console check, an on-screen checklist and a plain 'save this for your next audit' at the end.",
+   "why": "r006 is the only reel with saves (2) and a share (1). Repeating its topic with a clear ask tells us whether that was the topic or luck.",
+   "measure": "Instagram saves and shares per reach at day 2, compared with r006's 2 saves and 1 share from 102 reach."
   },
   {
-   "experiment": "On one save-goal reel, show a simple on-screen checklist and say plainly 'save this for your next audit' near the end.",
-   "why": "All four reels aimed for saves and got zero. Viewers may need something clearly worth keeping and a direct ask.",
-   "measure": "Instagram saves and shares, compared with 0 on every reel so far."
+   "experiment": "Post one Google timing reel and one Search Console reel in the same week, and compare each platform separately at day 1 and day 3.",
+   "why": "Instagram favored the Search Console reels and YouTube favored the timing reels. A matched pair at the same age would show whether topic really decides which platform wins.",
+   "measure": "Instagram views, reach and saves, plus YouTube views, from the day 1 and day 3 growth snapshots."
   }
  ]
 }

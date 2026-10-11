@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-10",
+ "updated": "2026-10-11",
  "reels": [
   {
    "id": "r002-find-the-pages-quietly-losing-traffic-in",
@@ -13,12 +13,13 @@
    "postedAt": "2026-10-06T15:11:43+0000",
    "seconds": 38,
    "idea": "",
+   "experiment": "",
    "latest": {
-    "date": "2026-10-10",
-    "ageDays": 3.6,
+    "date": "2026-10-11",
+    "ageDays": 4.7,
     "instagram": {
      "views": 87,
-     "reach": 76,
+     "reach": 77,
      "saved": 0,
      "shares": 0,
      "likes": 2,
@@ -59,6 +60,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-11",
+     "ageDays": 4.7,
+     "instagram": {
+      "views": 87,
+      "reach": 77,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 3926,
+      "ig_reels_video_view_total_time": 337690
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 6,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -74,19 +98,20 @@
    "postedAt": "2026-10-07T14:32:35+0000",
    "seconds": 36,
    "idea": "",
+   "experiment": "",
    "latest": {
-    "date": "2026-10-10",
-    "ageDays": 2.6,
+    "date": "2026-10-11",
+    "ageDays": 3.8,
     "instagram": {
-     "views": 15,
-     "reach": 16,
+     "views": 16,
+     "reach": 17,
      "saved": 0,
      "shares": 0,
      "likes": 0,
      "comments": 0,
      "total_interactions": 0,
-     "ig_reels_avg_watch_time": 2376,
-     "ig_reels_video_view_total_time": 38030
+     "ig_reels_avg_watch_time": 2240,
+     "ig_reels_video_view_total_time": 38084
     },
     "facebook": {},
     "youtube": {
@@ -120,6 +145,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-11",
+     "ageDays": 3.8,
+     "instagram": {
+      "views": 16,
+      "reach": 17,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2240,
+      "ig_reels_video_view_total_time": 38084
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 49,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -135,23 +183,24 @@
    "postedAt": "2026-10-07T21:26:51+0000",
    "seconds": 37,
    "idea": "",
+   "experiment": "",
    "latest": {
-    "date": "2026-10-10",
-    "ageDays": 2.3,
+    "date": "2026-10-11",
+    "ageDays": 3.5,
     "instagram": {
-     "views": 2,
-     "reach": 3,
+     "views": 4,
+     "reach": 4,
      "saved": 0,
      "shares": 0,
      "likes": 1,
      "comments": 0,
      "total_interactions": 1,
-     "ig_reels_avg_watch_time": 13166,
-     "ig_reels_video_view_total_time": 52666
+     "ig_reels_avg_watch_time": 11565,
+     "ig_reels_video_view_total_time": 57829
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 116,
+     "viewCount": 127,
      "likeCount": 0,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -181,6 +230,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-11",
+     "ageDays": 3.5,
+     "instagram": {
+      "views": 4,
+      "reach": 4,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 11565,
+      "ig_reels_video_view_total_time": 57829
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 127,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -196,23 +268,24 @@
    "postedAt": "2026-10-09T17:11:20+0000",
    "seconds": 42,
    "idea": "Search Console now shows how often you appear in AI Overviews and AI Mode",
+   "experiment": "",
    "latest": {
-    "date": "2026-10-10",
-    "ageDays": 0.5,
+    "date": "2026-10-11",
+    "ageDays": 1.7,
     "instagram": {
-     "views": 6,
-     "reach": 6,
-     "saved": 0,
-     "shares": 0,
-     "likes": 0,
+     "views": 115,
+     "reach": 102,
+     "saved": 2,
+     "shares": 1,
+     "likes": 3,
      "comments": 0,
-     "total_interactions": 0,
-     "ig_reels_avg_watch_time": 745,
-     "ig_reels_video_view_total_time": 4474
+     "total_interactions": 6,
+     "ig_reels_avg_watch_time": 3078,
+     "ig_reels_video_view_total_time": 323245
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 17,
+     "viewCount": 21,
      "likeCount": 0,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -237,6 +310,29 @@
      "facebook": {},
      "youtube": {
       "viewCount": 17,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    },
+    {
+     "date": "2026-10-11",
+     "ageDays": 1.7,
+     "instagram": {
+      "views": 115,
+      "reach": 102,
+      "saved": 2,
+      "shares": 1,
+      "likes": 3,
+      "comments": 0,
+      "total_interactions": 6,
+      "ig_reels_avg_watch_time": 3078,
+      "ig_reels_video_view_total_time": 323245
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 21,
       "likeCount": 0,
       "dislikeCount": 0,
       "favoriteCount": 0,

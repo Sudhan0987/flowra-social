@@ -1,0 +1,33 @@
+# What our reels taught us (2026-10-11)
+
+We now have the first saves and shares. r006, a news reel about Google's AI showing your page while its clicks fall, jumped from 6 to 115 Instagram views in one day and got 2 saves and 1 share. Instagram viewers still leave within about 2 to 4 seconds on every reel. With only four reels and two snapshots each, all of this is still an early signal, not a rule.
+
+| Reel | Title | Age | IG views | Saves | Shares | Follows | Watched | FB plays | YT views |
+|---|---|---|---|---|---|---|---|---|---|
+| r002 | Find the pages fading inside your flat clicks line | 4.7d | 87 | 0 | 0 | ? | 10% | ? | 6 |
+| r003 | Day 3 Is Too Soon: How Long Google Takes to Notice Your Upda | 3.8d | 16 | 0 | 0 | ? | 6% | ? | 49 |
+| r004 | The rollout window, explained with one frost | 3.5d | 4 | 0 | 0 | ? | 31% | ? | 127 |
+| r006 | One Search Console check: is Google's AI showing your page w | 1.7d | 115 | 2 | 1 | ? | 7% | ? | 21 |
+
+## Signals
+- **Instagram viewers still leave in the first few seconds, so the hooks are not holding people yet.** (medium). Average Instagram watch time: 3.9s of 38s on r002 (watchShare 0.10), 3.1s of 42s on r006 (0.07, now on 115 views, up from 0.7s on 6 views) and 2.2s of 36s on r003 (0.06). r004 shows 0.31 (11.6s of 37s), but only on 4 views, so it tells us nothing. All four reels are 36 to 42 seconds long and none ran an experiment, so we still cannot say whether length matters.
+- **r006 is the first reel to earn saves and shares, and it is now our biggest Instagram reel.** (low). r006 has 2 saves, 1 share and 3 likes from 102 reach (115 views) at 1.7 days old. Every other reel still has 0 saves and 0 shares on Instagram. YouTube likes and comments are 0 on all four.
+- **Both Instagram leaders are about clicks quietly falling and a Search Console check. The YouTube leaders are about Google's timing.** (low). Instagram: r006 115 views ('clicks quietly fall', 'One Search Console check' in the title) and r002 87 views ('Flat clicks can hide fading pages. Search Console finds yours'). YouTube: r004 127 views (spam update date) and r003 49 views (recrawl timing). This replaces last week's idea that the problem pillar wins Instagram: r006 is a news reel and it now leads there. It rests on two reels per side.
+- **Each platform ranks the reels almost in reverse.** (low). Instagram views: r006 115, r002 87, r003 16, r004 4. YouTube views: r004 127, r003 49, r006 21, r002 6. The reels that do well on one platform do poorly on the other.
+- **Instagram views seem to arrive in the first one to two days and then stop. YouTube views can keep coming.** (low). r006 went from 6 to 115 Instagram views between day 0.5 and day 1.7. r002 stayed at 87 from day 3.6 to 4.7, and r003 went only from 15 to 16 between day 2.6 and 3.8. On YouTube, r004 grew from 116 to 127 between day 2.3 and 3.5, while r002 (6) and r003 (49) did not move. At a similar early age, r006 already has more Instagram views than r002 has after almost 5 days.
+- **The idea that concrete-detail hooks win is weaker now.** (low). r006 leads Instagram with a hedged hook ('may keep showing'), which we had grouped with the weaker hooks last week. No hook pattern has been recorded for any reel, so we cannot compare patterns.
+- **We still have no Facebook numbers.** (low). The Facebook field is empty on all four reels.
+
+## Do more
+- Topics about clicks falling quietly with a single Search Console check people can do (r006 and r002 lead Instagram, and r006 earned our only saves and shares).
+- Google timing topics with an exact date or time frame for YouTube (r004 is still growing there at 127 views).
+- Judge Instagram at day 1 to 2 and YouTube over a longer window, since Instagram views seem to stop early.
+
+## Do less
+- Long setups before the payoff: viewers leave after 2 to 4 seconds on 36 to 42 second reels.
+- Publishing without a recorded hook pattern or experiment, since it stops us from learning what worked.
+
+## Try next
+- Make the next two reels 20 to 25 seconds long and show the payoff (the Search Console screen or the number) in the first 2 seconds. Label them with a 'shorter length' experiment and record the hook pattern. Why: Watch time is 0.06 to 0.10 of the reel on every reel with real views. A shorter reel that pays off sooner should hold more people, and it would be our first real test of length. Measure: Instagram average watch time and watchShare at day 1 to 2, compared with 0.06 to 0.10 now.
+- Make a follow-up to r006: another 'clicks quietly falling' reel with one Search Console check, an on-screen checklist and a plain 'save this for your next audit' at the end. Why: r006 is the only reel with saves (2) and a share (1). Repeating its topic with a clear ask tells us whether that was the topic or luck. Measure: Instagram saves and shares per reach at day 2, compared with r006's 2 saves and 1 share from 102 reach.
+- Post one Google timing reel and one Search Console reel in the same week, and compare each platform separately at day 1 and day 3. Why: Instagram favored the Search Console reels and YouTube favored the timing reels. A matched pair at the same age would show whether topic really decides which platform wins. Measure: Instagram views, reach and saves, plus YouTube views, from the day 1 and day 3 growth snapshots.

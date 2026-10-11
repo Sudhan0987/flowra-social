@@ -1,157 +1,92 @@
 {
-  "date": "2026-10-07",
-  "summary": "Flowra's audience is mostly talking about cleaning up after scale: what to do with old blog posts, how to recover after publishing lots of AI posts, and Google's warnings about low value programmatic and AI content. The September 2026 spam update and AI Overviews are behind many traffic drop threads, and agencies keep asking how to explain those drops to clients. People also want to know if they get traffic from ChatGPT and Perplexity, and many still treat rising impressions as proof that things are working. Added 2026-10-08 from the calendar research (research/2026-10-08-calendar-research.md): three news hooks worth a reel this week (Search Console's AI performance report, AI Overviews on 8 in 10 branded searches, the spam update still rolling) and one LinkedIn post (Google paying publishers for AI citations).",
+  "date": "2026-10-11",
+  "summary": "AI is the main thread this month: Google's AI Overviews survived the Chegg and Penske lawsuits, Google is testing payments to publishers for AI Mode, and people are building tools to check whether ChatGPT and Perplexity cite them while arguing that AI visibility is being measured the wrong way. Site owners are also annoyed by AI bot traffic and AI crawler blocking, and they are uneasy about AI drafts now that Google has told sites to fact-check AI content and writers report ChatGPT contradicting their own work. Google timing is still news after Gary Illyes shared Google's own figures in Barcelona, and Google's google.com/goto anti-scraping change drew one of the biggest discussions on Hacker News.",
   "ideas": [
     {
-      "title": "Search Console now shows how often you appear in AI Overviews and AI Mode",
+      "title": "Impressions held, clicks fell: the one Search Console check for pages AI answers are eating",
       "channel": "reel",
       "pillar": "news",
-      "goal": "send",
-      "hook": "Floey opens a drawer in the Search Console filing cabinet nobody has opened yet: a new report, and it says how often Google's AI used your pages.",
-      "why": "Google's generative AI performance report went global on 31 August 2026 (impressions, pages, countries, devices for AI Overviews and AI Mode), and most people still don't know it exists: the Reddit threads about 'am I getting traffic from AI' never mention it. A 30 second 'open this report' walkthrough is sendable to a colleague and saveable. One Flowra line at the end: it reads the same data next to GA4's AI referrals.",
+      "hook": "Your impressions holding steady doesn't mean your clicks did. One Search Console check shows which pages.",
+      "why": "A judge has thrown out the Chegg and Penske suits over AI Overviews, and Google is testing payments to publishers for AI Mode, so AI answers are not going away. This follows r006 as planned: one quiet clicks-falling check (Pages tab, clicks and impressions on, compare periods, find flat impressions with falling clicks), shown on screen in the first 2 seconds, 20 to 25 seconds long, ending with 'save this for your next audit'.",
       "sources": [
-        "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
-        "https://support.google.com/webmasters/answer/16984139?hl=en",
-        "https://www.searchenginejournal.com/google-search-console-ai-reports-rolled-out-worldwide/587836/"
+        "https://reuters.com/legal/litigation/google-wins-dismissal-chegg-penske-media-lawsuits-over-ai-overviews-2026-10-01",
+        "https://searchengineland.com/google-tests-paying-publishers-for-using-its-content-in-ai-mode-ai-overviews-and-gemini-488382"
       ]
     },
     {
-      "title": "Google now answers your own brand name with AI: 8 in 10 branded searches",
-      "channel": "reel",
-      "pillar": "news",
-      "goal": "send",
-      "hook": "Floey searches for her own name. Google answers before her site does.",
-      "why": "Two independent datasets agree: DemandSphere saw AI Overviews on about 26% of tracked branded queries in early September and 82% by 29 September; Ahrefs saw 82.9% across 92.5 million branded crawls on the same day. Branded clicks are the clicks agencies thought were safe. The reel: what changed in one month, then the one check (Search Console, Query filter with your brand name, Compare September to August).",
-      "sources": [
-        "https://www.demandsphere.com/blog/branded-ai-overviews-september-2026/",
-        "https://ahrefs.com/blog/ai-overviews-on-branded-searches/"
-      ]
-    },
-    {
-      "title": "The spam update that would not end: 15 days and counting",
-      "channel": "reel",
-      "pillar": "news",
-      "goal": "send",
-      "hook": "Floey waits by a 'rollout in progress' sign. The other three spam updates this year each took under three days. This one started 24 September.",
-      "why": "Google's Search Status Dashboard shows the September 2026 spam update still ongoing while March took 19 hours, June 2 days, August under 3 days. People in r/SEO are blaming it for every drop. Ticking-clock format: the dates, then 'before you blame it, check the date your drop started' (the r004 check), then wait for the end date before judging a fix.",
-      "sources": [
-        "https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history",
-        "https://seroundtable.com/google-september-2026-spam-update-phase-3-42239.html"
-      ]
-    },
-    {
-      "title": "Google is paying about 100 publishers for the content its AI answers use",
+      "title": "Your robots.txt allows GPTBot. Your host might still be blocking it.",
       "channel": "linkedin",
-      "pillar": "news",
-      "hook": "Google is now paying publishers whose pages shape AI Overviews. About 100 of them. 0.1% of ad revenue.",
-      "why": "The AI Contribution pilot shows up as an earnings widget in Search Console for a small group of publishers. It is the first time Google has put a price on being cited by its AI, and the price is small. A LinkedIn post can lay out what is known, what it means for everyone not in the pilot (citations are now a measured, monetised thing), and the one practical step: check the new AI performance report to see whether you are cited at all.",
-      "sources": [
-        "https://www.seroundtable.com/october-2026-google-webmaster-report-42185.html"
-      ]
-    },
-    {
-      "title": "What to do with old blog posts: prune, refresh, merge or leave",
-      "channel": "reel",
-      "pillar": "problem",
-      "hook": "Floey walks past an overgrown bed: \"You have 200 old posts. Which ones do you cut?\"",
-      "why": "\"Old Blog Posts: What do you do with them?\" got 55 comments, so people really don't know whether to delete, update or merge. A pruning scene in the garden shows the four choices, and the end card can point to Flowra's content decay queue.",
-      "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wirxaq/old_blog_posts_what_do_you_do_with_them/"
-      ]
-    },
-    {
-      "title": "Tweaking keywords won't fix weak AI posts. Rewriting will",
-      "channel": "reel",
-      "pillar": "problem",
-      "hook": "\"I've tried tweaking the SEO and keywords, but nothing has helped.\" Here's why.",
-      "why": "The thread on recovering after publishing lots of AI posts is the busiest one in the set at 122 comments, and the top advice is to rewrite the content, not tweak it. Floey can try relabelling wilted plants, then replant the bad parts of the bed and keep the healthy ones, which is how the Rework Queue works: it rewrites only the sections that need it.",
-      "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wsatvq/how_can_i_recover_my_seo_after_publishing_a_lot/"
-      ]
-    },
-    {
-      "title": "Google now says: fact-check your AI content before you publish",
-      "channel": "linkedin",
-      "pillar": "news",
-      "hook": "Google just updated its \"critical\" guidance on AI content, and the comments are not happy.",
-      "why": "The guidance thread is the highest scoring post here (124 score, 65 comments), and commenters doubt Google's motives (\"so that Gemini can steal accurate data\"). Explain what Search Engine Journal says it means in practice, then show the outline first workflow, where a person approves the outline before anything is written.",
-      "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wvg28v/google_updates_critical_guidance_for_ai_content/",
-        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/"
-      ]
-    },
-    {
-      "title": "A company sued its web developer over a traffic drop. It was AI Overviews",
-      "channel": "linkedin",
-      "pillar": "story",
-      "hook": "A company sued its web developer for a traffic drop. The expert witness found the real cause: Google's AI Overviews.",
-      "why": "\"How do you explain to clients that traffic dropped because of AI Overviews?\" has 39 comments. Commenters say to show clients the same numbers you're looking at: GSC queries from the past month, plus conversions, which have often held steady. The post can turn that into a three step script for client calls.",
-      "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wyc7k7/how_do_you_explain_to_clients_that_traffic/"
-      ]
-    },
-    {
-      "title": "Impressions are going up. So why are clicks flat?",
-      "channel": "carousel",
       "pillar": "myth",
-      "hook": "217K impressions. 1.14K clicks. One reply said: watch the CTR, not the impressions.",
-      "why": "The niche site post scored 71 with 37 comments. The top reply says 0.5% CTR is the number to watch, and another person describes about 5M weekly impressions at roughly 0.08% CTR from 186k generated pages. The carousel shows why impressions alone can mislead and how queries ranking around positions 8 to 20 are where clicks are closest.",
+      "hook": "Your robots.txt saying yes to GPTBot doesn't mean GPTBot gets in, until you check what your host does at the edge.",
+      "why": "An Ask HN thread says AI bot traffic is out of control, and a r/bigseo thread counted how many top sites block AI crawlers in robots.txt, so people think robots.txt settles it. We found the opposite on our own site: our web host blocked GPTBot at the edge with HTTP 429 even though robots.txt allowed it, while other AI crawlers got through.",
       "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wesxz0/started_a_niche_website_in_march_now_at_217k/"
+        "https://news.ycombinator.com/item?id=49705724",
+        "https://www.reddit.com/r/bigseo/comments/1x28e0h/we_checked_robotstxt_on_the_top_10000_sites_193/"
       ]
     },
     {
-      "title": "From 74,876 pages to 9,311: a programmatic SEO postmortem",
+      "title": "Moving your site? Google's own range is 1 to 3 months",
       "channel": "reel",
-      "pillar": "story",
-      "hook": "Floey plants 75,000 seeds at once. Then the weeds win.",
-      "why": "John Mueller's comment that Google can lose faith in sites with low value programmatic or scaled content drew 45 comments, and a TechSEO postmortem cut 74,876 URLs to 9,311 after a 95% traffic collapse. Both point the same way: more pages is not more traffic, and a garden overrun by its own planting shows that well.",
+      "pillar": "news",
+      "hook": "A site move doesn't settle in a week. Google's own number is 1 to 3 months, and the slow end is a year.",
+      "why": "Gary Illyes showed Google's internal timings at Search Central Live in Barcelona: a site move usually takes 1 to 3 months, and the slowest take 6 months to more than a year. Our Google timing reels keep growing on YouTube, and this is a different number from the page update reel we already published. Open on a day counter and keep it to 20 to 25 seconds.",
       "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wa0wey/johnmu_google_can_lose_faith_in_sites_based_on/",
-        "https://www.reddit.com/r/TechSEO/comments/1whus3o/programmatic_seo_postmortem_74876_urls_to_9311/"
+        "https://www.reddit.com/r/bigseo/comments/1x21aex/google_shared_how_long_crawling_indexing_and_core/"
       ]
     },
     {
-      "title": "Hit by the September 2026 spam update? Check the date first",
+      "title": "Google's advice on AI content: check it before you publish",
+      "channel": "linkedin",
+      "pillar": "news",
+      "hook": "Google's advice on AI content isn't 'stop using it'. It's 'check it before you publish'.",
+      "why": "Search Engine Journal reports that Google told sites to fact-check AI content before publishing. Writers in r/content_marketing (13 comments) say ChatGPT and Claude contradict their own technical writing when proofreading. Flowra's writer starts with an outline you approve or edit, and the Rework Queue shows what changed before anything goes live.",
+      "sources": [
+        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/",
+        "https://www.reddit.com/r/content_marketing/comments/1x1u1qs/has_anyone_else_experienced_chatgpt_or_claude/"
+      ]
+    },
+    {
+      "title": "Google is fighting scrapers. Your position data doesn't need them.",
       "channel": "x",
       "pillar": "news",
-      "hook": "Google released the September 2026 spam update on September 24. Did your drop start before or after?",
-      "why": "The announcement thread (32 comments) and a post about losing about 95% of Google traffic in one day during the update (21 comments) show people trying to tell the update apart from their own changes. Lining up the drop date with the release date is the first step, and tagging your fixes lets you compare before and after later.",
+      "hook": "Your ranking data doesn't have to come from scraping Google. Search Console already has it.",
+      "why": "The google.com/goto anti-scraping post got 681 points and 554 comments on Hacker News, the biggest search discussion in the set. Flowra doesn't scrape Google: its positions come from Search Console, with 16 months of history.",
       "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wp6ml7/google_search_central_on_x_today_we_released_the/",
-        "https://www.reddit.com/r/SEO/comments/1wtnj5t/sudden_95_google_search_traffic_loss_in_1_day/"
+        "https://www.autom.dev/blog/google-search-goto-links"
       ]
     },
     {
-      "title": "AI didn't take all your traffic. It took the top of the funnel",
-      "channel": "linkedin",
-      "pillar": "myth",
-      "hook": "\"Top of funnel is dead in a ditch. Bottom of funnel still converts fine.\"",
-      "why": "\"For sites losing Google traffic to AI, which traffic is actually disappearing?\" (26 comments) pushes back on \"AI killed my traffic.\" Commenters say informational queries are the ones fading. The post can show how to split your own GSC queries into informational and buying intent to see where the loss really is.",
-      "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wx487f/for_sites_losing_google_traffic_to_ai_which/"
-      ]
-    },
-    {
-      "title": "Can you see your ChatGPT traffic? Visits yes, answers no",
+      "title": "Being cited by ChatGPT next to actually getting the visit",
       "channel": "carousel",
-      "pillar": "product",
-      "hook": "ChatGPT can mention your site and send you zero visits. Here's what you can actually measure.",
-      "why": "\"Has anyone actually increased their visibility in ChatGPT/Google AI results?\" (20 comments) and new citation tracking tools show people want proof of AI visibility, and the \"Sites in ChatGPT\" page drew 342 comments on HN. Flowra's AI traffic tracking reads ChatGPT and Perplexity referrals from GA4. Saying plainly that it cannot see answers that sent no click makes the post more believable.",
+      "pillar": "myth",
+      "hook": "Your brand showing up in ChatGPT doesn't mean anyone clicked through to you.",
+      "why": "New Show HN tools track whether ChatGPT and Perplexity mention a site. One test found the two agreed on only 1 in 4 local recommendations, and a r/bigseo post says AI visibility is being measured the wrong way. Flowra reads ChatGPT and Perplexity visits from GA4 referrers, so it counts visits that arrived, and it cannot see answers that sent no click.",
       "sources": [
-        "https://www.reddit.com/r/WebsiteSEO/comments/1wxzspv/has_anyone_actually_increased_their_visibility_in/",
         "https://citerank.thecompound.tech",
-        "https://chatgpt.com/features/sites/"
+        "https://www.clicksdynasty.com/blog-post-chatgpt-perplexity-local-recommendations.html",
+        "https://www.reddit.com/r/bigseo/comments/1x2alme/i_think_were_measuring_ai_search_visibility_the/",
+        "https://ukaiseoconsultant.co.uk/ai-driven-seo-audits/"
       ]
     },
     {
-      "title": "A client report that updates itself every week, with your logo",
+      "title": "Floey gets graded by an AI detector that never read the words",
+      "channel": "reel",
+      "pillar": "fun",
+      "hook": "Your blog post just got its report card from a model that only looked at the layout.",
+      "why": "A Show HN about spotting AI web content from page structure alone got 74 points and 28 comments. Commenters asked whether it would also flag human-written filler as AI. That makes an easy, funny report card reel: Floey holds the verdict and gives no made-up scores.",
+      "sources": [
+        "https://arxiv.org/abs/2609.15369"
+      ]
+    },
+    {
+      "title": "Skip building a content board in Notion: Flowra's Free plan already has one",
       "channel": "linkedin",
       "pillar": "product",
-      "hook": "Still exporting data and asking AI to write the client report every month?",
-      "why": "In \"What's the best SEO ranking report software for client work?\" (19 comments), agencies describe sharing read only dashboards or exporting data and having AI write the report. Flowra rebuilds each site's report every week and shares it as a link that always shows the current report, with your name, logo and colour from Starter up. It is fully white-label only on Agency, and there are no scheduled emails.",
+      "hook": "You're still building your content workflow in Notion from scratch. Flowra's Free plan already has a Task Board and a Content Workflow Board.",
+      "why": "Two r/SEO posts this week walk through Notion setups for running a whole content operation, so teams are clearly building this by hand. Every Flowra plan, Free included, comes with the Task Board, the Content Workflow Board and the Content Repository.",
       "sources": [
-        "https://www.reddit.com/r/SEO_tools_reviews/comments/1wdf12p/whats_the_best_seo_ranking_report_software_for/"
+        "https://www.reddit.com/r/SEO/comments/1x300x3/built_a_6module_seo_content_workspace_in_notion/",
+        "https://www.reddit.com/r/SEO/comments/1x2zmh5/i_built_a_notion_system_to_manage_my_entire/"
       ]
     }
   ]

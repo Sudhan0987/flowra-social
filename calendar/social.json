@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-09T14:07:02.921Z",
+  "updated": "2026-10-11T09:13:57.707Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -89,7 +89,7 @@
     {
       "date": "2026-10-09",
       "kind": "reel",
-      "title": "Search Console now shows how often you appear in AI Overviews and AI Mode",
+      "title": "Search Console's new Generative AI report",
       "channels": [
         "instagram",
         "facebook",
@@ -97,19 +97,15 @@
         "linkedin",
         "x"
       ],
-      "status": "making",
+      "status": "posted",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Floey opens a drawer in the Search Console filing cabinet nobody has opened yet: a new report, and it says how often Google's AI used your pages.",
-      "sources": [
-        "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
-        "https://support.google.com/webmasters/answer/16984139?hl=en",
-        "https://www.searchenginejournal.com/google-search-console-ai-reports-rolled-out-worldwide/587836/"
-      ]
+      "ref": "r006-search-console-s-new-generative-ai-repor",
+      "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
       "date": "2026-10-12",
       "kind": "reel",
-      "title": "Google now answers your own brand name with AI: 8 in 10 branded searches",
+      "title": "Impressions held, clicks fell: the one Search Console check for pages AI answers are eating",
       "channels": [
         "instagram",
         "facebook",
@@ -119,10 +115,10 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Floey searches for her own name. Google answers before her site does.",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Your impressions holding steady doesn't mean your clicks did. One Search Console check shows which pages.",
       "sources": [
-        "https://www.demandsphere.com/blog/branded-ai-overviews-september-2026/",
-        "https://ahrefs.com/blog/ai-overviews-on-branded-searches/"
+        "https://reuters.com/legal/litigation/google-wins-dismissal-chegg-penske-media-lawsuits-over-ai-overviews-2026-10-01",
+        "https://searchengineland.com/google-tests-paying-publishers-for-using-its-content-in-ai-mode-ai-overviews-and-gemini-488382"
       ]
     },
     {
@@ -141,7 +137,7 @@
     {
       "date": "2026-10-14",
       "kind": "reel",
-      "title": "The spam update that would not end: 15 days and counting",
+      "title": "Moving your site? Google's own range is 1 to 3 months",
       "channels": [
         "instagram",
         "facebook",
@@ -151,10 +147,9 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Floey waits by a 'rollout in progress' sign. The other three spam updates this year each took under three days. This one started 24 September.",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: A site move doesn't settle in a week. Google's own number is 1 to 3 months, and the slow end is a year.",
       "sources": [
-        "https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history",
-        "https://seroundtable.com/google-september-2026-spam-update-phase-3-42239.html"
+        "https://www.reddit.com/r/bigseo/comments/1x21aex/google_shared_how_long_crawling_indexing_and_core/"
       ]
     },
     {
@@ -173,7 +168,7 @@
     {
       "date": "2026-10-16",
       "kind": "reel",
-      "title": "What to do with old blog posts: prune, refresh, merge or leave",
+      "title": "Being cited by ChatGPT next to actually getting the visit",
       "channels": [
         "instagram",
         "facebook",
@@ -183,15 +178,18 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Floey walks past an overgrown bed: \"You have 200 old posts. Which ones do you cut?\"",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Your brand showing up in ChatGPT doesn't mean anyone clicked through to you.",
       "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wirxaq/old_blog_posts_what_do_you_do_with_them/"
+        "https://citerank.thecompound.tech",
+        "https://www.clicksdynasty.com/blog-post-chatgpt-perplexity-local-recommendations.html",
+        "https://www.reddit.com/r/bigseo/comments/1x2alme/i_think_were_measuring_ai_search_visibility_the/",
+        "https://ukaiseoconsultant.co.uk/ai-driven-seo-audits/"
       ]
     },
     {
       "date": "2026-10-19",
       "kind": "reel",
-      "title": "Tweaking keywords won't fix weak AI posts. Rewriting will",
+      "title": "Floey gets graded by an AI detector that never read the words",
       "channels": [
         "instagram",
         "facebook",
@@ -201,9 +199,9 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: \"I've tried tweaking the SEO and keywords, but nothing has helped.\" Here's why.",
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Your blog post just got its report card from a model that only looked at the layout.",
       "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wsatvq/how_can_i_recover_my_seo_after_publishing_a_lot/"
+        "https://arxiv.org/abs/2609.15369"
       ]
     },
     {
@@ -221,23 +219,23 @@
     {
       "date": "2026-10-20",
       "kind": "linkedin-post",
-      "title": "Google now says: fact-check your AI content before you publish",
+      "title": "Google's advice on AI content: check it before you publish",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "From social listening: The guidance thread is the highest scoring post here (124 score, 65 comments), and commenters doubt Google's motives (\"so that Gemini can steal accurate data\"). Explain what Search Engine Journal says it means in practice, then show the outline first workflow, where a person approves the outline before anything is written.",
+      "note": "From social listening: Search Engine Journal reports that Google told sites to fact-check AI content before publishing. Writers in r/content_marketing (13 comments) say ChatGPT and Claude contradict their own technical writing when proofreading. Flowra's writer starts with an outline you approve or edit, and the Rework Queue shows what changed before anything goes live.",
       "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wvg28v/google_updates_critical_guidance_for_ai_content/",
-        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/"
+        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/",
+        "https://www.reddit.com/r/content_marketing/comments/1x1u1qs/has_anyone_else_experienced_chatgpt_or_claude/"
       ]
     },
     {
       "date": "2026-10-21",
       "kind": "reel",
-      "title": "Impressions are going up. So why are clicks flat?",
+      "title": "Reel: Flowra picks this week's best topic",
       "channels": [
         "instagram",
         "facebook",
@@ -247,22 +245,19 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: 217K impressions. 1.14K clicks. One reply said: watch the CTR, not the impressions.",
-      "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wesxz0/started_a_niche_website_in_march_now_at_217k/"
-      ]
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
     },
     {
       "date": "2026-10-22",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
+      "title": "LinkedIn post",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
       "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+      "note": "Flowra drafts it a week ahead. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
     },
     {
       "date": "2026-10-22",
@@ -279,7 +274,7 @@
     {
       "date": "2026-10-23",
       "kind": "reel",
-      "title": "From 74,876 pages to 9,311: a programmatic SEO postmortem",
+      "title": "Reel: Flowra picks this week's best topic",
       "channels": [
         "instagram",
         "facebook",
@@ -289,16 +284,12 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Floey plants 75,000 seeds at once. Then the weeds win.",
-      "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wa0wey/johnmu_google_can_lose_faith_in_sites_based_on/",
-        "https://www.reddit.com/r/TechSEO/comments/1whus3o/programmatic_seo_postmortem_74876_urls_to_9311/"
-      ]
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
     },
     {
       "date": "2026-10-26",
       "kind": "reel",
-      "title": "Can you see your ChatGPT traffic? Visits yes, answers no",
+      "title": "Reel: Flowra picks this week's best topic",
       "channels": [
         "instagram",
         "facebook",
@@ -308,27 +299,21 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: ChatGPT can mention your site and send you zero visits. Here's what you can actually measure.",
-      "sources": [
-        "https://www.reddit.com/r/WebsiteSEO/comments/1wxzspv/has_anyone_actually_increased_their_visibility_in/",
-        "https://citerank.thecompound.tech",
-        "https://chatgpt.com/features/sites/"
-      ]
+      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
     },
     {
       "date": "2026-10-27",
       "kind": "linkedin-post",
-      "title": "Hit by the September 2026 spam update? Check the date first",
+      "title": "Google is fighting scrapers. Your position data doesn't need them.",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "From social listening: The announcement thread (32 comments) and a post about losing about 95% of Google traffic in one day during the update (21 comments) show people trying to tell the update apart from their own changes. Lining up the drop date with the release date is the first step, and tagging your fixes lets you compare before and after later.",
+      "note": "From social listening: The google.com/goto anti-scraping post got 681 points and 554 comments on Hacker News, the biggest search discussion in the set. Flowra doesn't scrape Google: its positions come from Search Console, with 16 months of history.",
       "sources": [
-        "https://www.reddit.com/r/SEO/comments/1wp6ml7/google_search_central_on_x_today_we_released_the/",
-        "https://www.reddit.com/r/SEO/comments/1wtnj5t/sudden_95_google_search_traffic_loss_in_1_day/"
+        "https://www.autom.dev/blog/google-search-goto-links"
       ]
     },
     {
@@ -349,14 +334,14 @@
     {
       "date": "2026-10-29",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/fresh-content-seo",
+      "title": "LinkedIn post",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
       "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+      "note": "Flowra drafts it a week ahead. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
     },
     {
       "date": "2026-10-30",
