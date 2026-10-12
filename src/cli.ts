@@ -88,6 +88,12 @@ const writeJson = (f: string, v: unknown) => writeFileSync(f, JSON.stringify(v, 
  * steers the research instead of letting it pick.
  */
 async function make(state: State, arg?: string): Promise<void> {
+  // A scheduled run skips a day that already has a reel (one made by hand that morning, say): one reel a day at most.
+  const today = new Date().toISOString().slice(0, 10);
+  if (process.env.GITHUB_EVENT_NAME === "schedule" && state.posts.some((p) => p.madeAt?.slice(0, 10) === today && p.status !== "failed")) {
+    console.log(`A reel was already made today (${today}); the scheduled run skips.`);
+    return;
+  }
   const picked = arg ? topics().find((t) => t.id === arg) : undefined;
   // with no topic, first finish an unfinished draft (researched, never recorded), e.g. one a cancelled run left behind
   const next = `r${String(state.posts.length + 1).padStart(3, "0")}-`;
