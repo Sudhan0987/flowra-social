@@ -96,6 +96,18 @@
     "youtube": "FxShnVNUUf8",
     "youtubePrivacy": "public"
    }
+  },
+  {
+   "id": "r007-moving-your-site-google-s-own-range-is-1",
+   "status": "failed",
+   "topic": "Moving your site? Google's own range is 1 to 3 months, and the slow end is a year",
+   "format": "problem-agitate-solve",
+   "madeAt": "2026-10-12T04:07:47.568Z",
+   "seconds": 22,
+   "reason": "Frame 02 (\"Old domain clicks fall while the new ones climb\"): the only arrow is an orange down arrow floating in empty space to the right of the line ends. Orange is the new-domain colour, so it reads as the new domain falling while the voice says it climbs. It sits on neither line, and there is no up arrow on the orange line, which the script asks for. The picture contradicts the voice. Frames 02–03: the counter says Day 9 and then Day 10, but both lines stay frozen at about Day 7–8. During the",
+   "idea": "Moving your site? Google's own range is 1 to 3 months",
+   "experiment": "short-first-frame",
+   "style": "pro"
   }
  ]
 }
