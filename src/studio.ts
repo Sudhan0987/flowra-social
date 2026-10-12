@@ -21,11 +21,20 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { agent } from "./claude.ts";
 import { checkScene, loadMouths, type Line } from "./scenecheck.ts";
+import type { Style } from "./styles.ts";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (f: string) => readFileSync(path.join(ROOT, f), "utf8");
 
-function studioBrief(): string {
+function studioBrief(style?: Style): string {
+  if (style && !style.mascot) {
+    return [
+      `THE STUDIO for the "${style.name}" style (what you draw with; use these parts, they are approved):`,
+      read(style.studio),
+      "THE WORKED EXAMPLE for this style. Match its craft: the problem on screen in frame one, screens that swing in and fall away, a cursor that lands on the exact control the voice names as it is named, rows and lines that move with purpose, a camera push on the payoff, a sound on every real event, and the end card.",
+      read(style.template),
+    ].join("\n\n");
+  }
   return [
     "THE STUDIO (what you draw with; use these parts, they are approved):",
     read("brand/studio/README.md"),
@@ -37,7 +46,7 @@ function studioBrief(): string {
 export async function directFloey(
   dir: string,
   system: string,
-  opts: { lines: Line[]; story: unknown; board: unknown; seconds: Record<string, number>; notes?: string },
+  opts: { lines: Line[]; story: unknown; board: unknown; seconds: Record<string, number>; notes?: string; style?: Style },
 ): Promise<{ scene: string; log: string[] }> {
   const scene = path.join(dir, "scene.html");
   const relDir = path.relative(ROOT, dir);
@@ -45,8 +54,10 @@ export async function directFloey(
 
   const base = [
     system,
-    "You are the director and animator of one Flowra reel, told by Floey in her page-flower garden. You write the scene, check your own work, and fix it, inside this one session, the way a motion designer actually works. Aim for the founder's bar: too good, not good enough.",
-    studioBrief(),
+    opts.style && !opts.style.mascot
+      ? `You are the director and animator of one Flowra reel in the "${opts.style.name}" style: a narrator over a drawn working screen in motion. You write the scene, check your own work, and fix it, inside this one session, the way a motion designer actually works. Aim for the founder's bar: too good, not good enough.`
+      : "You are the director and animator of one Flowra reel, told by Floey in her page-flower garden. You write the scene, check your own work, and fix it, inside this one session, the way a motion designer actually works. Aim for the founder's bar: too good, not good enough.",
+    studioBrief(opts.style),
   ].join("\n\n");
 
   const context = [
@@ -61,10 +72,12 @@ export async function directFloey(
   ].join("\n\n");
 
   const prompt = [
-    `Write ${relDir}/scene.html, the animation for this reel, following reel/floey/template.html's shape exactly: load lines.js for window.LINES, use PROPS.timing for beat timing, one Floey actor cued to every line, one paused gsap timeline for the world, and define window.render / DURATION / SOUND / CAMERA / FLOEY / BEATS exactly as the template does.`,
+    opts.style && !opts.style.mascot
+      ? `Write ${relDir}/scene.html, the animation for this reel, following ${opts.style.template}'s shape exactly: load lines.js for window.LINES (use window.LINES as it is; do not keep the template's fallback lines), the same timing from MOUTHS, PRO.sounds() with S.say for every line, one paused gsap timeline for the world, and define window.render / DURATION / SOUND / CAMERA / BEATS / STYLE exactly as the template does (no window.FLOEY). The script paths are relative to ${relDir}/, two folders below the repo root, exactly as in the template.`
+      : `Write ${relDir}/scene.html, the animation for this reel, following reel/floey/template.html's shape exactly: load lines.js for window.LINES, use PROPS.timing for beat timing, one Floey actor cued to every line, one paused gsap timeline for the world, and define window.render / DURATION / SOUND / CAMERA / FLOEY / BEATS exactly as the template does.`,
     context,
     "Before you stop, check your own work:",
-    `1. Render a few stills across the reel and look at them: npx tsx brand/mascot/render-scene.mts ${relDir}/scene.html stills --out=${relDir}/build --stills=1,5,10,15,20,25 (pick times that land inside real beats). Then Read ${relDir}/build/stills.png. For each still: is Floey clear and inside the frame, does it match that moment's storyboard panel, is anything clipped, overlapping, or empty-looking? Fix and render again until it reads well at phone size.`,
+    `1. Render a few stills across the reel and look at them: npx tsx brand/mascot/render-scene.mts ${relDir}/scene.html stills --out=${relDir}/build --stills=1,5,10,15,20,25 (pick times that land inside real beats). Then Read ${relDir}/build/stills.png. For each still: is the subject (Floey, or the screen) clear and inside the frame, is the text big enough to read on a phone, does it match that moment's storyboard panel, is anything clipped, overlapping, or empty-looking? Fix and render again until it reads well at phone size.`,
     `2. Run the automatic checks: npx tsx src/scenecheck-cli.ts ${relDir}/scene.html ${relDir}/lines.js ${relDir}/build. Fix every problem it prints and run it again until it says PASS. These catch things stills can miss (Floey drifting off screen mid-line, a label overflowing its box, the wrong length).`,
     opts.notes ? `The final test on an earlier render failed for these reasons; fix them, then re-check:\n${opts.notes}` : "",
     "Do not render the full video and do not post to Slack; the pipeline does both after you are done.",

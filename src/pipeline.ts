@@ -10,6 +10,7 @@ import { z } from "zod";
 import { askJson } from "./claude.ts";
 import { hookBrief } from "./hooks.ts";
 import { learnedBrief } from "./results.ts";
+import type { Style } from "./styles.ts";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (f: string) => readFileSync(path.join(ROOT, f), "utf8");
@@ -34,7 +35,7 @@ const Brief = z.object({
   goal: z.enum(["send", "save"]).describe("send: funny, surprising or relatable enough to DM to a friend. save: useful enough to keep."),
   audience: z.string().describe("Who exactly it is for."),
   facts: z.array(z.object({ fact: z.string(), source: z.string().describe("URL, or 'Flowra facts file', or 'Flowra finding'") })).describe("Every fact the reel may state, each with its source."),
-  visualIdea: z.string().describe("The one central image that could carry the whole reel, drawn in Floey's garden with the studio's parts: pages are flowers whose health rises or falls, bugs are errors Floey eats, the PAGE 1 line, tags, the review card, day counter, clicks chart. No new worlds or effects."),
+  visualIdea: z.string().describe("The one central image that could carry the whole reel, drawn with this reel's style and its studio parts (described in the instructions). No new worlds or effects."),
   pillar: z.enum(["problem", "news", "myth", "story", "fun", "product"]),
 });
 export type Brief = z.infer<typeof Brief>;
@@ -53,7 +54,7 @@ function listening(): string {
   ].join("\n");
 }
 
-export async function research(recent: string[], seed?: { topic: string; angle: string }): Promise<Brief> {
+export async function research(recent: string[], seed?: { topic: string; angle: string }, style?: Style): Promise<Brief> {
   return askJson({
     system: [
       "You are the content researcher for Flowra's Instagram. Your job is to pick the one reel topic most likely to be watched to the end and sent or saved by people who run content or SEO for a site or for agency clients.",
@@ -63,7 +64,7 @@ export async function research(recent: string[], seed?: { topic: string; angle: 
       "Every fact must have a source. If you cannot source it, leave it out.",
       listening(),
       learnedBrief(),
-    "The reel will be animated in Floey's garden with a fixed set of parts; propose a visual idea that those parts can tell:\n" + read("brand/studio/README.md").split("## Props")[0],
+    style && !style.mascot ? style.research + "\n" + read(style.studio).split("## Hard rules")[0] : "The reel will be animated in Floey's garden with a fixed set of parts; propose a visual idea that those parts can tell:\n" + read("brand/studio/README.md").split("## Props")[0],
       "The facts file:",
       read("facts/flowra.md"),
     ].join("\n\n"),
@@ -80,10 +81,10 @@ export async function research(recent: string[], seed?: { topic: string; angle: 
 const EMOTIONS = ["ominous", "worried", "curious", "warm", "bright", "determined", "proud", "excited", "playful"] as const;
 const Beat = z.object({
   role: z.enum(["hook", "body", "payoff", "loop", "go", "url"]),
-  say: z.string().describe("What Floey says. Spoken English, no symbols or links (write useflowra.com as is)."),
-  emotion: z.enum(EMOTIONS).describe("How Floey delivers this line; it sets her voice's pitch, pace and acting."),
+  say: z.string().describe("What the voice says (Floey in her garden, the narrator in the professional style). Spoken English, no symbols or links (write useflowra.com as is)."),
+  emotion: z.enum(EMOTIONS).describe("How the voice delivers this line; it sets pitch, pace and acting."),
   caption: z.string().optional().describe("Only when the on-screen caption should differ from the spoken words, e.g. '429' for 'four twenty nine'."),
-  visual: z.string().describe("What the picture shows while this is said, in Floey's garden: what Floey does, which page-flowers change and how, any prop. Never 'text on screen'."),
+  visual: z.string().describe("What the picture shows while this is said, in this reel's style: in Floey's garden, what Floey does and which page-flowers change; in the professional style, which screen, what moves, where the cursor clicks, what is highlighted. Never 'text on screen'."),
 });
 const Story = z.object({
   title: z.string(),
@@ -149,20 +150,21 @@ export function pickFormat(brief: Brief, lastFormats: string[]): Format {
   return pool[lastFormats.length % pool.length];
 }
 
-export async function writeStory(id: string, brief: Brief, format: Format, len: Length = STANDARD): Promise<Story> {
+export async function writeStory(id: string, brief: Brief, format: Format, len: Length = STANDARD, style?: Style): Promise<Story> {
+  const pro = style?.id === "pro";
   const system = [
-    `You write ${len.seconds} second animated reels for Flowra's Instagram, told by Floey, Flowra's hummingbird, in her garden where every web page is a flower. Floey speaks every line to the viewer, in her own warm, quick, curious voice; she may say I and we. Captions of her voice are burned in, so the picture must never repeat the words as text: it shows the idea.`,
+    pro ? `You write ${len.seconds} second professional explainer reels for Flowra's Instagram: a narrator speaks to the viewer over a drawn working screen (Search Console, GA4, WordPress or Flowra itself) that moves step by step: charts draw, rows sort, a cursor clicks the exact control, the camera pushes in on the one row or number that matters. The narrator is a clear, confident expert talking to one person; no mascot, no metaphors. Captions are burned in, so the picture never repeats the words as text: it shows the step.` : `You write ${len.seconds} second animated reels for Flowra's Instagram, told by Floey, Flowra's hummingbird, in her garden where every web page is a flower. Floey speaks every line to the viewer, in her own warm, quick, curious voice; she may say I and we. Captions of her voice are burned in, so the picture must never repeat the words as text: it shows the idea.`,
     HOUSE,
     `Story structure for this reel: ${format.name}. Beats: ${format.beats.join(" | ")}. Visual approach: ${format.visual}`,
-    "The world (use it, do not invent other characters): pages are flowers; a fading page loses colour and droops, a thriving one glows and sways; problems on a site (404s, broken links, errors) are little bugs Floey catches and eats; a dashed PAGE 1 line in the garden is page one of Google; Floey can show a change preview card with a Publish button, a day counter, a small clicks chart, pill tags on flowers. She can dart, hover, land, sip, preen, flash her throat, eat bugs, tap buttons, and turn to the viewer to talk.",
-    `Rules: the hook lands in the first 2 seconds and is at most 14 words, a specific tension, never a greeting. A small payoff every 6 to 8 seconds. The story ends with three beats: loop (a line that leads naturally back to the first frame, so a replay continues), go (Floey calls the viewer to act with energy, at most 8 words, e.g. 'Come on, let's go fix it!'), url (only 'useflowra.com.'). Total ${len.aim} spoken words, ${len.beats[0]} to ${len.beats[1]} beats. Mention Flowra only near the end, if at all, and never as hype.`,
+    pro ? "The screen (draw only this): one to three screens per reel from the professional studio (cards holding line charts, tables, tabs; a cursor; highlight rings, arrows, pills, counters), each swinging in; one short headline above each screen naming the step. Example data is plainly example data (/blog/... paths, round numbers)." : "The world (use it, do not invent other characters): pages are flowers; a fading page loses colour and droops, a thriving one glows and sways; problems on a site (404s, broken links, errors) are little bugs Floey catches and eats; a dashed PAGE 1 line in the garden is page one of Google; Floey can show a change preview card with a Publish button, a day counter, a small clicks chart, pill tags on flowers. She can dart, hover, land, sip, preen, flash her throat, eat bugs, tap buttons, and turn to the viewer to talk.",
+    `Rules: the hook lands in the first 2 seconds and is at most 14 words, a specific tension, never a greeting. A small payoff every 6 to 8 seconds. The story ends with three beats: loop (a line that leads naturally back to the first frame, so a replay continues), go (${pro ? "a short, confident call to act, at most 8 words, e.g. 'Go find yours.'" : "Floey calls the viewer to act with energy, at most 8 words, e.g. 'Come on, let's go fix it!'"}), url (only 'useflowra.com.'). Total ${len.aim} spoken words, ${len.beats[0]} to ${len.beats[1]} beats. Mention Flowra only near the end, if at all, and never as hype.`,
     "The brief's visual idea is a starting point; if any part of it cannot be drawn with the studio, drop that part. The studio always wins. The Instagram caption is 150 to 1000 characters with 3 to 6 lowercase hashtags.",
-    "THE APPROVED EXAMPLE (reel 000, the founder loved it). Its lines, with the emotion of each:\n" + JSON.stringify((() => { const m = read("reels/r000-floey-intro/scene.html").match(/const LINES = (\[[\s\S]*?\]);/); return m ? m[1] : ""; })()) + "\nWhy it works: the hook is a specific, slightly alarming claim about the viewer's own site that they cannot check right now ('One of your pages is losing clicks right now. You just can't see it.'); every next line answers the question the last one raised; the payoff is shown (a flower blooming, a chart climbing); the loop line restarts the problem; the ending is pure energy, then the address. Hooks that fail: a label or caption ('Your pages, lined up worst first'), a tautology true of every site ('One page lost more than the others'), a yes or no question, a greeting.",
+    pro ? "THE WORKED EXAMPLE for this style (reel/pro/template.html). Its lines, with the emotion of each:\n" + JSON.stringify((() => { const m = read("reel/pro/template.html").match(/window\.LINES \|\|= (\[[\s\S]*?\]);/); return m ? m[1] : ""; })()) + "\nWhy it works: the problem is on screen and in the first words; every next line is one step the viewer can do, shown as it is said (open, compare, sort); the payoff is the exact row to act on; the loop restarts the problem; the ending is short and confident, then the address. Hooks that fail: a label or caption, a tautology true of every site, a yes or no question, a greeting." : "THE APPROVED EXAMPLE (reel 000, the founder loved it). Its lines, with the emotion of each:\n" + JSON.stringify((() => { const m = read("reels/r000-floey-intro/scene.html").match(/const LINES = (\[[\s\S]*?\]);/); return m ? m[1] : ""; })()) + "\nWhy it works: the hook is a specific, slightly alarming claim about the viewer's own site that they cannot check right now ('One of your pages is losing clicks right now. You just can't see it.'); every next line answers the question the last one raised; the payoff is shown (a flower blooming, a chart climbing); the loop line restarts the problem; the ending is pure energy, then the address. Hooks that fail: a label or caption ('Your pages, lined up worst first'), a tautology true of every site ('One page lost more than the others'), a yes or no question, a greeting.",
     "Talk to the viewer, not about a stranger: say you and your (your traffic, your page, your client's site), never 'a site owner', 'a marketer', 'one SEO' or 'many people'. The hook is a specific statement aimed at the viewer, never a yes or no question.",
-    "Draw only with the studio's parts (listed in the world above) plus at most one or two simple new props for the whole reel; flowers stay rooted (they change health, sway, droop, glow), the camera and Floey do the moving. Name the real thing (pages, clicks, traffic) in the spoken hook; the picture carries the flower metaphor. Never put the spoken sentence on screen; short interface labels a viewer needs to follow along (a tab or column name like 'Compare' or 'Difference', one number) are fine.",
+    pro ? "Draw only with the professional studio's parts. Every action the voice names (open, compare, filter, sort, publish) happens on the screen as it is said: the cursor clicks it and the screen changes. Name the real thing (pages, clicks, traffic, the report's real name). Never put the spoken sentence on screen; the headline names the step in at most 6 words, and short interface labels (a tab or column name, one number) are fine." : "Draw only with the studio's parts (listed in the world above) plus at most one or two simple new props for the whole reel; flowers stay rooted (they change health, sway, droop, glow), the camera and Floey do the moving. Name the real thing (pages, clicks, traffic) in the spoken hook; the picture carries the flower metaphor. Never put the spoken sentence on screen; short interface labels a viewer needs to follow along (a tab or column name like 'Compare' or 'Difference', one number) are fine.",
     "Give every line an emotion that matches the moment (ominous or worried for a problem, curious for a question, determined for the fix, proud or excited for the payoff, playful for the address).",
-    "Each beat's visual is a concrete garden scene an animator could draw: what Floey does, which flower changes and how, any prop.",
-    "The first frame is what a scrolling viewer sees, and the cover is never seen in the feed: the hook's problem must be visible in the picture from the very first frame (a fading flower, a falling chart, a bug already on the page), not after an establishing shot or Floey flying in.",
+    pro ? "Each beat's visual is a concrete screen moment an animator could draw: which screen, what moves, where the cursor clicks, what is highlighted, the headline above it." : "Each beat's visual is a concrete garden scene an animator could draw: what Floey does, which flower changes and how, any prop.",
+    `The first frame is what a scrolling viewer sees, and the cover is never seen in the feed: the hook's problem must be visible in the picture from the very first frame (${pro ? "a falling line, a red number, the broken row" : "a fading flower, a falling chart, a bug already on the page"}), not after an establishing shot${pro ? ", a logo or an empty screen" : " or Floey flying in"}.`,
     len.name ? `This reel is part of a length test (${len.name}): keep it to ${len.seconds} seconds. Cut setup, not the payoff: the hook states the problem, the next beat already starts showing the fix, and the payoff is shown, not described.` : "",
     hookBrief(),
     learnedBrief(),
@@ -193,7 +195,7 @@ export async function writeStory(id: string, brief: Brief, format: Format, len: 
       await rewrite(issues);
       continue;
     }
-    const notes = await editStory(as(draft), brief);
+    const notes = await editStory(as(draft), brief, style);
     if (!notes.length) return as(draft);
     // One editor rewrite, then the founder decides. A strict editor always finds
     // something new, and chasing it cost about $3 per story with no end.
@@ -206,13 +208,14 @@ export async function writeStory(id: string, brief: Brief, format: Format, len: 
 
 const Edit = z.object({ problems: z.array(z.object({ blocking: z.boolean().describe("True if a viewer would notice it or it is untrue, unclear, undrawable or would not work. False for polish."), note: z.string().describe("The problem and what to do instead.") })) });
 /** The script editor: reads the story as a viewer would, before any voice or drawing is spent on it. */
-async function editStory(story: Story, brief: Brief): Promise<string[]> {
+async function editStory(story: Story, brief: Brief, style?: Style): Promise<string[]> {
+  const pro = style?.id === "pro";
   const r = await askJson({
     system: [
-      "You are the script editor for Flowra's Instagram reels, told by Floey the hummingbird. You read a script the way a viewer scrolling past would, and you only pass it when it is excellent. Be specific and strict; do not rewrite it yourself.",
+      `You are the script editor for Flowra's Instagram reels${pro ? ", here a professional explainer: a narrator over a drawn working screen" : ", told by Floey the hummingbird"}. You read a script the way a viewer scrolling past would, and you only pass it when it is excellent. Be specific and strict; do not rewrite it yourself.`,
       HOUSE,
-      "Fail it for: a hook a stranger would not understand in 2 seconds, or one that is muddled or abstract; any line that sounds unnatural spoken aloud, or is confusing out of context; any claim not backed by the brief's facts, or that is untrue or overstated (for example claiming a tool has an alert feature it does not have); a story whose steps would not actually work if the viewer followed them; a payoff that is not clearly shown; a loop that does not lead back to the opening image; a visual the animator cannot draw with the studio below (note: each line's emotion is Floey's VOICE delivery, one of ominous, worried, curious, warm, bright, determined, proud, excited, playful; her face moods are chosen later by the animator, so never fail an emotion for not being a face mood) (only Floey, page-flowers whose health changes, bugs, tags, the review card, day counter, clicks chart, PAGE 1 line, sparks, end card, plus at most one or two simple new props per reel).",
-      "The studio:\n" + read("brand/studio/README.md"),
+      `Fail it for: a hook a stranger would not understand in 2 seconds, or one that is muddled or abstract; any line that sounds unnatural spoken aloud, or is confusing out of context; any claim not backed by the brief's facts, or that is untrue or overstated (for example claiming a tool has an alert feature it does not have); a story whose steps would not actually work if the viewer followed them; a payoff that is not clearly shown; a loop that does not lead back to the opening image; a visual the animator cannot draw with the studio below (note: each line's emotion is the VOICE delivery, one of ominous, worried, curious, warm, bright, determined, proud, excited, playful; never fail an emotion for not being a face mood) ${pro ? "(only the professional studio's screens: cards, charts, tables, tabs, cursor, rings, arrows, pills, counters, headline; an action the voice names must be shown on the screen as it is said)" : "(only Floey, page-flowers whose health changes, bugs, tags, the review card, day counter, clicks chart, PAGE 1 line, sparks, end card, plus at most one or two simple new props per reel)"}.`,
+      "The studio:\n" + read(style?.studio ?? "brand/studio/README.md"),
     ].join("\n\n"),
     prompt: `The brief (the only facts allowed):\n${JSON.stringify(brief, null, 1)}\n\nThe script:\n${JSON.stringify({ title: story.title, beats: story.beats, loopNote: story.loopNote }, null, 1)}\n\nList every real problem, marking each blocking or polish.`,
     schema: Edit,
@@ -236,14 +239,15 @@ const Panel = z.object({
 const Board = z.object({ style: z.string().describe("One line fixing the look for the whole reel: palette use, setting, recurring characters."), panels: z.array(Panel), posterAt: z.number().describe("Seconds into the reel for the cover frame: the most intriguing complete image in the first 5 seconds.") });
 export type Board = z.infer<typeof Board>;
 
-export async function storyboard(story: Story, seconds: number[]): Promise<Board> {
-  const kit = read("brand/studio/README.md");
+export async function storyboard(story: Story, seconds: number[], style?: Style): Promise<Board> {
+  const pro = style?.id === "pro";
+  const kit = read(style?.studio ?? "brand/studio/README.md");
   return askJson({
     system: [
-      "You are the storyboard artist for an animated explainer reel (1080x1920, 30 fps) starring Floey the hummingbird in her page-flower garden. Plan every panel so the picture explains the story on its own; Floey's voice and the captions carry the words.",
+      pro ? "You are the storyboard artist for a professional explainer reel (1080x1920, 30 fps): a drawn working screen in motion with a narrator. Plan every panel so the screen shows each step as it is said (the cursor clicks the control, rows move, the camera pushes in on the row that matters); the voice and captions carry the words." : "You are the storyboard artist for an animated explainer reel (1080x1920, 30 fps) starring Floey the hummingbird in her page-flower garden. Plan every panel so the picture explains the story on its own; Floey's voice and the captions carry the words.",
       HOUSE,
       "Cinematography: open on the most intriguing image (it is also the cover). Vary shot sizes; push in on a reveal, pull out to show scale, whip-pan between places or times, a short shake on impact. Keep the subject inside x 80 to 960 and y 250 to 1300 (Instagram covers the rest). One idea per panel, 1.5 to 4 seconds each. Motion with anticipation and follow-through.",
-      "The animator draws with Floey's studio (her behaviours, the garden, the props). Plan only what it can draw:",
+      pro ? "The animator draws with the professional studio (screens, charts, tables, cursor, rings, headline). Plan only what it can draw:" : "The animator draws with Floey's studio (her behaviours, the garden, the props). Plan only what it can draw:",
       kit,
       "Sound: an effect only on a real event (impact, reveal, typing). Never more than one every 0.4 seconds.",
     ].join("\n\n"),

@@ -60,3 +60,14 @@ test("the length test runs for its reels, failed ones not counting, then the sta
   assert.equal(lengthFor([{ status: "published", experiment: "short" }, { status: "draft", experiment: "short" }], root).name, undefined);
   assert.deepEqual(lengthFor([], join(root, "nowhere")), STANDARD);
 });
+
+import { pickStyle, type Style } from "../src/styles.ts";
+
+test("the style alternates, failed reels don't count, and a style named by hand wins", () => {
+  const all = [{ id: "floey-garden" }, { id: "pro" }] as Style[];
+  assert.equal(pickStyle(all, [{ status: "published" }]).id, "pro");
+  assert.equal(pickStyle(all, [{ status: "published", style: "pro" }]).id, "floey-garden");
+  assert.equal(pickStyle(all, [{ status: "published", style: "pro" }, { status: "failed", style: "floey-garden" }]).id, "floey-garden");
+  assert.equal(pickStyle(all, [{ status: "published" }], "floey-garden").id, "floey-garden");
+  assert.throws(() => pickStyle(all, [], "nope"));
+});

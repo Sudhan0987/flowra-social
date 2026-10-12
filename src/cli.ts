@@ -16,6 +16,7 @@ import { costSoFar } from "./claude.ts";
 import { writeScript, type Script, type Topic } from "./script.ts";
 import { reelIdeas, unusedReelIdeas } from "./ideas.ts";
 import { postDraft, say } from "./slack.ts";
+import { pickStyle, styles, type Style } from "./styles.ts";
 import { HOUSE, finalTest, lengthFor, pickFormat, research, storyboard, writeStory, type Board, type Brief, type Story } from "./pipeline.ts";
 import { directFloey } from "./studio.ts";
 import type { Line } from "./scenecheck.ts";
@@ -36,6 +37,8 @@ interface Post {
   idea?: string;
   /** The length test it was made under (story/length.json), if any. */
   experiment?: string;
+  /** The look it was made in (brand/styles/styles.json); none means Floey's garden. */
+  style?: string;
 }
 interface State { posts: Post[] }
 
@@ -59,10 +62,10 @@ function renderReel(dir: string, posterAt: number): { mp4: string; seconds: numb
   return { mp4, seconds };
 }
 
-function message(s: Script, seconds: number): string {
+function message(s: Script, seconds: number, styleName = "Floey's garden"): string {
   const format = (s as unknown as { format: string }).format;
   return [
-    `*Flowra Social* · new reel draft: *${s.title}* (${Math.round(seconds)}s, story: ${format})`,
+    `*Flowra Social* · new reel draft: *${s.title}* (${Math.round(seconds)}s, ${styleName}, story: ${format})`,
     "",
     "*Caption*",
     s.caption,
@@ -97,23 +100,31 @@ async function make(state: State, arg?: string): Promise<void> {
   let id = resume ?? "";
   let brief: Brief;
   let idea: string | undefined;
+  let style: Style;
+  const allStyles = styles(ROOT);
   if (resume) {
     brief = readJson(path.join(ROOT, "drafts", id, "brief.json"));
     idea = (brief as Brief & { idea?: string }).idea;
+    // a draft keeps the style it was started in; drafts from before styles were Floey's garden
+    style = pickStyle(allStyles, [], (brief as Brief & { style?: string }).style ?? "floey-garden");
   } else {
+    style = pickStyle(allStyles, state.posts, process.env.REEL_STYLE || undefined);
+    console.log(`Style: ${style.name}`);
     // A topic id given by hand wins; otherwise the next idea the calendar is
     // showing, so the reel made is the one Desk promised (see ideas.ts).
     const next = picked ? undefined : unusedReelIdeas(reelIdeas(ROOT), state.posts)[0];
     const seed = picked ? { topic: picked.topic, angle: picked.angle } : next ? { topic: next.title, angle: `${next.hook} Why it matters: ${next.why} Sources to start from: ${next.sources.slice(0, 3).join(", ")}` } : undefined;
     idea = seed?.topic;
     console.log(`1. Research${seed ? `: ${seed.topic}` : " (free choice: no unused listening idea)"}`);
-    brief = await research(recent, seed);
+    brief = await research(recent, seed, style);
     id = `r${String(state.posts.length + 1).padStart(3, "0")}-${slug(brief.topic)}`;
     mkdirSync(path.join(ROOT, "drafts", id), { recursive: true });
-    writeJson(path.join(ROOT, "drafts", id, "brief.json"), { ...brief, idea });
+    writeJson(path.join(ROOT, "drafts", id, "brief.json"), { ...brief, idea, style: style.id });
   }
   const dir = path.join(ROOT, "drafts", id);
   const f = (name: string) => path.join(dir, name);
+  // the voice for this style (render-scene.mts and floey_sound.py read it)
+  process.env.REEL_VOICE = style.voice === "pro" ? "pro" : "";
   console.log(`Reel ${id}: ${brief.topic} (${brief.goal})`);
 
   if (!existsSync(f("script.json"))) {
@@ -121,8 +132,8 @@ async function make(state: State, arg?: string): Promise<void> {
     console.log(`2. Story, as "${format.name}"`);
     const len = lengthFor(state.posts);
     if (len.name) console.log(`   length test "${len.name}": ${len.seconds} seconds`);
-    const story = await writeStory(id, brief, format, len);
-    writeJson(f("script.json"), { ...story, template: `../drafts/${id}/scene.html` });
+    const story = await writeStory(id, brief, format, len, style);
+    writeJson(f("script.json"), { ...story, style: style.id, template: `../drafts/${id}/scene.html` });
   }
   // Floey's lines, exactly as she will say them (the scene reads lines.js and never changes it)
   const story0 = readJson<Story>(f("script.json"));
@@ -137,13 +148,13 @@ async function make(state: State, arg?: string): Promise<void> {
   const seconds = lines.map(([id]) => voice[id]);
   if (!existsSync(f("storyboard.json"))) {
     console.log("4. Storyboard");
-    writeJson(f("storyboard.json"), await storyboard(story0, seconds));
+    writeJson(f("storyboard.json"), await storyboard(story0, seconds, style));
   }
   const board = readJson<Board>(f("storyboard.json"));
   const priorLog = existsSync(f("director.json")) ? readJson<string[]>(f("director.json")) : [];
   if (!existsSync(f("scene.html"))) {
     console.log("5-6. Director: scene, code checks, contact-sheet review");
-    const d = await directFloey(dir, HOUSE, { lines, story: story0, board, seconds: voice });
+    const d = await directFloey(dir, HOUSE, { lines, story: story0, board, seconds: voice, style });
     priorLog.push(...d.log);
     writeJson(f("director.json"), priorLog);
   }
@@ -152,7 +163,7 @@ async function make(state: State, arg?: string): Promise<void> {
     const prev = readJson<{ pass: boolean; problems: string[] }>(f("qa.json"));
     if (!prev.pass && prev.problems.length) {
       console.log("5-6. Director: correcting what the last final test found");
-      const d = await directFloey(dir, HOUSE, { lines, story: story0, board, seconds: voice, notes: prev.problems.map((x) => `- ${x}`).join("\n") });
+      const d = await directFloey(dir, HOUSE, { lines, story: story0, board, seconds: voice, style, notes: prev.problems.map((x) => `- ${x}`).join("\n") });
       priorLog.push(...d.log);
       writeJson(f("director.json"), priorLog);
     }
@@ -163,7 +174,7 @@ async function make(state: State, arg?: string): Promise<void> {
   let qa = await finalTest(id);
   if (!qa.pass) {
     console.log(`Final test failed, one more pass:\n${qa.problems.join("\n")}`);
-    const d = await directFloey(dir, HOUSE, { lines, story: story0, board, seconds: voice, notes: qa.problems.map((x) => `- ${x}`).join("\n") });
+    const d = await directFloey(dir, HOUSE, { lines, story: story0, board, seconds: voice, style, notes: qa.problems.map((x) => `- ${x}`).join("\n") });
     priorLog.push(...d.log);
     writeJson(f("director.json"), priorLog);
     r = renderReel(dir, board.posterAt);
@@ -174,12 +185,12 @@ async function make(state: State, arg?: string): Promise<void> {
   const experiment = story.experiment;
   state.posts = state.posts.filter((p) => p.id !== id);
   if (!qa.pass) {
-    state.posts.push({ id, status: "failed", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), reason: qa.problems.join(" ").slice(0, 500), idea, experiment });
+    state.posts.push({ id, status: "failed", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), reason: qa.problems.join(" ").slice(0, 500), idea, experiment, style: style.id });
     await say(`:warning: The reel "${story.title}" didn't pass its final test twice, so it isn't posted:\n${qa.problems.map((x) => `• ${x}`).join("\n").slice(0, 1500)}`);
     return;
   }
-  const slack = await postDraft(r.mp4, message(story as unknown as Script, r.seconds));
-  state.posts.push({ id, status: "draft", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), slack, idea, experiment });
+  const slack = await postDraft(r.mp4, message(story as unknown as Script, r.seconds, style.name));
+  state.posts.push({ id, status: "draft", topic: brief.topic, format: story.format, madeAt: new Date().toISOString(), seconds: Math.round(r.seconds), slack, idea, experiment, style: style.id });
   console.log(`Made ${id}: ${r.mp4} (${r.seconds.toFixed(1)}s). Claude usage, API-equivalent: $${costSoFar().toFixed(2)}.`);
 }
 

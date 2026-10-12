@@ -31,7 +31,7 @@ if (!lines.length) {
 const mouths: Record<string, number[]> = {};
 for (const [id, line] of lines as string[][]) {
   const said = path.join(OUT, `${id}.txt`);
-  const emotion = (lines.find((l) => l[0] === id) as string[])[2] ?? "warm", key = `${emotion}|${line}|${env.FLOEY_ENGINE ?? "chatterbox"}`;
+  const emotion = (lines.find((l) => l[0] === id) as string[])[2] ?? "warm", key = `${emotion}|${line}|${env.REEL_VOICE === "pro" ? "pro" : env.FLOEY_ENGINE ?? "chatterbox"}`;
   if (!existsSync(path.join(OUT, `${id}.mouth.json`)) || !existsSync(said) || readFileSync(said, "utf8") !== key) { execFileSync(py, [snd, "voice", id, line, OUT, emotion], { stdio: "inherit", env }); writeFileSync(said, key); }
   mouths[id] = JSON.parse(readFileSync(path.join(OUT, `${id}.mouth.json`), "utf8"));
 }

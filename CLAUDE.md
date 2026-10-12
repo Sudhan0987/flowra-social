@@ -14,6 +14,12 @@ The founder is not technical: plain words, short sentences.
 
 Formats today: `fix` (the 45-second fix: hook, 2 to 4 steps, outro) and `myth` (myth vs fact pairs). Beat kinds: hook, point, step, myth, fact, clip, outro.
 
+## Reel styles (brand/styles/styles.json)
+
+- The maker never uses the last reel's style (failed reels don't count). `floey-garden` (brand/studio, reel/floey/template.html, Floey's voice) and `pro` (brand/styles/pro: a narrator over a drawn working screen, useflowra.com colours, reel/pro/template.html, assets/music/mk162.mp3 Mixkit free licence). Founder, 12 Oct 2026: "dont make the reels in same style... make some professional reels also".
+- Each style brings its studio guide, worked example and voice (REEL_VOICE=pro picks the narrator in floey_sound.py; the pro mix has no garden hum or ambience and uses the music file). The style is recorded on brief.json, script.json and the post, and the weekly results compare styles. Force one with make.yml input `style` or REEL_STYLE.
+- Add a style: a folder in brand/styles with README.md (parts and hard rules), a worked example template that passes `src/scenecheck-cli.ts`, an entry in styles.json, and the style-specific prompt lines in src/pipeline.ts (research, writeStory, editStory, storyboard) and src/studio.ts.
+
 ## How it learns (weekly, research.yml, Sundays)
 
 - `src/results.ts`: every published reel's numbers (Instagram, Facebook, YouTube; read-only; a refused metric is left out) joined with how it was made (hook, `hookPattern`, structure, pillar, goal, length), dated snapshots in `state/results.json`. Claude writes `research/learnings.json` (signals with confidence, do more, do less, try next) and a note goes to Slack #social. Few reels means early signals, never rules.

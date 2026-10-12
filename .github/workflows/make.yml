@@ -23,6 +23,9 @@ on:
       topic:
         description: "Topic id from calendar/topics.json (optional; empty = the next one)"
         required: false
+      style:
+        description: "Reel style from brand/styles/styles.json (optional; empty = not the last reel's style)"
+        required: false
 
 permissions:
   contents: write
@@ -41,6 +44,7 @@ jobs:
       CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'opus' }}
       KOKORO_DIR: ${{ github.workspace }}/.kokoro
       TOPIC: ${{ inputs.topic }}
+      REEL_STYLE: ${{ inputs.style }}
       FLOEY_ENGINE: kokoro
     steps:
       - uses: actions/checkout@v5

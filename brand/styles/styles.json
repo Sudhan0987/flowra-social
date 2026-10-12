@@ -1,0 +1,23 @@
+{
+  "_about": "The looks a reel can be made in. The maker never uses the style of the last reel made (failed reels don't count), so the feed alternates. Each style has its own studio guide (what the director draws with), an approved worked example (template) and a voice. Founder, 12 Oct 2026: 'dont make the reels in same style... make some professional reels also'.",
+  "styles": [
+    {
+      "id": "floey-garden",
+      "name": "Floey's garden",
+      "studio": "brand/studio/README.md",
+      "template": "reel/floey/template.html",
+      "voice": "floey",
+      "mascot": true,
+      "research": "The reel will be animated in Floey's garden with a fixed set of parts; propose a visual idea those parts can tell: pages are flowers whose health rises or falls, bugs are errors Floey eats, the PAGE 1 line, tags, the review card, day counter, clicks chart. No new worlds or effects."
+    },
+    {
+      "id": "pro",
+      "name": "Professional explainer",
+      "studio": "brand/styles/pro/README.md",
+      "template": "reel/pro/template.html",
+      "voice": "pro",
+      "mascot": false,
+      "research": "The reel will be a clean, professional product explainer: a drawn working screen (Search Console, GA4, WordPress or Flowra itself) in motion: a chart drawing, rows sorting, a cursor clicking the exact control, the camera pushing in on the one row or number that matters, with a short headline above. Propose a visual idea that a real screen walkthrough can show step by step. No mascot, no metaphors."
+    }
+  ]
+}

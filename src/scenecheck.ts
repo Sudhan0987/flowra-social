@@ -33,9 +33,12 @@ export async function checkScene(scene: string, lines: Line[], mouths: Record<st
 
     const g = await page.evaluate(() => {
       const w = window as unknown as Record<string, unknown>;
-      return { render: typeof w.render, sound: typeof w.SOUND, camera: typeof w.CAMERA, floey: typeof w.FLOEY, beats: typeof w.BEATS, dur: w.DURATION as number, lines: w.LINES as unknown };
+      // floey.js defines a global FLOEY library too; a scene with the mascot sets window.FLOEY to the actor, which has pose()
+      const actor = typeof (w.FLOEY as { pose?: unknown } | undefined)?.pose === "function";
+      return { render: typeof w.render, sound: typeof w.SOUND, camera: typeof w.CAMERA, floey: actor ? "object" : "none", beats: typeof w.BEATS, dur: w.DURATION as number, lines: w.LINES as unknown };
     });
-    for (const [k, v] of Object.entries({ "window.render": g.render, "window.SOUND": g.sound, "window.CAMERA": g.camera, "window.FLOEY": g.floey, "window.BEATS": g.beats })) if (v !== "function" && v !== "object") problems.push(`${k} is missing.`);
+    // window.FLOEY only in reels with the mascot (the pro style has none); the voice cues are checked either way
+    for (const [k, v] of Object.entries({ "window.render": g.render, "window.SOUND": g.sound, "window.CAMERA": g.camera, "window.BEATS": g.beats })) if (v !== "function" && v !== "object") problems.push(`${k} is missing.`);
     if (problems.length) return problems;
     if (JSON.stringify(g.lines) !== JSON.stringify(lines)) problems.push("window.LINES was changed or redefined; use the pipeline's lines.js exactly.");
     if (!(g.dur >= 15 && g.dur <= 45)) problems.push(`DURATION is ${g.dur?.toFixed?.(1)} s; it must be 15 to 45.`);
@@ -45,8 +48,8 @@ export async function checkScene(scene: string, lines: Line[], mouths: Record<st
     const voice = sound.cues.filter((c) => c.kind === "voice");
     for (const [id] of lines) if (!voice.some((c) => c.id === id)) problems.push(`Line "${id}" is never spoken (no F.say(B.${id}.start, M.${id}, "${id}")).`);
 
-    // where Floey is on screen while she speaks
-    const samples = await page.evaluate((dur) => {
+    // where Floey is on screen while she speaks (reels with the mascot only)
+    const samples = g.floey !== "object" ? [] : await page.evaluate((dur) => {
       const w = window as unknown as { render: (t: number) => void; CAMERA: (t: number) => { camX: number; camY: number; zoom: number }; FLOEY: { pose: (t: number) => { x: number; y: number } } };
       const out: { t: number; x: number; y: number }[] = [];
       for (let t = 0; t <= dur; t += 0.2) {

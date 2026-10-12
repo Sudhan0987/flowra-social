@@ -2,6 +2,12 @@
 
 Newest first. Each entry: date, what Sudhan said (close to his words), and what changed.
 
+
+## 2026-10-12
+- **"Dont make the reels in same style man... we are repeating the same style over and over... make some professional reels also."** Added reel styles (brand/styles): the garden stays as one; new "pro" style: a narrator over a drawn working screen (charts drawing, rows sorting, a cursor clicking the control the voice names), useflowra.com colours, the launch film's approved techno track (Mixkit mk162), Floey only perched on the logo in the end card. The maker alternates styles. Rules: "Styles" section added; Floey rules scoped to garden reels.
+- **"Do whatever feels best for our reach"** (11 Oct, reel length): two reels at 20 to 26 seconds with the problem on screen from frame one (story/length.json).
+- **"Approve for all... create everything now itself"**: today's reel and article made at once; today's reel is pre-approved.
+
 ## 2026-10-01 (night)
 - **Floey should not sit on top of the logo; she sits on the spark's left arm like a bird on a branch, arrives sideways, and faces the camera with a straight face.** perch.html redone that way.
 - **Navbar: keep the logo's spin animation; Floey flies in, sits on the logo, then leaves, and the logo carries on as before.**

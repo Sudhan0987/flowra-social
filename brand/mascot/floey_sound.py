@@ -188,13 +188,48 @@ def gulp():
     return sweep(420, 140, d) * env(len(x), 0.01, 0.09) * 0.8 + lowpass(noise(d), 300) * env(len(x), 0.005, 0.05) * 0.3
 
 
+# ---------- interface sounds, for the "pro" style (brand/styles/pro) ----------
+def click():
+    d = 0.05
+    return (bp(noise(d), 1800, 7000) * 0.6 + sweep(2400, 1500, d) * 0.4) * env(int(SR * d), 0.0005, 0.012)
+
+
+def whoosh():
+    d = 0.42
+    x = T(d)
+    return bp(noise(d), 300, 5200) * np.sin(np.pi * np.clip(x / d, 0, 1)) ** 2 * 0.9
+
+
+def pop():
+    d = 0.14
+    return sweep(380, 900, d) * env(int(SR * d), 0.002, 0.05) * 0.8
+
+
+def tick():
+    d = 0.03
+    return sweep(3200, 2600, d) * env(int(SR * d), 0.0005, 0.008) * 0.6
+
+
+def rise():
+    d = 0.7
+    x = T(d)
+    return (sweep(220, 880, d) * 0.35 + bp(noise(d), 1500, 6000) * 0.25) * (x / d) ** 2 * env(len(x), 0.3, 0.06)
+
+
+def thump():
+    d = 0.3
+    return sweep(110, 45, d) * env(int(SR * d), 0.002, 0.12) * 1.1
+
+
 SOUNDS = {"chip": lambda c: chip(c.get("n", 3)), "zip": lambda c: zip_(c.get("d", 0.3)), "brrt": lambda c: brrt(), "tk": lambda c: tk(),
           "rustle": lambda c: rustle(c.get("n", 1)), "lick": lambda c: lick(), "pluck": lambda c: pluck(), "flick": lambda c: flick(),
           "sip": lambda c: sip(), "shimmer": lambda c: shimmer(), "bloom": lambda c: bloom(), "tap": lambda c: tap(), "flutter": lambda c: flutter(),
           "shake": lambda c: shake(), "swish": lambda c: swish(), "ting": lambda c: ting(), "reverse": lambda c: reverse(c.get("d", 0.6)),
-          "zipoff": lambda c: zipoff(c.get("d", 0.32)), "chomp": lambda c: chomp(), "gulp": lambda c: gulp()}
+          "zipoff": lambda c: zipoff(c.get("d", 0.32)), "chomp": lambda c: chomp(), "gulp": lambda c: gulp(),
+          "click": lambda c: click(), "whoosh": lambda c: whoosh(), "pop": lambda c: pop(), "tick": lambda c: tick(), "rise": lambda c: rise(), "thump": lambda c: thump()}
 GAIN = {"chip": 0.8, "zip": 0.7, "brrt": 0.6, "tk": 0.8, "rustle": 1.8, "lick": 1.5, "pluck": 0.8, "flick": 0.7, "sip": 0.8, "shimmer": 0.7,
-        "bloom": 0.8, "tap": 1.1, "flutter": 0.6, "shake": 1.2, "swish": 0.5, "ting": 0.6, "reverse": 0.6, "zipoff": 0.8, "chomp": 1.0, "gulp": 1.0}
+        "bloom": 0.8, "tap": 1.1, "flutter": 0.6, "shake": 1.2, "swish": 0.5, "ting": 0.6, "reverse": 0.6, "zipoff": 0.8, "chomp": 1.0, "gulp": 1.0,
+        "click": 0.9, "whoosh": 0.55, "pop": 0.7, "tick": 0.6, "rise": 0.5, "thump": 0.9}
 
 
 def pan_gains(x):
@@ -282,6 +317,28 @@ def floey_voice(k, line, plain=False, emotion="warm"):
     return out
 
 
+# The narrator of "pro" reels (brand/styles/pro): a clear, grown-up voice,
+# not Floey's. Mostly af_bella with some af_heart, natural pitch, a touch
+# faster than Floey; the same presence lift and compression so it carries.
+PRO_BLEND = [("af_bella", 0.6), ("af_heart", 0.4)]
+PRO_SPEED = 1.06
+
+
+def pro_voice(k, line, emotion="warm"):
+    import subprocess, tempfile
+    style = sum(k.get_voice_style(n) * w for n, w in PRO_BLEND)
+    _, es, _ = EMOTION.get(emotion, EMOTION["warm"])
+    v, sr = k.create(speakable(line), voice=style, speed=PRO_SPEED * (1 + (es - 1) * 0.5), lang="en-us")
+    with tempfile.TemporaryDirectory() as d:
+        a, b = os.path.join(d, "a.wav"), os.path.join(d, "b.wav")
+        sf.write(a, v, sr)
+        filt = (f"aresample={SR},highpass=f=80,equalizer=f=3800:t=q:w=1.2:g=2,equalizer=f=220:t=q:w=1:g=-1,"
+                "acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120")
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", a, "-af", filt, "-ac", "1", b], check=True)
+        out, _ = sf.read(b)
+    return out
+
+
 def kokoro():
     from kokoro_onnx import Kokoro
     from kokoro_onnx.config import EspeakConfig
@@ -295,7 +352,9 @@ def voice(line_id, line, outdir, emotion="warm"):
     cb = os.path.join(os.path.dirname(__file__), "..", "..", ".venv-cb", "bin", "python")
     ref = os.path.join(os.path.dirname(__file__), "floey-ref.wav")
     out = os.path.join(outdir, f"{line_id}.wav")
-    if os.environ.get("FLOEY_ENGINE", "chatterbox") == "chatterbox" and os.path.exists(cb) and os.path.exists(ref):
+    if os.environ.get("REEL_VOICE") == "pro":
+        v = pro_voice(kokoro(), line, emotion=emotion)
+    elif os.environ.get("FLOEY_ENGINE", "chatterbox") == "chatterbox" and os.path.exists(cb) and os.path.exists(ref):
         import subprocess
         subprocess.run([cb, os.path.join(os.path.dirname(__file__), "floey_cb.py"), ref, out, emotion, speakable(line)], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         v, _ = sf.read(out)
@@ -336,9 +395,27 @@ def rms(x):
     return float(np.sqrt(np.mean(np.square(x)))) if len(x) else 0.0
 
 
+def music_file(path, dur):
+    """A licensed track (assets/music, Mixkit free licence) as the bed: stereo, trimmed, faded in and out."""
+    import subprocess
+    root = os.path.join(os.path.dirname(__file__), "..", "..")
+    full = path if os.path.isabs(path) else os.path.join(root, path)
+    raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", full, "-t", str(dur), "-f", "f32le", "-ac", "2", "-ar", str(SR), "-"], check=True, capture_output=True).stdout
+    m = np.frombuffer(raw, dtype=np.float32).reshape(-1, 2).copy()
+    n = int(SR * dur)
+    if len(m) < n:
+        m = np.concatenate([m, np.zeros((n - len(m), 2))])
+    fi, fo = int(SR * 0.3), int(SR * 1.2)
+    m[:fi] *= np.linspace(0, 1, fi)[:, None]
+    m[n - fo:n] *= np.linspace(1, 0, fo)[:, None]
+    return m[:n]
+
+
 def mix(cues_path, outdir, dur):
     data = json.load(open(cues_path))
-    bed = hum(data["track"], dur) + ambience(dur)
+    pro = data.get("style") == "pro"
+    # the garden's wing hum and ambience belong to Floey's reels only
+    bed = np.zeros((int(SR * dur), 2)) if pro else hum(data["track"], dur) + ambience(dur)
     voice = np.zeros_like(bed)
     speaking = np.zeros(len(bed), dtype=bool)
     for c in data["cues"]:
@@ -351,7 +428,9 @@ def mix(cues_path, outdir, dur):
             print("unknown sound", c["kind"])
             continue
         place_st(bed, SOUNDS[c["kind"]](c) * GAIN[c["kind"]], c["t"], c.get("x0", c.get("x", 540)), c.get("x1"))
-    if data.get("music"):
+    if data.get("musicFile"):
+        bed += music_file(data["musicFile"], dur)[: len(bed)] * 0.5
+    elif data.get("music"):
         mb = music_bed(dur, data["music"], 5)[: len(bed)]
         bed[: len(mb)] += np.stack([mb, mb], axis=1) * 0.22
 

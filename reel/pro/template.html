@@ -1,0 +1,144 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/styles/pro/ui.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+@font-face{font-family:"IBM Plex Mono";src:url("../assets/PlexMono500.woff2") format("woff2");font-weight:500}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#fff}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// TEMPLATE for the "pro" style (brand/styles/pro/README.md): a 22 second
+// product explainer. A new reel copies this shape: LINES, GAP and timing, the
+// screens, the cursor's path, the camera, sounds cued to B[id], window.render(t).
+// Story: the problem is on screen in frame one (a clicks line sliding), the
+// check in Search Console (Pages, Compare, sort by difference), the payoff
+// (the one row to refresh first), loop, go, the address.
+const M = window.MOUTHS || {};
+// a real reel uses the pipeline's lines: const LINES = window.LINES;
+const LINES = window.LINES ||= [
+  ["hook", "Your traffic didn't crash. One page has been sliding for months.", "ominous"],
+  ["check", "In Search Console, open Pages and compare the last three months with the three before.", "curious"],
+  ["sort", "Sort by the clicks difference.", "determined"],
+  ["payoff", "The top row is the page to refresh first.", "proud"],
+  ["loop", "Next month, a different page starts sliding.", "worried"],
+  ["go", "Go find yours.", "excited"],
+  ["url", "useflowra.com.", "playful"],
+];
+const GAP = { hook: 0.35, check: 0.3, sort: 0.25, payoff: 0.45, loop: 0.2, go: 0.4, url: 0.6 };
+// PROPS-style timing without the garden: B[id] = { start, len, end }
+const B = {}; let at = 0.25;
+for (const [id] of LINES) { const len = (M[id] || []).length / 30 || 2.2; B[id] = { start: at, len, end: at + len }; at += len + (GAP[id] ?? 0.3); }
+const DUR = at + 0.4;
+const b = B, S = PRO.sounds(), c = PRO.c;
+
+// ---------- world state, one paused timeline ----------
+const W = { camX: 540, camY: 960, zoom: 1, rot: 0, s1: 1, line: 0.62, mark: 0, s2: 0, rows: 0, tab: 0, curX: 900, curY: 1500, cur: 0, click1: 0, sortCol: 0, sorted: 0, hi: 0, ring: 0, refresh: 0, loopHi: 0, end: 0, head: 1, head2: 0, head3: 0 };
+const wt = gsap.timeline({ paused: true });
+
+// HOOK: frame one already shows the problem: the clicks line mid-slide, the
+// headline in place. The line keeps falling, the slide is marked, push in.
+wt.to(W, { line: 1, duration: b.hook.len + 0.3, ease: "power1.inOut" }, 0)
+  .to(W, { mark: 1, duration: 0.6, ease: "power2.out" }, b.hook.start + b.hook.len * 0.55)
+  .to(W, { zoom: 1.12, camY: 1010, duration: b.hook.len + 0.4, ease: "power2.inOut" }, 0);
+S.sfx(b.hook.start + b.hook.len * 0.55, "whoosh");
+
+// CHECK: the chart screen falls away, the Pages table swings in, the cursor clicks Compare
+const c0 = b.check.start - 0.15;
+wt.to(W, { s1: 2, duration: 0.55, ease: "power2.in" }, c0)
+  .set(W, { zoom: 1, camY: 960 }, c0 + 0.55)
+  .to(W, { s2: 1, duration: 0.6, ease: "power3.out" }, c0 + 0.3)
+  .to(W, { head: 0, duration: 0.25 }, c0)
+  .to(W, { head2: 1, duration: 0.6 }, c0 + 0.35)
+  .to(W, { rows: 1, duration: 0.9, ease: "power2.out" }, c0 + 0.6)
+  .to(W, { cur: 1, duration: 0.3 }, b.check.start + 0.8)
+  .to(W, { curX: 520, curY: 600, duration: 0.7, ease: "power3.inOut" }, b.check.start + 0.8)
+  .to(W, { click1: 1, duration: 0.45, ease: "none" }, b.check.start + 1.55)
+  .set(W, { tab: 1 }, b.check.start + 1.6);
+S.sfx(c0, "whoosh").sfx(c0 + 0.6, "pop").sfx(b.check.start + 1.55, "click");
+
+// SORT: the cursor moves to the Difference column and clicks; the rows re-sort; the worst lands on top
+wt.to(W, { curX: 900, curY: 712, duration: 0.5, ease: "power3.inOut" }, b.sort.start)
+  .set(W, { click1: 0 }, b.sort.start)
+  .to(W, { click1: 1, duration: 0.45, ease: "none" }, b.sort.start + 0.55)
+  .set(W, { sortCol: 1 }, b.sort.start + 0.6)
+  .to(W, { sorted: 1, duration: 0.7, ease: "power3.inOut" }, b.sort.start + 0.65);
+S.sfx(b.sort.start + 0.55, "click").sfx(b.sort.start + 0.7, "tick");
+
+// PAYOFF: push in on the top row, highlight it, ring it, the "Refresh first" pill pops
+wt.to(W, { cur: 0, duration: 0.25 }, b.payoff.start)
+  .to(W, { hi: 1, duration: 0.5, ease: "power2.out" }, b.payoff.start)
+  .to(W, { zoom: 1.16, camX: 540, camY: 960, duration: 0.9, ease: "power3.inOut" }, b.payoff.start + 0.1)
+  .to(W, { ring: 1, duration: 0.6 }, b.payoff.start + 0.5)
+  .to(W, { refresh: 1, duration: 0.5 }, b.payoff.start + 1.0)
+  .to(W, { head2: 0, duration: 0.2 }, b.payoff.start)
+  .to(W, { head3: 1, duration: 0.5 }, b.payoff.start + 0.1);
+S.sfx(b.payoff.start + 0.5, "rise").sfx(b.payoff.start + 1.0, "pop");
+
+// LOOP: pull back; a second row starts to slide (the chart's red edge returns)
+wt.to(W, { zoom: 1, camY: 960, duration: 0.8, ease: "power2.inOut" }, b.loop.start)
+  .to(W, { hi: 0, ring: 0, refresh: 0, duration: 0.3 }, b.loop.start)
+  .to(W, { loopHi: 1, duration: 0.6, ease: "power2.out" }, b.loop.start + 0.5);
+S.sfx(b.loop.start + 0.5, "tick");
+
+// GO + URL: the end card with Floey perched on the logo
+wt.to(W, { s2: 2, head3: 0, duration: 0.5, ease: "power2.in" }, b.go.start - 0.1)
+  .to(W, { end: 1, duration: 0.6, ease: "power3.out" }, b.go.start + 0.2);
+S.sfx(b.go.start - 0.1, "whoosh").sfx(b.go.start + 0.3, "thump");
+
+for (const [id] of LINES) S.say(B[id].start, M[id] || [], id);
+
+// ---------- the screens ----------
+const months = ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"];
+const clicks = [820, 840, 810, 790, 700, 590, 470];
+function screen1(t) {
+  return PRO.card(60, 470, 960, 900, { title: "Clicks, last 6 months", tag: "Search Console" })
+    + PRO.chart(130, 650, 820, 580, { labels: months, series: [{ pts: clicks, color: c.clicks, k: W.line, area: true, label: "-43%" }], mark: { from: 0.62, to: 1, k: W.mark, label: "sliding" } });
+}
+const rows = [
+  { cells: ["/blog/keyword-research", "1,204", "+38"], tone: "good" },
+  { cells: ["/blog/seo-audit-checklist", "860", "-12"], tone: "warn" },
+  { cells: ["/blog/content-calendar", "412", "-340"], tone: "bad" },
+  { cells: ["/pricing", "655", "+21"], tone: "good" },
+  { cells: ["/blog/meta-descriptions", "298", "-64"], tone: "bad" },
+];
+function screen2(t) {
+  const cols = [{ label: "Page", w: 500 }, { label: "Clicks", w: 170, align: "end" }, { label: "Difference", w: 210, align: "end" }];
+  const click = W.click1 > 0 && W.click1 < 1 ? W.click1 : 0;
+  // after the sort, row 2 sits in slot 0 (y 740 to 844) and row 4 in slot 1 (844 to 948)
+  const hiRow = W.loopHi > 0 ? 4 : 2, hk = W.loopHi > 0 ? W.loopHi : W.hi;
+  return PRO.card(60, 440, 960, 940, { title: "Pages" })
+    + PRO.tabs(110, 600, ["Queries", "Pages", "Compare"], W.tab ? 2 : 1, W.s2)
+    + PRO.table(100, 666, 880, { cols, rows, k: W.rows, order: [2, 4, 1, 3, 0], ok: W.sorted, hi: hiRow, hk, hiTone: W.loopHi > 0 ? "warn" : "bad", sortCol: W.sortCol ? 2 : -1 })
+    + PRO.ring(82, 740, 916, 104, W.ring, "bad")
+    + PRO.arrow(640, 548, 560, 736, W.refresh)
+    + PRO.pill(760, 516, "Refresh this one first", "brand", W.refresh)
+    + PRO.cursor(W.curX, W.curY, { click, k: W.cur });
+}
+
+window.render = (t) => {
+  wt.seek(Math.min(DUR, t), false);
+  const world = PRO.screen(screen1(t), W.s1) + PRO.screen(screen2(t), W.s2);
+  document.getElementById("stage").innerHTML = PRO.bg(t)
+    + PRO.kicker("Search Console check", 236, W.head + W.head2 + W.head3 > 0 ? 1 : 0)
+    + PRO.headline("One page is quietly sliding", { y: 340, k: W.head, accent: ["sliding"] })
+    + PRO.headline("Compare, then sort", { y: 340, k: W.head2, accent: ["sort"] })
+    + PRO.headline("Your page to fix first", { y: 340, k: W.head3, accent: ["first"] })
+    + PRO.cam(world, { x: W.camX, y: W.camY, zoom: W.zoom })
+    + PRO.endCard(W.end, t)
+    + (W.end < 0.5 ? PRO.captions(LINES, B, t) : "");
+};
+window.DURATION = DUR;
+window.SOUND = () => S.sound(DUR);
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.BEATS = B;
+window.STYLE = "pro";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script>
+</body></html>
