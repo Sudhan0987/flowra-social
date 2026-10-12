@@ -15,226 +15,284 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#fff}sv
 <svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
 <script>
 // r007, "pro" style: week one is too early to judge your site move.
-// One Search Console card carries the story. Its day counter drives the
-// lines: the old domain falls and the new one climbs exactly as far as the
-// counter has run, while the time axis (stops Day 0, 7, 30, 90, 180, 365)
-// zooms out from Day 7 to Day 90 (Google's typical band) to Day 365 (the slow
-// band, running off the edge for "or more"). The client's Day 7 question
-// swings in, then the chart swings back and rewinds to Day 7. The end card
-// drops over it and lifts away, leaving the opening frame: the loop.
+// Screen A, Search Console Performance: a day counter drives two example lines
+// (the old domain falling, the new one climbing), drawn exactly as far as the
+// counter has run. The time axis is in true days and zooms out: 0 to 14 days,
+// then 0 to 100 (Google's typical 1 to 3 months), then 0 to 400 (the slow
+// 6 months to a year or more, running off the edge). Screen B: the client's
+// Day 7 question and your migration plan, each row clicked, then saved.
+// The chart swings back and rewinds to Day 7; the end strip rises below the
+// card (the chart and headline never move) and drops away before the cut,
+// leaving frame one: the loop.
 const LINES = window.LINES, M = window.MOUTHS || {};
-const GAP = { hook0: 0.3, body1: 0.3, body2: 0.35, payoff3: 0.5, loop4: 0.6, go5: 0.4, url6: 1.5 };
+const GAP = { hook0: 0.3, body1: 0.3, body2: 0.35, payoff3: 0.5, loop4: 0.5, go5: 0.5, url6: 1.6 };
 const B = {}; let at = 0.25;
 for (const [id] of LINES) { const len = (M[id] || []).length / 30 || 2.2; B[id] = { start: at, len, end: at + len }; at += len + (GAP[id] ?? 0.3); }
 const DUR = at + 0.4;
 const b = B, S = PRO.sounds(), c = PRO.c, e = PRO.ease, c01 = PRO.c01;
 
-// ---------- the chart's time axis ----------
-// u is the position in axis stops (0 = Day 0, 1 = Day 7, ... 5 = Day 365); U is how many stops the axis shows
-const STOPS = [0, 7, 30, 90, 180, 365];
-const dayOf = (u) => u >= 5 ? 365 + 185 * (u - 5) : ((i) => STOPS[i] + (STOPS[i + 1] - STOPS[i]) * (u - i))(Math.max(0, Math.floor(u)));
-// example clicks per day, in stop space, smoothed with a monotone cubic so nothing wobbles
-function curve(ys, h = 0.5) {
-  const n = ys.length, d = [], m = [];
-  for (let i = 0; i < n - 1; i++) d[i] = (ys[i + 1] - ys[i]) / h;
-  m[0] = d[0]; m[n - 1] = d[n - 2];
-  for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
-  for (let i = 0; i < n - 1; i++) {
-    if (d[i] === 0) { m[i] = m[i + 1] = 0; continue; }
-    const a = m[i] / d[i], bb = m[i + 1] / d[i], s = a * a + bb * bb;
-    if (s > 9) { const tau = 3 / Math.sqrt(s); m[i] = tau * a * d[i]; m[i + 1] = tau * bb * d[i]; }
-  }
-  return (u) => {
-    const i = Math.max(0, Math.min(n - 2, Math.floor(u / h))), x = (u - i * h) / h;
-    const x2 = x * x, x3 = x2 * x;
-    return (2 * x3 - 3 * x2 + 1) * ys[i] + (x3 - 2 * x2 + x) * h * m[i] + (-2 * x3 + 3 * x2) * ys[i + 1] + (x3 - x2) * h * m[i + 1];
-  };
-}
-const oldF = curve([800, 720, 610, 520, 430, 250, 120, 70, 45, 32, 25, 22, 20, 20]);
-const newF = curve([0, 25, 75, 170, 300, 520, 700, 760, 785, 795, 800, 800, 800, 800]);
+// ---------- example data, in days after the move ----------
+const oldF = (d) => 40 + 760 * (0.3 * Math.exp(-d / 6) + 0.7 * Math.exp(-d / 75));
+const newF = (d) => 780 * (1 - Math.exp(-d / 50));
+const slowF = (d) => 760 * (1 - Math.exp(-d / 170));
 
-// the rewind lands a little before Day 7 and creeps back to exactly Day 7 at the last frame (the first frame's state)
-const g0 = b.go5.start, RW_END = g0 + 1.4, U_RW = 1 - 0.3 * (DUR - RW_END) / 7;
+// the hook runs Day 7.0 to 7.4; the line about both domains runs Day 7.4 to 10.2 (the counter ticks 8, 9, 10)
+const b1 = b.body1.start, D_HOOK = 7.4, D_B1 = 10.2, RATE = (D_HOOK - 7) / b1;
+const tickAt = (d) => b1 + ((d - D_HOOK) / (D_B1 - D_HOOK)) * b.body1.len;
 
 // ---------- world state, one paused timeline ----------
 const W = {
   camX: 540, camY: 960, zoom: 1, sA: 1, sC: 0, kA: 1, kC: 0, h0: 1, h1: 0, h2: 0, h3: 0, h4: 0,
-  u: 1, U: 2, unsettled: 1, area: 0, arDown: 0, arUp: 0, band1: 0, pill1: 0, band2: 0, pill2: 0, ring: 0, src: 0,
-  bubble: 0, rows: 0, end: 0, lift: 0,
+  d: 7, D: 14, unsettled: 1, area: 0, arDown: 0, arUp: 0, band1: 0, pill1: 0, band2: 0, pill2: 0, slow: 0, ring: 0, src: 0,
+  bubble: 0, rows: 0, chk1: 0, chk2: 0, chk3: 0, ring3: 0, saved: 0, curX: 960, curY: 1330, cur: 0, clk: 0, end: 0, lift: 0,
 };
 const wt = gsap.timeline({ paused: true });
 
 // HOOK: frame one is Day 7: the old domain falling, the new one just lifting, "not settled" between them.
-// The lines keep drawing (Day 7.0 to 7.9) and the camera drifts in.
-const b1 = b.body1.start;
-wt.to(W, { u: 1 + 0.9 / 23, duration: b1, ease: "none" }, 0)
+// The lines keep drawing and the camera drifts in.
+wt.to(W, { d: D_HOOK, duration: b1, ease: "none" }, 0)
   .to(W, { camX: 528, zoom: 1.03, duration: b1, ease: "sine.inOut" }, 0);
 
-// BODY1: both lines move at once, an arrow on each, the counter ticks 8, 9, 10
+// BODY1: both lines move at once, a badge rides each line, the counter ticks 8, 9, 10
 wt.to(W, { h0: 0, duration: 0.2 }, b1 - 0.1)
   .to(W, { h1: 1, duration: 0.6 }, b1 + 0.1)
   .to(W, { unsettled: 0, duration: 0.3 }, b1)
-  .to(W, { u: 1 + (0.9 + b.body1.len) / 23, duration: b.body1.len, ease: "none" }, b1)
+  .to(W, { d: D_B1, duration: b.body1.len, ease: "none" }, b1)
   .to(W, { area: 1, duration: 0.8 }, b1 + 0.2)
-  .to(W, { arDown: 1, duration: 0.5 }, b1 + 0.55)
-  .to(W, { arUp: 1, duration: 0.5 }, b1 + 1.6)
-  .to(W, { zoom: 1.07, camX: 540, camY: 950, duration: b.body1.len, ease: "power2.inOut" }, b1);
-S.sfx(b1 + 0.1, "tick").sfx(b1 + 0.55, "pop").sfx(b1 + 1.1, "tick").sfx(b1 + 1.6, "pop").sfx(b1 + 2.1, "tick");
+  .to(W, { arDown: 1, duration: 0.45 }, b1 + 0.5)
+  .to(W, { arUp: 1, duration: 0.45 }, b1 + 1.55)
+  .to(W, { zoom: 1.07, camX: 540, camY: 945, duration: b.body1.len, ease: "power2.inOut" }, b1);
+S.sfx(tickAt(7.5), "tick").sfx(b1 + 0.5, "pop").sfx(tickAt(8.5), "tick").sfx(b1 + 1.55, "pop").sfx(tickAt(9.5), "tick");
 
-// BODY2: the axis zooms out, the counter rolls to Day 90, the source appears with Gary Illyes,
-// the 1 to 3 months band sweeps on and the new line passes the old one inside it; push in
+// BODY2: the axis zooms out to 100 days while the counter rolls to Day 90; the source appears with
+// Gary Illyes, the 1 to 3 months band sweeps on as it is said, the new line passes the old one inside it
 const b2 = b.body2.start;
 wt.to(W, { h1: 0, duration: 0.2 }, b2 - 0.1)
   .to(W, { h2: 1, duration: 0.6 }, b2 + 0.1)
   .to(W, { arDown: 0, arUp: 0, duration: 0.3 }, b2)
-  .to(W, { zoom: 1, camY: 960, duration: 0.8, ease: "power2.inOut" }, b2 + 0.1)
-  .to(W, { u: 3, U: 3.35, duration: 3.0, ease: "power1.inOut" }, b2 + 0.2)
-  .to(W, { src: 1, duration: 0.5 }, b2 + 0.7)
-  .to(W, { band1: 1, duration: 0.8, ease: "power2.out" }, b2 + 1.6)
+  .to(W, { zoom: 1, camX: 540, camY: 960, duration: 0.7, ease: "power2.inOut" }, b2 + 0.1)
+  .to(W, { d: 90, D: 100, duration: 2.4, ease: "power1.inOut" }, b2 + 0.2)
+  .to(W, { src: 1, duration: 0.5 }, b2 + 0.9)
+  .to(W, { band1: 1, duration: 0.8, ease: "power2.out" }, b2 + 1.7)
   .to(W, { pill1: 1, duration: 0.5 }, b2 + 2.5)
-  .to(W, { zoom: 1.1, camY: 940, duration: 1.2, ease: "power2.inOut" }, b2 + 2.6);
-S.sfx(b2 + 0.2, "whoosh").sfx(b2 + 0.7, "tick").sfx(b2 + 1.6, "tick").sfx(b2 + 2.5, "pop");
+  .to(W, { zoom: 1.1, camX: 590, camY: 880, duration: 1.3, ease: "power2.inOut" }, b2 + 2.7);
+S.sfx(b2 + 0.2, "whoosh").sfx(b2 + 1.7, "tick").sfx(b2 + 2.5, "pop");
 
-// PAYOFF: the counter runs on to Day 365 (a small overshoot, then settles), the slow band runs off the edge, ring it
+// PAYOFF: the axis zooms out to 400 days, the counter runs on and stops at Day 365, the slow band
+// runs from 180 off the right edge ("or more"), a slow move's line is still climbing; push in, ring the band
 const p0 = b.payoff3.start;
 wt.to(W, { h2: 0, duration: 0.2 }, p0 - 0.1)
   .to(W, { h3: 1, duration: 0.6 }, p0 + 0.1)
-  .to(W, { u: 5, duration: 1.3, ease: "back.out(1.3)" }, p0 + 0.05)
-  .to(W, { U: 5.5, duration: 1.3, ease: "power3.out" }, p0 + 0.05)
-  .to(W, { band2: 1, duration: 0.7, ease: "power2.out" }, p0 + 0.55)
-  .to(W, { pill2: 1, duration: 0.5 }, p0 + 0.95)
-  .to(W, { zoom: 1.12, camY: 940, duration: 1.1, ease: "power3.inOut" }, p0 + 0.3)
-  .to(W, { ring: 1, duration: 0.6 }, p0 + 1.5);
-S.sfx(p0, "rise").sfx(p0 + 0.55, "tick").sfx(p0 + 0.95, "pop").sfx(p0 + 1.5, "tick");
+  .to(W, { d: 365, D: 400, duration: 1.0, ease: "power3.out" }, p0)
+  .to(W, { band2: 1, duration: 0.5, ease: "power2.out" }, p0 + 0.4)
+  .to(W, { slow: 1, duration: 0.9, ease: "power1.inOut" }, p0 + 0.45)
+  .to(W, { pill2: 1, duration: 0.5 }, p0 + 0.8)
+  .to(W, { zoom: 1.15, camX: 590, camY: 860, duration: 1.0, ease: "power3.inOut" }, p0 + 0.1)
+  .to(W, { ring: 1, duration: 0.45 }, p0 + 1.2);
+S.sfx(p0, "rise").sfx(p0 + 0.45, "tick").sfx(p0 + 0.85, "pop").sfx(p0 + 1.3, "tick");
 
-// LOOP: the chart falls away; the client's Day 7 question swings in with your answer
-const l0 = b.loop4.start, c1 = l0 - 0.15;
+// LOOP: the chart falls away; the client's Day 7 question swings in over your plan; the cursor ticks each row
+const l0 = b.loop4.start, c1 = l0 - 0.2, ROW = (i) => 766 + i * 100;
 wt.to(W, { sA: 2, duration: 0.55, ease: "power2.in" }, c1)
-  .to(W, { ring: 0, duration: 0.3 }, c1)
   .to(W, { zoom: 1, camX: 540, camY: 960, duration: 0.6, ease: "power2.inOut" }, c1)
   .to(W, { h3: 0, kA: 0, duration: 0.2 }, c1)
-  .to(W, { sC: 1, duration: 0.6, ease: "power3.out" }, c1 + 0.3)
-  .to(W, { kC: 1, h4: 1, duration: 0.6 }, c1 + 0.35)
-  .to(W, { bubble: 1, duration: 0.5 }, l0 + 0.35)
-  .to(W, { rows: 1, duration: 0.9, ease: "power2.out" }, l0 + 0.95);
-S.sfx(c1, "whoosh").sfx(l0 + 0.35, "pop").sfx(l0 + 0.95, "pop");
+  .to(W, { sC: 1, duration: 0.6, ease: "power3.out" }, l0 + 0.05)
+  .to(W, { kC: 1, h4: 1, duration: 0.6 }, l0 + 0.15)
+  .to(W, { bubble: 1, duration: 0.45 }, l0 + 0.3)
+  .to(W, { rows: 1, duration: 0.6, ease: "power2.out" }, l0 + 0.7)
+  .to(W, { cur: 1, duration: 0.25 }, l0 + 0.8)
+  .to(W, { curX: 172, curY: ROW(0), duration: 0.45, ease: "power3.inOut" }, l0 + 0.8);
+S.sfx(c1, "whoosh").sfx(l0 + 0.35, "pop").sfx(l0 + 0.8, "tick");
+[1.25, 1.7, 2.15].forEach((tc, i) => {
+  if (i) wt.to(W, { curX: 172, curY: ROW(i), duration: 0.3, ease: "power3.inOut" }, l0 + tc - 0.32);
+  wt.set(W, { clk: 0 }, l0 + tc - 0.01).to(W, { clk: 1, duration: 0.4, ease: "none" }, l0 + tc)
+    .to(W, { ["chk" + (i + 1)]: 1, duration: 0.35 }, l0 + tc + 0.04);
+  S.sfx(l0 + tc, "click");
+});
+wt.to(W, { ring3: 1, duration: 0.45 }, l0 + 2.25);
 
-// GO: the chart swings back and rewinds: 365 to Day 7, bands wipe, the lines retract to their opening shape
-const c2 = g0 - 0.15;
+// GO: "Save this": the cursor clicks Save plan and it turns to Saved; then the chart swings back
+// and rewinds: 365 to Day 7, the bands and pills wipe, the lines retract to their opening shape
+const g0 = b.go5.start, SAVE = { x: 540, y: 1112 };
+wt.to(W, { curX: SAVE.x + 60, curY: SAVE.y + 6, duration: 0.42, ease: "power3.inOut" }, g0 - 0.3)
+  .set(W, { clk: 0 }, g0 + 0.14).to(W, { clk: 1, duration: 0.4, ease: "none" }, g0 + 0.15)
+  .to(W, { saved: 1, duration: 0.35 }, g0 + 0.2)
+  .to(W, { cur: 0, duration: 0.3 }, g0 + 1.0);
+S.sfx(g0 + 0.15, "click");
+const c2 = g0 + 1.45, RW0 = c2 + 0.2, RW_END = RW0 + 1.1;
+// the rewind lands a little before Day 7 and creeps on at the hook's own pace, reaching exactly Day 7 on the last frame
+const D_RW = 7 - RATE * (DUR - RW_END);
 wt.to(W, { sC: 2, duration: 0.5, ease: "power2.in" }, c2)
   .to(W, { h4: 0, kC: 0, duration: 0.2 }, c2)
-  .set(W, { sA: 0 }, c2)
-  .to(W, { sA: 1, duration: 0.6, ease: "power3.out" }, c2 + 0.3)
-  .to(W, { kA: 1, duration: 0.5 }, c2 + 0.35)
-  .to(W, { pill1: 0, pill2: 0, src: 0, duration: 0.3 }, g0 + 0.3)
-  .to(W, { band1: 0, band2: 0, area: 0, duration: 0.6, ease: "power2.in" }, g0 + 0.35)
-  .to(W, { u: U_RW, U: 2, duration: RW_END - g0 - 0.35, ease: "power3.inOut" }, g0 + 0.35)
-  .to(W, { h0: 1, duration: 0.6 }, g0 + 0.9)
-  .to(W, { unsettled: 1, duration: 0.5 }, g0 + 1.5)
-  .to(W, { u: 1, duration: DUR - RW_END, ease: "none" }, RW_END);
-S.sfx(c2, "whoosh").sfx(g0 + 0.35, "tick").sfx(g0 + 1.5, "pop");
+  .set(W, { sA: 0, ring: 0, slow: 0 }, c2)
+  .to(W, { sA: 1, duration: 0.6, ease: "power3.out" }, RW0)
+  .to(W, { kA: 1, h0: 1, duration: 0.6 }, RW0 + 0.1)
+  .to(W, { pill1: 0, pill2: 0, src: 0, duration: 0.3 }, RW0 + 0.1)
+  .to(W, { band1: 0, band2: 0, area: 0, duration: 0.6, ease: "power2.in" }, RW0 + 0.15)
+  .to(W, { d: D_RW, D: 14, duration: RW_END - RW0, ease: "power3.inOut" }, RW0)
+  .to(W, { unsettled: 1, duration: 0.5 }, RW_END)
+  .to(W, { d: 7, duration: DUR - RW_END, ease: "none" }, RW_END);
+S.sfx(c2, "whoosh");
 
-// URL: the end card drops over the top of the live chart, holds, and lifts away onto the opening frame
-const u0 = b.url6.start, ue = b.url6.end;
-wt.to(W, { end: 1, duration: 0.6, ease: "power3.out" }, u0 - 0.15)
-  .to(W, { lift: 1, duration: 0.5, ease: "power2.in" }, ue + 0.25);
-S.sfx(u0 - 0.05, "thump").sfx(ue + 0.25, "whoosh");
+// URL: the end strip rises into the space below the card (nothing moves), then drops away before the cut
+const u0 = b.url6.start, OUT = DUR - 0.8;
+wt.to(W, { end: 1, duration: 0.6, ease: "power3.out" }, u0 - 0.05)
+  .to(W, { lift: 1, duration: 0.4, ease: "power2.in" }, OUT);
+S.sfx(u0, "thump").sfx(RW_END, "pop").sfx(OUT, "whoosh");
 
 for (const [id] of LINES) S.say(B[id].start, M[id] || [], id);
 
 // ---------- the screens ----------
-const CX = 180, CW = 730, CY = 700, CH = 460;
+const CX = 180, CW = 730, CY = 660, CH = 440;
 const Y = (v) => CY + CH - (v / 1000) * CH;
-const T26 = `600 26px '${PRO.BODY}'`, P28 = `700 28px '${PRO.BODY}'`;
+const P28 = `700 28px '${PRO.BODY}'`;
 const text = (x, y, s, { size = 26, weight = 600, fill = c.muted, anchor = "start", op = 1, family = PRO.BODY } = {}) =>
-  op <= 0 ? "" : `<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="${family}" font-weight="${weight}" font-size="${size}" fill="${fill}" opacity="${op.toFixed(3)}">${PRO.esc(s)}</text>`;
-const SOURCE = "Ranges: Gary Illyes, Google, Barcelona, 2 Oct 2026";
+  op <= 0.01 ? "" : `<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="${family}" font-weight="${weight}" font-size="${size}" fill="${fill}" opacity="${c01(op).toFixed(3)}">${PRO.esc(s)}</text>`;
+const SOURCE = "Ranges shown by Google's Gary Illyes, Barcelona, Oct 2026";
+// the pill pulses a whole number of times over the reel, so the last frame matches the first
+const PULSE = (2 * Math.PI * Math.max(1, Math.round((DUR * 4.2) / (2 * Math.PI)))) / DUR;
+// a round badge sitting on a line, its arrow pointing the way the line is going
+function badge(x, y, col, up, k) {
+  if (k <= 0) return "";
+  const s = 0.6 + 0.4 * e.back(k, 1.8), d = up ? -1 : 1;
+  return `<g opacity="${c01(k * 3).toFixed(3)}" transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${s.toFixed(3)})">`
+    + `<circle r="27" fill="${col}" stroke="${c.white}" stroke-width="5"/>`
+    + `<path d="M0,${-12 * d} L0,${12 * d} M-10,${2 * d} L0,${12 * d} L10,${2 * d}" fill="none" stroke="${c.white}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+}
+// axis ticks in true days; a finer step fades out as the axis zooms out and its labels would crowd
+const TICKS = [[7, 7], [14, 7], [30, 30], [60, 30], [90, 30], [90, 90], [180, 90], [270, 90], [365, 90]];
 
 // A: Search Console Performance, one continuous chart
-function screenA(t, vis) {
-  const U = W.U, uN = W.u, X = (u) => CX + (CW * u) / U;
-  let g = PRO.card(110, 440, 860, 900, { title: "Performance", tag: "Search Console" });
-  // legend and the day counter (both sit under the end card, so they fade while it is up)
-  [["old domain", c.muted], ["new domain", c.brand]].forEach(([l, col], i) => {
-    g += `<line x1="150" y1="${582 + i * 42}" x2="194" y2="${582 + i * 42}" stroke="${col}" stroke-width="7" stroke-linecap="round" opacity="${vis}"/>`
-      + text(208, 591 + i * 42, l, { fill: c.ink2, op: vis });
+function screenA(t) {
+  const D = W.D, dN = W.d, X = (d) => CX + (CW * d) / D;
+  let g = PRO.card(110, 430, 860, 806, { title: "Performance", tag: "Search Console" });
+  // legend and the day counter (it agrees with where the lines end)
+  const legend = [["old domain", c.muted, 1], ["new domain", c.brand, 1], ["a slow move", c.brand, W.slow]];
+  legend.forEach(([l, col, k], i) => {
+    if (k <= 0) return;
+    g += `<g opacity="${c01(k * 2).toFixed(3)}"><line x1="150" y1="${548 + i * 38}" x2="194" y2="${548 + i * 38}" stroke="${col}" stroke-width="7" stroke-linecap="round"${i === 2 ? ` stroke-dasharray="10 9"` : ""}/></g>`
+      + text(208, 557 + i * 38, l, { fill: c.ink2, op: c01(k * 2) });
   });
-  const day = Math.max(7, Math.floor(dayOf(uN) + 1e-4));
-  g += PRO.counter(930, 650, day, day, vis, { anchor: "end", prefix: "Day " });
-  // grid and the axis stops (a stop past the right edge fades out)
+  const day = Math.min(365, Math.max(7, Math.round(dN)));
+  g += PRO.counter(930, 630, day, day, 1, { anchor: "end", prefix: "Day " });
+  // grid and the axis (true days: each tick sits where its day is)
   for (let i = 0; i <= 4; i++) g += `<line x1="${CX}" y1="${CY + (i / 4) * CH}" x2="${CX + CW}" y2="${CY + (i / 4) * CH}" stroke="${c.line}" stroke-width="2"/>`;
-  STOPS.forEach((d, i) => { const x = X(i); g += text(x, CY + CH + 40, `Day ${d}`, { anchor: "middle", op: c01((CX + CW + 30 - x) / 30) }); });
+  g += text(CX, CY + CH + 40, "0", { anchor: "middle" });
+  const shown = new Map();
+  for (const [d, step] of TICKS) shown.set(d, Math.max(shown.get(d) ?? 0, c01((CW * step / D - 70) / 40)));
+  for (const [d, k] of shown) { const x = X(d); g += text(x, CY + CH + 40, String(d), { anchor: "middle", op: k * c01((CX + CW + 24 - x) / 30) }); }
+  g += text(150, 1182, "Days after the move") + text(930, 1182, "Example data", { anchor: "end" });
+  g += text(150, 1218, SOURCE, { op: W.src });
   // the two ranges, clipped to the plot
   let bands = "";
-  if (W.band1 > 0) bands += `<rect x="${X(2)}" y="${CY - 10}" width="${(X(3) - X(2)) * e.out(W.band1)}" height="${CH + 20}" rx="12" fill="${c.clicks}" opacity=".14"/>`;
-  if (W.band2 > 0) bands += `<rect x="${X(4)}" y="${CY - 10}" width="${(CX + CW + 12 - X(4)) * e.out(W.band2)}" height="${CH + 20}" rx="12" fill="url(#slowBand)"/>`;
+  if (W.band1 > 0) bands += `<rect x="${X(30)}" y="${CY - 10}" width="${(X(90) - X(30)) * e.out(W.band1)}" height="${CH + 20}" rx="12" fill="${c.clicks}" opacity=".14"/>`;
+  if (W.band2 > 0) bands += `<rect x="${X(180)}" y="${CY - 10}" width="${(CX + CW + 12 - X(180)) * e.out(W.band2)}" height="${CH + 20}" rx="12" fill="url(#slowBand)"/>`;
   g += `<defs><clipPath id="plotClip"><rect x="${CX - 12}" y="${CY - 14}" width="${CW + 26}" height="${CH + 28}"/></clipPath>
-<linearGradient id="slowBand" x1="0" x2="1"><stop offset="0" stop-color="${c.amber}" stop-opacity=".34"/><stop offset=".72" stop-color="${c.amber}" stop-opacity=".22"/><stop offset="1" stop-color="${c.amber}" stop-opacity="0"/></linearGradient></defs>`
+<linearGradient id="slowBand" x1="0" x2="1"><stop offset="0" stop-color="${c.amber}" stop-opacity=".34"/><stop offset=".7" stop-color="${c.amber}" stop-opacity=".24"/><stop offset="1" stop-color="${c.amber}" stop-opacity="0"/></linearGradient></defs>`
     + `<g clip-path="url(#plotClip)">${bands}</g>`;
+  // today: a faint guide from the line ends down to the axis
+  const xN = X(dN);
+  g += `<line x1="${xN.toFixed(1)}" y1="${CY}" x2="${xN.toFixed(1)}" y2="${CY + CH}" stroke="${c.ink2}" stroke-width="2" stroke-dasharray="6 8" opacity=".3"/>`;
   // the lines draw exactly as far as the counter has run
-  const n = Math.max(2, Math.ceil(uN / 0.04)), pts = (f) => Array.from({ length: n + 1 }, (_, i) => [X((uN * i) / n), Y(f((uN * i) / n))]);
+  const n = Math.max(24, Math.ceil((xN - CX) / 4));
+  const pts = (f, to) => Array.from({ length: n + 1 }, (_, i) => [X((to * i) / n), Y(f((to * i) / n))]);
   const path = (p) => p.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
-  const po = pts(oldF), pn = pts(newF);
+  const po = pts(oldF, dN), pn = pts(newF, dN);
   if (W.area > 0) g += `<path d="${path(pn)} L${pn[n][0].toFixed(1)},${CY + CH} L${CX},${CY + CH} Z" fill="${c.brand}" opacity="${(0.1 * W.area).toFixed(3)}"/>`;
+  // a slow move's new domain: still climbing at a year, running off the edge
+  if (W.slow > 0) g += `<g clip-path="url(#plotClip)"><path d="${path(pts(slowF, D * 1.02 * e.io(W.slow)))}" fill="none" stroke="${c.brand}" stroke-width="5" stroke-dasharray="12 10" stroke-linecap="round" opacity=".75"/></g>`;
   for (const [p, col] of [[po, c.muted], [pn, c.brand]]) {
     g += `<path d="${path(p)}" fill="none" stroke="${col}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`
       + `<circle cx="${p[n][0].toFixed(1)}" cy="${p[n][1].toFixed(1)}" r="11" fill="${c.white}" stroke="${col}" stroke-width="6"/>`;
   }
-  // "not settled" between the lines, with a soft pulse
-  const pulse = 1 + 0.045 * Math.sin(t * 4.2);
-  g += `<g transform="translate(440 1000) scale(${pulse.toFixed(4)}) translate(-440 -1000)">${PRO.pill(440, 1000, "not settled", "warn", W.unsettled)}</g>`;
-  // the direction of each line
-  g += PRO.arrow(620, 845, 690, 950, W.arDown, "bad") + PRO.arrow(625, 1150, 695, 1050, W.arUp, "good");
-  // the range pills: the slow one right-aligned on its band, the typical one kept clear of it
-  const w2 = PRO.measure("6 to 12+ months", P28) + 44, x2 = CX + CW - 4 - w2 / 2;
-  const w1 = PRO.measure("1 to 3 months", P28) + 44;
-  const x1 = Math.min((X(2) + X(3)) / 2, W.pill2 > 0 ? x2 - w2 / 2 - 18 - w1 / 2 : 1e9);
-  g += PRO.pill(x1, 735, "1 to 3 months", "ink", W.pill1) + PRO.pill(x2, 735, "6 to 12+ months", "brand", W.pill2);
-  // example label and the source of the ranges
-  g += text(150, 1262, "Example data") + text(150, 1302, SOURCE, { op: W.src });
-  const r0 = Math.min(x2 - w2 / 2, X(4)) - 14;
-  g += PRO.ring(r0, 690, CX + CW + 16 - r0, CH + 10 + (CY - 690), W.ring, "brand");
+  // "not settled" between the lines (on the 14 day axis), with a soft pulse
+  const pulse = 1 + 0.045 * Math.sin(t * PULSE);
+  g += `<g transform="translate(410 945) scale(${pulse.toFixed(4)}) translate(-410 -945)">${PRO.pill(410, 945, "not settled", "warn", W.unsettled)}</g>`;
+  // the direction of each line: a badge in the line's own colour rides behind its end
+  const db = Math.max(0.5, dN - D * 0.16);
+  g += badge(X(db), Y(oldF(db)), c.muted, false, W.arDown) + badge(X(db), Y(newF(db)), c.brand, true, W.arUp);
+  // the range pills, each centred on its own band
+  g += PRO.pill((X(30) + X(90)) / 2, CY + 34, "1 to 3 months", "ink", W.pill1);
+  g += PRO.pill((X(180) + CX + CW) / 2, CY + 34, "6 months to 1 year+", "brand", W.pill2);
+  // the ring goes around the slow band only, from day 180 to the edge
+  const r0 = X(180) - 10;
+  g += PRO.ring(r0, CY - 18, CX + CW + 18 - r0, CH + 36, W.ring, "brand");
   return g;
 }
 
-// C: the client's Day 7 question and your answer
-const answer = [
-  { cells: ["Typical move", "1 to 3 mo"], tone: "good" },
-  { cells: ["Slowest moves", "6 to 12+ mo"], tone: "warn" },
-  { cells: ["Keep redirects", "1 yr+"] },
-];
+// C: the client's Day 7 question over your migration plan
+const PLAN = ["Compare old and new site", "Keep redirects 1 year+", "Don't judge at Day 7"];
+function tickBox(cx, cy, k) {
+  const on = e.out(k);
+  return `<circle cx="${cx}" cy="${cy}" r="22" fill="${on > 0.5 ? c.good : c.white}" stroke="${on > 0.5 ? c.good : "#c3ccd8"}" stroke-width="4"/>`
+    + (k > 0 ? `<path d="M${cx - 10},${cy + 1} L${cx - 3},${cy + 9} L${cx + 11},${cy - 8}" fill="none" stroke="${c.white}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="34" stroke-dashoffset="${(34 * (1 - on)).toFixed(1)}"/>` : "");
+}
 function screenC(t) {
   const q = "Why hasn't traffic recovered?", who = "Client, Day 7";
   const qw = Math.max(PRO.measure(q, `700 36px '${PRO.BODY}'`), PRO.measure(who, `700 26px '${PRO.BODY}'`)) + 64;
   const bs = 0.7 + 0.3 * e.back(W.bubble, 1.4);
-  const bubble = W.bubble <= 0 ? "" : `<g opacity="${c01(W.bubble * 3)}" transform="translate(140 696) scale(${bs}) translate(-140 -696)">`
-    + `<rect x="140" y="556" width="${qw}" height="140" rx="30" fill="${c.surface}" stroke="${c.line}" stroke-width="2"/>`
-    + `<text x="172" y="602" font-family="${PRO.BODY}" font-weight="700" font-size="26" fill="${c.muted}">${PRO.esc(who)}</text>`
-    + `<text x="172" y="662" font-family="${PRO.BODY}" font-weight="700" font-size="36" fill="${c.ink}">${PRO.esc(q)}</text></g>`;
-  return PRO.card(100, 440, 880, 900, { title: "Client update" })
-    + bubble
-    + PRO.table(140, 740, 800, { cols: [{ label: "Your answer", w: 480 }, { label: "When", w: 320, align: "end" }], rows: answer, k: W.rows })
-    + text(140, 1262, SOURCE, { op: c01(W.rows * 2 - 1) })
-    + text(140, 1302, "Redirects: Google's site move guide", { op: c01(W.rows * 2 - 1) });
+  let g = PRO.card(100, 430, 880, 806, { title: "Migration plan" });
+  if (W.bubble > 0) g += `<g opacity="${c01(W.bubble * 3).toFixed(3)}" transform="translate(140 676) scale(${bs.toFixed(3)}) translate(-140 -676)">`
+    + `<path d="M168,670 L206,670 L156,700 Z" fill="${c.surface}"/>`
+    + `<rect x="140" y="540" width="${qw}" height="136" rx="30" fill="${c.surface}"/>`
+    + `<text x="172" y="588" font-family="${PRO.BODY}" font-weight="700" font-size="26" fill="${c.muted}">${PRO.esc(who)}</text>`
+    + `<text x="172" y="644" font-family="${PRO.BODY}" font-weight="700" font-size="36" fill="${c.ink}">${PRO.esc(q)}</text></g>`;
+  PLAN.forEach((row, i) => {
+    const rk = e.out(c01(W.rows * (PLAN.length + 1) - i)), cy = ROW(i) + (1 - rk) * 36;
+    if (rk <= 0) return;
+    const ck = W["chk" + (i + 1)];
+    g += `<g opacity="${rk.toFixed(3)}">${tickBox(172, cy, ck)}`
+      + `<text x="216" y="${cy + 11}" font-family="${PRO.BODY}" font-weight="600" font-size="32" fill="${c.ink}">${PRO.esc(row)}</text>`
+      + (i < PLAN.length - 1 ? `<line x1="140" y1="${cy + 50}" x2="940" y2="${cy + 50}" stroke="${c.line}" stroke-width="1.5"/>` : "") + `</g>`
+      + PRO.pill(882, cy, "added", "good", ck);
+  });
+  g += PRO.ring(124, ROW(2) - 46, 832, 92, W.ring3, "brand");
+  // the Save plan button turns to Saved when clicked
+  if (W.rows > 0) {
+    const f = `700 34px '${PRO.BODY}'`, bw = Math.max(PRO.measure("Save plan", f), PRO.measure("Saved", f)) + 132, sv = W.saved > 0.5;
+    const bx = SAVE.x - bw / 2, ok = c01(W.rows * 2 - 1);
+    g += `<g opacity="${ok.toFixed(3)}"><rect x="${bx}" y="${SAVE.y - 42}" width="${bw}" height="84" rx="42" fill="${sv ? c.good : c.ink}"/>`
+      + `<text x="${bx + 92}" y="${SAVE.y + 12}" font-family="${PRO.BODY}" font-weight="700" font-size="34" fill="${c.white}">${sv ? "Saved" : "Save plan"}</text>`
+      + `<path d="M${bx + 44},${SAVE.y - 20} h26 v40 l-13,-10 l-13,10 Z" fill="${sv ? c.white : "none"}" stroke="${c.white}" stroke-width="4" stroke-linejoin="round"/></g>`
+      + text(140, 1214, "Redirects: Google's site move guide", { op: ok });
+  }
+  const click = W.clk > 0 && W.clk < 1 ? W.clk : 0;
+  return g + PRO.cursor(W.curX, W.curY, { click, k: W.cur });
+}
+
+// the end strip below the card: the studio's own end card cut down to its logo row (spark, wordmark,
+// Floey perched on the spark's left arm; its tagline and address are dropped), with the address beside it
+const SK = 0.56, LOGO = { x: 236, y: 660, w: 608, h: 266 };
+function strip(t) {
+  const logo = PRO.endCard(1, t).replace(/<text[^>]*>Find the loss[\s\S]*<\/g>\s*$/, "</g>");
+  const url = "useflowra.com", f = `700 50px '${PRO.FONT}'`, uw = PRO.measure(url, f), pw = uw + 64;
+  return `<defs><clipPath id="clipL"><rect x="${LOGO.x}" y="${LOGO.y}" width="${LOGO.w}" height="${LOGO.h}"/></clipPath></defs>`
+    + `<rect x="60" y="1254" width="960" height="162" rx="32" fill="${c.white}" stroke="${c.line}" stroke-width="2" filter="url(#shadow)"/>`
+    + `<g transform="translate(96 1259) scale(${SK}) translate(${-LOGO.x} ${-LOGO.y})"><g clip-path="url(#clipL)">${logo}</g></g>`
+    + `<rect x="${988 - pw}" y="1293" width="${pw}" height="84" rx="42" fill="${c.ink}"/>`
+    + `<text x="${988 - pw / 2}" y="1352" text-anchor="middle" font-family="${PRO.FONT}" font-weight="700" font-size="50" fill="${c.white}">${url}</text>`;
 }
 
 window.render = (t) => {
   wt.seek(Math.min(DUR, t), false);
-  // the end card covers the top of the chart; what sits under it fades out
-  const ek = W.end * (1 - W.lift), vis = 1 - ek;
-  const world = PRO.screen(screenA(t, vis), W.sA) + PRO.screen(screenC(t), W.sC);
-  const card = ek > 0 ? `<g transform="translate(0 ${(-(1 - e.out(W.end)) * 160 - e.io(W.lift) * 260).toFixed(1)}) translate(540 495) scale(0.96) translate(-540 -940)">${PRO.endCard(ek, t)}</g>` : "";
-  document.getElementById("stage").innerHTML = PRO.bg(t)
-    + PRO.kicker("After a site move", 236, W.kA * vis)
-    + PRO.headline("Your move at Day 7", { y: 340, k: W.h0 * vis, accent: ["day", "7"] })
+  const world = PRO.screen(screenA(t), W.sA) + PRO.screen(screenC(t), W.sC);
+  // the strip rises in and drops away; it never covers the chart or the headline
+  const ek = W.end > 0 && W.lift < 1 ? c01(W.end * 2) * (1 - W.lift) : 0;
+  const dy = (1 - e.out(W.end)) * 110 + e.io(W.lift) * 160;
+  const end = ek > 0 ? `<g opacity="${ek.toFixed(3)}" transform="translate(0 ${dy.toFixed(1)})">${strip(t)}</g>` : "";
+  // the background's slow wash returns to where it started, so the last frame is the first
+  const bgT = (DUR / Math.PI) * Math.sin((Math.PI * t) / DUR);
+  document.getElementById("stage").innerHTML = PRO.bg(bgT)
+    + PRO.kicker("After a site move", 236, W.kA)
+    + PRO.headline("Your move at Day 7", { y: 340, k: W.h0, accent: ["day", "7"] })
     + PRO.headline("Watch both domains", { y: 340, k: W.h1, accent: ["both"] })
     + PRO.headline("When it settles", { y: 340, k: W.h2, accent: ["settles"] })
     + PRO.headline("The slow end of the range", { y: 340, k: W.h3, accent: ["slow"] })
-    + PRO.kicker("Migration plan", 236, W.kC)
-    + PRO.headline("Your Day 7 answer", { y: 340, k: W.h4, accent: ["answer"] })
+    + PRO.kicker("When the client asks", 236, W.kC)
+    + PRO.headline("Your migration plan", { y: 340, k: W.h4, accent: ["plan"] })
     + PRO.cam(world, { x: W.camX, y: W.camY, zoom: W.zoom })
-    + card
-    + (ek < 0.5 ? PRO.captions(LINES, B, t) : "");
+    + end
+    + (W.end < 0.3 ? PRO.captions(LINES, B, t) : "");
 };
 window.DURATION = DUR;
 window.SOUND = () => S.sound(DUR);
