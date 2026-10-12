@@ -1,0 +1,9 @@
+{
+ "pass": false,
+ "problems": [
+  "Frame 02 (\"Old domain clicks fall while the new ones climb\"): the only arrow is an orange down arrow floating in empty space to the right of the line ends. Orange is the new-domain colour, so it reads as the new domain falling while the voice says it climbs. It sits on neither line, and there is no up arrow on the orange line, which the script asks for. The picture contradicts the voice.",
+  "Frames 02–03: the counter says Day 9 and then Day 10, but both lines stay frozen at about Day 7–8. During the line \"keep falling / climb\" the lines don't visibly move, so the chart doesn't match the counter or the voice.",
+  "Frame 06: the counter overshoots to 'Day 386', past the axis end (Day 365) and past the spoken 'a year'. It is a huge readable number that matches nothing on the chart or in the script. The counter should stop cleanly at 365.",
+  "Frame 10: the end card is not the compact strip above the chart from the script. It is a large card that hides most of the Day 7 chart, including the counter, the headline and the grey line. A clipped stray piece of the grey line's end-point circle pokes out under the card's bottom edge and looks like a rendering glitch. Shrink the card to a strip so the chart stays visible, or make the cover clean."
+ ]
+}

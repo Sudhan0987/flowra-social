@@ -1,0 +1,173 @@
+{
+ "style": "Pro explainer: white with a faint grid, navy ink, cool hairlines, one deep orange accent. One drawn Search Console style Performance card (no third-party logos, small 'example' label in its corner) with a big mono day counter above the chart, a muted grey 'old domain' line and an orange 'new domain' line. A checklist card appears once. Space Grotesk headline at y 340 (max 6 words), kicker at y 236, everything inside x 60 to 1020 and y 220 to 1420, captions at y 1530. Narrator only, no mascot until Floey perches on the spark's left arm in the end strip.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "medium",
+   "camera": "drift",
+   "subject": "Search Console Performance card already filling the frame (x 90 to 990, y 430 to 1300), 'example' label top right corner, day counter above the chart reading Day 7, kicker 'Search Console check', headline 'Your move at Day 7' with 'Day 7' in orange",
+   "action": "No swing-in: on frame one the grey 'old domain' line is already sloping down and the orange 'new domain' line is just lifting off the bottom, both still drawing to the right. At 0.9 s an amber warn pill 'not settled' pops into the gap between the two lines and keeps a soft pulse. Camera drifts slowly right to left.",
+   "onScreenData": "Day 7",
+   "sfx": [
+    {
+     "at": 0.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "Same Performance card, both lines, day counter, headline 'Watch both domains' with 'both' in orange",
+   "action": "Headline words rise in. The camera pushes in slightly (zoom 1.0 to 1.08) keeping the whole chart in frame. The grey line keeps falling while the orange line keeps rising at the same time; a soft orange area fills in under the orange line. At 0.6 s a small down arrow draws onto the grey line, at 1.1 s a small up arrow onto the orange line. The amber pill fades out. Counter ticks 8, 9, 10 at 0.8, 1.5, 2.2 s.",
+   "onScreenData": "Day 10",
+   "sfx": [
+    {
+     "at": 0.6,
+     "kind": "step"
+    },
+    {
+     "at": 1.1,
+     "kind": "step"
+    },
+    {
+     "at": 1.6,
+     "kind": "step"
+    },
+    {
+     "at": 2.2,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "pull-out",
+   "subject": "Performance card with the x axis extending to day 90, day counter, headline 'When it settles' with 'settles' in orange",
+   "action": "Camera eases back to zoom 1.0 so the longer axis fits. The counter rolls fast from 10 through 30 to 90 while the chart's mark shades days 30 to 90 in soft blue, sweeping left to right. At 1.4 s a pill '1 to 3 months' pops onto the top of the band.",
+   "onScreenData": "1 to 3 months",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.4,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 2.2,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "The blue 30 to 90 band with its pill, both lines passing through it, counter still visible at the top of frame",
+   "action": "Camera pushes in on the band (zoom 1.0 to 1.12, band and pill fully in frame). Inside the band the orange line keeps rising and passes above the grey line, which flattens low. No ring, no tick on the crossing: it stays plain example data.",
+   "onScreenData": "Day 90",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "Performance card with axis extended to day 365, day counter, a long faint band from day 180 to 365, headline 'Slowest: a year or more' with 'a year or more' in orange",
+   "action": "Counter rolls on past 180 and stops with a small overshoot and settle at Day 365. The mark shades a long faint band from day 180 to 365; at 0.8 s a pill '6 months to 1 year+' pops on it. Camera pushes in to about 1.15 on the band, keeping band, pill and counter fully in frame; at 1.4 s a brand highlight ring draws around the band.",
+   "onScreenData": "Day 365",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.8,
+     "kind": "pop"
+    },
+    {
+     "at": 1.4,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Checklist card titled 'Migration checklist' (x 100 to 980, y 520 to 1100) with three rows: 'Compare old and new site', 'Keep redirects 1 year+', 'Don't judge at Day 7'; cursor; headline 'Your migration plan' with 'plan' in orange",
+   "action": "The chart card falls away to the left as the checklist card swings in from the right and its rows slide in. The cursor lands on row one and clicks (good pill 'done' pops on), moves to row two and clicks (pill pops), moves to row three and clicks (pill pops). A brand ring draws around the last row 'Don't judge at Day 7'.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.45,
+     "kind": "pop"
+    },
+    {
+     "at": 0.9,
+     "kind": "pop"
+    },
+    {
+     "at": 1.35,
+     "kind": "pop"
+    },
+    {
+     "at": 1.8,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "medium",
+   "camera": "pull-out",
+   "subject": "Search Console Performance card back in place, day counter, headline 'Your move at Day 7'",
+   "action": "The checklist card falls away left and the Performance card swings back in from the right. The counter rewinds fast from 365 to Day 7, the shaded bands wipe away, and both lines retract and redraw into their opening shape: grey sloping down, orange just lifting off the bottom. At 1.2 s the amber 'not settled' pill pops back into the gap between them. Camera settles to zoom 1.0.",
+   "onScreenData": "Day 7",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.5,
+     "kind": "step"
+    },
+    {
+     "at": 1.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "Compact end card strip above the Day 7 chart (y 230 to 420): Flowra logo with Floey perched on the spark's left arm facing the camera, address beside it; chart still moving below",
+   "action": "The strip drops in from above with a small bounce over the headline area while Floey arrives sideways onto the spark's left arm and turns to face the camera, then blinks. Below, the lines keep moving in their opening shape and the amber pill keeps pulsing. Captions hide. In the last 0.5 s the strip lifts away, leaving the exact first frame: Day 7, grey line falling, orange line lifting, amber 'not settled' pill.",
+   "onScreenData": "useflowra.com",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "slam"
+    },
+    {
+     "at": 0.85,
+     "kind": "whoosh"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1.8
+}

@@ -1,0 +1,69 @@
+{
+ "topic": "Moving your site? Google's own range is 1 to 3 months, and the slow end is a year",
+ "angle": "A Search Console chart where the old domain's clicks slide down and the new domain's climb, with a day counter running above it. The counter stops four times: Day 7, when most people panic and nothing has settled yet; Days 30 to 90, the typical 1 to 3 months from Gary Illyes' Barcelona timings; Day 180, how long the Change of Address tool keeps running; and Day 365, the 6 months to a year or more that slow moves take, which is also how long Google says to keep your redirects. It works because one moving counter replaces \"be patient\" with dates you can put in a client plan, and people save it for the next migration.",
+ "whyNow": "On 2 October 2026, at Search Central Live Deep Dive Europe in Barcelona, Gary Illyes showed timings that he said came from Google's internal analysis. An attendee's recap went round PPC Land, r/bigseo and other SEO sites that week. It said a site move usually settles in 1 to 3 months and the slowest take 6 months to more than a year. This is a different number from the page update timing in our earlier reel, and our Google timing reels keep growing on YouTube. It is also part of this week's plan: one timing reel and one Search Console reel, compared at day 1 and day 3. This one follows the 'shorter length' experiment: 20 to 25 seconds, with the counter and chart on screen in the first 2 seconds.",
+ "goal": "save",
+ "audience": "In-house SEOs, content leads and agency account managers who are planning a domain move or a migration that changes URLs, or are a few weeks into one, and need a believable timeline for a boss or client who asks why traffic hasn't recovered after the first week.",
+ "facts": [
+  {
+   "fact": "Gary Illyes of Google presented Google's timing figures on 2 October 2026 at Search Central Live Deep Dive Europe in Barcelona. The published figures come from an attendee's recap by John Campbell of the agency ROAST, not from a Google document. The reel should say 'shown by Google's Gary Illyes in Barcelona', not 'Google documents say'.",
+   "source": "https://ppc.land/google-says-new-pages-take-about-20-hours-to-be-found-some-never-are/"
+  },
+  {
+   "fact": "Site move, typical time to settle: 1 to 3 months.",
+   "source": "https://ppc.land/google-says-new-pages-take-about-20-hours-to-be-found-some-never-are/"
+  },
+  {
+   "fact": "Site move, slowest: 6 months to a year or more.",
+   "source": "https://www.relevantaudience.com/seo/google-illyes-timing-data-discovery-indexing-recovery/"
+  },
+  {
+   "fact": "According to the recap, a small site move can be done in a few weeks, so the size of the site matters.",
+   "source": "https://ppc.land/google-says-new-pages-take-about-20-hours-to-be-found-some-never-are/"
+  },
+  {
+   "fact": "The recap says the timings are based on Google's internal analysis but gives no method or sample size, so present them as Google's own range, not as a promise.",
+   "source": "https://www.relevantaudience.com/seo/google-illyes-timing-data-discovery-indexing-recovery/"
+  },
+  {
+   "fact": "Google's site move guide says that, as a general rule, a small to medium-sized site can take a few weeks for most pages to move, and larger sites take longer.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "Google's site move guide says a move only counts as complete once Googlebot has visited every URL on the old and new site at least once.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "Google's site move guide says to expect rankings to fluctuate temporarily during the move.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "Google says to watch traffic on both the new site and the old site: you should expect traffic to drop on the old site and rise on the new one.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "Google's site move guide says to keep the redirects generally at least 1 year, and from a user's point of view to consider keeping them indefinitely.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "The Change of Address tool in Search Console keeps working for 180 days after you start the move. Google's help page says to keep redirects for at least 180 days, and longer if Google Search still sends traffic to them. (The site move guide's 'at least 1 year' is the safer number to say.)",
+   "source": "https://support.google.com/webmasters/answer/9370220"
+  },
+  {
+   "fact": "The Change of Address tool is only needed when moving from one domain or subdomain to another.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "In the same recap, recovering from a core update typically takes 3 to 6 months. Use this only for contrast if needed; the reel is about site moves.",
+   "source": "https://www.relevantaudience.com/seo/google-illyes-timing-data-discovery-indexing-recovery/"
+  },
+  {
+   "fact": "Optional product line: Flowra's Index Coverage Monitor (Pro plan, WordPress sites) checks whether pages are indexed in Google and records when that changes. Flowra's analytics show Search Console data with 16 months of history.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "One Search Console Performance screen in a PRO.card tagged \"Search Console\", with a big PRO.counter day counter above the chart. The opening frame is already moving: the counter says \"Day 7\". PRO.chart shows two series drawing in: the old domain's clicks (muted, sloping down) and the new domain's clicks (orange or blue, only starting to rise). The lines haven't crossed yet, and a 'warn' pill on the gap says \"not settled\". Headline: \"Day 7 is too early\". Then the counter rolls on to 30 and 90 while the chart's mark shades days 30 to 90, labelled \"typical: 1 to 3 months\", and the new line rises past the old one. The camera pushes in on the crossing point. Then the counter jumps to 180: the cursor clicks a 'Change of Address' row and a pill shows \"tool runs 180 days\". Last stop: the counter reaches 365 and a long faint shaded band is labelled \"slowest: 6 months to 1 year+\". A PRO.ring circles a final row, \"Redirects: keep at least 1 year\". It ends on a three-line checklist for your audit (compare old and new site, don't judge at week 1, keep redirects a year), then the end card. For the loop, the counter snaps back to \"Day 7\" so it reads as the opening frame.",
+ "pillar": "news",
+ "idea": "Moving your site? Google's own range is 1 to 3 months",
+ "style": "pro"
+}

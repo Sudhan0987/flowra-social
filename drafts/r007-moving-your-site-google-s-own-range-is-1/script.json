@@ -1,0 +1,80 @@
+{
+ "title": "Week one is too early to judge your site move",
+ "hookPattern": "The flat contradiction",
+ "beats": [
+  {
+   "role": "hook",
+   "say": "Week one is too early to judge your site move.",
+   "emotion": "determined",
+   "caption": "Week 1 is too early to judge your site move.",
+   "visual": "No swing-in: from the very first frame the Search Console card is already on screen and moving. Headline above it: 'Your move at Day 7'. The big day counter above the chart already reads 'Day 7'. In the Performance chart, which has a small 'example' label in the corner, a muted grey line marked 'old domain' is already sloping down and an orange line marked 'new domain' is just lifting off the bottom, both still drawing to the right. An amber warn pill reading 'not settled' pulses on the space between the two lines."
+  },
+  {
+   "role": "body",
+   "say": "Old domain clicks fall while the new ones climb.",
+   "emotion": "worried",
+   "visual": "Same card, the camera pushes in slightly. The grey old domain line keeps falling while the orange new domain line keeps rising, both at the same time, and a soft orange area fills in under the new line. Headline changes to 'Watch both domains'. A small down arrow sits on the grey line and a small up arrow on the orange line. The counter ticks 8, 9, 10."
+  },
+  {
+   "role": "body",
+   "say": "In Barcelona, Google's Gary Illyes showed one to three months as typical.",
+   "emotion": "determined",
+   "caption": "In Barcelona, Google's Gary Illyes showed 1 to 3 months as typical.",
+   "visual": "The counter rolls fast from 10 through 30 to 90. Headline changes to 'When it settles'. The chart's mark shades days 30 to 90 in soft blue, with a pill on the band reading '1 to 3 months'. Inside the band the orange line rises past the grey one. The camera pushes in on the band, but the crossing gets no ring or tick: it is example data, not the moment the move is done."
+  },
+  {
+   "role": "payoff",
+   "say": "The slowest take six months to a year or more.",
+   "emotion": "determined",
+   "caption": "The slowest take 6 months to a year or more.",
+   "visual": "The counter rolls on past 180 and stops at 'Day 365'. Headline changes to 'Slowest: a year or more'. The chart's mark shades a long faint band from day 180 to day 365, with a pill reading '6 months to 1 year+'. The camera pushes in (about 1.15x) on that band and a highlight ring circles it. The band, its pill and the counter all stay fully in frame."
+  },
+  {
+   "role": "loop",
+   "say": "Your client will still ask on day seven.",
+   "emotion": "worried",
+   "caption": "Your client will still ask on Day 7.",
+   "visual": "The chart card slides aside and a checklist card swings in. Headline: 'Your migration plan'. Three table rows: 'Compare old and new site', 'Keep redirects 1 year+', 'Don't judge at Day 7'. The cursor clicks each row in turn and a good pill pops onto it. The last row, 'Don't judge at Day 7', gets a highlight ring."
+  },
+  {
+   "role": "go",
+   "say": "Save this for your next migration.",
+   "emotion": "excited",
+   "visual": "The checklist card slides away and the Search Console card swings back in. The counter rewinds fast from 365 to 'Day 7', the shaded bands clear, and the two lines redraw into their opening shape: grey sloping down, orange just lifting. The amber 'not settled' pill pops back onto the space between them. Headline returns to 'Your move at Day 7'."
+  },
+  {
+   "role": "url",
+   "say": "useflowra.com.",
+   "emotion": "playful",
+   "visual": "A compact end card strip drops in above the Day 7 chart: the Flowra logo with Floey perched on the spark's left arm, facing the camera, and the address beside it. The chart underneath keeps moving in its opening shape. In the last half second the strip lifts away, leaving the exact first frame: Day 7, grey line falling, orange line lifting, amber 'not settled' pill."
+  }
+ ],
+ "loopNote": "The go beat rewinds the counter to Day 7 and redraws the chart into its opening shape. The url end card sits as a strip over that live chart and lifts away in the last half second, so the reel's final frame is the first frame (Day 7, old line falling, new line lifting, amber 'not settled' pill). On the audio side, 'Your client will still ask on day seven' sets up the hook, 'Week one is too early to judge your site move', which answers it on replay. Timing: 56 spoken words, about 21 seconds of voice plus short gaps, so it lands at roughly 23 to 24 seconds.",
+ "caption": "Week one of your site move: your old domain's clicks are falling and the new one is barely moving. Google says to expect that. Traffic drops on the old site and rises on the new one, and rankings move around for a while.\n\nSave this timeline for your migration plan:\n1 to 3 months: the typical time for a site move to settle, shown by Google's Gary Illyes in Barcelona (from an attendee's recap, so it's Google's own range, not a promise).\n6 months to a year or more: the slowest moves. A small site can move in a few weeks, so size matters.\nRedirects: Google's site move guide says to keep them at least a year.\nChanging domains? The Change of Address tool in Search Console keeps working for 180 days after you start.\n\nWhile you wait, watch both sites in Search Console, not just the new one.\n\nSend this to whoever asks why traffic hasn't recovered yet.",
+ "hashtags": [
+  "#seo",
+  "#sitemigration",
+  "#googlesearchconsole",
+  "#technicalseo",
+  "#seotips"
+ ],
+ "id": "r007-moving-your-site-google-s-own-range-is-1",
+ "format": "problem-agitate-solve",
+ "goal": "save",
+ "topic": "Moving your site? Google's own range is 1 to 3 months, and the slow end is a year",
+ "experiment": "short-first-frame",
+ "editorNotes": [
+  "Loop beat: \"Your client will still ask on day seven.\" doesn't make sense on its own. Ask what? The audio loop only works if the viewer fills in the question. The checklist on screen (cursor clicks, pills, ring) also has nothing to do with these words, so the voice and the picture don't match. Write a line that names the question and lands the plan, for example a client asking why traffic hasn't recovered, answered by the checklist. Make it do what the screen shows.",
+  "The checklist is the content people would save, but it gets one 7-word line (about 2.5 s). In that time the card swings in, the cursor clicks three rows, three pills pop and a ring draws. Viewers can't read three rows that fast, and the sound rule allows at most one effect every 0.4 s. 'Keep redirects 1 year+' is the most useful fact in the brief, and it is never spoken. Give the checklist a voiced line, or two short lines, and time each click to the row the voice names. Or cut it to one or two rows.",
+  "The url beat isn't drawable with the studio. PRO.endCard(k, t) draws the full end card: logo, perched Floey, tagline and address. It has no 'compact strip' over a live chart that lifts away in the last half second. Use the real end card, then make the loop by having it fall away to a held Day 7 frame (or another way the studio supports), and say how. Also, the tagline isn't mentioned in the script.",
+  "The headline changes four times on one screen ('Your move at Day 7', 'Watch both domains', 'When it settles', 'Slowest: a year or more'). The studio rule is one headline per screen, at most 6 words, naming the step. Either keep one headline for the chart screen or split it into real screens with PRO.screen. 'Slowest: a year or more' also repeats the voice word for word, which the headline must never do.",
+  "(polish) Payoff line: \"The slowest take six months to a year or more.\" The slowest what? Spoken aloud, the missing noun sounds clipped. Say 'The slowest moves take...'.",
+  "(polish) Beat 2: \"Old domain clicks fall while the new ones climb.\" doesn't speak to the viewer, and 'new ones' is ambiguous. Say 'your old domain' and 'your new one'. Google says this pattern is expected, so the line should say so, for example 'that's normal'. Read with a 'worried' delivery and no reassurance, it sounds like the move is failing, which goes against the reel's point.",
+  "(polish) Chart axis: the reel runs from Day 7 to Day 365. On a linear axis, Day 7 is about 2% of the width, so the opening frame (which is also the loop frame) would show almost no line. Tell the animator to use stops as labels (Day 0, 7, 30, 90, 180, 365+) so the first frame has visible slopes. Say whether the 30 to 90 mark is replaced by the 180 to 365 mark, since PRO.chart takes one mark.",
+  "(polish) The slow band runs from day 180 to day 365, and the counter stops at 'Day 365'. That reads as 'done by a year', but the voice and pill say 'a year or more'. Run the band off the right edge or past the last label so the picture matches the 'or more'.",
+  "(polish) Beat 3: 'showed one to three months as typical' sounds stiff when spoken, and it doesn't say what is typical. Something like 'Google's Gary Illyes showed in Barcelona that most moves settle in one to three months' sounds more natural. It still keeps the 'shown by' framing and doesn't turn the figure into a promise.",
+  "(polish) Beat 2, go and url have no caption fields, while the other beats do. Add them for consistency, so the pipeline isn't left guessing whether to show the say text, for example on 'useflowra.com' under the end card."
+ ],
+ "style": "pro",
+ "template": "../drafts/r007-moving-your-site-google-s-own-range-is-1/scene.html"
+}
