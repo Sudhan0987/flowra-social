@@ -99,15 +99,19 @@
   },
   {
    "id": "r007-moving-your-site-google-s-own-range-is-1",
-   "status": "failed",
+   "status": "draft",
    "topic": "Moving your site? Google's own range is 1 to 3 months, and the slow end is a year",
    "format": "problem-agitate-solve",
-   "madeAt": "2026-10-12T04:33:55.915Z",
+   "madeAt": "2026-10-12T05:01:57.909Z",
    "seconds": 22,
-   "reason": "Frame 06 (payoff, 'The slowest take six months to a year or more'): the push-in moves the chart card too far left and its left edge runs off the screen. The card border is gone at x≈0, 'Performance', the legend and the '0' axis label sit right against the screen edge, and the band's faint orange tail runs into the card's right edge. The visual brief says the band, its pill and the counter all stay fully in frame, but here the card itself is clipped. Re-centre the push-in so the whole card stays ",
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1791781317.558629"
+   },
    "idea": "Moving your site? Google's own range is 1 to 3 months",
    "experiment": "short-first-frame",
-   "style": "pro"
+   "style": "pro",
+   "run": 38204391382
   }
  ]
 }
