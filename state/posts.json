@@ -102,9 +102,9 @@
    "status": "failed",
    "topic": "Moving your site? Google's own range is 1 to 3 months, and the slow end is a year",
    "format": "problem-agitate-solve",
-   "madeAt": "2026-10-12T04:07:47.568Z",
+   "madeAt": "2026-10-12T04:33:55.915Z",
    "seconds": 22,
-   "reason": "Frame 02 (\"Old domain clicks fall while the new ones climb\"): the only arrow is an orange down arrow floating in empty space to the right of the line ends. Orange is the new-domain colour, so it reads as the new domain falling while the voice says it climbs. It sits on neither line, and there is no up arrow on the orange line, which the script asks for. The picture contradicts the voice. Frames 02–03: the counter says Day 9 and then Day 10, but both lines stay frozen at about Day 7–8. During the",
+   "reason": "Frame 06 (payoff, 'The slowest take six months to a year or more'): the push-in moves the chart card too far left and its left edge runs off the screen. The card border is gone at x≈0, 'Performance', the legend and the '0' axis label sit right against the screen edge, and the band's faint orange tail runs into the card's right edge. The visual brief says the band, its pill and the counter all stay fully in frame, but here the card itself is clipped. Re-centre the push-in so the whole card stays ",
    "idea": "Moving your site? Google's own range is 1 to 3 months",
    "experiment": "short-first-frame",
    "style": "pro"
