@@ -92,7 +92,7 @@ async function main() {
       hookBrief(ROOT) ? hookBrief(ROOT).replace("Name the pattern you used in hookPattern.", "Write each idea's hook on one of these patterns.") : "",
     ].filter(Boolean).join("\n\n"),
     prompt: [
-      "Already posted or made (do not repeat):",
+      "Already posted or made (do not repeat; an idea that teaches the same check or fix as one of these is a repeat even with a new title or hook, so a follow-up must teach a different step):",
       ...posts.map((p) => `- ${p.topic} (${p.status})`),
       "",
       "Evidence (JSON):",

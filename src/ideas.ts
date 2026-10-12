@@ -8,15 +8,16 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 
-export interface ReelIdea { title: string; channel: string; pillar?: string; hook: string; why: string; sources: string[] }
+export interface ReelIdea { title: string; channel: string; pillar?: string; hook: string; why: string; sources: string[]; repeatOf?: string }
 export interface MadeFrom { status: string; idea?: string }
 
-/** Reel and carousel ideas from the latest listening, in ranked order. */
+/** Reel and carousel ideas from the latest listening, in ranked order, minus ones held as repeats. */
 export function reelIdeas(root: string): ReelIdea[] {
   const f = path.join(root, "research/latest.json");
   if (!existsSync(f)) return [];
   const l = JSON.parse(readFileSync(f, "utf8")) as { ideas?: ReelIdea[] };
-  return (l.ideas ?? []).filter((i) => i.channel === "reel" || i.channel === "carousel");
+  // repeatOf: held by hand because it teaches the same thing as a reel already made
+  return (l.ideas ?? []).filter((i) => (i.channel === "reel" || i.channel === "carousel") && !i.repeatOf);
 }
 
 /**

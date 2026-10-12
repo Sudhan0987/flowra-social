@@ -11,7 +11,9 @@
       "sources": [
         "https://reuters.com/legal/litigation/google-wins-dismissal-chegg-penske-media-lawsuits-over-ai-overviews-2026-10-01",
         "https://searchengineland.com/google-tests-paying-publishers-for-using-its-content-in-ai-mode-ai-overviews-and-gemini-488382"
-      ]
+      ],
+      "repeatOf": "r006-search-console-s-new-generative-ai-repor",
+      "repeatNote": "Same check as r006 (compare clicks for the pages AI shows). Held 12 Oct 2026; a follow-up needs a different step."
     },
     {
       "title": "Your robots.txt allows GPTBot. Your host might still be blocking it.",
