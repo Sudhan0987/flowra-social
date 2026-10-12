@@ -19,136 +19,164 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#fff}sv
 // (the old domain falling, the new one climbing), drawn exactly as far as the
 // counter has run. The time axis is in true days and zooms out: 0 to 14 days,
 // then 0 to 100 (Google's typical 1 to 3 months), then 0 to 400 (the slow
-// 6 months to a year or more, running off the edge). Screen B: the client's
-// Day 7 question and your migration plan, each row clicked, then saved.
-// The chart swings back and rewinds to Day 7; the end strip rises below the
-// card (the chart and headline never move) and drops away before the cut,
-// leaving frame one: the loop.
+// 6 months to a year or more, the band running off the edge, the new line
+// slowing so it is still climbing at a year). Screen C: the client's Day 7
+// question and your migration plan, each row clicked; "Save this" saves it.
+// Then the chart swings back and rewinds to Day 7; a compact end card drops in
+// above the live chart (Floey perched on the spark's left arm) and lifts away
+// before the cut, leaving frame one: the loop.
 const LINES = window.LINES, M = window.MOUTHS || {};
-const GAP = { hook0: 0.3, body1: 0.3, body2: 0.35, payoff3: 0.5, loop4: 0.5, go5: 0.5, url6: 1.6 };
+const GAP = { hook0: 0.3, body1: 0.3, body2: 0.35, payoff3: 0.5, loop4: 1.0, go5: 0.6, url6: 1.6 };
 const B = {}; let at = 0.25;
 for (const [id] of LINES) { const len = (M[id] || []).length / 30 || 2.2; B[id] = { start: at, len, end: at + len }; at += len + (GAP[id] ?? 0.3); }
 const DUR = at + 0.4;
 const b = B, S = PRO.sounds(), c = PRO.c, e = PRO.ease, c01 = PRO.c01;
 
 // ---------- example data, in days after the move ----------
+// on "the slowest" the new domain's curve stretches (W.slow 0 to 1): still climbing at day 365
 const oldF = (d) => 40 + 760 * (0.3 * Math.exp(-d / 6) + 0.7 * Math.exp(-d / 75));
-const newF = (d) => 780 * (1 - Math.exp(-d / 50));
-const slowF = (d) => 760 * (1 - Math.exp(-d / 170));
+const newF = (d) => 780 * (1 - Math.exp(-d / (50 + 120 * W.slow)));
 
-// the hook runs Day 7.0 to 7.4; the line about both domains runs Day 7.4 to 10.2 (the counter ticks 8, 9, 10)
+// the hook runs Day 7.0 to 7.4; the line about both domains runs Day 7.4 to 10.2
+// (the day turns 8, 9 and 10 at b1 + 0.1, 1.3 and 2.2, between the two badge pops)
 const b1 = b.body1.start, D_HOOK = 7.4, D_B1 = 10.2, RATE = (D_HOOK - 7) / b1;
-const tickAt = (d) => b1 + ((d - D_HOOK) / (D_B1 - D_HOOK)) * b.body1.len;
 
 // ---------- world state, one paused timeline ----------
 const W = {
-  camX: 540, camY: 960, zoom: 1, sA: 1, sC: 0, kA: 1, kC: 0, h0: 1, h1: 0, h2: 0, h3: 0, h4: 0,
-  d: 7, D: 14, unsettled: 1, area: 0, arDown: 0, arUp: 0, band1: 0, pill1: 0, band2: 0, pill2: 0, slow: 0, ring: 0, src: 0,
+  camX: 540, camY: 960, zoom: 1, sA: 1, sC: 0, kA: 1, kC: 0, h0: 1, h1: 0, h2: 0, h3: 0, h4: 0, o0: 1, o1: 1, o2: 1, o3: 1, o4: 1,
+  d: 7, D: 14, unsettled: 1, area: 0, arDown: 0, arUp: 0, band1: 0, pill1: 0, band2: 0, pill2: 0, slow: 0, ring: 0, src: 0, plus: 0,
   bubble: 0, rows: 0, chk1: 0, chk2: 0, chk3: 0, ring3: 0, saved: 0, curX: 960, curY: 1330, cur: 0, clk: 0, end: 0, lift: 0,
 };
 const wt = gsap.timeline({ paused: true });
+// a headline leaves as one piece (its group fades), so no lone first word is left behind
+const hideHead = (n, at, dur = 0.2) => wt.to(W, { ["o" + n]: 0, duration: dur }, at).set(W, { ["h" + n]: 0, ["o" + n]: 1 }, at + dur);
 
 // HOOK: frame one is Day 7: the old domain falling, the new one just lifting, "not settled" between them.
 // The lines keep drawing and the camera drifts in.
 wt.to(W, { d: D_HOOK, duration: b1, ease: "none" }, 0)
   .to(W, { camX: 528, zoom: 1.03, duration: b1, ease: "sine.inOut" }, 0);
 
-// BODY1: both lines move at once, a badge rides each line, the counter ticks 8, 9, 10
-wt.to(W, { h0: 0, duration: 0.2 }, b1 - 0.1)
-  .to(W, { h1: 1, duration: 0.6 }, b1 + 0.1)
+// BODY1: both lines move at once, a badge rides each line (down on the old, up on the new), the counter ticks 8, 9, 10
+hideHead(0, b1 - 0.1);
+wt.to(W, { h1: 1, duration: 0.6 }, b1 + 0.1)
   .to(W, { unsettled: 0, duration: 0.3 }, b1)
-  .to(W, { d: D_B1, duration: b.body1.len, ease: "none" }, b1)
+  .to(W, { d: 7.5, duration: 0.1, ease: "none" }, b1)
+  .to(W, { d: 8.5, duration: 1.2, ease: "none" }, b1 + 0.1)
+  .to(W, { d: 9.5, duration: 0.9, ease: "none" }, b1 + 1.3)
+  .to(W, { d: D_B1, duration: b.body1.len - 2.2, ease: "none" }, b1 + 2.2)
   .to(W, { area: 1, duration: 0.8 }, b1 + 0.2)
   .to(W, { arDown: 1, duration: 0.45 }, b1 + 0.5)
-  .to(W, { arUp: 1, duration: 0.45 }, b1 + 1.55)
+  .to(W, { arUp: 1, duration: 0.45 }, b1 + 0.9)
   .to(W, { zoom: 1.07, camX: 540, camY: 945, duration: b.body1.len, ease: "power2.inOut" }, b1);
-S.sfx(tickAt(7.5), "tick").sfx(b1 + 0.5, "pop").sfx(tickAt(8.5), "tick").sfx(b1 + 1.55, "pop").sfx(tickAt(9.5), "tick");
+S.sfx(b1 + 0.1, "tick").sfx(b1 + 0.5, "pop").sfx(b1 + 0.9, "pop").sfx(b1 + 1.3, "tick").sfx(b1 + 2.2, "tick");
 
-// BODY2: the axis zooms out to 100 days while the counter rolls to Day 90; the source appears with
-// Gary Illyes, the 1 to 3 months band sweeps on as it is said, the new line passes the old one inside it
+// BODY2: the axis starts opening out to 100 days in the gap, so it is already moving as the claim begins;
+// the source appears with Gary Illyes, the 1 to 3 months band sweeps on as it is said, the new line passes the old
 const b2 = b.body2.start;
-wt.to(W, { h1: 0, duration: 0.2 }, b2 - 0.1)
-  .to(W, { h2: 1, duration: 0.6 }, b2 + 0.1)
-  .to(W, { arDown: 0, arUp: 0, duration: 0.3 }, b2)
-  .to(W, { zoom: 1, camX: 540, camY: 960, duration: 0.7, ease: "power2.inOut" }, b2 + 0.1)
-  .to(W, { d: 90, D: 100, duration: 2.4, ease: "power1.inOut" }, b2 + 0.2)
-  .to(W, { src: 1, duration: 0.5 }, b2 + 0.9)
-  .to(W, { band1: 1, duration: 0.8, ease: "power2.out" }, b2 + 1.7)
-  .to(W, { pill1: 1, duration: 0.5 }, b2 + 2.5)
-  .to(W, { zoom: 1.1, camX: 590, camY: 880, duration: 1.3, ease: "power2.inOut" }, b2 + 2.7);
-S.sfx(b2 + 0.2, "whoosh").sfx(b2 + 1.7, "tick").sfx(b2 + 2.5, "pop");
+hideHead(1, b2 - 0.35);
+wt.to(W, { h2: 1, duration: 0.6 }, b2 - 0.2)
+  .to(W, { arDown: 0, arUp: 0, duration: 0.3 }, b2 - 0.3)
+  .to(W, { zoom: 1, camX: 540, camY: 960, duration: 0.7, ease: "power2.inOut" }, b2 - 0.25)
+  .to(W, { d: 90, D: 100, duration: 2.2, ease: "power2.out" }, b2 - 0.25)
+  .to(W, { src: 1, duration: 0.5 }, b2 + 0.7)
+  .to(W, { band1: 1, duration: 0.8, ease: "power2.out" }, b2 + 1.9)
+  .to(W, { pill1: 1, duration: 0.5 }, b2 + 2.4)
+  .to(W, { zoom: 1.1, camX: 540, camY: 880, duration: 1.3, ease: "power2.inOut" }, b2 + 2.6);
+S.sfx(b2 - 0.25, "whoosh").sfx(b2 + 0.7, "tick").sfx(b2 + 1.9, "tick").sfx(b2 + 2.4, "pop");
 
-// PAYOFF: the axis zooms out to 400 days, the counter runs on and stops at Day 365, the slow band
-// runs from 180 off the right edge ("or more"), a slow move's line is still climbing; push in, ring the band
+// PAYOFF: the axis zooms out to 400 days, the counter runs on and stops at Day 365+, the new line
+// stretches into a slow move (still climbing at a year), the slow band runs from 180 off the right
+// edge ("or more"); push in on the band and ring it
 const p0 = b.payoff3.start;
-wt.to(W, { h2: 0, duration: 0.2 }, p0 - 0.1)
-  .to(W, { h3: 1, duration: 0.6 }, p0 + 0.1)
+hideHead(2, p0 - 0.1);
+wt.to(W, { h3: 1, duration: 0.6 }, p0 + 0.05)
   .to(W, { d: 365, D: 400, duration: 1.0, ease: "power3.out" }, p0)
-  .to(W, { band2: 1, duration: 0.5, ease: "power2.out" }, p0 + 0.4)
-  .to(W, { slow: 1, duration: 0.9, ease: "power1.inOut" }, p0 + 0.45)
-  .to(W, { pill2: 1, duration: 0.5 }, p0 + 0.8)
-  .to(W, { zoom: 1.15, camX: 590, camY: 860, duration: 1.0, ease: "power3.inOut" }, p0 + 0.1)
-  .to(W, { ring: 1, duration: 0.45 }, p0 + 1.2);
-S.sfx(p0, "rise").sfx(p0 + 0.45, "tick").sfx(p0 + 0.85, "pop").sfx(p0 + 1.3, "tick");
+  .to(W, { slow: 1, duration: 1.1, ease: "power2.inOut" }, p0 + 0.1)
+  .to(W, { band2: 1, duration: 0.5, ease: "power2.out" }, p0 + 0.35)
+  .to(W, { pill2: 1, duration: 0.5 }, p0 + 0.75)
+  .set(W, { plus: 1 }, p0 + 1.0)
+  .to(W, { zoom: 1.15, camX: 540, camY: 880, duration: 0.9, ease: "power3.inOut" }, p0 + 0.1)
+  .to(W, { ring: 1, duration: 0.5 }, p0 + 1.05);
+S.sfx(p0, "rise").sfx(p0 + 0.4, "tick").sfx(p0 + 0.8, "pop").sfx(p0 + 1.2, "tick");
 
-// LOOP: the chart falls away; the client's Day 7 question swings in over your plan; the cursor ticks each row
-const l0 = b.loop4.start, c1 = l0 - 0.2, ROW = (i) => 766 + i * 100;
-wt.to(W, { sA: 2, duration: 0.55, ease: "power2.in" }, c1)
-  .to(W, { zoom: 1, camX: 540, camY: 960, duration: 0.6, ease: "power2.inOut" }, c1)
-  .to(W, { h3: 0, kA: 0, duration: 0.2 }, c1)
-  .to(W, { sC: 1, duration: 0.6, ease: "power3.out" }, l0 + 0.05)
-  .to(W, { kC: 1, h4: 1, duration: 0.6 }, l0 + 0.15)
-  .to(W, { bubble: 1, duration: 0.45 }, l0 + 0.3)
-  .to(W, { rows: 1, duration: 0.6, ease: "power2.out" }, l0 + 0.7)
-  .to(W, { cur: 1, duration: 0.25 }, l0 + 0.8)
-  .to(W, { curX: 172, curY: ROW(0), duration: 0.45, ease: "power3.inOut" }, l0 + 0.8);
-S.sfx(c1, "whoosh").sfx(l0 + 0.35, "pop").sfx(l0 + 0.8, "tick");
-[1.25, 1.7, 2.15].forEach((tc, i) => {
+// LOOP: as the payoff line ends the chart falls away and the plan swings in, so it is up when the client line
+// starts; the client's Day 7 question pops as it is said, then the cursor ticks each row of your plan
+const l0 = b.loop4.start, c1 = b.payoff3.end, ROW = (i) => 766 + i * 100;
+wt.to(W, { sA: 2, duration: 0.42, ease: "power2.in" }, c1)
+  .to(W, { zoom: 1, camX: 540, camY: 960, duration: 0.5, ease: "power2.inOut" }, c1)
+  .to(W, { kA: 0, duration: 0.15 }, c1)
+  .to(W, { sC: 1, duration: 0.55, ease: "power3.out" }, c1 + 0.1)
+  .to(W, { kC: 1, h4: 1, duration: 0.6 }, c1 + 0.12)
+  .to(W, { bubble: 1, duration: 0.45 }, l0 + 0.1)
+  .to(W, { rows: 1, duration: 0.7, ease: "power2.out" }, c1 + 0.35)
+  .to(W, { cur: 1, duration: 0.25 }, l0 + 0.45)
+  .to(W, { curX: 172, curY: ROW(0), duration: 0.4, ease: "power3.inOut" }, l0 + 0.45);
+hideHead(3, c1, 0.15);
+S.sfx(c1, "whoosh").sfx(l0 + 0.1, "pop");
+[0.9, 1.35, 1.8].forEach((tc, i) => {
   if (i) wt.to(W, { curX: 172, curY: ROW(i), duration: 0.3, ease: "power3.inOut" }, l0 + tc - 0.32);
   wt.set(W, { clk: 0 }, l0 + tc - 0.01).to(W, { clk: 1, duration: 0.4, ease: "none" }, l0 + tc)
     .to(W, { ["chk" + (i + 1)]: 1, duration: 0.35 }, l0 + tc + 0.04);
   S.sfx(l0 + tc, "click");
 });
-wt.to(W, { ring3: 1, duration: 0.45 }, l0 + 2.25);
+wt.to(W, { ring3: 1, duration: 0.45 }, l0 + 2.2);
+S.sfx(l0 + 2.25, "tick");
 
-// GO: "Save this": the cursor clicks Save plan and it turns to Saved; then the chart swings back
-// and rewinds: 365 to Day 7, the bands and pills wipe, the lines retract to their opening shape
+// GO: on "Save this" the cursor (waiting on Save plan) clicks and it turns to Saved; on "your next
+// migration" the plan falls away, the chart swings back and rewinds: 365 to Day 7, the bands and pills
+// wipe, the new line tightens back, both lines retract to their opening shape, "not settled" returns
 const g0 = b.go5.start, SAVE = { x: 540, y: 1112 };
-wt.to(W, { curX: SAVE.x + 60, curY: SAVE.y + 6, duration: 0.42, ease: "power3.inOut" }, g0 - 0.3)
-  .set(W, { clk: 0 }, g0 + 0.14).to(W, { clk: 1, duration: 0.4, ease: "none" }, g0 + 0.15)
-  .to(W, { saved: 1, duration: 0.35 }, g0 + 0.2)
-  .to(W, { cur: 0, duration: 0.3 }, g0 + 1.0);
-S.sfx(g0 + 0.15, "click");
-const c2 = g0 + 1.45, RW0 = c2 + 0.2, RW_END = RW0 + 1.1;
+wt.to(W, { curX: SAVE.x + 60, curY: SAVE.y + 6, duration: 0.4, ease: "power3.inOut" }, l0 + 2.45)
+  .set(W, { clk: 0 }, g0 + 0.04).to(W, { clk: 1, duration: 0.4, ease: "none" }, g0 + 0.05)
+  .to(W, { saved: 1, duration: 0.2 }, g0 + 0.08)
+  .to(W, { cur: 0, duration: 0.25 }, g0 + 0.3);
+S.sfx(g0 + 0.05, "click");
+const c2 = g0 + 0.45, RW0 = c2 + 0.15, RW_END = RW0 + 1.0;
 // the rewind lands a little before Day 7 and creeps on at the hook's own pace, reaching exactly Day 7 on the last frame
 const D_RW = 7 - RATE * (DUR - RW_END);
-wt.to(W, { sC: 2, duration: 0.5, ease: "power2.in" }, c2)
-  .to(W, { h4: 0, kC: 0, duration: 0.2 }, c2)
-  .set(W, { sA: 0, ring: 0, slow: 0 }, c2)
-  .to(W, { sA: 1, duration: 0.6, ease: "power3.out" }, RW0)
-  .to(W, { kA: 1, h0: 1, duration: 0.6 }, RW0 + 0.1)
-  .to(W, { pill1: 0, pill2: 0, src: 0, duration: 0.3 }, RW0 + 0.1)
-  .to(W, { band1: 0, band2: 0, area: 0, duration: 0.6, ease: "power2.in" }, RW0 + 0.15)
+wt.to(W, { sC: 2, duration: 0.45, ease: "power2.in" }, c2)
+  .to(W, { kC: 0, duration: 0.2 }, c2)
+  .set(W, { sA: 0, ring: 0 }, c2)
+  .to(W, { sA: 1, duration: 0.55, ease: "power3.out" }, RW0)
+  .to(W, { kA: 1, h0: 1, duration: 0.6 }, RW0 + 0.25)
+  .to(W, { pill1: 0, pill2: 0, src: 0, plus: 0, duration: 0.3 }, RW0)
+  .to(W, { band1: 0, band2: 0, area: 0, slow: 0, duration: 0.7, ease: "power2.in" }, RW0 + 0.1)
   .to(W, { d: D_RW, D: 14, duration: RW_END - RW0, ease: "power3.inOut" }, RW0)
-  .to(W, { unsettled: 1, duration: 0.5 }, RW_END)
+  .to(W, { unsettled: 1, duration: 0.45 }, RW_END)
   .to(W, { d: 7, duration: DUR - RW_END, ease: "none" }, RW_END);
-S.sfx(c2, "whoosh");
+hideHead(4, c2);
+S.sfx(c2, "whoosh").sfx(RW0 + 0.5, "tick").sfx(RW_END, "pop");
 
-// URL: the end strip rises into the space below the card (nothing moves), then drops away before the cut
-const u0 = b.url6.start, OUT = DUR - 0.8;
-wt.to(W, { end: 1, duration: 0.6, ease: "power3.out" }, u0 - 0.05)
-  .to(W, { lift: 1, duration: 0.4, ease: "power2.in" }, OUT);
-S.sfx(u0, "thump").sfx(RW_END, "pop").sfx(OUT, "whoosh");
+// URL: the headline makes room and the live Day 7 chart eases down and back; a compact end card drops in
+// above it (Floey flies in sideways, lands on the spark's left arm, turns to the camera). 0.95 s before
+// the cut it lifts away, the chart and headline return, and the last 0.3 s is frame one exactly.
+const u0 = b.url6.start, E0 = u0 - 0.05, OUT = DUR - 0.95;
+const STRIP = 0.66, STRIP_Y = 236 + (760 * STRIP) / 2; // the card (y 560 to 1320) scaled, its top at y 236
+hideHead(0, E0 - 0.45, 0.25);
+wt.to(W, { kA: 0, duration: 0.25 }, E0 - 0.45)
+  .to(W, { zoom: 0.775, camX: 540, camY: 676, duration: 0.55, ease: "power3.inOut" }, E0 - 0.4)
+  .to(W, { end: 1, duration: 0.6, ease: "power3.out" }, E0)
+  .to(W, { lift: 1, duration: 0.4, ease: "power2.in" }, OUT)
+  .to(W, { zoom: 1, camY: 960, duration: 0.55, ease: "power3.inOut" }, OUT + 0.05)
+  .to(W, { kA: 1, h0: 1, duration: 0.4 }, OUT + 0.25);
+S.sfx(E0 + 0.15, "thump").sfx(E0 + 0.75, "tick").sfx(OUT, "whoosh");
 
 for (const [id] of LINES) S.say(B[id].start, M[id] || [], id);
 
+// Floey for the end card, in the card's own coordinates (the spark sits at 372, 820 with r 92, so its left
+// arm runs from x 280 to 372 along y 820). The card draws whatever PRO.endCard.f gives it; this one moves.
+// She sits on the outer half of the arm so her wings stay clear of the spark's top point.
+const FL = FLOEY.create({ x: 110, y: 610, facing: -1, scale: 0.7, mood: "happy", view: "side" });
+FL.land(0.15, 294, 750, 0.55).pivot(1.0, "front").tongue(1.6, 2);
+let endT = 0;
+PRO.endCard.f = { pose() {}, svg: () => FL.svg(endT) };
+
 // ---------- the screens ----------
-const CX = 180, CW = 730, CY = 660, CH = 440;
+const CX = 180, CW = 720, CY = 660, CH = 440;
 const Y = (v) => CY + CH - (v / 1000) * CH;
-const P28 = `700 28px '${PRO.BODY}'`;
 const text = (x, y, s, { size = 26, weight = 600, fill = c.muted, anchor = "start", op = 1, family = PRO.BODY } = {}) =>
   op <= 0.01 ? "" : `<text x="${x}" y="${y}" text-anchor="${anchor}" font-family="${family}" font-weight="${weight}" font-size="${size}" fill="${fill}" opacity="${c01(op).toFixed(3)}">${PRO.esc(s)}</text>`;
-const SOURCE = "Ranges shown by Google's Gary Illyes, Barcelona, Oct 2026";
+const SOURCE = "Ranges shown by Google's Gary Illyes, Barcelona";
 // the pill pulses a whole number of times over the reel, so the last frame matches the first
 const PULSE = (2 * Math.PI * Math.max(1, Math.round((DUR * 4.2) / (2 * Math.PI)))) / DUR;
 // a round badge sitting on a line, its arrow pointing the way the line is going
@@ -162,27 +190,25 @@ function badge(x, y, col, up, k) {
 // axis ticks in true days; a finer step fades out as the axis zooms out and its labels would crowd
 const TICKS = [[7, 7], [14, 7], [30, 30], [60, 30], [90, 30], [90, 90], [180, 90], [270, 90], [365, 90]];
 
-// A: Search Console Performance, one continuous chart
+// A: Search Console Performance, one continuous chart (card x 130 to 950, so a 1.15 push stays inside the frame)
 function screenA(t) {
   const D = W.D, dN = W.d, X = (d) => CX + (CW * d) / D;
-  let g = PRO.card(110, 430, 860, 806, { title: "Performance", tag: "Search Console" });
+  let g = PRO.card(130, 430, 820, 820, { title: "Performance", tag: "Search Console" });
   // legend and the day counter (it agrees with where the lines end)
-  const legend = [["old domain", c.muted, 1], ["new domain", c.brand, 1], ["a slow move", c.brand, W.slow]];
-  legend.forEach(([l, col, k], i) => {
-    if (k <= 0) return;
-    g += `<g opacity="${c01(k * 2).toFixed(3)}"><line x1="150" y1="${548 + i * 38}" x2="194" y2="${548 + i * 38}" stroke="${col}" stroke-width="7" stroke-linecap="round"${i === 2 ? ` stroke-dasharray="10 9"` : ""}/></g>`
-      + text(208, 557 + i * 38, l, { fill: c.ink2, op: c01(k * 2) });
+  [["old domain", c.muted], ["new domain", c.brand]].forEach(([l, col], i) => {
+    g += `<line x1="170" y1="${556 + i * 44}" x2="214" y2="${556 + i * 44}" stroke="${col}" stroke-width="7" stroke-linecap="round"/>`
+      + text(228, 565 + i * 44, l, { fill: c.ink2 });
   });
   const day = Math.min(365, Math.max(7, Math.round(dN)));
-  g += PRO.counter(930, 630, day, day, 1, { anchor: "end", prefix: "Day " });
+  g += PRO.counter(910, 622, day, day, 1, { anchor: "end", prefix: "Day ", suffix: W.plus > 0.5 ? "+" : "" });
   // grid and the axis (true days: each tick sits where its day is)
   for (let i = 0; i <= 4; i++) g += `<line x1="${CX}" y1="${CY + (i / 4) * CH}" x2="${CX + CW}" y2="${CY + (i / 4) * CH}" stroke="${c.line}" stroke-width="2"/>`;
   g += text(CX, CY + CH + 40, "0", { anchor: "middle" });
   const shown = new Map();
   for (const [d, step] of TICKS) shown.set(d, Math.max(shown.get(d) ?? 0, c01((CW * step / D - 70) / 40)));
   for (const [d, k] of shown) { const x = X(d); g += text(x, CY + CH + 40, String(d), { anchor: "middle", op: k * c01((CX + CW + 24 - x) / 30) }); }
-  g += text(150, 1182, "Days after the move") + text(930, 1182, "Example data", { anchor: "end" });
-  g += text(150, 1218, SOURCE, { op: W.src });
+  g += text(170, 1180, "Days after the move") + text(910, 1180, "Example data", { anchor: "end" });
+  g += text(170, 1222, SOURCE, { op: W.src });
   // the two ranges, clipped to the plot
   let bands = "";
   if (W.band1 > 0) bands += `<rect x="${X(30)}" y="${CY - 10}" width="${(X(90) - X(30)) * e.out(W.band1)}" height="${CH + 20}" rx="12" fill="${c.clicks}" opacity=".14"/>`;
@@ -199,8 +225,6 @@ function screenA(t) {
   const path = (p) => p.map(([x, y], i) => `${i ? "L" : "M"}${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
   const po = pts(oldF, dN), pn = pts(newF, dN);
   if (W.area > 0) g += `<path d="${path(pn)} L${pn[n][0].toFixed(1)},${CY + CH} L${CX},${CY + CH} Z" fill="${c.brand}" opacity="${(0.1 * W.area).toFixed(3)}"/>`;
-  // a slow move's new domain: still climbing at a year, running off the edge
-  if (W.slow > 0) g += `<g clip-path="url(#plotClip)"><path d="${path(pts(slowF, D * 1.02 * e.io(W.slow)))}" fill="none" stroke="${c.brand}" stroke-width="5" stroke-dasharray="12 10" stroke-linecap="round" opacity=".75"/></g>`;
   for (const [p, col] of [[po, c.muted], [pn, c.brand]]) {
     g += `<path d="${path(p)}" fill="none" stroke="${col}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`
       + `<circle cx="${p[n][0].toFixed(1)}" cy="${p[n][1].toFixed(1)}" r="11" fill="${c.white}" stroke="${col}" stroke-width="6"/>`;
@@ -216,7 +240,7 @@ function screenA(t) {
   g += PRO.pill((X(180) + CX + CW) / 2, CY + 34, "6 months to 1 year+", "brand", W.pill2);
   // the ring goes around the slow band only, from day 180 to the edge
   const r0 = X(180) - 10;
-  g += PRO.ring(r0, CY - 18, CX + CW + 18 - r0, CH + 36, W.ring, "brand");
+  g += PRO.ring(r0, CY - 12, CX + CW + 18 - r0, CH + 30, W.ring, "brand");
   return g;
 }
 
@@ -260,36 +284,29 @@ function screenC(t) {
   return g + PRO.cursor(W.curX, W.curY, { click, k: W.cur });
 }
 
-// the end strip below the card: the studio's own end card cut down to its logo row (spark, wordmark,
-// Floey perched on the spark's left arm; its tagline and address are dropped), with the address beside it
-const SK = 0.56, LOGO = { x: 236, y: 660, w: 608, h: 266 };
-function strip(t) {
-  const logo = PRO.endCard(1, t).replace(/<text[^>]*>Find the loss[\s\S]*<\/g>\s*$/, "</g>");
-  const url = "useflowra.com", f = `700 50px '${PRO.FONT}'`, uw = PRO.measure(url, f), pw = uw + 64;
-  return `<defs><clipPath id="clipL"><rect x="${LOGO.x}" y="${LOGO.y}" width="${LOGO.w}" height="${LOGO.h}"/></clipPath></defs>`
-    + `<rect x="60" y="1254" width="960" height="162" rx="32" fill="${c.white}" stroke="${c.line}" stroke-width="2" filter="url(#shadow)"/>`
-    + `<g transform="translate(96 1259) scale(${SK}) translate(${-LOGO.x} ${-LOGO.y})"><g clip-path="url(#clipL)">${logo}</g></g>`
-    + `<rect x="${988 - pw}" y="1293" width="${pw}" height="84" rx="42" fill="${c.ink}"/>`
-    + `<text x="${988 - pw / 2}" y="1352" text-anchor="middle" font-family="${PRO.FONT}" font-weight="700" font-size="50" fill="${c.white}">${url}</text>`;
-}
+// headline n: its words rise in with W.hn, the whole line fades out with W.on
+const head = (n, s, accent) => W["h" + n] > 0 && W["o" + n] > 0
+  ? `<g opacity="${W["o" + n].toFixed(3)}">${PRO.headline(s, { y: 340, k: W["h" + n], accent })}</g>` : "";
 
 window.render = (t) => {
   wt.seek(Math.min(DUR, t), false);
+  endT = Math.max(0, t - E0);
   const world = PRO.screen(screenA(t), W.sA) + PRO.screen(screenC(t), W.sC);
-  // the strip rises in and drops away; it never covers the chart or the headline
-  const ek = W.end > 0 && W.lift < 1 ? c01(W.end * 2) * (1 - W.lift) : 0;
-  const dy = (1 - e.out(W.end)) * 110 + e.io(W.lift) * 160;
-  const end = ek > 0 ? `<g opacity="${ek.toFixed(3)}" transform="translate(0 ${dy.toFixed(1)})">${strip(t)}</g>` : "";
+  // the compact end card drops in above the live chart, then lifts up and away to leave frame one
+  const lk = e.io(W.lift), drop = (1 - e.out(W.end)) * -90 - lk * 220;
+  const end = W.end > 0 && W.lift < 1
+    ? `<g opacity="${c01(1 - lk * 1.4).toFixed(3)}" transform="translate(540 ${(STRIP_Y + drop).toFixed(1)}) scale(${STRIP}) translate(-540 -940)">${PRO.endCard(W.end, t)}</g>` : "";
   // the background's slow wash returns to where it started, so the last frame is the first
   const bgT = (DUR / Math.PI) * Math.sin((Math.PI * t) / DUR);
   document.getElementById("stage").innerHTML = PRO.bg(bgT)
     + PRO.kicker("After a site move", 236, W.kA)
-    + PRO.headline("Your move at Day 7", { y: 340, k: W.h0, accent: ["day", "7"] })
-    + PRO.headline("Watch both domains", { y: 340, k: W.h1, accent: ["both"] })
-    + PRO.headline("When it settles", { y: 340, k: W.h2, accent: ["settles"] })
-    + PRO.headline("The slow end of the range", { y: 340, k: W.h3, accent: ["slow"] })
+    + head(0, "Your move at Day 7", ["day", "7"])
+    + head(1, "Watch both domains", ["both"])
+    + head(2, "When it settles", ["settles"])
+    + head(3, "Slowest: a year or more", ["year", "or", "more"])
     + PRO.kicker("When the client asks", 236, W.kC)
-    + PRO.headline("Your migration plan", { y: 340, k: W.h4, accent: ["plan"] })
+    + head(4, "Your migration plan", ["plan"])
+    // the chart stays live under the end card (the camera eases it down and back to make room)
     + PRO.cam(world, { x: W.camX, y: W.camY, zoom: W.zoom })
     + end
     + (W.end < 0.3 ? PRO.captions(LINES, B, t) : "");
