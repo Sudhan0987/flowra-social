@@ -1,0 +1,55 @@
+{
+ "topic": "Maya asks ChatGPT for the best blogs in her niche, isn't on the list and panics. Floey shows her that the list changes on every ask, and that GA4 shows the visits ChatGPT actually sent.",
+ "angle": "Maya asks ChatGPT for \"the best budget travel blogs\", her blog isn't named, and she announces she's invisible. Floey says \"Ask it again\": now Maya is third, and on the next try she's gone again. Floey's tip: AI answers almost never repeat the same list, so stop asking the chatbot and check the visits that really arrived, in GA4 under Traffic acquisition with session source chatgpt.com. The reel shows the gap between being named in an AI answer and getting the visit, with one check viewers can do today. It also follows on from r006 (one quiet analytics check, on screen early).",
+ "whyNow": "This month's AI visibility discussion: new Show HN tools (for example CiteRank) check every week whether ChatGPT, Perplexity, AI Overviews, Gemini and Claude cite a site. A September 2026 test found ChatGPT and Perplexity agreed on only 24 of 99 local recommendations. A r/bigseo thread argues that AI search visibility is being measured the wrong way (https://www.reddit.com/r/bigseo/comments/1x2alme/i_think_were_measuring_ai_search_visibility_the/, from our 2026-10-11 social listening). Bloggers are typing their own niche into ChatGPT to see if they show up, and this reel is that moment.",
+ "goal": "send",
+ "audience": "Solo bloggers, content marketers and small agency people who have asked ChatGPT about their own niche or brand to see if they get named, and who have GA4 on their site but rarely open the acquisition reports.",
+ "facts": [
+  {
+   "fact": "In a SparkToro and Gumshoe.ai study (Rand Fishkin and Patrick O'Donnell) of 2,961 prompt runs, ChatGPT and Google's AI in Search returned the same list of brands fewer than 1 in 100 times when the same prompt was repeated.",
+   "source": "https://www.searchenginejournal.com/ai-recommendations-change-with-nearly-every-query-sparktoro/566242/"
+  },
+  {
+   "fact": "In the same study, the same list in the same order came back less than 0.1% of the time. The authors suggest measuring how often you appear across many runs, not a single 'ranking position in AI'. The report is not peer-reviewed.",
+   "source": "https://www.searchenginejournal.com/ai-recommendations-change-with-nearly-every-query-sparktoro/566242/"
+  },
+  {
+   "fact": "In a September 2026 test of 20 local searches (best dentist, plumber, injury lawyer or landscaper in five California cities), only 24 of Perplexity's 99 picks also appeared in ChatGPT's top five, and the two named the same number one pick in only 1 of 20 searches. The author ran each prompt once and calls the results directional.",
+   "source": "https://www.clicksdynasty.com/blog-post-chatgpt-perplexity-local-recommendations.html"
+  },
+  {
+   "fact": "OpenAI's publisher FAQ says publishers can measure visits referred by ChatGPT in analytics tools such as Google Analytics, because ChatGPT's referral links carry a source tag (utm_source=chatgpt.com).",
+   "source": "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+  },
+  {
+   "fact": "In GA4, the Traffic acquisition report (Reports > Acquisition > Traffic acquisition) shows where visitors come from, and its dimensions include Session source / medium.",
+   "source": "https://support.google.com/analytics/answer/12923437"
+  },
+  {
+   "fact": "Some AI visits arrive without a referrer (apps, copied links) and are counted as Direct in GA4, so the chatgpt.com number is a floor, not the full count.",
+   "source": "https://www.seerinteractive.com/insights/are-ai-sites-like-chatgpt-sending-your-website-traffic"
+  },
+  {
+   "fact": "AI visibility trackers separate being 'cited' (the answer links your page) from being 'named' (your brand is mentioned with no link). CiteRank says citing is the only state that sends traffic.",
+   "source": "https://citerank.thecompound.tech"
+  },
+  {
+   "fact": "On r/bigseo this month, a thread argued that AI search visibility is being measured the wrong way (evidence of demand only; the reel does not quote it).",
+   "source": "https://www.reddit.com/r/bigseo/comments/1x2alme/i_think_were_measuring_ai_search_visibility_the/"
+  },
+  {
+   "fact": "Any visit number Maya sees on her screen (for example 'chatgpt.com: 23 sessions') is her own example, framed as hers, not a statistic.",
+   "source": "Flowra finding"
+  },
+  {
+   "fact": "End card context only, never said in the reel: Flowra reads visits from ChatGPT, Perplexity and other AI assistants from GA4 referrers; it counts visits that arrive and cannot see answers that sent no click.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Day set, Floey perched on the laptop. Hook (0 to 2 s): a screenInsert cutaway of Maya's laptop titled \"ChatGPT: best budget travel blogs\", with a short list drawing itself and a red \"not you\" label. A \"?\" mark pops by Maya's head and a \"-1\" bad stat pill appears. Floey: \"Ask it again.\" Quick typing sfx, and the insert swings back with a different list (green label \"you: #3\"). Maya does a fist pump, then a third whoosh: gone again (boing). For the tip, Floey hops to the mug and the insert changes to GA4 \"Traffic acquisition · session source: chatgpt.com\" with a small line drawing up and a good stat pill \"23 visits\" (Maya's example) plus a ding. Button: Maya looks to camera: \"One of them is definitely Mum.\" Floey, deadpan: \"You're welcome.\" Keep it 20 to 25 seconds with the first insert on screen inside 2 seconds, and say \"save this for your next audit\" in the caption or the last line.",
+ "pillar": "problem",
+ "instinct": "If ChatGPT doesn't name my blog when I ask it, AI isn't sending me anyone and I'm invisible.",
+ "flip": "AI tools almost never give the same list twice (ChatGPT repeated the same brand list fewer than 1 in 100 times), so one answer proves nothing, but the visits ChatGPT really sends show up in GA4 as session source chatgpt.com.",
+ "idea": "Being cited by ChatGPT next to actually getting the visit",
+ "style": "duo"
+}

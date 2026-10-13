@@ -1,0 +1,291 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<script src="lines.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../../reel/assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../../reel/assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r008 "Ask It Again" (duo style, night set). Maya asks ChatGPT for the best
+// budget travel blogs and isn't on the list. Floey: ask again. Answer 2 has her
+// third; answer 3 drops her again (her row falls out), so one answer proves
+// nothing. Floey lifts off the lid and stays hovering by Maya for the rest of
+// the reel. GA4 shows the visits ChatGPT really sent (the 23 counts up on the
+// card). Button: Mum, Maya's look to camera, Floey's sum to the lens, then
+// Maya can't help asking ChatGPT once more: NOT LISTED again (the loop).
+const M = window.MOUTHS || {};
+const LINES = window.LINES;
+// the pause after each line, from the story. Three are longer on purpose (editor notes):
+// reframe1 and reframe2 hold the re-ask so the new list lands before Maya reacts,
+// button8 holds Maya's silent look to camera.
+const GAP = { hook0: 0.3, reframe1: 1.1, reframe2: 1.0, reframe3: 0.35, reframe4: 0.3, doubt5: 0.25, tip6: 0.4, payoff7: 0.35, button8: 1.5, button9: 0.6 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+const b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+// shots nudged for this reel: MS a medium on Maya with the chat card clear of her bun and
+// Floey (lid or hover) fully off the left edge; MT/MTC her face; FH a two-shot that favours
+// Floey hovering; FT Floey alone in the air in front of the shelf, Maya fully out of frame
+const MS = { camX: 740, camY: 800, zoom: 1.5 }, MT = { camX: 680, camY: 840, zoom: 2.1 }, MTC = { camX: 720, camY: 800, zoom: 1.75 };
+const FH = { camX: 480, camY: 830, zoom: 1.4 }, FT = { camX: 215, camY: 760, zoom: 2.4 };
+// MSH: Maya's medium while Floey hovers (her beak would poke in at MS); RL: the relapse wide, lower,
+// so Floey in the air sits clear of the chat card
+const MSH = { camX: 800, camY: 790, zoom: 1.5 }, RL = { camX: 560, camY: 950, zoom: 1.12 };
+const HOV = { x: SP.floeyHover.x, y: SP.floeyHover.y }, HOV2 = { x: 240, y: 735 }; // HOV2: where she drifts for the button
+// the button has silent acting after the last line (the relapse), so the end card waits for it
+const END = Math.max(SPOKEN + 0.6, b.button9.end + 2.1), DUR = END + 1.6;
+const HC = HUM.colors, INK = HC.ink, ms = PROPS.measure;
+const r1 = (n) => Math.round(n * 10) / 10, clamp = (v, a, c) => Math.max(a, Math.min(c, v));
+// her mouth, scaled down on the flat and worried lines so an open mouth never reads as a grin
+const mo = (id, k = 1) => (M[id] || []).map((v) => v * k);
+
+// ---------- the cast ----------
+const F = FLOEY.create({ ...SP.floeyLaptop, facing: -1, mood: "hello", perched: true, view: "side" });
+const MY = MAYA.create({ ...SP.maya, expr: "panic", pose: "cheeks", floey: F });
+// chat: the ChatGPT card; rows: its rows drawing in; you: her green row; win: the green "YOU: #3" stamp;
+// fall: her row falling out of the list; gone: the empty slot she left; not: the red stamp; up: the 23 pill
+const W = { ...MS, sh: 0, ex: 0, chat: 1, rows: 1, you: 0, win: 0, fall: 0, gone: 0, not: 1, ga: 0, gaRow: 0, draw: 0, pop: 0, up: 0, end: 0 };
+const wt = gsap.timeline({ paused: true });
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => wt.to(W, { ...s, duration: d, ease }, t);
+const cut = (t, s) => wt.set(W, { ...s }, t);
+const puff = (t, v, d) => F.tl.to(F.S, { puff: v, duration: d, ease: "power2.out" }, t);
+
+// ---------- the ChatGPT answer card (screen space): every ask gives a different list ----------
+// rows are placeholder bars (no real blog is ever named); her row is only ever "Your blog"
+const LISTS = [[540, 430, 580, 380], [470, 560, 0, 410], [600, 380, 0, 500], [420, 570, 480, 520]];
+const V1 = b.reframe1.end + 0.3, V2 = b.reframe2.end + 0.4, V3 = b.button9.end + 0.75; // when each new answer arrives
+const ver = (t) => (t < V1 ? 0 : t < V2 ? 1 : t < V3 ? 2 : 3);
+function stamp(x, y, rot, k, text, col, bg) {
+  if (k <= 0.01) return "";
+  const tw = ms(text, "700 46px 'Space Grotesk'") + 44, sc = 1 + 0.5 * (1 - Math.min(1, k));
+  return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${r1(sc * 100) / 100})" opacity="${r1(Math.min(1, k * 1.4))}"><rect x="${r1(-tw / 2)}" y="-40" width="${r1(tw)}" height="80" rx="14" fill="${bg}" stroke="${col}" stroke-width="7"/><text x="0" y="16" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="46" fill="${col}">${text}</text></g>`;
+}
+function chatCard(k, v) {
+  if (k <= 0.01) return "";
+  const x0 = 130, y0 = 226, w = 820, h = 350, GREEN = "#2f9e62", RED = "#d24b4b";
+  let s = `<g transform="translate(0 ${r1((1 - k) * -140)})" opacity="${r1(Math.min(1, k * 1.6))}">`;
+  s += `<rect x="${x0}" y="${y0}" width="${w}" height="${h}" rx="30" fill="#fffaf2" stroke="${INK}" stroke-width="7"/>`;
+  // a chat bubble icon, the question she asked, and which answer this is
+  s += `<path d="M${x0 + 28},${y0 + 26} h62 a12,12 0 0 1 12,12 v28 a12,12 0 0 1 -12,12 h-34 l-16,14 v-14 h-12 a12,12 0 0 1 -12,-12 v-28 a12,12 0 0 1 12,-12Z" fill="${HC.violet}" stroke="${INK}" stroke-width="5"/>`;
+  s += [0, 1, 2].map((i) => `<circle cx="${x0 + 46 + i * 13}" cy="${y0 + 52}" r="4.5" fill="#fff"/>`).join("");
+  const tab = `Answer ${v + 1}`, tabW = ms(tab, "700 30px 'Public Sans'") + 36, tabX = x0 + w - 24 - tabW;
+  const q = "Best budget travel blogs?", qfs = Math.min(40, 40 * (tabX - 20 - (x0 + 118)) / ms(q, "700 40px 'Space Grotesk'"));
+  s += `<text x="${x0 + 118}" y="${y0 + 66}" font-family="Space Grotesk" font-weight="700" font-size="${r1(qfs)}" fill="${INK}">${q}</text>`;
+  s += `<rect x="${r1(tabX)}" y="${y0 + 28}" width="${r1(tabW)}" height="48" rx="24" fill="#e9e3f3" stroke="${INK}" stroke-width="4"/><text x="${r1(tabX + tabW / 2)}" y="${y0 + 62}" text-anchor="middle" font-family="Public Sans" font-weight="700" font-size="30" fill="${INK}">${tab}</text>`;
+  s += `<path d="M${x0 + 24},${y0 + 100} H${x0 + w - 24}" stroke="${INK}" stroke-width="3" opacity=".15"/>`;
+  LISTS[v].forEach((bw, i) => {
+    const cy = y0 + 140 + i * 56, g = clamp((W.rows - i * 0.14) / 0.58, 0, 1);
+    s += `<text x="${x0 + 40}" y="${cy + 13}" font-family="Public Sans" font-weight="800" font-size="36" fill="${INK}" opacity="${r1(0.3 + 0.7 * g)}">${i + 1}.</text>`;
+    if (bw > 0 && g > 0.01) s += `<rect x="${x0 + 92}" y="${cy - 12}" width="${r1(bw * g)}" height="24" rx="12" fill="#d9d1e6"/>`;
+    if (v === 2 && i === 2 && W.gone > 0.01) // the empty slot she fell out of
+      s += `<rect x="${x0 + 88}" y="${cy - 27}" width="${r1(ms("Your blog", "800 40px 'Public Sans'") + 56)}" height="54" rx="27" fill="none" stroke="${RED}" stroke-width="5" stroke-dasharray="14 10" opacity="${r1(Math.min(1, W.gone))}"/>`;
+    if ((v === 1 || v === 2) && i === 2 && W.you > 0.01 && W.fall < 0.98) {
+      const tw = ms("Your blog", "800 40px 'Public Sans'") + 56, sc = 0.6 + 0.4 * Math.min(1, W.you), fl = W.fall;
+      s += `<g transform="translate(${r1(x0 + 88 + fl * 40)} ${r1(cy + fl * 260)}) rotate(${r1(fl * 24)}) scale(${r1(sc * 100) / 100})" opacity="${r1(Math.min(1, W.you * 1.5) * (1 - fl))}"><rect x="0" y="-27" width="${r1(tw)}" height="54" rx="27" fill="${GREEN}" stroke="${INK}" stroke-width="5"/><text x="${r1(tw / 2)}" y="14" text-anchor="middle" font-family="Public Sans" font-weight="800" font-size="40" fill="#fff">Your blog</text></g>`;
+    }
+  });
+  // the stamps: green when she is on it, red when she isn't
+  s += stamp(730, y0 + 236, -8, W.win, "YOU: #3", GREEN, "#eaf7ef");
+  s += stamp(720, y0 + 236, -8, W.not, "NOT LISTED", RED, "#fff1f0");
+  return s + `</g>`;
+}
+
+// ---------- the GA4 check (screen space, swings in like DUO.screenInsert) ----------
+const GROW = [0.06, 0.1, 0.08, 0.2, 0.17, 0.32, 0.3, 0.47, 0.6, 0.68, 0.86];
+function gaCard(k, row, draw, pop) {
+  if (k <= 0.01) return "";
+  const PJ = "Public Sans", SG = "Space Grotesk";
+  let s = `<g transform="translate(0 ${r1(1920 * (1 - k) * 0.6)})" opacity="${r1(Math.min(1, k * 2))}"><rect width="1080" height="1920" fill="#2d2f45" opacity=".55"/>`;
+  s += `<rect x="90" y="500" width="900" height="840" rx="30" fill="#fffaf2" stroke="${INK}" stroke-width="8"/><rect x="90" y="500" width="900" height="84" rx="30" fill="#e9e3f3" stroke="${INK}" stroke-width="8"/>`;
+  s += `<circle cx="140" cy="542" r="12" fill="${HC.coral}"/><circle cx="178" cy="542" r="12" fill="${HC.amber}"/><circle cx="216" cy="542" r="12" fill="#7cc48a"/>`;
+  s += `<text x="252" y="553" font-family="${PJ}" font-weight="700" font-size="30" fill="${INK}" opacity=".7">Google Analytics</text>`;
+  s += `<text x="140" y="668" font-family="${SG}" font-weight="700" font-size="54" fill="${INK}">Traffic acquisition</text>`;
+  // the two controls: the table switched to source, and the date range
+  const dw = ms("Session source", `700 32px '${PJ}'`) + 86, lw = ms("Last 28 days", `700 32px '${PJ}'`) + 48;
+  s += `<rect x="140" y="702" width="${r1(dw)}" height="60" rx="30" fill="#fff" stroke="${INK}" stroke-width="5"/><text x="168" y="743" font-family="${PJ}" font-weight="700" font-size="32" fill="${INK}">Session source</text><path d="M${r1(140 + dw - 46)},726 l12,12 l12,-12" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`;
+  s += `<rect x="${r1(940 - lw)}" y="702" width="${r1(lw)}" height="60" rx="30" fill="#e9e3f3" stroke="${INK}" stroke-width="5"/><text x="${r1(940 - lw / 2)}" y="743" text-anchor="middle" font-family="${PJ}" font-weight="700" font-size="32" fill="${INK}">Last 28 days</text>`;
+  s += `<text x="140" y="830" font-family="${PJ}" font-weight="700" font-size="28" fill="${INK}" opacity=".55">Source</text><text x="940" y="830" text-anchor="end" font-family="${PJ}" font-weight="700" font-size="28" fill="${INK}" opacity=".55">Sessions</text><path d="M130,850 H950" stroke="${INK}" stroke-width="3" opacity=".2"/>`;
+  // other sources stay blurred: only her chatgpt.com row is read
+  [["google", 200], ["(direct)", 150]].forEach(([name, bw], i) => {
+    const y = 900 + i * 64;
+    s += `<text x="140" y="${y + 12}" font-family="${PJ}" font-weight="600" font-size="36" fill="${INK}" opacity=".6">${name}</text><rect x="${940 - bw}" y="${y - 10}" width="${bw}" height="22" rx="11" fill="#d9d1e6"/>`;
+  });
+  if (row > 0.01) s += `<rect x="116" y="${1028 - 38}" width="848" height="76" rx="20" fill="#ffe3f1" stroke="${HC.magenta}" stroke-width="5" opacity="${r1(Math.min(1, row))}"/>`;
+  s += `<text x="140" y="1041" font-family="${PJ}" font-weight="800" font-size="40" fill="${INK}">chatgpt.com</text>`;
+  // her sessions count up as the line draws, so the number is always there to read
+  if (draw > 0.01) s += `<text x="940" y="1044" text-anchor="end" font-family="${SG}" font-weight="700" font-size="52" fill="${HC.magenta}">${Math.round(23 * clamp(draw, 0, 1))}</text>`;
+  // the chatgpt.com sessions over the 28 days, drawing itself upward
+  const x0 = 150, x1 = 600, y0 = 1120, y1 = 1290, n = GROW.length;
+  const P = GROW.map((v, i) => [x0 + (x1 - x0) * i / (n - 1), y1 - (y1 - y0) * v]);
+  for (let i = 0; i < 3; i++) s += `<path d="M${x0},${y0 + i * (y1 - y0) / 2} H${x1}" stroke="${INK}" stroke-width="2" opacity=".1"/>`;
+  if (draw > 0.01) {
+    const m = draw * (n - 1), pts = [];
+    for (let i = 0; i <= Math.floor(m); i++) pts.push(P[i]);
+    if (m % 1 && P[Math.ceil(m)]) { const a = P[Math.floor(m)], c = P[Math.ceil(m)], u = m % 1; pts.push([a[0] + (c[0] - a[0]) * u, a[1] + (c[1] - a[1]) * u]); }
+    const line = pts.map((p, i) => `${i ? "L" : "M"}${r1(p[0])},${r1(p[1])}`).join(" "), e = pts[pts.length - 1];
+    s += `<path d="${line} L${r1(e[0])},${y1} L${x0},${y1}Z" fill="#2f9e62" opacity=".14"/><path d="${line}" fill="none" stroke="#2f9e62" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${r1(e[0])}" cy="${r1(e[1])}" r="12" fill="#2f9e62" stroke="${INK}" stroke-width="5"/>`;
+  }
+  if (pop > 0.01) {
+    const pw = ms("23 visits", `700 48px '${SG}'`) + 56, sc = 0.6 + 0.4 * Math.min(1, pop);
+    s += `<g transform="translate(${r1(930 - pw / 2)} 1210) scale(${r1(sc * 100) / 100})" opacity="${r1(Math.min(1, pop * 1.5))}"><rect x="${r1(-pw / 2)}" y="-42" width="${r1(pw)}" height="84" rx="24" fill="#2f9e62" stroke="${INK}" stroke-width="5"/><text x="0" y="17" text-anchor="middle" font-family="${SG}" font-weight="700" font-size="48" fill="#fff">23 visits</text></g>`;
+  }
+  return s + `</g>`;
+}
+
+// ---------- HOOK0: frame one is the list without her, Maya mid-panic under it ----------
+// "ChatGPT named the best budget travel blogs." 0 to 2.8 s, "Not me." at 3.2 s, "I'm invisible." at 3.77 s
+const NOTME = b.hook0.start + 3.2, INVIS = b.hook0.start + 3.77;
+MY.look(0, -0.6, 0.6).say(b.hook0.start, mo("hook0", 0.4), "hook0");
+wt.to(W, { ex: 1, duration: 0.25, ease: "back.out(2)" }, b.hook0.start).to(W, { sh: 1, duration: 0.05 }, b.hook0.start).to(W, { sh: 0, duration: 0.6, ease: "power2.out" }, b.hook0.start + 0.05);
+F.sfx(b.hook0.start + 0.02, "pop");
+MY.look(b.hook0.start + 1.3, -0.3, -0.7, 0.2); // up at the list, then back at the laptop
+MY.look(b.hook0.start + 2.2, -0.6, 0.7, 0.2);
+// "Not me.": the wide, hands up by her head; Floey turns her head to her, unbothered
+cut(NOTME - 0.08, { ...SH.wide, chat: 0, ex: 0 });
+MY.pose(NOTME - 0.05, "panic", 0.25).look(NOTME, -0.2, 0.2).expr(NOTME - 0.05, "surprised"); // an O of shock, never a grin
+F.sfx(NOTME + 0.05, "boing");
+F.tiltTo(NOTME + 0.2, -10, 0.4).look(NOTME + 0.2, 0.6, -0.3, 0.2);
+// "I'm invisible.": a slow push in, she sinks, sad, eyes up and away
+shot(INVIS - 0.05, MT, 0.9, "power2.inOut");
+MY.expr(INVIS, "sad").pose(INVIS, "rest", 0.45).slump(INVIS + 0.05, 0.6).look(INVIS + 0.1, 0.5, -0.6, 0.3);
+
+// ---------- REFRAME1: hard cut to the two-shot on Floey, deadpan; Maya lifts her head ----------
+cut(b.reframe1.start - 0.12, SH.floey);
+F.tiltTo(b.reframe1.start - 0.12, 0, 0.1).look(b.reframe1.start - 0.12, 0, 0);
+F.tl.to(F.S, { squint: 0.5, duration: 0.1 }, b.reframe1.start - 0.1).to(F.S, { squint: 0, duration: 0.12 }, b.reframe1.end - 0.1); // a half-lidded look
+F.say(b.reframe1.start, M.reframe1 || [], "reframe1");
+F.look(b.reframe1.end + 0.05, 0.5, 0.9, 0.12).tiltTo(b.reframe1.end + 0.05, 14, 0.2); // nods her beak at the keyboard
+MY.look(b.reframe1.start + 0.25, -0.9, 0, 0.15).expr(b.reframe1.start + 0.4, "think");
+
+// the re-ask: back on Maya, she types, the list redraws and her row turns up third
+MY.sit(b.reframe1.end - 0.1, 0.3).pose(b.reframe1.end, "type", 0.2).look(b.reframe1.end, -0.6, 0.7).expr(b.reframe1.end, "neutral");
+cut(b.reframe1.end + 0.06, { ...MS, chat: 1, not: 1 });
+F.sfx(b.reframe1.end + 0.12, "typing", { d: 0.45 });
+wt.to(W, { not: 0, rows: 0, duration: 0.15, ease: "power2.in" }, V1 - 0.15)
+  .to(W, { rows: 1, duration: 0.4, ease: "power2.out" }, V1)
+  .to(W, { you: 1, win: 1, duration: 0.3, ease: "back.out(2.5)" }, V1 + 0.42);
+F.sfx(V1 + 0.42, "ding");
+F.tiltTo(V1, 0, 0.2).look(V1, 0, 0);
+MY.expr(V1 + 0.42, "surprised").look(V1 + 0.45, -0.3, -0.7, 0.15);
+
+// ---------- REFRAME2: "Oh! I'm third!" (the one big grin before it's taken away) ----------
+MY.say(b.reframe2.start, M.reframe2 || [], "reframe2").expr(b.reframe2.start + 0.3, "happy").pose(b.reframe2.start + 0.3, "fist", 0.2).jolt(b.reframe2.start + 0.35);
+
+// one more ask she can't resist: answer 3, the green stamp pops off and her row falls out
+MY.pose(b.reframe2.end + 0.08, "type", 0.15).look(b.reframe2.end + 0.08, -0.6, 0.7).expr(b.reframe2.end + 0.1, "smug");
+F.sfx(b.reframe2.end + 0.12, "typing", { d: 0.25 });
+wt.to(W, { win: 0, rows: 0, duration: 0.14, ease: "power2.in" }, V2 - 0.14)
+  .to(W, { rows: 1, duration: 0.3, ease: "power2.out" }, V2)
+  .to(W, { fall: 1, duration: 0.5, ease: "power2.in" }, V2 + 0.25)
+  .to(W, { gone: 1, duration: 0.2, ease: "power2.out" }, V2 + 0.6);
+F.sfx(V2 + 0.25, "boing");
+MY.expr(V2 + 0.3, "surprised").look(V2 + 0.3, -0.3, -0.7, 0.1).pose(V2 + 0.3, "rest", 0.3); // her grin drops as the row goes
+
+// ---------- REFRAME3: "Wait." on the empty slot, "Gone again." in close-up, flat ----------
+MY.say(b.reframe3.start, mo("reframe3", 0.25), "reframe3");
+shot(b.reframe3.start + 0.42, MTC, 0.45, "power3.out");
+MY.expr(b.reframe3.start + 0.45, "deadpan").look(b.reframe3.start + 0.5, 0, 0.1, 0.25).slump(b.reframe3.start + 0.5, 0.5);
+
+// ---------- REFRAME4: Floey lifts off and hovers by Maya's head (and stays in the air) ----------
+shot(b.reframe3.end + 0.05, SH.wide, 0.55);
+wt.to(W, { chat: 0, duration: 0.25, ease: "power2.in" }, b.reframe3.end + 0.05);
+F.tiltTo(b.reframe3.end, 0, 0.1).look(b.reframe3.end, 0, 0);
+F.tl.to(F.S, { y: SP.floeyLaptop.y + 12, sy: 0.92, duration: 0.12, ease: "power2.in" }, b.reframe3.end + 0.15); // a dip before take-off
+F.takeoff(b.reframe3.end + 0.27).move(b.reframe4.start + 0.1, HOV.x, HOV.y, 0.6, "power2.inOut");
+F.say(b.reframe4.start, M.reframe4 || [], "reframe4").tiltTo(b.reframe4.start + 1.2, -8, 0.2).tiltTo(b.reframe4.end - 0.1, 0, 0.2).tongue(b.reframe4.end + 0.05, 1);
+MY.look(b.reframe4.start, -0.6, 0.3, 0.2).look(b.reframe4.start + 0.5, -0.9, -0.1, 0.3).expr(b.reframe4.start + 0.6, "annoyed");
+// push to the two-shot on Floey for Maya's reaction on "same list twice"
+shot(b.reframe4.start + 1.0, FH, 0.7, "power2.inOut");
+MY.look(b.reframe4.start + 1.5, -0.6, 0.7, 0.15).look(b.reframe4.start + 1.95, -0.9, -0.1, 0.15).tiltTo(b.reframe4.start + 1.95, -4);
+
+// ---------- DOUBT5: she sits up and points at Floey in the air ----------
+shot(b.doubt5.start - 0.15, SH.wide, 0.5);
+MY.sit(b.doubt5.start - 0.1, 0.3).tiltTo(b.doubt5.start, 0).pose(b.doubt5.start - 0.05, "pointL", 0.25).expr(b.doubt5.start, "surprised").look(b.doubt5.start, -0.9, -0.2, 0.15);
+MY.say(b.doubt5.start, mo("doubt5", 0.4), "doubt5").expr(b.doubt5.start + 0.8, "think");
+F.tiltTo(b.doubt5.end - 0.35, 18, 0.15).chips(b.doubt5.end + 0.04, 1).tiltTo(b.doubt5.end + 0.1, 0, 0.15);
+
+// ---------- TIP6: Floey (still hovering) gives the path; Maya clicks along; the GA4 card ----------
+// "Google Analytics." 0, "Traffic acquisition." 1.27, "Switch it to source." 2.55, "Find ChatGPT dot com." 3.8
+shot(b.tip6.start - 0.1, FH, 0.55, "power2.inOut");
+F.say(b.tip6.start, M.tip6 || [], "tip6");
+MY.pose(b.tip6.start, "rest", 0.3).look(b.tip6.start + 0.1, -0.9, -0.1, 0.3).expr(b.tip6.start + 0.2, "think");
+F.look(b.tip6.start + 1.3, 0.4, 0.8, 0.12).tiltTo(b.tip6.start + 1.3, 12).tiltTo(b.tip6.start + 2.2, 0).look(b.tip6.start + 2.2, 0, 0);
+MY.nod(b.tip6.start + 1.4, 2);
+shot(b.tip6.start + 2.5, MSH, 0.45, "power3.out");
+MY.pose(b.tip6.start + 2.45, "type", 0.2).look(b.tip6.start + 2.5, -0.6, 0.7).leanTo(b.tip6.start + 2.6, 3).expr(b.tip6.start + 2.6, "think");
+[2.65, 3.1, 3.55].forEach((d) => F.sfx(b.tip6.start + d, "click"));
+wt.to(W, { ga: 1, duration: 0.35, ease: "power3.out" }, b.tip6.start + 3.95)
+  .to(W, { gaRow: 1, duration: 0.3, ease: "power2.out" }, b.tip6.start + 4.55);
+F.sfx(b.tip6.start + 4.0, "whoosh");
+F.sfx(b.tip6.start + 4.55, "tick");
+F.sfx(b.tip6.end + 0.05, "rise");
+
+// ---------- PAYOFF7: the line climbs and 23 counts up as the row lights, the pill, then her face ----------
+wt.to(W, { draw: 1, duration: 1.3, ease: "power1.inOut" }, b.tip6.start + 4.6)
+  .to(W, { pop: 1, duration: 0.3, ease: "back.out(2)" }, b.payoff7.start + 0.6);
+F.sfx(b.payoff7.start + 0.6, "ding");
+MY.say(b.payoff7.start, M.payoff7 || [], "payoff7").leanTo(b.payoff7.start, 0);
+cut(b.payoff7.start + 1.15, { ...MTC, ga: 0, up: 1 });
+MY.expr(b.payoff7.start + 1.1, "surprised").look(b.payoff7.start + 1.1, -0.5, 0.6).pose(b.payoff7.start + 1.0, "rest", 0.3);
+MY.expr(b.payoff7.start + 1.45, "happy").look(b.payoff7.start + 1.55, -0.2, 0.2, 0.4);
+
+// ---------- BUTTON8: to Floey, deadpan; Floey drifts a little; then the silent look to camera ----------
+shot(b.button8.start - 0.2, SH.wide, 0.6);
+wt.to(W, { up: 0, duration: 0.2 }, b.button8.start - 0.2);
+MY.look(b.button8.start - 0.1, -0.9, -0.1, 0.2).tiltTo(b.button8.start, -4).expr(b.button8.start, "deadpan");
+MY.say(b.button8.start, mo("button8", 0.35), "button8");
+F.move(b.button8.start + 0.2, HOV2.x, HOV2.y, 0.9, "sine.inOut");
+F.look(b.button8.start + 0.3, 0, 0).tiltTo(b.button8.end - 0.35, 18, 0.15);
+cut(b.button8.end + 0.15, MT);
+MY.tiltTo(b.button8.end + 0.25, 0).look(b.button8.end + 0.25, 0, 0, 0.18);
+
+// ---------- BUTTON9: Floey alone in the air, to the lens, smug; then Maya asks ChatGPT again ----------
+cut(b.button9.start - 0.25, FT);
+F.tiltTo(b.button9.start - 0.25, 0, 0.1).pivot(b.button9.start - 0.15, "front").mood(b.button9.start - 0.1, "happy");
+puff(b.button9.start + 0.1, 0.6, 0.2); puff(b.button9.end - 0.2, 0, 0.3);
+F.say(b.button9.start, M.button9 || [], "button9").wink(b.button9.end + 0.08);
+MY.expr(b.button9.start, "happy");
+// the relapse (and the loop: frame one is this card): answer 4, NOT LISTED, panic again
+cut(b.button9.end + 0.45, { ...RL, chat: 0, rows: 0, you: 0, win: 0, fall: 0, gone: 0, not: 0 });
+MY.pose(b.button9.end + 0.35, "type", 0.15).look(b.button9.end + 0.4, -0.6, 0.7).expr(b.button9.end + 0.4, "smug").leanTo(b.button9.end + 0.4, 3);
+F.sfx(b.button9.end + 0.5, "typing", { d: 0.4 });
+F.pivot(b.button9.end + 0.92, "side").look(b.button9.end + 0.92, 0.3, 0.3).tiltTo(b.button9.end + 0.95, -12, 0.15); // her head snaps to Maya
+wt.to(W, { chat: 1, duration: 0.3, ease: "power3.out" }, V3).to(W, { rows: 1, duration: 0.45, ease: "power2.out" }, V3 + 0.15)
+  .to(W, { not: 1, duration: 0.22, ease: "back.out(2)" }, b.button9.end + 1.35);
+F.sfx(b.button9.end + 1.35, "boing");
+MY.look(V3 + 0.2, -0.3, -0.7, 0.15);
+MY.expr(b.button9.end + 1.4, "panic").pose(b.button9.end + 1.4, "cheeks", 0.2).leanTo(b.button9.end + 1.4, 0);
+
+// END: the logo card drops in
+wt.to(W, { end: 1, duration: 0.5, ease: "back.out(1.6)" }, END);
+F.sfx(END + 0.05, "thump");
+wt.set({}, {}, DUR);
+
+const camAt = (t) => ({ camX: W.camX + W.sh * Math.sin(t * 75) * 9, camY: W.camY + W.sh * Math.cos(t * 63) * 7, zoom: W.zoom });
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  const world = DUO.room(t, { night: true }) + MY.svg(t) + DUO.deskFront() + DUO.laptop() + F.svg(t)
+    + DUO.mark("!", 860, 740, W.ex, t) + DUO.stat(700, 520, W.up, "23 visits", "good");
+  document.getElementById("stage").innerHTML = DUO.cam(world, camAt(t))
+    + (W.end < 0.5 ? chatCard(W.chat, ver(t)) : "")
+    + gaCard(W.ga, W.gaRow, W.draw, W.pop)
+    + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")
+    + DUO.endCard(W.end, t, "Save this for your next audit");
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return camAt(t); };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>

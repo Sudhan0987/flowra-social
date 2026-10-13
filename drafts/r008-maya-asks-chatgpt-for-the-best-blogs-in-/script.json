@@ -1,0 +1,119 @@
+{
+ "title": "Ask It Again",
+ "hookPattern": "The animated action",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "ChatGPT named the best budget travel blogs. Not me. I'm invisible.",
+   "emotion": "worried",
+   "visual": "Frame one, screenInsert cutaway: Maya's laptop card titled 'ChatGPT: best budget travel blogs' with the short list already on screen; a red 'not you' label stamps on inside 0.3 s (thump sfx). Cut to wide by 1.5 s: Maya in 'panic' pose at her desk, a '!' mark pops by her head. Floey, perched on the laptop lid, does a slow tilt toward her."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Ask it again.",
+   "emotion": "playful",
+   "visual": "wide: Floey on the laptop lid gives a deadpan half-blink, then turns her head toward the keyboard. Maya switches straight to 'type' pose (quick typing sfx, panned centre)."
+  },
+  {
+   "role": "reframe",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Oh! I'm third!",
+   "emotion": "bright",
+   "visual": "Whoosh: the screenInsert swings back with a different list and a green 'you: #3' label (bright ding). Cut to wide: Maya in 'fist' pose, beaming. Floey on the lid gives one slow blink."
+  },
+  {
+   "role": "reframe",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Wait. Gone again.",
+   "emotion": "worried",
+   "visual": "maya: she can't resist and snaps back to 'type' for one more ask (short typing sfx). Whoosh to the screenInsert: a third list, her name missing, the green label pops away (boing sfx). Cut to mayaTight: her grin drops to flat disbelief."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "It almost never gives the same list twice.",
+   "emotion": "warm",
+   "visual": "wide: Floey lifts off the laptop lid and hovers at screen left beside Maya (floeyHover, flutter sfx panned left), preening one feather as she says it. Maya slumps back in her chair, staring from Floey to the laptop."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "So how do I know it sends anyone?",
+   "emotion": "curious",
+   "visual": "wide: Maya sits up in 'pointL' pose, pointing at Floey, eyebrows up. Floey, hovering, tilts her head."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Google Analytics. Traffic acquisition. Switch it to source. Find ChatGPT dot com.",
+   "emotion": "warm",
+   "caption": "GA4 > Traffic acquisition > source: chatgpt.com",
+   "visual": "floey: Floey chips once and turns toward the laptop. Cut to wide: Maya in 'type' pose, three click sfx. Cut to screenInsert: card titled 'Traffic acquisition: session source' with one row label 'chatgpt.com'."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Twenty three visits. Real ones.",
+   "emotion": "bright",
+   "caption": "23 visits. Real ones.",
+   "visual": "screenInsert: a small line draws itself upward beside the 'chatgpt.com' label and a green '23 visits' stat pill pops on (ding). Cut to mayaTight: a slow, surprised smile spreads behind her round glasses."
+  },
+  {
+   "role": "button",
+   "speaker": "maya",
+   "pause": 0.6,
+   "say": "One of them is definitely Mum.",
+   "emotion": "warm",
+   "visual": "wide: Maya turns to Floey and says it to her, deadpan. Floey, hovering, tilts. In the gap after the line, cut to mayaTight: Maya turns her head and gives the camera a silent, flat, knowing look."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.6,
+   "say": "That leaves twenty two strangers.",
+   "emotion": "proud",
+   "visual": "floeyTight: Floey faces the lens, smug little chest puff, one slow blink, then a wink. In the pause, cut to wide: Maya breaks into a grin and turns back to the laptop in 'type' pose (soft typing sfx) as Floey hovers beside her. End card follows with the small line 'Save this for your next audit'."
+  }
+ ],
+ "loopNote": "The last wide shot has Maya grinning and typing again, one more ask. On replay the first frame is the laptop card with a fresh ChatGPT list and the red 'not you' label, as if she just asked again. That is the joke of the reel: every ask gets a different list.",
+ "caption": "Asked ChatGPT for the best blogs in your niche and you weren't on the list? Ask again. Then ask once more. It almost never gives the same list twice, so one answer proves nothing.\n\nWhat counts is who actually clicked through. In Google Analytics, open Reports > Acquisition > Traffic acquisition, switch the table to Session source / medium and find chatgpt.com. Those are real visits. Some AI visits land as Direct, so treat that number as the least it could be.\n\nSave this for your next audit 📌\n\nBe honest: how many times have you asked ChatGPT about your own blog this week? (Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#blogging",
+  "#seo",
+  "#googleanalytics",
+  "#chatgpt",
+  "#contentmarketing"
+ ],
+ "sticky": 51,
+ "id": "r008-maya-asks-chatgpt-for-the-best-blogs-in-",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Maya asks ChatGPT for the best blogs in her niche, isn't on the list and panics. Floey shows her that the list changes on every ask, and that GA4 shows the visits ChatGPT actually sent.",
+ "editorNotes": [
+  "Beat 7 (tip): Floey says \"Find ChatGPT dot com.\" That puts a spoken web address in the dialogue, which is on the fail list, and it is also the clunkiest phrase in the reel for a character who uses the fewest words in the room. Have Floey say \"ChatGPT\" or \"Find ChatGPT\" out loud, and let the caption and the insert row show 'chatgpt.com'.",
+  "Beats 3 to 4 timing: the pause after \"Oh! I'm third!\" is only 0.2 s. In that time beat 4 asks for Maya to snap back to typing, a typing sfx, a whoosh, a third list drawing in and the green label popping off with a boing. That cannot fit. \"Wait. Gone again.\" would be spoken before the list changes, so she reacts to nothing. Make the gap long enough for the re-ask and the new list to land (roughly 1.2 to 1.5 s), then she speaks. Also cut beat 4 down from three shots (maya, insert, mayaTight) in a 1-second line to two.",
+  "Floey's position doesn't match the spots. The duo spots put floeyHover on Maya's left, which is screen RIGHT (the same side as floeyShoulder), and the laptop on screen LEFT. Beat 5 says she 'hovers at screen left', which contradicts the spot. Then in beat 6 Maya does 'pointL', which points at the laptop side, away from where the hovering Floey actually is. Pick one: keep Floey on the laptop and use pointL, or move her to floeyHover and use 'point' with MY.look to the right.",
+  "Shots 'floey' and 'floeyTight' are framed on Floey on the laptop lid ('Floey alone on the laptop'). From beat 5 on, the script has her hovering by Maya, yet beat 7 uses the 'floey' shot and beat 10 uses 'floeyTight'. As written, the button shot frames an empty laptop or cuts Floey off at the edge. Either land her back on the lid (or the mug) before the tip, with a flutter sfx, or say which shot is nudged to frame floeyHover and check that nobody is cut off.",
+  "The ChatGPT list inserts need fictional or placeholder entries. Real budget travel blogs must not appear in a story about Maya being left out, and Maya's own blog is never named (cast rule). Say this in the visual: blurred or placeholder blog rows with invented generic names, and Maya's row shown only as a highlighted 'you' row. Also note that screenInsert is built for a chart, so these list cards need a custom draw function. Spell that out for the animator.",
+  "Beat 9: Maya's silent look to camera is the biggest reaction in the reel, but the script gives it a 0.6 s pause that also has to hold a cut to mayaTight and a head turn. It won't register; the cut happens and Floey is already talking. Allow about 1.2 to 1.5 s, or move the look into the end-of-reel acting time, which the studio allows to run up to about 3 s.",
+  "(polish) The button: \"That leaves twenty two strangers.\" is a dry subtraction gag and lands softer than the Mum line it follows. 'Strangers' can also sound faintly cold or creepy, when the payoff should be warm: 22 real people found her. Read aloud in Floey's voice, the reel ends on arithmetic. Sharpen it so the warmth is in the words (for example a version of her running 'You're welcome.' or a callback to 'invisible'), and give it a deadpan or playful delivery rather than 'proud'.",
+  "(polish) Beats 5 and 7: 'warm' is the wrong delivery for Floey's flat fact \"It almost never gives the same list twice.\" and for the menu path. She is dry and deadpan. A soft, warm read makes her sound like a support agent. Use playful or a level delivery for beat 5.",
+  "(polish) Beat 7: Floey 'chips once' as the tip starts, which puts a chip sound on top of her own spoken line. Move the chip into the pause before or after the line, so the one line a viewer has to hear clearly stays clean.",
+  "(polish) Payoff insert: '23 visits' has no time range, so a viewer can't copy the check exactly. Put a date range on the GA4 card (for example 'Last 28 days'). It also keeps the number clearly Maya's own example. The facts also say the chatgpt.com row is a floor, because some AI visits land as Direct. 'Real ones' is fine, but don't let any caption imply this is the full count.",
+  "(polish) Captions: Maya's caption uses digits ('23 visits') but Floey's line would show 'twenty two' in words. Give her a caption field ('That leaves 22 strangers.' or whatever the new line is) so the numbers match.",
+  "(polish) 'Save this for your next audit' is moved to the end card. The brief asked for it in a caption or the last line, and it replaces the 'Maya & Floey, every day' line that builds the series. 'Audit' is also agency language, not what Maya the solo blogger would say. Consider keeping the series line and putting the save prompt in the tip caption or under the GA4 insert. Check it fits the box with PROPS.measure.",
+  "(polish) The loop and relapse: in the last wide shot Maya is just 'typing again', which tells the viewer nothing. If the joke is that she can't help asking ChatGPT one more time, it has to be visible: a flash of the ChatGPT card, or Floey's head snapping towards her. Otherwise drop the loop claim. Duo reels don't need a loop."
+ ],
+ "style": "duo",
+ "template": "../drafts/r008-maya-asks-chatgpt-for-the-best-blogs-in-/scene.html"
+}

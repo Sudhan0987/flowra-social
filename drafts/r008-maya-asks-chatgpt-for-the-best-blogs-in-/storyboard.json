@@ -1,0 +1,302 @@
+{
+ "style": "Night set: DUO.room with night on (moon, stars, warm desk-lamp glow). Maya (round glasses, pencil bun) sits behind the desk with her laptop, and Floey perches on the laptop lid facing her. There is one world stat pill near Maya's head (x 880, y 610) that changes three times as ChatGPT reshuffles its list: 'not listed' (bad, red), '#3' (good, green), then 'not listed' again. The reel has one cutaway, the GA4 screenInsert for the check, and no notification. Captions are MAYA amber and FLOEY pink at y 1540. The end card line is 'Save this for your next audit'.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "medium",
+   "camera": "shake",
+   "subject": "maya shot: Maya alone, the red 'not listed' stat pill already up by her head, a '!' mark beside it",
+   "action": "Frame one is mid-panic: hands on her cheeks (cheeks pose), eyes locked down on the laptop (look 0, 1), and the '!' mark pops on as she starts 'ChatGPT named the best budget travel blogs.' A small panic shake settles by 0.6 s.",
+   "onScreenData": "not listed",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 2,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk, Floey perched on the laptop lid facing her, red pill still up",
+   "action": "On 'Not me.' Maya throws her hands up by her head (panic pose, 0.3 s blend). Floey slowly tilts her head toward her and blinks once.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.05,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 3.3,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face, the pill fades out before the push",
+   "action": "On 'I'm invisible.' she slumps, her hands drop and her face goes sad, eyes up and away. A slow push-in sells the self-pity.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid",
+   "action": "Hard cut for the reversal. Floey gives a deadpan half-blink, says 'Ask it again.' and turns her head down toward the keyboard.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya typing, Floey on the lid; the pill flips from red 'not listed' to green '#3'",
+   "action": "Maya snaps straight into type pose. At 0.45 s the pill flips green to '#3', she jolts upright into fist pose and beams 'Oh! I'm third!' Floey gives one slow blink.",
+   "onScreenData": "#3",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "type"
+    },
+    {
+     "at": 0.45,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot: Maya, green '#3' pill by her head",
+   "action": "She can't resist and snaps back to type for one more ask, still grinning. On 'Wait.' the pill flips back to red 'not listed' with a comic bounce.",
+   "onScreenData": "not listed",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "type"
+    },
+    {
+     "at": 0.5,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0.75,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face",
+   "action": "On 'Gone again.' her grin drops to flat disbelief (deadpan) and she holds still.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "wide",
+   "camera": "drift",
+   "subject": "wide: Floey lifts off the lid to floeyHover at Maya's eye height on her left; Maya behind the desk; the pill has faded",
+   "action": "Floey lifts off with anticipation (a dip, then up) and hovers beside Maya, preening one feather as she says 'It almost never gives the same list twice.' Maya slumps back in her chair.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1.5,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya listening, Floey's wing tip just out of frame",
+   "action": "Listener reaction on 'same list twice': Maya's eyes swing left to Floey, then down to the laptop, then back left, unimpressed (annoyed).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya sitting up, Floey hovering on her left",
+   "action": "Maya sits up into pointL, pointing at Floey with her eyebrows up: 'So how do I know it sends anyone?' Floey tilts her head on 'anyone'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey glides from the hover back down to the laptop lid, Maya watching her",
+   "action": "On 'Google Analytics.' Floey swoops back onto the lid and settles facing Maya. Maya's eyes follow her down.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 1.3,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: closer two-shot favouring Floey on the lid",
+   "action": "Floey chips once and points her beak at the keyboard: 'Traffic acquisition. Switch it to source.' Behind her, Maya nods along (nod 2).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.35,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 2.8,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot: Maya in type pose, eyes down on the laptop",
+   "action": "Maya follows each step with a click as Floey finishes 'Find ChatGPT dot com.' She leans in, squinting (think).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.85,
+     "kind": "type"
+    },
+    {
+     "at": 3.35,
+     "kind": "type"
+    },
+    {
+     "at": 3.85,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 4.4,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "screenInsert (the reel's only cutaway): laptop card titled 'Traffic acquisition: session source' with one row label",
+   "action": "The insert swings in and the row 'chatgpt.com' appears in its list as the line ends.",
+   "onScreenData": "chatgpt.com",
+   "sfx": [
+    {
+     "at": 4.4,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "screenInsert continues: the chatgpt.com row",
+   "action": "A small line draws itself upward beside 'chatgpt.com' and a green '23 visits' pill pops on at the end of the line, timed to 'Twenty three visits.'",
+   "onScreenData": "23 visits",
+   "sfx": [
+    {
+     "at": 0.6,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 1,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face lit by the screen",
+   "action": "On 'Real ones.' a slow, surprised smile spreads behind her round glasses (surprised, then happy). A gentle push-in sells the realisation.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Maya turns to Floey perched on the laptop lid",
+   "action": "Maya turns her head left to Floey and says, deadpan, 'One of them is definitely Mum.' Floey tilts her head on 'Mum'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 2,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face",
+   "action": "Silent button in the gap after the line: Maya turns her head to the lens and gives the camera a flat, knowing look (deadpan, look 0, 0), then one slow blink. Hold about 1.2 s.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.05,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid, pivoting front to face the lens",
+   "action": "Floey pivots to camera with a smug little chest puff and says 'That leaves twenty two strangers.' Then one slow blink, and a wink at 1.5 s.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.5,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 2.2,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Maya and Floey together, Floey on the lid",
+   "action": "Maya breaks into a grin and turns back to the laptop in type pose, happily typing away. Floey preens.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.3,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 3.8,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo intact, Floey perched on the spark's left arm facing the camera",
+   "action": "The end card lands with the small line under the logo while Floey settles and blinks.",
+   "onScreenData": "Save this for your next audit",
+   "sfx": [
+    {
+     "at": 3.8,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 2.4
+}
