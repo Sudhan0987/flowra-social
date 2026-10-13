@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-12T03:14:36.845Z",
+  "updated": "2026-10-13T04:07:45.705Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -92,7 +92,7 @@
     {
       "date": "2026-10-12",
       "kind": "reel",
-      "title": "Moving your site? Google's own range is 1 to 3 months",
+      "title": "Moving your site? Google's own range is 1 to 3 months, and the slow end is a year",
       "channels": [
         "instagram",
         "facebook",
@@ -100,12 +100,10 @@
         "linkedin",
         "x"
       ],
-      "status": "making",
+      "status": "posted",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: A site move doesn't settle in a week. Google's own number is 1 to 3 months, and the slow end is a year.",
-      "sources": [
-        "https://www.reddit.com/r/bigseo/comments/1x21aex/google_shared_how_long_crawling_indexing_and_core/"
-      ]
+      "ref": "r007-moving-your-site-google-s-own-range-is-1",
+      "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
       "date": "2026-10-13",
@@ -121,9 +119,30 @@
       "file": "posts/linkedin/2026-10-13.md"
     },
     {
+      "date": "2026-10-13",
+      "kind": "reel",
+      "title": "Maya & Floey: Being cited by ChatGPT next to actually getting the visit",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "making",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Your brand showing up in ChatGPT doesn't mean anyone clicked through to you.",
+      "sources": [
+        "https://citerank.thecompound.tech",
+        "https://www.clicksdynasty.com/blog-post-chatgpt-perplexity-local-recommendations.html",
+        "https://www.reddit.com/r/bigseo/comments/1x2alme/i_think_were_measuring_ai_search_visibility_the/",
+        "https://ukaiseoconsultant.co.uk/ai-driven-seo-audits/"
+      ]
+    },
+    {
       "date": "2026-10-14",
       "kind": "reel",
-      "title": "Being cited by ChatGPT next to actually getting the visit",
+      "title": "Maya & Floey: Floey gets graded by an AI detector that never read the words",
       "channels": [
         "instagram",
         "facebook",
@@ -133,12 +152,9 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Your brand showing up in ChatGPT doesn't mean anyone clicked through to you.",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Your blog post just got its report card from a model that only looked at the layout.",
       "sources": [
-        "https://citerank.thecompound.tech",
-        "https://www.clicksdynasty.com/blog-post-chatgpt-perplexity-local-recommendations.html",
-        "https://www.reddit.com/r/bigseo/comments/1x2alme/i_think_were_measuring_ai_search_visibility_the/",
-        "https://ukaiseoconsultant.co.uk/ai-driven-seo-audits/"
+        "https://arxiv.org/abs/2609.15369"
       ]
     },
     {
@@ -155,9 +171,9 @@
       "file": "posts/linkedin/2026-10-15.md"
     },
     {
-      "date": "2026-10-16",
+      "date": "2026-10-15",
       "kind": "reel",
-      "title": "Floey gets graded by an AI detector that never read the words",
+      "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
         "instagram",
         "facebook",
@@ -167,15 +183,57 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅. Likely topic from listening: Your blog post just got its report card from a model that only looked at the layout.",
-      "sources": [
-        "https://arxiv.org/abs/2609.15369"
-      ]
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-10-16",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-10-17",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-10-18",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-10-19",
       "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
+      "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
         "instagram",
         "facebook",
@@ -185,7 +243,7 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-10-19",
@@ -216,9 +274,9 @@
       ]
     },
     {
-      "date": "2026-10-21",
+      "date": "2026-10-20",
       "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
+      "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
         "instagram",
         "facebook",
@@ -228,12 +286,27 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-10-21",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-10-22",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/content-audit-template",
+      "title": "Share the blog article: useflowra.com/blog/best-content-audit-tools",
       "channels": [
         "linkedin"
       ],
@@ -241,6 +314,21 @@
       "format": "carousel",
       "status": "planned",
       "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+    },
+    {
+      "date": "2026-10-22",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-10-22",
@@ -257,7 +345,7 @@
     {
       "date": "2026-10-23",
       "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
+      "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
         "instagram",
         "facebook",
@@ -267,12 +355,42 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-10-24",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-10-25",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-10-26",
       "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
+      "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
         "instagram",
         "facebook",
@@ -282,7 +400,7 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-10-27",
@@ -301,9 +419,9 @@
       ]
     },
     {
-      "date": "2026-10-28",
+      "date": "2026-10-27",
       "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
+      "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
         "instagram",
         "facebook",
@@ -313,12 +431,27 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-10-28",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-10-29",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
+      "title": "Share the blog article: useflowra.com/blog/content-audit-template",
       "channels": [
         "linkedin"
       ],
@@ -328,9 +461,9 @@
       "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
     },
     {
-      "date": "2026-10-30",
+      "date": "2026-10-29",
       "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
+      "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
         "instagram",
         "facebook",
@@ -340,12 +473,57 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-10-30",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-10-31",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-01",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-11-02",
       "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
+      "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
         "instagram",
         "facebook",
@@ -355,7 +533,7 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-11-02",
@@ -385,9 +563,9 @@
       ]
     },
     {
-      "date": "2026-11-04",
+      "date": "2026-11-03",
       "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
+      "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
         "instagram",
         "facebook",
@@ -397,12 +575,27 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-04",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-11-05",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/fresh-content-seo",
+      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
       "channels": [
         "linkedin"
       ],
@@ -410,6 +603,21 @@
       "format": "carousel",
       "status": "planned",
       "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+    },
+    {
+      "date": "2026-11-05",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-11-05",
@@ -426,7 +634,7 @@
     {
       "date": "2026-11-06",
       "kind": "reel",
-      "title": "Reel: Flowra picks this week's best topic",
+      "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
         "instagram",
         "facebook",
@@ -436,7 +644,37 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "Made at 10:30 India time and sent to Slack #social for your ✅."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-07",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-08",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
     {
       "date": "2026-11-16",

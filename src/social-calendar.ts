@@ -2,11 +2,11 @@
 // does it. Writes calendar/social.json, which Flowra Desk shows under
 // "Social". Re-run any time; it rebuilds from what actually happened.
 //
-// Rhythm (founder, 2026-10-07):
-//   Mon / Wed / Fri  a reel. Flowra makes it at 10:30 India time and posts the
-//                    draft to Slack #social; after the founder's ✅ it goes to
-//                    Instagram (Reel) and the Facebook Page; LinkedIn and X get
-//                    the same video posted by hand from its pack.
+// Rhythm (founder, 2026-10-07; reels daily since 2026-10-13):
+//   Every day        a Maya & Floey reel. Flowra makes it at 10:30 India time and
+//                    posts the draft to Slack #social; after the founder's ✅ it
+//                    goes to Instagram (Reel), the Facebook Page and YouTube Shorts;
+//                    LinkedIn and X get the same video posted by hand from its pack.
 //   Tue / Thu        a LinkedIn post, alternating between an idea from the
 //                    weekly social listening (research/latest.json) and a share
 //                    of the newest blog article. Flowra drafts the text into
@@ -118,12 +118,12 @@ export function buildCalendar(): SocialItem[] {
   let r = 0, li = 0, art = 0, alt = 0;
   for (let d = start; d <= end; d = addDays(d, 1)) {
     const w = dow(d);
-    if ((w === 1 || w === 3 || w === 5) && d >= today && !reelDays.has(d)) {
+    if (d >= today && !reelDays.has(d)) {
       const idea = reelIdeas[r++];
       items.push({
-        date: d, kind: "reel", title: idea ? idea.title : "Reel: Flowra picks this week's best topic", channels: ["instagram", "facebook", "youtube", "linkedin", "x"],
+        date: d, kind: "reel", title: idea ? `Maya & Floey: ${idea.title}` : "Maya & Floey: Flowra picks today's situation", channels: ["instagram", "facebook", "youtube", "linkedin", "x"],
         status: d === today ? "making" : "planned", owner: "flowra",
-        note: "Made at 10:30 India time and sent to Slack #social for your ✅." + (idea ? ` Likely topic from listening: ${idea.hook}` : ""),
+        note: "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening." + (idea ? ` Likely situation from listening: ${idea.hook}` : ""),
         sources: idea?.sources,
       });
     }
