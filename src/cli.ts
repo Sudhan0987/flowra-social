@@ -17,7 +17,7 @@ import { writeScript, type Script, type Topic } from "./script.ts";
 import { reelIdeas, unusedReelIdeas } from "./ideas.ts";
 import { postDraft, say } from "./slack.ts";
 import { pickStyle, styles, type Style } from "./styles.ts";
-import { HOUSE, finalTest, lengthFor, pickFormat, research, storyboard, writeStory, type Board, type Brief, type Story } from "./pipeline.ts";
+import { DUO_FORMAT, DUO_LENGTH, HOUSE, finalTest, lengthFor, pickFormat, research, storyboard, writeStory, type Board, type Brief, type Story } from "./pipeline.ts";
 import { directFloey } from "./studio.ts";
 import type { Line } from "./scenecheck.ts";
 
@@ -130,20 +130,24 @@ async function make(state: State, arg?: string): Promise<void> {
   const dir = path.join(ROOT, "drafts", id);
   const f = (name: string) => path.join(dir, name);
   // the voice for this style (render-scene.mts and floey_sound.py read it)
+  // (duo reels: each line names its speaker, and render-scene.mts picks Maya's or Floey's voice per line)
   process.env.REEL_VOICE = style.voice === "pro" ? "pro" : "";
   console.log(`Reel ${id}: ${brief.topic} (${brief.goal})`);
 
   if (!existsSync(f("script.json"))) {
-    const format = pickFormat(brief, lastFormats);
+    const duo = style.id === "duo";
+    const format = duo ? DUO_FORMAT : pickFormat(brief, lastFormats);
     console.log(`2. Story, as "${format.name}"`);
-    const len = lengthFor(state.posts);
+    // duo reels have their own length; the length test (story/length.json) was for the narrated styles
+    const len = duo ? DUO_LENGTH : lengthFor(state.posts);
     if (len.name) console.log(`   length test "${len.name}": ${len.seconds} seconds`);
     const story = await writeStory(id, brief, format, len, style);
     writeJson(f("script.json"), { ...story, style: style.id, template: `../drafts/${id}/scene.html` });
   }
   // Floey's lines, exactly as she will say them (the scene reads lines.js and never changes it)
   const story0 = readJson<Story>(f("script.json"));
-  const lines: Line[] = story0.beats.map((x, i) => (x.caption ? [`${x.role}${i}`, x.say, x.emotion, x.caption] : [`${x.role}${i}`, x.say, x.emotion]) as Line);
+  // duo lines carry the speaker as the 4th field (and the caption, if any, as the 5th)
+  const lines: Line[] = story0.beats.map((x, i) => (x.speaker ? (x.caption ? [`${x.role}${i}`, x.say, x.emotion, x.speaker, x.caption] : [`${x.role}${i}`, x.say, x.emotion, x.speaker]) : x.caption ? [`${x.role}${i}`, x.say, x.emotion, x.caption] : [`${x.role}${i}`, x.say, x.emotion]) as Line);
   writeFileSync(f("lines.js"), `window.LINES = ${JSON.stringify(lines)};\n`);
   if (!existsSync(f("build/voice.json"))) {
     console.log("3. Floey's voice");

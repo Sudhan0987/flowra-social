@@ -1,6 +1,6 @@
 # Flowra Social
 
-The social agent. It makes short vertical videos (Reels) about the problems Flowra's buyers have, posts each draft to Slack `#social` for the founder's ✅, and (next) publishes approved ones to Instagram. LinkedIn and X get a ready-to-post pack from the same video.
+The social agent. It makes one short vertical video (Reel) a day, a Maya & Floey sitcom moment for brand awareness (see below), posts each draft to Slack `#social` for the founder's ✅, and (next) publishes approved ones to Instagram. LinkedIn and X get a ready-to-post pack from the same video.
 
 The founder is not technical: plain words, short sentences.
 
@@ -14,7 +14,19 @@ The founder is not technical: plain words, short sentences.
 
 Formats today: `fix` (the 45-second fix: hook, 2 to 4 steps, outro) and `myth` (myth vs fact pairs). Beat kinds: hook, point, step, myth, fact, clip, outro.
 
+## The daily reel: Maya & Floey (duo style)
+
+Founder, 13 Oct 2026: reels are conversational, two characters, interesting, for **brand awareness** (not conversion), one a day on Instagram and YouTube. So the daily style is `duo`: a short sitcom moment in Maya's room. Maya (solo blogger, panics; Kokoro `bf_emma`) brings the problem in her first line, Floey flips it with one real, sourced tip, Maya checks it on screen, and it ends on a button line and the Flowra end card. Flowra is never mentioned in the dialogue.
+
+- Cast guide: `brand/cast/README.md` (who they are, how they talk, running jokes). Maya's rig: `brand/cast/maya.js` (expressions, poses, lip sync, `MAYA.create` performer), sheet `brand/cast/sheet.html`.
+- Studio: `brand/styles/duo/README.md` and `brand/cast/duo.js` (room day/night, desk, laptop, mug, laptop-screen insert, phone notification, number pills, comic marks, speaker captions, end card, named spots and shots). Worked example: `reel/duo/template.html` (the approved test reel).
+- Lines are `[id, say, emotion, speaker]` (+ caption); `render-scene.mts` voices Maya's lines with `REEL_VOICE=maya`. Duo mixes have no garden hum or ambience.
+- Pipeline: `DUO_RESEARCH`, `duoSystem`, `duoProblems`, `DUO_LENGTH`, `DUO_FORMAT` and the duo editor/storyboard prompts in `src/pipeline.ts`; the duo director brief in `src/studio.ts`.
+- Skills (use them when working by hand; the pipeline prompts carry the same rules): `duo-research`, `duo-script` (with stickiness score and audits), `duo-voice-direction`, `duo-editing` in `.claude/skills/`. Adapted from `~/Desktop/mindgame-shorts` (Lockhouse) and `~/Desktop/Youtube/stickman-youtube`.
+- `make.yml` runs every day at 10:30 IST; each reel still waits for the founder's ✅, then `autopost.yml` posts it to Instagram, Facebook and YouTube.
+
 ## Reel styles (brand/styles/styles.json)
+- Only styles with `rotation` not false are picked automatically; `duo` is the only one in the rotation now. `floey-garden` and `pro` stay available with REEL_STYLE or the make.yml style input.
 
 - The maker never uses the last reel's style (failed reels don't count). `floey-garden` (brand/studio, reel/floey/template.html, Floey's voice) and `pro` (brand/styles/pro: a narrator over a drawn working screen, useflowra.com colours, reel/pro/template.html, assets/music/mk162.mp3 Mixkit free licence). Founder, 12 Oct 2026: "dont make the reels in same style... make some professional reels also".
 - Each style brings its studio guide, worked example and voice (REEL_VOICE=pro picks the narrator in floey_sound.py; the pro mix has no garden hum or ambience and uses the music file). The style is recorded on brief.json, script.json and the post, and the weekly results compare styles. Force one with make.yml input `style` or REEL_STYLE.

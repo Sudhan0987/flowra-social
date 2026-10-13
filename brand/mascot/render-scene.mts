@@ -31,8 +31,12 @@ if (!lines.length) {
 const mouths: Record<string, number[]> = {};
 for (const [id, line] of lines as string[][]) {
   const said = path.join(OUT, `${id}.txt`);
-  const emotion = (lines.find((l) => l[0] === id) as string[])[2] ?? "warm", key = `${emotion}|${line}|${env.REEL_VOICE === "pro" ? "pro" : env.FLOEY_ENGINE ?? "chatterbox"}`;
-  if (!existsSync(path.join(OUT, `${id}.mouth.json`)) || !existsSync(said) || readFileSync(said, "utf8") !== key) { execFileSync(py, [snd, "voice", id, line, OUT, emotion], { stdio: "inherit", env }); writeFileSync(said, key); }
+  // a fourth field names the speaker in duo reels ("maya" or "floey"); otherwise REEL_VOICE decides
+  const row = lines.find((l) => l[0] === id) as string[], emotion = row[2] ?? "warm", speaker = row[3];
+  const lineEnv = speaker === "maya" ? { ...env, REEL_VOICE: "maya" } : speaker === "floey" ? { ...env, REEL_VOICE: "" } : env;
+  const who = lineEnv.REEL_VOICE === "pro" ? "pro" : lineEnv.REEL_VOICE === "maya" ? `maya:${lineEnv.MAYA_VOICE ?? "bf_emma"}` : lineEnv.FLOEY_ENGINE ?? "chatterbox";
+  const key = `${emotion}|${line}|${who}`;
+  if (!existsSync(path.join(OUT, `${id}.mouth.json`)) || !existsSync(said) || readFileSync(said, "utf8") !== key) { execFileSync(py, [snd, "voice", id, line, OUT, emotion], { stdio: "inherit", env: lineEnv }); writeFileSync(said, key); }
   mouths[id] = JSON.parse(readFileSync(path.join(OUT, `${id}.mouth.json`), "utf8"));
 }
 writeFileSync(path.join(OUT, "voice.json"), JSON.stringify(Object.fromEntries(Object.entries(mouths).map(([id, m]) => [id, +(m.length / FPS).toFixed(2)]))));

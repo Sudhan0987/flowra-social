@@ -3,6 +3,10 @@
 Newest first. Each entry: date, what Sudhan said (close to his words), and what changed.
 
 
+## 2026-10-13
+- **"Create 2 animated characters... I want the reels to be conversational... create an interesting topic for Flowra, not just a topic that tells something... all our videos are not interesting... social media is used for brand awareness, not for direct conversion... daily one reel on both Insta and YouTube."** Picked (with Sudhan): Floey plus a new human co-star, Maya (a solo blogger who panics about her traffic), drawn in code like Floey. New "duo" style (brand/styles/duo, brand/cast): a sitcom moment, Maya panics, Floey flips it with one real tip, ends on a button, brand only in the end card. It is now the daily style (the others stay available by hand). Skills ported and rewritten from the Lockhouse and stickman agents (.claude/skills: duo-research, duo-script, duo-voice-direction, duo-editing). make.yml runs every day.
+- **"Yes approved, for voice use the one in this video"**: Maya's look and voice (Kokoro bf_emma) and the test reel, now reel/duo/template.html.
+
 ## 2026-10-12
 - **"Dont make the reels in same style man... we are repeating the same style over and over... make some professional reels also."** Added reel styles (brand/styles): the garden stays as one; new "pro" style: a narrator over a drawn working screen (charts drawing, rows sorting, a cursor clicking the control the voice names), useflowra.com colours, the launch film's approved techno track (Mixkit mk162), Floey only perched on the logo in the end card. The maker alternates styles. Rules: "Styles" section added; Floey rules scoped to garden reels.
 - **"Do whatever feels best for our reach"** (11 Oct, reel length): two reels at 20 to 26 seconds with the problem on screen from frame one (story/length.json).

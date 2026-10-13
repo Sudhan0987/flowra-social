@@ -71,3 +71,37 @@ test("the style alternates, failed reels don't count, and a style named by hand 
   assert.equal(pickStyle(all, [{ status: "published" }], "floey-garden").id, "floey-garden");
   assert.throws(() => pickStyle(all, [], "nope"));
 });
+
+test("only styles in the rotation are picked; one alone repeats; any style can still be named by hand", () => {
+  const all = [{ id: "duo", rotation: true }, { id: "floey-garden", rotation: false }, { id: "pro", rotation: false }] as Style[];
+  assert.equal(pickStyle(all, [{ status: "published", style: "duo" }]).id, "duo");
+  assert.equal(pickStyle(all, [{ status: "published", style: "pro" }]).id, "duo");
+  assert.equal(pickStyle(all, [], "pro").id, "pro");
+});
+
+import { duoProblems } from "../src/pipeline.ts";
+
+test("duo scripts: Maya opens, Floey tips once, it ends on a button, and the brand stays out of the dialogue", () => {
+  const beat = (role: string, speaker: string, say: string) => ({ role, speaker, say, emotion: "warm", visual: "Maya reacts" });
+  const ok = {
+    id: "x", format: "duo-sitcom", goal: "send", topic: "t", title: "t", hookPattern: "own", loopNote: "",
+    caption: "Maya panicked on a Sunday again. Compare Sunday with last Sunday, not with Friday. Who else checks traffic at brunch? ".repeat(2),
+    hashtags: ["#seo", "#blogging", "#contentmarketing"],
+    beats: [
+      beat("hook", "maya", "Floey. My traffic dropped forty percent overnight."),
+      beat("reframe", "floey", "It's Sunday, Maya."),
+      beat("doubt", "maya", "So?"),
+      beat("tip", "floey", "So everyone's at brunch. Compare it with last Sunday, not Friday."),
+      beat("check", "maya", "Oh. It's up three percent."),
+      beat("payoff", "maya", "I nearly deleted the whole blog for that."),
+      beat("button", "floey", "You're welcome. Again. Every single Sunday, apparently."),
+    ],
+  } as never;
+  assert.deepEqual(duoProblems(ok), []);
+  const bad = { ...(ok as object), beats: [beat("hook", "floey", "Hi, I'm Floey from Flowra, check useflowra.com today.")] } as never;
+  const p = duoProblems(bad).join(" ");
+  assert.match(p, /hook, said by Maya/);
+  assert.match(p, /mentions Flowra/);
+  assert.match(p, /button/);
+  assert.match(p, /one tip/);
+});

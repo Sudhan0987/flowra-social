@@ -27,6 +27,16 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const read = (f: string) => readFileSync(path.join(ROOT, f), "utf8");
 
 function studioBrief(style?: Style): string {
+  if (style?.id === "duo") {
+    return [
+      "THE CAST (who Maya and Floey are; keep them in character in every frame):",
+      read("brand/cast/README.md"),
+      `THE STUDIO for the "${style.name}" style (what you draw with; use these parts, they are approved):`,
+      read(style.studio),
+      "THE WORKED EXAMPLE, approved by the founder. Match its craft: frame one already shows the problem, the speaker acts every line while the listener reacts, the camera moves between the named shots with a reason, the check is shown in the laptop insert, sounds land on real events, and the button lands on a reaction before the end card.",
+      read(style.template),
+    ].join("\n\n");
+  }
   if (style && !style.mascot) {
     return [
       `THE STUDIO for the "${style.name}" style (what you draw with; use these parts, they are approved):`,
@@ -54,7 +64,9 @@ export async function directFloey(
 
   const base = [
     system,
-    opts.style && !opts.style.mascot
+    opts.style?.id === "duo"
+      ? "You are the director and animator of one Maya & Floey reel: a short sitcom moment in Maya's room. You write the scene, check your own work, and fix it, inside this one session, the way an animator actually works. Aim for the founder's bar: too good, not good enough. Comedy lives in timing and reactions: hold a beat before a reveal, give the listener a reaction on the other's key word, and land the button."
+      : opts.style && !opts.style.mascot
       ? `You are the director and animator of one Flowra reel in the "${opts.style.name}" style: a narrator over a drawn working screen in motion. You write the scene, check your own work, and fix it, inside this one session, the way a motion designer actually works. Aim for the founder's bar: too good, not good enough.`
       : "You are the director and animator of one Flowra reel, told by Floey in her page-flower garden. You write the scene, check your own work, and fix it, inside this one session, the way a motion designer actually works. Aim for the founder's bar: too good, not good enough.",
     studioBrief(opts.style),
@@ -72,7 +84,9 @@ export async function directFloey(
   ].join("\n\n");
 
   const prompt = [
-    opts.style && !opts.style.mascot
+    opts.style?.id === "duo"
+      ? `Write ${relDir}/scene.html, the animation for this reel, following ${opts.style.template}'s shape exactly: load lines.js for window.LINES (use window.LINES as it is; do not keep the template's fallback lines), DUO.timing with a GAP per line taken from each line's pause in the story (default 0.35), Floey created first and Maya with floey: F, every line said by its own speaker (MY.say for maya, F.say for floey), one paused gsap timeline for the camera and props, and define window.render / DURATION / SOUND / CAMERA / FLOEY / BEATS / STYLE exactly as the template does. The script paths are relative to ${relDir}/, two folders below the repo root, exactly as in the template.`
+      : opts.style && !opts.style.mascot
       ? `Write ${relDir}/scene.html, the animation for this reel, following ${opts.style.template}'s shape exactly: load lines.js for window.LINES (use window.LINES as it is; do not keep the template's fallback lines), the same timing from MOUTHS, PRO.sounds() with S.say for every line, one paused gsap timeline for the world, and define window.render / DURATION / SOUND / CAMERA / BEATS / STYLE exactly as the template does (no window.FLOEY). The script paths are relative to ${relDir}/, two folders below the repo root, exactly as in the template.`
       : `Write ${relDir}/scene.html, the animation for this reel, following reel/floey/template.html's shape exactly: load lines.js for window.LINES, use PROPS.timing for beat timing, one Floey actor cued to every line, one paused gsap timeline for the world, and define window.render / DURATION / SOUND / CAMERA / FLOEY / BEATS exactly as the template does.`,
     context,

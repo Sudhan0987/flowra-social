@@ -7,7 +7,7 @@ import { readFileSync, readdirSync, existsSync } from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright";
 
-export type Line = [id: string, text: string, emotion: string];
+export type Line = [id: string, text: string, emotion: string, ...extra: string[]];  // garden/pro: optional caption; duo: speaker, then optional caption
 
 const SAFE = { x0: 60, x1: 1020, y0: 220, y1: 1420 };
 const CAPTION_BAND = { y0: 1440, y1: 1580 };
@@ -46,7 +46,7 @@ export async function checkScene(scene: string, lines: Line[], mouths: Record<st
     // every line is spoken, at its own time
     const sound = await page.evaluate(() => (window as unknown as { SOUND: () => { cues: { t: number; kind: string; id?: string; len?: number }[] } }).SOUND());
     const voice = sound.cues.filter((c) => c.kind === "voice");
-    for (const [id] of lines) if (!voice.some((c) => c.id === id)) problems.push(`Line "${id}" is never spoken (no F.say(B.${id}.start, M.${id}, "${id}")).`);
+    for (const [id, , , who] of lines) if (!voice.some((c) => c.id === id)) problems.push(`Line "${id}" is never spoken (no ${who === "maya" ? "MY" : "F"}.say(B.${id}.start, M.${id}, "${id}")).`);
 
     // where Floey is on screen while she speaks (reels with the mascot only)
     const samples = g.floey !== "object" ? [] : await page.evaluate((dur) => {

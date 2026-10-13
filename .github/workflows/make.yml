@@ -3,8 +3,9 @@
 # all on the Claude subscription. Floey speaks with the clean (Kokoro) voice
 # here; the acted (Chatterbox) voice needs a bigger machine. Originally: Claude writes the script,
 # a free local voice reads it, the page in reel/ is drawn frame by frame, and
-# the video goes to Slack #social for a ✅. Monday, Wednesday and Friday at
-# 10:30 India time, or by hand from the Actions tab (optionally with a topic id).
+# the video goes to Slack #social for a ✅. Every day at 10:30 India time
+# (founder, 13 Oct 2026: "daily one reel"), or by hand from the Actions tab
+# (optionally with a topic id or a style).
 #
 # Needs repository secrets:
 #   CLAUDE_CODE_OAUTH_TOKEN  from `claude setup-token`
@@ -17,14 +18,14 @@ on:
   # Back on 2026-10-07: the founder approved the Floey v2 reels (r002, r003).
   # Drafts still wait for a ✅ in Slack #social before anything is posted.
   schedule:
-    - cron: "0 5 * * 1,3,5"
+    - cron: "0 5 * * *"
   workflow_dispatch:
     inputs:
       topic:
         description: "Topic id from calendar/topics.json (optional; empty = the next one)"
         required: false
       style:
-        description: "Reel style from brand/styles/styles.json (optional; empty = not the last reel's style)"
+        description: "Reel style from brand/styles/styles.json: duo (daily), floey-garden or pro (optional; empty = the daily rotation)"
         required: false
 
 permissions:

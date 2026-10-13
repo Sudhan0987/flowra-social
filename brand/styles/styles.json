@@ -1,6 +1,16 @@
 {
-  "_about": "The looks a reel can be made in. The maker never uses the style of the last reel made (failed reels don't count), so the feed alternates. Each style has its own studio guide (what the director draws with), an approved worked example (template) and a voice. Founder, 12 Oct 2026: 'dont make the reels in same style... make some professional reels also'.",
+  "_about": "The looks a reel can be made in. Only styles in the rotation are picked automatically (rotation: false keeps a style available by hand, REEL_STYLE or the make.yml style input). With several in the rotation the maker never repeats the last reel's style. Founder, 12 Oct 2026: 'dont make the reels in same style... make some professional reels also'. Founder, 13 Oct 2026: reels must be conversational, two characters, for brand awareness, one a day: the duo style is the daily style; variety comes from the situations, sets and shots inside it.",
   "styles": [
+    {
+      "id": "duo",
+      "name": "Maya & Floey",
+      "studio": "brand/styles/duo/README.md",
+      "template": "reel/duo/template.html",
+      "voice": "duo",
+      "mascot": true,
+      "rotation": true,
+      "research": "The reel will be a short sitcom moment between Maya (a solo blogger who panics about her traffic) and Floey (Flowra's calm, dry hummingbird) in Maya's room: Maya at her desk with her laptop, Floey perched on the laptop, the mug or Maya's shoulder, a phone notification, a cutaway to her laptop screen (a chart drawing itself), number pills and comic marks. Propose a situation those parts can play: what Maya sees, what she fears, what Floey says, what Maya checks on screen, and how it turns out. No other characters on screen (others can text Maya). Cast guide: brand/cast/README.md."
+    },
     {
       "id": "floey-garden",
       "name": "Floey's garden",
@@ -8,7 +18,8 @@
       "template": "reel/floey/template.html",
       "voice": "floey",
       "mascot": true,
-      "research": "The reel will be animated in Floey's garden with a fixed set of parts; propose a visual idea those parts can tell: pages are flowers whose health rises or falls, bugs are errors Floey eats, the PAGE 1 line, tags, the review card, day counter, clicks chart. No new worlds or effects."
+      "research": "The reel will be animated in Floey's garden with a fixed set of parts; propose a visual idea those parts can tell: pages are flowers whose health rises or falls, bugs are errors Floey eats, the PAGE 1 line, tags, the review card, day counter, clicks chart. No new worlds or effects.",
+      "rotation": false
     },
     {
       "id": "pro",
@@ -17,7 +28,8 @@
       "template": "reel/pro/template.html",
       "voice": "pro",
       "mascot": false,
-      "research": "The reel will be a clean, professional product explainer: a drawn working screen (Search Console, GA4, WordPress or Flowra itself) in motion: a chart drawing, rows sorting, a cursor clicking the exact control, the camera pushing in on the one row or number that matters, with a short headline above. Propose a visual idea that a real screen walkthrough can show step by step. No mascot, no metaphors."
+      "research": "The reel will be a clean, professional product explainer: a drawn working screen (Search Console, GA4, WordPress or Flowra itself) in motion: a chart drawing, rows sorting, a cursor clicking the exact control, the camera pushing in on the one row or number that matters, with a short headline above. Propose a visual idea that a real screen walkthrough can show step by step. No mascot, no metaphors.",
+      "rotation": false
     }
   ]
 }

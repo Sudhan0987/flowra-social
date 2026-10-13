@@ -44,6 +44,8 @@
     let ctx; const cache = {};
     return (txt, font) => {
       ctx ??= document.createElement("canvas").getContext("2d");
+      // never cache a width measured before the web fonts load (it is the fallback font's width)
+      if (document.fonts && document.fonts.status !== "loaded") { ctx.font = font; return ctx.measureText(txt).width; }
       return (cache[font + txt] ??= (ctx.font = font, ctx.measureText(txt).width));
     };
   })();

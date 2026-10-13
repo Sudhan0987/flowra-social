@@ -221,15 +221,49 @@ def thump():
     return sweep(110, 45, d) * env(int(SR * d), 0.002, 0.12) * 1.1
 
 
+# ---------- room sounds, for the duo reels (brand/cast) ----------
+def typing(d=1.0):
+    rng = np.random.default_rng(7)
+    out = np.zeros(int(SR * d))
+    t = 0.0
+    while t < d - 0.05:
+        k = click() * (0.45 + rng.random() * 0.4)
+        i = int(t * SR); out[i:i + len(k)] += k[: len(out) - i]
+        t += 0.07 + rng.random() * 0.09
+    return lowpass(out, 5000) * 1.4
+
+
+def buzz():
+    d = 0.5
+    x = T(d)
+    gate = (np.sin(2 * np.pi * 9 * x) > 0).astype(float)
+    return (np.sin(2 * np.pi * 150 * x) * 0.6 + np.sin(2 * np.pi * 300 * x) * 0.2) * lowpass(gate, 60) * env(len(x), 0.01, 0.05)
+
+
+def ding():
+    d = 0.9
+    x = T(d)
+    return (np.sin(2 * np.pi * 1318 * x) * 0.5 + np.sin(2 * np.pi * 1976 * x) * 0.25) * np.exp(-x * 5) * env(len(x), 0.002, 0.2)
+
+
+def boing():
+    d = 0.45
+    x = T(d)
+    f = 180 + 220 * np.exp(-x * 7) * (1 + 0.35 * np.sin(2 * np.pi * 14 * x))
+    return np.sin(2 * np.pi * np.cumsum(f) / SR) * env(len(x), 0.004, 0.15) * 0.7
+
+
 SOUNDS = {"chip": lambda c: chip(c.get("n", 3)), "zip": lambda c: zip_(c.get("d", 0.3)), "brrt": lambda c: brrt(), "tk": lambda c: tk(),
           "rustle": lambda c: rustle(c.get("n", 1)), "lick": lambda c: lick(), "pluck": lambda c: pluck(), "flick": lambda c: flick(),
           "sip": lambda c: sip(), "shimmer": lambda c: shimmer(), "bloom": lambda c: bloom(), "tap": lambda c: tap(), "flutter": lambda c: flutter(),
           "shake": lambda c: shake(), "swish": lambda c: swish(), "ting": lambda c: ting(), "reverse": lambda c: reverse(c.get("d", 0.6)),
           "zipoff": lambda c: zipoff(c.get("d", 0.32)), "chomp": lambda c: chomp(), "gulp": lambda c: gulp(),
-          "click": lambda c: click(), "whoosh": lambda c: whoosh(), "pop": lambda c: pop(), "tick": lambda c: tick(), "rise": lambda c: rise(), "thump": lambda c: thump()}
+          "click": lambda c: click(), "whoosh": lambda c: whoosh(), "pop": lambda c: pop(), "tick": lambda c: tick(), "rise": lambda c: rise(), "thump": lambda c: thump(),
+          "typing": lambda c: typing(c.get("d", 1.0)), "buzz": lambda c: buzz(), "ding": lambda c: ding(), "boing": lambda c: boing()}
 GAIN = {"chip": 0.8, "zip": 0.7, "brrt": 0.6, "tk": 0.8, "rustle": 1.8, "lick": 1.5, "pluck": 0.8, "flick": 0.7, "sip": 0.8, "shimmer": 0.7,
         "bloom": 0.8, "tap": 1.1, "flutter": 0.6, "shake": 1.2, "swish": 0.5, "ting": 0.6, "reverse": 0.6, "zipoff": 0.8, "chomp": 1.0, "gulp": 1.0,
-        "click": 0.9, "whoosh": 0.55, "pop": 0.7, "tick": 0.6, "rise": 0.5, "thump": 0.9}
+        "click": 0.9, "whoosh": 0.55, "pop": 0.7, "tick": 0.6, "rise": 0.5, "thump": 0.9,
+        "typing": 0.5, "buzz": 0.6, "ding": 0.45, "boing": 0.55}
 
 
 def pan_gains(x):
@@ -339,6 +373,29 @@ def pro_voice(k, line, emotion="warm"):
     return out
 
 
+# Maya, Floey's co-star in the duo reels (brand/cast): a different voice from
+# Floey so the two never blur. MAYA_VOICE picks the Kokoro voice (bf_emma by
+# default: British, the best-rated Kokoro voice after Floey's own two), a touch
+# fast because Maya talks fast when she panics; same presence lift as Floey.
+MAYA_VOICES = {"bf_emma": "en-gb", "af_sarah": "en-us", "af_kore": "en-us", "af_aoede": "en-us", "bf_isabella": "en-gb", "af_nova": "en-us"}
+MAYA_SPEED = 1.05
+
+
+def maya_voice(k, line, emotion="warm"):
+    import subprocess, tempfile
+    name = os.environ.get("MAYA_VOICE", "bf_emma")
+    ep, es, _ = EMOTION.get(emotion, EMOTION["warm"])
+    v, sr = k.create(speakable(line), voice=name, speed=MAYA_SPEED * es, lang=MAYA_VOICES.get(name, "en-us"))
+    with tempfile.TemporaryDirectory() as d:
+        a, b = os.path.join(d, "a.wav"), os.path.join(d, "b.wav")
+        sf.write(a, v, sr)
+        filt = (f"asetrate={int(sr * ep)},aresample={SR},atempo={1 / ep:.5f},highpass=f=85,equalizer=f=3600:t=q:w=1.2:g=2,"
+                "acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120")
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", a, "-af", filt, "-ac", "1", b], check=True)
+        out, _ = sf.read(b)
+    return out
+
+
 def kokoro():
     from kokoro_onnx import Kokoro
     from kokoro_onnx.config import EspeakConfig
@@ -354,6 +411,8 @@ def voice(line_id, line, outdir, emotion="warm"):
     out = os.path.join(outdir, f"{line_id}.wav")
     if os.environ.get("REEL_VOICE") == "pro":
         v = pro_voice(kokoro(), line, emotion=emotion)
+    elif os.environ.get("REEL_VOICE") == "maya":
+        v = maya_voice(kokoro(), line, emotion=emotion)
     elif os.environ.get("FLOEY_ENGINE", "chatterbox") == "chatterbox" and os.path.exists(cb) and os.path.exists(ref):
         import subprocess
         subprocess.run([cb, os.path.join(os.path.dirname(__file__), "floey_cb.py"), ref, out, emotion, speakable(line)], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -413,7 +472,7 @@ def music_file(path, dur):
 
 def mix(cues_path, outdir, dur):
     data = json.load(open(cues_path))
-    pro = data.get("style") == "pro"
+    pro = data.get("style") in ("pro", "duo")  # duo reels play in Maya's room: no garden
     # the garden's wing hum and ambience belong to Floey's reels only
     bed = np.zeros((int(SR * dur), 2)) if pro else hum(data["track"], dur) + ambience(dur)
     voice = np.zeros_like(bed)

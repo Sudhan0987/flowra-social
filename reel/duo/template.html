@@ -1,0 +1,106 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// TEMPLATE for the duo style (brand/styles/duo/README.md), approved by the
+// founder on 13 Oct 2026 ("yes approved"). A new reel copies this shape:
+// the cast (F first, then MY with floey: F), DUO.timing, one paused gsap
+// timeline for the camera and props, acting cued to B[id], window.render(t).
+// Story: Maya panics (frame one shows it), Floey's dry reframe, the tip,
+// the check, the payoff, Floey's button line, Maya's look to camera, end card.
+const M = window.MOUTHS || {};
+// a real reel uses the pipeline's lines: [id, say, emotion, speaker] (+ caption)
+const LINES = window.LINES ||= [
+  ["m1", "Floey. My traffic dropped forty percent overnight.", "worried", "maya"],
+  ["f1", "It's Sunday, Maya.", "warm", "floey"],
+  ["m2", "So?", "curious", "maya"],
+  ["f2", "So everyone's at brunch. Compare it with last Sunday, not Friday.", "playful", "floey"],
+  ["m3", "Oh. It's up three percent.", "bright", "maya"],
+  ["f3", "You're welcome.", "proud", "floey"],
+];
+// the pause after each line: short for a snappy comeback, longer before a reveal
+const GAP = { m1: 0.35, f1: 0.3, m2: 0.35, f2: 0.45, m3: 0.45, f3: 0.6 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+const END = SPOKEN + 0.6, DUR = END + 1.6, b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+
+// ---------- the cast ----------
+const F = FLOEY.create({ ...SP.floeyLaptop, facing: -1, mood: "hello", perched: true, view: "side" });
+const MY = MAYA.create({ ...SP.maya, expr: "panic", pose: "cheeks", floey: F });
+const W = { ...SH.maya, down: 1, up: 0, insert: 0, draw: 0, end: 0 };
+const wt = gsap.timeline({ paused: true });
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => wt.to(W, { ...s, duration: d, ease }, t);
+
+// M1: frame one is the panic, close on Maya, the red number already up
+MY.look(0, -0.8, 0).say(b.m1.start, M.m1 || [], "m1").jolt(b.m1.start + 0.05);
+F.sfx(0.05, "pop");
+
+// F1: pull back to the two-shot; Floey, unbothered, looks around then answers
+shot(b.f1.start - 0.35, SH.wide, 0.7);
+F.lookAround(b.m1.start + 0.6, 0.6).mood(b.f1.start - 0.1, "think").say(b.f1.start, M.f1 || [], "f1");
+MY.expr(b.f1.start + 0.2, "surprised").pose(b.f1.start + 0.1, "rest", 0.4);
+
+// M2: "So?" with a shrug
+MY.expr(b.m2.start - 0.1, "annoyed").pose(b.m2.start - 0.12, "shrug", 0.25).say(b.m2.start, M.m2 || [], "m2");
+
+// F2: push in on Floey for the reframe; Maya thinks, then turns to her laptop
+F.mood(b.f2.start, "happy").say(b.f2.start, M.f2 || [], "f2").chips(b.f2.end - 0.1, 2);
+MY.expr(b.f2.start + 0.3, "think").pose(b.f2.start + 0.25, "chin", 0.4).look(b.f2.start + 0.25, -0.6, -0.4);
+shot(b.f2.start, SH.floey, 0.8, "power2.inOut");
+wt.to(W, { down: 0, duration: 0.25 }, b.f2.start); // the number would leave the frame in Floey's shot
+
+// the check: she types, cut to her screen, last Sunday vs this Sunday draws itself
+MY.pose(b.f2.end - 0.3, "type", 0.3).expr(b.f2.end - 0.3, "neutral").look(b.f2.end - 0.3, -0.5, 0.7);
+F.sfx(b.f2.end - 0.2, "typing", { d: 0.6 });
+shot(b.f2.end - 0.2, SH.wide, 0.5);
+wt.to(W, { insert: 1, duration: 0.35, ease: "power3.out" }, b.f2.end + 0.25)
+  .to(W, { draw: 1, duration: 0.9, ease: "power1.inOut" }, b.f2.end + 0.45)
+  .to(W, { up: 1, duration: 0.3, ease: "back.out(2)" }, b.m3.start + 0.5);
+F.sfx(b.f2.end + 0.25, "whoosh");
+
+// M3: "Oh." over the screen, then back on Maya as she beams
+wt.to(W, { insert: 0, duration: 0.3, ease: "power2.in" }, b.m3.start + 0.5);
+F.sfx(b.m3.start - 0.05, "ding");
+MY.expr(b.m3.start, "surprised").pose(b.m3.start + 0.05, "rest", 0.3).say(b.m3.start, M.m3 || [], "m3").jolt(b.m3.start + 0.55)
+  .expr(b.m3.start + b.m3.len * 0.55, "happy").look(b.m3.start + 0.6, -0.8, 0);
+
+// F3: Floey's smug wink to the viewer; Maya gives the camera a look (the sitcom button)
+F.pivot(b.f3.start - 0.15, "front").mood(b.f3.start - 0.1, "happy").say(b.f3.start, M.f3 || [], "f3").wink(b.f3.end + 0.05);
+MY.expr(b.f3.end + 0.1, "deadpan").look(b.f3.end + 0.1, 0, 0.1).pose(b.f3.end + 0.1, "crossed", 0.35);
+shot(b.f3.end + 0.1, { camX: 610, camY: 830, zoom: 1.5 }, 0.5, "power3.out");
+
+// END: the logo card drops in
+wt.to(W, { end: 1, duration: 0.5, ease: "back.out(1.6)" }, END);
+F.sfx(END + 0.05, "thump");
+wt.set({}, {}, DUR);
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  const world = DUO.room(t) + MY.svg(t) + DUO.deskFront() + DUO.laptop() + F.svg(t)
+    + DUO.stat(880, 610, W.down, "-40%", "bad") + DUO.stat(880, 610, W.up, "+3%", "good");
+  document.getElementById("stage").innerHTML = DUO.cam(world, W)
+    + DUO.screenInsert(W.insert, W.draw, { title: "Clicks, Sunday vs Sunday", points: [0.42, 0.45, 0.43, 0.47, 0.46, 0.48, 0.49], tone: "good", label: "+3%" })
+    + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")
+    + DUO.endCard(W.end, t);
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>

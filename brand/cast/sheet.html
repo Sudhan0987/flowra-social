@@ -1,0 +1,14 @@
+<!doctype html><html><head><meta charset="utf-8">
+<script src="maya.js"></script>
+<style>html,body{margin:0;background:#f6efe3;font:600 22px system-ui}svg{display:block}</style></head><body>
+<svg id="s" width="2400" height="1900" viewBox="0 0 2400 1900"></svg>
+<script>
+const ex = Object.keys(MAYA.EXPR), po = Object.keys(MAYA.POSES);
+let s = "";
+ex.forEach((e, i) => { const x = (i % 6) * 400, y = Math.floor(i / 6) * 470;
+  s += `<g transform="translate(${x} ${y + 10}) scale(.6)">${MAYA.svg({ expr: e, pose: "rest", t: 0.3, mouth: e==="panic"||e==="surprised"?0.6:0 })}</g><text x="${x + 180}" y="${y + 468}" text-anchor="middle">${e}</text>`; });
+po.forEach((p, i) => { const x = (i % 7) * 340, y = 960 + Math.floor(i / 7) * 470;
+  const e = {panic:"panic",cheeks:"surprised",facepalm:"annoyed",shrug:"deadpan",chin:"think",wave:"happy",point:"smug",pointL:"neutral",phone:"worried",mug:"neutral",crossed:"annoyed",fist:"proud"}[p] || "neutral";
+  s += `<g transform="translate(${x - 10} ${y + 10}) scale(.55)">${MAYA.svg({ expr: e, pose: p, t: 0.3 })}</g><text x="${x + 155}" y="${y + 450}" text-anchor="middle">${p}</text>`; });
+document.getElementById("s").innerHTML = s;
+</script></body></html>

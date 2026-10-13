@@ -6,8 +6,10 @@ When new feedback arrives, add it to `log.md` with the date, then turn it into
 a rule here. Never break a rule here to follow a generic best practice.
 
 ## Styles
-- **Never the same style twice in a row.** Reels alternate between styles (brand/styles/styles.json): Floey's garden, and a professional explainer (a narrator over a drawn working screen: charts, tables, a cursor clicking, in useflowra.com's colours). Why (12 Oct 2026): "dont make the reels in same style man... we are repeating the same style over and over... make some professional reels also."
-- **The rules under "Characters and world" are for Floey's garden reels.** A professional reel has no mascot in the story (Floey only perches on the logo in its end card) and follows brand/styles/pro/README.md. Every other rule here applies to every style.
+- **The daily reel is a Maya & Floey conversation (the "duo" style).** Two characters talk to each other in a short sitcom moment: Maya (a solo blogger who panics) and Floey (calm, dry, always right) with one real tip and a button ending. The reels exist for brand awareness: watched to the end, sent to a friend, characters remembered; never a sales pitch, Flowra only in the end card. Follow brand/styles/duo/README.md and brand/cast/README.md. Why (13 Oct 2026): "I want the reels to be conversational... all our videos are not interesting... social media is used for brand awareness, not for direct conversion... daily one reel."
+- **Variety comes from inside the duo style**: a different situation, set (day or night), shots, cutaways and running joke every day, never the same reel twice. The garden and pro styles stay available by hand. Why (12 Oct 2026): "dont make the reels in same style man... we are repeating the same style over and over."
+- **The rules under "Characters and world" are for Floey's garden reels**, and the professional style follows brand/styles/pro/README.md. In duo reels Floey keeps her look, voice and behaviours, but Maya is her co-star.
+- **These story rules are for the narrated styles only (garden, pro)**: "Talk to the viewer", "The hook is a specific statement...", "One story structure per reel", "loop", and "End with energy, then the address". Duo reels instead: the characters talk to each other, the hook is Maya's first line mid-panic, one structure (the sitcom moment), and they end on a button followed by the end card, with no spoken address.
 
 ## Characters and world (Floey's garden reels)
 - **Floey is the only character.** A garden reel is told through Floey the hummingbird (brand/mascot) in her page-flower garden (brand/world). No generic stick figures, robots or new mascots. Why: the stick-figure reels were rejected as generic; Floey was loved.
@@ -24,6 +26,7 @@ a rule here. Never break a rule here to follow a generic best practice.
 - **Animation explains, captions carry the words.** Never put the spoken sentence on screen as a text card; show it happening.
 
 ## Voice and sound
+- **Maya's voice is Kokoro bf_emma** (British, a touch fast), approved 13 Oct 2026. Floey keeps her own voice. The two voices never swap.
 - **Professional reels use a narrator, not Floey's voice:** a clear, grown-up voice (Kokoro af_bella with af_heart, natural pitch), still louder than the music.
 - **Floey has two approved voices** (brand/voice.json): "clean" (Kokoro) and "acted" (Chatterbox), both from the same af_heart-based Floey voice. Both are approved; choose per reel (acted for story-heavy reels). Every line carries an emotion that matches the moment. Why: Sudhan loved both and wants to choose by preference.
 - **Every action has its own sound,** panned to where it happens. No silent actions.
