@@ -135,7 +135,11 @@
    "idea": "Being cited by ChatGPT next to actually getting the visit",
    "style": "duo",
    "run": 38507286066,
-   "note": "Approved by the founder in chat, 14 Oct 2026 (\"r008 - approved\"); no ✅ was added in Slack."
+   "note": "Approved by the founder in chat, 14 Oct 2026 (\"r008 - approved\"); no ✅ was added in Slack.",
+   "reason": "Held 14 Oct: Facebook posted (video 1101027012852133) but Instagram rejected the upload (2207076); fixing before a retry so Facebook is not posted twice.",
+   "published_partial": {
+    "facebook": "1101027012852133"
+   }
   }
  ]
 }
