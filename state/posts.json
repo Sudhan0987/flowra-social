@@ -123,14 +123,18 @@
   },
   {
    "id": "r008-maya-asks-chatgpt-for-the-best-blogs-in-",
-   "status": "failed",
+   "status": "draft",
    "topic": "Maya asks ChatGPT for the best blogs in her niche, isn't on the list and panics. Floey shows her that the list changes on every ask, and that GA4 shows the visits ChatGPT actually sent.",
    "format": "duo-sitcom",
-   "madeAt": "2026-10-13T12:58:27.041Z",
-   "seconds": 33,
-   "reason": "Frame 03: Maya says \"Wait. Gone again.\" with a worried emotion, but on screen she has a wide open-mouthed grin. The script says her grin should drop to flat disbelief. Her face shows the opposite of what the voice says, which undercuts the reversal joke. Frame 02: The 'Answer 2' card leaves row 3 blank, with no green 'you: #3' label, and Maya's face is flat and sceptical. This is the beat that sets up \"Oh! I'm third!\", but nothing on screen shows her being listed or her joy. Check that the label",
+   "madeAt": "2026-10-14T04:05:54.476Z",
+   "seconds": 34,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1791950752.293889"
+   },
    "idea": "Being cited by ChatGPT next to actually getting the visit",
-   "style": "duo"
+   "style": "duo",
+   "run": 38507286066
   }
  ]
 }
