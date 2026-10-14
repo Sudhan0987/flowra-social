@@ -65,7 +65,7 @@ if (stillsArg) {
   execFileSync(py, [snd, "mix", path.join(OUT, "cues.json"), OUT, String(dur)], { stdio: "inherit", env });
   const mp4 = path.join(OUT, `${name}.mp4`);
   execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-framerate", String(FPS), "-i", path.join(FR, "%04d.png"), "-i", path.join(OUT, "mix.wav"),
-    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-shortest", mp4]);
+    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-c:a", "aac", "-b:a", "192k", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000", "-shortest", "-movflags", "+faststart", mp4]);
   console.log(mp4);
 }
 await browser.close();

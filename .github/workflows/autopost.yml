@@ -60,6 +60,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci --ignore-scripts
+      - name: ffmpeg (audio check before Instagram)
+        run: command -v ffmpeg || (sudo apt-get update -q && sudo apt-get install -y -q ffmpeg)
       - name: Post the next approved reel
         run: npx tsx src/autopost.ts ${{ inputs.check == 'true' && '--check' || '' }} ${{ inputs.youtube != '' && format('--youtube={0}', inputs.youtube) || '' }}
       - name: Save

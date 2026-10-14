@@ -37,6 +37,8 @@ interface Post {
   id: string; status: string; topic: string; madeAt: string; reason?: string; note?: string; run?: number;
   slack?: { channel: string; ts: string };
   published?: { at: string; instagram?: string; facebook?: string | boolean; youtube?: string; youtubePrivacy?: string };
+  /** what already went out when a post failed half way (so a retry never posts it twice) */
+  partial?: { facebook?: string };
 }
 const STATE = path.join(ROOT, "state/posts.json");
 const load = () => JSON.parse(readFileSync(STATE, "utf8")) as { posts: Post[] };
@@ -85,7 +87,20 @@ async function fetchVideo(p: Post): Promise<string> {
   const sub = readdirSync(dir).find((d) => d === p.id || d.startsWith(p.id.slice(0, 4)));
   const file = sub && path.join(dir, sub, "reel.mp4");
   if (!file || !existsSync(file)) throw new Error(`The artifact has no reel.mp4 for ${p.id}.`);
-  return file;
+  return forInstagram(file);
+}
+
+/** Instagram takes audio up to 48 kHz; renders before 14 Oct 2026 came out at 96 kHz (error 2207076 on r008).
+ * Re-encodes only the audio, and only when needed; without ffmpeg the file goes as it is. */
+function forInstagram(file: string): string {
+  try {
+    const rate = execFileSync("ffprobe", ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=sample_rate", "-of", "csv=p=0", file], { encoding: "utf8" }).trim();
+    if (Number(rate) <= 48000) return file;
+    const out = file.replace(/\.mp4$/, ".48k.mp4");
+    execFileSync("ffmpeg", ["-v", "error", "-y", "-i", file, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", out]);
+    console.log(`Audio ${rate} Hz re-encoded to 48000 Hz for Instagram.`);
+    return out;
+  } catch (e) { console.log(`Audio check skipped: ${(e as Error).message.split("\n")[0]}`); return file; }
 }
 
 function caption(p: Post): string {
@@ -225,8 +240,15 @@ async function main() {
   if (DRY) return console.log("dry run: caption ok,", text.length, "characters");
   if (!T) throw new Error("META_ACCESS_TOKEN is not set.");
   const file = await fetchVideo(next);
-  let fb: string | boolean = false;
-  try { fb = await postFacebook(file, text); console.log(`Facebook: ${fb}`); } catch (e) { console.log(`Facebook failed: ${(e as Error).message}`); }
+  let fb: string | boolean = next.partial?.facebook ?? false;
+  if (fb) console.log(`Facebook: ${fb} (already posted)`);
+  else {
+    try { fb = await postFacebook(file, text); console.log(`Facebook: ${fb}`); } catch (e) { console.log(`Facebook failed: ${(e as Error).message}`); }
+    if (typeof fb === "string") { // recorded at once, so a failure below never leads to a second Facebook post
+      const s = load(); const q = s.posts.find((x) => x.id === next.id)!;
+      q.partial = { ...q.partial, facebook: fb }; save(s);
+    }
+  }
   let ig: string;
   try { ig = await postInstagram(file, text); }
   catch (e) {
@@ -243,6 +265,7 @@ async function main() {
   const p = fresh.posts.find((x) => x.id === next.id)!;
   p.status = "published";
   p.published = { at: today, instagram: ig, facebook: fb, ...(yt ? { youtube: yt.id, youtubePrivacy: yt.privacy } : {}) };
+  delete p.partial;
   save(fresh);
 }
 
