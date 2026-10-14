@@ -76,6 +76,7 @@ Move between shots with `wt.to(W, { ...DUO.SHOT.x, duration: 0.5 to 0.8, ease: "
 | `DUO.stat(x, y, k, text, tone)` | a number pill in the room, near her head (x about 880, y about 610): "-40%" bad, "+3%" good. Fade it out before a shot that would push it off the frame. |
 | `DUO.mark(kind, x, y, k, t)` | comic marks by a head: "!", "?", "sweat", "zzz" |
 | `DUO.screenInsert(k, draw, { title, points, tone, label })` | a cutaway to what is on her laptop: a chart that draws itself (points 0..1). Screen space, outside DUO.cam. Use it for the check moment ("compare it with last Sunday"). |
+| `DUO.listInsert(k, rowsK, { title, sub, cols, rows: [{ label, value, tone, hi }], hiK })` | a cutaway to a ranked list or report table on her screen: a chatbot's answer, Search Console pages, GA4 traffic sources. Rows slide in with rowsK; the one row that matters (`hi`) gets a ring that grows with hiK. Up to 6 rows. Use it instead of drawing your own cards: every row has a real label and value, nothing on it is left blank. |
 | `DUO.notification(k, from, text, y)` | a phone notification sliding down (screen space): the client's message, a Google alert. Great in a hook. Keep `text` under about 34 characters. |
 | `DUO.captions(LINES, B, t)` | speaker-tagged captions (MAYA amber, FLOEY pink) at y 1540 |
 | `DUO.endCard(k, t, line)` | the Flowra logo, "Maya & Floey, every day" (or another short line), Floey perched in front |
@@ -88,6 +89,8 @@ Sounds go through Floey's cue list: `F.sfx(t, kind, extra)`. Kinds that fit this
 - **They talk to each other, not to the viewer.** Floey may turn to camera for the final button line, and Maya may give the camera a look (no words). Nobody explains Flowra; the brand is the end card.
 - **Every line is acted by its speaker while the other one reacts.** The listener is never frozen: a look, an expression change, a small move on the other's key word. Cut or push to the speaker on a speaker change when it helps, and to the listener's face for the punchline reaction.
 - **A change every 2 to 3 seconds**: a shot change, a pose, a prop, an insert.
+- **The face matches the line, every frame**: set Maya's expression at the start of each of her lines to that line's feeling (a worried line is never said with a grin), and change it again on the next line. The final test samples frames, so a face left over from the last line fails it.
+- **Inserts are complete**: use `DUO.screenInsert` and `DUO.listInsert`, never a half-drawn card; a number the voice says is on screen beside the thing it belongs to.
 - **Show the tip happening**: if Floey says compare, Maya types and the insert shows the comparison.
 - **Inside the safe area**: subjects and props inside x 60 to 1020 and y 220 to 1420 on screen; captions own 1440 to 1580; Instagram covers the top 200 px and the bottom 340 px.
 - **Text never overflows its box and never overlaps other text.** Measure with `PROPS.measure` (it waits for the fonts).

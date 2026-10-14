@@ -93,6 +93,34 @@
     return s + `</g>`;
   }
 
+  // a cutaway to a ranked list or a report table on her screen (screen space, outside DUO.cam): a chatbot's answer,
+  // Search Console pages, GA4 traffic sources. k 0..1 swings it in; rows slide in with rowsK 0..1.
+  // opts { title, sub, cols: [left header, right header], rows: [{ label, value, tone, hi }], hiK }: hi marks the one row
+  // that matters (a ring and a tinted fill grow with hiK); tone good | bad | brand colours its value. Up to 6 rows.
+  function listInsert(k, rowsK, opts = {}) {
+    if (k <= 0.01) return "";
+    const rows = (opts.rows || []).slice(0, 6), x0 = 120, x1 = 960, top = 780, rh = 96;
+    const col = (tone) => ({ good: "#2f9e62", bad: "#d24b4b", brand: HC.magenta }[tone] || INK);
+    const h = 300 + rows.length * rh, y0 = 560, ty = 1920 * (1 - Math.min(1, k)) * 0.6;
+    let s = `<g transform="translate(0 ${f(ty)})" opacity="${f(Math.min(1, k * 2))}"><rect width="1080" height="1920" fill="#2d2f45" opacity=".55"/>`;
+    s += `<rect x="90" y="${y0}" width="900" height="${h}" rx="30" fill="#fffaf2" stroke="${INK}" stroke-width="8"/><rect x="90" y="${y0}" width="900" height="84" rx="30" fill="#e9e3f3" stroke="${INK}" stroke-width="8"/>`;
+    s += `<circle cx="140" cy="${y0 + 42}" r="12" fill="${HC.coral}"/><circle cx="178" cy="${y0 + 42}" r="12" fill="${HC.amber}"/><circle cx="216" cy="${y0 + 42}" r="12" fill="#7cc48a"/>`;
+    s += `<text x="${x0 + 30}" y="${y0 + 152}" font-family="Space Grotesk" font-weight="700" font-size="44" fill="${INK}">${esc(opts.title || "")}</text>`;
+    if (opts.cols) s += `<text x="${x0 + 30}" y="${top - 18}" font-family="Public Sans" font-weight="800" font-size="26" fill="${INK}" opacity=".55">${esc(opts.cols[0])}</text><text x="${x1 - 30}" y="${top - 18}" text-anchor="end" font-family="Public Sans" font-weight="800" font-size="26" fill="${INK}" opacity=".55">${esc(opts.cols[1] || "")}</text>`;
+    rows.forEach((r, i) => {
+      const rk = Math.max(0, Math.min(1, rowsK * rows.length - i)); if (rk <= 0) return;
+      const y = top + i * rh, hk = r.hi ? (opts.hiK ?? 1) : 0;
+      s += `<g opacity="${f(rk)}" transform="translate(${f((1 - rk) * 40)} 0)">`;
+      if (hk > 0) s += `<rect x="${x0 + 6}" y="${y + 6}" width="${x1 - x0 - 12}" height="${rh - 12}" rx="18" fill="${col(r.tone)}" opacity="${f(0.14 * hk)}"/><rect x="${x0 + 6}" y="${y + 6}" width="${x1 - x0 - 12}" height="${rh - 12}" rx="18" fill="none" stroke="${col(r.tone)}" stroke-width="6" opacity="${f(hk)}"/>`;
+      s += `<path d="M${x0 + 20},${y + rh} H${x1 - 20}" stroke="${INK}" stroke-width="2" opacity=".1"/>`;
+      s += `<text x="${x0 + 30}" y="${y + 61}" font-family="Public Sans" font-weight="700" font-size="36" fill="${INK}">${esc(r.label)}</text>`;
+      if (r.value) s += `<text x="${x1 - 30}" y="${y + 61}" text-anchor="end" font-family="IBM Plex Mono, Space Grotesk" font-weight="700" font-size="38" fill="${col(r.tone)}">${esc(r.value)}</text>`;
+      s += `</g>`;
+    });
+    if (opts.sub) s += `<text x="540" y="${y0 + h - 34}" text-anchor="middle" font-family="Public Sans" font-weight="600" font-size="28" fill="${INK}" opacity=".6">${esc(opts.sub)}</text>`;
+    return s + `</g>`;
+  }
+
   // a phone notification card sliding down (screen space): from = who sent it, text = the message (max ~40 chars)
   function notification(k, from, text, y = 420) {
     if (k <= 0.01) return "";
@@ -157,5 +185,5 @@
     return s + `</g>`;
   }
 
-  window.DUO = { SPOT, SHOT, timing, cam, room, deskFront, laptop, mug, screenInsert, notification, stat, mark, captions, endCard };
+  window.DUO = { SPOT, SHOT, timing, cam, room, deskFront, laptop, mug, screenInsert, listInsert, notification, stat, mark, captions, endCard };
 })();
