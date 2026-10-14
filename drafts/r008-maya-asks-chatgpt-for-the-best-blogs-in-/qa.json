@@ -1,12 +1,10 @@
 {
- "pass": false,
+ "pass": true,
  "problems": [
-  "Frame 03: Maya says \"Wait. Gone again.\" with a worried emotion, but on screen she has a wide open-mouthed grin. The script says her grin should drop to flat disbelief. Her face shows the opposite of what the voice says, which undercuts the reversal joke.",
-  "Frame 02: The 'Answer 2' card leaves row 3 blank, with no green 'you: #3' label, and Maya's face is flat and sceptical. This is the beat that sets up \"Oh! I'm third!\", but nothing on screen shows her being listed or her joy. Check that the label pops and she switches to the beaming 'fist' pose in sync with the line. In the sampled frames the 'up' half of the up-and-down joke never appears.",
-  "Frame 07: On the GA card the chatgpt.com row shows a lone '1' (or a tick mark) in the Sessions column. It looks like 1 session, which contradicts the '23 visits' payoff that follows. Every other row has only a placeholder bar.",
-  "Frame 07: The bottom half of the GA card is empty: blank rule lines and a stray green dot floating at the bottom left. It looks unfinished. The card also completely covers Maya's dimmed head, so the shot reads as a box pasted over a faceless body.",
-  "Frame 08: The '23 visits' pill floats above Maya's head in the tight shot and overlaps her hair bun and pencil. It doesn't sit beside the chatgpt.com row on the GA card as the script says, and the line chart that should draw itself upward never appears. Viewers lose the link between the 23 and ChatGPT traffic.",
-  "Frame 05: The script calls for Maya in 'pointL', pointing at Floey with eyebrows up. Instead she is glancing up with one hand resting behind the laptop, so the 'doubt' beat has no gesture aimed at Floey (minor, but it weakens the exchange).",
-  "Frame 10: The tight shot of Floey is mostly empty wall, with a stray clipped laptop corner at the bottom right. Her 'smug chest puff + wink' is not readable; her eyes are just closed. In this sample the cut back to Maya grinning and typing, which carries the ending back toward the opening laptop shot, is not visible before the end card in frame 11. Make sure that beat is actually there so the ending leads back to the start."
+  "Frame 09 (minor): 'One of them is definitely Mum' plays in mayaTight while she is speaking; the script wanted wide (said to Floey) and mayaTight only in the gap after. Her eyes also look screen-right, away from where Floey is (screen-left).",
+  "Frame 10 (minor): Floey's line 'That leaves twenty two strangers' shows in the wide shot, not the scripted floeyTight with the chest puff and wink. Check that the close-up and wink actually play before the cut.",
+  "Frame 05 (minor): Maya points up instead of at Floey as the script says ('pointL', pointing at Floey).",
+  "Frame 06 (minor): the script says Maya is in 'type' pose with click sfx, but the frame shows her in a flat mid shot with no typing.",
+  "Frame 01 (polish): Floey's beak slightly overlaps Maya's sleeve."
  ]
 }
