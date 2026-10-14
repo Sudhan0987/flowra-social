@@ -123,7 +123,7 @@
   },
   {
    "id": "r008-maya-asks-chatgpt-for-the-best-blogs-in-",
-   "status": "draft",
+   "status": "approved",
    "topic": "Maya asks ChatGPT for the best blogs in her niche, isn't on the list and panics. Floey shows her that the list changes on every ask, and that GA4 shows the visits ChatGPT actually sent.",
    "format": "duo-sitcom",
    "madeAt": "2026-10-14T04:05:54.476Z",
@@ -134,7 +134,8 @@
    },
    "idea": "Being cited by ChatGPT next to actually getting the visit",
    "style": "duo",
-   "run": 38507286066
+   "run": 38507286066,
+   "note": "Approved by the founder in chat, 14 Oct 2026 (\"r008 - approved\"); no ✅ was added in Slack."
   }
  ]
 }
