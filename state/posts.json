@@ -143,6 +143,17 @@
     "youtube": "5-IlrWGNWiA",
     "youtubePrivacy": "public"
    }
+  },
+  {
+   "id": "r009-a-detector-says-maya-s-handwritten-post-",
+   "status": "failed",
+   "topic": "A detector says Maya's handwritten post is \"likely AI\", and she's sure Google will bin it",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-15T10:10:30.325Z",
+   "seconds": 30,
+   "reason": "Frames 07–08 (claim is untrue): The payoff says 'Google never asked how I wrote it', and the 'Google's questions' card, credited to Search Central, is built to show that 'none of Google's questions asks how the post was written'. That is false. Google's Search Central guidance on helpful content tells creators to ask 'Who, How, and Why' about their content. 'How was this content created?' is one of the questions, and it says to disclose when automation or AI was used. As written, the card misquo",
+   "idea": "Floey gets graded by an AI detector that never read the words",
+   "style": "duo"
   }
  ]
 }
