@@ -1,0 +1,270 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<script src="lines.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../../reel/assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../../reel/assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r009 "Maya vs the AI checker" (duo style, day set). Frame one: a client's message,
+// "Detector says your post is AI??", and Maya gripping her head. Floey, deadpan on the
+// laptop lid: Google grades whether it helps; OpenAI switched its own detector off.
+// The tip: Floey lifts off and hovers by Maya's head, and stays in the air to the end.
+// The check: Google's questions on her screen, both answered green, with the detector's
+// verdict under the card (not one of the questions). Button: Floey, hovering, turns to
+// the lens and winks; Maya, arms folded, holds a flat look to camera before the end card.
+const M = window.MOUTHS || {};
+const LINES = window.LINES;
+// the pause after each line, from the story
+const GAP = { hook0: 0.3, reframe1: 0.3, doubt2: 0.2, reframe3: 0.35, doubt4: 0.3, tip5: 0.35, check6: 0.5, payoff7: 0.4, button8: 0.7 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+const b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+// the button: Floey's wink, then Maya's silent look to camera held 2.5 s, then the end card
+const LOOK = b.button8.end + 0.6;
+const END = Math.max(SPOKEN + 0.6, LOOK + 2.5), DUR = END + 1.6;
+const HC = HUM.colors, INK = HC.ink, RED = "#d24b4b";
+const r1 = (n) => Math.round(n * 10) / 10;
+// her mouth, scaled down on the worried lines so an open mouth never reads as a grin
+const mo = (id, k = 1) => (M[id] || []).map((v) => v * k);
+// text width measured fresh every frame (PROPS.measure can keep a width taken before the web font loaded)
+let mctx;
+const mw = (txt, font) => { mctx ??= document.createElement("canvas").getContext("2d"); mctx.font = font; return mctx.measureText(txt).width; };
+
+// ---------- shots, nudged from DUO.SHOT for this scene ----------
+// the hook close-up: her face and both hands on her head, Floey (on the lid) fully off the left edge
+const HT = { camX: 715, camY: 805, zoom: 1.8 };
+// Floey alone on the lid, filling the frame: the pinboard above her, the lid's spark below the captions
+const FT = { camX: 296, camY: 1000, zoom: 3.4 };
+const FT2 = { camX: 298, camY: 1015, zoom: 3.8 }; // the punch-in on "Low accuracy."
+// Maya alone for the doubt: her face centred, Floey (on the lid) fully off the left edge
+const MS = { camX: 720, camY: 870, zoom: 1.8 };
+// where Floey hovers from the tip to the end: at Maya's eye height on her left, clear of her face
+const HOV = { x: 228, y: 792 };
+// the two-shot for the tip: Floey in the air on the left, Maya's face on the right
+const FS = { camX: 465, camY: 880, zoom: 1.4 };
+// Maya alone typing for the check: hovering Floey fully off the left edge, her hands above the captions
+const MC = { camX: 772, camY: 1045, zoom: 1.35 };
+// her tight close-up for the payoff, Floey (hovering) fully off the left edge
+const MT = { camX: 700, camY: 840, zoom: 2.1 };
+// Floey alone in the air for the button, centred, the pinboard behind her
+const FH = { camX: 216, camY: 823, zoom: 3.3 };
+// the closing look: Maya alone, bun to folded arms inside the safe area, Floey off the left edge
+const BT = { camX: 735, camY: 1035, zoom: 1.45 };
+// hands gripping the sides of her head (the panic pose, close enough for the close-up)
+const GRIP = { L: [172, 252], R: [428, 252], kL: "open", kR: "open" };
+const GRIP2 = { L: [184, 238], R: [416, 238], kL: "open", kR: "open" };
+// hands frozen over the keyboard (the type pose without the typing)
+const FROZEN = { L: [252, 684], R: [348, 684] };
+const MUGX = 840;
+
+// ---------- the cast ----------
+const F = FLOEY.create({ ...SP.floeyLaptop, facing: -1, mood: "hello", perched: true, view: "side" });
+const MY = MAYA.create({ ...SP.maya, expr: "panic", pose: GRIP, floey: F });
+// note/nb: the client's notification and its buzz; ex: the "!" mark; shk: a panic camera shake;
+// gq, gqRows, gqHi: the Google's questions card; det: the detector's verdict under it
+const W = { ...HT, note: 1, nb: 1, ex: 1, shk: 0, gq: 0, gqRows: 0, gqHi: 0, det: 0, end: 0 };
+const wt = gsap.timeline({ paused: true });
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => wt.to(W, { ...s, duration: d, ease }, t);
+const cut = (t, s) => wt.set(W, { ...s }, t);
+const ftw = (t, vars) => F.tl.to(F.S, vars, t);
+
+// ---------- set dressing: a soft pinboard on the wall above the laptop (her post ideas) ----------
+function pinboard() {
+  const note = (x, y, w, h, r, fill) => `<g transform="rotate(${r} ${x + w / 2} ${y + h / 2})"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="${fill}" stroke="${INK}" stroke-width="4"/>`
+    + [0.32, 0.52, 0.72].map((k, i) => `<path d="M${x + 12},${r1(y + h * k)} h${r1((w - 24) * (i === 2 ? 0.55 : 1))}" stroke="${INK}" stroke-width="4" stroke-linecap="round" opacity=".28"/>`).join("")
+    + `<circle cx="${x + w / 2}" cy="${y + 10}" r="7" fill="${HC.coral}" stroke="${INK}" stroke-width="3"/></g>`;
+  return `<g opacity=".8"><rect x="92" y="690" width="306" height="196" rx="14" fill="#e6cfa8" stroke="${INK}" stroke-width="6"/>`
+    + note(116, 712, 84, 78, -5, "#ffe8a3") + note(222, 704, 78, 74, 4, "#ffd0cf") + note(318, 716, 60, 66, -3, "#cfeedb")
+    + `<g transform="rotate(3 190 832)"><rect x="140" y="796" width="100" height="74" rx="4" fill="#fffaf2" stroke="${INK}" stroke-width="4"/><rect x="150" y="806" width="80" height="44" fill="#cfe7ff"/><path d="M150,850 l26,-22 l18,14 l14,-10 l22,18Z" fill="#7cc48a"/></g>`
+    + note(270, 800, 92, 66, -2, "#e6defa") + `</g>`;
+}
+
+// ---------- the cutaway (screen space, outside DUO.cam) ----------
+const backdrop = (k) => `<rect width="1080" height="1920" fill="#23243a" opacity="${r1(0.8 * Math.min(1, k * 2))}"/>`;
+const slide = (k) => r1(1920 * (1 - Math.min(1, k)) * 0.6);
+// the detector's verdict, stamped under Google's card: it is not one of Google's questions
+function verdict(k) {
+  if (k <= 0.01) return "";
+  const text = "AI detector: likely AI", tw = mw(text, "700 46px 'Space Grotesk'") + 60, sc = 1 + 0.4 * (1 - Math.min(1, k));
+  return `<g transform="translate(540 1150) rotate(-4) scale(${r1(sc * 100) / 100})" opacity="${r1(Math.min(1, k * 1.5))}"><rect x="${r1(-tw / 2)}" y="-44" width="${r1(tw)}" height="88" rx="18" fill="#fff1f0" stroke="${RED}" stroke-width="7"/><text x="0" y="16" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="46" fill="${RED}">${text}</text></g>`;
+}
+// the client's message: DUO.notification's card, measured fresh so the text never spills out of it
+function note(k, from, text, y) {
+  if (k <= 0.01) return "";
+  const w = Math.min(940, Math.max(mw(text, "600 40px 'Public Sans'"), mw(from, "700 34px 'Space Grotesk'")) + 170), dy = (1 - Math.min(1, k)) * -260;
+  return `<g transform="translate(${r1(540 - w / 2)} ${r1(y + dy)})" opacity="${r1(Math.min(1, k * 2))}"><rect x="0" y="0" width="${r1(w)}" height="150" rx="34" fill="#fffaf2" stroke="${INK}" stroke-width="6"/>`
+    + `<rect x="28" y="33" width="84" height="84" rx="22" fill="${HC.violet}" stroke="${INK}" stroke-width="5"/><text x="70" y="91" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="44" fill="#fff">${from[0]}</text>`
+    + `<text x="138" y="66" font-family="Space Grotesk" font-weight="700" font-size="34" fill="${INK}">${from}</text><text x="138" y="118" font-family="Public Sans" font-weight="600" font-size="40" fill="${INK}">${text}</text></g>`;
+}
+function googleCard() {
+  if (W.gq <= 0.01) return "";
+  const rows = [
+    { label: "Clear author?", value: "By Maya", tone: "good" },
+    { label: "First-hand?", value: "Tested it 3 times", tone: "good", hi: true },
+  ];
+  return backdrop(W.gq)
+    + DUO.listInsert(W.gq, W.gqRows, { title: "Google's questions", sub: "Search Central", cols: ["Google asks", "Your post"], rows, hiK: W.gqHi })
+    + `<g transform="translate(0 ${slide(W.gq)})">${verdict(W.det)}</g>`;
+}
+
+// ---------- HOOK0: frame one is the client's message and Maya gripping her head ----------
+// "I wrote every word!" 0 to 1.1 s, "It says I'm A.I.!" 1.17 s, "Google will bin it!" 2.33 s
+const SAYS = b.hook0.start + 1.17, BIN = b.hook0.start + 2.33;
+F.sfx(0.02, "buzz");
+wt.to(W, { nb: 0, duration: 0.45, ease: "none" }, 0);
+MY.say(b.hook0.start, mo("hook0", 0.15), "hook0").look(0, -0.4, 0.7).jolt(b.hook0.start + 0.05);
+// Floey, unbothered, is looking away out of the window
+F.look(0, -0.7, -0.3).tiltTo(0, 8);
+// "It says I'm A.I.!": she grips harder, a little shake, eyes dart to the screen and back
+MY.pose(SAYS - 0.05, GRIP2, 0.12).look(SAYS, -0.6, 0.9, 0.08).look(SAYS + 0.55, 0.1, -0.2, 0.1);
+wt.to(W, { shk: 1, duration: 0.08 }, SAYS).to(W, { shk: 0, duration: 0.45, ease: "power1.in" }, SAYS + 0.35);
+// the message slides away before the cut
+wt.to(W, { note: 0, duration: 0.3, ease: "power2.in" }, BIN - 0.45);
+// "Google will bin it!": the wide, her hands fly up; Floey slowly turns her head to her
+cut(BIN - 0.1, SH.wide);
+MY.pose(BIN + 0.35, "panic", 0.18).look(BIN - 0.1, -0.3, 0.2);
+F.look(BIN + 0.15, 0.6, -0.25, 0.45).tiltTo(BIN + 0.15, -8, 0.5);
+wt.to(W, { ex: 0, duration: 0.2 }, b.hook0.end + 0.05);
+
+// ---------- REFRAME1: hard cut to Floey alone on the lid, deadpan ----------
+// "Google doesn't grade how it's made." 0 to 1.7 s, "Just whether it helps." from 1.8 s
+const R1 = b.reframe1.start;
+cut(R1 - 0.15, FT);
+F.tiltTo(R1 - 0.15, 0, 0.1).look(R1 - 0.15, 0.2, 0);
+ftw(R1 - 0.1, { squint: 0.5, duration: 0.12 }); // a half-lidded look
+F.say(R1, M.reframe1 || [], "reframe1");
+ftw(R1 + 0.9, { squint: 0.95, duration: 0.2, ease: "sine.inOut" }); ftw(R1 + 1.25, { squint: 0.5, duration: 0.25 }); // one slow blink
+shot(R1 + 1.75, { camX: 298, camY: 1005, zoom: 3.6 }, 1.3, "power1.inOut"); // a slow push in
+F.tiltTo(R1 + 1.9, 13, 0.35); // the tired little tilt: she has heard this a hundred times
+// off screen, she lets go of her head at the cut (no stray hand at the edge of Floey's shot)
+MY.expr(R1, "worried").pose(R1 - 0.15, "rest", 0.05);
+
+// ---------- DOUBT2: Maya alone, hands on her cheeks, leaning at the laptop ----------
+const D2 = b.doubt2.start;
+cut(D2 - 0.12, MS);
+F.tiltTo(D2 - 0.12, 0, 0.1);
+MY.pose(D2 - 0.12, "cheeks", 0.25).expr(D2 - 0.12, "worried").leanTo(D2, -4).look(D2, -0.6, 0.6);
+MY.say(D2, mo("doubt2", 0.12), "doubt2");
+
+// ---------- REFRAME3: Floey alone, perfectly still; a punch-in on "Low accuracy." ----------
+// "OpenA.I." 0 to 0.8 s, "switched its own detector off." 0.97 to 2.3 s, "Low accuracy." 2.37 s
+const R3 = b.reframe3.start;
+cut(R3 - 0.14, FT);
+F.look(R3 - 0.14, 0.2, 0);
+MY.pose(R3 - 0.14, "rest", 0.05); // off screen, her hands drop
+F.say(R3, M.reframe3 || [], "reframe3");
+cut(R3 + 2.32, FT2);
+// one short chip after "Low accuracy.", then her head turns back to Maya
+F.chips(b.reframe3.end + 0.03, 1);
+F.look(b.reframe3.end + 0.12, 0.6, -0.3, 0.1).tiltTo(b.reframe3.end + 0.12, -10, 0.15);
+ftw(b.reframe3.end + 0.12, { squint: 0, duration: 0.15 });
+MY.leanTo(R3, 0).expr(R3 + 2.4, "sad"); // off screen
+
+// ---------- DOUBT4: the wide, the panic drains, then the chin and the question ----------
+const D4 = b.doubt4.start;
+cut(D4 - 0.12, SH.wide);
+MY.slump(D4 - 0.12, 0.45).expr(D4, "think").look(D4, -0.9, 0.4, 0.2);
+MY.pose(D4 + 0.55, "chin", 0.35).tiltTo(D4 + 0.6, -6, 0.3);
+MY.say(D4, mo("doubt4", 0.7), "doubt4");
+F.tiltTo(D4 + 1.3, -16, 0.15); // a small "go on" tilt
+
+// ---------- TIP5: Floey lifts off and hovers by Maya's head; Maya nods, then types ----------
+// "Put your name on it." 0 to 0.8 s, "Then add what you tried yourself." 1.07 to 2.6 s
+// From here to the end Floey stays in the air at HOV.
+const T5 = b.tip5.start;
+ftw(b.doubt4.end + 0.02, { y: SP.floeyLaptop.y + 12, sy: 0.92, duration: 0.12, ease: "power2.in" }); // a dip before take-off
+F.takeoff(b.doubt4.end + 0.14).move(b.doubt4.end + 0.4, HOV.x, HOV.y, 0.55, "power2.inOut");
+F.tiltTo(b.doubt4.end + 0.14, 0, 0.15).look(T5 + 0.2, 0.6, 0.2, 0.15);
+shot(b.doubt4.end + 0.2, FS, 0.75, "power2.inOut");
+F.say(T5, M.tip5 || [], "tip5").tiltTo(T5 + 0.85, -10, 0.15).tiltTo(T5 + 1.15, 0, 0.2);
+MY.sit(T5, 0.3).tiltTo(T5, 0, 0.25).pose(T5 + 0.05, "rest", 0.3).look(T5 + 0.1, -0.9, -0.2, 0.2).expr(T5 + 0.1, "think");
+MY.nod(T5 + 0.82, 2);
+// "Then add what you tried yourself.": straight to the keyboard
+MY.pose(T5 + 1.2, "type", 0.25).look(T5 + 1.2, -0.5, 0.8, 0.12).expr(T5 + 1.2, "neutral");
+F.sfx(T5 + 1.55, "typing", { d: 1.7 });
+F.look(T5 + 1.5, 0.4, 0.8, 0.12); // she watches the keyboard from the air
+
+// ---------- CHECK6: Maya alone typing; then Google's questions, answered one by one ----------
+// "By Maya." 0 to 0.57 s, "Tested it three times myself." 0.63 to 2.37 s
+const C6 = b.check6.start;
+cut(b.tip5.end + 0.05, MC);
+// set, focused: brows down at the keyboard, the mouth small (determined, never a grin)
+MY.expr(C6 - 0.05, "annoyed").look(C6 - 0.05, -0.3, 0.9).say(C6, mo("check6", 0.2), "check6");
+// the card swings in with her first answer already typed, then the second slides in, then the ring
+const CARD = C6 + 0.6;
+wt.to(W, { gq: 1, duration: 0.3, ease: "power3.out" }, CARD).to(W, { gqRows: 0.5, duration: 0.2, ease: "power2.out" }, CARD + 0.05)
+  .to(W, { gqRows: 1, duration: 0.3, ease: "power2.out" }, C6 + 0.9)
+  .to(W, { gqHi: 1, duration: 0.35, ease: "power2.out" }, C6 + 1.5);
+F.sfx(CARD, "whoosh");
+F.sfx(C6 + 0.93, "tick");
+F.sfx(C6 + 1.6, "ding");
+// the detector's verdict stamps on under it: not one of Google's questions
+wt.to(W, { det: 1, duration: 0.25, ease: "back.out(2.5)" }, b.check6.end + 0.15);
+F.sfx(b.check6.end + 0.15, "pop");
+
+// ---------- PAYOFF7: "Wait." on the card, then close on her: she stops typing, looks up at Floey ----------
+const P7 = b.payoff7.start, CLOSE = P7 + 0.4;
+MY.say(P7, M.payoff7 || [], "payoff7").expr(P7 - 0.1, "surprised").pose(P7, FROZEN, 0.15);
+cut(CLOSE, { ...MT, gq: 0, det: 0 });
+// a small jolt, then her eyes go up and left, to where Floey hovers
+MY.jolt(CLOSE + 0.05).look(CLOSE, -0.2, 0.6).look(CLOSE + 0.6, -1, -0.7, 0.25).tiltTo(CLOSE + 0.6, -5, 0.3);
+shot(CLOSE + 0.1, { camX: 700, camY: 845, zoom: 2.22 }, 1.6, "power1.out"); // a gentle push in
+MY.expr(P7 + 1.45, "happy");
+
+// ---------- BUTTON8: Floey, still in the air, turns to the lens, a beat, the line, a wink ----------
+const B8 = b.button8.start;
+cut(B8 - 0.4, FH);
+F.tiltTo(B8 - 0.4, 0, 0.1).look(B8 - 0.4, 0, 0);
+F.pivot(B8 - 0.3, "front").mood(B8 - 0.3, "hello");
+ftw(B8 - 0.05, { puff: 0.6, duration: 0.25, ease: "power2.out" });
+F.say(B8, M.button8 || [], "button8");
+ftw(b.button8.end + 0.2, { puff: 0, duration: 0.3 });
+// the wink: one eye shut, smug brows, held long enough to read on a phone
+const WINK = b.button8.end + 0.06;
+F.mood(WINK, "determined").sfx(WINK, "ting");
+ftw(WINK, { squint: 1, duration: 0.05 }); ftw(WINK + 0.45, { squint: 0, duration: 0.08 });
+MY.expr(B8, "smug").pose(B8, "rest", 0.3).tiltTo(B8, 0); // off screen
+
+// the button: Maya alone, arms folded; her eyes slide from Floey to the camera and hold
+cut(LOOK, BT);
+MY.pose(LOOK - 0.3, "crossed", 0.25).expr(LOOK, "deadpan").look(LOOK, -0.9, -0.4, 0.05).look(LOOK + 0.55, 0, 0, 0.15);
+shot(LOOK + 0.6, { camX: 728, camY: 1020, zoom: 1.52 }, 1.8, "power1.inOut");
+
+// END: the logo card drops in
+wt.to(W, { end: 1, duration: 0.5, ease: "back.out(1.6)" }, END);
+F.sfx(END + 0.05, "thump");
+wt.set({}, {}, DUR);
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  const world = DUO.room(t) + pinboard() + MY.svg(t) + DUO.deskFront() + DUO.laptop() + DUO.mug(MUGX) + F.svg(t)
+    + DUO.mark("!", 770, 600, W.ex, t);
+  // the panic shake: a few pixels of jitter on the camera
+  const sh = W.shk * 7, cam = { ...W, camX: W.camX + Math.sin(t * 71) * sh, camY: W.camY + Math.cos(t * 59) * sh };
+  // the notification buzzes as the phone vibrates
+  const nx = r1(Math.sin(t * 90) * 12 * W.nb);
+  document.getElementById("stage").innerHTML = DUO.cam(world, cam)
+    + `<g transform="translate(${nx} 0)">${note(W.note, "Client", "Detector says your post is AI??", 250)}</g>`
+    + (W.end < 0.5 ? googleCard() : "")
+    + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")
+    + DUO.endCard(W.end, t);
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>

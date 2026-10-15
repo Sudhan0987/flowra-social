@@ -1,0 +1,223 @@
+{
+ "style": "Duo sitcom in Maya's room by day (soft day sky, drifting cloud, shelf, plant, spark poster). Maya is the panicking solo blogger behind the desk with her pencil bun, and Floey is the calm, dry hummingbird on the laptop lid. One mug sits on the desk the whole reel (Maya never holds it). One notification (the hook) and one cutaway insert (the 'Google's questions' check). Captions: MAYA amber, FLOEY pink. Flowra appears only on the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face fills the frame, panic pose (hands up by her head), panic face, a '!' mark over her pencil bun. DUO.notification already down at the top of the screen, from 'AI Checker'.",
+   "action": "Problem already happening: the phone buzzes as the notification is already on screen, and Maya jolts on 'I wrote every word!'",
+   "onScreenData": "Verdict: likely AI",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "buzz"
+    },
+    {
+     "at": 0.4,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.1,
+   "shot": "close",
+   "camera": "shake",
+   "subject": "mayaTight: Maya, panic pose, eyes darting down at the laptop. The notification is still up and starts sliding away at the end of the panel.",
+   "action": "A small panic shake on 'It says I'm A.I.!' Her hands grip her head harder and the bun wobbles.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 0,
+   "at": 2.1,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya in the panic pose at her desk, the mug on the desk, and Floey perched on the laptop lid facing her.",
+   "action": "Cut to wide on 'Google will bin it!' Floey slowly turns her head toward Maya, unbothered.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid, deadpan. Maya is out of frame.",
+   "action": "'Google doesn't grade how it's made.' One slow blink, said flat.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 1.8,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floeyTight: Floey on the lid, a little closer.",
+   "action": "A slow push-in on 'Just whether it helps.' A small, tired head tilt, as if she has heard this a hundred times.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone behind the desk, Floey out of frame.",
+   "action": "She drops out of the panic pose into cheeks (hands on her cheeks), leans toward the laptop and looks worried: 'But the detector...'",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey on the laptop lid, perfectly still.",
+   "action": "'OpenA.I. switched its own detector off. Low accuracy.' Said flat with no movement. After 'Low accuracy.' comes one short chip (Floey's own sound) and she turns her head back toward Maya.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya at the desk with the mug beside her, Floey on the lid.",
+   "action": "Maya slumps as the panic drains, then moves into the chin pose, tilts her head toward Floey and puts on her think face: 'So what does Google actually want?' Floey turns to face her.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey lifts off the laptop lid and hovers at Maya's eye height on her left. Maya is in the chin pose.",
+   "action": "Floey takes off and hovers by Maya's head, turned toward her: 'Put your name on it.' Maya nods twice, quick.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 1.5,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya switches to the type pose, hands on the keyboard, while Floey hovers by her head.",
+   "action": "'Then add what you tried yourself.' Maya starts typing at once, and Floey flutters back down to the laptop lid as the line ends.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.9,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya in the type pose with a focused, neutral face. Floey (back on the lid) is out of frame.",
+   "action": "She types fast and says 'By Maya.'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0.5,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The one cutaway: DUO.listInsert on her laptop screen, title 'Google's questions', sub 'Search Central'. Rows: 'Clear author?' / 'By Maya' (good), then 'First-hand?' / 'Tested it 3 times' (good, hi).",
+   "action": "The insert swings in. Each row slides in with a typing tick as Maya says it, and a ring grows around the 'First-hand?' row on 'Tested it three times myself.'",
+   "onScreenData": "Tested it 3 times",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1,
+     "kind": "type"
+    },
+    {
+     "at": 1.6,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The 'Google's questions' insert holds, both rows green and the 'First-hand?' ring complete.",
+   "action": "Hold on the card for 'Wait.' Nothing on it asks how the post was written.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0.6,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame, hands frozen over the keyboard.",
+   "action": "She stops typing, gives a small jolt, her face turns surprised, and she looks left toward Floey on the lid: 'Google never asked how I wrote it...'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.7,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey on the laptop lid.",
+   "action": "Floey pivots to face the camera, holds a beat, says 'Even OpenA.I. stopped asking.' smug and dry, then winks.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 2.1,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya behind the desk, mug on the desk beside her, Floey out of frame.",
+   "action": "The button: Maya is in the crossed pose (arms folded) with a deadpan face, eyes to camera. She holds the flat look for about 2.5 seconds without a word.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 4.7,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo intact, 'Maya & Floey, every day', with Floey perched in front on the spark's left arm.",
+   "action": "The end card lands with a thump and the captions are hidden.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.7,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 0.6
+}

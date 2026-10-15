@@ -1,0 +1,111 @@
+{
+ "title": "Maya vs the AI checker",
+ "hookPattern": "The brutal report card",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "I wrote every word! It says I'm A.I.! Google will bin it!",
+   "emotion": "worried",
+   "caption": "I wrote every word! It says I'm AI! Google will bin it!",
+   "visual": "Frame one, mayaTight, day set: buzz sfx and MY.jolt as a DUO.notification slides down from the top of the screen, sender 'AI Checker', text 'Verdict: likely AI'. Maya is in the panic pose (hands up by her head), MY.expr shocked, a '!' mark pops over her pencil bun. On 'It says I'm AI' it cuts to the report card listInsert: title 'AI detector', sub 'your post', rows 'Written by: Maya' and 'Verdict: likely AI' (bad tone, hi ring). On 'Google will bin it!' it cuts to wide: Maya still in the panic pose at her desk, her mug already sitting on the desk (DUO.mug), and Floey perched on the laptop lid turns her head toward her."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Google doesn't grade how it's made. Just whether it helps.",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey on the laptop lid, deadpan, one slow blink, then a small head tilt as if she has heard this a hundred times. Maya is out of frame."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "But the detector...",
+   "emotion": "worried",
+   "visual": "maya shot: Maya drops out of the panic pose into cheeks (hands on her cheeks), MY.leanTo toward the laptop, MY.expr worried. Floey is out of frame."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "OpenA.I. switched its own detector off. Low accuracy.",
+   "emotion": "warm",
+   "caption": "OpenAI switched its own detector off. Low accuracy.",
+   "visual": "floeyTight: Floey says it flat, without moving, then gives one short chip (chirp sfx) after 'Low accuracy.' and turns her head back toward Maya. Dry, not broad."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "So what does Google actually want?",
+   "emotion": "curious",
+   "visual": "wide: Maya does MY.slump as the panic drains, then moves into the chin pose (hand on chin), MY.tiltTo toward Floey, MY.expr curious. Floey, still on the lid, turns to face her."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Put your name on it. Then add what you tried yourself.",
+   "emotion": "warm",
+   "visual": "wide: Floey takes off from the laptop lid (wing hum sfx) and hovers by Maya's head, turned toward her as she gives the tip. Maya MY.nod twice, quick, then switches to the type pose, hands on the keyboard."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "By Maya. Tested it three times myself.",
+   "emotion": "determined",
+   "visual": "Opens on maya shot, type pose, typing sfx. A half-second cut to the 'AI detector' card again ('Verdict: likely AI', bad tone), then a whoosh to a second listInsert: title 'Google's questions', sub 'Search Central'. As Maya types and says each part, its row slides in with a typing tick: 'Clear author? / By Maya' (good tone), then 'First-hand? / Tested it 3 times' (good tone, hi ring). The card holds: none of Google's questions asks how the post was written."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Wait. Google never asked how I wrote it...",
+   "emotion": "bright",
+   "visual": "Holds on the 'Google's questions' card for 'Wait.', then cuts to mayaTight: Maya stops typing, small MY.jolt, MY.expr realising, then MY.look up toward where Floey hovers. Floey is out of frame."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Even OpenA.I. stopped asking.",
+   "emotion": "proud",
+   "caption": "Even OpenAI stopped asking.",
+   "visual": "floeyTight: Floey, still hovering, turns to face the camera, holds a beat, delivers the line smug and dry, then a wink. Cut to maya shot: Maya in the crossed pose (arms folded), MY.expr deadpan, MY.look to camera, holding the flat look about 2.5 seconds before the end card (END pushed back to fit). The mug stays on the desk the whole time."
+  }
+ ],
+ "loopNote": "The reel ends on Maya's flat look to camera, arms folded, before the end card. On replay, frame one hits with the same buzz and the 'AI Checker' notification sliding down over her panic. It plays like the checker has just sent her another verdict, so the panic starts all over. There's no phone to keep track of: the notification and the buzz do the work.",
+ "caption": "When you wrote every single word yourself and a free AI checker still says \"likely AI\" 🙃\n\nBreathe. Google says its systems reward high-quality content however it's produced. And OpenAI switched off its own AI detector in 2023 because of its low accuracy.\n\nWhat Google's helpful content guide does ask: is it clear who wrote the post, and does it show first-hand experience? So put your name on it, and add the part only you could know: what you actually tried, tested or visited.\n\nHas a checker (or a client) ever called your writing AI? Tell us what you said back 👇\n\n(Maya and Floey are from the Flowra team.)",
+ "hashtags": [
+  "#blogging",
+  "#seotips",
+  "#freelancewriter",
+  "#contentwriting",
+  "#aidetector"
+ ],
+ "sticky": 50,
+ "id": "r009-a-detector-says-maya-s-handwritten-post-",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "A detector says Maya's handwritten post is \"likely AI\", and she's sure Google will bin it",
+ "editorNotes": [
+  "The payoff line, \"Wait. Google never asked how I wrote it...\", is untrue and isn't in the brief's facts. Google's helpful content guide has a \"Who, How, and Why\" section that asks how the content was created and suggests disclosing AI use where readers would expect it. A viewer who checks will find Google does ask how. It also makes the card's \"none of Google's questions asks how the post was written\" point false. Change the realisation to something the facts support: Google grades whether the post helps, not how it was made (\"however it is produced\"), and it asks who wrote it and what they did first-hand.",
+  "The payoff is just a repeat of Floey's line 2 (\"Google doesn't grade how it's made\"). Maya \"realising\" something she was told four lines earlier makes her look slow, and the cast rules say she is never dumb. Her payoff needs to come from what she sees on screen. For example, her two answers turn green on Google's card while the detector card still says \"likely AI\", so she sees the two are grading different things. It should not restate Floey's line.",
+  "The button doesn't land. \"Even OpenAI stopped asking.\" repeats the fact from line 4, so it adds nothing new, and the wordplay is off: OpenAI never asked how she wrote it, so \"stopped asking\" reads as a stretch. It also makes a real company the target of the closing joke, which breaks the cast rule against using real brands as joke targets. The brief already has a stronger button that fits the characters: \"So I'm human.\" / \"Your mum already knew.\" plus the cold-mug look. That uses two approved running jokes. Use it or another warm, smug callback that targets nobody real.",
+  "The hook's sender is 'AI Checker', but the brief says the verdict comes from a client. Detector tools don't send push notifications, and the reason to share this is the audience's real situation: a client forwarding \"looks AI\" (the r/freelanceWriters thread). Without the client the stakes go and the post feels less true. Use the brief's notification: from \"Client\", text \"Detector says your post is AI??\". It's under 34 characters.",
+  "Several of Maya's expressions don't exist in the studio: 'shocked' (hook), 'curious' (line 5) and 'realising' (payoff). The animator can't draw them as written. Use expressions from the list: panic or surprised for the hook, think for line 5, surprised for the payoff.",
+  "The shots don't match where Floey is after the tip. She takes off and hovers by Maya's head at eye height. The check beat (maya shot) and the payoff (mayaTight) then say \"Floey is out of frame\", but at floeyHover she would be in frame or cut off at the edge. The button then uses floeyTight, which frames the laptop lid, while she is \"still hovering\". Either send her back to the lid before the check beat, or put her on Maya's shoulder or the mug and pick shots that frame that spot. Say where she is in every beat after the tip.",
+  "(polish) It runs long. Nine lines, about 3.4 s of pauses, a 2.5 s hold and the 1.6 s end card come to roughly 28 to 30 seconds against the brief's 22. Cut one exchange. The detector card shows up three times and the AI point is made twice (lines 2 and 8), so there is room to cut.",
+  "(polish) \"OpenA.I.\" is an odd spelling for Kokoro (Floey's voice), and it could come out as \"Open-uh I\". Listen to that line before the render. If it sounds wrong, spell it so it comes out as \"Open A I\" and keep the caption as \"OpenAI\". Check that \"A.I.\" in Maya's hook comes out as two clean letters in bf_emma.",
+  "(polish) In the check beat, a half-second cut back to the detector card followed straight away by a whoosh to the second card is too fast to read on a phone, and the two sounds will crowd each other. Either drop the flashback, or show the cards side by side or in quick turns with at least about a second on each, so the 'graded on different things' comparison the brief asks for actually reads.",
+  "(polish) The hook shows \"likely AI\" twice in its first three seconds, once in the notification and once on the report card, and cuts three times (mayaTight, card, wide) while Maya is still talking. With the client notification, the card adds new information (the verdict). Consider keeping Maya's panicking face up through \"It says I'm AI!\" so the first thing people see is her reaction.",
+  "(polish) All three of Floey's lines are voiced as \"warm\", but the cast calls her deadpan and dry, and the visuals say \"deadpan\" and \"flat\". Warm suits a fond button. For the reframe and the OpenAI fact, choose a delivery that sounds flatter and more matter-of-fact so her lines contrast with Maya's panic.",
+  "(polish) The mug is drawn on the desk the whole time but never used, and the cold-coffee joke from the brief is gone. Either pay it off in the button (she sips, it's cold, she looks flat to camera) or leave the mug out."
+ ],
+ "style": "duo",
+ "template": "../drafts/r009-a-detector-says-maya-s-handwritten-post-/scene.html"
+}

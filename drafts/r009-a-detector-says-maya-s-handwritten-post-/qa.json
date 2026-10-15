@@ -1,0 +1,10 @@
+{
+ "pass": false,
+ "problems": [
+  "Frames 07–08 (claim is untrue): The payoff says 'Google never asked how I wrote it', and the 'Google's questions' card, credited to Search Central, is built to show that 'none of Google's questions asks how the post was written'. That is false. Google's Search Central guidance on helpful content tells creators to ask 'Who, How, and Why' about their content. 'How was this content created?' is one of the questions, and it says to disclose when automation or AI was used. As written, the card misquotes the source it names on screen. Fix: reword the line to something true, such as 'Google cares whether it helps, not what tool made it', and stop the card implying Google never asks how a post was made.",
+  "Frame 09 (button rests on the false claim): 'Even OpenAI stopped asking.' is the punchline to the false claim above. OpenAI did switch off its AI text classifier in July 2023 for low accuracy, but that is not the same as 'stopping asking how it's written'. Once the payoff is fixed, this line needs rewording so the joke still works.",
+  "Frame 01 (picture doesn't match the voice): Maya's line 'Google will bin it!' plays over a tight shot of Floey alone. The script asks for a cut to the wide shot of Maya panicking at her desk with Floey turning toward her. Viewers hear Maya but can't see her, and the wide shot that sets up the room is missing.",
+  "Frame 03 (clipped): In Floey's tight shot, a thin slice of Maya's face, hair and earring is cut off by the right edge of the frame. It looks like a framing mistake, and the script says Maya should be out of frame. Frames 02 and 04 use the same shot without her, so the framing also jumps between cuts.",
+  "Frame 00 (doesn't match the script or the hook line): The pop-up notification comes from 'Client' and reads 'Detector says your post is AI??'. The script specifies sender 'AI Checker' with 'Verdict: likely AI'. Maya is a solo blogger, so a 'Client' sender is off-character. It also blurs whose verdict 'It says I'm AI' refers to."
+ ]
+}

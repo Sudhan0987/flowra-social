@@ -1,0 +1,55 @@
+{
+ "topic": "A detector says Maya's handwritten post is \"likely AI\", and she's sure Google will bin it",
+ "angle": "Maya wrote every word herself. Now a client forwards an AI detector verdict saying \"likely AI\", and she's convinced Google will punish the post. Floey flips it: Google's guidance says it doesn't grade how a post was made, only whether it helps, and OpenAI switched off its own AI detector for low accuracy. The one tip is what Google actually asks for: put your name on the post and add the part only you could know, meaning what you tried yourself. The reel shows the detector's \"report card\" next to Google's own questions, so viewers see the two being graded on different things. Note: the starting angle (\"a model that only looked at the layout\") is not accurate. The SlopShape preprint reads structure (order, evidence, voice), and v3 dropped format-based features. So the reel never claims a detector \"only looked at the layout\" and never cites the paper's scores.",
+ "whyNow": "AI detectors are back in the conversation. The SlopShape preprint (arXiv 2609.15369, revised 28 Sep 2026) says it can spot AI blog posts from their structure, and it is being shared and discussed (dev.to and Unite.ai write-ups, a Show HN thread from our social listening). Google updated two documents this month. Its generative AI content page (updated 1 Oct 2026) says to fact-check AI drafts. Its helpful content page (updated 5 Oct 2026) asks about bylines and first-hand experience. People really post about this: a r/freelanceWriters thread, \"AI Writing - When it's not.\" (65 comments), is from a writer whose client says a human-written sample is mostly AI.",
+ "goal": "send",
+ "audience": "Solo bloggers, freelance content writers and small agency writers who write their own posts and have been told (by a client, an editor or a free checker) that their work \"looks AI\", or who worry that Google punishes anything that reads like AI.",
+ "facts": [
+  {
+   "fact": "Google's Search Central blog says its systems reward high-quality content however it is produced. The section heading is \"Rewarding high-quality content, however it is produced\".",
+   "source": "https://developers.google.com/search/blog/2023/02/google-search-and-ai-content"
+  },
+  {
+   "fact": "Google: \"Appropriate use of AI or automation is not against our guidelines.\" Using automation, including AI, mainly to manipulate rankings is against its spam policies.",
+   "source": "https://developers.google.com/search/blog/2023/02/google-search-and-ai-content"
+  },
+  {
+   "fact": "Google's FAQ: \"Using AI doesn't give content any special gains.\" Content does well when it is useful and original.",
+   "source": "https://developers.google.com/search/blog/2023/02/google-search-and-ai-content"
+  },
+  {
+   "fact": "Google's helpful content guide asks: \"Is it self-evident to your visitors who authored your content?\" It also says: \"We strongly encourage adding accurate authorship information, such as bylines to content where readers might expect it.\" (page updated 5 Oct 2026)",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "Google's helpful content guide asks whether your content \"clearly demonstrate[s] first-hand expertise and a depth of knowledge\", for example having used the product or visited the place.",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "Google's generative AI content page (updated 1 Oct 2026): \"It is critical to manually factcheck and review all AI-generated content for accuracy and trustworthiness before publishing.\" Generating many pages without adding value for users may violate its scaled content abuse policy.",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "OpenAI shut down its own AI text classifier: \"As of July 20, 2023, the AI classifier is no longer available due to its low rate of accuracy.\"",
+   "source": "https://searchenginejournal.com/openai-shuts-down-flawed-ai-detector/492565"
+  },
+  {
+   "fact": "Demand: a r/freelanceWriters thread, \"AI Writing - When it's not.\" (29 points, 65 comments), is from a writer whose prospective client says their human-written sample is mostly AI. Commenters say detectors are unreliable and suggest using Google Docs version history as proof.",
+   "source": "https://reddit.sentinel-team.org/posts/1pn2kci/snapshots/2025-12-24T05%3A30%3A15.00456Z"
+  },
+  {
+   "fact": "Demand: a blogger ran one of his own posts through five free detectors and got verdicts from 100% human to 49% AI-probable (context only, not for the script).",
+   "source": "https://joshtronic.com/2023/08/27/am-i-ai"
+  },
+  {
+   "fact": "Context only (do not quote numbers in the reel): the SlopShape preprint by Jochen Madler identifies AI-written commercial blog posts from structural features (order, evidence, voice) scored by an LLM. It compares pre-ChatGPT human posts with AI rewrites. Its reported scores differ between versions, and v3 excluded format-sensitive features.",
+   "source": "https://arxiv.org/abs/2609.15369"
+  }
+ ],
+ "visualIdea": "Day set, about 22 seconds, payoff in the first 2 seconds. Open on a phone buzz and a DUO.notification from \"Client\": \"Detector says your post is AI??\". It cuts straight to a DUO.listInsert styled as a report card, titled \"AI detector\", with sub \"your post\". Rows: \"Written by: Maya\", \"Verdict: likely AI\" (bad tone, hi ring). No score is invented; the verdict is a word. Maya, mayaTight, panic pose with the pencil bun wobbling and a \"!\" mark: \"I wrote every word myself and it says I'm AI! Google's going to bin it.\" Floey on the laptop lid (floeyTight, deadpan): \"Google doesn't grade how it was written. It grades whether it helps.\" Maya: \"But the detector...\" Floey: \"OpenAI switched its own detector off. Low accuracy.\" Maya: \"So what do I do?\" Floey (floey shot) gives the tip: \"Put your name on it. Add the bit only you'd know.\" Maya types (typing sfx). A second listInsert swings in (whoosh), titled \"What Google asks\", with sub \"Search Central\". Rows: \"Who wrote it? / By Maya\" (good), \"First-hand? / I tested it 3 times\" (good, hi ring), framed as Maya's own example line. Button: wide shot, Maya leans back. \"So I'm human.\" Floey turns front, beat: \"Your mum already knew.\" Maya gives a flat look to camera with her cold mug (mum reads the blog + cold coffee running jokes). End card.",
+ "pillar": "myth",
+ "instinct": "An AI detector says my post looks AI, so Google is going to penalise it.",
+ "flip": "Google says its ranking systems reward high-quality content \"however it is produced\", and OpenAI shut down its own AI detector because of \"its low rate of accuracy\".",
+ "idea": "Floey gets graded by an AI detector that never read the words",
+ "style": "duo"
+}
