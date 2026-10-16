@@ -1,0 +1,126 @@
+{
+ "title": "Ninety Two Percent Robot",
+ "hookPattern": "The brutal report card",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "My client's detector says my post is ninety two percent robot.",
+   "emotion": "worried",
+   "caption": "My client's detector says my post is 92% robot.",
+   "visual": "Day set, wide, frame one: the DUO.notification is already down at t=0 ('Client: detector says 92% AI??'), Maya is in the panic pose with a worried face and the '!' mark already over her bun. Her mug sits on the desk beside the laptop, steam rising (DUO.mug drawn). Floey, perched on the laptop, pivots her head toward Maya. Cut to mayaTight on 'ninety two percent': panic pose, eyes wide behind her round glasses. Phone buzz sfx at t=0, panned to the desk."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Did a robot write it?",
+   "emotion": "curious",
+   "visual": "floey two-shot: Floey on the laptop, deadpan, one slow blink and a head tilt. Maya listens with a worried face, still in the panic pose, and glances across at Floey on 'robot'."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "No, me! At two in the morning! Google'll bury it.",
+   "emotion": "worried",
+   "visual": "maya: Maya in the cheeks pose on 'two in the morning', then blends to the panic pose on 'Google'. Floey is out of frame in this shot."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "Google rewards good, original pages. However they're made.",
+   "emotion": "playful",
+   "visual": "floey two-shot: Floey tilts her head, then a short chip sfx on 'However'. Maya blends from panic to the chin pose, listening, eyebrows still up."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "But the detector...",
+   "emotion": "worried",
+   "visual": "mayaTight: the DUO.notification slides back in at the top of frame for a moment ('Client: detector says 92% AI??'), then slides out. Maya, worried face, uses pointL toward Floey off-frame, appealing to her."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "A chatbot maker scrapped its own detector. Too inaccurate.",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey alone on the laptop, flat and dry, a tiny tongue flick after 'detector'. Cut to maya on 'Too inaccurate': Maya in the rest pose, her face changes from worried to surprised, the '!' mark gone."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Now what?",
+   "emotion": "curious",
+   "visual": "wide: Maya leans forward (MY.leanTo forward), curious face. Floey takes off from the laptop with a wing-buzz sfx and settles at floeyHover beside the screen. The mug is still on the desk, no steam now."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Put your name on it. Say how you made it.",
+   "emotion": "warm",
+   "visual": "floey two-shot: Floey at floeyHover beside the laptop, calm, a small nod on 'name'. Maya switches to the type pose and starts typing, keyboard clicks panned to the laptop."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "By Maya. Written by me. Two in the morning.",
+   "emotion": "bright",
+   "visual": "Whoosh to the laptop screen insert (DUO.listInsert) titled 'Google asks: Who? How?'. Two rows slide in one at a time as she says them, each with a tick and a soft ding: Who: 'By Maya', How: 'Written by me. 2am.' A highlight ring grows around the How row on 'Two in the morning'."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So I'm officially human.",
+   "emotion": "bright",
+   "visual": "Back to wide: Maya in the rest pose, chin up, pleased with herself. Floey flies back and lands on the laptop. The mug sits on the desk, steam gone."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.6,
+   "say": "Before coffee? Debatable.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey on the laptop, F.pivot to front, smug, one slow blink to camera. Cut to mayaTight: Maya switches to the mug pose (desk mug no longer drawn), sips, winces at the cold coffee, and gives the camera a flat look. Hold, then the end card."
+  }
+ ],
+ "loopNote": "No loop. Duo reels end on the button: Maya's flat look to camera after the cold sip, a 0.6 second hold, then the end card. The coffee steaming in frame one and cold at the end is the bookend, not a replay loop.",
+ "caption": "A client ran your post through an AI detector and it came back \"92% AI\". You wrote it yourself at 2am. Breathe.\n\nGoogle says its ranking systems aim to reward original, high-quality content, however it's produced. And in 2023 a chatbot company shut down its own AI text classifier because its accuracy was too low.\n\nThe useful move: put your name on the post (a byline) and say how you made it. Google's helpful content guide asks you to think about Who, How and Why. Your byline answers Who, and a line on how you wrote it answers How.\n\nHas a client ever told you your own writing \"reads like AI\"? What did you say back? (Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#freelancewriting",
+  "#contentwriting",
+  "#blogging",
+  "#aidetector"
+ ],
+ "sticky": 50,
+ "id": "r010-a-client-s-ai-detector-says-maya-s-handw",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "A client's AI detector says Maya's handwritten post is AI, and she thinks Google will bury it",
+ "editorNotes": [
+  "Too long for the brief. There are 11 lines and about 73 words. At Emma's fast pace and Floey's pace, plus 3.2 s of pauses, the spoken part alone runs about 28 to 30 s, and the end card and cold-sip acting come after that. The brief asks for 20 to 25 s. Cut one of Floey's three reframes and one of Maya's pushbacks. The cast structure allows one pushback ('So?' / 'But...'), and this script has three ('No, me!...', 'But the detector...', 'Now what?'). For example, merge 'Did a robot write it?' into the hook exchange, or go straight from 'But the detector...' to the chatbot fact, then to 'So what do I do?'.",
+  "Read aloud, 'Google rewards good, original pages. However they're made.' comes out wrong in Floey's Kokoro voice. A sentence that starts with 'However' after a full stop gets read as 'However, they're made', which sounds like a 'but' coming. That flips the one reframe the reel depends on. Make it one sentence with no full stop, such as 'Google rewards good pages, however they're made.' or 'Google rewards good pages. No matter how they're made.'",
+  "The check insert shows the tip wrongly. 'By Maya. Written by me. Two in the morning.' gives the Who twice ('By Maya' and 'Written by me'). 'Two in the morning' is when she wrote it, not how. Then the highlight ring sits on the 2am joke, not on the tip. A viewer who copies this would publish a byline plus 'written at 2am', which is not the 'how a piece of content was produced' Google means. Make the How row a real How in Maya's words, like the brief's 'Tested it 3 times' or 'Written by me, no AI', and put the ring on the Who/byline row as the brief says. If you want the 2am callback, give it to Floey as a dry aside, not put it in the row the tip relies on.",
+  "Steam is not in the studio. DUO.mug() draws a mug, and nothing listed draws steam or lets it fade, but frame one ('steam rising'), 'Now what?' ('no steam now') and the loopNote bookend all depend on it. Drop the steam. Carry the cold-coffee joke with the sip, a wince and the flat look, all of which can be drawn (and maybe a 'sweat' or '?' mark).",
+  "(polish) 'A chatbot maker scrapped its own detector. Too inaccurate.' sounds written, and the vagueness makes it sound like a rumour: the viewer can't tell who, so it lands as hearsay instead of a fact you can check. The facts file names OpenAI but doesn't say it may be named in a negative story, so check that with the brief owner before naming it. If naming is cleared, 'The ChatGPT people shut down their own detector. Low accuracy.' hits harder. If not, at least make it sound spoken: 'Even the AI makers gave up on theirs. Too inaccurate.' only works if it stays true to the one source, so keep it singular and say 'shut down'.",
+  "(polish) The emotion on the chatbot line is 'warm', but the visual calls it 'flat and dry', and it is Floey's deadpan fact. A warm read makes it soft. Use a flatter delivery: 'playful', or 'determined' for a dry certainty.",
+  "(polish) 'Google'll bury it.' is likely to come out mangled in Kokoro bf_emma ('Google-ull'). 'Google's going to bury it.' (as in the brief) is just as human and safer for the voice.",
+  "(polish) 'No, me!' isn't how people talk. People say 'No! I did!' or 'Me! At two in the morning!'. Also, the hook ('My client's detector says my post is ninety two percent robot.') reports the problem but sounds calm and written. The stakes (Google burying it) only arrive in line 3, about 5 s in. Think about opening on the outrage ('Ninety two percent robot? I wrote that myself!') with the notification carrying the client part.",
+  "(polish) 'So I'm officially human.' suggests a byline proves to the client (or the detector) that a person wrote it. It doesn't, and Floey's button jokes about coffee instead of correcting it. It's fine as a joke, but you could tie it to Google instead ('So Google knows it's me.') so the payoff matches the real fear, which is Google, not the detector.",
+  "(polish) The insert title 'Google asks: Who? How?' drops Why, which is part of the section the source is named after (Who, How and Why). Either use 'Google asks: Who, How, Why' with a Why row ('To help readers'), as in the brief, or title it after the tip ('Add: who and how'). The title should not quote Google's framework only in part.",
+  "(polish) Too many sounds in the check beat. Each row gets 'a tick and a soft ding', on top of typing still running from the tip. That breaks the rule of one sound per event, at most one every 0.4 s. Use one sound per row (tick) and save the ding for the ring.",
+  "(polish) Spot and shot problems. floeyHover is at Maya's eye height on her left, not 'beside the screen', so the tip's 'floey two-shot' was framed for the laptop perch and will need a nudge so Floey isn't sliced. Also, 'wing-buzz' isn't a cue: use F.sfx 'flutter'. 'Curious face' (line 7) isn't one of Maya's expressions: use think or surprised. In line 1, Floey 'pivots her head toward Maya', but she already faces Maya at facing -1, so give her a tilt or a slow blink instead.",
+  "(polish) In 'But the detector...', the notification slides in and out within a line about 1 s long. That is too fast to read, and it repeats the frame-one shot for no new information. Either hold it for the whole line or drop it and keep Maya's pointL (and check that her pointing arm isn't cut off at the frame edge in mayaTight; 'maya' framing may be safer)."
+ ],
+ "style": "duo",
+ "template": "../drafts/r010-a-client-s-ai-detector-says-maya-s-handw/scene.html"
+}

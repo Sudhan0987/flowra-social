@@ -1,0 +1,51 @@
+{
+ "topic": "A client's AI detector says Maya's handwritten post is AI, and she thinks Google will bury it",
+ "angle": "Maya's phone buzzes with a client's message: their AI detector says the post she wrote herself at 2am is AI. She's sure Google will bury it. Floey flips it with Google's own line (Google rewards helpful content however it's made, and using AI appropriately doesn't break its rules) and the fact that OpenAI shut down its own detector for low accuracy. Then she gives one tip from Google's docs that Maya can do on screen: put your name on the post and say how you made it. Note: I changed the starting angle on purpose. The SlopShape paper (arXiv 2609.15369) reads the structure of the writing (order, evidence, voice), not the page layout, so 'a model that only looked at the layout' is not accurate and should not be said or shown. The reel doesn't need the paper at all.",
+ "whyNow": "AI detection is back in the conversation. The SlopShape preprint on spotting AI-written commercial blog posts was revised on 28 Sep 2026 (arXiv 2609.15369) and is being shared as 'AI content spotted from structure alone'. Google updated its generative AI content page on 1 Oct 2026, telling sites to fact-check and review AI drafts, and its helpful content page on 5 Oct 2026 (the Who, How, Why section). Demand is evergreen and easy to show: freelance and content writers keep reporting that clients ran their own human writing through one detector and called it AI (r/freelanceWriters threads, Ask a Manager Aug 2024, Content Marketing Institute 2023). Social listening also flagged writers' unease about AI drafts this month. I could not confirm the Show HN '74 points, 28 comments' figure, so don't use it.",
+ "goal": "send",
+ "audience": "Bloggers, freelance content writers and small agency writers who send drafts to clients or editors. Many of them have had, or dread, a 'this reads like AI' message about work they wrote themselves.",
+ "facts": [
+  {
+   "fact": "Google's Search Central guidance on AI content has a section titled 'Rewarding high-quality content, however it is produced' and says 'Google's ranking systems aim to reward original, high-quality content'.",
+   "source": "https://developers.google.com/search/blog/2023/02/google-search-and-ai-content"
+  },
+  {
+   "fact": "Google: 'Appropriate use of AI or automation is not against our guidelines.' Using automation or AI mainly to manipulate rankings is against its spam policies.",
+   "source": "https://developers.google.com/search/blog/2023/02/google-search-and-ai-content"
+  },
+  {
+   "fact": "Google's generative AI content page (updated 1 Oct 2026) says it is 'critical to manually factcheck and review all AI-generated content for accuracy and trustworthiness before publishing', and that generating many pages without adding value for users may count as scaled content abuse.",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "Google's helpful content guide (updated 5 Oct 2026) asks site owners to think about Who, How and Why. It strongly encourages 'adding accurate authorship information, such as bylines to content where readers might expect it', and says sharing 'how a piece of content was produced' helps readers.",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "OpenAI shut down its own AI text classifier in July 2023 because of 'its low rate of accuracy'. At launch it caught 26% of AI-written text and wrongly labelled 9% of human-written text as AI.",
+   "source": "https://decrypt.co/149826/openai-quietly-shutters-its-ai-text-classifier-due-to-low-accuracy"
+  },
+  {
+   "fact": "Content Marketing Institute reported that freelancers had clients withhold payment after accusing them of using AI writing tools they had not used. One freelancer said clients 'plug your content into ONE highly inaccurate AI detector'.",
+   "source": "https://contentmarketinginstitute.com/articles/ai-content-detection-tools"
+  },
+  {
+   "fact": "Demand: writers in r/freelanceWriters describe clients flagging their human-written work with AI detectors, including one writer removed from a client team. Ask a Manager ran a letter from a writer falsely accused of using ChatGPT (Aug 2024).",
+   "source": "https://www.askamanager.org/2024/08/i-was-falsely-accused-of-using-chatgpt-for-my-work.html"
+  },
+  {
+   "fact": "Context only, not for the reel: the SlopShape preprint (arXiv 2609.15369, v3 28 Sep 2026) detects AI-written commercial blog posts from discourse structure (order, evidence, voice), not HTML or page layout. It is not peer reviewed and is scored by an LLM.",
+   "source": "https://arxiv.org/abs/2609.15369"
+  },
+  {
+   "fact": "Any detector score shown on screen (for example '92% AI' in the client's text) is the client's example number, framed as theirs, not a real statistic.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "Day set, 20 to 25 seconds, with the payoff on screen in the first 2 seconds. 0s: phone buzz, and DUO.notification slides down: 'Client: detector says 92% AI??'. Maya jolts, then mayaTight in panic pose with a '!' mark. Her first line: 'I wrote that myself! At 2am! Google's going to bury me.' Floey on the laptop, floeyTight, deadpan: 'Google doesn't grade how it was typed. It grades if it helps.' Maya: 'But the detector...' Floey: 'OpenAI shut down its own detector. Low accuracy.' Maya: 'So what do I do?' Floey's tip: 'Put your name on it. Say how you made it.' Maya types (typing sfx). Whoosh to DUO.listInsert titled 'Google asks: Who, How, Why', with three rows sliding in: Who: 'By Maya' (good), How: 'Tested it 3 times' (good), Why: 'To help readers' (good). The ring grows on the Who row. Button: back to wide. Maya: 'So I'm officially human.' Floey: 'Before coffee? Debatable.' Maya sips the mug and finds it cold (running joke), then looks to camera. End card.",
+ "pillar": "myth",
+ "instinct": "If an AI detector says my post is AI, Google will treat it as AI spam and bury it.",
+ "flip": "Google says it rewards original, high-quality content however it is produced, and it never asks what a detector thinks; what it asks is who made the page, how and why, so Floey's tip is to add your byline and say how you made it.",
+ "idea": "Floey gets graded by an AI detector that never read the words",
+ "style": "duo"
+}

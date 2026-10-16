@@ -1,0 +1,253 @@
+{
+ "style": "Day set in Maya's room: a soft daylight window with a drifting cloud, shelf, plant, spark poster. Maya (round glasses, pencil bun) sits waist up behind the desk with the laptop (spark sticker on its back) and a steaming mug at the desk's right end. Floey perches on the laptop lid facing Maya (facing -1, side view). Captions are amber for MAYA and pink for FLOEY at y 1540. Flowra appears only on the end card. One notification (beat 0) and one insert (beat 8) in the whole reel.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk in the panic pose with a worried face, the '!' mark already over her bun. Floey is perched on the laptop and the steaming mug is drawn at the desk's right end. The phone notification is already down at the top of frame.",
+   "action": "Problem already happening on frame one: the notification is down, Maya's hands fly up by her head as she starts her line, and Floey's head pivots toward her.",
+   "onScreenData": "Client: Detector says 92% AI??",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.9,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame, panic pose, eyes wide behind her round glasses",
+   "action": "Cut on 'ninety two percent', then a slow push in as she lands on 'robot'. The notification slides up and out as the shot changes.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: a closer two-shot favouring Floey on the laptop lid, with Maya at the edge, still in the panic pose with a worried face",
+   "action": "Floey is deadpan. She tilts her head and gives one slow blink. On 'robot' Maya's eyes flick across to her (look x -1).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, Floey out of frame",
+   "action": "Maya slaps her hands to her cheeks (cheeks pose) on 'two in the morning', with an annoyed and panicked face.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 1.6,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone, pushing toward her face",
+   "action": "On 'Google' her hands blend back up to the panic pose and the camera pushes in a little as the pressure rises on 'bury it'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: two-shot favouring Floey on the laptop, with Maya at the edge still in panic",
+   "action": "Floey tilts her head slowly and says the reframe calmly. Maya's eyebrows stay up.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 1.9,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: the listener's face for the reaction",
+   "action": "Cut to Maya on 'However'. Her arms blend from panic to the chin pose and she switches to the think face, still not convinced.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face, worried",
+   "action": "Maya points left (pointL) toward Floey, who is off frame, and pleads with her. A small push in on 'detector...'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid",
+   "action": "Floey is flat and dry, almost bored. A tiny tongue flick right after 'detector'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 2,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, the listener's reaction",
+   "action": "Cut on 'Too inaccurate'. Maya drops her arms to the rest pose and her face changes from worried to surprised. The '!' mark over her bun pops away.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them, with the mug on the desk and no steam now",
+   "action": "A short pull out to the two-shot. Maya leans forward, curious. Floey lifts off the laptop and swings round to floeyHover by the screen at Maya's eye height.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: two-shot nudged to frame Floey hovering at floeyHover beside the laptop, with Maya beside her",
+   "action": "Floey is calm and gives a small nod on 'name'. On 'Say how' Maya switches to the type pose and her hands start moving on the keys.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop screen insert (DUO.listInsert) titled 'Google asks: Who? How?' with two rows: Who: 'By Maya', How: 'Written by me. 2am.'",
+   "action": "The insert swings in. The rows slide in one at a time as she says them: 'Who: By Maya', then 'How: Written by me. 2am.'",
+   "onScreenData": "Who: By Maya",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.5,
+     "kind": "ding"
+    },
+    {
+     "at": 1.1,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 1.5,
+   "shot": "insert",
+   "camera": "push-in",
+   "subject": "The same list insert, with the How row highlighted",
+   "action": "On 'Two in the morning' a highlight ring grows around the How row and the camera nudges in on it.",
+   "onScreenData": "How: Written by me. 2am.",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya in the rest pose with the mug on the desk and no steam, Floey hovering",
+   "action": "The insert swings out. Maya lifts her chin, proud and pleased with herself. Floey flies back and lands on the laptop lid, facing her.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.9,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop",
+   "action": "Floey pivots to face the camera with a smug look and says the button line straight to the viewer, then gives one slow blink.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 1.8,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face holding the mug (mug pose; the desk mug is no longer drawn)",
+   "action": "Cut to the listener. Maya picks up the mug and takes a sip.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 2.6,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya with the mug",
+   "action": "She winces at the cold coffee, then slowly turns a flat, deadpan look to the camera and holds it.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 4.4,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo, 'Maya & Floey, every day', with Floey perched in front on the spark's left arm",
+   "action": "The end card drops in over the room and the captions clear.",
+   "onScreenData": "Maya & Floey, every day",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 0.6
+}
