@@ -157,7 +157,7 @@
   },
   {
    "id": "r010-a-client-s-ai-detector-says-maya-s-handw",
-   "status": "draft",
+   "status": "approved",
    "topic": "A client's AI detector says Maya's handwritten post is AI, and she thinks Google will bury it",
    "format": "duo-sitcom",
    "madeAt": "2026-10-16T09:56:05.712Z",
@@ -168,7 +168,8 @@
    },
    "idea": "Floey gets graded by an AI detector that never read the words",
    "style": "duo",
-   "run": 38880494151
+   "run": 38880494151,
+   "note": "Approved by the founder in chat, 16 Oct 2026."
   }
  ]
 }
