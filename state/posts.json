@@ -154,6 +154,21 @@
    "reason": "Frames 07–08 (claim is untrue): The payoff says 'Google never asked how I wrote it', and the 'Google's questions' card, credited to Search Central, is built to show that 'none of Google's questions asks how the post was written'. That is false. Google's Search Central guidance on helpful content tells creators to ask 'Who, How, and Why' about their content. 'How was this content created?' is one of the questions, and it says to disclose when automation or AI was used. As written, the card misquo",
    "idea": "Floey gets graded by an AI detector that never read the words",
    "style": "duo"
+  },
+  {
+   "id": "r010-a-client-s-ai-detector-says-maya-s-handw",
+   "status": "draft",
+   "topic": "A client's AI detector says Maya's handwritten post is AI, and she thinks Google will bury it",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-16T09:56:05.712Z",
+   "seconds": 32,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1792144565.346639"
+   },
+   "idea": "Floey gets graded by an AI detector that never read the words",
+   "style": "duo",
+   "run": 38880494151
   }
  ]
 }
