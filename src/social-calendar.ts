@@ -38,7 +38,7 @@ export interface SocialItem {
   format?: "text" | "carousel";
   title: string;
   channels: Channel[];
-  status: "posted" | "ready" | "needs-you" | "making" | "planned";
+  status: "posted" | "ready" | "approved" | "needs-you" | "making" | "planned";
   owner: "flowra" | "you";
   note: string;
   ref?: string; // reel id
@@ -131,6 +131,7 @@ export function buildCalendar(): SocialItem[] {
       const file = `posts/linkedin/${d}.md`;
       const has = existsSync(path.join(ROOT, file));
       const done = existsSync(path.join(ROOT, `posts/linkedin/${d}.posted`));
+      const approved = existsSync(path.join(ROOT, `posts/linkedin/${d}.approved`));
       let title = "", sources: string[] | undefined, note = "";
       if (has) {
         title = read(file).split("\n")[0].replace(/^#\s*/, "");
@@ -147,8 +148,8 @@ export function buildCalendar(): SocialItem[] {
       const format = w === 4 ? "carousel" : "text";
       const pdf = `posts/linkedin/${d}.pdf`;
       items.push({
-        date: d, kind: "linkedin-post", title, channels: ["linkedin"], owner: "you", format,
-        status: done ? "posted" : has ? "ready" : "planned",
+        date: d, kind: "linkedin-post", title, channels: ["linkedin"], owner: approved || done ? "flowra" : "you", format,
+        status: done ? "posted" : approved ? "approved" : has ? "ready" : "planned",
         note: has
           ? format === "carousel" && existsSync(path.join(ROOT, pdf)) ? `Text is ready. Post it from the Flowra page as a document: attach ${pdf}.` : "Text is ready. Post it from the Flowra page."
           : (note || "Flowra drafts it a week ahead.") + (format === "carousel" ? " Document post (PDF carousel): the format with the most reach on LinkedIn in 2026." : ""),

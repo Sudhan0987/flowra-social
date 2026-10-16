@@ -64,10 +64,16 @@ jobs:
         run: command -v ffmpeg || (sudo apt-get update -q && sudo apt-get install -y -q ffmpeg)
       - name: Post the next approved reel
         run: npx tsx src/autopost.ts ${{ inputs.check == 'true' && '--check' || '' }} ${{ inputs.youtube != '' && format('--youtube={0}', inputs.youtube) || '' }}
+      - name: Post the approved LinkedIn draft to the Flowra page (Buffer)
+        if: always() && inputs.check != 'true' && inputs.youtube == ''
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_LINKEDIN_CHANNEL: ${{ vars.BUFFER_LINKEDIN_CHANNEL }}
+        run: npx tsx src/linkedin.ts
       - name: Save
         if: always()
         run: |
           git config user.name "flowra-social"
           git config user.email "flowra-social@users.noreply.github.com"
-          git add state/posts.json
+          git add state/posts.json posts/linkedin
           git diff --cached --quiet || (git commit -m "Posted / approvals $(date -u +%F)" && git pull --rebase -q && git push -q)

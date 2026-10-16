@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-13T04:07:45.705Z",
+  "updated": "2026-10-16T20:55:39.286Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -119,30 +119,9 @@
       "file": "posts/linkedin/2026-10-13.md"
     },
     {
-      "date": "2026-10-13",
-      "kind": "reel",
-      "title": "Maya & Floey: Being cited by ChatGPT next to actually getting the visit",
-      "channels": [
-        "instagram",
-        "facebook",
-        "youtube",
-        "linkedin",
-        "x"
-      ],
-      "status": "making",
-      "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Your brand showing up in ChatGPT doesn't mean anyone clicked through to you.",
-      "sources": [
-        "https://citerank.thecompound.tech",
-        "https://www.clicksdynasty.com/blog-post-chatgpt-perplexity-local-recommendations.html",
-        "https://www.reddit.com/r/bigseo/comments/1x2alme/i_think_were_measuring_ai_search_visibility_the/",
-        "https://ukaiseoconsultant.co.uk/ai-driven-seo-audits/"
-      ]
-    },
-    {
       "date": "2026-10-14",
       "kind": "reel",
-      "title": "Maya & Floey: Floey gets graded by an AI detector that never read the words",
+      "title": "Maya asks ChatGPT for the best blogs in her niche, isn't on the list and panics. Floey shows her that the list changes on every ask, and that GA4 shows the visits ChatGPT actually sent.",
       "channels": [
         "instagram",
         "facebook",
@@ -150,12 +129,10 @@
         "linkedin",
         "x"
       ],
-      "status": "planned",
+      "status": "posted",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Your blog post just got its report card from a model that only looked at the layout.",
-      "sources": [
-        "https://arxiv.org/abs/2609.15369"
-      ]
+      "ref": "r008-maya-asks-chatgpt-for-the-best-blogs-in-",
+      "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
       "date": "2026-10-15",
@@ -171,24 +148,9 @@
       "file": "posts/linkedin/2026-10-15.md"
     },
     {
-      "date": "2026-10-15",
-      "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
-      "channels": [
-        "instagram",
-        "facebook",
-        "youtube",
-        "linkedin",
-        "x"
-      ],
-      "status": "planned",
-      "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
-    },
-    {
       "date": "2026-10-16",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "A client's AI detector says Maya's handwritten post is AI, and she thinks Google will bury it",
       "channels": [
         "instagram",
         "facebook",
@@ -196,9 +158,10 @@
         "linkedin",
         "x"
       ],
-      "status": "planned",
+      "status": "posted",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "ref": "r010-a-client-s-ai-detector-says-maya-s-handw",
+      "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
       "date": "2026-10-17",
@@ -211,7 +174,7 @@
         "linkedin",
         "x"
       ],
-      "status": "planned",
+      "status": "making",
       "owner": "flowra",
       "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
     },
