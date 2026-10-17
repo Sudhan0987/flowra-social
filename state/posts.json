@@ -180,7 +180,7 @@
   },
   {
    "id": "r011-maya-has-clicked-request-indexing-on-her",
-   "status": "approved",
+   "status": "published",
    "topic": "Maya has clicked \"Request Indexing\" on her new post again and again, and it still isn't on Google",
    "format": "duo-sitcom",
    "madeAt": "2026-10-17T07:54:39.185Z",
@@ -191,7 +191,14 @@
    },
    "style": "duo",
    "run": 39014181617,
-   "note": "Approved by the founder in chat, 17 Oct 2026."
+   "note": "Approved by the founder in chat, 17 Oct 2026.",
+   "published": {
+    "at": "2026-10-17",
+    "instagram": "18050784332814101",
+    "facebook": "978445747980186",
+    "youtube": "1Sbah9cFA6A",
+    "youtubePrivacy": "public"
+   }
   }
  ]
 }
