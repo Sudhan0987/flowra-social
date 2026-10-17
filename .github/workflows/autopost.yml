@@ -31,6 +31,10 @@ on:
         description: "Reel id already posted on Instagram to upload to YouTube only (optional)"
         required: false
         default: ""
+      linkedin_check:
+        description: "true = list the Buffer channels (names and ids) and post nothing"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -65,11 +69,11 @@ jobs:
       - name: Post the next approved reel
         run: npx tsx src/autopost.ts ${{ inputs.check == 'true' && '--check' || '' }} ${{ inputs.youtube != '' && format('--youtube={0}', inputs.youtube) || '' }}
       - name: Post the approved LinkedIn draft to the Flowra page (Buffer)
-        if: always() && inputs.check != 'true' && inputs.youtube == ''
+        if: always() && inputs.check != 'true' && (inputs.youtube == '' || inputs.youtube == null)
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           BUFFER_LINKEDIN_CHANNEL: ${{ vars.BUFFER_LINKEDIN_CHANNEL }}
-        run: npx tsx src/linkedin.ts
+        run: npx tsx src/linkedin.ts ${{ inputs.linkedin_check == 'true' && '--check' || '' }}
       - name: Save
         if: always()
         run: |
