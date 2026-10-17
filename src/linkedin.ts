@@ -85,15 +85,17 @@ export function dueDrafts(today = istDay()): string[] {
 async function createPost(channelId: string, text: string, firstComment: string): Promise<string> {
   type Res = { createPost: { post?: { id: string }; message?: string } };
   const sel = `{ ... on PostActionSuccess { post { id } } ... on MutationError { message } }`;
-  // first try: the link in LinkedIn's first comment (better reach); if the API rejects the field, put it under the text
-  if (firstComment) {
+  const send = (input: Record<string, unknown>) => buffer<Res>(`mutation($input: CreatePostInput!) { createPost(input: $input) ${sel} }`, { input });
+  // Buffer's free plan refuses LinkedIn first comments ("requires a paid plan", seen 17 Oct 2026), so by default the
+  // link goes under the post. BUFFER_FIRST_COMMENT=true tries the first comment first (paid plan), falling back on any refusal.
+  if (firstComment && process.env.BUFFER_FIRST_COMMENT === "true") {
     try {
-      const r = await buffer<Res>(`mutation($input: CreatePostInput!) { createPost(input: $input) ${sel} }`, { input: { channelId, text, schedulingType: "automatic", mode: "shareNow", metadata: { linkedin: { firstComment } } } });
+      const r = await send({ channelId, text, schedulingType: "automatic", mode: "shareNow", metadata: { linkedin: { firstComment } } });
       if (r.createPost.post?.id) return r.createPost.post.id;
-      if (r.createPost.message && !/metadata|firstComment|field/i.test(r.createPost.message)) throw new Error(r.createPost.message);
-    } catch (e) { if (!/metadata|firstComment|field|argument|Unknown/i.test((e as Error).message)) throw e; console.log(`First comment not accepted by Buffer (${(e as Error).message.slice(0, 120)}); adding the link under the post instead.`); }
+      console.log(`First comment refused (${r.createPost.message ?? "no reason"}); putting the link under the post.`);
+    } catch (e) { console.log(`First comment refused (${(e as Error).message.slice(0, 120)}); putting the link under the post.`); }
   }
-  const r = await buffer<Res>(`mutation($input: CreatePostInput!) { createPost(input: $input) ${sel} }`, { input: { channelId, text: firstComment ? `${text}\n\n${firstComment}` : text, schedulingType: "automatic", mode: "shareNow" } });
+  const r = await send({ channelId, text: firstComment ? `${text}\n\n${firstComment}` : text, schedulingType: "automatic", mode: "shareNow" });
   if (!r.createPost.post?.id) throw new Error(`Buffer refused the post: ${r.createPost.message ?? "no reason given"}`);
   return r.createPost.post.id;
 }
