@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-16T20:55:39.286Z",
+  "updated": "2026-10-17T04:41:43.183Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -195,6 +195,18 @@
     },
     {
       "date": "2026-10-19",
+      "kind": "linkedin-post",
+      "title": "Share the blog article: useflowra.com/blog/best-content-audit-tools",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Pull one useful idea out of the article and link to it."
+    },
+    {
+      "date": "2026-10-19",
       "kind": "reel",
       "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
@@ -223,17 +235,17 @@
     {
       "date": "2026-10-20",
       "kind": "linkedin-post",
-      "title": "Your robots.txt allows GPTBot. Your host might still be blocking it.",
+      "title": "Skip building a content board in Notion: Flowra's Free plan already has one",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "From social listening: An Ask HN thread says AI bot traffic is out of control, and a r/bigseo thread counted how many top sites block AI crawlers in robots.txt, so people think robots.txt settles it. We found the opposite on our own site: our web host blocked GPTBot at the edge with HTTP 429 even though robots.txt allowed it, while other AI crawlers got through.",
+      "note": "From social listening: Two r/SEO posts this week walk through Notion setups for running a whole content operation, so teams are clearly building this by hand. Every Flowra plan, Free included, comes with the Task Board, the Content Workflow Board and the Content Repository.",
       "sources": [
-        "https://news.ycombinator.com/item?id=49705724",
-        "https://www.reddit.com/r/bigseo/comments/1x28e0h/we_checked_robotstxt_on_the_top_10000_sites_193/"
+        "https://www.reddit.com/r/SEO/comments/1x300x3/built_a_6module_seo_content_workspace_in_notion/",
+        "https://www.reddit.com/r/SEO/comments/1x2zmh5/i_built_a_notion_system_to_manage_my_entire/"
       ]
     },
     {
@@ -253,6 +265,18 @@
     },
     {
       "date": "2026-10-21",
+      "kind": "linkedin-post",
+      "title": "Share the blog article: useflowra.com/blog/content-audit-template",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Pull one useful idea out of the article and link to it."
+    },
+    {
+      "date": "2026-10-21",
       "kind": "reel",
       "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
@@ -269,7 +293,7 @@
     {
       "date": "2026-10-22",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/best-content-audit-tools",
+      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
       "channels": [
         "linkedin"
       ],
@@ -304,6 +328,18 @@
       "note": "Title, description, chapters, tags and pinned comment are in the script file. Then embed it in the blog article.",
       "file": "youtube/t001-why-did-my-traffic-drop/script.md",
       "status": "planned"
+    },
+    {
+      "date": "2026-10-23",
+      "kind": "linkedin-post",
+      "title": "Share the blog article: useflowra.com/blog/fresh-content-seo",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Pull one useful idea out of the article and link to it."
     },
     {
       "date": "2026-10-23",
@@ -352,6 +388,18 @@
     },
     {
       "date": "2026-10-26",
+      "kind": "linkedin-post",
+      "title": "Share the blog article: useflowra.com/blog/content-audit",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Pull one useful idea out of the article and link to it."
+    },
+    {
+      "date": "2026-10-26",
       "kind": "reel",
       "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
@@ -368,18 +416,14 @@
     {
       "date": "2026-10-27",
       "kind": "linkedin-post",
-      "title": "Google's advice on AI content: check it before you publish",
+      "title": "LinkedIn post",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "From social listening: Search Engine Journal reports that Google told sites to fact-check AI content before publishing. Writers in r/content_marketing (13 comments) say ChatGPT and Claude contradict their own technical writing when proofreading. Flowra's writer starts with an outline you approve or edit, and the Rework Queue shows what changed before anything goes live.",
-      "sources": [
-        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/",
-        "https://www.reddit.com/r/content_marketing/comments/1x1u1qs/has_anyone_else_experienced_chatgpt_or_claude/"
-      ]
+      "note": "Flowra drafts it a week ahead."
     },
     {
       "date": "2026-10-27",
@@ -395,6 +439,18 @@
       "status": "planned",
       "owner": "flowra",
       "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-10-28",
+      "kind": "linkedin-post",
+      "title": "LinkedIn post",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Flowra drafts it a week ahead."
     },
     {
       "date": "2026-10-28",
@@ -414,14 +470,14 @@
     {
       "date": "2026-10-29",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/content-audit-template",
+      "title": "LinkedIn post",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
       "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+      "note": "Flowra drafts it a week ahead. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
     },
     {
       "date": "2026-10-29",
@@ -437,6 +493,18 @@
       "status": "planned",
       "owner": "flowra",
       "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-10-30",
+      "kind": "linkedin-post",
+      "title": "LinkedIn post",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Flowra drafts it a week ahead."
     },
     {
       "date": "2026-10-30",
@@ -485,6 +553,18 @@
     },
     {
       "date": "2026-11-02",
+      "kind": "linkedin-post",
+      "title": "LinkedIn post",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Flowra drafts it a week ahead."
+    },
+    {
+      "date": "2026-11-02",
       "kind": "reel",
       "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
@@ -513,17 +593,14 @@
     {
       "date": "2026-11-03",
       "kind": "linkedin-post",
-      "title": "Google is fighting scrapers. Your position data doesn't need them.",
+      "title": "LinkedIn post",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "From social listening: The google.com/goto anti-scraping post got 681 points and 554 comments on Hacker News, the biggest search discussion in the set. Flowra doesn't scrape Google: its positions come from Search Console, with 16 months of history.",
-      "sources": [
-        "https://www.autom.dev/blog/google-search-goto-links"
-      ]
+      "note": "Flowra drafts it a week ahead."
     },
     {
       "date": "2026-11-03",
@@ -539,6 +616,18 @@
       "status": "planned",
       "owner": "flowra",
       "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-04",
+      "kind": "linkedin-post",
+      "title": "LinkedIn post",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Flowra drafts it a week ahead."
     },
     {
       "date": "2026-11-04",
@@ -558,14 +647,14 @@
     {
       "date": "2026-11-05",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
+      "title": "LinkedIn post",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
       "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+      "note": "Flowra drafts it a week ahead. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
     },
     {
       "date": "2026-11-05",
@@ -593,6 +682,18 @@
       "note": "Title carries the search phrase. Then embed it in the matching blog article when it exists.",
       "file": "youtube/t002-search-console-ai-performance-report/script.md",
       "status": "planned"
+    },
+    {
+      "date": "2026-11-06",
+      "kind": "linkedin-post",
+      "title": "LinkedIn post",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Flowra drafts it a week ahead."
     },
     {
       "date": "2026-11-06",

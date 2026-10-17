@@ -7,7 +7,8 @@
 //                    posts the draft to Slack #social; after the founder's ✅ it
 //                    goes to Instagram (Reel), the Facebook Page and YouTube Shorts;
 //                    LinkedIn and X get the same video posted by hand from its pack.
-//   Tue / Thu        a LinkedIn post, alternating between an idea from the
+//   Mon to Fri       a LinkedIn post on the Flowra company page (founder, 17 Oct 2026:
+//                    5 a week, page only, posted through Buffer after approval), alternating between an idea from the
 //                    weekly social listening (research/latest.json) and a share
 //                    of the newest blog article. Flowra drafts the text into
 //                    posts/linkedin/<date>.md a week ahead; the founder posts it.
@@ -127,7 +128,7 @@ export function buildCalendar(): SocialItem[] {
         sources: idea?.sources,
       });
     }
-    if ((w === 2 || w === 4) && d >= addDays(today, -7)) {
+    if (w >= 1 && w <= 5 && d >= addDays(today, -7)) {
       const file = `posts/linkedin/${d}.md`;
       const has = existsSync(path.join(ROOT, file));
       const done = existsSync(path.join(ROOT, `posts/linkedin/${d}.posted`));
