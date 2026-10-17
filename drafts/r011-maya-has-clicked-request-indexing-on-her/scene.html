@@ -18,52 +18,58 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3
 <script>
 // r011 "Forty Clicks" (duo style, night set). Frame one: Maya jabbing the trackpad, the red
 // count pill on x38, a "!" by her head. Two more clicks during her line: x39, then x40 on "forty".
-// Floey, on the mug rim at the far end of the desk (clear of Maya's elbow), takes a sip of
-// Maya's coffee: clicking again won't make it faster. "Says who?" (arms crossed). "Says Google.
-// Ask once, then watch it in Search Console." The check: Google's recrawl help page on her
-// screen, the ring on "Crawling can take: days to weeks". "So my forty clicks did..." "Nothing."
-// Facepalm. The relapse: a silent look to camera, "Just one." muttered at the laptop, one
-// sneaky click, x41. Floey, dry: "That's forty one, Maya." Maya, caught, plays innocent; both to camera.
+// Floey, on the mug rim at the far end of the desk, sips Maya's coffee: "Clicking again won't make
+// it faster." "Says who?" (a shrug, brows up). "Says Google. Ask once, then just watch the page in
+// Search Console." The check: Maya types, her laptop screen shows Google's recrawl help page, the ring
+// on "Time to crawl: days to weeks". On "weeks?" her glasses slip down her nose. "So my forty clicks
+// did..." "Nothing." Facepalm. The relapse: a silent look to camera, "Just one." still looking at us,
+// one sneaky click, x41. The two-shot: Floey turns to her, "That's forty one, Maya." Maya, caught,
+// crosses her arms and looks at the camera; Floey turns to the lens.
 const M = window.MOUTHS || {};
 const LINES = window.LINES;
 // the pause after each line, from the story
 const GAP = { hook0: 0.3, reframe1: 0.2, doubt2: 0.15, tip3: 0.35, check4: 0.5, payoff5: 0.15, payoff6: 0.4, button7: 0.6, button8: 0.7 };
 const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
-const END = SPOKEN + 0.6, DUR = END + 1.6, b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+// the button plays out (Maya caught, Floey to the lens) before the end card
+const END = Math.max(SPOKEN + 0.6, B.button8.end + 2.0), DUR = END + 1.6, b = B, SH = DUO.SHOT, SP = DUO.SPOT;
 
-// ---------- places, nudged from DUO.SPOT so Floey's beak never meets Maya's elbow ----------
-const MAYA_AT = { ...SP.maya, x: 580 };
-const MUG_X = 990;
-const FLOEY_AT = { ...SP.floeyMug, x: MUG_X };
+// ---------- places, nudged from DUO.SPOT: Floey bigger on the mug, clear of Maya's hands ----------
+const MAYA_AT = { ...SP.maya, x: 545 };
+const MUG_X = 1000, FK = 1.1, MUGK = 1.25;
+// the mug drawn a size up so the bigger Floey sits on it in proportion
+const mug = () => `<g transform="translate(${MUG_X} 1386) scale(${MUGK}) translate(${-MUG_X} -1386)">${DUO.mug(MUG_X)}</g>`;
+const FLOEY_AT = { x: MUG_X, y: 1235, scale: FK };
 
 // ---------- shots for this room layout ----------
 // the hook: Maya waist up, her jabbing finger above the desk, the pill and the "!"; Floey out of frame
-const OPEN = { camX: 530, camY: 1060, zoom: 1.45 };
+const OPEN = { camX: 500, camY: 1060, zoom: 1.5 };
 // Maya's close-up: her face and the pill; Floey out of frame
-const MT = { camX: 605, camY: 800, zoom: 1.85 };
-// the two-shot: Maya behind the desk, Floey on the mug at the far right, the pill between them
-const WIDE = { camX: 690, camY: 1053, zoom: 1.3 };
-// Maya alone, medium (her crossed arms in frame); Floey out of frame
-const MS = { camX: 520, camY: 1005, zoom: 1.55 };
-// Floey alone on the mug rim, big in frame, Maya fully out
-const FT = { camX: 990, camY: 1330, zoom: 3.6 };
+const MT = { camX: 570, camY: 800, zoom: 1.85 };
+// the two-shot: Maya behind the desk, Floey big on the mug at the right, the pill between them
+const WIDE = { camX: 734, camY: 1035, zoom: 1.29 };
+// Maya alone, medium (her shrug in frame); Floey out of frame
+const MS = { camX: 548, camY: 862, zoom: 1.7 };
+// Floey alone on the mug rim, big in frame
+const FT = { camX: 1018, camY: 1235, zoom: 3.0 };
 
 // her finger over the trackpad (up) and on it (down): one finger, elbow kept close to her side
 const JAB_UP = { L: [252, 690], R: [330, 600], kR: "point" };
 const JAB_DN = { L: [252, 690], R: [330, 640], kR: "point" };
+// "Says who?": both palms up at shoulder height, above the laptop lid (a shrug that stays in her own frame)
+const SHRUG = { L: [118, 420], R: [482, 420], kL: "open", kR: "open" };
 
 // the pill beside her head (world space), the "!" just above it
-const PX = 810, PY = 745, PK = 0.55;
-const EXX = 760, EXY = 690;
+const PX = 772, PY = 760, PK = 0.55;
+const EXX = 725, EXY = 690;
 // her mouth, scaled down on quiet or sinking lines so an open mouth never reads as a grin
 const mo = (id, k = 1) => (M[id] || []).map((v) => v * k);
 
 // ---------- the cast ----------
 const F = FLOEY.create({ ...FLOEY_AT, facing: 1, mood: "hello", perched: true, view: "side" });
 const MY = MAYA.create({ ...MAYA_AT, expr: "panic", pose: JAB_DN, floey: F });
-// pill: the count pill shown; count: the number on it; bump: the tick pop; ex: the "!"; q: the "?";
-// ins, rows, hi: the help page on her screen; shk: camera shake
-const W = { ...OPEN, pill: 1, count: 38, bump: 1, ex: 0.45, q: 0, ins: 0, rows: 0, hi: 0, shk: 0, end: 0 };
+// pill: the count pill shown; count: the number on it; bump: the tick pop; ex: the "!";
+// ins, typed, page, rows, hi: her laptop screen (the search typed, then the help page); slip: her glasses; shk: camera shake
+const W = { ...OPEN, pill: 1, count: 38, bump: 1, ex: 0.45, ins: 0, typed: 0, page: 0, rows: 0, hi: 0, slip: 0, shk: 0, end: 0 };
 const wt = gsap.timeline({ paused: true });
 const shot = (t, s, d = 0.6, ease = "power3.inOut") => wt.to(W, { ...s, duration: d, ease }, t);
 const cut = (t, s) => wt.set(W, { ...s }, t);
@@ -86,7 +92,7 @@ F.sfx(0.02, "click");
 MY.pose(0.12, JAB_UP, 0.14);
 wt.to(W, { bump: 0, duration: 0.35, ease: "power2.out" }, 0);
 // a slow creep in while she rants
-shot(0.1, { camX: 535, camY: 1040, zoom: 1.55 }, 3.5, "power1.inOut");
+shot(0.1, { camX: 505, camY: 1040, zoom: 1.6 }, 3.5, "power1.inOut");
 // after "Google.": another click, x39; she turns to Floey (off screen right) for the confession
 click(H + 1.65, 39);
 wt.to(W, { ex: 0.72, duration: 0.15 }, H + 1.65);
@@ -95,10 +101,10 @@ MY.expr(H + 1.8, "worried").look(H + 1.8, 0.9, 0.2).tiltTo(H + 1.9, 5);
 const FORTY = H + 3.45;
 click(FORTY, 40);
 wt.to(W, { ex: 1, duration: 0.15 }, FORTY);
-// "times!": cut close, panic, a jolt and a small shake
+// "times!": cut close, hands up by her head, panic, a jolt and a small shake
 const TIMES = H + 3.85;
 cut(TIMES, MT);
-MY.expr(TIMES, "panic").tiltTo(TIMES, 0, 0.1).look(TIMES, 0.6, 0).jolt(TIMES + 0.02);
+MY.expr(TIMES, "panic").pose(TIMES, "panic", 0.14).tiltTo(TIMES, 0, 0.1).look(TIMES, 0.6, 0).jolt(TIMES + 0.02);
 wt.to(W, { shk: 1, duration: 0.05 }, TIMES).to(W, { shk: 0, duration: 0.45, ease: "power2.out" }, TIMES + 0.08);
 wt.to(W, { ex: 0, duration: 0.15, ease: "power2.in" }, b.hook0.end - 0.2);
 
@@ -106,37 +112,42 @@ wt.to(W, { ex: 0, duration: 0.15, ease: "power2.in" }, b.hook0.end - 0.2);
 // "Clicking again won't make it" 0 to 1.3 s, "faster." ~1.35 s
 const R1 = b.reframe1.start;
 cut(b.hook0.end - 0.05, WIDE);
-// one sip: beak dips to the coffee, a little rock, beak up
+// one slow sip: beak dips into the coffee, a little rock, beak up
 const SIP = b.hook0.end - 0.02;
-ftw(SIP, { beakAdd: 0.18, tilt: 16, duration: 0.08 });
-ftw(SIP + 0.05, { x: MUG_X - 10, duration: 0.08, ease: "power1.in" });
-ftw(SIP + 0.13, { x: MUG_X, duration: 0.12 });
-ftw(SIP + 0.22, { beakAdd: 0, tilt: 0, duration: 0.08 });
-F.sfx(SIP + 0.06, "sip");
-// Maya freezes mid-click, finger in the air, eyes on Floey: caught
-MY.expr(b.hook0.end - 0.05, "worried").pose(b.hook0.end - 0.05, JAB_UP, 0.2).look(b.hook0.end, 1, 0.45).tiltTo(b.hook0.end, 0);
+ftw(SIP, { beakAdd: 0.18, tilt: 22, duration: 0.12 });
+ftw(SIP + 0.08, { x: MUG_X - 12, duration: 0.1, ease: "power1.in" });
+ftw(SIP + 0.18, { x: MUG_X, duration: 0.14 });
+ftw(SIP + 0.3, { beakAdd: 0, tilt: 0, duration: 0.1 });
+F.sfx(SIP + 0.1, "sip");
+// Maya freezes mid-click, finger in the air, eyes on Floey: caught out
+MY.expr(b.hook0.end - 0.05, "surprised").pose(b.hook0.end - 0.05, JAB_UP, 0.2).look(b.hook0.end, 1, 0.45).tiltTo(b.hook0.end, 0);
 F.mood(R1 - 0.1, "hello").say(R1, M.reframe1 || [], "reframe1");
 lid(R1 - 0.05, 0.35);
 // on "faster": a teasing head tilt; the camera drifts towards her
 F.tiltTo(R1 + 1.3, 14, 0.2).tiltTo(b.reframe1.end + 0.05, 0, 0.2);
-shot(R1 + 0.6, { camX: 705, camY: 1060, zoom: 1.36 }, 1.2, "power1.inOut");
+shot(R1 + 0.6, { camX: 742, camY: 1040, zoom: 1.31 }, 1.2, "power1.inOut");
 MY.expr(R1 + 1.3, "deadpan");
 
-// ---------- DOUBT2: Maya alone, arms crossed, flat disbelief: "Says who?" ----------
+// ---------- DOUBT2: Maya alone, the shrug, palms open, brows up: "Says who?" ----------
 const D2 = b.doubt2.start;
-MY.pose(b.reframe1.end, "crossed", 0.22).expr(b.reframe1.end, "annoyed").look(b.reframe1.end, 0.9, 0.3);
 cut(b.reframe1.end + 0.05, MS);
 lid(b.reframe1.end, 0);
-MY.say(D2, mo("doubt2", 0.3), "doubt2").tiltTo(D2 + 0.25, -8, 0.25).leanTo(D2 + 0.2, -3, 0.3);
+MY.pose(b.reframe1.end + 0.02, SHRUG, 0.24).expr(D2 - 0.12, "surprised").look(b.reframe1.end, 0.9, 0.3);
+F.sfx(D2 + 0.05, "boing");
+MY.say(D2, mo("doubt2", 0.4), "doubt2").tiltTo(D2 + 0.4, -9, 0.25).leanTo(D2 + 0.2, -3, 0.3);
+// listening to the tip: skeptical
+MY.expr(b.doubt2.end + 0.05, "annoyed");
 
-// ---------- TIP3: Floey alone on the mug rim; Maya listens off screen, arms still crossed ----------
+// ---------- TIP3: Floey alone on the mug rim; Maya listens off screen ----------
 // "Says Google." 0 to 0.65 s, "Ask once," 1.0 to 1.65 s ("once" ~1.3 s), "then just watch the page in Search Console." 1.8 to 3.85 s
 const T3 = b.tip3.start;
 cut(T3 - 0.12, FT);
 wt.set(W, { pill: 0 }, T3 - 0.12); // the pill rests until her close-up
-MY.tiltTo(T3, 0).leanTo(T3, 0).expr(T3, "think");
+MY.pose(T3, "rest", 0.3).tiltTo(T3, 0).leanTo(T3, 0).expr(T3, "think");
 F.mood(T3 - 0.1, "think").say(T3, M.tip3 || [], "tip3");
 lid(T3 - 0.1, 0.45);
+// after "Says Google.": a smug little tongue flick
+F.tongue(T3 + 0.72, 1);
 // "once": one beak tap on the mug rim
 ftw(T3 + 1.28, { tilt: 30, duration: 0.09, ease: "power2.in" });
 ftw(T3 + 1.37, { tilt: 0, duration: 0.2, ease: "back.out(2)" });
@@ -145,42 +156,43 @@ F.sfx(T3 + 1.37, "tk");
 F.mood(T3 + 1.8, "hello");
 lid(T3 + 1.8, 0, 0.1);
 blink(T3 + 2.12, 0.3);
-shot(T3 + 1.8, { camX: 985, camY: 1318, zoom: 3.9 }, 2.1, "power1.inOut");
-F.tongue(b.tip3.end + 0.05, 1);
-// she does it: typing heard under Floey's last words
-MY.pose(T3 + 3.4, "type", 0.25).expr(T3 + 3.4, "think").look(T3 + 3.4, -0.5, 0.8);
-F.sfx(T3 + 3.45, "typing", { d: 0.5 });
+shot(T3 + 1.8, { camX: 1015, camY: 1225, zoom: 3.25 }, 1.6, "power1.inOut");
 
-// ---------- CHECK4: her screen, Google's recrawl help page ----------
+// ---------- she does it: cut to Maya typing under Floey's last words ----------
+const TY = b.tip3.end - 0.35;
+cut(TY, MS);
+MY.pose(TY - 0.1, "type", 0.2).expr(TY, "think").look(TY, -0.5, 0.8);
+F.sfx(TY + 0.02, "typing", { d: 0.7 });
+
+// ---------- CHECK4: her laptop screen: the search, then Google's recrawl help page ----------
 // "Crawling can take a few days to..." 0 to 1.45 s, "a few weeks?" 1.7 to 2.4 s ("weeks" ~1.9 s)
-const C4 = b.check4.start;
-cut(C4 - 0.2, WIDE);
-wt.to(W, { ins: 1, duration: 0.3, ease: "power3.out" }, C4 - 0.2);
-F.sfx(C4 - 0.18, "whoosh");
-MY.say(C4, mo("check4", 0.2), "check4").pose(C4 + 0.3, "rest", 0.3);
+const C4 = b.check4.start, IN = TY + 0.42;
+wt.to(W, { ins: 1, duration: 0.28, ease: "power3.out" }, IN);
+F.sfx(IN, "whoosh");
+wt.to(W, { typed: 1, duration: 0.3, ease: "none" }, IN + 0.05);
+// enter: the page opens, the rows slide in, the ring lands on the timing row
+const PG = IN + 0.45;
+wt.set(W, { page: 1 }, PG);
+wt.to(W, { rows: 1, duration: 0.4, ease: "power1.out" }, PG + 0.02);
+wt.to(W, { hi: 1, duration: 0.3, ease: "power2.out" }, PG + 0.4);
+F.sfx(PG + 0.42, "ding");
+MY.say(C4, mo("check4", 0.25), "check4").pose(C4 + 0.3, "rest", 0.3).expr(C4, "think");
 F.look(C4, 0.3, 0.3);
-wt.to(W, { rows: 1 / 3, duration: 0.25, ease: "power2.out" }, C4 + 0.05)
-  .to(W, { rows: 2 / 3, duration: 0.25, ease: "power2.out" }, C4 + 0.5)
-  .to(W, { rows: 1, duration: 0.25, ease: "power2.out" }, C4 + 1.0);
-// "a few days to": the ring grows on the timing row
-wt.to(W, { hi: 1, duration: 0.35, ease: "power2.out" }, C4 + 1.0);
-F.sfx(C4 + 1.0, "ding");
-// "weeks?": a hard cut from the screen back to her face; the "?" pops by her head
+// "weeks?": a hard cut from the screen back to her face; her glasses slide down her nose
 const WK = C4 + 1.82;
 wt.set(W, { ins: 0, pill: 1 }, WK - 0.05);
 cut(WK - 0.05, MT);
-MY.expr(WK - 0.05, "worried").look(WK - 0.05, 0, 0.1).leanTo(WK, -5, 0.25).jolt(WK);
-wt.to(W, { q: 1, duration: 0.2, ease: "back.out(2)" }, WK + 0.12);
-shot(WK + 0.2, { camX: 605, camY: 790, zoom: 1.95 }, 0.4, "power3.out");
+MY.expr(WK - 0.05, "surprised").look(WK - 0.05, 0, 0.1).leanTo(WK, -5, 0.25).jolt(WK);
+wt.to(W, { slip: 1, duration: 0.22, ease: "back.out(2.2)" }, WK + 0.1);
+shot(WK + 0.2, { camX: 572, camY: 790, zoom: 1.95 }, 0.4, "power3.out");
 
-// ---------- PAYOFF5: she looks from the laptop up to the pill; her voice shrinks ----------
+// ---------- PAYOFF5: over her slipped glasses, she looks from the laptop to the pill; her voice shrinks ----------
 // "So my forty clicks" 0 to 1.0 s, "did..." ~1.1 s
 const P5 = b.payoff5.start;
 MY.expr(P5 - 0.15, "worried").leanTo(P5 - 0.15, 0, 0.3).look(P5 - 0.15, -0.6, 0.8).say(P5, mo("payoff5", 0.22), "payoff5");
 MY.look(P5 + 0.5, 1, -0.5, 0.45);
-wt.to(W, { q: 0, duration: 0.3 }, P5 - 0.1);
 MY.expr(P5 + 1.0, "sad").slump(P5 + 0.9, 0.6);
-shot(P5, { camX: 615, camY: 805, zoom: 2.0 }, b.payoff5.len + 0.1, "power1.inOut");
+shot(P5, { camX: 578, camY: 805, zoom: 2.0 }, b.payoff5.end - P5, "power1.inOut");
 
 // ---------- PAYOFF6: the two-shot; Floey, deadpan: "Nothing." Maya facepalms ----------
 const P6 = b.payoff6.start;
@@ -189,38 +201,41 @@ F.mood(P6 - 0.1, "think").look(P6 - 0.1, 0, 0).say(P6, M.payoff6 || [], "payoff6
 lid(P6 - 0.1, 0.5, 0.1);
 blink(b.payoff6.end + 0.02, 0.2, 0.5);
 MY.expr(P6 - 0.1, "sad").look(P6 - 0.1, 1, 0.45);
+// the hand lands on her face and pushes the glasses back up
 MY.pose(P6 + 0.4, "facepalm", 0.16).expr(P6 + 0.45, "annoyed").sit(P6 + 0.4, 0.3);
+wt.set(W, { slip: 0 }, P6 + 0.52);
 F.sfx(P6 + 0.52, "thump");
 
-// ---------- BUTTON7: the relapse: a silent look to camera, "Just one." at the laptop, one sneaky click ----------
+// ---------- BUTTON7: the relapse: a silent look to camera, "Just one." still looking at us, one sneaky click ----------
 const B7 = b.button7.start;
 cut(b.payoff6.end + 0.05, OPEN);
 MY.pose(b.payoff6.end + 0.05, "rest", 0.22).expr(b.payoff6.end + 0.05, "deadpan").look(b.payoff6.end + 0.1, 0, 0, 0.08);
-// "Just one." to herself: eyes slide back to the laptop, the finger sneaks up
-MY.look(B7 - 0.02, -0.5, 0.8, 0.15).say(B7, mo("button7", 0.3), "button7").tiltTo(B7, 5, 0.3);
-MY.pose(B7 + 0.2, JAB_UP, 0.35);
-shot(B7, { camX: 535, camY: 1040, zoom: 1.6 }, 1.5, "power1.inOut");
-const CLK = b.button7.end + 0.05;
+// smug pulls her eyes half right; -0.5 keeps them on the lens
+MY.expr(B7 - 0.05, "smug").look(B7 - 0.05, -0.5, 0, 0.08).say(B7, mo("button7", 0.3), "button7").tiltTo(B7, 5, 0.3);
+MY.pose(B7 + 0.15, JAB_UP, 0.35);
+F.view(B7, "side").tiltTo(B7, 20, 0.2).look(B7, 0.4, 0.6);
+// (ends before the cut to the two-shot: camera moves never overlap a cut)
+shot(B7, { camX: 505, camY: 1040, zoom: 1.6 }, b.button8.start - 0.35 - B7, "power1.inOut");
+const CLK = b.button7.end - 0.05;
 click(CLK, 41);
-// the click lands; a smug little smirk back at the camera
-MY.expr(CLK + 0.1, "smug").look(CLK + 0.12, 0, 0, 0.1).tiltTo(CLK + 0.1, 0, 0.2);
+MY.tiltTo(CLK + 0.1, 0, 0.2);
 
-// ---------- BUTTON8: Floey to Maya, dry: "That's forty one, Maya."; then both to the lens ----------
+// ---------- BUTTON8: the two-shot; Floey turns her head to Maya: "That's forty one, Maya." ----------
 // "That's forty one," 0 to 0.8 s, "Maya." ~0.85 s
 const B8 = b.button8.start;
-cut(B8 - 0.25, WIDE);
-F.mood(B8 - 0.25, "think").look(B8 - 0.25, 0, 0.3).chips(B8 - 0.14, 1);
+cut(B8 - 0.3, WIDE);
+// head turns slowly from her coffee to Maya, one dry chip, then the line, to Maya
+F.mood(B8 - 0.3, "think").tiltTo(B8 - 0.28, 0, 0.35).look(B8 - 0.28, 0, 0, 0.3).chips(B8 - 0.14, 1);
 lid(B8 - 0.25, 0.45, 0.1);
 F.say(B8, M.button8 || [], "button8").tiltTo(B8 + 0.85, -10, 0.25);
-// caught: her smirk drops, eyes to Floey; on "Maya" her finger slides off the trackpad, eyes up, all innocence
-MY.expr(B8 - 0.05, "worried").look(B8, 1, 0.45, 0.1);
-MY.pose(B8 + 0.85, "rest", 0.35).expr(B8 + 0.85, "smug").look(B8 + 0.85, 0.3, -0.6, 0.2);
-// the hold: Floey turns to the lens, still dry, one slow blink; Maya gives the camera a flat look
-const HOLD = b.button8.end + 0.2;
+// Maya's finger still on the trackpad, smirk freezing; on "Maya" she is caught: arms crossed, eyes to the lens
+MY.expr(B8 - 0.05, "surprised").look(B8, 1, 0.45, 0.1);
+MY.expr(B8 + 0.82, "worried").pose(B8 + 0.82, "crossed", 0.3).look(b.button8.end + 0.15, 0, 0, 0.15);
+// the hold: Floey turns to the lens, still dry, one slow blink
+const HOLD = b.button8.end + 0.3;
 F.tiltTo(HOLD - 0.1, 0, 0.15).pivot(HOLD, "front").mood(HOLD, "hello");
-blink(HOLD + 0.6, 0.35, 0.45);
-MY.expr(HOLD + 0.3, "deadpan").look(HOLD + 0.3, 0, 0, 0.15);
-shot(HOLD + 0.2, { camX: 680, camY: 1040, zoom: 1.38 }, 1.2, "power2.out");
+blink(HOLD + 0.7, 0.35, 0.45);
+shot(HOLD + 0.1, { camX: 736, camY: 1025, zoom: 1.31 }, 1.4, "power2.out");
 
 // END: the logo card drops in
 wt.to(W, { end: 1, duration: 0.5, ease: "back.out(1.6)" }, END);
@@ -229,23 +244,44 @@ wt.set({}, {}, DUR);
 
 // the count pill beside her head; it pops on each click
 const pill = (k) => k <= 0.01 ? "" : `<g transform="translate(${PX} ${PY}) scale(${Math.round(PK * (1 + 0.16 * W.bump) * 1000) / 1000}) translate(${-PX} ${-PY})">${DUO.stat(PX, PY, k, "x" + Math.round(W.count), "bad")}</g>`;
-function helpPage() {
+
+// Maya, with her glasses slid down her nose by W.slip (her own glasses, drawn by the rig's numbers)
+const GLASSES = `<g fill="none" stroke="${MAYA.colors.glasses}" stroke-width="6"><circle cx="252" cy="262" r="47"/><circle cx="348" cy="262" r="47"/><path d="M295,256 q5,-7 10,0"/><path d="M205,254 L188,248 M395,254 L412,248"/></g><path d="M226,236 q10,-8 22,-8" stroke="#fff" stroke-width="5" fill="none" opacity=".7" stroke-linecap="round"/>`;
+function maya(t) {
+  if (W.slip <= 0.01) return MY.svg(t);
+  const st = MY.state(t), S = MY.S, k = W.slip;
+  const body = MAYA.svg({ ...st, glasses: false });
+  const gl = `<g transform="rotate(${st.tilt.toFixed(2)} 300 360) translate(0 ${(13 * k).toFixed(1)}) rotate(${(-10 * k).toFixed(2)} 300 256)">${GLASSES}</g>`;
+  return `<g transform="translate(${S.x} ${(S.y + S.bob).toFixed(1)}) scale(${MAYA_AT.scale}) translate(-300 -760)">${body.slice(0, -4)}${gl}</g></g>`;
+}
+
+// her laptop screen: the search typed in, then Google's help page; framed by her laptop's lid
+const QUERY = "recrawl my url";
+const ROWS = [
+  { label: "Same URL, asked again", value: "no faster", tone: "bad" },
+  { label: "Time to crawl", value: "days to weeks", tone: "bad", hi: true },
+  { label: "Track it in", value: "URL Inspection", tone: "good" },
+];
+const INK = HUM.colors.ink;
+const LID = `<rect x="52" y="522" width="976" height="664" rx="40" fill="#c9cbe0" stroke="${INK}" stroke-width="8"/><circle cx="540" cy="541" r="6" fill="${INK}" opacity=".6"/><path d="M24,1186 H1056 L1016,1222 H64Z" fill="#a8abc6" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>`;
+function laptopScreen() {
   if (W.ins <= 0.01) return "";
-  const rows = [
-    { label: "Same URL, asked again", value: "no faster", tone: "bad" },
-    { label: "Crawling can take", value: "days to weeks", tone: "bad", hi: true },
-    { label: "Watch progress in", value: "URL Inspection", tone: "good" },
-  ];
-  return DUO.listInsert(W.ins, W.rows, { title: "Ask Google to recrawl your URLs", sub: "Google Search Central help", rows, hiK: W.hi });
+  const page = W.page > 0.5, n = Math.round(W.typed * QUERY.length);
+  const s = DUO.listInsert(W.ins, page ? W.rows : 0, {
+    title: page ? "Ask Google to recrawl your URLs" : QUERY.slice(0, n) + "|",
+    sub: page ? "developers.google.com" : "Google Search",
+    rows: ROWS, hiK: W.hi,
+  });
+  return s.replace('opacity=".55"/>', `opacity=".55"/>${LID}`);
 }
 const camAt = (t) => ({ camX: W.camX + Math.sin(t * 70) * 9 * W.shk, camY: W.camY + Math.cos(t * 83) * 6 * W.shk, zoom: W.zoom });
 
 window.render = function (t) {
   wt.seek(Math.min(DUR, t), false);
-  const world = DUO.room(t, { night: true }) + MY.svg(t) + DUO.deskFront() + DUO.laptop() + DUO.mug(MUG_X) + F.svg(t)
-    + pill(W.pill) + DUO.mark("!", EXX, EXY, W.ex, t) + DUO.mark("?", EXX, EXY, W.q, t);
+  const world = DUO.room(t, { night: true }) + maya(t) + DUO.deskFront() + DUO.laptop() + mug() + F.svg(t)
+    + pill(W.pill) + DUO.mark("!", EXX, EXY, W.ex, t);
   document.getElementById("stage").innerHTML = DUO.cam(world, camAt(t))
-    + (W.end < 0.5 ? helpPage() : "")
+    + (W.end < 0.5 ? laptopScreen() : "")
     + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")
     + DUO.endCard(W.end, t);
 };
