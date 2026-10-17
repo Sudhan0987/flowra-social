@@ -49,6 +49,8 @@ jobs:
       FLOEY_ENGINE: kokoro
     steps:
       - uses: actions/checkout@v5
+      - name: Licensed media (downloaded, not stored in the repo)
+        run: sh scripts/fetch-assets.sh
 
       - name: Check setup
         id: setup

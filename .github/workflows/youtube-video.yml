@@ -32,6 +32,8 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v5
+      - name: Licensed media (downloaded, not stored in the repo)
+        run: sh scripts/fetch-assets.sh
       - uses: actions/setup-node@v5
         with:
           node-version: 22

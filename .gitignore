@@ -28,3 +28,6 @@ drafts/*/build/
 .venv-cb/
 .last30days/
 .last30days-out/
+
+# third-party media fetched at render time (scripts/fetch-assets.sh), never committed
+assets/music/*.mp3

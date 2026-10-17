@@ -10,3 +10,6 @@ Copied on 2026-09-30, unchanged.
 
 Flowra's own rules (CLAUDE.md: facts, no em dashes, demo data only) win
 wherever these differ.
+
+Licence texts: `_licenses/` (hyperframes-APACHE-2.0.txt covers the hyperframes skills and the media-use sound effects).
+Fonts used by the reels: `reel/assets/FONTS.md` (SIL OFL 1.1). Background music is downloaded at render time (`scripts/fetch-assets.sh`), never stored here.
