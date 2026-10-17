@@ -61,6 +61,8 @@ async function flowraPage(): Promise<Channel> {
   const li = list.filter((c) => /linkedin/i.test(c.service));
   const page = forced ? li.find((c) => c.id === forced) : li.find((c) => /flowra/i.test(`${c.name} ${c.displayName ?? ""}`)) ?? (li.length === 1 ? li[0] : undefined);
   if (!page) throw new Error(`No Flowra LinkedIn channel in Buffer (LinkedIn channels: ${li.map((c) => c.displayName ?? c.name).join(", ") || "none"}). Connect the Flowra page in Buffer, or set BUFFER_LINKEDIN_CHANNEL.`);
+  // founder, 17 Oct 2026: the Flowra page only, never the personal profile. Refuse anything else, even if the variable is wrong.
+  if (!/flowra/i.test(`${page.name} ${page.displayName ?? ""}`)) throw new Error(`Refusing to post: channel "${page.displayName ?? page.name}" is not the Flowra page.`);
   return page;
 }
 
