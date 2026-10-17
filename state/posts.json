@@ -180,7 +180,7 @@
   },
   {
    "id": "r011-maya-has-clicked-request-indexing-on-her",
-   "status": "draft",
+   "status": "approved",
    "topic": "Maya has clicked \"Request Indexing\" on her new post again and again, and it still isn't on Google",
    "format": "duo-sitcom",
    "madeAt": "2026-10-17T07:54:39.185Z",
@@ -190,7 +190,8 @@
     "ts": "1792223678.857089"
    },
    "style": "duo",
-   "run": 39014181617
+   "run": 39014181617,
+   "note": "Approved by the founder in chat, 17 Oct 2026."
   }
  ]
 }
