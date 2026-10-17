@@ -1,0 +1,54 @@
+{
+ "topic": "Maya has clicked \"Request Indexing\" on her new post again and again, and it still isn't on Google",
+ "angle": "Maya is clicking Request Indexing in Search Console over and over on a post that won't show up. She's sure each click pushes her up Google's queue, and the cold open is her mid-click. Floey flips it with Google's own line: asking again for the same URL won't get it crawled any faster. Request once, then wait, because crawling can take from a few days to a few weeks. The button is Maya's relapse click.",
+ "whyNow": "This is evergreen, but people are asking about it right now. Forum threads keep asking why new pages stay \"Discovered\" or \"Crawled - currently not indexed\" for weeks, and SEO blogs keep calling repeat Request Indexing clicks a myth (SitePoint thread, TechEarl, BetterCallSpencer). It also fits what the reels have taught us. It's a single Search Console moment with the payoff on screen in the first 2 seconds, it can run 20 to 25 seconds, and it brings a Google timing range (\"a few days to a few weeks\"), which is the kind of topic leading on YouTube. It's a myth about the button, not a repeat of the page update timing reel.",
+ "goal": "send",
+ "audience": "Solo bloggers and small content site owners who publish a post, open Search Console and keep pressing Request Indexing until it shows up. Also the agency people who get the \"why isn't it on Google yet?\" message from a client.",
+ "facts": [
+  {
+   "fact": "Google: \"requesting a recrawl multiple times for the same URL won't get it crawled any faster.\"",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl"
+  },
+  {
+   "fact": "Google: \"Crawling can take anywhere from a few days to a few weeks.\" Google suggests following progress with the URL Inspection tool or the index status report.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl"
+  },
+  {
+   "fact": "Google: \"Requesting a crawl does not guarantee that inclusion in search results will happen instantly or even at all.\"",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl"
+  },
+  {
+   "fact": "Google: there's a quota for submitting individual URLs (so endless clicking can also hit a limit).",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl"
+  },
+  {
+   "fact": "Google: a sitemap is an important way for Google to discover URLs on your site.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl"
+  },
+  {
+   "fact": "In Search Console's Page indexing report, Google describes \"Crawled - currently not indexed\" as: \"The page was crawled by Google but not indexed. It may or may not be indexed in the future; no need to resubmit this URL for crawling.\"",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "Google, in the same report's help page: \"Don't expect every URL on your site to be indexed.\"",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "Demand: a SitePoint forum thread (29 Oct 2025) asks why several pages stay unindexed \"even after multiple weeks\", with a mix of \"Discovered\" and \"Crawled - currently not indexed\".",
+   "source": "https://www.sitepoint.com/community/t/why-are-some-pages-not-getting-indexed-in-google-need-help-with-crawl-coverage/484560"
+  },
+  {
+   "fact": "Demand: SEO guides list \"Click Request Indexing until it sticks\" as a common misconception, and an SEO consultant's post is titled \"Stop Spamming Google with Indexing Requests\".",
+   "source": "https://techearl.com/discovered-vs-crawled-currently-not-indexed ; https://bettercallspencer.com/rapid-indexing-tools-seo-myth/"
+  },
+  {
+   "fact": "Example only: the number of times Maya has clicked (say \"forty\") is her own exaggeration, not a statistic.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "The reel opens on a mayaTight shot with Maya in the type pose, one finger hammering the trackpad. Every click gets a click sfx, a \"!\" mark grows by her head and a number pill above her ticks up (\"x38\", \"x39\", \"x40\", her own count). Her first line is the panic: \"Forty times I've asked Google. Forty! It's still not there.\" Cut to the wide shot. Floey sits on the laptop lid, sips from the cold mug and says flatly that asking again doesn't make it faster, and that Google says so. Maya pushes back once (\"So what, I just... wait?\"). The listInsert cutaway is her Search Console screen, titled \"URL Inspection\", with real rows: \"Indexing requested: Yes\", \"Crawled: currently not indexed\", and a highlighted row with Google's own line: \"No need to resubmit\". The highlight ring grows on that row. Floey gives the tip: ask once, then give it a few days to a few weeks. Maya: \"Weeks?!\" Floey: \"You're welcome.\" For the button, Maya looks at the camera with her hand off the trackpad, holds it for a beat, then sneaks one more click (click sfx, the pill becomes \"x41\"). Floey turns her head slowly to Maya and gives a single chip, then the end card. Day set. Running jokes: the cold coffee and \"You're welcome.\" Keep it to 20 to 25 seconds, with the clicking counter on screen from frame one.",
+ "pillar": "myth",
+ "instinct": "Every extra click on Request Indexing pushes her post further up Google's queue, so if it's still missing she just hasn't clicked enough.",
+ "flip": "Google's own documentation says that requesting a recrawl multiple times for the same URL won't get it crawled any faster, and that crawling can take anywhere from a few days to a few weeks.",
+ "style": "duo"
+}

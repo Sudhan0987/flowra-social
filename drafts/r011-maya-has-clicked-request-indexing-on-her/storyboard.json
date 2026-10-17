@@ -1,0 +1,226 @@
+{
+ "style": "Night in Maya's room (DUO.room night: moon, stars, desk-lamp glow). Maya behind the desk with her laptop, Floey perched on the mug rim at the desk's right end (DUO.SPOT.floeyMug, DUO.mug() drawn, so Maya never uses the mug pose). Running prop: a red DUO.stat count pill (tone bad) beside Maya's shoulder at chest height, never above y 220, reading x38 to x41 across the reel. One cutaway (a listInsert of Google's recrawl help page) and no notification.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya alone, panic face, type pose with one finger raised over the trackpad, the red count pill beside her shoulder at chest height already reading x38. Floey is out of frame.",
+   "action": "Frame one is the problem already happening. She jabs the trackpad three times, 0.5 s apart. The pill ticks x38, x39, x40, one tick per click, and a red '!' mark grows by her head on each tick.",
+   "onScreenData": "x38",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "type"
+    },
+    {
+     "at": 0.6,
+     "kind": "type"
+    },
+    {
+     "at": 1.1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 2.3,
+   "shot": "close",
+   "camera": "shake",
+   "subject": "mayaTight: Maya's face fills the frame, pill on x40 at her shoulder, '!' at full size.",
+   "action": "On 'forty times!' she flips from type into the panic pose with her hands up by her head. A small shake, because the panic is real, then it settles. The '!' fades out before the cut.",
+   "onScreenData": "x40",
+   "sfx": [
+    {
+     "at": 2.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk on the left, Floey perched on the mug rim at the desk's right end, pill on x40 readable between them.",
+   "action": "Quick cut to the two-shot. Floey lifts her beak from one slow sip (her own sip cue), then says the line. Maya freezes mid-click in the type pose with her finger hovering, eyes sliding left to Floey (look -1, 0), expression surprised.",
+   "onScreenData": "x40",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0.9,
+   "shot": "wide",
+   "camera": "drift",
+   "subject": "wide: Floey on the mug rim, Maya frozen with her finger up.",
+   "action": "On 'faster' Floey gives a small teasing head tilt. The camera drifts slightly towards Floey. Maya's hovering finger stays put, with one slow blink.",
+   "onScreenData": "x40",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, pill on x40 at her shoulder. Floey is out of frame.",
+   "action": "Cut to Maya. She drops into the shrug pose, palms open, eyebrows up, face set to annoyed, with a small head tilt (tiltTo) on 'who'.",
+   "onScreenData": "x40",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight, nudged right onto the floeyMug spot: Floey alone on the mug rim, mood think. Check that the mug and her tail are not cut off at the frame edge. Pill faded out before this shot.",
+   "action": "Floey turns her head to Maya (off screen left) and says 'Says Google.' dry. On 'once' she taps the mug rim with her beak once (her own tk cue).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 2.2,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floeyTight: Floey on the mug rim.",
+   "action": "On 'watch the page in Search Console', a slow push-in for the tip. On 'watch' she gives one slow blink, and after 'Console' a tiny tongue flick.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop screen cutaway (DUO.listInsert, the reel's one insert). Title 'Ask Google to recrawl your URLs', sub 'Google Search Central help'. Two complete rows: 'Asking again for the same URL' / 'won't be faster', and 'Crawling can take' / 'a few days to a few weeks' (hi).",
+   "action": "The insert swings in while Maya's typing is heard. The rows slide in one after the other as she reads aloud, and on 'a few days' the highlight ring grows around the second row.",
+   "onScreenData": "a few days to a few weeks",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.45,
+     "kind": "type"
+    },
+    {
+     "at": 1.1,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1.9,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face, pill back in at her shoulder on x40. Floey is out of frame.",
+   "action": "Cut back on 'weeks?' with a quick push-in on the realisation. Her face goes from think to surprised, she leans back (leanTo), and a sweat mark pops by her temple (this stands in for the glasses slip, which the studio cannot draw).",
+   "onScreenData": "x40",
+   "sfx": [
+    {
+     "at": 2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya alone, the sweat mark fading, pill on x40 at her shoulder.",
+   "action": "A slow push-in while her eyes travel from the laptop (look 0, 1) to the pill (look 1, 0.3). Her face sinks from worried to sad, and her shoulders drop in a small slump as her voice shrinks on 'did...'.",
+   "onScreenData": "x40",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey on the mug rim, Maya behind the desk, pill on x40 between them.",
+   "action": "Hard cut to the two-shot for the comic reversal. Floey, deadpan, says 'Nothing.' and gives one blink. Right after the word, Maya drops into the facepalm pose.",
+   "onScreenData": "x40",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya alone, pill on x40 at her shoulder. Floey is out of frame.",
+   "action": "Cut to Maya for the relapse beat. Her hand comes up out of the facepalm, back in the type pose with the finger raised. She looks straight at the camera (look 0, 0), face smug, and mutters 'Just one' to herself without looking down.",
+   "onScreenData": "x40",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 1.1,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya, her finger on the trackpad, pill at her shoulder.",
+   "action": "Still holding eye contact, her finger sneaks down for one click. A tiny push-in, and the pill flips to x41 with a small pop of scale.",
+   "onScreenData": "x41",
+   "sfx": [
+    {
+     "at": 1.1,
+     "kind": "type"
+    },
+    {
+     "at": 1.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Floey on the mug rim, Maya behind the desk caught mid-click, pill on x41 between them.",
+   "action": "Pull out to show both. Floey turns her head slowly towards Maya, gives one dry chip (her own chip cue), then pivots to the front (F.pivot front) and says the line to the camera. On 'Maya', Maya pulls her hand back into the crossed pose with an annoyed face.",
+   "onScreenData": "x41",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 1.5,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: both characters, pill on x41.",
+   "action": "The button holds, with END pushed later so it can play out. Maya turns her eyes to the camera (look 0, 0), arms crossed and caught. Floey keeps facing front with one slow blink. The captions hide.",
+   "onScreenData": "x41",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 2.9,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo intact, 'Maya & Floey, every day', Floey perched on the spark's left arm facing the camera.",
+   "action": "The end card rises over the room and Floey settles onto the spark's left arm.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.9,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1.4
+}

@@ -1,0 +1,112 @@
+{
+ "title": "Forty Clicks",
+ "hookPattern": "The animated action",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "My new post isn't on Google. I've clicked Request Indexing forty times!",
+   "emotion": "worried",
+   "caption": "My new post isn't on Google. I've clicked Request Indexing 40 times!",
+   "visual": "mayaTight, frame one: Maya in the type pose, wide-eyed behind her round glasses, jabbing the trackpad with one finger. Three clicks spaced half a second apart (click sound panned left at 0.1 s, 0.6 s, 1.1 s). On each one the count pill beside her shoulder, at chest height and well below the 220 safe line, ticks x38, x39, x40, and a red '!' grows by her head. Floey is out of frame."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Clicking again won't make it faster.",
+   "emotion": "playful",
+   "visual": "Cut to wide: Floey sits on the floeyMug spot at the right end of the desk, takes one slow sip from the mug (sip sound), then says the line with a small teasing head tilt. Maya freezes mid-click with her finger hovering. The pill stays on x40, readable between them."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.15,
+   "say": "Says who?",
+   "emotion": "curious",
+   "visual": "maya: Maya in the shrug pose, eyebrows up, flat disbelief, palms open. Floey is out of frame."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Says Google. Ask once, then just watch the page in Search Console.",
+   "emotion": "warm",
+   "visual": "floeyTight on the floeyMug spot: Floey taps the mug rim once with her beak on 'once' (tk), then blinks slowly on 'watch'. A tiny tongue flick at the end."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "Crawling can take a few days to... a few weeks?",
+   "emotion": "curious",
+   "visual": "Laptop screen insert: Maya types into the search bar, and Google's help page 'Ask Google to recrawl your URLs' opens. Two lines are visible: 'Requesting a recrawl multiple times for the same URL won't get it crawled any faster.' and 'Crawling can take anywhere from a few days to a few weeks.' A highlight ring grows on the second line as she reads it (soft chime). Cut to mayaTight on 'weeks': her glasses slip down her nose."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.15,
+   "say": "So my forty clicks did...",
+   "emotion": "worried",
+   "caption": "So my 40 clicks did...",
+   "visual": "mayaTight: Maya looks slowly from the screen to the pill, still reading x40, at her shoulder. Her voice shrinks. Floey is out of frame."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Nothing.",
+   "emotion": "playful",
+   "visual": "wide: Floey on the floeyMug spot, deadpan, one blink. Maya goes into the facepalm pose (soft thud). The pill on x40 sits between them."
+  },
+  {
+   "role": "button",
+   "speaker": "maya",
+   "pause": 0.6,
+   "say": "Just one.",
+   "emotion": "curious",
+   "visual": "mayaTight, the relapse beat, about 2 s: Maya lifts her hand off the trackpad, back in the type pose with her hand raised, and looks at the camera for a beat. Then she mutters 'Just one' to herself without looking down. Her finger sneaks back for one click (click sound), and the pill beside her shoulder flips to x41. Floey is out of frame."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "That's forty one, Maya.",
+   "emotion": "playful",
+   "caption": "That's 41, Maya.",
+   "visual": "wide: Floey on the floeyMug spot turns her head slowly toward Maya, gives one dry chip, then says the line to the camera. Maya, caught, goes into the crossed pose and looks at the camera. The pill reads x41 between them. Hold, then the end card."
+  }
+ ],
+ "loopNote": "The reel ends on the pill reading x41, with Maya's hand back near the trackpad. That matches the opening frame of her jabbing the trackpad while the counter climbs, so on a replay the x38 to x40 opening plays like she never stopped.",
+ "caption": "Maya clicked Request Indexing 40 times on her new post. Floey counted.\n\nThe useful part: Google's own help page says that asking for a recrawl of the same URL again and again won't get it crawled any faster. Crawling can take anywhere from a few days to a few weeks. So request it once, then follow its progress in Search Console's URL Inspection tool instead of pressing the button again.\n\nSend this to the friend who's on click 30 right now. Be honest: how many times have you pressed it? 👀",
+ "hashtags": [
+  "#seo",
+  "#searchconsole",
+  "#bloggingtips",
+  "#blogger",
+  "#seotips"
+ ],
+ "sticky": 51,
+ "id": "r011-maya-has-clicked-request-indexing-on-her",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Maya has clicked \"Request Indexing\" on her new post again and again, and it still isn't on Google",
+ "editorNotes": [
+  "The check beat can't be drawn. The studio has no browser or Google help page with full sentences on it, and two long quotes won't fit in listInsert rows without overflowing. It also breaks 'show the tip happening': Floey says to watch the page in Search Console, but Maya opens a help article instead. Use what the brief planned: a DUO.listInsert titled 'URL Inspection' with short rows such as 'Indexing requested: Yes', 'Status: Crawled, not indexed' and 'Crawling: days to weeks', and put the hi ring on the timing row (or on 'No need to resubmit'). Then the number Maya reads out is on screen next to the thing it belongs to.",
+  "'Her glasses slip down her nose' (check beat) isn't a control Maya has. Get the 'weeks' reaction from what she does have: MY.expr 'surprised' or 'panic', MY.jolt, or the 'cheeks' pose on 'weeks', plus a '!' mark.",
+  "Floey's 'Nothing.' isn't true, and it contradicts her own tip. If asking once is the right move, the first click did something: it sent the request. Only the extra 39 did nothing. Since this reel corrects a myth, viewers who know SEO will catch it in the comments. Floey's answer needs to say the clicks did no more than one click would (for example, the same as one click), and it should stay deadpan and very short.",
+  "The button visual contradicts itself and can't be drawn as written. Her hand comes off the trackpad, yet she's 'back in the type pose with her hand raised', and no pose has a raised hand. Spell it out with real controls: pose 'rest' (hand off) with MY.look to camera for about a beat, then the line, then pose 'type' for the sneaky click (click sfx), then the pill flips to x41.",
+  "Floey's last line has her turn slowly toward Maya, then 'says the line to the camera', yet the line is addressed to Maya ('That's forty one, Maya.'). Pick one. A line that names Maya should be said to Maya, with Floey facing her. If you want her facing the camera, use F.pivot 'front' for the hold after the line, not during it.",
+  "(polish) The 'weeks' realisation is weak. 'Crawling can take a few days to... a few weeks?' sounds like Maya reading out loud, and it's tagged 'curious'. Her character gets the realisation in one or two words, and the brief's 'Weeks?!' was the laugh. Let the insert show the wording, then give her a short spoken reaction with emotion 'worried' and a panic face, so the real joke isn't buried in a quote.",
+  "(polish) The tip 'just watch the page in Search Console' is vague, because 'the page' could mean her post. The facts name the URL Inspection tool, so say that plainly (for example, check it in URL Inspection). Then the tip matches the insert and a viewer can do it today.",
+  "(polish) Emotions are off on two lines. On 'Just one.' Maya is sneaking a relapse click, not curious, so 'playful' or 'determined' fits better. On the check line, she's finding out it can take weeks, which is 'worried', not 'curious'. The face has to match the line in every sampled frame.",
+  "(polish) On 'Just one.' Maya speaks while looking at the camera. The studio lets her look at the camera only without words. Have her look at the camera in silence first, then glance back at the laptop as she mutters the line, so it reads as talking to herself, not to the viewer.",
+  "(polish) Pill placement is unclear and may not fit the frame. The script says 'beside her shoulder at chest height' in mayaTight and 'between them' in wide, but DUO.stat sits near her head (about x 880, y 610), and a tight face shot may slice it at the edge. Give one position and check it in every shot. Fade it out in floeyTight and the insert, and bring it back for the x41 flip.",
+  "(polish) Small studio mismatches. There's no 'soft chime' sound, so use 'ding' on the ring. The 'thud' on the facepalm should be 'thump'. The '!' mark can't be set to red, so drop the colour. A one-finger jab isn't a pose, so it will play as 'type'; that's fine, but describe it that way.",
+  "(polish) Floey sips from Maya's mug and nothing comes of it. That sets up the cold-coffee running joke, but the script never pays it off. Either give it a beat (Maya reaches for the mug at the end and it's cold) or drop the sip. As it stands it's an action with no joke.",
+  "(polish) The loop note isn't accurate. The reel ends on x41 and the opening counts x38 to x40, so on a replay the counter goes backwards; it won't look like she never stopped. Duo reels don't need a loop, so cut the claim, or open on x40 so the replay at least doesn't run backwards."
+ ],
+ "style": "duo",
+ "template": "../drafts/r011-maya-has-clicked-request-indexing-on-her/scene.html"
+}
