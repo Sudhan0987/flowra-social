@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-17T04:41:43.183Z",
+  "updated": "2026-10-17T07:28:42.616Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -112,9 +112,9 @@
       "channels": [
         "linkedin"
       ],
-      "owner": "you",
+      "owner": "flowra",
       "format": "text",
-      "status": "ready",
+      "status": "approved",
       "note": "Text is ready. Post it from the Flowra page.",
       "file": "posts/linkedin/2026-10-13.md"
     },
@@ -141,9 +141,9 @@
       "channels": [
         "linkedin"
       ],
-      "owner": "you",
+      "owner": "flowra",
       "format": "carousel",
-      "status": "ready",
+      "status": "approved",
       "note": "Text is ready. Post it from the Flowra page as a document: attach posts/linkedin/2026-10-15.pdf.",
       "file": "posts/linkedin/2026-10-15.md"
     },
