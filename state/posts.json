@@ -199,6 +199,21 @@
     "youtube": "1Sbah9cFA6A",
     "youtubePrivacy": "public"
    }
+  },
+  {
+   "id": "r012-maya-s-impressions-are-up-and-her-clicks",
+   "status": "draft",
+   "topic": "Maya's impressions are up and her clicks are flat, and the extra impressions are in long, chatty queries at the bottom of her Search Console list",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-18T09:50:22.367Z",
+   "seconds": 32,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1792317021.863589"
+   },
+   "idea": "Maya's impressions are up, but some of those searches weren't typed by a person",
+   "style": "duo",
+   "run": 39114628540
   }
  ]
 }
