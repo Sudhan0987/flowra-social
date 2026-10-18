@@ -1,94 +1,87 @@
 {
-  "date": "2026-10-11",
-  "summary": "AI is the main thread this month: Google's AI Overviews survived the Chegg and Penske lawsuits, Google is testing payments to publishers for AI Mode, and people are building tools to check whether ChatGPT and Perplexity cite them while arguing that AI visibility is being measured the wrong way. Site owners are also annoyed by AI bot traffic and AI crawler blocking, and they are uneasy about AI drafts now that Google has told sites to fact-check AI content and writers report ChatGPT contradicting their own work. Google timing is still news after Gary Illyes shared Google's own figures in Barcelona, and Google's google.com/goto anti-scraping change drew one of the biggest discussions on Hacker News.",
+  "date": "2026-10-18",
+  "summary": "This month people are finding things in Search Console that don't look human: one poster found a single question asked in 389 wordings, with 7,249 impressions and 0 clicks. A Hacker News thread with 351 points is about a site getting flooded by AI bots. Content teams are also complaining about several of their own pages competing for one keyword, and about agency reports that show impressions while sign-ups stay flat. The news is mostly about AI search (Google telling sites to fact-check AI content, a judge dismissing the Chegg and Penske suits over AI Overviews), and none of it says what to do on your own site.",
   "ideas": [
     {
-      "title": "Impressions held, clicks fell: the one Search Console check for pages AI answers are eating",
+      "title": "Maya's impressions are up, but some of those searches weren't typed by a person",
       "channel": "reel",
-      "pillar": "news",
-      "hook": "Your impressions holding steady doesn't mean your clicks did. One Search Console check shows which pages.",
-      "why": "A judge has thrown out the Chegg and Penske suits over AI Overviews, and Google is testing payments to publishers for AI Mode, so AI answers are not going away. This follows r006 as planned: one quiet clicks-falling check (Pages tab, clicks and impressions on, compare periods, find flat impressions with falling clicks), shown on screen in the first 2 seconds, 20 to 25 seconds long, ending with 'save this for your next audit'.",
+      "pillar": "problem",
+      "hook": "Maya: \"My impressions went up and my clicks didn't move.\" Floey: \"Scroll to the bottom of your queries. Some of those weren't typed by a person.\"",
+      "why": "A TechSEO poster found AI-assistant-style queries at the bottom of Search Console: one question in 389 wordings, 7,249 impressions, 0 clicks. They now check it every week. It's a new Search Console check with a clear payoff (Queries tab, sort by clicks, scroll to the zero-click long tail), the same kind of topic behind r006's saves. End on 'save this for your next audit'.",
       "sources": [
-        "https://reuters.com/legal/litigation/google-wins-dismissal-chegg-penske-media-lawsuits-over-ai-overviews-2026-10-01",
-        "https://searchengineland.com/google-tests-paying-publishers-for-using-its-content-in-ai-mode-ai-overviews-and-gemini-488382"
-      ],
-      "repeatOf": "r006-search-console-s-new-generative-ai-repor",
-      "repeatNote": "Same check as r006 (compare clicks for the pages AI shows). Held 12 Oct 2026; a follow-up needs a different step."
+        "https://www.reddit.com/r/TechSEO/comments/1x8o78j/your_search_console_is_full_of_searches_written/"
+      ]
     },
     {
-      "title": "Your robots.txt allows GPTBot. Your host might still be blocking it.",
-      "channel": "linkedin",
+      "title": "Five pages on one keyword isn't five chances to rank (myth, about 25 seconds)",
+      "channel": "reel",
       "pillar": "myth",
-      "hook": "Your robots.txt saying yes to GPTBot doesn't mean GPTBot gets in, until you check what your host does at the edge.",
-      "why": "An Ask HN thread says AI bot traffic is out of control, and a r/bigseo thread counted how many top sites block AI crawlers in robots.txt, so people think robots.txt settles it. We found the opposite on our own site: our web host blocked GPTBot at the edge with HTTP 429 even though robots.txt allowed it, while other AI crawlers got through.",
+      "hook": "Writing five posts on the same keyword doesn't give you five chances to rank. It makes them fight each other.",
+      "why": "A bigseo poster says one keyword brings impressions to 5 or 6 of their pages after they published a lot of content without a keyword plan. Duo myth reel, the 25 second half of the length experiment, with a send ask at the end. On screen: Performance, filter one query, open the Pages tab and count the pages. Pro's keyword cannibalization report is the product mention.",
       "sources": [
-        "https://news.ycombinator.com/item?id=49705724",
-        "https://www.reddit.com/r/bigseo/comments/1x28e0h/we_checked_robotstxt_on_the_top_10000_sites_193/"
+        "https://www.reddit.com/r/bigseo/comments/1x7f5th/cannibalisation_issue_with_the_content/"
       ]
     },
     {
-      "title": "Moving your site? Google's own range is 1 to 3 months",
+      "title": "The client asks how many sign-ups, and the report only has impressions",
       "channel": "reel",
-      "pillar": "news",
-      "hook": "A site move doesn't settle in a week. Google's own number is 1 to 3 months, and the slow end is a year.",
-      "why": "Gary Illyes showed Google's internal timings at Search Central Live in Barcelona: a site move usually takes 1 to 3 months, and the slowest take 6 months to more than a year. Our Google timing reels keep growing on YouTube, and this is a different number from the page update reel we already published. Open on a day counter and keep it to 20 to 25 seconds.",
+      "pillar": "problem",
+      "hook": "Maya: \"Four months of reports, and the client still can't see a single sign-up in them.\"",
+      "why": "A founder in content_marketing says four months of agency reports only showed impressions and new followers, and when they asked twice how many sign-ups came from the campaign, they got no answer. Duo reel on the voiced frustration pattern: put Search Console clicks next to GA4 in one report the client opens as a link, which Flowra's client reports do. End with 'send this to the agency that only reports impressions'.",
       "sources": [
-        "https://www.reddit.com/r/bigseo/comments/1x21aex/google_shared_how_long_crawling_indexing_and_core/"
+        "https://www.reddit.com/r/content_marketing/comments/1x8gd0s/4_months_with_an_agency_reports_full_of/",
+        "https://www.reddit.com/r/marketing/comments/1x8j8wu/rant_me_whats_your_biggest_frustration_about/"
       ]
     },
     {
-      "title": "Google's advice on AI content: check it before you publish",
+      "title": "Our robots.txt said yes to GPTBot. Our host said 429.",
       "channel": "linkedin",
-      "pillar": "news",
-      "hook": "Google's advice on AI content isn't 'stop using it'. It's 'check it before you publish'.",
-      "why": "Search Engine Journal reports that Google told sites to fact-check AI content before publishing. Writers in r/content_marketing (13 comments) say ChatGPT and Claude contradict their own technical writing when proofreading. Flowra's writer starts with an outline you approve or edit, and the Rework Queue shows what changed before anything goes live.",
+      "pillar": "story",
+      "hook": "Our robots.txt allowed GPTBot. Our web host was blocking it anyway, and we only found out by testing.",
+      "why": "A Hacker News post about a site flooded with AI bot traffic after hitting the front page got 351 points and 186 comments. A bigseo post compares AI crawler reads with human visits. Our own finding answers the opposite worry: GPTBot got HTTP 429 at the host's edge while other AI crawlers got through.",
       "sources": [
-        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/",
-        "https://www.reddit.com/r/content_marketing/comments/1x1u1qs/has_anyone_else_experienced_chatgpt_or_claude/"
+        "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic",
+        "https://www.reddit.com/r/bigseo/comments/1x8efd1/220_days_of_firstparty_logs_105m_ai_crawler_reads/"
       ]
     },
     {
-      "title": "Google is fighting scrapers. Your position data doesn't need them.",
-      "channel": "x",
-      "pillar": "news",
-      "hook": "Your ranking data doesn't have to come from scraping Google. Search Console already has it.",
-      "why": "The google.com/goto anti-scraping post got 681 points and 554 comments on Hacker News, the biggest search discussion in the set. Flowra doesn't scrape Google: its positions come from Search Console, with 16 months of history.",
+      "title": "Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
+      "channel": "reel",
+      "pillar": "myth",
+      "hook": "Maya: \"We used AI for the draft, so Google will bury it.\" Floey: \"Google's actual ask is to check the facts before you publish.\"",
+      "why": "Search Engine Journal reports Google telling sites to fact-check AI content before publishing. The detector reels covered whether a tool can spot AI writing. This one teaches a different step: checking every claim before the post goes live. It's the 32 second half of the length experiment, with a send ask, and the outline-first Writer is the product angle.",
       "sources": [
-        "https://www.autom.dev/blog/google-search-goto-links"
+        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/"
       ]
     },
     {
-      "title": "Being cited by ChatGPT next to actually getting the visit",
+      "title": "Your customers' questions are already in your Search Console",
       "channel": "carousel",
-      "pillar": "myth",
-      "hook": "Your brand showing up in ChatGPT doesn't mean anyone clicked through to you.",
-      "why": "New Show HN tools track whether ChatGPT and Perplexity mention a site. One test found the two agreed on only 1 in 4 local recommendations, and a r/bigseo post says AI visibility is being measured the wrong way. Flowra reads ChatGPT and Perplexity visits from GA4 referrers, so it counts visits that arrived, and it cannot see answers that sent no click.",
+      "pillar": "problem",
+      "hook": "Your next topic list is already in Search Console: the questions your pages show up for and nobody answered.",
+      "why": "A content_marketing post asks how small teams should choose when customer questions and search volume point different ways. The poster's answer: write down the exact question and the decision behind it. A carousel can show where those questions already appear (query filters for how, what, why), plus Flowra's featured snippet opportunities for question queries a page already ranks near the top for.",
       "sources": [
-        "https://citerank.thecompound.tech",
-        "https://www.clicksdynasty.com/blog-post-chatgpt-perplexity-local-recommendations.html",
-        "https://www.reddit.com/r/bigseo/comments/1x2alme/i_think_were_measuring_ai_search_visibility_the/",
-        "https://ukaiseoconsultant.co.uk/ai-driven-seo-audits/"
+        "https://www.reddit.com/r/content_marketing/comments/1x8hsmf/how_do_you_choose_content_topics_when_customer/"
       ]
     },
     {
-      "title": "Floey gets graded by an AI detector that never read the words",
+      "title": "Floey and the flower one shelf below the top (short-first-frame retest)",
       "channel": "reel",
       "pillar": "fun",
-      "hook": "Your blog post just got its report card from a model that only looked at the layout.",
-      "why": "A Show HN about spotting AI web content from page structure alone got 74 points and 28 comments. Commenters asked whether it would also flag human-written filler as AI. That makes an easy, funny report card reel: Floey holds the verdict and gives no made-up scores.",
+      "hook": "Your fastest traffic isn't a new post. It's the page already sitting just below page one.",
+      "why": "A beginner thread asks how long organic traffic takes to arrive, which keeps coming up. It's the 22 second garden retest from our plan, with only the first frame changed: Floey ignores a fresh seedling and flies to a flower one rung below the top of the trellis, which stands for pages around positions 8 to 20. Free shows the top 5 striking distance queries.",
       "sources": [
-        "https://arxiv.org/abs/2609.15369"
+        "https://www.reddit.com/r/SEO/comments/1x8sqlo/beginner_in_seo_how_long_does_it_realistically/"
       ]
     },
     {
-      "title": "Skip building a content board in Notion: Flowra's Free plan already has one",
-      "channel": "linkedin",
-      "pillar": "product",
-      "hook": "You're still building your content workflow in Notion from scratch. Flowra's Free plan already has a Task Board and a Content Workflow Board.",
-      "why": "Two r/SEO posts this week walk through Notion setups for running a whole content operation, so teams are clearly building this by hand. Every Flowra plan, Free included, comes with the Task Board, the Content Workflow Board and the Content Repository.",
+      "title": "The AI Overviews lawsuits got dismissed. Here's what's still up to you.",
+      "channel": "x",
+      "pillar": "news",
+      "hook": "A US judge dismissed Chegg's and Penske's antitrust suits over AI Overviews. Plan for AI Overviews being around for a while.",
+      "why": "Reuters reported the dismissal on Hacker News and people are passing it around. The useful take is to stop waiting for courts and look at which pages are losing clicks, using the decay queue rather than the AI report we already covered.",
       "sources": [
-        "https://www.reddit.com/r/SEO/comments/1x300x3/built_a_6module_seo_content_workspace_in_notion/",
-        "https://www.reddit.com/r/SEO/comments/1x2zmh5/i_built_a_notion_system_to_manage_my_entire/"
+        "https://reuters.com/legal/litigation/google-wins-dismissal-chegg-penske-media-lawsuits-over-ai-overviews-2026-10-01"
       ]
     }
   ]

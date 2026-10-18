@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-17T07:28:42.616Z",
+  "updated": "2026-10-18T07:37:04.838Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -114,7 +114,7 @@
       ],
       "owner": "flowra",
       "format": "text",
-      "status": "approved",
+      "status": "posted",
       "note": "Text is ready. Post it from the Flowra page.",
       "file": "posts/linkedin/2026-10-13.md"
     },
@@ -143,7 +143,7 @@
       ],
       "owner": "flowra",
       "format": "carousel",
-      "status": "approved",
+      "status": "posted",
       "note": "Text is ready. Post it from the Flowra page as a document: attach posts/linkedin/2026-10-15.pdf.",
       "file": "posts/linkedin/2026-10-15.md"
     },
@@ -166,7 +166,23 @@
     {
       "date": "2026-10-17",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya has clicked \"Request Indexing\" on her new post again and again, and it still isn't on Google",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "posted",
+      "owner": "flowra",
+      "ref": "r011-maya-has-clicked-request-indexing-on-her",
+      "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
+    },
+    {
+      "date": "2026-10-18",
+      "kind": "reel",
+      "title": "Maya & Floey: Maya's impressions are up, but some of those searches weren't typed by a person",
       "channels": [
         "instagram",
         "facebook",
@@ -176,39 +192,28 @@
       ],
       "status": "making",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
-    },
-    {
-      "date": "2026-10-18",
-      "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
-      "channels": [
-        "instagram",
-        "facebook",
-        "youtube",
-        "linkedin",
-        "x"
-      ],
-      "status": "planned",
-      "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Maya: \"My impressions went up and my clicks didn't move.\" Floey: \"Scroll to the bottom of your queries. Some of those weren't typed by a person.\"",
+      "sources": [
+        "https://www.reddit.com/r/TechSEO/comments/1x8o78j/your_search_console_is_full_of_searches_written/"
+      ]
     },
     {
       "date": "2026-10-19",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/best-content-audit-tools",
+      "title": "Wait 14 days before judging a page update",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
-      "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it."
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-19.md"
     },
     {
       "date": "2026-10-19",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya & Floey: Five pages on one keyword isn't five chances to rank (myth, about 25 seconds)",
       "channels": [
         "instagram",
         "facebook",
@@ -218,7 +223,10 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Writing five posts on the same keyword doesn't give you five chances to rank. It makes them fight each other.",
+      "sources": [
+        "https://www.reddit.com/r/bigseo/comments/1x7f5th/cannibalisation_issue_with_the_content/"
+      ]
     },
     {
       "date": "2026-10-19",
@@ -235,23 +243,20 @@
     {
       "date": "2026-10-20",
       "kind": "linkedin-post",
-      "title": "Skip building a content board in Notion: Flowra's Free plan already has one",
+      "title": "GPTBot got 429 at the host edge while robots.txt allowed it",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
-      "status": "planned",
-      "note": "From social listening: Two r/SEO posts this week walk through Notion setups for running a whole content operation, so teams are clearly building this by hand. Every Flowra plan, Free included, comes with the Task Board, the Content Workflow Board and the Content Repository.",
-      "sources": [
-        "https://www.reddit.com/r/SEO/comments/1x300x3/built_a_6module_seo_content_workspace_in_notion/",
-        "https://www.reddit.com/r/SEO/comments/1x2zmh5/i_built_a_notion_system_to_manage_my_entire/"
-      ]
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-20.md"
     },
     {
       "date": "2026-10-20",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya & Floey: The client asks how many sign-ups, and the report only has impressions",
       "channels": [
         "instagram",
         "facebook",
@@ -261,24 +266,29 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Maya: \"Four months of reports, and the client still can't see a single sign-up in them.\"",
+      "sources": [
+        "https://www.reddit.com/r/content_marketing/comments/1x8gd0s/4_months_with_an_agency_reports_full_of/",
+        "https://www.reddit.com/r/marketing/comments/1x8j8wu/rant_me_whats_your_biggest_frustration_about/"
+      ]
     },
     {
       "date": "2026-10-21",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/content-audit-template",
+      "title": "GPTBot got a 429 even though robots.txt allowed it",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
-      "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it."
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-21.md"
     },
     {
       "date": "2026-10-21",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya & Floey: Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
       "channels": [
         "instagram",
         "facebook",
@@ -288,24 +298,28 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Maya: \"We used AI for the draft, so Google will bury it.\" Floey: \"Google's actual ask is to check the facts before you publish.\"",
+      "sources": [
+        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/"
+      ]
     },
     {
       "date": "2026-10-22",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
+      "title": "GPTBot got a 429 while robots.txt allowed it",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
-      "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-22.md"
     },
     {
       "date": "2026-10-22",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya & Floey: Your customers' questions are already in your Search Console",
       "channels": [
         "instagram",
         "facebook",
@@ -315,7 +329,10 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Your next topic list is already in Search Console: the questions your pages show up for and nobody answered.",
+      "sources": [
+        "https://www.reddit.com/r/content_marketing/comments/1x8hsmf/how_do_you_choose_content_topics_when_customer/"
+      ]
     },
     {
       "date": "2026-10-22",
@@ -332,19 +349,20 @@
     {
       "date": "2026-10-23",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/fresh-content-seo",
+      "title": "GPTBot got a 429 while robots.txt said allow",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
-      "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it."
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-23.md"
     },
     {
       "date": "2026-10-23",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya & Floey: Floey and the flower one shelf below the top (short-first-frame retest)",
       "channels": [
         "instagram",
         "facebook",
@@ -354,7 +372,10 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Your fastest traffic isn't a new post. It's the page already sitting just below page one.",
+      "sources": [
+        "https://www.reddit.com/r/SEO/comments/1x8sqlo/beginner_in_seo_how_long_does_it_realistically/"
+      ]
     },
     {
       "date": "2026-10-24",
@@ -389,14 +410,15 @@
     {
       "date": "2026-10-26",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/content-audit",
+      "title": "GPTBot got a 429 even though robots.txt allowed it",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
-      "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it."
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-26.md"
     },
     {
       "date": "2026-10-26",

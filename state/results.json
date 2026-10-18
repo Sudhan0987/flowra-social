@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-11",
+ "updated": "2026-10-18",
  "reels": [
   {
    "id": "r002-find-the-pages-quietly-losing-traffic-in",
@@ -14,24 +14,25 @@
    "seconds": 38,
    "idea": "",
    "experiment": "",
+   "style": "floey-garden",
    "latest": {
-    "date": "2026-10-11",
-    "ageDays": 4.7,
+    "date": "2026-10-18",
+    "ageDays": 11.7,
     "instagram": {
-     "views": 87,
-     "reach": 77,
+     "views": 89,
+     "reach": 79,
      "saved": 0,
      "shares": 0,
      "likes": 2,
      "comments": 0,
      "total_interactions": 2,
-     "ig_reels_avg_watch_time": 3926,
-     "ig_reels_video_view_total_time": 337690
+     "ig_reels_avg_watch_time": 4207,
+     "ig_reels_video_view_total_time": 370285
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 6,
-     "likeCount": 0,
+     "viewCount": 16,
+     "likeCount": 1,
      "dislikeCount": 0,
      "favoriteCount": 0,
      "commentCount": 0
@@ -83,6 +84,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-18",
+     "ageDays": 11.7,
+     "instagram": {
+      "views": 89,
+      "reach": 79,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 4207,
+      "ig_reels_video_view_total_time": 370285
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 16,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -99,24 +123,25 @@
    "seconds": 36,
    "idea": "",
    "experiment": "",
+   "style": "floey-garden",
    "latest": {
-    "date": "2026-10-11",
-    "ageDays": 3.8,
+    "date": "2026-10-18",
+    "ageDays": 10.7,
     "instagram": {
-     "views": 16,
-     "reach": 17,
+     "views": 18,
+     "reach": 19,
      "saved": 0,
      "shares": 0,
      "likes": 0,
      "comments": 0,
      "total_interactions": 0,
      "ig_reels_avg_watch_time": 2240,
-     "ig_reels_video_view_total_time": 38084
+     "ig_reels_video_view_total_time": 42561
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 49,
-     "likeCount": 0,
+     "viewCount": 54,
+     "likeCount": 1,
      "dislikeCount": 0,
      "favoriteCount": 0,
      "commentCount": 0
@@ -168,6 +193,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-18",
+     "ageDays": 10.7,
+     "instagram": {
+      "views": 18,
+      "reach": 19,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2240,
+      "ig_reels_video_view_total_time": 42561
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 54,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -184,24 +232,25 @@
    "seconds": 37,
    "idea": "",
    "experiment": "",
+   "style": "floey-garden",
    "latest": {
-    "date": "2026-10-11",
-    "ageDays": 3.5,
+    "date": "2026-10-18",
+    "ageDays": 10.4,
     "instagram": {
-     "views": 4,
-     "reach": 4,
+     "views": 5,
+     "reach": 5,
      "saved": 0,
      "shares": 0,
      "likes": 1,
      "comments": 0,
      "total_interactions": 1,
-     "ig_reels_avg_watch_time": 11565,
-     "ig_reels_video_view_total_time": 57829
+     "ig_reels_avg_watch_time": 9861,
+     "ig_reels_video_view_total_time": 59166
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 127,
-     "likeCount": 0,
+     "viewCount": 134,
+     "likeCount": 1,
      "dislikeCount": 0,
      "favoriteCount": 0,
      "commentCount": 0
@@ -253,6 +302,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-18",
+     "ageDays": 10.4,
+     "instagram": {
+      "views": 5,
+      "reach": 5,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 9861,
+      "ig_reels_video_view_total_time": 59166
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 134,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -269,23 +341,24 @@
    "seconds": 42,
    "idea": "Search Console now shows how often you appear in AI Overviews and AI Mode",
    "experiment": "",
+   "style": "floey-garden",
    "latest": {
-    "date": "2026-10-11",
-    "ageDays": 1.7,
+    "date": "2026-10-18",
+    "ageDays": 8.6,
     "instagram": {
-     "views": 115,
-     "reach": 102,
+     "views": 116,
+     "reach": 103,
      "saved": 2,
      "shares": 1,
      "likes": 3,
      "comments": 0,
      "total_interactions": 6,
-     "ig_reels_avg_watch_time": 3078,
-     "ig_reels_video_view_total_time": 323245
+     "ig_reels_avg_watch_time": 3057,
+     "ig_reels_video_view_total_time": 324120
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 21,
+     "viewCount": 26,
      "likeCount": 0,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -334,6 +407,281 @@
      "youtube": {
       "viewCount": 21,
       "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    },
+    {
+     "date": "2026-10-18",
+     "ageDays": 8.6,
+     "instagram": {
+      "views": 116,
+      "reach": 103,
+      "saved": 2,
+      "shares": 1,
+      "likes": 3,
+      "comments": 0,
+      "total_interactions": 6,
+      "ig_reels_avg_watch_time": 3057,
+      "ig_reels_video_view_total_time": 324120
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 26,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r007-moving-your-site-google-s-own-range-is-1",
+   "title": "Week one is too early to judge your site move",
+   "hook": "Week one is too early to judge your site move.",
+   "hookPattern": "The flat contradiction",
+   "format": "problem-agitate-solve",
+   "pillar": "news",
+   "goal": "save",
+   "topic": "Moving your site? Google's own range is 1 to 3 months, and the slow end is a year",
+   "postedAt": "2026-10-12T14:58:14+0000",
+   "seconds": 22,
+   "idea": "Moving your site? Google's own range is 1 to 3 months",
+   "experiment": "short-first-frame",
+   "style": "pro",
+   "latest": {
+    "date": "2026-10-18",
+    "ageDays": 5.7,
+    "instagram": {
+     "views": 15,
+     "reach": 12,
+     "saved": 0,
+     "shares": 0,
+     "likes": 1,
+     "comments": 0,
+     "total_interactions": 1,
+     "ig_reels_avg_watch_time": 2676,
+     "ig_reels_video_view_total_time": 37465
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 8,
+     "likeCount": 0,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-10-18",
+     "ageDays": 5.7,
+     "instagram": {
+      "views": 15,
+      "reach": 12,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2676,
+      "ig_reels_video_view_total_time": 37465
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 8,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r008-maya-asks-chatgpt-for-the-best-blogs-in-",
+   "title": "Ask It Again",
+   "hook": "ChatGPT named the best budget travel blogs. Not me. I'm invisible.",
+   "hookPattern": "The animated action",
+   "format": "duo-sitcom",
+   "pillar": "problem",
+   "goal": "send",
+   "topic": "Maya asks ChatGPT for the best blogs in her niche, isn't on the list and panics. Floey shows her that the list changes on every ask, and that GA4 shows the visits ChatGPT actually sent.",
+   "postedAt": "2026-10-14T15:59:54+0000",
+   "seconds": 34,
+   "idea": "Being cited by ChatGPT next to actually getting the visit",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-10-18",
+    "ageDays": 3.6,
+    "instagram": {
+     "views": 12,
+     "reach": 10,
+     "saved": 0,
+     "shares": 0,
+     "likes": 2,
+     "comments": 0,
+     "total_interactions": 2,
+     "ig_reels_avg_watch_time": 8333,
+     "ig_reels_video_view_total_time": 91669
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 19,
+     "likeCount": 2,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-10-18",
+     "ageDays": 3.6,
+     "instagram": {
+      "views": 12,
+      "reach": 10,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 8333,
+      "ig_reels_video_view_total_time": 91669
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 19,
+      "likeCount": 2,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r010-a-client-s-ai-detector-says-maya-s-handw",
+   "title": "Ninety Two Percent Robot",
+   "hook": "My client's detector says my post is ninety two percent robot.",
+   "hookPattern": "The brutal report card",
+   "format": "duo-sitcom",
+   "pillar": "myth",
+   "goal": "send",
+   "topic": "A client's AI detector says Maya's handwritten post is AI, and she thinks Google will bury it",
+   "postedAt": "2026-10-16T14:43:42+0000",
+   "seconds": 32,
+   "idea": "Floey gets graded by an AI detector that never read the words",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-10-18",
+    "ageDays": 1.7,
+    "instagram": {
+     "views": 116,
+     "reach": 100,
+     "saved": 0,
+     "shares": 0,
+     "likes": 1,
+     "comments": 0,
+     "total_interactions": 1,
+     "ig_reels_avg_watch_time": 7352,
+     "ig_reels_video_view_total_time": 742608
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 481,
+     "likeCount": 8,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 1
+    }
+   },
+   "history": [
+    {
+     "date": "2026-10-18",
+     "ageDays": 1.7,
+     "instagram": {
+      "views": 116,
+      "reach": 100,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 7352,
+      "ig_reels_video_view_total_time": 742608
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 481,
+      "likeCount": 8,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 1
+     }
+    }
+   ]
+  },
+  {
+   "id": "r011-maya-has-clicked-request-indexing-on-her",
+   "title": "Forty Clicks",
+   "hook": "My new post isn't on Google. I've clicked Request Indexing forty times!",
+   "hookPattern": "The animated action",
+   "format": "duo-sitcom",
+   "pillar": "myth",
+   "goal": "send",
+   "topic": "Maya has clicked \"Request Indexing\" on her new post again and again, and it still isn't on Google",
+   "postedAt": "2026-10-17T13:47:00+0000",
+   "seconds": 25,
+   "idea": "",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-10-18",
+    "ageDays": 0.7,
+    "instagram": {
+     "views": 145,
+     "reach": 119,
+     "saved": 0,
+     "shares": 1,
+     "likes": 0,
+     "comments": 0,
+     "total_interactions": 1,
+     "ig_reels_avg_watch_time": 10564,
+     "ig_reels_video_view_total_time": 1257213
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 123,
+     "likeCount": 4,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-10-18",
+     "ageDays": 0.7,
+     "instagram": {
+      "views": 145,
+      "reach": 119,
+      "saved": 0,
+      "shares": 1,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 10564,
+      "ig_reels_video_view_total_time": 1257213
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 123,
+      "likeCount": 4,
       "dislikeCount": 0,
       "favoriteCount": 0,
       "commentCount": 0

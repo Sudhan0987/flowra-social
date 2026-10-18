@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-18",
+  "summary": "This month people are finding things in Search Console that don't look human: one poster found a single question asked in 389 wordings, with 7,249 impressions and 0 clicks. A Hacker News thread with 351 points is about a site getting flooded by AI bots. Content teams are also complaining about several of their own pages competing for one keyword, and about agency reports that show impressions while sign-ups stay flat. The news is mostly about AI search (Google telling sites to fact-check AI content, a judge dismissing the Chegg and Penske suits over AI Overviews), and none of it says what to do on your own site.",
+  "ideas": [
+    {
+      "title": "Maya's impressions are up, but some of those searches weren't typed by a person",
+      "channel": "reel",
+      "pillar": "problem",
+      "hook": "Maya: \"My impressions went up and my clicks didn't move.\" Floey: \"Scroll to the bottom of your queries. Some of those weren't typed by a person.\"",
+      "why": "A TechSEO poster found AI-assistant-style queries at the bottom of Search Console: one question in 389 wordings, 7,249 impressions, 0 clicks. They now check it every week. It's a new Search Console check with a clear payoff (Queries tab, sort by clicks, scroll to the zero-click long tail), the same kind of topic behind r006's saves. End on 'save this for your next audit'.",
+      "sources": [
+        "https://www.reddit.com/r/TechSEO/comments/1x8o78j/your_search_console_is_full_of_searches_written/"
+      ]
+    },
+    {
+      "title": "Five pages on one keyword isn't five chances to rank (myth, about 25 seconds)",
+      "channel": "reel",
+      "pillar": "myth",
+      "hook": "Writing five posts on the same keyword doesn't give you five chances to rank. It makes them fight each other.",
+      "why": "A bigseo poster says one keyword brings impressions to 5 or 6 of their pages after they published a lot of content without a keyword plan. Duo myth reel, the 25 second half of the length experiment, with a send ask at the end. On screen: Performance, filter one query, open the Pages tab and count the pages. Pro's keyword cannibalization report is the product mention.",
+      "sources": [
+        "https://www.reddit.com/r/bigseo/comments/1x7f5th/cannibalisation_issue_with_the_content/"
+      ]
+    },
+    {
+      "title": "The client asks how many sign-ups, and the report only has impressions",
+      "channel": "reel",
+      "pillar": "problem",
+      "hook": "Maya: \"Four months of reports, and the client still can't see a single sign-up in them.\"",
+      "why": "A founder in content_marketing says four months of agency reports only showed impressions and new followers, and when they asked twice how many sign-ups came from the campaign, they got no answer. Duo reel on the voiced frustration pattern: put Search Console clicks next to GA4 in one report the client opens as a link, which Flowra's client reports do. End with 'send this to the agency that only reports impressions'.",
+      "sources": [
+        "https://www.reddit.com/r/content_marketing/comments/1x8gd0s/4_months_with_an_agency_reports_full_of/",
+        "https://www.reddit.com/r/marketing/comments/1x8j8wu/rant_me_whats_your_biggest_frustration_about/"
+      ]
+    },
+    {
+      "title": "Our robots.txt said yes to GPTBot. Our host said 429.",
+      "channel": "linkedin",
+      "pillar": "story",
+      "hook": "Our robots.txt allowed GPTBot. Our web host was blocking it anyway, and we only found out by testing.",
+      "why": "A Hacker News post about a site flooded with AI bot traffic after hitting the front page got 351 points and 186 comments. A bigseo post compares AI crawler reads with human visits. Our own finding answers the opposite worry: GPTBot got HTTP 429 at the host's edge while other AI crawlers got through.",
+      "sources": [
+        "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic",
+        "https://www.reddit.com/r/bigseo/comments/1x8efd1/220_days_of_firstparty_logs_105m_ai_crawler_reads/"
+      ]
+    },
+    {
+      "title": "Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
+      "channel": "reel",
+      "pillar": "myth",
+      "hook": "Maya: \"We used AI for the draft, so Google will bury it.\" Floey: \"Google's actual ask is to check the facts before you publish.\"",
+      "why": "Search Engine Journal reports Google telling sites to fact-check AI content before publishing. The detector reels covered whether a tool can spot AI writing. This one teaches a different step: checking every claim before the post goes live. It's the 32 second half of the length experiment, with a send ask, and the outline-first Writer is the product angle.",
+      "sources": [
+        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/"
+      ]
+    },
+    {
+      "title": "Your customers' questions are already in your Search Console",
+      "channel": "carousel",
+      "pillar": "problem",
+      "hook": "Your next topic list is already in Search Console: the questions your pages show up for and nobody answered.",
+      "why": "A content_marketing post asks how small teams should choose when customer questions and search volume point different ways. The poster's answer: write down the exact question and the decision behind it. A carousel can show where those questions already appear (query filters for how, what, why), plus Flowra's featured snippet opportunities for question queries a page already ranks near the top for.",
+      "sources": [
+        "https://www.reddit.com/r/content_marketing/comments/1x8hsmf/how_do_you_choose_content_topics_when_customer/"
+      ]
+    },
+    {
+      "title": "Floey and the flower one shelf below the top (short-first-frame retest)",
+      "channel": "reel",
+      "pillar": "fun",
+      "hook": "Your fastest traffic isn't a new post. It's the page already sitting just below page one.",
+      "why": "A beginner thread asks how long organic traffic takes to arrive, which keeps coming up. It's the 22 second garden retest from our plan, with only the first frame changed: Floey ignores a fresh seedling and flies to a flower one rung below the top of the trellis, which stands for pages around positions 8 to 20. Free shows the top 5 striking distance queries.",
+      "sources": [
+        "https://www.reddit.com/r/SEO/comments/1x8sqlo/beginner_in_seo_how_long_does_it_realistically/"
+      ]
+    },
+    {
+      "title": "The AI Overviews lawsuits got dismissed. Here's what's still up to you.",
+      "channel": "x",
+      "pillar": "news",
+      "hook": "A US judge dismissed Chegg's and Penske's antitrust suits over AI Overviews. Plan for AI Overviews being around for a while.",
+      "why": "Reuters reported the dismissal on Hacker News and people are passing it around. The useful take is to stop waiting for courts and look at which pages are losing clicks, using the decay queue rather than the AI report we already covered.",
+      "sources": [
+        "https://reuters.com/legal/litigation/google-wins-dismissal-chegg-penske-media-lawsuits-over-ai-overviews-2026-10-01"
+      ]
+    }
+  ]
+}
