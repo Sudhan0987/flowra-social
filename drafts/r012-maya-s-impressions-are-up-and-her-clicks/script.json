@@ -1,0 +1,119 @@
+{
+ "title": "Google's showing my blog to ghosts",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Impressions up sixty percent, clicks flat. Google's showing my blog to ghosts.",
+   "emotion": "worried",
+   "caption": "Impressions up 60%, clicks flat. Google's showing my blog to ghosts.",
+   "visual": "Wide, day set. Frame one: both pills are already up by Maya's head, '+60% impressions' (good tone) and 'clicks +0' (bad tone), her own example numbers. Maya sits at the desk in the mug pose with a worried face, staring at the laptop. Floey is perched on the laptop lid and blinks slowly at her."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Check the bottom of your queries.",
+   "emotion": "warm",
+   "visual": "Floey shot. Floey stays perched on the lid, dry and calm, and flicks her tongue once after the line. Maya is out of this shot."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "The bottom? That's the weird ones.",
+   "emotion": "warm",
+   "visual": "Maya shot. Maya is still in the mug pose, with a flat, unimpressed face (annoyed, not panicked). Floey is out of this shot."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "Exactly. Query filter, custom regex, ten words or more.",
+   "emotion": "playful",
+   "caption": "Exactly. Query filter, Custom (regex), 10+ words.",
+   "visual": "floeyTight: Floey gives a small smug preen. On 'custom regex', cut to a list insert titled 'Query filter: Custom (regex)', sub 'Performance, Add filter, Query'. It has one large row: the pattern ^(?:\\S+\\s+){9,}\\S+$ with the value 'matches'. Measure the row with PROPS.measure so the pattern fits on one line at a readable size. The insert holds through the line and the pause (about three seconds), long enough to screenshot."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Nobody types like that.",
+   "emotion": "curious",
+   "visual": "List insert titled 'Queries · 10+ words', sub 'Last 28 days · impressions · every row 0 clicks'. The pattern stays readable in the sub's second line. Six example rows from her travel blog slide in one by one, each 10 or 11 words and measured with PROPS.measure so it fits on one line beside its value: 'is porto or lisbon better for a first trip alone' 2,310 / 'how many days do i need in porto in october' 1,940 / 'what to pack for a week in lisbon in winter' 1,605 / 'can i do lisbon to sintra and back in a day' 1,280 / 'is three days in porto enough on a budget trip' 1,150 / 'where to eat cheap near the train station in porto' 990. If any row still measures too wide, it wraps to two lines and is never truncated. The ring (hi) lands on the top row. On 'like that', cut to mayaTight: a '?' pops by her head as she squints at the screen with the mug frozen halfway up."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.6,
+   "say": "They do in ay eye Mode. So do tracking tools.",
+   "emotion": "warm",
+   "caption": "They do in AI Mode. So do tracking tools.",
+   "visual": "Floey shot. Floey hovers up off the lid, deadpan, blinks once and settles back on the lid. In the pause after the line, cut to Maya shot: she sets the mug down with a flat face and types (keyboard clicks), then one crisp click sound for the filter switch."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Wait. All sixty percent is them?",
+   "emotion": "bright",
+   "caption": "Wait. All 60% is them?",
+   "visual": "Opens on a screen insert chart titled 'Impressions, everything else', sub 'Query filter: doesn't match ^(?:\\S+\\s+){9,}\\S+$'. A flat, steady line draws across the 28 days (good tone) with a soft chime, so her normal searches haven't grown and the whole jump sits in the long rows. Cut to mayaTight on 'Wait': her hands go to her cheeks and her eyes widen."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Ghosts don't click, Maya. Your readers still do.",
+   "emotion": "playful",
+   "visual": "Floey shot. Floey is perched on the lid and does a slow, satisfied preen after 'Maya'. Maya is out of this shot."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Oh. So my titles are fine.",
+   "emotion": "bright",
+   "visual": "Maya shot. Maya slumps back in relief, exhales, smiles and picks her mug back up (mug pose)."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Save this for your next audit.",
+   "emotion": "proud",
+   "visual": "Wide. Floey pivots front on the lid and says the line to the camera. Maya, beside her, raises the mug. After the line, hold about two seconds of silence before the end card (push END later to make room): Maya takes a big relieved sip, freezes, slowly lowers the mug (cold coffee again, with a small sad slosh sound), then turns a flat look to the camera. Floey blinks once. Then the end card."
+  }
+ ],
+ "loopNote": "This reel doesn't count on a loop. The end card follows Maya's flat look, so a replay starts from the card and not from her face. The episode closes on the silent cold-coffee gag. Frame one (pills already up, Maya in the mug pose) still makes a cold restart strong for anyone who swipes back.",
+ "caption": "Impressions up 60%, clicks flat, and Maya was sure Google was showing her blog to ghosts.\n\nThe 30 second check: in Search Console, go to Performance, Add filter, Query, Custom (regex), and paste ^(?:\\S+\\s+){9,}\\S+$ to see queries of ten words or more. Long, chatty rows with lots of impressions and no clicks often look like AI Mode questions or prompt-tracking tools. Google doesn't label them, so treat it as a clue, not proof (people type long questions too).\n\nThen switch the filter to \"Doesn't match\". If impressions on everything else are steady, your jump came from the long rows and your titles aren't the problem.\n\nSave this for your next audit. What's the longest query in your list?",
+ "hashtags": [
+  "#searchconsole",
+  "#seotips",
+  "#bloggingtips",
+  "#aimode",
+  "#contentmarketing"
+ ],
+ "sticky": 50,
+ "id": "r012-maya-s-impressions-are-up-and-her-clicks",
+ "format": "duo-sitcom",
+ "goal": "save",
+ "topic": "Maya's impressions are up and her clicks are flat, and the extra impressions are in long, chatty queries at the bottom of her Search Console list",
+ "editorNotes": [
+  "The six example rows don't look like AI prompts. 'how many days do i need in porto in october', 'what to pack for a week in lisbon in winter' and 'is three days in porto enough on a budget trip' are exactly what people type into Google. A blogger watching will think 'I type like that', so Maya's 'Nobody types like that' rings false and the joke dies. These rows also look like her real readers, which undercuts the 'ghosts' payoff, and the facts say humans type long queries too. Use rows that are obviously chatty prompts, like the brief's 'cheapest way to get from lisbon to porto by train with a backpack in october', or prompt wording such as 'i'm travelling solo in october, compare porto and lisbon for me' or 'give me a 3 day porto itinerary under 300 euros with no early starts'. Keep each one 10+ words and measured.",
+  "Floey's 'They do in AI Mode. So do tracking tools.' doesn't make sense as an answer to 'Nobody types like that.' Who is 'they'? Read literally, it says people really do type like that in AI Mode, which makes them readers, not ghosts, and breaks 'Ghosts don't click'. The brief's version is cleaner and backed by the fan-out fact: 'Nobody did. AI Mode asks like that. So do tracking tools.' Use that, or something equally clear that keeps Floey's flat delivery.",
+  "The proof chart shows the wrong number. It plots 'Impressions, everything else', but the next line is 'Your readers still do [click]' and the point of the reel is that her readers never left. Nothing on screen shows clicks. Put back the brief's 'Clicks, everything else' chart with a steady line, so the tip happens on screen and the payoff matches what the viewer sees. If you also want the 'All sixty percent is them?' realisation, the insert needs both lines, or one listInsert with the two totals and real values, so it isn't half-drawn.",
+  "'Oh. So my titles are fine.' comes from nowhere. Titles are never mentioned before this line. Her worry about titles lives only in the brief's 'instinct', so viewers have to guess why she's relieved, and this payoff falls flat. Either put the worry in early (for example, the hook or the doubt line has her say her titles must be bad) or change the realisation to something already set up, like her readers or 'they never left'.",
+  "The pause after Floey's 'They do in AI Mode...' line is 0.6 s. Into that the visual packs a cut, putting the mug down, typing with keyboard clicks and a filter-switch click. That can't fit, and the sound rule allows at most one cue every 0.4 s. Raise the gap to about 2 s, or move the typing under Maya's next line.",
+  "(polish) Floey's second line, 'Check the bottom of your queries.', is an instruction, not the reframe the cast template asks for. It also overlaps the tip, which is a filter and doesn't depend on sort order. A dry flip lands harder and keeps her to the fewest words, for example the brief's 'Scroll to the bottom.' or a one-line question about who is actually seeing the page.",
+  "(polish) Maya's doubt line, 'The bottom? That's the weird ones.', is tagged 'warm' while the visual gives her an annoyed, flat face. A doubt line delivered warmly doesn't push back. Use 'curious' or 'worried' so her voice matches the face. Floey's 'They do in AI Mode...' is also tagged 'warm' though it's written as deadpan; 'playful' fits her dry tone better.",
+  "(polish) Several Floey beats say 'Floey shot ... Maya is out of this shot', but DUO.SHOT.floey is a two-shot that includes Maya. Use floeyTight wherever Maya is meant to be out of frame. If you keep the floey shot, give Maya a reaction there so the listener isn't frozen.",
+  "(polish) Some insert details can't be drawn as written. DUO.screenInsert takes title, points, tone and label, but no 'sub', so the doesn't-match pattern has to go in the label and be measured. The 'Queries · 10+ words' listInsert asks for the pattern on a second line of the sub; the sub may only be one line, so keep the sub short or drop the pattern there, since the earlier filter card already shows it.",
+  "(polish) There's no 'slosh' sound in the studio's sound list. For the cold-coffee beat, use 'sip' on the sip and leave a beat of silence on the freeze, or use 'boing' if you want a comic sting. Either way, one cue per event.",
+  "(polish) 'Exactly. Query filter, custom regex, ten words or more.' sounds like reading a menu aloud. It's the right tip and the insert carries the pattern, but it would sound more spoken with one connecting word, for example 'Exactly. Filter your queries: custom regex, ten words or more.' Keep the caption's 'Custom (regex)' so it matches the real menu."
+ ],
+ "style": "duo",
+ "template": "../drafts/r012-maya-s-impressions-are-up-and-her-clicks/scene.html"
+}

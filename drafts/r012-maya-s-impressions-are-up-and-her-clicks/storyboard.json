@@ -1,0 +1,257 @@
+{
+ "style": "Duo sitcom, day set in Maya's room (window with drifting cloud, shelf, plant, spark poster). Maya (amber captions, pencil bun) behind the desk holding her mug; Floey perched on the laptop lid facing her (facing -1, pink captions). Running joke: Maya's coffee is always cold. One continuous laptop list insert (the regex filter, then its results) is the only cutaway, with no notification. Every number is Maya's own example. Flowra appears only in the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya in the mug pose with a worried face, staring down at the laptop. Two pills are already up by her head (x about 880, y 560 and 660): '+60% impressions' (good tone) and 'clicks +0' (bad tone). Floey is perched on the laptop lid, facing her.",
+   "action": "Problem already happening on frame one. Maya starts mid-panic with the mug held up, eyes down at the screen (look 0, 1). Floey blinks slowly and tilts her head a little on 'clicks flat'.",
+   "onScreenData": "+60% impressions",
+   "sfx": []
+  },
+  {
+   "beat": 0,
+   "at": 2.4,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "wide nudged slightly tighter on Maya; both pills still inside the frame; Floey on the lid at frame left",
+   "action": "On 'ghosts' Maya lowers the mug halfway and turns her eyes to Floey (look -1, 0). A 'sweat' mark pops by her head. Floey answers with one more slow blink.",
+   "onScreenData": "clicks +0",
+   "sfx": [
+    {
+     "at": 2.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "close",
+   "camera": "whip",
+   "subject": "floeyTight: Floey alone on the laptop lid. Both pills fade out before the cut.",
+   "action": "Quick cut for the comic reversal. Floey stays perched, dry and calm, and turns her head a little towards Maya on 'bottom'. After the line she flicks her tongue once.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone in the mug pose; Floey out of frame",
+   "action": "Expression switches to annoyed (flat, unimpressed, not panicked). She tilts her head on 'The bottom?' and gives a small eye roll towards Floey (look -1, -0.3) on 'weird ones'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the lid",
+   "action": "On 'Exactly.' Floey does a small smug preen, then turns back to face Maya for 'Query filter'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 1.2,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop list insert (the reel's only cutaway): title 'Query filter: Custom (regex)', sub 'Performance, Add filter, Query'. One large row holds the pattern with the value 'matches', sized with PROPS.measure so it reads on one line. Floey's voice carries on over it.",
+   "action": "On 'custom regex' the insert swings in and the pattern row slides in. The ring (hi) grows around it on 'ten words or more'. The insert stays still through the rest of the line and the pause (about 3 seconds) so people can screenshot it.",
+   "onScreenData": "^(?:\\S+\\s+){9,}\\S+$",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The same insert, refreshed into the results: title 'Queries · 10+ words', sub 'Last 28 days · impressions · every row 0 clicks' with the pattern on the sub's second line. Six example rows from her travel blog, each measured to fit on one line beside its value (a row wraps to two lines if it is too wide, never truncated): 'is porto or lisbon better for a first trip alone' 2,310 / 'how many days do i need in porto in october' 1,940 / 'what to pack for a week in lisbon in winter' 1,605 / 'can i do lisbon to sintra and back in a day' 1,280 / 'is three days in porto enough on a budget trip' 1,150 / 'where to eat cheap near the train station in porto' 990.",
+   "action": "Maya's line plays over the insert. The rows slide in one by one, fast (about 0.15 s apart), and the ring lands on the top row (2,310) as the last row arrives.",
+   "onScreenData": "2,310",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "type"
+    },
+    {
+     "at": 0.9,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1.1,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face fills the frame, mug frozen halfway up",
+   "action": "Cut on 'like that'. Her expression switches to think as she squints at the screen (look 0, 1), the mug stuck mid-lift. A '?' pops by her head.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.15,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: closer two-shot favouring Floey on the lid; Maya's edge at frame right, not sliced",
+   "action": "Floey stays deadpan, lifts off the lid into a small hover on 'ay eye Mode' (caption reads 'AI Mode'), blinks once on 'tracking tools' and settles back on the lid. At the edge of frame, Maya's eyes follow her up and down.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.6,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 1.9,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone; she puts the mug down, so DUO.mug() is drawn at the desk's right end from here",
+   "action": "In the pause, Maya puts the mug down with a flat deadpan face and switches to the type pose. A short burst of typing, then one crisp key for the filter switch from 'matches' to 'doesn't match'.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2,
+     "kind": "type"
+    },
+    {
+     "at": 2.6,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya at the desk; a pill pops up by her head reading 'other queries +0%' (good tone, her example), showing that her normal searches have not grown",
+   "action": "The pill pops in with a soft chime. On 'Wait.' Maya jolts, her hands go to her cheeks (cheeks pose), her expression switches to surprised and her eyes widen.",
+   "onScreenData": "other queries +0%",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "ding"
+    },
+    {
+     "at": 0.45,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0.7,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: her face fills the frame; the pill fades out before the push",
+   "action": "Push-in for the realisation on 'All sixty percent is them?'. Her hands stay on her cheeks, mouth open, and her eyes slide over to Floey (look -1, 0) on 'them'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "close",
+   "camera": "whip",
+   "subject": "floeyTight: Floey alone on the lid",
+   "action": "Floey, calm, says 'Ghosts don't click, Maya.' Right after 'Maya' she does a slow, satisfied preen, then looks back at Maya for 'Your readers still do.'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, the mug on the desk beside her",
+   "action": "Reaction that sells the line: on 'Oh.' she slumps back in relief, exhales and her expression switches to happy (a soft smile). On 'titles are fine' she picks the mug back up (mug pose, and DUO.mug() stops being drawn).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both in the two-shot, Floey on the lid, Maya with her mug",
+   "action": "Pull-out to show both as the line lands. Floey pivots to the front and says 'Save this for your next audit.' to the camera, mood happy. Beside her, Maya raises the mug in a little cheers, still smiling.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 1.6,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya with the mug at her lips (END pushed about 2.6 s later for the silent button)",
+   "action": "Silent button: she takes a big relieved sip, freezes, and her face drops to deadpan. She slowly lowers the mug (the cold coffee again) and gives the camera a flat look (look 0, 0) at about 3.4 s.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.2,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 3.6,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya holding her flat look to camera, Floey on the lid; then the end card with the Flowra logo, 'Maya & Floey, every day' and Floey perched in front",
+   "action": "Hard cut back to wide: Floey blinks once at Maya's cold coffee while Maya's flat look holds. The end card comes in on a thump at about 4.2 s and the captions hide.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.2,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}

@@ -1,0 +1,67 @@
+{
+ "topic": "Maya's impressions are up and her clicks are flat, and the extra impressions are in long, chatty queries at the bottom of her Search Console list",
+ "angle": "Maya thinks Google is showing her blog to ghosts: impressions up, clicks unchanged. Floey has her filter the Queries report for queries of 10 words or more. Those rows are long prompts that look like AI Mode questions, some probably from prompt-tracking tools, and they have lots of impressions and zero clicks. When Maya flips the filter to \"doesn't match\", the clicks on her normal searches are steady, so her readers never left. It's a 30 second Search Console check people can do today, the kind of topic behind r006's saves, and it ends on \"save this for your next audit\".",
+ "whyNow": "This month's social listening: a r/TechSEO poster (https://www.reddit.com/r/TechSEO/comments/1x8o78j/your_search_console_is_full_of_searches_written/) says they found AI-assistant-style queries at the bottom of Search Console. By their count, one question appeared in 389 wordings with 7,249 impressions and 0 clicks, and they now check it every week. Those are the poster's own numbers and not verified, so the reel must not state them. The same pattern is being written up elsewhere: Pixelmojo (Sept 2026, one page with 64,191 impressions and 0 clicks, mostly from queries of six words or more), Practical Ecommerce (24 Aug 2026, how to filter AI Mode prompts) and Search Engine Land (a regex for 10+ word queries). Google's separate generative AI report, launched June 2026, shows impressions but no queries or clicks, so the Queries tab is still where people go looking.",
+ "goal": "save",
+ "audience": "Solo bloggers and small content teams who check Search Console every week and have watched impressions rise this year while clicks stayed flat, plus agency people who have to explain that gap to a client.",
+ "facts": [
+  {
+   "fact": "In Search Console, an impression is generally counted when your link appears on the current page of results, whether or not it is scrolled into view.",
+   "source": "https://support.google.com/webmasters/answer/7042828?hl=en"
+  },
+  {
+   "fact": "For AI Overviews and AI Mode, a click on a link to an external page counts as a click, and standard impression rules apply.",
+   "source": "https://support.google.com/webmasters/answer/7042828?hl=en"
+  },
+  {
+   "fact": "Google reports AI features (AI Overviews, AI Mode) in the Search Console Performance report under the 'Web' search type, mixed in with regular results.",
+   "source": "https://developers.google.com/search/docs/appearance/ai-features"
+  },
+  {
+   "fact": "Google says AI Overviews and AI Mode may use a 'query fan-out' technique, issuing multiple related searches across subtopics, to build a response.",
+   "source": "https://developers.google.com/search/docs/appearance/ai-features"
+  },
+  {
+   "fact": "The Search Console Performance report lets you filter queries with a custom regular expression, and offers both 'matches' and 'doesn't match' options.",
+   "source": "https://developers.google.com/search/blog/2021/06/regex-negative-match"
+  },
+  {
+   "fact": "How to find long, prompt-like queries: Performance, Add filter, Query, Custom (regex), then a pattern that matches 10 or more words. Search Engine Land shares ^(?:\\S+\\s+){9,}\\S+$ as that pattern.",
+   "source": "https://searchengineland.com/see-ai-search-prompts-google-search-console-470358"
+  },
+  {
+   "fact": "Practical Ecommerce describes long conversational queries in Search Console as potential AI Mode prompts, and reports Google's John Mueller confirming that AI Mode records follow-up prompts as search queries.",
+   "source": "https://www.practicalecommerce.com/filter-ai-mode-prompts-in-search-console"
+  },
+  {
+   "fact": "Practical Ecommerce also notes that some long queries with many impressions may come from prompt-tracking software rather than humans.",
+   "source": "https://www.practicalecommerce.com/filter-ai-mode-prompts-in-search-console"
+  },
+  {
+   "fact": "Google does not label which queries are AI prompts, so the long-query filter is a proxy and not proof. Humans type long queries too.",
+   "source": "https://contextbolt.com/blog/ai-search-prompts-search-console/"
+  },
+  {
+   "fact": "Google's Search Generative AI performance report (announced 3 June 2026) covers AI Overviews and AI Mode impressions, and that data still counts in the overall Performance report.",
+   "source": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports"
+  },
+  {
+   "fact": "Example of the pattern in the wild: one page logged 64,191 impressions and 0 clicks over 87 days, with 80.3% of the export's impressions coming from queries of six words or more. The author says the cause is unresolved.",
+   "source": "https://www.pixelmojo.io/blogs/zero-click-impressions-search-console-investigation"
+  },
+  {
+   "fact": "Demand: a r/TechSEO poster says they found AI-assistant-style queries at the bottom of their Search Console and now check them every week. Their numbers (389 wordings, 7,249 impressions, 0 clicks) are the poster's own and not verified, so they are not for the reel.",
+   "source": "https://www.reddit.com/r/TechSEO/comments/1x8o78j/your_search_console_is_full_of_searches_written/"
+  },
+  {
+   "fact": "Every number Maya sees on screen (her impressions pill, the rows in her Queries insert) is an example from her own made-up travel blog, not real data.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "Day set, wide shot. Maya holds her mug and stares at the laptop. Two pills pop up by her head: \"+60% impressions\" (good tone) and \"clicks +0\" (bad tone), clearly her own example. Floey, perched on the laptop lid, says \"Scroll to the bottom.\" Cut to a DUO.listInsert titled \"Queries · 10+ words\" with the subtitle \"Search Console, last 28 days\". Six long, chatty example rows slide in, such as \"cheapest way to get from lisbon to porto by train with a backpack in october\", each with high impressions and a value of \"0 clicks\". The ring (hi) lands on the longest one. A \"?\" mark appears by Maya's head and she says \"Nobody types like that.\" Floey answers: \"Nobody did. AI Mode asks like that. So do tracking tools.\" Maya flips the filter to \"doesn't match\" (click sound). A DUO.screenInsert chart titled \"Clicks, everything else\" draws a steady, slightly rising line (good tone). Payoff: Maya says \"So my readers never left.\" Floey: \"The robots just arrived.\" Button: Maya sips and finds her coffee cold (running joke). Floey pivots front: \"Save this for your next audit.\" Then the end card.",
+ "pillar": "problem",
+ "instinct": "My impressions went up and my clicks didn't, so people are seeing my blog and choosing not to click, and something is wrong with my titles or my rankings.",
+ "flip": "Google counts AI Mode and AI Overviews in the same Web report, and long, chatty queries with zero clicks are often AI prompts or tracking tools, not readers. Filter queries of 10 or more words out with a custom regex and judge your clicks on what's left.",
+ "idea": "Maya's impressions are up, but some of those searches weren't typed by a person",
+ "style": "duo"
+}

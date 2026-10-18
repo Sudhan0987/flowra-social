@@ -1,0 +1,373 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<script src="lines.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../../reel/assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../../reel/assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r012 "Ghosts" (duo style, day set). Frame one: Maya clutching her mug, staring at her laptop, worried,
+// two pills by her head (+60% impressions, clicks +0), a "fix ALL my titles??" sticky note on the lid.
+// Floey: "Check the bottom of your queries." "The bottom? That's the weird ones." The tip: the regex
+// filter card on her screen, held long enough to screenshot. The results: six long, prompt-like rows,
+// lots of impressions, no clicks. "Nobody types like that." "They do in AI Mode. So do tracking tools."
+// She flips the filter to "Doesn't match": everything else is flat. "Wait. All sixty percent is them?"
+// "Ghosts don't click, Maya. Your readers still do." The note gets crossed out: "So my titles are fine."
+// The button: Floey to the lens, Maya raises her mug, a big sip, cold coffee again, a flat look to camera.
+const M = window.MOUTHS || {};
+const LINES = window.LINES;
+// the pause after each line, from the story
+const GAP = { hook0: 0.3, reframe1: 0.2, doubt2: 0.2, tip3: 0.5, check4: 0.2, payoff5: 0.6, check6: 0.2, payoff7: 0.4, payoff8: 0.4, button9: 0.7 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+// the silent button (the sip, the cold coffee, the look to camera) plays out before the end card
+const END = Math.max(SPOKEN + 0.6, B.button9.end + 3.1), DUR = END + 1.6, b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+// when a word is said: its share of the line's characters (the captions use the same rule)
+const word = (id, w) => { const s = LINES.find((l) => l[0] === id)[1]; return B[id].start + B[id].len * Math.max(0, s.indexOf(w)) / s.length; };
+// her mouth, scaled down on tense lines so the lip sync stays small and tight
+const mo = (id, k = 1) => (M[id] || []).map((v) => v * k);
+
+// ---------- where everyone is ----------
+// Floey perches a little left of SP.floeyLaptop on the lid, so her close-up clears Maya completely
+const FX = 240, FY = SP.floeyLaptop.y;
+// the shots (DUO.SHOT, nudged for this layout)
+const WIDE = { camX: 555, camY: 1010, zoom: 1.1 };    // the two-shot: pills, Maya, Floey, the note
+const HOOK_IN = { camX: 560, camY: 985, zoom: 1.17 }; // a slow creep in during her rant
+const FT = { camX: 205, camY: 1120, zoom: 2.4 };      // Floey alone on the lid, the postcard above, the note below
+const FT2 = { camX: 215, camY: 1105, zoom: 2.6 };     // Floey a touch closer for her payoff
+const MS = { camX: 680, camY: 830, zoom: 1.7 };       // Maya alone, medium
+const MT = { camX: 640, camY: 720, zoom: 2.15 };      // Maya's face (Floey well below and off the frame)
+const TS = { camX: 465, camY: 945, zoom: 1.4 };       // a closer two-shot: Floey left, Maya right, the note in
+const TS2 = { camX: 465, camY: 920, zoom: 1.45 };    // the same, a little tighter, for the silent button
+
+// ---------- Maya's mug: held up by her chest, at her lips, raised, on the desk ----------
+const MUG = { L: [262, 640], R: [372, 530], hold: "mug" };
+const MUG_LIPS = { L: [262, 640], R: [356, 352], hold: "mug" };
+const MUG_CHEERS = { L: [262, 640], R: [478, 400], hold: "mug" };
+const MUG_DESK = { L: [262, 640], R: [494, 660], hold: "mug" }; // her hand on the desk mug (DUO.mug at x 900)
+
+// ---------- the cast ----------
+const F = FLOEY.create({ ...SP.floeyLaptop, x: FX, facing: -1, mood: "hello", perched: true, view: "side" });
+const MY = MAYA.create({ ...SP.maya, expr: "worried", pose: MUG, floey: F });
+// imp, clk: the two pills; bi, bc: their pops; strike: the line through the note; sweat, q: comic marks;
+// ins: the laptop insert; card: 0 filter card, 1 results, 2 doesn't match; rows, hi: its rows and ring; desk: the mug is on the desk
+const W = { ...WIDE, imp: 1, clk: 1, bi: 0, bc: 0, strike: 0, sweat: 0, q: 0, ins: 0, card: 0, rows: 0, hi: 0, desk: 0, end: 0 };
+const wt = gsap.timeline({ paused: true });
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => wt.to(W, { ...s, duration: d, ease }, t);
+const cut = (t, s) => wt.set(W, { ...s }, t);
+const ftw = (t, vars) => F.tl.to(F.S, vars, t);
+const lid = (t, k, d = 0.12) => ftw(t, { squint: k, duration: d, ease: "sine.inOut" });
+const blink = (t, hold = 0.2, back = 0) => { lid(t, 0.95, 0.14); lid(t + 0.14 + hold, back, 0.2); };
+// one quick smug stroke of the beak through the chest feathers
+const smugPreen = (t) => { ftw(t, { tilt: 30, lookY: 1, puff: 0.4, duration: 0.16, ease: "power1.in" }); ftw(t + 0.24, { tilt: 0, lookY: 0, puff: 0, duration: 0.2, ease: "back.out(2)" }); F.sfx(t + 0.1, "rustle", { n: 1 }); };
+// a slow, satisfied one: the head dips, the feathers fluff, the eyes half close, then back up
+const slowPreen = (t) => { ftw(t, { tilt: 34, lookY: 1, puff: 0.5, squint: 0.55, duration: 0.3, ease: "sine.inOut" }); ftw(t + 0.55, { tilt: 0, lookY: 0, puff: 0, duration: 0.3, ease: "back.out(1.6)" }); F.sfx(t + 0.15, "rustle", { n: 1 }); };
+const pop = (key, t) => wt.fromTo(W, { [key]: 1 }, { [key]: 0, duration: 0.4, ease: "power2.out", immediateRender: false }, t);
+
+// ---------- HOOK0: frame one, the pills already up, Maya clutching her mug and staring at her screen ----------
+// "Impressions up sixty percent," "clicks flat." "Google's showing my blog to ghosts."
+const H = b.hook0.start;
+MY.look(0, -0.6, 0.8, 0.01).tiltTo(0, -3, 0.01).say(H, mo("hook0", 0.7), "hook0");
+F.sfx(0.05, "pop");
+pop("bi", H + 0.05);
+shot(0.1, HOOK_IN, b.hook0.end - 0.4, "power1.inOut");
+// "clicks flat": the red pill pops, she leans in at the screen, Floey tilts her head and blinks slowly
+const CF = word("hook0", "clicks");
+pop("bc", CF); F.sfx(CF, "boing");
+MY.leanTo(CF, 2, 0.3).tiltTo(CF, -6, 0.3).look(CF, -0.7, 0.9, 0.12);
+F.tiltTo(CF + 0.1, -14, 0.25);
+blink(CF + 0.35, 0.35, 0.2);
+// "Google's showing my blog": a glance up at the pills, then back to the screen
+const GO = word("hook0", "Google's");
+MY.look(GO, 0.5, -0.5, 0.15).look(GO + 0.55, -0.6, 0.8, 0.15).tiltTo(GO, 3, 0.3);
+// "ghosts": the panic lands, the mug comes down a little, eyes to Floey, sweat
+const GH = word("hook0", "ghosts");
+MY.expr(GH - 0.05, "panic").pose(GH - 0.1, { ...MUG, R: [380, 590] }, 0.3).look(GH, -1, 0.3, 0.15).leanTo(GH, 0, 0.3);
+wt.to(W, { sweat: 1, duration: 0.2 }, GH);
+F.sfx(GH + 0.05, "pop");
+F.tiltTo(GH, 0, 0.2);
+blink(GH + 0.3, 0.35, 0.3);
+
+// ---------- REFRAME1: Floey alone on the lid, dry and calm ----------
+const R1 = b.reframe1.start;
+wt.to(W, { imp: 0, clk: 0, sweat: 0, duration: 0.15 }, b.hook0.end - 0.05);
+cut(b.hook0.end + 0.1, FT);
+F.sfx(b.hook0.end + 0.1, "whoosh");
+F.mood(R1 - 0.1, "think").say(R1, M.reframe1 || [], "reframe1");
+lid(R1 - 0.1, 0.3);
+// "bottom": her head dips, like she is looking down a long list
+ftw(word("reframe1", "bottom"), { tilt: 12, lookY: 0.6, duration: 0.2 });
+ftw(b.reframe1.end - 0.1, { tilt: 0, lookY: 0, duration: 0.2 });
+F.tongue(b.reframe1.end + 0.05, 1);
+// Maya, off screen, already unimpressed
+MY.expr(b.reframe1.end - 0.2, "annoyed").pose(R1, MUG, 0.3).look(R1, -1, 0);
+
+// ---------- DOUBT2: Maya alone, flat and unimpressed ----------
+const D2 = b.doubt2.start;
+cut(b.reframe1.end + 0.12, MS);
+MY.say(D2, mo("doubt2", 0.5), "doubt2").tiltTo(D2 + 0.05, -8, 0.25).look(D2, -1, 0.2);
+// "weird ones": an eye roll towards Floey
+const WO = word("doubt2", "weird");
+MY.look(WO, -1, -0.8, 0.2).tiltTo(WO, 4, 0.3);
+MY.look(b.doubt2.end, -1, 0.1, 0.2);
+
+// ---------- TIP3: Floey alone; a smug preen, then the filter card on Maya's screen ----------
+// "Exactly." "Query filter," "custom regex," "ten words or more."
+const T3 = b.tip3.start;
+cut(b.doubt2.end + 0.08, FT);
+lid(b.doubt2.end + 0.08, 0);
+F.mood(T3 - 0.1, "happy").say(T3, M.tip3 || [], "tip3");
+smugPreen(T3 + 0.05);
+lid(T3 + 0.1, 0.4);
+MY.tiltTo(T3, 0).expr(T3 + 0.4, "think").look(T3 + 0.4, -0.5, 0.8);
+// "Query filter": the card swings in; "custom regex": the pattern row slides in; the ring on "ten words or more"
+const QF = word("tip3", "Query") - 0.05;
+F.mood(QF, "hello");
+lid(QF, 0);
+wt.set(W, { card: 0 }, QF);
+wt.to(W, { ins: 1, duration: 0.3, ease: "power3.out" }, QF);
+F.sfx(QF, "whoosh");
+const CR = word("tip3", "custom") - 0.05;
+wt.to(W, { rows: 1, duration: 0.3, ease: "power2.out" }, CR);
+F.sfx(CR + 0.05, "click");
+wt.to(W, { hi: 1, duration: 0.35, ease: "power2.out" }, word("tip3", "ten"));
+F.sfx(word("tip3", "ten") + 0.05, "tick");
+// (the card holds, still, through the rest of the line and the pause)
+
+// ---------- CHECK4: the results: long, chatty rows, lots of impressions, no clicks ----------
+const C4 = b.check4.start, RS = b.tip3.end + 0.2;
+wt.set(W, { card: 1, rows: 0, hi: 0 }, RS);
+F.sfx(RS, "typing", { d: 0.3 });
+wt.to(W, { rows: 1, duration: 0.7, ease: "none" }, RS + 0.05);
+wt.to(W, { hi: 1, duration: 0.3, ease: "power2.out" }, RS + 0.8);
+F.sfx(RS + 0.8, "ding");
+MY.say(C4, mo("check4", 0.5), "check4").expr(C4, "annoyed");
+// "like that": cut to her face, squinting at the screen, the mug frozen halfway up; a "?"
+const LT = word("check4", "like") - 0.05;
+wt.set(W, { ins: 0 }, LT);
+cut(LT, MT);
+MY.pose(LT - 0.3, { ...MUG, R: [366, 450] }, 0.01).look(LT, -0.6, 0.9, 0.08).tiltTo(LT, -6, 0.3);
+wt.to(W, { q: 1, duration: 0.2, ease: "back.out(2)" }, LT + 0.1);
+F.sfx(LT + 0.15, "pop");
+
+// ---------- PAYOFF5: the closer two-shot; Floey lifts off, deadpan, and settles; Maya's eyes follow, then she types ----------
+// "They do in ay eye Mode." "So do tracking tools."
+const P5 = b.payoff5.start;
+wt.to(W, { q: 0, duration: 0.15 }, P5 - 0.2);
+cut(P5 - 0.1, TS);
+F.mood(P5 - 0.1, "think").tiltTo(P5 - 0.1, 0).say(P5, M.payoff5 || [], "payoff5");
+lid(P5 - 0.1, 0.45);
+MY.expr(P5, "think").tiltTo(P5, 0).look(P5, -1, 0.1, 0.15);
+const AI = word("payoff5", "ay eye");
+F.takeoff(AI - 0.15);
+MY.look(AI, -1, -0.7, 0.25).tiltTo(AI, -5, 0.3);
+blink(word("payoff5", "Mode"), 0.15, 0.45);
+const SD = word("payoff5", "So do");
+F.land(SD - 0.1, FX, FY, 0.35);
+MY.look(SD + 0.1, -1, 0.1, 0.3).tiltTo(SD + 0.1, 0).expr(SD + 0.1, "deadpan");
+// she sets the mug down at the end of the desk and types (the filter switch)
+MY.pose(SD + 0.35, MUG_DESK, 0.3);
+wt.set(W, { desk: 1 }, SD + 0.66);
+MY.pose(SD + 0.66, "type", 0.25).look(SD + 0.7, -0.5, 0.8);
+F.sfx(SD + 0.95, "typing", { d: 0.3 });
+
+// ---------- CHECK6: the filter flipped to "Doesn't match": everything else is flat ----------
+// "Wait." "All sixty percent is them?"
+const C6 = b.check6.start, FL = b.payoff5.end - 0.25;
+wt.set(W, { card: 2, rows: 0, hi: 0 }, FL);
+wt.to(W, { ins: 1, duration: 0.3, ease: "power3.out" }, FL);
+F.sfx(FL, "whoosh");
+wt.to(W, { rows: 1, duration: 0.4, ease: "none" }, FL + 0.15);
+wt.to(W, { hi: 1, duration: 0.3, ease: "power2.out" }, FL + 0.55);
+F.sfx(FL + 0.6, "ding");
+lid(FL, 0);
+MY.say(C6, mo("check6", 0.8), "check6").expr(C6 - 0.05, "surprised").pose(C6, "rest", 0.3);
+// "sixty percent": cut to her face, hands to her cheeks, eyes wide, then to Floey on "them"
+const SX = word("check6", "sixty") - 0.15;
+wt.set(W, { ins: 0 }, SX);
+cut(SX, MT);
+MY.pose(SX - 0.05, "cheeks", 0.15).jolt(SX).look(SX, -0.2, 0.5);
+shot(SX + 0.1, { camX: 640, camY: 735, zoom: 2.35 }, b.check6.end - SX - 0.25, "power2.out");
+MY.look(word("check6", "them"), -1, 0, 0.2);
+
+// ---------- PAYOFF7: Floey alone, calm; a slow satisfied preen after "Maya" ----------
+// "Ghosts don't click, Maya." "Your readers still do."
+const P7 = b.payoff7.start;
+cut(b.check6.end + 0.08, FT2);
+F.sfx(b.check6.end + 0.08, "whoosh");
+F.mood(P7 - 0.1, "think").say(P7, M.payoff7 || [], "payoff7");
+lid(P7 - 0.1, 0.5);
+const YR = word("payoff7", "Your");
+slowPreen(YR - 0.55);
+F.mood(YR + 0.1, "happy");
+lid(YR + 0.15, 0.25);
+// Maya, off screen, lets her hands down
+MY.expr(P7 + 0.3, "think").pose(P7 + 0.2, "rest", 0.3).look(P7, -1, 0.2).tiltTo(P7, 0);
+
+// ---------- PAYOFF8: the two-shot; relief; she picks the mug back up; the note gets crossed out ----------
+// "Oh." "So my titles are fine."
+const P8 = b.payoff8.start;
+cut(b.payoff7.end + 0.15, TS);
+lid(b.payoff7.end + 0.1, 0);
+// Floey watches her work it out
+F.tiltTo(P8 + 0.2, -12, 0.25).tiltTo(P8 + 1.3, 0, 0.25);
+MY.expr(P8 - 0.05, "surprised").say(P8, M.payoff8 || [], "payoff8").look(P8, -0.3, 0.3);
+MY.slump(P8 + 0.25, 0.45).expr(P8 + 0.4, "happy");
+// "So my": she reaches for her mug; "titles": a glance at the note; "fine": it gets crossed out
+const SM = word("payoff8", "So my");
+MY.pose(SM - 0.1, MUG_DESK, 0.25);
+wt.set(W, { desk: 0 }, SM + 0.15);
+MY.pose(SM + 0.15, MUG, 0.3);
+F.sfx(SM + 0.15, "tk");
+MY.look(word("payoff8", "titles"), -0.9, 0.9, 0.15);
+const FN = word("payoff8", "fine");
+wt.to(W, { strike: 1, duration: 0.3, ease: "power2.out" }, FN);
+F.sfx(FN + 0.05, "swish");
+F.chips(FN + 0.4, 2);
+MY.sit(b.payoff8.end + 0.1, 0.4).look(b.payoff8.end + 0.1, -0.8, 0);
+
+// ---------- BUTTON9: the wide two-shot; Floey to the lens; Maya raises her mug ----------
+const B9 = b.button9.start;
+cut(B9 - 0.15, WIDE);
+F.pivot(B9 - 0.12, "front").mood(B9 - 0.1, "happy").say(B9, M.button9 || [], "button9");
+MY.pose(B9 + 0.3, MUG_CHEERS, 0.35).expr(B9 + 0.2, "proud").look(B9 + 0.3, -0.8, -0.3);
+// the silent button, in the closer two-shot: a big relieved sip, then she freezes: cold coffee again
+const SIP = b.button9.end + 0.1;
+shot(SIP, TS2, 0.45, "power3.out");
+F.pivot(SIP, "side").mood(SIP, "hello");
+MY.pose(SIP, MUG_LIPS, 0.35).expr(SIP, "happy").look(SIP, 0, -0.3);
+F.sfx(SIP + 0.4, "sip");
+const FZ = SIP + 0.95;
+MY.expr(FZ, "deadpan").look(FZ, 0, 0.3, 0.08);
+F.sfx(FZ, "boing");
+F.tiltTo(FZ + 0.1, -14, 0.2);
+// slowly lowers the mug, then the flat look to camera; Floey blinks at the cold coffee
+MY.pose(FZ + 0.4, MUG, 0.6).look(FZ + 0.9, 0, 0, 0.15).tiltTo(FZ + 0.9, -3, 0.3);
+blink(FZ + 1.2, 0.3);
+
+// END: the logo card drops in
+wt.to(W, { end: 1, duration: 0.5, ease: "back.out(1.6)" }, END);
+F.sfx(END + 0.05, "thump");
+wt.set({}, {}, DUR);
+
+// ---------- world parts ----------
+const INK = HUM.colors.ink, fx = (n) => Math.round(n * 10) / 10;
+// Maya's open mouth on a tense line: the same mouth turned over, so it reads as a grimace, never a grin
+const TENSE = new Set(["worried", "panic", "annoyed", "sad"]);
+function maya(t) {
+  const s = MY.svg(t);
+  if (!TENSE.has(MY.state(t).expr)) return s;
+  return s.replace(/<path d="([^"]+)" fill="#5a1f22"[\s\S]*?<\/g>/, (m, d) => {
+    const ys = [...d.matchAll(/,(-?[\d.]+)/g)].map((x) => +x[1]);
+    return `<g transform="translate(0 ${fx(Math.min(...ys) + Math.max(...ys))}) scale(1 -1)">${m}</g>`;
+  });
+}
+// a pill by her head, drawn smaller so the words fit the frame; pops by kb
+const PK = 0.6;
+const pill = (x, y, k, kb, text, tone) => k <= 0.01 ? "" : `<g transform="translate(${x} ${y}) scale(${fx(PK * (1 + 0.18 * kb) * 100) / 100}) translate(${-x} ${-y})">${DUO.stat(x, y, k, text, tone)}</g>`;
+// a pale postcard pinned on the wall above the laptop (her travel blog: a row of riverside houses)
+function postcard() {
+  const cols = ["#f3b7a8", "#f6d58f", "#c9b8e8", "#f3b7a8", "#a9d8c4"];
+  let s = `<g transform="translate(190 800) rotate(4)" opacity=".85"><rect x="-75" y="-55" width="150" height="110" rx="6" fill="#fffaf2" stroke="${INK}" stroke-width="5"/><rect x="-63" y="-43" width="126" height="86" rx="3" fill="#dcecff"/>`;
+  cols.forEach((c, i) => { const x = -60 + i * 24, h = 30 + ((i * 7) % 3) * 8; s += `<path d="M${x},20 V${20 - h} l11,-10 l11,10 V20Z" fill="${c}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`; });
+  s += `<rect x="-63" y="20" width="126" height="23" fill="#9cc7ef"/><circle cx="40" cy="-26" r="9" fill="#f6d58f"/><circle cx="0" cy="-55" r="8" fill="#d24b4b" stroke="${INK}" stroke-width="3"/>`;
+  return s + `</g>`;
+}
+// the sticky note on the lid, under Floey; strike draws a line through it
+const NX = 200, NY = 1170;
+function note() {
+  // not drawn when it is out of the shot, or under a laptop insert (nothing to read there)
+  const sx = 540 + (NX - W.camX) * W.zoom, half = 95 * W.zoom;
+  if (sx + half < 0 || sx - half > 1080 || W.ins > 0.6) return "";
+  const fs = 27, w1 = PROPS.measure("fix ALL my", `800 ${fs}px 'Public Sans'`), w2 = PROPS.measure("titles??", `800 ${fs}px 'Public Sans'`);
+  const w = Math.max(w1, w2) + 26, h = 88;
+  let s = `<g transform="translate(${NX} ${NY}) rotate(-5)"><rect x="${fx(-w / 2)}" y="${-h / 2}" width="${fx(w)}" height="${h}" rx="6" fill="#ffe27a" stroke="${INK}" stroke-width="5"/>`;
+  s += `<text x="0" y="-9" text-anchor="middle" font-family="Public Sans" font-weight="800" font-size="${fs}" fill="${INK}">fix ALL my</text><text x="0" y="29" text-anchor="middle" font-family="Public Sans" font-weight="800" font-size="${fs}" fill="#d24b4b">titles??</text>`;
+  if (W.strike > 0.01) s += `<path d="M${fx(-w / 2 + 10)},${-30} L${fx(-w / 2 + 10 + (w - 20) * W.strike)},${fx(-30 + 58 * W.strike)}" stroke="#2f9e62" stroke-width="9" stroke-linecap="round"/>`;
+  return s + `</g>`;
+}
+
+// ---------- her laptop screen (screen space) ----------
+const REGEX = "^(?:\\S+\\s+){9,}\\S+$";
+// example rows from her travel blog: long, prompt-like, every one with 0 clicks
+const RESULTS = [
+  { label: "i'm travelling solo in october, compare porto and lisbon for me", value: "2,310", tone: "brand", hi: true },
+  { label: "give me a 3 day porto itinerary under 300 euros, no early starts", value: "1,940" },
+  { label: "list what to pack for a week in lisbon in winter, carry-on only", value: "1,605" },
+  { label: "as a solo traveller, rank cheap places to eat near porto station", value: "1,280" },
+  { label: "plan a budget day trip from lisbon to sintra and back by train", value: "1,150" },
+  { label: "compare hostels and guesthouses in porto for a quiet solo stay", value: "990" },
+];
+const ELSE = [
+  { label: "All queries, impressions", value: "+60%", tone: "good" },
+  { label: "Everything else, impressions", value: "+0%", tone: "brand", hi: true },
+  { label: "Everything else, clicks", value: "steady", tone: "good" },
+];
+// a long row label wraps onto two lines (never truncated), measured to fit beside its value
+const LABEL_FONT = (fs) => `700 ${fs}px 'Public Sans'`;
+function wrapLabels(svg, rows, valueFont) {
+  for (const r of rows) {
+    const room = 960 - 30 - PROPS.measure(r.value, valueFont) - 28 - 150;
+    const from = `font-size="36" fill="${INK}">${PROPS.esc(r.label)}</text>`;
+    if (PROPS.measure(r.label, LABEL_FONT(36)) <= room) continue;
+    const fs = 31, words = r.label.split(" "), lines = [""];
+    for (const w0 of words) { const t = lines[lines.length - 1] ? lines[lines.length - 1] + " " + w0 : w0; if (PROPS.measure(t, LABEL_FONT(fs)) > room && lines[lines.length - 1]) lines.push(w0); else lines[lines.length - 1] = t; }
+    const ts = lines.map((l, i) => `<tspan x="150" dy="${i ? 36 : -18}">${PROPS.esc(l)}</tspan>`).join("");
+    svg = svg.replace(from, () => `font-size="${fs}" fill="${INK}">${ts}</text>`);
+  }
+  return svg;
+}
+function laptopScreen() {
+  if (W.ins <= 0.01) return "";
+  const VF = "700 38px 'Space Grotesk'";
+  if (W.card < 0.5) {
+    // the filter card: one big row with the pattern
+    const s = DUO.listInsert(W.ins, W.rows, {
+      title: "Query filter: Custom (regex)", sub: "Performance, Add filter, Query",
+      cols: ["Pattern", "Rule"], rows: [{ label: REGEX, value: "matches", tone: "brand", hi: true }], hiK: W.hi,
+    });
+    const room = 960 - 30 - PROPS.measure("matches", VF) - 28 - 150;
+    const fs = Math.min(50, Math.floor(36 * room / PROPS.measure(REGEX, LABEL_FONT(36))));
+    return s.replace(`font-size="36" fill="${INK}">${PROPS.esc(REGEX)}</text>`, () => `font-size="${fs}" fill="${INK}" dy="4">${PROPS.esc(REGEX)}</text>`);
+  }
+  if (W.card < 1.5) {
+    const s = DUO.listInsert(W.ins, W.rows, {
+      title: "Queries, 10+ words", sub: "Last 28 days, every row 0 clicks (example)",
+      cols: ["Query", "Impressions"], rows: RESULTS, hiK: W.hi,
+    });
+    return wrapLabels(s, RESULTS, VF);
+  }
+  return DUO.listInsert(W.ins, W.rows, {
+    title: "Query filter: Doesn't match", sub: "Last 28 days vs the 28 before (example)",
+    cols: ["Everything but the 10+ word rows", "Change"], rows: ELSE, hiK: W.hi,
+  });
+}
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  const world = DUO.room(t) + postcard() + maya(t) + DUO.deskFront() + DUO.laptop() + note() + (W.desk > 0.5 ? DUO.mug() : "") + F.svg(t)
+    + pill(800, 455, W.imp, W.bi, "+60% impressions", "good") + pill(800, 545, W.clk, W.bc, "clicks +0", "bad")
+    + DUO.mark("sweat", 800, 680, W.sweat, t) + DUO.mark("?", 790, 650, W.q, t);
+  document.getElementById("stage").innerHTML = DUO.cam(world, W)
+    + (W.end < 0.5 ? laptopScreen() : "")
+    + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")
+    + DUO.endCard(W.end, t);
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>

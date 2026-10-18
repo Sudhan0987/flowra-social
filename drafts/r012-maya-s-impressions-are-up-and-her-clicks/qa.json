@@ -1,0 +1,8 @@
+{
+ "pass": true,
+ "problems": [
+  "Non-blocking, frames 05 and 07: in the mayaTight close-ups the caption pill sits on Maya's chin, just under her mouth. Her face still reads, but moving the caption a little lower or using a slightly wider tight shot would look cleaner.",
+  "Non-blocking, frame 04: the top of Floey's head and her antennae poke out just above the regex insert, so she looks cut off by the box. Hiding her fully behind it, or dimming her the same way as the rest of the background, would tidy this.",
+  "Not covered by the 12 frames: the six-row query list (line 5) and the 'everything else' flat chart (line 7) fall between frames. Their text fit and timing against the voice were not seen and should be spot-checked in the render. Nothing in the frames that were shown suggests a problem."
+ ]
+}
