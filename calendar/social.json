@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T07:37:04.838Z",
+  "updated": "2026-10-19T11:55:56.484Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -106,19 +106,6 @@
       "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
-      "date": "2026-10-13",
-      "kind": "linkedin-post",
-      "title": "A three step client script for AI Overview traffic drops",
-      "channels": [
-        "linkedin"
-      ],
-      "owner": "flowra",
-      "format": "text",
-      "status": "posted",
-      "note": "Text is ready. Post it from the Flowra page.",
-      "file": "posts/linkedin/2026-10-13.md"
-    },
-    {
       "date": "2026-10-14",
       "kind": "reel",
       "title": "Maya asks ChatGPT for the best blogs in her niche, isn't on the list and panics. Floey shows her that the list changes on every ask, and that GA4 shows the visits ChatGPT actually sent.",
@@ -133,19 +120,6 @@
       "owner": "flowra",
       "ref": "r008-maya-asks-chatgpt-for-the-best-blogs-in-",
       "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
-    },
-    {
-      "date": "2026-10-15",
-      "kind": "linkedin-post",
-      "title": "Check section queries before cutting dated content",
-      "channels": [
-        "linkedin"
-      ],
-      "owner": "flowra",
-      "format": "carousel",
-      "status": "posted",
-      "note": "Text is ready. Post it from the Flowra page as a document: attach posts/linkedin/2026-10-15.pdf.",
-      "file": "posts/linkedin/2026-10-15.md"
     },
     {
       "date": "2026-10-16",
@@ -182,7 +156,7 @@
     {
       "date": "2026-10-18",
       "kind": "reel",
-      "title": "Maya & Floey: Maya's impressions are up, but some of those searches weren't typed by a person",
+      "title": "Maya's impressions are up and her clicks are flat, and the extra impressions are in long, chatty queries at the bottom of her Search Console list",
       "channels": [
         "instagram",
         "facebook",
@@ -190,12 +164,10 @@
         "linkedin",
         "x"
       ],
-      "status": "making",
-      "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Maya: \"My impressions went up and my clicks didn't move.\" Floey: \"Scroll to the bottom of your queries. Some of those weren't typed by a person.\"",
-      "sources": [
-        "https://www.reddit.com/r/TechSEO/comments/1x8o78j/your_search_console_is_full_of_searches_written/"
-      ]
+      "status": "ready",
+      "owner": "you",
+      "ref": "r012-maya-s-impressions-are-up-and-her-clicks",
+      "note": "Approved. Ask Claude to post it to Instagram and Facebook."
     },
     {
       "date": "2026-10-19",
@@ -204,16 +176,16 @@
       "channels": [
         "linkedin"
       ],
-      "owner": "you",
+      "owner": "flowra",
       "format": "text",
-      "status": "ready",
+      "status": "approved",
       "note": "Text is ready. Post it from the Flowra page.",
       "file": "posts/linkedin/2026-10-19.md"
     },
     {
       "date": "2026-10-19",
       "kind": "reel",
-      "title": "Maya & Floey: Five pages on one keyword isn't five chances to rank (myth, about 25 seconds)",
+      "title": "Five posts on one keyword aren't five chances to rank",
       "channels": [
         "instagram",
         "facebook",
@@ -221,12 +193,10 @@
         "linkedin",
         "x"
       ],
-      "status": "planned",
-      "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Writing five posts on the same keyword doesn't give you five chances to rank. It makes them fight each other.",
-      "sources": [
-        "https://www.reddit.com/r/bigseo/comments/1x7f5th/cannibalisation_issue_with_the_content/"
-      ]
+      "status": "ready",
+      "owner": "you",
+      "ref": "r013-five-posts-on-one-keyword-aren-t-five-ch",
+      "note": "Approved. Ask Claude to post it to Instagram and Facebook."
     },
     {
       "date": "2026-10-19",
@@ -238,7 +208,7 @@
       "owner": "flowra",
       "note": "Script is written. Flowra builds the video (screens in the product film's style, Floey's voice) and sends it for review.",
       "file": "youtube/t001-why-did-my-traffic-drop/script.md",
-      "status": "planned"
+      "status": "making"
     },
     {
       "date": "2026-10-20",
@@ -344,7 +314,7 @@
       "owner": "you",
       "note": "Title, description, chapters, tags and pinned comment are in the script file. Then embed it in the blog article.",
       "file": "youtube/t001-why-did-my-traffic-drop/script.md",
-      "status": "planned"
+      "status": "ready"
     },
     {
       "date": "2026-10-23",
@@ -438,14 +408,18 @@
     {
       "date": "2026-10-27",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "Our robots.txt said yes to GPTBot. Our host said 429.",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead."
+      "note": "From social listening: A Hacker News post about a site flooded with AI bot traffic after hitting the front page got 351 points and 186 comments. A bigseo post compares AI crawler reads with human visits. Our own finding answers the opposite worry: GPTBot got HTTP 429 at the host's edge while other AI crawlers got through.",
+      "sources": [
+        "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic",
+        "https://www.reddit.com/r/bigseo/comments/1x8efd1/220_days_of_firstparty_logs_105m_ai_crawler_reads/"
+      ]
     },
     {
       "date": "2026-10-27",
@@ -465,14 +439,14 @@
     {
       "date": "2026-10-28",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "Share the blog article: useflowra.com/blog/what-is-seo-report",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead."
+      "note": "Pull one useful idea out of the article and link to it."
     },
     {
       "date": "2026-10-28",
@@ -492,14 +466,17 @@
     {
       "date": "2026-10-29",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "The AI Overviews lawsuits got dismissed. Here's what's still up to you.",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+      "note": "From social listening: Reuters reported the dismissal on Hacker News and people are passing it around. The useful take is to stop waiting for courts and look at which pages are losing clicks, using the decay queue rather than the AI report we already covered. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026.",
+      "sources": [
+        "https://reuters.com/legal/litigation/google-wins-dismissal-chegg-penske-media-lawsuits-over-ai-overviews-2026-10-01"
+      ]
     },
     {
       "date": "2026-10-29",
@@ -519,14 +496,14 @@
     {
       "date": "2026-10-30",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "Share the blog article: useflowra.com/blog/best-content-audit-tools",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead."
+      "note": "Pull one useful idea out of the article and link to it."
     },
     {
       "date": "2026-10-30",
@@ -576,14 +553,14 @@
     {
       "date": "2026-11-02",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "Share the blog article: useflowra.com/blog/content-audit-template",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead."
+      "note": "Pull one useful idea out of the article and link to it."
     },
     {
       "date": "2026-11-02",
@@ -615,14 +592,14 @@
     {
       "date": "2026-11-03",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead."
+      "note": "Pull one useful idea out of the article and link to it."
     },
     {
       "date": "2026-11-03",
@@ -642,14 +619,14 @@
     {
       "date": "2026-11-04",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "Share the blog article: useflowra.com/blog/fresh-content-seo",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead."
+      "note": "Pull one useful idea out of the article and link to it."
     },
     {
       "date": "2026-11-04",
@@ -669,14 +646,14 @@
     {
       "date": "2026-11-05",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "Share the blog article: useflowra.com/blog/content-audit",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+      "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
     },
     {
       "date": "2026-11-05",
@@ -749,6 +726,171 @@
     },
     {
       "date": "2026-11-08",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-09",
+      "kind": "linkedin-post",
+      "title": "LinkedIn post",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Flowra drafts it a week ahead."
+    },
+    {
+      "date": "2026-11-09",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-10",
+      "kind": "linkedin-post",
+      "title": "LinkedIn post",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Flowra drafts it a week ahead."
+    },
+    {
+      "date": "2026-11-10",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-11",
+      "kind": "linkedin-post",
+      "title": "LinkedIn post",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Flowra drafts it a week ahead."
+    },
+    {
+      "date": "2026-11-11",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-12",
+      "kind": "linkedin-post",
+      "title": "LinkedIn post",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "carousel",
+      "status": "planned",
+      "note": "Flowra drafts it a week ahead. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+    },
+    {
+      "date": "2026-11-12",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-13",
+      "kind": "linkedin-post",
+      "title": "LinkedIn post",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "you",
+      "format": "text",
+      "status": "planned",
+      "note": "Flowra drafts it a week ahead."
+    },
+    {
+      "date": "2026-11-13",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-14",
+      "kind": "reel",
+      "title": "Maya & Floey: Flowra picks today's situation",
+      "channels": [
+        "instagram",
+        "facebook",
+        "youtube",
+        "linkedin",
+        "x"
+      ],
+      "status": "planned",
+      "owner": "flowra",
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+    },
+    {
+      "date": "2026-11-15",
       "kind": "reel",
       "title": "Maya & Floey: Flowra picks today's situation",
       "channels": [
