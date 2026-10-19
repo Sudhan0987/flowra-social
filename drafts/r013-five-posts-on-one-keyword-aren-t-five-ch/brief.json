@@ -1,0 +1,55 @@
+{
+ "topic": "Five posts on one keyword aren't five chances to rank: Maya finds five of her banana bread posts all showing for one search",
+ "angle": "Maya is proud she's written five posts for \"banana bread recipe\", because that's five lottery tickets. Floey points out that Google generally shows no more than two listings from one site in its top results, so the five posts end up competing for the same two spots. Maya does the check on screen (Performance, filter the query, Pages tab, count the URLs) and learns the fix: if the posts say the same thing, keep the strongest and fold the rest into it.",
+ "whyNow": "A r/bigseo poster this month (https://www.reddit.com/r/bigseo/comments/1x7f5th/cannibalisation_issue_with_the_content/) says one keyword brings impressions to 5 or 6 of their pages after they published a lot of content with no keyword plan. Content teams in this week's social listening keep complaining about their own pages competing for one keyword. It's an evergreen myth that people revisit after Mueller's September 2025 comments. This is the 25 second duo myth reel in the length experiment, with a send ask at the end.",
+ "goal": "send",
+ "audience": "Solo bloggers and small content teams who have published for a while without a keyword plan, especially recipe, travel and how-to bloggers who write \"one more version\" of a post that already works.",
+ "facts": [
+  {
+   "fact": "Google's site diversity system means it generally won't show more than two web page listings from the same site in its top results.",
+   "source": "https://developers.google.com/search/docs/appearance/ranking-systems-guide"
+  },
+  {
+   "fact": "Google's site diversity rule has exceptions: Google said it may still show more than two results from one site when its systems decide that's especially relevant for a search (announced June 2019). So Floey should say 'generally' or 'usually', never 'never'.",
+   "source": "https://searchengineland.com/google-search-update-aims-to-show-more-diverse-results-from-different-domain-names-317934"
+  },
+  {
+   "fact": "Google's deduplication systems show only the most relevant results to avoid unhelpful duplication.",
+   "source": "https://developers.google.com/search/docs/appearance/ranking-systems-guide"
+  },
+  {
+   "fact": "In Search Console's Performance report you choose a dimension tab (such as Queries or Pages) above the table. Data grouped by Pages is aggregated by page, and data grouped by Queries is aggregated by property.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "In the Performance chart, two results from the same site for one query count as a single impression, and the chart's position is the average position of the topmost result from the whole site.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "The check: in the Performance report, add a query filter for the keyword (or use 'Queries containing' for a short phrase), then open the Pages tab to see every URL of yours that appeared for it.",
+   "source": "https://www.relevantaudience.com/seo/keyword-cannibalization/"
+  },
+  {
+   "fact": "John Mueller (Google, September 2025): several of your pages showing for one query isn't a problem just because there's more than one; his advice was 'Reduce unnecessary duplication and spend your energy on a fantastic page.' So the tip targets posts that say the same thing, not every overlap.",
+   "source": "https://www.searchenginejournal.com/google-answers-seo-question-about-keyword-cannibalization/556472/"
+  },
+  {
+   "fact": "When you merge pages, Google recommends a permanent server-side (301) redirect if the change won't be reverted, and it treats a permanent redirect as a signal that the target should be canonical.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/301-redirects"
+  },
+  {
+   "fact": "Demand: a r/bigseo poster says one keyword brings impressions to 5 or 6 of their pages after they published a lot of content without a keyword plan.",
+   "source": "https://www.reddit.com/r/bigseo/comments/1x7f5th/cannibalisation_issue_with_the_content/"
+  },
+  {
+   "fact": "The URLs and impression numbers on Maya's screen (five banana bread posts) are her own made-up example, not real data, and must look like hers.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "Day set, wide shot: Maya at the laptop with Floey perched on the lid, Maya grinning with five fingers held up (pose fist, then point). The centre of the reel is one DUO.listInsert cutaway styled as Search Console with the title \"Query: banana bread recipe\" and the subtitle \"Pages\". Five rows slide in, one after another: /banana-bread, /easy-banana-bread, /best-banana-bread-ever, /moist-banana-bread, /banana-bread-2 (her example impressions as values). The hi ring then grows on the strongest row while a DUO.stat pill reads \"2 spots\" by Maya's head and a \"!\" mark pops over her. Cut to mayaTight for \"Oh.\" Button at the end: Maya, mug in hand: \"So... a sixth one?\" Floey on floeyTight, deadpan: \"Maya.\" Maya looks to camera, then the end card. On-screen send ask in the last caption: \"Send this to your friend with five banana bread posts.\" Approximate lines (about 25s): MAYA: \"Five banana bread posts. Five chances to rank!\" FLOEY: \"Google usually shows two from one site.\" MAYA: \"So... two chances?\" FLOEY: \"Two spots. Five posts fighting for them. Filter the query, open Pages.\" (Maya types, insert, count) MAYA: \"Oh.\" FLOEY: \"Same recipe? Keep the best one, redirect the rest into it.\" MAYA: \"So... a sixth one?\" FLOEY: \"Maya.\"",
+ "pillar": "myth",
+ "instinct": "More posts on the same keyword mean more chances to rank, so five banana bread posts should beat one.",
+ "flip": "Google says it generally won't show more than two listings from the same site in its top results, so five posts on one keyword compete for the same couple of spots instead of getting five.",
+ "idea": "Five pages on one keyword isn't five chances to rank (myth, about 25 seconds)",
+ "style": "duo"
+}

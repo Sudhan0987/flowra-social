@@ -1,0 +1,110 @@
+{
+ "title": "Five Banana Breads",
+ "hookPattern": "Good news with a catch",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Five banana bread posts. Five chances to rank!",
+   "emotion": "proud",
+   "visual": "Wide, day set. Frame one: Maya at the laptop in the fist pose, grinning. A DUO.stat pill reading '5 posts' is already beside her head, so a muted viewer sees the claim. Floey sits on the laptop lid, where she stays for the whole reel. While Maya talks, Floey looks from Maya to the camera and blinks once, slowly. A soft pop when the pill settles."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Google usually shows two at most from one site.",
+   "emotion": "warm",
+   "visual": "floey shot. Floey stays on the lid, tilts her head and gives one small chip on 'two'. Maya isn't in this shot."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So... two chances?",
+   "emotion": "curious",
+   "visual": "maya shot. Maya in the shrug pose, head tilted, eyebrows pulled together, still half hopeful. Only Maya is in this shot."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Two spots. Five posts fighting.",
+   "emotion": "playful",
+   "visual": "Wide. On 'Two spots' the pill next to Maya's head flips from '5 posts' to '2 spots' with a light tick. Floey chips once from the lid. Maya's grin drops and she moves into the chin pose, frowning at the pill."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.6,
+   "say": "Fine. Search Console, banana bread, Pages...",
+   "emotion": "warm",
+   "visual": "Wide, then the cutaway. Maya in the type pose, flat and annoyed, with keyboard clicks panned to the laptop. Floey looks down at the screen from the lid. Cut to the laptop insert (DUO.listInsert) styled like Search Console. Title 'Query: banana bread recipe', subtitle 'Pages', columns 'Impressions' and 'Avg position'. One whoosh as the insert swings in, then five rows tick in about 0.45 s apart, all with Maya's own made-up example numbers: /banana-bread 900, 12; /easy-banana-bread 340, 18; /best-banana-bread-ever 210, 24; /moist-banana-bread 150, 29; /banana-bread-2 90, 35. No row is left blank."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Oh. None of them made page one.",
+   "emotion": "worried",
+   "visual": "mayaTight. Maya in the cheeks pose, stunned, her mouth falling open. A '!' mark pops above her bun with a small ding. Only Maya is in the shot."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Same recipe? Keep the best one. Fold the rest into it.",
+   "emotion": "warm",
+   "visual": "First the insert again: the hi ring grows on /banana-bread, the row with the most impressions, with a soft chime. Then floeyTight: Floey on the laptop gives one quick preen, then looks over at Maya. Off shot, a mug clinks as Maya picks it up, panned right toward where she sits. No mug was drawn on the desk earlier."
+  },
+  {
+   "role": "button",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Or... a sixth one?",
+   "emotion": "playful",
+   "visual": "maya shot. Maya in the mug pose with the mug just under her chin, a cheeky half smile and one eyebrow raised. She is plainly teasing Floey on purpose."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 2.6,
+   "say": "Maya.",
+   "emotion": "warm",
+   "caption": "Maya.",
+   "visual": "floeyTight. Floey turns her head to look straight at Maya, side on, and holds still with one slow blink, deadpan. Cut to wide: Maya sips (a short sip sound), lowers the mug and looks to camera without a word. When Floey's caption clears, the send ask appears as its own line in the caption band with no speaker tag: 'Send this to your friend with five banana bread posts.' It is measured to fit in two lines without overflowing and stays up for the whole 2.6 s silent look (END is pushed back to allow for this). Then the end card."
+  }
+ ],
+ "loopNote": "The reel ends on Maya looking to camera with the mug lowered, right after her teasing 'sixth one'. Frame one is her proud fist pose with the '5 posts' pill in the same spot where the send caption just was. So a replay plays like the overconfident pitch she was joking about, and the tease turns into the loop.",
+ "caption": "Maya wrote five banana bread posts and called them five lottery tickets. Floey had to break it to her.\n\nNear the top of a search, Google usually shows two results at most from one site. So five posts on the same keyword aren't five chances. They're five posts fighting over the same couple of spots.\n\nThe check: in Search Console, open Performance, filter by the query, then click the Pages tab. Every post of yours that showed up for that search is listed there, with its average position.\n\nIf they all say the same thing, keep the strongest one and fold the rest into it (and redirect the old ones to it). If they answer different questions, leave them alone.\n\nBe honest: how many versions of your best post have you written? Send this to your friend with five banana bread posts.",
+ "hashtags": [
+  "#seo",
+  "#bloggingtips",
+  "#foodblogger",
+  "#googlesearchconsole",
+  "#contentmarketing"
+ ],
+ "sticky": 49,
+ "id": "r013-five-posts-on-one-keyword-aren-t-five-ch",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Five posts on one keyword aren't five chances to rank: Maya finds five of her banana bread posts all showing for one search",
+ "editorNotes": [
+  "The payoff breaks the reel's own logic. Floey's flip is that the posts fight over the two top listings one site usually gets. Then the insert puts all five at average positions 12 to 35, and Maya says 'None of them made page one.' If none of them reach the top results, the two-listing cap isn't what's holding them back. Any SEO person watching will spot this. The line also suggests that having five posts is why none reached page one, which isn't in the facts. Mueller says several pages showing for one query isn't a problem in itself. Go back to the brief's payoff, which is counting the URLs: 'Oh. All five.' or just 'Oh.' Don't claim anything about rankings.",
+  "The insert can't be drawn as written. DUO.listInsert rows take one label and one value, but the script asks for two number columns per row (Impressions and Avg position). Use one column. Impressions is the right one once the 'page one' claim is gone, because the check is counting the URLs.",
+  "Floey's reframe 'Google usually shows two at most from one site.' sounds written and leaves out the scope. Two of what? And the fact only covers Google's top results, not every result. Read aloud it's stiff, and taken literally it isn't true. Make it spoken and scoped, for example 'Google usually only shows two pages from one site up top.' Keep 'usually'.",
+  "Line 5's emotion doesn't match. 'Fine. Search Console, banana bread, Pages...' is tagged warm, but the visual says flat and annoyed, and 'Fine.' only works if it's said grudgingly. The emotion is the voice delivery, so a warm reading kills the joke. Use determined, the closest allowed emotion.",
+  "The send ask can't be drawn as written. DUO.captions only draws speaker-tagged lines from LINES, so there's no untagged caption line. A 52-character two-line caption laid over the silent look is also a custom text card. Put the send ask in the end card's short line, DUO.endCard(k, t, line), and shorten it to fit, for example 'Send this to your banana bread friend.' Then let the 2.6 s look play without text.",
+  "(polish) The rows finish ticking in at about the same moment the edit cuts to mayaTight for the payoff, so a viewer gets well under a second to take in five URLs. Hold the full list for at least a beat and through 'Oh.' before cutting to her face. That's the brief's 'count' moment.",
+  "(polish) Line 2's visual says the floey shot has no Maya in it. DUO.SHOT.floey is a closer two-shot, so Maya is in frame. Either use floeyTight, or give Maya a listener reaction on 'two' (her grin flickering, a small tilt) so she isn't frozen.",
+  "(polish) Nothing removes the '2 spots' pill. Fade it out before the cut to the insert and the mayaTight push, or it gets sliced at the frame edge or hangs around into the tip.",
+  "(polish) Some sounds aren't in the room's sound list or don't fit the moment. 'Soft chime' and 'mug clink' aren't sound kinds: use ding for the hi ring and click or pop for the mug. A ding on the '!' at a bad-news moment reads as good news, so use pop or boing.",
+  "(polish) The mug appears out of nowhere. It's never on the desk, then Maya is holding it. Draw DUO.mug() on the desk from the start, stop drawing it when she picks it up (one mug only), and show the pickup. Or set up cold coffee for a running-joke payoff in the sip.",
+  "(polish) Floey chips on 'two' in line 2 and again in line 4, and the hook has her look to camera. Floey should only turn to camera on the button. Vary her behaviour: a slow blink or tilt in the hook, a single chip once.",
+  "(polish) The loop note says the '5 posts' pill sits 'in the same spot where the send caption just was'. It doesn't: the pill is by her head at about y 610, and captions sit at y 1540. Fix the note so the animator doesn't chase a match cut that isn't there.",
+  "(polish) The 5th caption field on 'Maya.' just repeats the spoken word. Drop it. Also, 'a soft pop when the pill settles' implies the pill animates in, but frame one must already show it. Have it fully up at t=0."
+ ],
+ "style": "duo",
+ "template": "../drafts/r013-five-posts-on-one-keyword-aren-t-five-ch/scene.html"
+}

@@ -1,0 +1,226 @@
+{
+ "style": "Duo style, day set in Maya's room (soft window sky with a drifting cloud, shelf, plant, spark poster). Maya is behind the desk, amber captions. Floey stays perched on the laptop lid facing Maya (facing -1, side view), pink captions. No mug is drawn on the desk: the only mug is in Maya's hand from beat 7. There is one listInsert in the whole reel (Search Console style, example data) and no notification.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk in the fist pose with a big grin. A DUO.stat pill near her head (x 880, y 610, good tone) reads '5 posts'. Floey is perched on the laptop lid, looking at Maya.",
+   "action": "The problem is already happening on frame one. Maya is mid-brag in the fist pose with the pill already up. The pill gives a small settle bounce. Maya says her line with happy eyes and gives a little bounce on 'Five chances'.",
+   "onScreenData": "5 posts",
+   "sfx": [
+    {
+     "at": 0.15,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.7,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "wide, a slow push of a few percent toward the desk. Maya still grinning, Floey on the lid",
+   "action": "While Maya finishes 'to rank!', Floey turns her head from Maya to the camera and gives one slow blink. Floey is the listener here, and that blink is her reaction. Maya keeps the fist up and doesn't notice.",
+   "onScreenData": "5 posts",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: the closer two-shot favouring Floey on the laptop lid. Maya's shoulder and face are just in frame at the edge as the listener, and nobody is sliced.",
+   "action": "A cut on the change of speaker. Floey tilts her head toward Maya and gives one small chip on 'two'. On 'two' Maya's grin shrinks a little and her fist drops slightly.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, with Floey fully out of frame",
+   "action": "A cut on the change of speaker. Maya goes into the shrug pose with her head tilted (tiltTo about 8 deg) and her eyebrows pulled together (worried), still half hopeful as she says 'So... two chances?'",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both characters, with the stat pill by Maya's head",
+   "action": "The camera pulls out to the two-shot. On 'Two spots' the pill flips from '5 posts' to '2 spots' and its tone goes from good to bad. Floey chips once from the lid.",
+   "onScreenData": "2 spots",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 1,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya reacting, Floey on the lid",
+   "action": "On 'Five posts fighting' Maya's grin drops to annoyed. She moves into the chin pose and looks up and right, frowning at the pill. Floey holds still and watches her.",
+   "onScreenData": "2 spots",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya at the laptop, Floey on the lid",
+   "action": "Maya goes into the type pose with an annoyed face and says 'Fine.' flatly, her eyes down at the laptop. Floey tips her head down to look at the screen from the lid. The pill fades out over 0.4 s here, before the later mayaTight, so it is never cut off by the frame edge.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0.8,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The only cutaway insert: DUO.listInsert on her laptop screen in Search Console style. Title 'Query: banana bread recipe', subtitle 'Pages (example)', columns 'Impressions' and 'Avg position'.",
+   "action": "The insert swings in. Then five rows tick in about 0.4 s apart, starting at 1.0 s. All of them are Maya's made-up example numbers, and no cell is blank: /banana-bread 900, 12; /easy-banana-bread 340, 18; /best-banana-bread-ever 210, 24; /moist-banana-bread 150, 29; /banana-bread-2 90, 35. The typing sound keeps going quietly under the insert.",
+   "onScreenData": "Query: banana bread recipe",
+   "sfx": [
+    {
+     "at": 0.8,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The same insert, still up, with all five rows showing (this is not a second cutaway)",
+   "action": "On 'Oh.' the hi ring grows around the /banana-bread row (900, 12). That row has the most impressions and sits closest to page one, and Floey's tip will name it a moment later. Every average position reads 12 or worse, which shows 'none made page one' on screen.",
+   "onScreenData": "/banana-bread 900, 12",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0.6,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame, only Maya in shot",
+   "action": "The insert closes as we cut. Maya goes into the cheeks pose with a surprised, stunned face, and her mouth falls open on 'None of them made page one.' A '!' mark pops above her pencil bun. A small push-in sells the realisation.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.8,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid",
+   "action": "A cut on the change of speaker. Floey gives one quick preen under her wing, then settles and says 'Same recipe?' with a dry, calm face (mood think).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 1.6,
+   "shot": "close",
+   "camera": "drift",
+   "subject": "floeyTight: Floey on the lid, with a slow drift toward her",
+   "action": "On 'Keep the best one. Fold the rest into it.' Floey turns her head to look across at Maya (off screen left) and gives a small determined nod on 'Fold'. Off shot, a mug clinks as Maya picks it up, panned left toward where she sits. This sets up the mug reveal.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.5,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone in the mug pose, the mug just under her chin. DUO.mug() is not drawn, so there is only one mug.",
+   "action": "The reveal: Maya has the mug. She gives a cheeky half smile (smug), raises one eyebrow and tilts her head a little toward Floey (look x -1). She says 'Or... a sixth one?' and is plainly teasing on purpose.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the lid, side on",
+   "action": "A hard cut for the comic reversal. Floey snaps her head to look straight at Maya, says 'Maya.' completely flat, holds perfectly still and gives one slow deadpan blink.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 0.8,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: both characters. Maya holds the mug, Floey stares at her from the lid.",
+   "action": "Maya takes a slow sip (use Floey's sip cue, panned left to Maya) and keeps her eyes on Floey. Floey doesn't move. As Floey's caption clears, the send ask appears in the caption band with no speaker tag: 'Send this to your friend with five banana bread posts.' It is measured to fit in two lines and stays up from 0.8 s to 3.4 s, which is 2.6 s.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 1.9,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: only Maya, with the mug lowered to her chest",
+   "action": "Maya lowers the mug and slowly turns her eyes to the camera (look x 0, y 0) with a deadpan face, holding it without a word. This is the button. The send ask is still in the caption band. END is pushed back so the look plays out in full.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 3.5,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "The end card: the Flowra logo intact, 'Maya & Floey, every day', and Floey perched in front on the spark's left arm",
+   "action": "The end card lands and captions are hidden. Floey arrives sideways onto the spark's left arm, then turns to face the camera.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 3.5,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1.9
+}

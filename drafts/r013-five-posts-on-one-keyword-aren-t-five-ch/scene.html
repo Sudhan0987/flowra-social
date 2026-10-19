@@ -1,0 +1,292 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<script src="lines.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../../reel/assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../../reel/assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r013 "Five Banana Breads" (duo style, day set). Frame one: Maya mid-brag, fist up, a "5 posts" pill by her head,
+// her mug on the desk. Floey: "Google usually shows two at most from one site." "So... two chances?" "Two spots.
+// Five posts fighting." (the pill flips to "2 spots"). The check: Search Console, the query, the Pages tab; five
+// of her banana bread posts tick in, every average position 12 or worse. "Oh. None of them made page one."
+// The tip: Floey alone, a preen, "Same recipe?"; then her screen, the ring on the strongest page, the rest dim
+// ("fold the rest into it"). Off shot she picks up her mug; the tease: "Or... a sixth one?" "Maya." A slow sip,
+// then a look to camera with the send ask in the caption band. Then the end card.
+const M = window.MOUTHS || {};
+const LINES = window.LINES;
+// the pause after each line, from the story
+const GAP = { hook0: 0.3, reframe1: 0.2, doubt2: 0.2, reframe3: 0.3, check4: 0.6, payoff5: 0.35, tip6: 0.2, button7: 0.2, button8: 2.6 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+// the silent button (the sip, the look to camera) plays out before the end card
+const END = Math.max(SPOKEN + 0.6, B.button8.end + 3.0), DUR = END + 1.6, b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+// when a word is said: its share of the line's characters (the captions use the same rule)
+const word = (id, w) => { const s = LINES.find((l) => l[0] === id)[1]; return B[id].start + B[id].len * Math.max(0, s.indexOf(w)) / s.length; };
+// her mouth, scaled down on tense lines so the lip sync stays small and tight
+const mo = (id, k = 1) => (M[id] || []).map((v) => v * k);
+
+// ---------- the shots (DUO.SHOT, nudged for this layout) ----------
+const WIDE = { camX: 560, camY: 1010, zoom: 1.1 };
+const HOOK_IN = { camX: 565, camY: 995, zoom: 1.16 };  // a slow creep in during the brag
+const MS = { camX: 720, camY: 820, zoom: 1.55 };       // Maya alone (Floey fully off the left edge)
+const MT = { camX: 640, camY: 730, zoom: 2.1 };        // Maya's face (Floey well below the frame, clear of the captions)
+const MT2 = { camX: 645, camY: 745, zoom: 2.25 };      // a push on the realisation
+const FT = { camX: 292, camY: 1050, zoom: 3.4 };       // Floey alone on the lid, centred in the visible frame, Maya fully out
+const FT2 = { camX: 296, camY: 1045, zoom: 3.55 };     // a slow creep in on her line
+
+// ---------- Maya's mug: on the desk, her hand on it, under her chin, at her lips ----------
+const MUG_DESK = { L: [262, 640], R: [494, 660], hold: "mug" };
+const MUG_CHIN = { L: [262, 640], R: [376, 505], hold: "mug" };
+const MUG_LIPS = { L: [262, 640], R: [356, 352], hold: "mug" };
+const MUG_LOW = { L: [262, 640], R: [380, 590], hold: "mug" };
+const FIST_LOW = { L: [228, 705], R: [452, 330] };
+
+// ---------- the cast ----------
+const F = FLOEY.create({ ...SP.floeyLaptop, facing: -1, mood: "hello", perched: true, view: "side" });
+const MY = MAYA.create({ ...SP.maya, expr: "proud", pose: "fist", floey: F });
+// pill: the "5 posts" / "2 spots" pill, pb its bounce, flip 0 posts 1 spots;
+// bang: the "!" mark; ins: the laptop insert, rows, hi its ring, fold the other rows dimming; desk: the mug is on the desk
+const W = { ...WIDE, pill: 1, pb: 0, flip: 0, bang: 0, ins: 0, rows: 0, hi: 0, fold: 0, desk: 1, end: 0 };
+const wt = gsap.timeline({ paused: true });
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => wt.to(W, { ...s, duration: d, ease }, t);
+const cut = (t, s) => wt.set(W, { ...s }, t);
+const ftw = (t, vars) => F.tl.to(F.S, vars, t);
+const lid = (t, k, d = 0.12) => ftw(t, { squint: k, duration: d, ease: "sine.inOut" });
+const blink = (t, hold = 0.2, back = 0) => { lid(t, 0.95, 0.14); lid(t + 0.14 + hold, back, 0.2); };
+const pop = (key, t) => wt.fromTo(W, { [key]: 1 }, { [key]: 0, duration: 0.4, ease: "power2.out", immediateRender: false }, t);
+
+// ---------- HOOK0: frame one, mid-brag, the pill already up ----------
+// "Five banana bread posts." "Five chances to rank!"
+const H = b.hook0.start;
+MY.look(0, -0.5, -0.2, 0.01).tiltTo(0, 4, 0.01).say(H, M.hook0 || [], "hook0");
+pop("pb", 0.05); F.sfx(0.15, "pop");
+shot(0.1, HOOK_IN, b.hook0.end - 0.3, "power1.inOut");
+F.look(0, 0.2, 0).mood(0, "hello");
+// "Five chances": the fist pumps, she grins wider
+const FC = word("hook0", "Five chances");
+MY.pose(FC - 0.2, FIST_LOW, 0.15).pose(FC, "fist", 0.18).expr(FC, "happy").nod(FC + 0.1, 1);
+// Floey, the listener: a slow tilt, one slow unimpressed blink
+F.tiltTo(H + 0.9, -10, 0.3);
+blink(FC + 0.2, 0.45, 0.25);
+
+// ---------- REFRAME1: Floey alone on the lid, calm and warm; a tilt and one chip on "two" ----------
+const R1 = b.reframe1.start;
+cut(b.hook0.end + 0.12, FT);
+shot(b.hook0.end + 0.14, FT2, b.reframe1.end - b.hook0.end - 0.2, "power1.inOut");
+F.mood(b.hook0.end + 0.1, "hello").tiltTo(b.hook0.end + 0.1, 0, 0.15).look(b.hook0.end + 0.1, 0.2, 0, 0.1).say(R1, M.reframe1 || [], "reframe1");
+lid(b.hook0.end + 0.1, 0, 0.1);
+// off shot, Maya keeps listening, her grin fading on "two"
+MY.look(R1, -1, 0.1, 0.15).tiltTo(R1, 0);
+const TW = word("reframe1", "two");
+ftw(TW - 0.08, { tilt: -12, duration: 0.15 }); F.chips(TW, 1); ftw(TW + 0.6, { tilt: 0, duration: 0.25 });
+MY.expr(TW + 0.1, "neutral").pose(TW + 0.05, FIST_LOW, 0.35).tiltTo(TW + 0.1, -4, 0.3);
+MY.expr(b.reframe1.end - 0.3, "think");
+F.tongue(b.reframe1.end + 0.02, 1);
+
+// ---------- DOUBT2: Maya alone, half hopeful ----------
+const D2 = b.doubt2.start;
+cut(b.reframe1.end + 0.1, MS);
+MY.expr(D2 - 0.1, "think").pose(D2 - 0.1, "shrug", 0.3).tiltTo(D2, 8, 0.3).say(D2, M.doubt2 || [], "doubt2").look(D2, -1, -0.1);
+lid(D2, 0);
+MY.look(word("doubt2", "two"), -1, -0.4, 0.15);
+
+// ---------- REFRAME3: back to the two-shot; the pill flips, the grin drops ----------
+// "Two spots." "Five posts fighting."
+const R3 = b.reframe3.start;
+shot(b.doubt2.end + 0.05, WIDE, 0.45, "power3.out");
+F.mood(R3 - 0.1, "happy").say(R3, M.reframe3 || [], "reframe3");
+ftw(R3, { tilt: 8, duration: 0.15 }); ftw(R3 + 0.5, { tilt: 0, duration: 0.25 });
+const SPOTS = R3 + 0.35;
+wt.set(W, { flip: 1 }, SPOTS);
+pop("pb", SPOTS);
+F.sfx(SPOTS, "tick");
+MY.expr(SPOTS + 0.05, "surprised").look(SPOTS + 0.05, 0.6, -0.8, 0.15).tiltTo(SPOTS, 0, 0.25);
+const FP = word("reframe3", "Five");
+MY.expr(FP, "annoyed").pose(FP - 0.05, "chin", 0.35).look(FP + 0.1, 0.7, -0.7, 0.15).tiltTo(FP, -5, 0.3);
+F.mood(b.reframe3.end, "hello");
+ftw(FP, { lookX: 0.3, duration: 0.1 });
+
+// ---------- CHECK4: she types, the Search Console list ticks in ----------
+// "Fine." "Search Console, banana bread, Pages..."
+const C4 = b.check4.start;
+wt.to(W, { pill: 0, duration: 0.4 }, C4 - 0.1);
+MY.expr(C4 - 0.05, "annoyed").pose(C4 - 0.05, "type", 0.3).look(C4, -0.4, 0.8, 0.15).tiltTo(C4, 0).say(C4, mo("check4", 0.75), "check4");
+F.sfx(C4 + 0.1, "typing", { d: 1.4, x0: 640 });
+F.look(C4 + 0.1, 0.4, 1, 0.2).tiltTo(C4 + 0.1, 12, 0.25);
+const SC = word("check4", "Search") + 0.05;
+MY.expr(SC, "deadpan");
+wt.to(W, { ins: 1, duration: 0.35, ease: "power3.out" }, SC);
+F.sfx(SC, "whoosh");
+const ROWS = SC + 0.35, STEP = 0.42;
+wt.to(W, { rows: 1, duration: STEP * 5, ease: "none" }, ROWS);
+for (let i = 0; i < 5; i++) F.sfx(ROWS + i * STEP + 0.05, "tick");
+
+// ---------- PAYOFF5: "Oh." over the full list, then her face ----------
+const P5 = b.payoff5.start;
+MY.expr(P5 - 0.05, "surprised").pose(P5, "rest", 0.3).say(P5, mo("payoff5", 0.8), "payoff5");
+const NO = word("payoff5", "None") - 0.05;
+wt.set(W, { ins: 0 }, NO);
+cut(NO, MT);
+F.look(NO, 0, 0).tiltTo(NO, 0, 0.1);
+MY.expr(NO, "worried").pose(NO - 0.1, "cheeks", 0.18).jolt(NO + 0.02).look(NO, -0.2, 0.6, 0.1);
+// the push ends before the cut to Floey, so it never runs into her shot
+shot(NO + 0.1, MT2, b.payoff5.end - NO - 0.15, "power2.out");
+const BANG = NO + 0.25;
+wt.to(W, { bang: 1, duration: 0.22, ease: "back.out(2)" }, BANG);
+F.sfx(BANG, "pop", { x0: 760 });
+MY.look(b.payoff5.end - 0.2, -1, 0.1, 0.2);
+
+// ---------- TIP6: Floey alone, a quick preen, "Same recipe?"; then the tip on her screen ----------
+// "Same recipe?" "Keep the best one." "Fold the rest into it."
+const T6 = b.tip6.start, FTC = b.payoff5.end + 0.15; // after her caption clears
+wt.set(W, { bang: 0 }, FTC);
+cut(FTC, FT);
+MY.pose(FTC, "rest", 0.01); // her hands leave her cheeks on the cut, so no sleeve pokes into Floey's shot
+// one smug stroke of the beak through the chest feathers, then she speaks to Maya
+F.mood(FTC, "hello").look(FTC, 0, 0, 0.05);
+lid(FTC, 0, 0.05);
+ftw(FTC + 0.02, { tilt: 34, lookY: 1, puff: 0.45, duration: 0.14, ease: "power1.in" });
+ftw(FTC + 0.2, { tilt: 0, lookY: 0, puff: 0, duration: 0.16, ease: "back.out(2)" });
+F.sfx(FTC + 0.08, "rustle", { n: 1 });
+F.say(T6, M.tip6 || [], "tip6");
+ftw(T6 + 0.3, { tilt: -8, lookX: 0.3, duration: 0.2 });
+shot(T6, FT2, 0.8, "power1.inOut");
+MY.expr(T6, "sad").pose(T6, "rest", 0.4).look(T6, -1, 0.2).tiltTo(T6, 0);
+// "Keep the best one": the list again, the ring on the strongest page
+const KB = word("tip6", "Keep") - 0.1;
+wt.set(W, { rows: 1, hi: 0, fold: 0 }, KB);
+wt.to(W, { ins: 1, duration: 0.3, ease: "power3.out" }, KB);
+F.sfx(KB, "whoosh");
+wt.to(W, { hi: 1, duration: 0.35, ease: "power2.out" }, word("tip6", "best") - 0.05);
+F.sfx(word("tip6", "best"), "ding");
+// "Fold the rest into it": the other four dim; off shot, Maya picks up her mug
+const FO = word("tip6", "Fold") - 0.05;
+wt.to(W, { fold: 1, duration: 0.6, ease: "power2.inOut" }, FO);
+F.sfx(FO + 0.05, "swish");
+MY.expr(FO, "think").pose(FO - 0.5, MUG_DESK, 0.35);
+wt.set(W, { desk: 0 }, FO - 0.1);
+MY.pose(FO - 0.1, MUG_CHIN, 0.4);
+F.sfx(FO + 0.5, "click", { x0: 860 });
+ftw(FO, { tilt: 0, lookX: 0, duration: 0.2 });
+lid(FO, 0);
+
+// ---------- BUTTON7: Maya alone, the mug under her chin, teasing on purpose ----------
+const B7 = b.button7.start;
+wt.set(W, { ins: 0 }, b.tip6.end + 0.05);
+cut(b.tip6.end + 0.05, MS);
+MY.expr(B7 - 0.1, "smug").look(B7 - 0.1, -1, -0.1, 0.15).tiltTo(B7, -7, 0.35).say(B7, M.button7 || [], "button7");
+MY.look(word("button7", "sixth"), -1, 0.2, 0.12);
+
+// ---------- BUTTON8: Floey alone: "Maya." Flat. A slow blink. ----------
+const B8 = b.button8.start;
+cut(b.button7.end + 0.1, FT);
+F.mood(B8 - 0.1, "hello").tiltTo(B8 - 0.1, 0, 0.05).look(B8 - 0.1, 0.3, 0, 0.05).say(B8, M.button8 || [], "button8");
+lid(B8 - 0.1, 0.4, 0.05);
+blink(b.button8.end + 0.05, 0.4, 0.4);
+MY.expr(B8, "smug").tiltTo(B8, -3, 0.3);
+
+// ---------- the silent button: the wide two-shot, a slow sip with her eyes on Floey; then her look to camera ----------
+const SIP = b.button8.end + 0.3;
+cut(SIP - 0.05, WIDE);
+MY.pose(SIP, MUG_LIPS, 0.4).expr(SIP, "neutral").look(SIP, -1, 0.1, 0.15).tiltTo(SIP, 0, 0.3);
+F.sfx(SIP + 0.5, "sip", { x0: 760 });
+const LOOK = SIP + 1.35;
+MY.pose(LOOK - 0.15, MUG_LOW, 0.5);
+shot(LOOK, MT, 0.55, "power3.out");
+MY.look(LOOK + 0.2, 0, 0, 0.18).expr(LOOK + 0.2, "smug").tiltTo(LOOK + 0.2, 3, 0.3);
+
+// END: the logo card drops in, with the send ask
+wt.to(W, { end: 1, duration: 0.5, ease: "back.out(1.6)" }, END);
+F.sfx(END + 0.05, "thump");
+wt.set({}, {}, DUR);
+
+// ---------- world parts ----------
+const INK = HUM.colors.ink, fx = (n) => Math.round(n * 10) / 10;
+// Maya's open mouth on a tense line: the same mouth turned over, so it reads as a grimace, never a grin
+const TENSE = new Set(["worried", "panic", "annoyed", "sad"]);
+function maya(t) {
+  const s = MY.svg(t);
+  if (!TENSE.has(MY.state(t).expr)) return s;
+  return s.replace(/<path d="([^"]+)" fill="#5a1f22"[\s\S]*?<\/g>/, (m, d) => {
+    const ys = [...d.matchAll(/,(-?[\d.]+)/g)].map((x) => +x[1]);
+    return `<g transform="translate(0 ${fx(Math.min(...ys) + Math.max(...ys))}) scale(1 -1)">${m}</g>`;
+  });
+}
+// the pill by her head, a little smaller so it stays in the frame; bounces by pb
+const PX = 862, PY = 585, PK = 0.8;
+function pill() {
+  const k = W.pill;
+  if (k <= 0.01) return "";
+  const s = W.flip < 0.5 ? DUO.stat(PX, PY, k, "5 posts", "good") : DUO.stat(PX, PY, k, "2 spots", "bad");
+  return `<g transform="translate(${PX} ${PY}) scale(${fx(PK * (1 + 0.15 * W.pb) * 100) / 100}) translate(${-PX} ${-PY})">${s}</g>`;
+}
+
+// ---------- her laptop screen (screen space): Search Console, Pages, example numbers ----------
+const PAGES = [
+  { label: "/banana-bread", imp: "900", value: "12", tone: "brand", hi: true },
+  { label: "/easy-banana-bread", imp: "340", value: "18", tone: "bad" },
+  { label: "/best-banana-bread-ever", imp: "210", value: "24", tone: "bad" },
+  { label: "/moist-banana-bread", imp: "150", value: "29", tone: "bad" },
+  { label: "/banana-bread-2", imp: "90", value: "35", tone: "bad" },
+];
+const IMP_X = 720;
+function laptopScreen() {
+  if (W.ins <= 0.01) return "";
+  let s = DUO.listInsert(W.ins, W.rows, {
+    title: "Query: banana bread recipe", sub: "Search Console, Pages (example)",
+    cols: ["Page", "Avg position"], rows: PAGES, hiK: W.hi,
+  });
+  // a middle column: impressions, in each row's own group so it slides in with the row
+  s = s.replace(`>Avg position</text>`, () => `>Avg position</text><text x="${IMP_X}" y="762" text-anchor="end" font-family="Public Sans" font-weight="800" font-size="26" fill="${INK}" opacity=".55">Impressions</text>`);
+  PAGES.forEach((r, i) => {
+    const y = 780 + i * 96 + 61;
+    s = s.replace(new RegExp(`(<text x="930" y="${y}"[^>]*>${r.value}</text>)`), (m) => `${m}<text x="${IMP_X}" y="${y}" text-anchor="end" font-family="IBM Plex Mono, Space Grotesk" font-weight="700" font-size="38" fill="${INK}">${r.imp}</text>`);
+  });
+  // "fold the rest into it": every row but the strongest dims
+  if (W.fold > 0.01) {
+    let n = 0;
+    s = s.replace(/<g opacity="([\d.]+)" transform="translate\(([\d.-]+) 0\)">/g, (m, o, x) => (n++ === 0 ? m : `<g opacity="${fx(o * (1 - 0.72 * W.fold) * 100) / 100}" transform="translate(${x} 0)">`));
+  }
+  return s;
+}
+
+// ---------- the send ask: its own line in the caption band (no speaker tag) during the silent look ----------
+const ASK = ["Send this to your friend", "with five banana bread posts."], ASK_IN = b.button8.end + 0.25;
+function sendAsk(t) {
+  const k = Math.min(1, (t - ASK_IN) / 0.25);
+  if (k <= 0 || W.end >= 0.5) return "";
+  let fs = 46; const tw = Math.max(...ASK.map((s) => PROPS.measure(s, `800 ${fs}px 'Public Sans'`)));
+  if (tw + 72 > 960) fs = fs * 888 / tw;
+  const w = Math.min(960, Math.max(...ASK.map((s) => PROPS.measure(s, `800 ${fs}px 'Public Sans'`))) + 72);
+  return `<g opacity="${fx(k)}" transform="translate(540 1442)"><rect x="${fx(-w / 2)}" y="0" width="${fx(w)}" height="136" rx="26" fill="${INK}" opacity=".9"/>`
+    + ASK.map((s, i) => `<text x="0" y="${56 + i * 54}" text-anchor="middle" font-family="Public Sans" font-weight="800" font-size="${fx(fs)}" fill="#fff">${PROPS.esc(s)}</text>`).join("") + `</g>`;
+}
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  const world = DUO.room(t) + maya(t) + DUO.deskFront() + DUO.laptop() + (W.desk > 0.5 ? DUO.mug() : "") + F.svg(t)
+    + pill() + DUO.mark("!", 738, 540, W.bang, t);
+  document.getElementById("stage").innerHTML = DUO.cam(world, W)
+    + (W.end < 0.5 ? laptopScreen() : "")
+    + (W.end < 0.5 ? DUO.captions(LINES, B, t) + sendAsk(t) : "")
+    + DUO.endCard(W.end, t);
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>
