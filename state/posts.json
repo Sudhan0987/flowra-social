@@ -202,7 +202,7 @@
   },
   {
    "id": "r012-maya-s-impressions-are-up-and-her-clicks",
-   "status": "approved",
+   "status": "published",
    "topic": "Maya's impressions are up and her clicks are flat, and the extra impressions are in long, chatty queries at the bottom of her Search Console list",
    "format": "duo-sitcom",
    "madeAt": "2026-10-18T09:50:22.367Z",
@@ -214,7 +214,14 @@
    "idea": "Maya's impressions are up, but some of those searches weren't typed by a person",
    "style": "duo",
    "run": 39114628540,
-   "note": "Approved by the founder in chat, 19 Oct 2026."
+   "note": "Approved by the founder in chat, 19 Oct 2026.",
+   "published": {
+    "at": "2026-10-19",
+    "instagram": "18105812195367655",
+    "facebook": "1653800312986152",
+    "youtube": "O09UezfzO38",
+    "youtubePrivacy": "public"
+   }
   },
   {
    "id": "r013-five-posts-on-one-keyword-aren-t-five-ch",
