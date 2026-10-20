@@ -225,7 +225,7 @@
   },
   {
    "id": "r013-five-posts-on-one-keyword-aren-t-five-ch",
-   "status": "approved",
+   "status": "published",
    "topic": "Five posts on one keyword aren't five chances to rank: Maya finds five of her banana bread posts all showing for one search",
    "format": "duo-sitcom",
    "madeAt": "2026-10-19T10:49:47.350Z",
@@ -237,7 +237,14 @@
    "idea": "Five pages on one keyword isn't five chances to rank (myth, about 25 seconds)",
    "style": "duo",
    "run": 39237326109,
-   "note": "Approved by the founder in chat, 19 Oct 2026."
+   "note": "Approved by the founder in chat, 19 Oct 2026.",
+   "published": {
+    "at": "2026-10-20",
+    "instagram": "18346518691250362",
+    "facebook": "2987502814932947",
+    "youtube": "DL9vrNz7dKQ",
+    "youtubePrivacy": "public"
+   }
   },
   {
    "id": "r014-the-client-asks-how-many-sign-ups-and-ma",
