@@ -18,7 +18,7 @@ on:
   # Back on 2026-10-07: the founder approved the Floey v2 reels (r002, r003).
   # Drafts still wait for a ✅ in Slack #social before anything is posted.
   schedule:
-    - cron: "0 5 * * *"
+    - cron: "13 5 * * *"
   workflow_dispatch:
     inputs:
       topic:
