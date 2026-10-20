@@ -1,0 +1,127 @@
+{
+ "title": "How many sign-ups?",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "No. Four months of impressions. She'll think I did nothing.",
+   "emotion": "worried",
+   "visual": "Day set, maya shot from frame one. A DUO.notification is already sliding down with a buzz: title 'Client', body 'Lovely! How many sign-ups?' (26 characters). Maya reads it and does MY.jolt, and the '!' mark pops over her bun. A DUO.stat pill fades in beside her head, reading '12,400 impressions' (her own example number). It is sized with PROPS.measure and checked to stay inside the maya frame; if it won't fit, it falls back to '12.4k impressions'. The pill drifts a few pixels left and right (x animated by hand), as if it's nervous. Delivery is fast and high."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "An impression means your link showed up on Google.",
+   "emotion": "warm",
+   "visual": "wide: Floey sits on the laptop lid, calm, and gives one slow blink. Maya is at the desk next to her, still frozen in the jolt with the stat pill by her head. Floey tips her beak toward the pill."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.15,
+   "say": "So people saw it!",
+   "emotion": "bright",
+   "visual": "maya: Maya in pose point, finger on the stat pill, hopeful, eyebrows up and a quick smile, as if she's found her way out."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Even if nobody scrolled down to it.",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey deadpan, one tongue flick, no other movement. Cut to a DUO.listInsert headed 'Results page': ranked rows 1 to 4 read 'Another result', then row 10 reads 'Your post' with the value 'impression' in the warn tone, and the hi ring circles it, sitting low and far from the top. Cut back to maya: the stat pill fades out."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "Wait. Then where are the sign-ups?",
+   "emotion": "curious",
+   "visual": "mayaTight: Maya in pose chin, the panic turning into focus, and the '?' mark pops over her head."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "In Google Analytics, star sign up in Events. That makes it a key event.",
+   "emotion": "warm",
+   "caption": "In Google Analytics, star sign_up in Events. That makes it a key event.",
+   "visual": "wide: Floey hops along the laptop lid and points a wing down at the screen. Maya leans toward the laptop (pose leanTo). Cut to a DUO.listInsert headed 'Events, last 28 days (Maya's site)': page_view, session_start, scroll, sign_up. The hi ring lands on the sign_up row."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Starred.",
+   "emotion": "bright",
+   "visual": "The same listInsert re-renders: the sign_up row's value becomes 'Key event' in the good tone, with a tick sfx and a ding. Cut to maya: Maya in pose type, a small satisfied nod."
+  },
+  {
+   "role": "body",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "Now wait a month...",
+   "emotion": "playful",
+   "visual": "wide: Floey settles on the laptop lid, tucks her wings and closes her eyes for a nap. Maya sits back. The mug stays on the desk where it has been all along (DUO.mug drawn), and Floey never touches it."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Oh. Fourteen sign-ups.",
+   "emotion": "bright",
+   "visual": "A second DUO.listInsert slides in, headed 'Report: next month (Maya's example)'. It has two plain rows: 'Clicks from Google' with the value 320, and 'Sign-ups (key event)' with the value 14 in the good tone. The hi ring lands on 14. Cut to mayaTight: Maya beams, relieved, shoulders dropping."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Ugh. Why is this cold?",
+   "emotion": "warm",
+   "visual": "wide: Maya switches to pose mug (the desk mug stops being drawn while she holds it), takes a proud sip, winces and stares into the cup, flat. Floey is still on the laptop lid and opens one eye."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "It's been a month, Maya.",
+   "emotion": "proud",
+   "visual": "wide: Floey turns her head to Maya, smug, with a little head bob. Cut to mayaTight: Maya, still holding the cold mug, gives the camera a long, flat look with no words. End card follows."
+  }
+ ],
+ "loopNote": "No loop. The reel ends on Maya's look to camera, then the end card. A duo reel doesn't need to replay into frame one, and a second client text would muddy the button.",
+ "caption": "The client loved the report. Then the text came: \"Lovely! How many sign-ups?\" Four months of impressions, and no answer.\n\nHere's why. Google counts an impression when your link shows up on the results page, even if nobody scrolls down to see it. So impressions can't tell anyone what the work brought in.\n\nThe fix takes a minute. In Google Analytics, go to Admin, Data display, Events, find your sign-up event and click the star. That makes it a key event. Then your next report can put clicks from Google next to sign-ups.\n\nWhat's the client question that made you sweat? Send this to a friend with a report due this month.\n\n(Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#contentmarketing",
+  "#googleanalytics",
+  "#freelancewriter",
+  "#clientreporting"
+ ],
+ "sticky": 52,
+ "id": "r014-the-client-asks-how-many-sign-ups-and-ma",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "The client asks \"how many sign-ups?\" and Maya's report only has impressions",
+ "editorNotes": [
+  "The middle of the story contradicts itself. The Events insert lists sign_up under 'last 28 days', so it is already being collected and that row needs a count. If the count is on screen, Maya can answer the client today, and 'Now wait a month...' makes no sense. Anyone who knows GA4 will spot it. The month wait also suggests that starring the event only counts sign-ups from then on, and the brief says not to claim either way. Change the reason for waiting so it does not depend on whether starring works backwards. For example, the point is a report she can now build every month, with clicks next to key events, rather than a number that only appears after starring. Then give the sign_up row an example count that fits the story.",
+  "Read aloud, Floey's tip 'In Google Analytics, star sign up in Events' sounds like 'star sign' (the zodiac) followed by 'up in Events'. It also sounds written, not spoken. Reword it so the verb and the event name are clearly separate, and keep it short and dry, for example something like 'Find sign up in Events. Click the star.' The same single tip either way.",
+  "The insert headers say 'Maya's site' and 'Maya's example', but the brief says this is the client's site and the client's sign-ups. Text on her laptop screen saying 'Maya's site' tells a different story from the client text. Label it as the client's GA4 (no name, nothing that looks like real data). Show that the numbers are an example some other way, not with '(Maya's example)' as an in-world screen title.",
+  "Beat 2 says Maya is 'still frozen in the jolt'. The hard rule says the listener is never frozen. Give her a reaction on Floey's key word 'showed up', for example a look toward Floey and a small hopeful tilt. That also sets up her bright 'So people saw it!'",
+  "Several of Floey's actions are not in her behaviour set: 'hops along the laptop lid', 'points a wing down at the screen', 'closes her eyes for a nap', 'opens one eye'. Use what the studio has: turn, tilt, wink, chip, preen, take off and hover. Use the 'zzz' comic mark for the nap. Also, 'pose leanTo' is not a pose. It is MY.leanTo(t, deg) on top of a pose such as chin or type.",
+  "Two listInsert tables have empty cells. In the Results page insert, rows 1 to 4 ('Another result') have no values. In the Events insert, page_view, session_start and scroll have no counts. The studio rule says every row needs a real label and value. Give each row a value, for example position numbers or example event counts, framed as example numbers on the client's screen.",
+  "The emotion on 'Ugh. Why is this cold?' is 'warm', but the moment is disgust and a wince. Warm delivery kills the setup for the button. Use a flat, deflated delivery from the allowed set, such as worried or ominous. Also, the visual says she 'takes a proud sip'. The sip should start happy (from the 14) and the wince should land on 'Ugh'.",
+  "(polish) The button only works if the viewer feels a month pass, but nothing shows it. Floey naps and the next insert slides in at once, so 'It's been a month, Maya' explains the joke instead of landing it. Show the jump in the room: the 'zzz' mark over Floey and the window going day, night, day (DUO.room night toggled) with a tick or two. Then the cold coffee pays off a gag the viewer has already watched.",
+  "(polish) Floey's emotions are off. 'Even if nobody scrolled down to it' is the dry sting of the reframe and reads as deadpan, not 'warm'. 'It's been a month, Maya.' is smug, so 'playful' fits better than 'proud'.",
+  "(polish) The client's question never gets an answer. The hook is her text, but the ending never shows Maya replying. One silent beat would close the loop and make it more shareable: the phone, Maya typing 'Fourteen.', a sent ding, before the coffee. Only add it if it doesn't push the button past about 3 seconds.",
+  "(polish) The hook is a little indirect. 'Four months of impressions' only makes sense once you know her reports were nothing but impressions. A stranger gets the notification but needs a second to link it. Think about putting 'reports' into the line so the problem is clear in 2 seconds, keeping the fast, high panic delivery.",
+  "(polish) Beat 4 crams three cuts into a line of about 2 seconds (floeyTight, then the results insert, then back to Maya with the pill fading). Hold the insert for the whole line and fade the pill on the next shot change.",
+  "(polish) Too many sounds land together. The hook stacks the notification buzz, the jolt pop and the '!' together, and beat 7 fires a tick and a ding together. The studio allows at most one sound every 0.4 seconds. Space them out or drop one.",
+  "(polish) '12,400 impressions' is long for DUO.stat, which is built for short pills like '-40%'. Measure it inside the maya frame up front rather than relying on the fallback. Make sure the hand-animated drift never pushes it past x 1020."
+ ],
+ "style": "duo",
+ "template": "../drafts/r014-the-client-asks-how-many-sign-ups-and-ma/scene.html"
+}

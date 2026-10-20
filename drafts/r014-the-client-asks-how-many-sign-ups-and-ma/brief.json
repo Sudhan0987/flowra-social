@@ -1,0 +1,63 @@
+{
+ "topic": "The client asks \"how many sign-ups?\" and Maya's report only has impressions",
+ "angle": "Maya does content for a small client's site on the side. A text lands: \"Lovely report! How many sign-ups?\" She realises four months of her reports are just impressions, and she spirals. Floey flips it in one dry fact: by Google's own definition an impression only means the link showed up, even if nobody scrolled to it, so impressions can never answer \"how many sign-ups\". The answer lives in GA4. Maya stars the sign-up event as a key event, and her next report sets clicks next to sign-ups. The flip is about what the metric means and it's sourced from Google, so the reel isn't mocking anyone.",
+ "whyNow": "Social listening this week (18 Oct 2026): a founder in r/content_marketing says four months of agency reports showed only impressions and new followers, and asking twice how many sign-ups came from the campaign got no answer (reddit.com/r/content_marketing/comments/1x8gd0s). An r/marketing rant thread asking for people's biggest frustration (reddit.com/r/marketing/comments/1x8j8wu) shows the same pattern. Agency reporting guides published in 2026 (Swydo, Cloud Campaign) keep writing about \"vanity metrics\" in client reports, so this is a live complaint and a known one. Note: Reddit could not be fetched directly in this research run, so both thread details come from the social listening digest.",
+ "goal": "send",
+ "audience": "Freelance content writers, small agency people and bloggers who report numbers to someone else (a client, a sponsor, a boss), and who have sent a report full of impressions and then got asked \"but what did it bring in?\" A second audience is founders and clients who would send it to their agency.",
+ "facts": [
+  {
+   "fact": "Google defines a Search Console impression as: a user has seen (or potentially seen) a link to your site in Search, Discover or News.",
+   "source": "https://support.google.com/webmasters/answer/7042828?hl=en"
+  },
+  {
+   "fact": "In general an impression counts when the result appears on the current results page, whether or not it was scrolled into view (carousels and expandable sections are the exception).",
+   "source": "https://support.google.com/webmasters/answer/7042828?hl=en"
+  },
+  {
+   "fact": "A Search Console click is any click that sends the user to a page outside Google Search, Discover or News.",
+   "source": "https://support.google.com/webmasters/answer/7042828?hl=en"
+  },
+  {
+   "fact": "In GA4, Google calls the actions that matter to your business (like a sign-up) key events. What used to be 'conversions' in Analytics are now key events.",
+   "source": "https://support.google.com/analytics/answer/13965727?hl=en"
+  },
+  {
+   "fact": "To mark an event as a key event in GA4: Admin, Data display, Events, find the event, click the star icon next to it (Editor role or above).",
+   "source": "https://support.google.com/analytics/answer/13128484"
+  },
+  {
+   "fact": "You can mark a new event as a key event before it arrives, and GA4 starts treating it as a key event once it is collected. Do not claim that marking an event is or isn't retroactive: Google's page does not say clearly.",
+   "source": "https://support.google.com/analytics/answer/13128484"
+  },
+  {
+   "fact": "Linking Search Console to GA4 adds a 'Google Organic Search Traffic' report showing landing pages with Search Console and Analytics metrics. Google says the integration shows which queries lead to clicks and how many users interact with key events.",
+   "source": "https://support.google.com/analytics/answer/10737381"
+  },
+  {
+   "fact": "The Search Console report collection in GA4 is unpublished by default; you publish it from Library.",
+   "source": "https://support.google.com/analytics/answer/10737381"
+  },
+  {
+   "fact": "Demand: a founder in r/content_marketing says four months of agency reports showed only impressions and new followers, and two questions about how many sign-ups came from the campaign got no answer.",
+   "source": "https://www.reddit.com/r/content_marketing/comments/1x8gd0s/4_months_with_an_agency_reports_full_of/ (via Flowra social listening, 2026-10-18)"
+  },
+  {
+   "fact": "Demand: an r/marketing rant thread collects people's biggest frustrations, with reporting among them.",
+   "source": "https://www.reddit.com/r/marketing/comments/1x8j8wu/rant_me_whats_your_biggest_frustration_about/ (via Flowra social listening, 2026-10-18)"
+  },
+  {
+   "fact": "Agency reporting guides describe vanity metrics (followers, impressions, page views) as numbers that make the report look impressive while the client's revenue line stays flat.",
+   "source": "https://www.swydo.com/blog/vanity-metrics/"
+  },
+  {
+   "fact": "Any numbers on Maya's screen (impressions, clicks, sign-up counts) are her own example numbers, framed as hers, not real data.",
+   "source": "Flowra facts file (no invented statistics rule)"
+  }
+ ],
+ "visualIdea": "Day set. Hook: DUO.notification slides down, \"Client: Lovely! How many sign-ups?\" (under 34 characters), with a buzz. MY.jolt, then the \"!\" mark. A stat pill by Maya's head reads \"12,400 impressions\" (her example) and then wobbles. Floey on the laptop gives the definition flip in floeyTight. Then the check moment, a DUO.listInsert of the GA4 Events list (\"Events, last 28 days\": page_view, session_start, scroll, sign_up). The sign_up row gets the hi ring, Maya clicks, and a tick plus a ding mark it as a key event. A second listInsert shows her next report, \"Report: organic\", with two plain rows, \"Clicks from Google\" and \"Sign-ups (key event)\", each holding her example value. Button: Maya's coffee is cold (running joke). She sips, winces and looks to camera. Floey: \"Send this to whoever reports impressions.\"",
+ "pillar": "problem",
+ "instinct": "Maya thinks her four months of rising impressions prove the work is paying off, and now she's afraid the client will think she did nothing.",
+ "flip": "Google counts an impression whenever your link appears on the results page, even if nobody scrolled to it, so impressions can't answer \"how many sign-ups\". GA4 can, once you star the sign-up event as a key event and report it next to your clicks.",
+ "idea": "The client asks how many sign-ups, and the report only has impressions",
+ "style": "duo"
+}

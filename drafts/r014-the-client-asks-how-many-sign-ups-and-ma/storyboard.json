@@ -1,0 +1,244 @@
+{
+ "style": "Duo sitcom, day set in Maya's room (window with soft day sky and a drifting cloud, shelf, plant, spark poster). Maya (amber captions) panics behind the desk and Floey (pink captions) perches calm and dry on the laptop lid, facing her. DUO.mug sits on the desk from frame one. There is one notification (the client, beat 0) and one cutaway insert (the GA4 Events list, beats 5 to 6). Every other beat is acted in the room, and numbers sit in DUO.stat pills by Maya's head. Flowra appears only in the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot. Maya behind the desk, eyes down at the screen, expr worried. A DUO.notification is already partway down the frame (from 'Client'). DUO.mug on the desk, Floey out of frame.",
+   "action": "The notification is already sliding down as the reel opens and the phone buzzes. Maya's eyes snap to it and she starts \"No...\" fast and high.",
+   "onScreenData": "Lovely! How many sign-ups?",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 0.9,
+   "shot": "medium",
+   "camera": "shake",
+   "subject": "maya shot. Maya in MY.jolt, expr panic. A '!' mark pops over her bun. A DUO.stat pill (bad tone) fades in by her head, about x 880, y 610. Size it with PROPS.measure, check it stays inside the maya frame, and fall back to '12.4k impressions' if it does not fit.",
+   "action": "Maya jolts and the bun wobbles. The pill fades in, and the small shake settles within 0.3 s.",
+   "onScreenData": "12,400 impressions",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 2,
+   "shot": "medium",
+   "camera": "drift",
+   "subject": "maya shot. Maya in pose cheeks, expr panic. The stat pill is still by her head.",
+   "action": "On \"She'll think I did nothing\" both hands go to her cheeks. The pill drifts a few pixels left and right as if it is nervous.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide two-shot. Floey on the laptop lid (floeyLaptop, facing -1, perched, mood think). Maya frozen in cheeks pose with the stat pill by her head.",
+   "action": "Floey gives one slow blink and starts calmly. Maya's eyes slide left to her (look -1, 0) and her hands stay frozen on her cheeks.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 1.4,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "wide two-shot, gently pushed in, with Floey, Maya and the stat pill all inside the frame.",
+   "action": "On \"showed up on Google\" Floey tips her beak toward the pill. Maya's hands slide down from her cheeks.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot. Maya in pose point toward the stat pill on screen right, expr happy, eyebrows up.",
+   "action": "Quick cut: Maya jabs a finger at the pill with a hopeful little smile, as if she has found her way out.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight. Floey alone on the laptop lid, mood think, deadpan.",
+   "action": "Floey delivers \"Even if nobody scrolled down to it\" without moving, apart from a single tongue flick.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 1.05,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot. Maya still pointing, expr turning to sad. The stat pill fades out.",
+   "action": "Her smile freezes, then her pointing finger droops and the pill fades away as her hope goes.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight. Maya in pose chin, expr think. A '?' mark appears over her head.",
+   "action": "On \"Wait\" the panic turns into focus and her hand goes to her chin. The '?' pops on \"sign-ups\" and the slow push-in reads as a realisation.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide two-shot. Floey on the laptop lid, mood determined. Maya with MY.leanTo toward the laptop, pose type, look 0.5 down.",
+   "action": "Floey hops along the lid and points a wing down at the screen. Maya leans in and her hands start on the keys.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "step"
+    },
+    {
+     "at": 0.9,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 1.9,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "DUO.listInsert, the only cutaway: 'Events, last 28 days' (sub: Maya's site). Rows page_view, session_start, scroll and sign_up, each with the value 'Event'. The hi ring is on sign_up.",
+   "action": "The insert swings in and the rows slide in one by one. On \"star sign up\" the hi ring grows around the sign_up row.",
+   "onScreenData": "sign_up",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The same Events listInsert. The sign_up row's value changes to 'Key event' in the good tone, with the ring still on it.",
+   "action": "Maya says \"Starred.\" off screen over a key tap. The sign_up value flips to 'Key event' and turns green.",
+   "onScreenData": "Key event",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "type"
+    },
+    {
+     "at": 0.45,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide two-shot. Floey on the laptop lid, mood happy, eyes closing, with a 'zzz' mark. Maya sits back (MY.sit), pose rest, expr proud. DUO.mug on the desk.",
+   "action": "Maya gives a small satisfied nod and sits back. Floey tucks her wings, settles and closes her eyes for a nap, and the zzz drifts up. Floey never touches the mug.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot. A DUO.stat pill (good tone) pops in by her head, sized with PROPS.measure. Maya goes from expr surprised to happy.",
+   "action": "The pill pops in on \"Oh\". Maya blinks at it, then beams, and her shoulders drop with relief.",
+   "onScreenData": "14 sign-ups",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide two-shot. The stat pill fades out. Maya in pose mug, so DUO.mug is no longer drawn on the desk. Floey dozing on the lid.",
+   "action": "Maya picks up the mug and takes a proud sip. On \"Ugh\" she winces (expr annoyed), then on \"Why is this cold?\" she stares into the cup, flat (expr deadpan). Floey opens one eye.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey shot, the closer two-shot favouring Floey. Floey on the lid, mood happy and smug, with Maya's mug hand at the edge of the frame.",
+   "action": "Floey turns her head to Maya and gives a little smug head bob on \"a month, Maya\".",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 1.35,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight. Maya still holding the cold mug, expr deadpan, eyes looking to camera (look 0, 0).",
+   "action": "Hard cut. Maya slowly lowers the mug a little and gives the camera a long, flat look with no words, held for about 2 seconds. Push END later so this plays out.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 3.5,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "DUO.endCard: the Flowra logo, 'Maya & Floey, every day', and Floey perched on the spark's left arm facing the camera.",
+   "action": "The end card lands and Floey settles onto the spark's left arm.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1.2
+}
