@@ -241,14 +241,18 @@
   },
   {
    "id": "r014-the-client-asks-how-many-sign-ups-and-ma",
-   "status": "failed",
+   "status": "draft",
    "topic": "The client asks \"how many sign-ups?\" and Maya's report only has impressions",
    "format": "duo-sitcom",
-   "madeAt": "2026-10-20T08:39:53.928Z",
+   "madeAt": "2026-10-20T09:21:09.164Z",
    "seconds": 28,
-   "reason": "Frame 07: render glitch. The dark overlay behind the Events panel stops short of the top edge, leaving a bright lavender strip about 55px tall across the top of the frame. It looks like the overlay is fixed to the scene and the camera moved past it. Anyone will see it on a phone. It must cover the whole frame. Frames 06–07: Floey is drawn on top of the Events panel and not dimmed with the scene. She sits on the panel's title bar, her feet cover the green window button and her beak pokes into the",
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1792488067.263599"
+   },
    "idea": "The client asks how many sign-ups, and the report only has impressions",
-   "style": "duo"
+   "style": "duo",
+   "run": 39398236576
   }
  ]
 }
