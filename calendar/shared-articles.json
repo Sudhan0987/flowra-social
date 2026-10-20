@@ -1,6 +1,9 @@
 {
   "shared": [
     "c1-a-prune",
-    "c1-a-refresh"
+    "c1-a-refresh",
+    "c2-a-what-is",
+    "c1-b-best-tools",
+    "c1-t-audit-template"
   ]
 }

@@ -67,6 +67,8 @@ function articles(): Article[] {
   return recs.filter((r) => r.status === "published" && r.url && r.at).map((r) => ({ id: r.id, url: r.url!, at: r.at!.slice(0, 10) })).sort((a, b) => b.at.localeCompare(a.at));
 }
 
+const NO_TOPIC = "LinkedIn post (no topic yet)";
+
 export function buildCalendar(): SocialItem[] {
   const today = todayIst();
   const start = addDays(today, -((dow(today) + 6) % 7)); // Monday this week
@@ -78,7 +80,15 @@ export function buildCalendar(): SocialItem[] {
   // ideas already turned into a draft (their source links are in it) are not offered again
   const draftsDir = path.join(ROOT, "posts/linkedin");
   const drafted = existsSync(draftsDir) ? readdirSync(draftsDir).filter((f) => f.endsWith(".md")).map((f) => readFileSync(path.join(draftsDir, f), "utf8")).join("\n") : "";
-  const liIdeas = listening.ideas.filter((i) => (i.channel === "linkedin" || i.channel === "x") && !i.sources.some((u) => drafted.includes(u)));
+  // LinkedIn topics, five a week since 17 Oct 2026: the listening ideas written for LinkedIn, X or a carousel first,
+  // then the week's reel ideas (the same buyer problem works as a text post for a different audience). An idea
+  // whose sources are already in a draft is never offered again, so a week cannot repeat one topic (20 Oct 2026:
+  // four drafts in a row on GPTBot when the two LinkedIn ideas ran out).
+  const unused = (i: Idea) => !i.sources.some((u) => drafted.includes(u)) && !drafted.includes(`<!-- idea: ${i.title} -->`);
+  const liIdeas = [
+    ...listening.ideas.filter((i) => ["linkedin", "x", "carousel"].includes(i.channel) && unused(i)),
+    ...listening.ideas.filter((i) => i.channel === "reel" && unused(i)),
+  ];
   const arts = articles();
   const shared = new Set(readJson<{ shared: string[] }>("calendar/shared-articles.json", { shared: [] }).shared);
   const items: SocialItem[] = [];
@@ -136,13 +146,21 @@ export function buildCalendar(): SocialItem[] {
       let title = "", sources: string[] | undefined, note = "";
       if (has) {
         title = read(file).split("\n")[0].replace(/^#\s*/, "");
-      } else if (alt % 2 === 0 && liIdeas[li]) {
-        const idea = liIdeas[li++];
-        title = idea.title; sources = idea.sources; note = `From social listening: ${idea.why}`;
       } else {
-        const a = arts.filter((x) => !shared.has(x.id))[art++];
-        title = a ? `Share the blog article: ${a.url.replace("https://", "")}` : "LinkedIn post";
-        note = a ? "Pull one useful idea out of the article and link to it." : "";
+        // alternate a listening idea and an unshared article; when one runs out use the other; when both run out,
+        // leave the day without a topic (no draft is written for it) instead of repeating one
+        const nextArticle = arts.filter((x) => !shared.has(x.id))[art];
+        const useIdea = liIdeas[li] && (alt % 2 === 0 || !nextArticle);
+        if (useIdea) {
+          const idea = liIdeas[li++];
+          title = idea.title; sources = idea.sources; note = `From social listening: ${idea.why}`;
+        } else if (nextArticle) {
+          art++;
+          title = `Share the blog article: ${nextArticle.url.replace("https://", "")}`;
+          note = "Pull one useful idea out of the article and link to it.";
+        } else {
+          title = NO_TOPIC; note = "No unused topic this week: the Sunday listening run brings new ones.";
+        }
       }
       alt++;
       if (d < today && !has) continue;
@@ -221,7 +239,7 @@ async function draftOne(it: SocialItem, article: Article | undefined, idea: Idea
   ].filter(Boolean).join("\n\n");
   const prompt = article
     ? `Repurpose this new article from Flowra's blog into a native LinkedIn post. Read it first. Pick the goal and formula that fit its single most useful claim. Aim for 900 to 1,300 characters. Put the article link in firstComment: ${article.url}`
-    : `Write a LinkedIn post on this idea from this week's social listening. Read the sources first and use only what they support. Pick the goal and formula that fit. Aim for 900 to 1,300 characters.\nIdea: ${it.title}\nHook to start from: ${idea?.hook ?? ""}\nWhy now: ${idea?.why ?? it.note}\nSources: ${(it.sources ?? []).join(" ")}\nIf one source is worth linking, put it in firstComment; otherwise leave firstComment empty.`;
+    : `Write a LinkedIn post on this idea from this week's social listening. If the idea was written for a reel and mentions Maya or Floey (our reel characters), write it as a plain post for SEO and content teams and never mention the characters. Read the sources first and use only what they support. Pick the goal and formula that fit. Aim for 900 to 1,300 characters.\nIdea: ${it.title}\nHook to start from: ${idea?.hook ?? ""}\nWhy now: ${idea?.why ?? it.note}\nSources: ${(it.sources ?? []).join(" ")}\nIf one source is worth linking, put it in firstComment; otherwise leave firstComment empty.`;
   let d = await askJson({ system, prompt, schema: Draft, web: 3, effort: "high" });
   // the humanizer's pre-posting audit, as a second pair of eyes
   const audit = await askJson({
@@ -248,6 +266,7 @@ async function writeDrafts(items: SocialItem[], redraft: boolean | string) {
   const arts = articles();
   for (const it of items) {
     if (it.kind !== "linkedin-post" || it.date < today || it.date > addDays(today, 8)) continue;
+    if (it.title === NO_TOPIC) { console.log(`no topic for ${it.date}: left empty rather than repeating one`); continue; }
     const file = `posts/linkedin/${it.date}.md`;
     const exists = existsSync(path.join(ROOT, file));
     const wantRedraft = redraft === true || redraft === it.date;
@@ -266,7 +285,7 @@ async function writeDrafts(items: SocialItem[], redraft: boolean | string) {
       const out = await renderCarousel(d.slides, path.join(ROOT, `posts/linkedin/${it.date}`)).catch((e: Error) => { console.log(`carousel for ${it.date} not rendered: ${e.message}`); return null; });
       if (out) { pdf = `posts/linkedin/${it.date}.pdf`; writeFileSync(path.join(ROOT, `posts/linkedin/${it.date}.slides.json`), JSON.stringify(d.slides, null, 1) + "\n"); }
     }
-    const meta = [`formula: ${d.formula}`, `goal: ${d.goal}`, pdf ? `carousel: ${pdf}` : "", article ? `article: ${article.url}` : "", slot.sources?.length ? `sources: ${slot.sources.join(" ")}` : "", d.auditFails.length ? `audit fixed: ${d.auditFails.join("; ")}` : "", d.stillFailing.length ? `still failing: ${d.stillFailing.join("; ")}` : ""].filter(Boolean);
+    const meta = [`idea: ${slot.title}`, `formula: ${d.formula}`, `goal: ${d.goal}`, pdf ? `carousel: ${pdf}` : "", article ? `article: ${article.url}` : "", slot.sources?.length ? `sources: ${slot.sources.join(" ")}` : "", d.auditFails.length ? `audit fixed: ${d.auditFails.join("; ")}` : "", d.stillFailing.length ? `still failing: ${d.stillFailing.join("; ")}` : ""].filter(Boolean);
     writeFileSync(path.join(ROOT, file), `# ${d.title}\n\n${d.text.trim()}\n${d.firstComment.trim() ? `\n---\nFirst comment:\n${d.firstComment.trim()}\n` : ""}\n${meta.map((m) => `<!-- ${m} -->`).join("\n")}\n`);
     if (article) {
       const f = path.join(ROOT, "calendar/shared-articles.json");

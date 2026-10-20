@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T11:55:56.484Z",
+  "updated": "2026-10-20T09:11:15.701Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -154,7 +154,20 @@
       "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
-      "date": "2026-10-18",
+      "date": "2026-10-19",
+      "kind": "linkedin-post",
+      "title": "Wait 14 days before judging a page update",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "flowra",
+      "format": "text",
+      "status": "posted",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-19.md"
+    },
+    {
+      "date": "2026-10-19",
       "kind": "reel",
       "title": "Maya's impressions are up and her clicks are flat, and the extra impressions are in long, chatty queries at the bottom of her Search Console list",
       "channels": [
@@ -164,23 +177,10 @@
         "linkedin",
         "x"
       ],
-      "status": "ready",
-      "owner": "you",
-      "ref": "r012-maya-s-impressions-are-up-and-her-clicks",
-      "note": "Approved. Ask Claude to post it to Instagram and Facebook."
-    },
-    {
-      "date": "2026-10-19",
-      "kind": "linkedin-post",
-      "title": "Wait 14 days before judging a page update",
-      "channels": [
-        "linkedin"
-      ],
+      "status": "posted",
       "owner": "flowra",
-      "format": "text",
-      "status": "approved",
-      "note": "Text is ready. Post it from the Flowra page.",
-      "file": "posts/linkedin/2026-10-19.md"
+      "ref": "r012-maya-s-impressions-are-up-and-her-clicks",
+      "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
       "date": "2026-10-19",
@@ -208,7 +208,7 @@
       "owner": "flowra",
       "note": "Script is written. Flowra builds the video (screens in the product film's style, Floey's voice) and sends it for review.",
       "file": "youtube/t001-why-did-my-traffic-drop/script.md",
-      "status": "making"
+      "status": "planned"
     },
     {
       "date": "2026-10-20",
@@ -217,9 +217,9 @@
       "channels": [
         "linkedin"
       ],
-      "owner": "you",
+      "owner": "flowra",
       "format": "text",
-      "status": "ready",
+      "status": "approved",
       "note": "Text is ready. Post it from the Flowra page.",
       "file": "posts/linkedin/2026-10-20.md"
     },
@@ -234,7 +234,7 @@
         "linkedin",
         "x"
       ],
-      "status": "planned",
+      "status": "making",
       "owner": "flowra",
       "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Maya: \"Four months of reports, and the client still can't see a single sign-up in them.\"",
       "sources": [
@@ -245,7 +245,7 @@
     {
       "date": "2026-10-21",
       "kind": "linkedin-post",
-      "title": "GPTBot got a 429 even though robots.txt allowed it",
+      "title": "Customer questions already sit in Search Console",
       "channels": [
         "linkedin"
       ],
@@ -276,14 +276,14 @@
     {
       "date": "2026-10-22",
       "kind": "linkedin-post",
-      "title": "GPTBot got a 429 while robots.txt allowed it",
+      "title": "SEO report: lead with the CTR drop, not the 18%",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
       "status": "ready",
-      "note": "Text is ready. Post it from the Flowra page.",
+      "note": "Text is ready. Post it from the Flowra page as a document: attach posts/linkedin/2026-10-22.pdf.",
       "file": "posts/linkedin/2026-10-22.md"
     },
     {
@@ -319,7 +319,7 @@
     {
       "date": "2026-10-23",
       "kind": "linkedin-post",
-      "title": "GPTBot got a 429 while robots.txt said allow",
+      "title": "AI Overviews suits dismissed: check your decaying pages",
       "channels": [
         "linkedin"
       ],
@@ -380,7 +380,7 @@
     {
       "date": "2026-10-26",
       "kind": "linkedin-post",
-      "title": "GPTBot got a 429 even though robots.txt allowed it",
+      "title": "The $0 content audit stack and the four verdicts",
       "channels": [
         "linkedin"
       ],
@@ -408,18 +408,15 @@
     {
       "date": "2026-10-27",
       "kind": "linkedin-post",
-      "title": "Our robots.txt said yes to GPTBot. Our host said 429.",
+      "title": "The zero-click tail at the bottom of Search Console",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
-      "status": "planned",
-      "note": "From social listening: A Hacker News post about a site flooded with AI bot traffic after hitting the front page got 351 points and 186 comments. A bigseo post compares AI crawler reads with human visits. Our own finding answers the opposite worry: GPTBot got HTTP 429 at the host's edge while other AI crawlers got through.",
-      "sources": [
-        "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic",
-        "https://www.reddit.com/r/bigseo/comments/1x8efd1/220_days_of_firstparty_logs_105m_ai_crawler_reads/"
-      ]
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-27.md"
     },
     {
       "date": "2026-10-27",
@@ -439,14 +436,15 @@
     {
       "date": "2026-10-28",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/what-is-seo-report",
+      "title": "Content audit template: merge before you refresh or delete",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
-      "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it."
+      "status": "ready",
+      "note": "Text is ready. Post it from the Flowra page.",
+      "file": "posts/linkedin/2026-10-28.md"
     },
     {
       "date": "2026-10-28",
@@ -466,16 +464,16 @@
     {
       "date": "2026-10-29",
       "kind": "linkedin-post",
-      "title": "The AI Overviews lawsuits got dismissed. Here's what's still up to you.",
+      "title": "Five pages on one keyword isn't five chances to rank (myth, about 25 seconds)",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
       "status": "planned",
-      "note": "From social listening: Reuters reported the dismissal on Hacker News and people are passing it around. The useful take is to stop waiting for courts and look at which pages are losing clicks, using the decay queue rather than the AI report we already covered. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026.",
+      "note": "From social listening: A bigseo poster says one keyword brings impressions to 5 or 6 of their pages after they published a lot of content without a keyword plan. Duo myth reel, the 25 second half of the length experiment, with a send ask at the end. On screen: Performance, filter one query, open the Pages tab and count the pages. Pro's keyword cannibalization report is the product mention. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026.",
       "sources": [
-        "https://reuters.com/legal/litigation/google-wins-dismissal-chegg-penske-media-lawsuits-over-ai-overviews-2026-10-01"
+        "https://www.reddit.com/r/bigseo/comments/1x7f5th/cannibalisation_issue_with_the_content/"
       ]
     },
     {
@@ -496,7 +494,7 @@
     {
       "date": "2026-10-30",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/best-content-audit-tools",
+      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
       "channels": [
         "linkedin"
       ],
@@ -553,14 +551,18 @@
     {
       "date": "2026-11-02",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/content-audit-template",
+      "title": "The client asks how many sign-ups, and the report only has impressions",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it."
+      "note": "From social listening: A founder in content_marketing says four months of agency reports only showed impressions and new followers, and when they asked twice how many sign-ups came from the campaign, they got no answer. Duo reel on the voiced frustration pattern: put Search Console clicks next to GA4 in one report the client opens as a link, which Flowra's client reports do. End with 'send this to the agency that only reports impressions'.",
+      "sources": [
+        "https://www.reddit.com/r/content_marketing/comments/1x8gd0s/4_months_with_an_agency_reports_full_of/",
+        "https://www.reddit.com/r/marketing/comments/1x8j8wu/rant_me_whats_your_biggest_frustration_about/"
+      ]
     },
     {
       "date": "2026-11-02",
@@ -592,7 +594,7 @@
     {
       "date": "2026-11-03",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
+      "title": "Share the blog article: useflowra.com/blog/fresh-content-seo",
       "channels": [
         "linkedin"
       ],
@@ -619,14 +621,17 @@
     {
       "date": "2026-11-04",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/fresh-content-seo",
+      "title": "Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it."
+      "note": "From social listening: Search Engine Journal reports Google telling sites to fact-check AI content before publishing. The detector reels covered whether a tool can spot AI writing. This one teaches a different step: checking every claim before the post goes live. It's the 32 second half of the length experiment, with a send ask, and the outline-first Writer is the product angle.",
+      "sources": [
+        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/"
+      ]
     },
     {
       "date": "2026-11-04",
@@ -685,14 +690,17 @@
     {
       "date": "2026-11-06",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "Floey and the flower one shelf below the top (short-first-frame retest)",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead."
+      "note": "From social listening: A beginner thread asks how long organic traffic takes to arrive, which keeps coming up. It's the 22 second garden retest from our plan, with only the first frame changed: Floey ignores a fresh seedling and flies to a flower one rung below the top of the trellis, which stands for pages around positions 8 to 20. Free shows the top 5 striking distance queries.",
+      "sources": [
+        "https://www.reddit.com/r/SEO/comments/1x8sqlo/beginner_in_seo_how_long_does_it_realistically/"
+      ]
     },
     {
       "date": "2026-11-06",
@@ -742,14 +750,14 @@
     {
       "date": "2026-11-09",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "LinkedIn post (no topic yet)",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead."
+      "note": "No unused topic this week: the Sunday listening run brings new ones."
     },
     {
       "date": "2026-11-09",
@@ -769,14 +777,14 @@
     {
       "date": "2026-11-10",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "LinkedIn post (no topic yet)",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead."
+      "note": "No unused topic this week: the Sunday listening run brings new ones."
     },
     {
       "date": "2026-11-10",
@@ -796,14 +804,14 @@
     {
       "date": "2026-11-11",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "LinkedIn post (no topic yet)",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead."
+      "note": "No unused topic this week: the Sunday listening run brings new ones."
     },
     {
       "date": "2026-11-11",
@@ -823,14 +831,14 @@
     {
       "date": "2026-11-12",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "LinkedIn post (no topic yet)",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+      "note": "No unused topic this week: the Sunday listening run brings new ones. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
     },
     {
       "date": "2026-11-12",
@@ -850,14 +858,14 @@
     {
       "date": "2026-11-13",
       "kind": "linkedin-post",
-      "title": "LinkedIn post",
+      "title": "LinkedIn post (no topic yet)",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "text",
       "status": "planned",
-      "note": "Flowra drafts it a week ahead."
+      "note": "No unused topic this week: the Sunday listening run brings new ones."
     },
     {
       "date": "2026-11-13",
