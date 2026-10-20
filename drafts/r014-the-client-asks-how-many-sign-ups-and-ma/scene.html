@@ -20,9 +20,9 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3
 // ("Lovely! How many sign-ups?"), Maya worried; she jolts, a "!" pops, a nervous "12,400 impressions"
 // pill by her head. Floey: an impression only means the link showed up. "So people saw it!" points at
 // the pill. "Even if nobody scrolled down to it": the results page, her post ringed at position 10.
-// The pill drops. "Then where are the sign-ups?" The tip: Floey hops and leans over the lid at the
-// screen; the cutaway to GA4 Events holds through the whole tip with Floey perched on top of it, the
-// cursor goes to the star on sign_up, "Starred." flips it to Key event. Floey naps (zzz), the window
+// The pill drops. "Wait." a finger up; "Then where are the sign-ups?" a shrug and a "?". The tip: Floey
+// hops and leans over the lid at the screen; over the screen, GA4 Events rises below both faces and holds
+// through the whole tip, the cursor goes to the star on sign_up, "Starred." flips it to Key event. Floey naps (zzz), the window
 // flicks night and day (a month goes by). The report: clicks next to 14 sign-ups. A happy sip; the
 // coffee is a month old; Floey opens her eye. "It's been a month, Maya." Her flat look, then the end card.
 const M = window.MOUTHS || {};
@@ -43,7 +43,9 @@ const MS_IN = { camX: 746, camY: 812, zoom: 1.6 };     // a slow creep in throug
 const MT = { camX: 680, camY: 730, zoom: 2.1 };        // Maya's face (Floey's beak tip stays past the left edge)
 const LOOK = { camX: 700, camY: 800, zoom: 1.9 };      // her flat look to camera, the cold mug in shot
 const LOOK2 = { camX: 696, camY: 790, zoom: 2.05 };    // the slow push on it
-const FT = { camX: 262, camY: 1000, zoom: 3.0 };       // Floey alone on the lid; the frame's right edge stops short of Maya's hair
+const DT = { camX: 690, camY: 800, zoom: 1.8 };        // "Wait.": her face and both hands (the finger up, the shrug)
+const FT = { camX: 232, camY: 1140, zoom: 2.4 };       // Floey alone on the lid, high in the frame, the laptop's spark below; Maya's hair stays out
+const OVER = { camX: 465, camY: 1306, zoom: 1.0 };     // over the screen: both faces above, the laptop (and its panel) below
 const FS = { camX: 470, camY: 1000, zoom: 1.3 };       // the closer two-shot favouring Floey (her hop, the lean over the lid)
 const NAP = { camX: 455, camY: 990, zoom: 1.5 };      // the drift in on Floey as she dozes off (Maya still in, proud)
 const TWO = { camX: 500, camY: 960, zoom: 1.42 };      // a tighter two-shot: Maya and the cup, Floey's eye opening
@@ -56,6 +58,9 @@ const MUG_LOW = { L: [262, 640], R: [380, 560], hold: "mug" };
 // pointing up and right, at the pill by her head
 const POINT_UP = { L: [228, 705], R: [512, 330], kR: "point" };
 const POINT_DROOP = { L: [228, 705], R: [470, 560], kR: "point" };
+// "Wait.": one finger up by her face; then the shrug, palms up, both hands inside her close shot
+const FINGER = { L: [228, 705], R: [470, 290], kR: "point" };
+const SHRUG = { L: [178, 545], R: [450, 545], kL: "open", kR: "open" };
 
 // ---------- the cast ----------
 // on the lid a little left of the spot, so her beak tip stays out of Maya's close shots
@@ -111,7 +116,8 @@ F.mood(SU - 0.1, "hello");
 ftw(SU, { tilt: -14, lookX: 0.6, lookY: -0.9, duration: 0.2 });
 ftw(b.reframe1.end - 0.2, { tilt: 0, lookX: 0.3, lookY: 0, duration: 0.25 });
 // the listener: her eyes follow the beak to the pill, a small hopeful tilt
-MY.look(SU + 0.15, 0.8, -0.7, 0.15).expr(SU + 0.15, "surprised").tiltTo(SU + 0.15, 6, 0.35);
+// (mouth shut: "neutral" is closed, so nobody reads her as the speaker)
+MY.look(SU + 0.15, 0.8, -0.7, 0.15).expr(SU + 0.15, "neutral").tiltTo(SU + 0.15, 6, 0.35);
 
 // ---------- DOUBT2: Maya alone, the finger on the pill, a way out ----------
 const D2 = b.doubt2.start;
@@ -144,12 +150,14 @@ lid(BACK, 0, 0.05);
 MY.expr(BACK, "sad").pose(BACK + 0.02, POINT_DROOP, 0.3).look(BACK, 0.7, -0.5, 0.1);
 wt.to(W, { pill: 0, duration: 0.3, ease: "power2.in" }, BACK + 0.05);
 F.sfx(BACK + 0.05, "boing", { x0: 860 });
-MY.expr(D4 + 0.02, "think").pose(D4 + 0.02, "chin", 0.35).look(D4 + 0.05, 0.3, -0.6, 0.15).say(D4, M.doubt4 || [], "doubt4");
-shot(D4 + 0.2, MT, 0.7, "power2.inOut");
-const SG = word("doubt4", "sign-ups");
-wt.to(W, { qm: 1, duration: 0.22, ease: "back.out(2)" }, SG);
-F.sfx(SG, "pop", { x0: 760 });
-MY.tiltTo(SG, -6, 0.3).look(SG, -0.6, -0.3, 0.15);
+// "Wait.": one finger up, the panic turning into focus; said half under her breath (a smaller mouth)
+MY.expr(D4 + 0.02, "think").pose(D4 - 0.05, FINGER, 0.22).look(D4 + 0.05, 0.3, -0.6, 0.15).say(D4, (M.doubt4 || []).map((v) => v * 0.6), "doubt4");
+shot(D4 + 0.1, DT, 0.7, "power2.inOut");
+// "where are the sign-ups?": the open-handed shrug at Floey, the "?" over her bun
+const WH = word("doubt4", "where");
+MY.pose(WH - 0.1, SHRUG, 0.3).expr(WH, "worried").tiltTo(WH, -6, 0.3).look(WH, -0.8, -0.2, 0.15);
+wt.to(W, { qm: 1, duration: 0.22, ease: "back.out(2)" }, WH + 0.1);
+F.sfx(WH + 0.1, "pop", { x0: 760 });
 
 // ---------- TIP5: Floey's two-shot; she hops and leans over the lid at the screen, Maya leans in ----------
 // "In Google Analytics, star sign up in Events. That makes it a key event."
@@ -171,9 +179,10 @@ ftw(T5 + 0.45, { tilt: 30, lookX: 0.8, lookY: 1, rot: -8, duration: 0.22, ease: 
 MY.expr(TC, "think").pose(TC + 0.05, "type", 0.3).leanTo(TC + 0.1, -7, 0.45).look(TC + 0.1, -0.6, 0.8, 0.15).tiltTo(TC, -3, 0.3);
 MY.expr(T5 + 0.5, "neutral");
 F.sfx(TC + 0.85, "typing", { d: 0.3, x0: 640 });
-// "star sign up": her screen, the GA4 Events list; it stays up through the whole tip and "Starred."
-// Floey rides on top of it, leaning down at the rows; the cursor goes to the star on sign_up
+// "star sign up": over the screen; both faces above, the GA4 Events list rises over the laptop below them.
+// It stays up through the whole tip and "Starred."; Floey on the lid leans down at it; the cursor goes to the star on sign_up
 const ST = word("tip5", "Analytics") + 0.25;
+cut(ST - 0.05, OVER);
 ftw(ST - 0.05, { tilt: 22, lookX: 0.7, lookY: 0.9, rot: 0, duration: 0.15 });
 wt.to(W, { ev: 1, duration: 0.3, ease: "power3.out" }, ST);
 F.sfx(ST, "whoosh");
@@ -222,11 +231,12 @@ cut(TL, WIDE);
 [0, 0.14, 0.28, 0.42].forEach((d, i) => wt.set(W, { night: i % 2 ? 0 : 1 }, TL + d));
 wt.set(W, { night: 0 }, TL + 0.56);
 F.sfx(TL, "tick", { x0: 820 });
-MY.expr(TL, "deadpan").pose(TL, "chin", 0.01).look(TL, 0.6, -0.6, 0.01).leanTo(TL, 0, 0.01);
+MY.expr(TL, "deadpan").pose(TL, "type", 0.01).look(TL, 0.6, -0.6, 0.01).leanTo(TL, 0, 0.01);
 MY.pose(TL + 0.28, "crossed", 0.01).look(TL + 0.28, -0.3, 0.6, 0.01).tiltTo(TL + 0.28, 5, 0.01);
 
 // ---------- PAYOFF8: the report; "Oh. Fourteen sign-ups."; then her face, beaming ----------
 const P8 = b.payoff8.start, RP = TL + 0.5;
+cut(RP - 0.05, OVER);
 wt.to(W, { rep: 1, duration: 0.3, ease: "power3.out" }, RP);
 F.sfx(RP, "whoosh");
 wt.to(W, { repRows: 1, duration: 0.35, ease: "none" }, RP + 0.1);
@@ -335,7 +345,7 @@ const RESULTS = [
   { label: "More results", value: "5 to 9" }, { label: "Your post", value: "10", tone: "bad", hi: true },
 ];
 function resultsInsert() {
-  return DUO.listInsert(W.res, W.resRows, { title: "Google results page", cols: ["Result", "Position"], rows: RESULTS, hiK: W.resHi, sub: "Seen or not, it counts as an impression" });
+  return panel(DUO.listInsert(on1(W.res), W.resRows, { title: "Google results page", cols: ["Result", "Position"], rows: RESULTS, hiK: W.resHi, sub: "Seen or not, it counts as an impression" }), W.res);
 }
 // a five-point star (GA4's "mark as key event" star), outline or filled
 function star(cx, cy, r, fill) {
@@ -351,7 +361,7 @@ function eventsInsert(t) {
   if (W.ev <= 0.01) return "";
   const on = W.star > 0.5;
   const rows = EVENTS.map((e) => ({ label: e, value: e === "sign_up" && on ? "Key event" : "No", tone: e === "sign_up" ? (on ? "good" : "brand") : undefined, hi: e === "sign_up" }));
-  const s = DUO.listInsert(W.ev, W.evRows, { title: "Client's site: Events", cols: ["Event name", "Key event"], rows, hiK: W.evHi, sub: "Google Analytics, Admin, Events (example)" });
+  const s = DUO.listInsert(on1(W.ev), W.evRows, { title: "Client's site: Events", cols: ["Event name", "Key event"], rows, hiK: W.evHi, sub: "Google Analytics, Admin, Events (example)" });
   let add = "";
   // the star beside each value, sliding in with its row; sign_up's fills and pops when Maya clicks it
   EVENTS.forEach((e, i) => {
@@ -367,21 +377,30 @@ function eventsInsert(t) {
     const press = W.star > 0.01 && W.star < 0.6 ? 0.88 : 1;
     add += `<g opacity="${fx(Math.min(1, k * 3))}">${pointer(x, y, press)}</g>`;
   }
-  // Floey perched on the window's top edge, leaning down at the rows (the same Floey, drawn on her screen)
-  const s2 = 1.45, ax = 330, ay = 560 - 62 * s2;
-  add += `<g transform="translate(${ax} ${ay}) scale(${s2}) translate(${-PERCH.x} ${-PERCH.y})">${floey(t)}</g>`;
-  return s.slice(0, -4) + add + "</g>";
+  return panel(s.slice(0, -4) + add + "</g>", W.ev, LOW, 0);
 }
 function reportInsert() {
-  return DUO.listInsert(W.rep, W.repRows, { title: "Client report, last 28 days", cols: ["From Google", "Count"], hiK: W.repHi, sub: "Example numbers",
-    rows: [{ label: "Clicks", value: "320" }, { label: "Sign-ups (key event)", value: "14", tone: "good", hi: true }] });
+  return panel(DUO.listInsert(on1(W.rep), W.repRows, { title: "Client report, last 28 days", cols: ["From Google", "Count"], hiK: W.repHi, sub: "Example numbers",
+    rows: [{ label: "Clicks", value: "320" }, { label: "Sign-ups (key event)", value: "14", tone: "good", hi: true }] }), W.rep, LOW, 0);
+}
+// an insert's dim backdrop stays fixed to the frame (the insert's own one slides with the panel and leaves a strip
+// at the top); dy lowers the panel so the faces above it (OVER) stay in view, and those panels get no dim.
+// The panel never slides through the caption band: DUO.listInsert gets k 1 (no slide), and here it fades in
+// and out with a small rise, always above y 1440, so a caption never covers its last row or its source line
+const LOW = 196;
+const on1 = (k) => (k > 0.01 ? 1 : 0);
+function panel(s, k, dy = 0, dim = 0.55) {
+  if (!s) return "";
+  const body = s.replace(`<rect width="1080" height="1920" fill="#2d2f45" opacity=".55"/>`, "");
+  const e = Math.min(1, k), lift = fx(dy - (1 - e) * 40);
+  return (dim ? `<rect width="1080" height="1920" fill="#2d2f45" opacity="${fx(dim * Math.min(1, k * 2) * 100) / 100}"/>` : "")
+    + `<g opacity="${fx(e * 100) / 100}" transform="translate(0 ${lift})">${body}</g>`;
 }
 
 window.render = function (t) {
   wt.seek(Math.min(DUR, t), false);
-  // while her screen is up, Floey is drawn on it, not behind it
-  const world = DUO.room(t, { night: W.night > 0.5 }) + maya(t) + DUO.deskFront() + DUO.laptop() + (W.desk > 0.5 ? DUO.mug() : "") + (W.ev < 0.3 ? floey(t) : "")
-    + pill(t) + DUO.mark("!", 498, 650, W.bang, t) + DUO.mark("?", 748, 610, W.qm, t) + (W.rep < 0.01 && W.zoom < 1.8 ? DUO.mark("zzz", 352, 930, W.zzz, t) : "");
+  const world = DUO.room(t, { night: W.night > 0.5 }) + maya(t) + DUO.deskFront() + DUO.laptop() + (W.desk > 0.5 ? DUO.mug() : "") + floey(t)
+    + pill(t) + DUO.mark("!", 498, 650, W.bang, t) + DUO.mark("?", 748, 610, W.qm, t) + (W.zoom < 1.8 ? DUO.mark("zzz", 352, 930, W.zzz, t) : "");
   document.getElementById("stage").innerHTML = DUO.cam(world, W)
     + (W.end < 0.5 ? notify(W.note, "Client", "Lovely! How many sign-ups?", 236) + resultsInsert() + eventsInsert(t) + reportInsert() : "")
     + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")

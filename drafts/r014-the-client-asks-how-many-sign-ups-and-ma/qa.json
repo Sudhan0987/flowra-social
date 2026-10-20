@@ -1,11 +1,9 @@
 {
- "pass": false,
+ "pass": true,
  "problems": [
-  "Frame 07: render glitch. The dark overlay behind the Events panel stops short of the top edge, leaving a bright lavender strip about 55px tall across the top of the frame. It looks like the overlay is fixed to the scene and the camera moved past it. Anyone will see it on a phone. It must cover the whole frame.",
-  "Frames 06–07: Floey is drawn on top of the Events panel and not dimmed with the scene. She sits on the panel's title bar, her feet cover the green window button and her beak pokes into the back of Maya's dimmed head. It looks like a layering mistake, not a bird on a laptop lid. Either put her behind the panel and dim her, or move the panel down so she clearly sits on the lid with her wing pointing down at the screen, as the script says.",
-  "Frame 08: the report panel covers Floey's head and upper body, so only a headless body sticks out under the panel above the laptop. This is the 'nap' beat the later joke depends on (she opens one eye in frame 09). Move the panel or Floey so she stays readable.",
-  "Frame 02: the picture doesn't match the voice. During Floey's line ('…on Google.') Maya is grinning with her mouth wide open, as if she is the one talking. The script says she stays frozen in the jolt. With the speaker label being small, a phone viewer will think Maya is speaking. Keep her mouth closed in the frozen panic pose until her own line.",
-  "Frame 04: the 'chin' pose doesn't read as 'panic turning into focus'. Her mouth is wide open and the bent arm puts her fist in front of her mouth, so it looks like a yawn or a cough. Her arm also bends in an anatomically odd zig-zag. The '?' mark the script calls for is not visible either. Close the mouth (or make it a small 'o'), put the hand on the chin, and show the '?'.",
-  "Frame 03: the Floey close-up leaves the top half of the frame as empty flat lavender, with Floey pushed into the lower middle. It reads as empty on a phone. Frame her higher or tighter."
+  "Minor, not blocking (frame 04): on 'Wait. Then where are the sign-ups?' Maya is grinning with her mouth open, not shifting from panic to focus as the script asks. The '?' mark isn't visible in this frame.",
+  "Minor, not blocking (frames 06-07): the Events panel title says 'Client's site: Events', but the script says 'Events, last 28 days (Maya's site)'. The client version actually fits the story better. Also, in frame 07 the panel is partly see-through, so the laptop and hands show faintly behind it.",
+  "Minor, not blocking (frame 08): the report puts 'Clicks' (a Search Console number) and 'Sign-ups (key event)' (a Google Analytics number) under the same 'From Google' heading. It is marked 'Example numbers', so this is acceptable, but a careful viewer could ask where that combined report comes from.",
+  "Minor, not blocking (frame 09): the 'cold?' caption sits on top of Maya's resting hand."
  ]
 }
