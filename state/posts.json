@@ -248,7 +248,7 @@
   },
   {
    "id": "r014-the-client-asks-how-many-sign-ups-and-ma",
-   "status": "draft",
+   "status": "approved",
    "topic": "The client asks \"how many sign-ups?\" and Maya's report only has impressions",
    "format": "duo-sitcom",
    "madeAt": "2026-10-20T09:21:09.164Z",
@@ -259,7 +259,8 @@
    },
    "idea": "The client asks how many sign-ups, and the report only has impressions",
    "style": "duo",
-   "run": 39398236576
+   "run": 39398236576,
+   "note": "Approved by the founder in chat, 20 Oct 2026."
   }
  ]
 }
