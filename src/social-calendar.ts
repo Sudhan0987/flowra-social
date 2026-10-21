@@ -17,6 +17,7 @@
 //      npx tsx src/social-calendar.ts --drafts   (also write missing LinkedIn drafts for the next 8 days)
 //      npx tsx src/social-calendar.ts --redraft  (rewrite the not-yet-posted drafts for the next 8 days too)
 //      npx tsx src/social-calendar.ts --redraft=2026-10-15  (rewrite one draft, keeping its topic)
+//      npx tsx src/social-calendar.ts --media     (make the image or carousel for drafts that have none)
 
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
@@ -24,7 +25,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { askJson } from "./claude.ts";
-import { renderCarousel, slideProblems, Slides } from "./carousel.ts";
+import { Card, cardProblems, renderCard, renderCarousel, slideProblems, Slides } from "./carousel.ts";
 import { reelIdeas as listeningReelIdeas, unusedReelIdeas } from "./ideas.ts";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -35,8 +36,11 @@ type Channel = "instagram" | "facebook" | "linkedin" | "x" | "youtube";
 export interface SocialItem {
   date: string;
   kind: "reel" | "linkedin-post" | "setup" | "youtube-video";
-  /** LinkedIn only: Thursday posts ship as a document (PDF carousel), the format with the most reach in 2026. */
-  format?: "text" | "carousel";
+  /** LinkedIn only. Founder, 21 Oct 2026: every post carries media. Tuesday and Thursday are documents
+   *  (PDF carousels, the format with the most reach in 2026); the other days a text post with one image card. */
+  format?: "text" | "image" | "carousel";
+  /** The media file for the post (posts/linkedin/<date>.png or .pdf) when it exists. */
+  media?: string;
   title: string;
   channels: Channel[];
   status: "posted" | "ready" | "approved" | "needs-you" | "making" | "planned";
@@ -164,15 +168,16 @@ export function buildCalendar(): SocialItem[] {
       }
       alt++;
       if (d < today && !has) continue;
-      const format = w === 4 ? "carousel" : "text";
-      const pdf = `posts/linkedin/${d}.pdf`;
+      const format = w === 2 || w === 4 ? "carousel" : "image";
+      const pdf = `posts/linkedin/${d}.pdf`, png = `posts/linkedin/${d}.png`;
+      const media = existsSync(path.join(ROOT, pdf)) ? pdf : existsSync(path.join(ROOT, png)) ? png : undefined;
       items.push({
         date: d, kind: "linkedin-post", title, channels: ["linkedin"], owner: approved || done ? "flowra" : "you", format,
         status: done ? "posted" : approved ? "approved" : has ? "ready" : "planned",
         note: has
-          ? format === "carousel" && existsSync(path.join(ROOT, pdf)) ? `Text is ready. Post it from the Flowra page as a document: attach ${pdf}.` : "Text is ready. Post it from the Flowra page."
-          : (note || "Flowra drafts it a week ahead.") + (format === "carousel" ? " Document post (PDF carousel): the format with the most reach on LinkedIn in 2026." : ""),
-        file: has ? file : undefined, sources,
+          ? media ? `Ready with its ${media.endsWith(".pdf") ? "carousel" : "image"}. Approve and it posts on the Flowra page.` : "Text is ready; the image is made on the next drafts run."
+          : (note || "Flowra drafts it a week ahead.") + (format === "carousel" ? " Document post (PDF carousel): the format with the most reach on LinkedIn in 2026." : " Text post with one image card."),
+        file: has ? file : undefined, media, sources,
       });
     }
   }
@@ -189,7 +194,8 @@ const Draft = z.object({
   formula: z.string().describe("The hook formula used, e.g. 'F7 Odd-Precision Money Ledger'."),
   text: z.string().describe("The post, ready to paste. No links in it."),
   firstComment: z.string().describe("The first comment to add right after posting: the link and one line on what it is. Empty if there is no link."),
-  slides: Slides.optional().describe("Only for a document post: the 6 to 9 slides. Omit for a text post."),
+  slides: Slides.optional().describe("Only for a document post: the 6 to 9 slides. Omit otherwise."),
+  card: Card.optional().describe("Only for an image post: the one card that goes with the text. Omit otherwise."),
 });
 const Audit = z.object({
   fails: z.array(z.string()).describe("Every audit item that failed, in a few words each. Empty if none."),
@@ -230,7 +236,11 @@ async function draftOne(it: SocialItem, article: Article | undefined, idea: Idea
     "HUMANIZER CHECKLIST\n" + PLAY("humanizer-checklist.md"),
     "Ignore the playbook's publishing and illustration steps (lib.publish, Publora, Apify, approval cards): return the draft only. There is no voice profile or story bank; use the generic voice rules.",
     "FLOWRA FACTS (the only source for claims about Flowra)\n" + read("facts/flowra.md"),
-    it.format === "carousel" ? [
+    it.format === "image" ? [
+      "IMAGE POST. The text post goes out with one image: a card in Flowra's look showing the hook.",
+      "- Return `card`: kicker (2 to 4 words), title (the hook, at most 12 words, not a question), body (at most 22 words; the one line that makes it land), and `stat` only when a number from the sources is the point.",
+      "- The card must read on its own in a feed, and must not copy the post's first line word for word.",
+    ].join("\n") : it.format === "carousel" ? [
       "DOCUMENT POST. This post is a PDF carousel plus a caption, not a long text post.",
       "- Return `slides`: 6 to 9 slides. Slide 1 is the cover: title = the hook (at most 8 words), body = who it is for. Slides 2 to n-1 carry one point each in order; a `stat` only when a number from the sources is the point. The last slide is the close: what to do now, no link, no Flowra pitch.",
       "- At most 8 words in a title, 18 in a body, 26 on a slide. Short lines a phone reader can take in while swiping.",
@@ -280,12 +290,16 @@ async function writeDrafts(items: SocialItem[], redraft: boolean | string) {
     const slot = idea && !it.sources?.length ? { ...it, title: idea.title, sources: idea.sources } : it;
     const d = await draftOne(slot, article, idea);
     mkdirSync(path.join(ROOT, "posts/linkedin"), { recursive: true });
-    let pdf = "";
+    let pdf = "", png = "";
     if (it.format === "carousel" && d.slides?.length && !slideProblems(d.slides).length) {
       const out = await renderCarousel(d.slides, path.join(ROOT, `posts/linkedin/${it.date}`)).catch((e: Error) => { console.log(`carousel for ${it.date} not rendered: ${e.message}`); return null; });
       if (out) { pdf = `posts/linkedin/${it.date}.pdf`; writeFileSync(path.join(ROOT, `posts/linkedin/${it.date}.slides.json`), JSON.stringify(d.slides, null, 1) + "\n"); }
     }
-    const meta = [`idea: ${slot.title}`, `formula: ${d.formula}`, `goal: ${d.goal}`, pdf ? `carousel: ${pdf}` : "", article ? `article: ${article.url}` : "", slot.sources?.length ? `sources: ${slot.sources.join(" ")}` : "", d.auditFails.length ? `audit fixed: ${d.auditFails.join("; ")}` : "", d.stillFailing.length ? `still failing: ${d.stillFailing.join("; ")}` : ""].filter(Boolean);
+    if (it.format === "image" && d.card && !cardProblems(d.card).length) {
+      const out = await renderCard(d.card, path.join(ROOT, `posts/linkedin/${it.date}.png`)).catch((e: Error) => { console.log(`image for ${it.date} not rendered: ${e.message}`); return null; });
+      if (out) { png = `posts/linkedin/${it.date}.png`; writeFileSync(path.join(ROOT, `posts/linkedin/${it.date}.card.json`), JSON.stringify(d.card, null, 1) + "\n"); }
+    }
+    const meta = [`idea: ${slot.title}`, `formula: ${d.formula}`, `goal: ${d.goal}`, pdf ? `carousel: ${pdf}` : "", png ? `image: ${png}` : "", article ? `article: ${article.url}` : "", slot.sources?.length ? `sources: ${slot.sources.join(" ")}` : "", d.auditFails.length ? `audit fixed: ${d.auditFails.join("; ")}` : "", d.stillFailing.length ? `still failing: ${d.stillFailing.join("; ")}` : ""].filter(Boolean);
     writeFileSync(path.join(ROOT, file), `# ${d.title}\n\n${d.text.trim()}\n${d.firstComment.trim() ? `\n---\nFirst comment:\n${d.firstComment.trim()}\n` : ""}\n${meta.map((m) => `<!-- ${m} -->`).join("\n")}\n`);
     if (article) {
       const f = path.join(ROOT, "calendar/shared-articles.json");
@@ -297,9 +311,38 @@ async function writeDrafts(items: SocialItem[], redraft: boolean | string) {
   }
 }
 
+/** Makes the image for drafts that have text but no media yet (older drafts, or a render that failed). The text is not touched. */
+async function addMedia(items: SocialItem[]) {
+  const today = todayIst();
+  for (const it of items) {
+    if (it.kind !== "linkedin-post" || !it.file || it.media || it.date < today || it.date > addDays(today, 8)) continue;
+    if (existsSync(path.join(ROOT, `posts/linkedin/${it.date}.posted`))) continue;
+    const text = read(it.file);
+    const body = text.replace(/<!--[\s\S]*?-->/g, "").split(/\n---\nFirst comment:/)[0].replace(/^#[^\n]*\n/, "").trim();
+    try {
+      if (it.format === "carousel") {
+        const d = await askJson({ system: ["You turn a finished LinkedIn post into the slides of a PDF carousel in the same words and facts; add nothing new.", HOUSE_LI].join("\n\n"), prompt: `Post:\n${body}\n\nReturn 6 to 9 slides: slide 1 the hook (title at most 8 words) and who it is for; one point per slide; the last slide says what to do now. At most 8 words in a title, 18 in a body.`, schema: z.object({ slides: Slides }), effort: "medium" });
+        const probs = slideProblems(d.slides);
+        if (probs.length) { console.log(`${it.date}: slides failed (${probs.join("; ")})`); continue; }
+        await renderCarousel(d.slides, path.join(ROOT, `posts/linkedin/${it.date}`));
+        writeFileSync(path.join(ROOT, `posts/linkedin/${it.date}.slides.json`), JSON.stringify(d.slides, null, 1) + "\n");
+        console.log(`${it.date}: carousel made`);
+      } else {
+        const d = await askJson({ system: ["You turn a finished LinkedIn post into one image card: the hook said once, big, in the post's own words and facts; add nothing new.", HOUSE_LI].join("\n\n"), prompt: `Post:\n${body}\n\nReturn the card: kicker (2 to 4 words), title (at most 12 words, not a question, not a copy of the first line), body (at most 22 words), stat only if a number is the point.`, schema: z.object({ card: Card }), effort: "medium" });
+        const probs = cardProblems(d.card);
+        if (probs.length) { console.log(`${it.date}: card failed (${probs.join("; ")})`); continue; }
+        await renderCard(d.card, path.join(ROOT, `posts/linkedin/${it.date}.png`));
+        writeFileSync(path.join(ROOT, `posts/linkedin/${it.date}.card.json`), JSON.stringify(d.card, null, 1) + "\n");
+        console.log(`${it.date}: image made`);
+      }
+    } catch (e) { console.log(`${it.date}: media not made (${(e as Error).message.slice(0, 160)})`); }
+  }
+}
+
 async function main() {
   const one = process.argv.find((a) => a.startsWith("--redraft="))?.slice("--redraft=".length);
   if (process.argv.includes("--drafts") || process.argv.includes("--redraft") || one) await writeDrafts(buildCalendar(), one ?? process.argv.includes("--redraft"));
+  if (process.argv.includes("--drafts") || process.argv.includes("--media")) await addMedia(buildCalendar());
   const items = buildCalendar();
   writeFileSync(path.join(ROOT, "calendar/social.json"), JSON.stringify({ updated: new Date().toISOString(), items }, null, 2) + "\n");
   console.log(`calendar/social.json: ${items.length} items`);

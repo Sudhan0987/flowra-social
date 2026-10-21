@@ -11,6 +11,9 @@
 //     after the founder says yes in chat), and
 //   - <date> is today or earlier (India time), and
 //   - there is no posts/linkedin/<date>.posted yet.
+// Media: posts/linkedin/<date>.pdf (+ <date>-slide1.png as the thumbnail) goes as a document, else
+// <date>.png as an image; Buffer fetches them from raw.githubusercontent.com (public repo). If Buffer
+// refuses the media, the text still goes out, and the log says so.
 // After posting it writes <date>.posted ("buffer <post id> <time>") so the
 // calendar and Desk show it as done and it never posts twice.
 //
@@ -82,22 +85,39 @@ export function dueDrafts(today = istDay()): string[] {
     .filter((d) => d <= today && existsSync(path.join(DIR, `${d}.approved`)) && !existsSync(path.join(DIR, `${d}.posted`))).sort();
 }
 
-async function createPost(channelId: string, text: string, firstComment: string): Promise<string> {
+/** Public URL of a file on main (the repo is public since 17 Oct 2026; Buffer fetches assets by URL). */
+export const rawUrl = (file: string) => `https://raw.githubusercontent.com/Sudhan0987/flowra-social/main/${file}`;
+
+/** The media that goes with a draft: a PDF carousel (document) first, else an image card, else nothing. */
+export function assetsFor(date: string, title: string): Record<string, unknown>[] {
+  const pdf = path.join(DIR, `${date}.pdf`), slide1 = path.join(DIR, `${date}-slide1.png`), png = path.join(DIR, `${date}.png`);
+  if (existsSync(pdf) && existsSync(slide1)) return [{ document: { url: rawUrl(`posts/linkedin/${date}.pdf`), title: title.slice(0, 100), thumbnailUrl: rawUrl(`posts/linkedin/${date}-slide1.png`) } }];
+  if (existsSync(png)) return [{ image: { url: rawUrl(`posts/linkedin/${date}.png`), metadata: { altText: title.slice(0, 300) } } }];
+  return [];
+}
+
+async function createPost(channelId: string, text: string, firstComment: string, assets: Record<string, unknown>[]): Promise<string> {
   type Res = { createPost: { post?: { id: string }; message?: string } };
   const sel = `{ ... on PostActionSuccess { post { id } } ... on MutationError { message } }`;
   const send = (input: Record<string, unknown>) => buffer<Res>(`mutation($input: CreatePostInput!) { createPost(input: $input) ${sel} }`, { input });
+  const base = { channelId, schedulingType: "automatic", mode: "shareNow" };
+  const body = (withComment: boolean) => (withComment || !firstComment ? text : `${text}\n\n${firstComment}`);
   // Buffer's free plan refuses LinkedIn first comments ("requires a paid plan", seen 17 Oct 2026), so by default the
   // link goes under the post. BUFFER_FIRST_COMMENT=true tries the first comment first (paid plan), falling back on any refusal.
-  if (firstComment && process.env.BUFFER_FIRST_COMMENT === "true") {
+  const attempts: Array<{ label: string; input: Record<string, unknown> }> = [];
+  if (firstComment && process.env.BUFFER_FIRST_COMMENT === "true") attempts.push({ label: "with media and first comment", input: { ...base, text: body(true), assets, metadata: { linkedin: { firstComment } } } });
+  attempts.push({ label: assets.length ? "with media" : "text", input: { ...base, text: body(false), assets } });
+  if (assets.length) attempts.push({ label: "text only (media refused)", input: { ...base, text: body(false), assets: [] } });
+  let last = "";
+  for (const a of attempts) {
     try {
-      const r = await send({ channelId, text, schedulingType: "automatic", mode: "shareNow", metadata: { linkedin: { firstComment } } });
-      if (r.createPost.post?.id) return r.createPost.post.id;
-      console.log(`First comment refused (${r.createPost.message ?? "no reason"}); putting the link under the post.`);
-    } catch (e) { console.log(`First comment refused (${(e as Error).message.slice(0, 120)}); putting the link under the post.`); }
+      const r = await send(a.input);
+      if (r.createPost.post?.id) { if (a.label !== attempts[0].label) console.log(`Posted ${a.label}.`); return r.createPost.post.id; }
+      last = r.createPost.message ?? "no reason given";
+    } catch (e) { last = (e as Error).message; }
+    console.log(`Buffer refused (${a.label}): ${last.slice(0, 160)}`);
   }
-  const r = await send({ channelId, text: firstComment ? `${text}\n\n${firstComment}` : text, schedulingType: "automatic", mode: "shareNow" });
-  if (!r.createPost.post?.id) throw new Error(`Buffer refused the post: ${r.createPost.message ?? "no reason given"}`);
-  return r.createPost.post.id;
+  throw new Error(`Buffer refused the post: ${last}`);
 }
 
 async function main() {
@@ -110,9 +130,12 @@ async function main() {
   if (!due.length) return console.log("No approved LinkedIn post due.");
   const page = await flowraPage();
   for (const d of due.slice(0, 1)) { // one post a day at most
-    const { text, firstComment } = parseDraft(readFileSync(path.join(DIR, `${d}.md`), "utf8"));
-    if (process.argv.includes("--dry")) { console.log(`dry: would post ${d} to ${page.displayName ?? page.name}:\n${text}\n--- first comment:\n${firstComment}`); continue; }
-    const id = await createPost(page.id, text, firstComment);
+    const md = readFileSync(path.join(DIR, `${d}.md`), "utf8");
+    const { text, firstComment } = parseDraft(md);
+    const title = md.split("\n")[0].replace(/^#\s*/, "").trim() || `Flowra, ${d}`;
+    const assets = assetsFor(d, title);
+    if (process.argv.includes("--dry")) { console.log(`dry: would post ${d} to ${page.displayName ?? page.name} with ${assets.length ? JSON.stringify(assets) : "no media"}:\n${text}\n--- first comment:\n${firstComment}`); continue; }
+    const id = await createPost(page.id, text, firstComment, assets);
     writeFileSync(path.join(DIR, `${d}.posted`), `buffer ${id} ${new Date().toISOString()}\n`);
     console.log(`LinkedIn: posted ${d} to ${page.displayName ?? page.name} (Buffer post ${id})`);
   }

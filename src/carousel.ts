@@ -25,6 +25,25 @@ export const Slide = z.object({
   stat: z.string().optional().describe("A number from the sources to show big, e.g. '82%' or '15 days'. Only when the slide is about it."),
 });
 export type Slide = z.infer<typeof Slide>;
+/** A single image for a text post: the hook as a card in the same look as the carousel. */
+export const Card = z.object({
+  kicker: z.string().optional().describe("2 to 4 words above the title, e.g. 'Search Console' or 'A 14 day rule'."),
+  title: z.string().describe("At most 12 words. The hook, said once, big."),
+  body: z.string().optional().describe("At most 22 words. One line that makes the title land. Empty if the title carries it."),
+  stat: z.string().optional().describe("A number from the post to show big, e.g. '14 days'. Only when the post is about it."),
+});
+export type Card = z.infer<typeof Card>;
+export function cardProblems(c: Card): string[] {
+  const out: string[] = [];
+  const text = JSON.stringify(c);
+  if (/[\u2014\u2013]/.test(text)) out.push("the card has an em or en dash");
+  if (/https?:\/\/|useflowra\.com\//.test(text)) out.push("the card has a link");
+  if (words(c.title) > 12) out.push("card title over 12 words");
+  if (words(c.body) > 22) out.push("card body over 22 words");
+  if (words(c.kicker) > 4) out.push("card kicker over 4 words");
+  return out;
+}
+
 export const Slides = z.array(Slide).min(6).max(9).describe("Slide 1 is the cover (title = the hook, body = who it is for). Slides 2 to n-1 carry one point each. The last slide is the close: what to do now, no link.");
 
 const words = (s = "") => s.trim().split(/\s+/).filter(Boolean).length;
@@ -98,6 +117,35 @@ export function carouselHtml(slides: Slide[], handle = "useflowra"): string {
   .next{display:inline-flex;align-items:center;gap:8px;color:var(--c);font-weight:700}
   .rule{position:absolute;left:0;right:0;bottom:0;height:12px;background:linear-gradient(90deg,#f0a24a,#ef6f73 28%,#c25aa0 52%,#8466d9 76%,#4f5fc7)}
 </style></head><body>${slides.map(page).join("")}</body></html>`;
+}
+
+/** The card as one 1080 x 1350 page: the cover slide's look, with Floey on it. */
+export function cardHtml(c: Card, handle = "useflowra"): string {
+  const html = carouselHtml([{ kicker: c.kicker, title: c.title, body: c.body, stat: c.stat }], handle);
+  // one page: no count, no "Swipe", Floey in the corner like the last slide
+  return html
+    .replace(/<span class="count">[^<]*<\/span>/, "")
+    .replace(/<span class="next">[\s\S]*?<\/span>/, "")
+    .replace('<div class="rule"></div>', `<div class="floey">${floey(260)}</div><div class="rule"></div>`)
+    .replace(".last .body{padding-right:300px}", ".last .body{padding-right:300px} .cover .body{padding-right:280px}");
+}
+
+/** Renders a single card to PNG. Returns the path. */
+export async function renderCard(c: Card, outPng: string): Promise<string> {
+  const { chromium } = await import("playwright");
+  const browser = await chromium.launch();
+  try {
+    const page = await browser.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
+    await page.setContent(cardHtml(c), { waitUntil: "networkidle" });
+    await page.evaluate(() => document.fonts.ready);
+    const overflow = await page.evaluate(() => { const b = document.querySelector<HTMLElement>(".body")!; return b.scrollHeight > b.clientHeight + 2; });
+    if (overflow) throw new Error("the card overflows");
+    mkdirSync(path.dirname(outPng), { recursive: true });
+    await page.locator(".slide").first().screenshot({ path: outPng });
+    return outPng;
+  } finally {
+    await browser.close();
+  }
 }
 
 /** Renders the PDF and a PNG of the first slide. Returns the two paths. */

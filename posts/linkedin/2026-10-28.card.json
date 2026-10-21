@@ -1,0 +1,5 @@
+{
+ "kicker": "Content audit rules",
+ "title": "Merge before you refresh. Check links before you delete.",
+ "body": "Four rules in order: merge, review, refresh, keep. The first match wins, so the duplicate check runs before anyone rewrites anything."
+}

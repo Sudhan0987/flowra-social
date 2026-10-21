@@ -1,0 +1,44 @@
+[
+ {
+  "kicker": "",
+  "title": "7,249 impressions, 0 clicks, one question",
+  "body": "For anyone who runs SEO or content for a site or for agency clients.",
+  "stat": "7,249"
+ },
+ {
+  "kicker": "What they found",
+  "title": "One question, written 389 different ways",
+  "body": "At the bottom of Search Console queries. The wordings read like searches an AI assistant writes.",
+  "stat": "389"
+ },
+ {
+  "kicker": "Steps 1 to 3",
+  "title": "Sort by clicks, scroll to the bottom",
+  "body": "Open Performance, go to Queries. Sort by clicks, scroll down, read the zero-click long tail."
+ },
+ {
+  "kicker": "Step 4",
+  "title": "Look for one question in many wordings",
+  "body": "The slow step. The sort groups zero-click rows, not meaning, so you read them yourself."
+ },
+ {
+  "kicker": "Why it matters",
+  "title": "Impressions up, clicks flat? Check this tail",
+  "body": "A rising impressions line can include searches that were never going to send a visit."
+ },
+ {
+  "kicker": "The caveat",
+  "title": "A pattern to watch, not proof",
+  "body": "Search Console doesn't label who or what typed a query."
+ },
+ {
+  "kicker": "In the audit",
+  "title": "Report it as two separate lines",
+  "body": "Log the cluster apart from queries real readers click. Don't strip it from the totals."
+ },
+ {
+  "kicker": "Do this now",
+  "title": "Check your biggest site's zero-click tail",
+  "body": "Sort by clicks, read the bottom, and log any one-question cluster as its own line."
+ }
+]
