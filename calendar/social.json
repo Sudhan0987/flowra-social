@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T04:37:46.224Z",
+  "updated": "2026-10-21T04:37:54.042Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -442,9 +442,9 @@
       "channels": [
         "linkedin"
       ],
-      "owner": "you",
+      "owner": "flowra",
       "format": "image",
-      "status": "ready",
+      "status": "approved",
       "note": "Ready with its image. Approve and it posts on the Flowra page.",
       "file": "posts/linkedin/2026-10-28.md",
       "media": "posts/linkedin/2026-10-28.png"
