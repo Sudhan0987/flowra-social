@@ -261,6 +261,21 @@
    "style": "duo",
    "run": 39398236576,
    "note": "Approved by the founder in chat, 20 Oct 2026."
+  },
+  {
+   "id": "r015-myth-google-buries-ai-drafts-google-s-ac",
+   "status": "draft",
+   "topic": "Myth: \"Google buries AI drafts.\" Google's actual ask is to fact-check every AI line before publishing, including the title and meta description.",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-21T10:24:31.204Z",
+   "seconds": 30,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1792578270.744769"
+   },
+   "idea": "Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
+   "style": "duo",
+   "run": 39581961662
   }
  ]
 }
