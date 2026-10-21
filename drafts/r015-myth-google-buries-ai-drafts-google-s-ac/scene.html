@@ -1,0 +1,283 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<script src="lines.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../../reel/assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../../reel/assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r015 "The Line She Never Reads" (duo style, day set). Frame one: the chatbot's "Your lemon cake post is
+// ready!" already on screen, Maya clutching her head, sweat by her temple. Floey on the lid: Google cares
+// if it's true, not who typed it. "So I just... publish it?" a hopeful shrug. Floey lifts off and hovers:
+// fact check every line, title, meta description, alt text. The check: her screen, rows land on "Title",
+// "Flour", "Alt text", all fine; on the trailing "..." the meta description slides in, "Gluten-free
+// classic", ringed red, held through "Oh. Gluten free." Back in the room: the jolt, the facepalm, a "!".
+// Floey drops back onto the lid: that's what people see in search. Maya, flat: "Mum's gluten free...",
+// types, and the screen shows the line rewritten and green. Floey: "Then you just saved your only
+// reader." She turns to us and winks; Maya's long flat look to camera (frame one's framing); end card.
+const M = window.MOUTHS || {};
+const LINES = window.LINES;
+// the pause after each line, from the story
+const GAP = { hook0: 0.3, reframe1: 0.35, doubt2: 0.2, tip3: 0.4, check4: 0.6, payoff5: 0.35, payoff6: 0.3, payoff7: 0.45, button8: 0.7 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+// the silent button (Floey's wink, then Maya's long look to camera) plays out before the end card
+const END = Math.max(SPOKEN + 0.6, B.button8.end + 2.15), DUR = END + 1.6, b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+// when a word is said: its share of the line's characters (the captions use the same rule)
+const word = (id, w) => { const s = LINES.find((l) => l[0] === id)[1]; return B[id].start + B[id].len * Math.max(0, s.indexOf(w)) / s.length; };
+
+// ---------- the shots (DUO.SHOT, nudged for this layout) ----------
+// (the close shots sit low enough that Floey, off the left edge on the lid, stays above the caption band too)
+const HOOK = { camX: 715, camY: 822, zoom: 1.72 };     // Maya, her hands at her head; Floey's beak stays past the left edge
+const HOOK_IN = { camX: 690, camY: 822, zoom: 1.9 };   // the slow push through the hook
+const FS = { camX: 470, camY: 1000, zoom: 1.3 };       // the two-shot favouring Floey (lid or hover), Maya's face in
+const FS_IN = { camX: 480, camY: 980, zoom: 1.36 };    // a small push on "if it's true"
+const MS = { camX: 750, camY: 820, zoom: 1.55 };       // Maya alone (Floey, beak tip included, off the left edge)
+const WIDE = { ...SH.wide };
+const TWO = { camX: 520, camY: 960, zoom: 1.24 };      // a gentle push into the two-shot while Floey names the lines
+const MT = { camX: 690, camY: 830, zoom: 2.05 };      // Maya's face; Floey on the lid stays past the left edge
+const FT = { camX: 215, camY: 1100, zoom: 2.3 };       // Floey alone on the lid; Maya's hair and hoodie stay off the right edge
+const LOOK = { ...HOOK_IN };                           // the final look: frame one's framing
+const LOOK_IN = { camX: 686, camY: 826, zoom: 2.0 };
+
+// her hands clutching her head (the panic, kept inside the close frame); the open-handed shrug, also kept in
+const CLUTCH = { L: [186, 168], R: [414, 168], kL: "open", kR: "open" };
+const SHRUG = { L: [206, 540], R: [440, 540], kL: "open", kR: "open" };
+
+// ---------- the cast ----------
+// on the lid a little left of the spot, so her beak tip stays out of Maya's close shots
+const PERCH = { ...SP.floeyLaptop, x: SP.floeyLaptop.x - 10 };
+const HOVER = { ...SP.floeyHover };
+const F = FLOEY.create({ ...PERCH, facing: -1, mood: "hello", perched: true, view: "side" });
+const MY = MAYA.create({ ...SP.maya, expr: "worried", pose: CLUTCH, floey: F });
+// note: the chatbot's message; sweat, bang "!", qm "?"; chk the check insert (rows, hi ring); fix the fix insert
+// (fixRows, typed 0..1: the bad line deleted then the new one typed, done: it turns green)
+const W = { ...HOOK, note: 0.8, sweat: 1, bang: 0, qm: 0, bang2: 0, chk: 0, chkRows: 0, chkHi: 0, fix: 0, fixRows: 0, typed: 0, done: 0, end: 0 };
+const wt = gsap.timeline({ paused: true });
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => wt.to(W, { ...s, duration: d, ease }, t);
+const cut = (t, s) => wt.set(W, { ...s }, t);
+const ftw = (t, vars) => F.tl.to(F.S, vars, t);
+const lid = (t, k, d = 0.12) => ftw(t, { squint: k, duration: d, ease: "sine.inOut" });
+const blink = (t, hold = 0.2, back = 0) => { lid(t, 0.95, 0.16); lid(t + 0.16 + hold, back, 0.22); };
+
+// ---------- HOOK0: frame one, the chatbot's message already down, Maya clutching her head ----------
+// "A chatbot wrote my draft. Google's going to bury it."
+const H = b.hook0.start;
+wt.to(W, { note: 1, duration: 0.2, ease: "power2.out" }, 0);
+F.sfx(0.02, "buzz", { x0: 540 });
+MY.look(0, -0.3, -1, 0.01).tiltTo(0, -4, 0.01).say(H, M.hook0 || [], "hook0");
+shot(0.05, HOOK_IN, b.hook0.end, "power1.inOut");
+// "draft": eyes to the laptop, the head shakes a little
+const DR = word("hook0", "draft");
+MY.look(DR, -0.6, 0.8, 0.12).tiltTo(DR, 4, 0.2).tiltTo(DR + 0.22, -3, 0.2);
+// "Google's": the panic face; "bury it": the jolt (its own pop) and the "!"
+const GO = word("hook0", "Google's");
+MY.expr(GO, "panic").look(GO, 0.2, -0.6, 0.12).tiltTo(GO, 0, 0.2);
+wt.to(W, { note: 0, duration: 0.3, ease: "power2.in" }, GO);
+const BU = word("hook0", "bury");
+MY.jolt(BU);
+wt.to(W, { bang: 1, duration: 0.22, ease: "back.out(2)" }, BU + 0.05);
+// the glance left, towards Floey off screen
+MY.look(b.hook0.end - 0.25, -1, 0, 0.15);
+
+// ---------- REFRAME1: the two-shot; Floey's slow deadpan blink, a tongue flick ----------
+// "Google doesn't care who typed it. It cares if it's true."
+const R1 = b.reframe1.start, C1 = b.hook0.end + 0.1;
+cut(C1, FS);
+wt.set(W, { bang: 0, sweat: 0 }, C1);
+MY.pose(C1, "cheeks", 0.01).expr(C1, "worried").look(C1, -1, 0.2, 0.01).tiltTo(C1, -5, 0.01);
+F.mood(C1, "think").look(C1, 0.3, -0.1, 0.05);
+F.say(R1, M.reframe1 || [], "reframe1");
+const DC = word("reframe1", "doesn't");
+blink(DC, 0.35, 0.3);
+F.tongue(word("reframe1", "It cares") - 0.12, 1);
+// "if it's true": the hands come down, worry turns to thinking, a small push in
+const TR = word("reframe1", "if it's");
+F.mood(TR - 0.1, "hello");
+ftw(TR, { tilt: -10, duration: 0.2 }); ftw(TR + 0.5, { tilt: 0, duration: 0.25 });
+lid(TR, 0, 0.12);
+MY.pose(TR, "rest", 0.4).expr(TR + 0.1, "think").tiltTo(TR, 3, 0.4).look(TR + 0.1, -1, 0.1, 0.15);
+shot(TR - 0.1, FS_IN, 0.9, "power2.inOut");
+
+// ---------- DOUBT2: Maya alone, the slow "So I just...", then the hopeful shrug and a "?" ----------
+const D2 = b.doubt2.start, C2 = b.reframe1.end + 0.1;
+cut(C2, MS);
+MY.expr(C2, "think").look(C2, -1, -0.1, 0.01).say(D2, M.doubt2 || [], "doubt2");
+MY.tiltTo(word("doubt2", "just") + 0.15, -7, 0.3);
+const PU = word("doubt2", "publish");
+MY.pose(PU - 0.1, SHRUG, 0.25).expr(PU, "neutral").tiltTo(PU, 6, 0.3).look(PU, -1, -0.3, 0.12);
+wt.to(W, { qm: 1, duration: 0.22, ease: "back.out(2)" }, PU + 0.15);
+F.sfx(PU + 0.15, "pop", { x0: 760 });
+
+// ---------- TIP3: the wide; Floey lifts off and hovers by Maya's head, a nod on each line she names ----------
+// "Fact check every line. Title, meta description, alt text too."
+const T3 = b.tip3.start, C3 = b.doubt2.end + 0.1;
+cut(C3, WIDE);
+wt.set(W, { qm: 0 }, C3);
+F.mood(C3, "determined").takeoff(C3);
+F.move(C3 + 0.3, HOVER.x, HOVER.y, 0.55, "power2.inOut");
+F.say(T3, M.tip3 || [], "tip3");
+// Maya: her eyes follow her up, the shrug comes down, she listens
+MY.expr(C3 + 0.1, "neutral").pose(C3 + 0.1, "rest", 0.4).look(C3 + 0.1, -1, -0.5, 0.25).tiltTo(C3 + 0.1, 0, 0.3);
+const TI = word("tip3", "Title"), ME = word("tip3", "meta"), AL = word("tip3", "alt");
+shot(TI - 0.2, TWO, 1.6, "power1.inOut");
+for (const w of [TI, ME, AL]) { ftw(w, { tilt: 14, duration: 0.08 }); ftw(w + 0.1, { tilt: 0, duration: 0.16 }); }
+MY.nod(ME + 0.1, 1);
+// "alt text too": she turns to the laptop, leans in, hands on the keys
+MY.expr(AL, "think").pose(AL + 0.1, "type", 0.3).look(AL + 0.1, -0.5, 0.8, 0.15).leanTo(AL + 0.1, -5, 0.4);
+F.look(AL + 0.2, 0.4, 0.6, 0.1);
+F.sfx(b.tip3.end - 0.35, "typing", { d: 0.7, x0: 640 });
+
+// ---------- CHECK4: her screen; a row lands on each word she reads, then the meta description, wrong ----------
+// "Title, fine. Flour, fine. Alt text, fine..."
+const C4 = b.check4.start, IN4 = b.tip3.end + 0.12;
+wt.to(W, { chk: 1, duration: 0.3, ease: "power3.out" }, IN4);
+F.sfx(IN4, "whoosh");
+MY.expr(C4 - 0.1, "think").say(C4, M.check4 || [], "check4");
+const ROW = (t, n) => wt.to(W, { chkRows: n / 4, duration: 0.22, ease: "power2.out" }, t);
+const RT = [word("check4", "Title"), word("check4", "Flour"), word("check4", "Alt")];
+RT.forEach((t, i) => { ROW(t, i + 1); F.sfx(t + 0.05, "tick", { x0: 540 }); });
+// the trailing "...": the last row, its ring growing through the pause
+const MD = b.check4.end - 0.15;
+ROW(MD, 4);
+wt.to(W, { chkHi: 1, duration: 0.7, ease: "power2.out" }, MD + 0.2);
+F.sfx(MD + 0.1, "rise");
+
+// ---------- PAYOFF5: "Oh. Gluten free." over the ringed line; "There's flour in it." the jolt, the facepalm ----------
+const P5 = b.payoff5.start;
+MY.expr(P5 - 0.05, "worried").look(P5, -0.5, 0.8, 0.1).say(P5, M.payoff5 || [], "payoff5");
+const FL = word("payoff5", "There's") - 0.05;
+wt.set(W, { chk: 0 }, FL);
+cut(FL, WIDE);
+MY.jolt(FL + 0.05).pose(FL + 0.1, "facepalm", 0.22).leanTo(FL, 0, 0.3).look(FL + 0.1, 0, 0.6, 0.1).tiltTo(FL + 0.1, -6, 0.3);
+wt.to(W, { bang2: 1, duration: 0.22, ease: "back.out(2)" }, FL + 0.15);
+// Floey, unsurprised: one slow blink
+F.mood(FL, "hello").look(FL, 0.6, 0.1, 0.1);
+blink(FL + 0.45, 0.35);
+
+// ---------- PAYOFF6: Floey drops back onto the lid beside her; a dry tilt; Maya peeks through her fingers ----------
+// "That's what people can see in search."
+const P6 = b.payoff6.start, L6 = b.payoff5.end - 0.1;
+F.land(L6, PERCH.x, PERCH.y, 0.45);
+wt.to(W, { bang2: 0, duration: 0.25 }, L6);
+shot(L6, FS, 0.7, "power2.inOut");
+F.mood(P6 - 0.1, "think").say(P6, M.payoff6 || [], "payoff6");
+ftw(P6 + 0.1, { tilt: -14, lookX: 0.5, lookY: -0.4, duration: 0.25 });
+lid(P6 + 0.1, 0.35, 0.15);
+MY.expr(P6, "worried").look(P6 + 0.1, -1, 0.3, 0.15).slump(word("payoff6", "search"), 0.5);
+ftw(b.payoff6.end, { tilt: 0, duration: 0.2 });
+
+// ---------- PAYOFF7: her face, flat; then she types, and the screen shows the line rewritten ----------
+// "Mum's gluten free. She only reads the preview."
+const P7 = b.payoff7.start, C7 = b.payoff6.end + 0.12;
+cut(C7, MT);
+lid(C7, 0, 0.05);
+MY.pose(C7, "rest", 0.3).expr(C7, "worried").look(C7, 0.1, 0.25, 0.1).sit(C7, 0.4).tiltTo(C7, -3, 0.3).say(P7, M.payoff7 || [], "payoff7");
+const SO = word("payoff7", "She") - 0.08;
+cut(SO, MS);
+MY.pose(SO, "type", 0.15).look(SO, -0.5, 0.8, 0.1).leanTo(SO, -5, 0.3).tiltTo(SO, 0, 0.2);
+F.sfx(SO + 0.05, "typing", { d: 1.4, x0: 640 });
+F.look(SO, 0.4, 0.6, 0.1);
+// the fix insert: the same page, the bad line ringed, deleted, retyped, then green
+const IN7 = SO + 0.5;
+wt.to(W, { fix: 1, duration: 0.3, ease: "power3.out" }, IN7);
+wt.to(W, { fixRows: 1, duration: 0.2, ease: "none" }, IN7 + 0.05);
+F.sfx(IN7, "whoosh");
+wt.to(W, { typed: 1, duration: 0.95, ease: "none" }, IN7 + 0.25);
+const DONE = IN7 + 1.25;
+wt.set(W, { done: 1 }, DONE);
+F.sfx(DONE, "ding");
+MY.expr(DONE, "neutral");
+
+// ---------- BUTTON8: "Then you just saved..." over the fixed page; "...your only reader." Floey on the lid ----------
+const B8 = b.button8.start, C8 = Math.max(DONE + 1.4, word("button8", "your") - 0.1);
+F.mood(B8 - 0.2, "happy").look(B8 - 0.2, 0.5, -0.2, 0.05).say(B8, M.button8 || [], "button8");
+wt.set(W, { fix: 0 }, C8);
+cut(C8, FT);
+ftw(C8, { tilt: -8, duration: 0.2 });
+ftw(word("button8", "only"), { tilt: 6, duration: 0.12 }); ftw(word("button8", "only") + 0.14, { tilt: -4, duration: 0.16 });
+MY.expr(C8, "deadpan").pose(C8, "rest", 0.3).leanTo(C8, 0, 0.3).look(C8, -1, 0, 0.1);
+// after the line, to us: the turn, a smug wink
+const PV = b.button8.end + 0.08;
+F.pivot(PV, "front").look(PV, 0, 0, 0.05).tiltTo(PV, 0, 0.1);
+F.wink(PV + 0.45);
+
+// ---------- the silent button: Maya's long flat look to camera, frame one's framing ----------
+const LK = PV + 0.95;
+cut(LK, LOOK);
+MY.look(LK, 0, 0, 0.01).expr(LK, "deadpan").tiltTo(LK, 0, 0.01);
+shot(LK + 0.1, LOOK_IN, END - LK - 0.1, "power1.inOut");
+MY.tiltTo(LK + 0.7, -3, 0.6);
+
+// END: the logo card drops in
+wt.to(W, { end: 1, duration: 0.5, ease: "back.out(1.6)" }, END);
+F.sfx(END + 0.05, "thump");
+wt.set({}, {}, DUR);
+
+// ---------- the screen inserts (her draft, example content) ----------
+const TITLE = "Lemon drizzle cake", SUB = "Before publish: check every line";
+const BAD = "Gluten-free classic", GOOD = "A zesty lemon classic";
+const ROWS = [
+  { label: "Title", value: "Easy lemon drizzle cake", tone: "good" },
+  { label: "Flour", value: "225 g plain flour", tone: "good" },
+  { label: "Alt text", value: "Lemon cake on a plate", tone: "good" },
+];
+const checkInsert = () => DUO.listInsert(W.chk, W.chkRows, { title: TITLE, sub: SUB, cols: ["Line", "What it says"], hiK: W.chkHi,
+  rows: [...ROWS, { label: "Meta description", value: BAD, tone: "bad", hi: true }] });
+function fixInsert() {
+  // the bad line is deleted letter by letter, then the new one typed; green once it is done
+  const k = W.typed, val = k < 0.4 ? BAD.slice(0, Math.round(BAD.length * (1 - k / 0.4))) : GOOD.slice(0, Math.round(GOOD.length * (k - 0.4) / 0.6));
+  const tone = W.done > 0.5 ? "good" : k > 0.01 ? "ink" : "bad";
+  return DUO.listInsert(W.fix, W.fixRows, { title: TITLE, sub: W.done > 0.5 ? "Every line checked" : SUB, cols: ["Line", "What it says"], hiK: 1,
+    rows: [...ROWS, { label: "Meta description", value: val, tone, hi: true }] });
+}
+
+// Maya's open mouth on a tense line: the same mouth turned over, so it reads as a grimace, never a grin (as in r014)
+const INK = HUM.colors.ink, fx = (n) => Math.round(n * 10) / 10;
+const TENSE = new Set(["worried", "panic", "annoyed", "sad", "deadpan"]);
+function maya(t) {
+  const s = MY.svg(t);
+  if (!TENSE.has(MY.state(t).expr)) return s;
+  return s.replace(/<path d="([^"]+)" fill="#5a1f22"[\s\S]*?<\/g>/, (m, d) => {
+    const ys = [...d.matchAll(/,(-?[\d.]+)/g)].map((x) => +x[1]);
+    return `<g transform="translate(0 ${fx(Math.min(...ys) + Math.max(...ys))}) scale(1 -1)">${m}</g>`;
+  });
+}
+// the chatbot's message (DUO.notification's look), the box measured to the message plus real padding on both sides
+function notify(k, from, text, y) {
+  if (k <= 0.01) return "";
+  const fs = 40, tx = 138, pad = 44;
+  const tw = Math.max(PROPS.measure(text, `600 ${fs}px 'Public Sans'`), PROPS.measure(from, "700 34px 'Space Grotesk'")) * 1.04;
+  const w = Math.min(960, tx + tw + pad), dy = (1 - Math.min(1, k)) * -260;
+  return `<g transform="translate(${fx(540 - w / 2)} ${fx(y + dy)})" opacity="${fx(Math.min(1, k * 2))}"><rect x="0" y="0" width="${fx(w)}" height="150" rx="34" fill="#fffaf2" stroke="${INK}" stroke-width="6"/>`
+    + `<rect x="28" y="33" width="84" height="84" rx="22" fill="${HUM.colors.violet}" stroke="${INK}" stroke-width="5"/><text x="70" y="91" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="44" fill="#fff">${from[0]}</text>`
+    + `<text x="${tx}" y="66" font-family="Space Grotesk" font-weight="700" font-size="34" fill="${INK}">${from}</text><text x="${tx}" y="118" font-family="Public Sans" font-weight="600" font-size="${fs}" fill="${INK}">${text}</text></g>`;
+}
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  const world = DUO.room(t) + maya(t) + DUO.deskFront() + DUO.laptop() + F.svg(t)
+    + DUO.mark("sweat", 800, 640, W.sweat, t) + DUO.mark("!", 880, 560, W.bang, t) + DUO.mark("?", 830, 600, W.qm, t) + DUO.mark("!", 452, 640, W.bang2, t);
+  document.getElementById("stage").innerHTML = DUO.cam(world, W)
+    + (W.end < 0.5 ? notify(W.note, "Chatbot", "Your lemon cake post is ready!", 236) + checkInsert() + fixInsert() : "")
+    + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")
+    + DUO.endCard(W.end, t, "Send this to a friend who skims AI drafts.");
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>

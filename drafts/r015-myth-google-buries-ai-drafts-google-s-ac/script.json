@@ -1,0 +1,109 @@
+{
+ "title": "The Line She Never Reads",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "A chatbot wrote my draft. Google's going to bury it.",
+   "emotion": "worried",
+   "visual": "mayaTight, day set. Frame one: Maya is mid-sentence at her laptop, expression worried, pose panic with her hands up by her bun. A sweat mark appears on 'draft' and a '!' mark pops on 'bury it'. She glances left, towards where Floey sits off screen. Floey is not in this shot."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Google doesn't care who typed it. It cares if it's true.",
+   "emotion": "playful",
+   "visual": "floey two-shot: Floey on the laptop lid gives one slow, deadpan blink and a tiny tongue flick. Maya is still in the frame. On 'if it's true' she lowers her hands and her expression goes from worried to think."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So I just... publish it?",
+   "emotion": "curious",
+   "visual": "maya shot: expression think, looking left towards Floey. On 'publish it?' she goes into pose shrug, half hopeful."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Fact check every line. Title, meta description, alt text too.",
+   "emotion": "warm",
+   "visual": "wide: Floey takes off from the lid to floeyHover with a wing-buzz sfx and gives one tiny nod on each item she names. Maya does MY.sit, sits up straight, goes into pose type, and a typing sfx starts under the end of the line."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.6,
+   "say": "Title, fine. Flour, fine. Alt text, fine...",
+   "emotion": "curious",
+   "visual": "listInsert cutaway titled 'Lemon drizzle cake: before publish', sub 'check every line'. The rows slide in 0.6 s apart, each with a tick sfx, matched to her words: Title 'Easy lemon drizzle cake' (good, 'checked'), Flour '225 g plain flour' (good, 'checked'), Alt text 'Lemon cake on a plate' (good, 'checked'). On her trailing '...' the last row slides in: Meta description 'A gluten-free classic' (bad, 'wrong', hi). Its ring grows while a rise sfx plays through the pause."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Oh. Gluten free. There's flour in it.",
+   "emotion": "worried",
+   "visual": "wide, back in the room: on 'Oh.' Maya jolts back from the laptop and goes into pose facepalm. A '!' mark pops above her. Floey hovers beside her in floeyHover, unsurprised, and gives one slow blink. The ring stays inside the cutaway, and here the stakes play on her face."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "That's what people can see in search.",
+   "emotion": "warm",
+   "visual": "floey two-shot: Floey drifts closer in floeyHover and tilts her head at Maya, dry. Maya stays in facepalm, looking at Floey through her fingers, expression worried."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.45,
+   "say": "Mum's gluten free. She only reads the preview.",
+   "emotion": "worried",
+   "visual": "mayaTight: Maya drops the facepalm and says it flat and pale, expression worried. She goes into pose type with a fast typing sfx. On the pause, cut to a second listInsert with the same title and sub, every row complete and good: Title 'Easy lemon drizzle cake' (checked), Flour '225 g plain flour' (checked), Alt text 'Lemon cake on a plate' (checked), Meta description 'A zesty lemon classic' (good, 'fixed'). One tick sfx lands on the fixed row."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Then you just saved your only reader.",
+   "emotion": "proud",
+   "visual": "floeyTight in floeyHover: Floey turns to face the camera and puffs her chest, smug. Cut to mayaTight, the same framing as frame one: Maya gives the camera a long, silent look over her glasses, expression flat. END is pushed later so the look gets about 1.2 s on its own. Then the end card: the Flowra spark and 'Send this to a friend who skims AI drafts.', measured with PROPS.measure to fit at phone size."
+  }
+ ],
+ "loopNote": "The reel ends on Maya's silent look to camera in mayaTight at her laptop, which is the same framing as frame one. On replay her deadpan face cuts straight into her panicked 'A chatbot wrote my draft', so it plays like she is about to panic over the next draft.",
+ "caption": "Maya was sure Google would bury her post because a chatbot wrote the first draft. Google's own guide says it looks at the quality of the content, not how it was made. What it does ask (updated 1 Oct 2026) is that you fact check every AI line by hand before you publish. That includes the title, the meta description and the image alt text, because those can show up in search results.\n\nMaya's post itself was fine. The meta description she never read called her wheat flour lemon cake gluten free. 🍋\n\nTip: before you hit publish, read your meta description and alt text too, not only the post.\n\nWhat's the worst thing an AI draft nearly published for you? (Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#blogging",
+  "#aicontent",
+  "#foodblogger",
+  "#contentwriting"
+ ],
+ "sticky": 50,
+ "id": "r015-myth-google-buries-ai-drafts-google-s-ac",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Myth: \"Google buries AI drafts.\" Google's actual ask is to fact-check every AI line before publishing, including the title and meta description.",
+ "editorNotes": [
+  "Beat 9 (button) puts Floey in 'floeyTight in floeyHover', but floeyTight is the shot of Floey alone on the laptop lid. She has been hovering by Maya's head since beat 4, so that shot frames an empty lid and the animator cannot draw it as written. Either fly her back to the lid with a flutter sfx during the fix in beat 8, so floeyTight works and she can pivot front from there, or nudge the shot onto floeyHover and say so.",
+  "Floey stays in floeyHover from beat 4 to the end, so she is at Maya's eye height on her left. The mayaTight shots in beats 8 and 9 will slice her at the frame edge or show half a bird by Maya's ear. That also breaks the loop note's claim that the final look matches frame one, where Floey was on the lid off screen. Getting her back to the lid before beat 8 fixes both.",
+  "The payoff depends on the viewer reading 'Meta description: A gluten-free classic' on the insert. That row only slides in on Maya's trailing '...' and gets a 0.6 s pause before the cut to wide on 'Oh.' That is not enough time to read a five-row table and see the ring grow, and when Maya says 'Gluten free' the thing she is talking about is no longer on screen. The studio rule says the thing the voice names stays beside it. Hold the insert with the ring through 'Oh. Gluten free.' and cut to wide for the jolt and facepalm on 'There's flour in it.'",
+  "Beat 8 tries to fit the whole fix (typing, a cut to a second listInsert with four complete rows, a tick on the 'fixed' row) into a 0.45 s pause before Floey's button. Nobody can read a fixed table in under half a second, so the fix will flash past and Floey's 'you just saved' arrives before we have seen anything saved. Give the fix insert at least 1.5 to 2 s: raise this GAP, or let the insert run under the first half of Floey's button line.",
+  "(polish) 'Oh. Gluten free. There's flour in it.' Gluten-free flours exist (rice, almond), so a sharp viewer will say 'so?' The row on screen says plain flour. 'There's wheat in it.' is the same rhythm and leaves no hole in the joke.",
+  "(polish) Floey's 'That's what people can see in search.' is the flattest line in the reel. The 'can' hedge reads as written, not spoken, and 'warm' undersells it. Keep it true (metadata can appear in results) but make it a dry Floey line, for example 'That's the bit Google shows people.' with a deadpan read.",
+  "(polish) 'Mum's gluten free. She only reads the preview.' The second sentence is doing the explaining. It also says 'preview' right after Floey said 'search', so a stranger has to join the dots that Mum sees the search snippet. Use the same word Floey used, or trim it so the button carries the joke. Without some setup that Mum reads, 'your only reader' will not land, so keep a short version, e.g. 'Mum's gluten free. She reads everything.'",
+  "(polish) Frame one shows Maya with her hands up but nothing showing the problem. The sweat mark only arrives on 'draft'. The studio rule wants the problem already on screen in frame one: have the '?' or sweat mark up from frame one, or a quick shot of the draft on the laptop.",
+  "(polish) Some acting is not in the studio's controls. 'Puffs her chest' (beat 9), 'one tiny nod on each item' for Floey (nod is Maya's control), 'looking at Floey through her fingers', 'a look over her glasses' and expression 'flat' are not things the studio can do. Map them to what exists: F.pivot front plus mood happy or a wink; F tilts on each item; facepalm plus MY.look(-1); expression deadpan with MY.look(0,0).",
+  "(polish) Beat 4 asks for MY.sit when Maya was never slumped, and beat 8 has her in pose type inside mayaTight, where her hands are out of frame. Drop the sit. In beat 8, show the typing in a maya or wide shot, or just let the typing sfx and the fix insert carry it.",
+  "(polish) Beat 5 says the rows are both '0.6 s apart' and 'matched to her words'. Pick one. Tie each row's entrance and its tick to the word in her line (Title, Flour, Alt text), so the ticks follow her voice and land at least 0.4 s apart.",
+  "(polish) The loop note is overstated. The reel ends on the end card, not on Maya's look, so on replay the cut is from the end card to frame one. Either soften the note or make the look strong enough to carry it alone.",
+  "(polish) Floey turns to face the camera while saying 'Then you just saved your only reader.', which is aimed at Maya. Facing the viewer on 'you' can sound like she is saying the viewer only has one reader. Have her say it to Maya and pivot front just after the line, before the cut to Maya's look."
+ ],
+ "style": "duo",
+ "template": "../drafts/r015-myth-google-buries-ai-drafts-google-s-ac/scene.html"
+}

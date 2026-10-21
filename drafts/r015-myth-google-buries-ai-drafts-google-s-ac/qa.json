@@ -1,0 +1,10 @@
+{
+ "pass": true,
+ "problems": [
+  "Non-blocking, frame 05: the caption already says 'Title, fine. Flour,' but only the Title row has slid in. Check that each row lands on its word, not after it. By frame 06 the list is back in sync: all four rows are in on 'fine...'.",
+  "Non-blocking, frame 10: the floeyTight shot has Floey perched on the laptop lid, eyes shut, facing right, not hovering. In frame 07 she was hovering beside Maya, so this is a small continuity jump. It also leaves the top third of the frame empty. If you re-render, frame her higher or keep her in floeyHover.",
+  "Non-blocking, frame 06: the bad row reads 'Gluten-free classic', not 'A gluten-free classic' as scripted. It still reads clearly and the joke lands.",
+  "Not verifiable from the 12 frames: Maya's silent look to camera after the button (same framing as frame 1, which is what loops it back to the start) falls between frames 10 and 11. Watch the full render once to confirm it holds for about 1.2 s.",
+  "Claim note: 'That's what people can see in search' is fair as worded. Google often shows the meta description but sometimes rewrites the snippet, so make sure the brief cites Google's snippet and meta description guidance alongside its guidance on AI-generated content."
+ ]
+}

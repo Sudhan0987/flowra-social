@@ -1,0 +1,55 @@
+{
+ "topic": "Myth: \"Google buries AI drafts.\" Google's actual ask is to fact-check every AI line before publishing, including the title and meta description.",
+ "angle": "Maya has a finished AI draft of a recipe post and freezes: \"We used AI for the draft, so Google will bury it.\" Floey flips it: Google doesn't ban AI help, and its updated guide (1 Oct 2026) asks you to fact-check everything before you publish, including the title, meta description and alt text. Maya checks her draft on screen. The body is fine, but the meta description she never read calls her wheat-flour cake \"gluten-free\". The funny part is where the mistake was hiding: not in the post, in the line she never reads.",
+ "whyNow": "On 1 Oct 2026 Google updated its \"Using generative AI content\" guide to say \"It is critical to manually factcheck and review all AI-generated content for accuracy and trustworthiness before publishing,\" and extended that review to titles, meta descriptions, structured data and alt text (Search Engine Journal covered it). People still believe the opposite: Ahrefs writes that \"many SEOs and digital marketers\" think Google actively punishes AI content. Our social listening (18 Oct) names this as the week's AI-search news that \"none of it says what to do on your own site\". This is the 32-second half of the duo myth length experiment, with a plain send ask.",
+ "goal": "send",
+ "audience": "Solo bloggers, content writers and small agency people who use ChatGPT or another AI tool for first drafts and quietly worry that Google will spot it and sink the post, or who publish the draft after only skimming it.",
+ "facts": [
+  {
+   "fact": "Google updated its guidance page on using generative AI content on 1 October 2026 (page shows Last updated 2026-10-01).",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "Google's guide now says: \"It is critical to manually factcheck and review all AI-generated content for accuracy and trustworthiness before publishing.\"",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "Google warns that generative AI outputs may contain inaccuracies, also known as hallucinations.",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "Google says the same review also applies to metadata: title elements, meta descriptions, structured data and image alt text, because these can appear in Search results.",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "Google says generative AI can be particularly useful when researching a topic and to add structure to original content.",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "Google's line is that using AI tools to generate many pages without adding value for users may break its spam policy on scaled content abuse. The problem is mass pages with no value, not using AI as such.",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "Google Search Central (Feb 2023): \"Appropriate use of AI or automation is not against our guidelines.\" Its focus is on the quality of content, \"rather than how content is produced\".",
+   "source": "https://developers.google.com/search/blog/2023/02/google-search-and-ai-content"
+  },
+  {
+   "fact": "Search Engine Journal (Matt G. Southern) reported the update, including the new fact-check line and the extension to titles, meta descriptions, structured data and alt text.",
+   "source": "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/"
+  },
+  {
+   "fact": "Demand: Ahrefs writes that \"there are still many SEOs and digital marketers who think that Google seeks to actively punish AI content\" (600,000-page study, July 2025).",
+   "source": "https://www.ahrefs.com/blog/ai-generated-content-does-not-hurt-your-google-rankings"
+  },
+  {
+   "fact": "Example only, Maya's own draft and not a real statistic: the AI meta description calls her wheat-flour lemon cake \"gluten-free\". The body checks out, the meta line doesn't.",
+   "source": "Example (Maya's own draft, clearly framed as hers)"
+  }
+ ],
+ "visualIdea": "Day set. Hook in mayaTight: Maya at her laptop with a finished draft, a \"?\" mark by her head, and Floey on the laptop lid in floeyTight with the deadpan reframe. The check moment is a DUO.listInsert titled \"Lemon drizzle cake: before publish\", sub \"check every line\", with rows sliding in: Title \"Easy lemon drizzle cake\" (good, \"checked\"), Oven \"180°C, 40 min\" (good, \"tested\"), Flour \"225 g plain flour\" (good, \"checked\"), Alt text \"Lemon cake on a plate\" (good, \"checked\"), Meta description \"A gluten-free classic\" (bad, \"wrong\", hi). The ring grows on the meta row while a rise sfx plays. Cut to wide: Maya jolts, pose facepalm, a \"!\" mark, her mug pose with the coffee gone cold (running joke). Button: Floey pivots front, Maya looks to camera. Suggested beats (about 32s): MAYA \"We used AI for the draft. Google's going to bury it.\" / FLOEY \"Google doesn't care who typed it. It cares if it's true.\" / MAYA \"So I just... publish?\" / FLOEY \"Fact-check every line. Title, meta description, alt text too.\" / Maya types, insert rows slide in, ring on the meta row / MAYA \"It says gluten-free. There's flour in it.\" / FLOEY \"That's the line Google shows people.\" / MAYA \"Mum's gluten-free.\" / FLOEY \"Then she just saved your blog.\" / Maya looks to camera. Captioned send ask on the end card: \"Send this to whoever publishes AI drafts unread.\"",
+ "pillar": "myth",
+ "instinct": "If Google finds out my post started as an AI draft, it will bury it.",
+ "flip": "Google says appropriate use of AI is not against its guidelines, and its 1 Oct 2026 guide asks you to manually fact-check all AI content before publishing, including the title, meta description and alt text.",
+ "idea": "Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
+ "style": "duo"
+}

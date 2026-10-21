@@ -1,0 +1,225 @@
+{
+ "style": "Duo sitcom, Maya's room by day (DUO.room day: window with drifting cloud, shelf, plant, spark poster), warm palette with Maya in amber and Floey the brightest pink and green thing in frame; Maya behind the desk at her laptop, Floey on the laptop lid then hovering by Maya's head (floeyHover); one cutaway listInsert, no notification, Flowra only on the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya alone at her laptop, day set, already mid-panic: expression worried, pose panic with hands up by her pencil bun. Floey off screen to the left.",
+   "action": "Frame one, mid-sentence. A slow push-in on her face as the panic rises. A sweat mark appears by her temple on 'draft', a '!' mark pops above her bun on 'bury it', and her eyes flick left (MY.look -1, 0) towards where Floey sits off screen.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "pop"
+    },
+    {
+     "at": 2.5,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: the two-shot favouring Floey perched on the laptop lid facing Maya; Maya in frame on the left, still in pose panic, expression worried.",
+   "action": "Cut to the speaker. Floey gives one slow, deadpan blink on 'doesn't care' and a tiny tongue flick after 'typed it'. Maya's eyes stay on her, bun wobbling.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 1.8,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey two-shot: the listener's reaction. Maya lowers her hands to rest, Floey holds still.",
+   "action": "On 'if it's true' Maya's hands come down (pose rest over 0.4 s) and her face turns from worried to think. A small push-in sells the change.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, expression think, looking left towards Floey (MY.look -1, 0). Floey fully out of frame.",
+   "action": "Cut to Maya. She says it slowly, a small head tilt on the pause, then on 'publish it?' she goes into pose shrug, eyebrows up, half hopeful.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them. Floey lifts off the laptop lid to floeyHover at Maya's eye height on her left; Maya in pose shrug, expression think.",
+   "action": "Pull out to the two-shot as Floey takes off and hovers by Maya's head, then gives one tiny nod on 'Title', 'meta description' and 'alt text'. Maya's eyes follow her up.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 2.2,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya sits up straight (MY.sit) and goes into pose type, expression determined-think; Floey hovering, nodding on 'alt text'.",
+   "action": "Maya straightens in her chair and her hands land on the keys; typing starts under the end of Floey's line.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.9,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The one cutaway: DUO.listInsert on her laptop screen, title 'Lemon drizzle cake: before publish', sub 'check every line', cols label and value.",
+   "action": "The insert swings in. Rows slide in 0.6 s apart on her words: Title 'Easy lemon drizzle cake' (good, checked) at 0.4, Flour '225 g plain flour' (good, checked) at 1.0, Alt text 'Lemon cake on a plate' (good, checked) at 1.6. On her trailing '...' at 2.3 the last row slides in: Meta description 'A gluten-free classic' (bad, wrong, hi), and its ring grows through the pause. Every row has a real label and value.",
+   "onScreenData": "A gluten-free classic",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.4,
+     "kind": "pop"
+    },
+    {
+     "at": 1,
+     "kind": "pop"
+    },
+    {
+     "at": 1.6,
+     "kind": "pop"
+    },
+    {
+     "at": 2.3,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "wide",
+   "camera": "whip",
+   "subject": "wide: back in the room. Maya at the laptop, Floey in floeyHover beside her head.",
+   "action": "Quick whip back for the comic reversal. On 'Oh.' Maya jolts back from the laptop (MY.jolt), expression surprised then worried, goes into pose facepalm, and a '!' mark pops above her bun. Floey, unsurprised, gives one slow blink.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "pop"
+    },
+    {
+     "at": 0.6,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey two-shot: Floey in floeyHover drifting a little closer to Maya; Maya in pose facepalm, expression worried.",
+   "action": "Floey drifts in and tilts her head at Maya, dry, as she speaks. Maya peeks at her through her fingers (MY.look -1, 0) and shrinks a little (MY.slump).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya alone, face fills the frame, expression worried, pale and flat.",
+   "action": "Cut to her face. She drops the facepalm (pose rest over 0.3 s) and says it flat, eyes down at the laptop on 'only reads the preview'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 1.7,
+   "shot": "medium",
+   "camera": "pull-out",
+   "subject": "maya: Maya alone, pose type, expression determined, looking down at the laptop (MY.look 0, 1). Floey out of frame.",
+   "action": "A small pull-out shows her hands as she fixes the meta description fast, the tip happening; no second insert, the typing itself is the fix.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.8,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone in floeyHover.",
+   "action": "Floey pivots to face the camera (F.pivot front) and puffs her chest on 'saved', smug, mood happy.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 1.8,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: same framing as frame one, Maya alone, expression deadpan.",
+   "action": "The button. Maya slowly turns and gives the camera a long, silent look over her glasses (MY.look 0, 0), one blink, nothing else. END is pushed later so the look holds about 1.2 s on its own.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 3.1,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: DUO.endCard with the Flowra spark logo intact and Floey perched on the spark's left arm facing camera; captions hidden.",
+   "action": "The end card lands with the line 'Send this to a friend who skims AI drafts.', measured with PROPS.measure so it fits its box at phone size.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 3.1,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 2.7
+}
