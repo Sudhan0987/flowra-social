@@ -41,7 +41,7 @@ jobs:
     timeout-minutes: 110
     env:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      SLACK_BOT_TOKEN: ${{ vars.SLACK_OFF != 'true' && secrets.SLACK_BOT_TOKEN || '' }}
       CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'opus' }}
       KOKORO_DIR: ${{ github.workspace }}/.kokoro
       TOPIC: ${{ inputs.topic }}
