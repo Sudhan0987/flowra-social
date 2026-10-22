@@ -1,0 +1,51 @@
+{
+ "topic": "Maya has \"nothing left to write\", but her readers' unanswered questions are already sitting in her Search Console",
+ "angle": "Night before her posting day. Maya stares at a blank draft and announces the blog is finished because she has written about everything. Floey says her readers have been asking her questions all along, in Google. Maya adds one Search Console query filter (Custom regex: what|how|when|why, which is Google's own example) and a list of real questions her pages already show up for slides in. One row has lots of impressions and almost no clicks, a question she never actually answered. It turns out she doesn't have no ideas, she has a backlog, and every post on it comes with proof that people search for it.",
+ "whyNow": "This week a r/content_marketing thread asks how small teams should pick topics when customer questions and search volume point different ways. The poster's answer is to write down the exact question and the decision behind it (https://www.reddit.com/r/content_marketing/comments/1x8hsmf/how_do_you_choose_content_topics_when_customer/). The reel shows where those exact questions already live for free. It is also the kind of topic our learnings say to repeat: a Search Console check with a clear payoff, the topic behind r006, our only reel with saves. Otherwise this is evergreen.",
+ "goal": "save",
+ "audience": "Solo bloggers and small content teams (recipe, travel, hobby and niche sites, plus small agency writers) who have Search Console connected but only ever look at the main chart. They hit \"what do I write next?\" every week and reach for brainstorming or paid keyword tools first.",
+ "facts": [
+  {
+   "fact": "A r/content_marketing post this month asks how small teams should choose content topics when customer questions and search volume point in different directions. The poster's answer: write down the exact question and the decision behind it.",
+   "source": "https://www.reddit.com/r/content_marketing/comments/1x8hsmf/how_do_you_choose_content_topics_when_customer/"
+  },
+  {
+   "fact": "Google's Search Central blog (Daniel Waisberg, 2 June 2021) suggests the query filter what|how|when|why in the Search Console Performance report, saying it 'might show results that indicate your content should easily answer questions, maybe through an FAQ.'",
+   "source": "https://developers.google.com/search/blog/2021/06/regex-negative-match"
+  },
+  {
+   "fact": "Since April 2021 the Search Console Performance report supports regular expression filters. How Google describes it: 'create a query or page filter, select the dropdown menu and select Custom.'",
+   "source": "https://developers.google.com/search/blog/2021/04/performance-report-data-filtering"
+  },
+  {
+   "fact": "The regex filter has a second dropdown with 'Matches regex' and 'Doesn't match regex'.",
+   "source": "https://developers.google.com/search/blog/2021/06/regex-negative-match"
+  },
+  {
+   "fact": "Search Console regex uses RE2 syntax and matches partially by default, so what|how|when|why finds those words anywhere in the query unless the pattern is anchored with ^ or $. Keep the pattern lowercase (Search Engine Land quotes the help doc as case-sensitive by default; (?i) at the start makes it case-insensitive).",
+   "source": "https://searchengineland.com/google-search-console-adds-regular-expression-support-and-more-data-filtering-to-performance-reports-347549"
+  },
+  {
+   "fact": "Search Console leaves some queries out of the table to protect searchers' privacy (anonymized queries: ones not issued by more than a few dozen users over two to three months), and they drop out whenever a query filter is applied. So the question list is real but not complete.",
+   "source": "https://developers.google.com/search/blog/2022/10/performance-data-deep-dive"
+  },
+  {
+   "fact": "Since December 2025 Google has been testing an AI-powered configuration in the Performance report: you type the analysis you want in plain language and it sets the filters. It rolled out to 'a limited set of websites' and Google says to check the suggested filters. Use only as an optional aside; the regex filter works for everyone.",
+   "source": "https://developers.google.com/search/blog/2025/12/ai-powered-configuration"
+  },
+  {
+   "fact": "Example only (Maya's own numbers, framed as hers, not a statistic): question rows on her screen such as 'how long does banana bread keep' with 2,140 impressions and 4 clicks.",
+   "source": "Flowra finding (illustrative example, must be labelled as Maya's own, not a real dataset)"
+  },
+  {
+   "fact": "End card context only, never spoken: Flowra's featured snippet opportunities show question queries where a page already ranks near the top and could win the snippet.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Night set (DUO.room night, desk-lamp glow). Open on mayaTight: Maya slumped over a blank draft, cold mug in hand (\"I've written about everything. The blog is done.\"), plus a \"zzz\" or \"sweat\" mark. Floey on the laptop lid gets a floeyTight deadpan: \"Your readers disagree.\" Maya types with the typing sfx, then a whoosh into the central image, a DUO.listInsert titled \"Search Console · Queries\", sub \"Custom (regex): what|how|when|why\". Six rows slide in, each a question with impressions and clicks (Maya's own example numbers): \"how long does banana bread keep · 2,140 impr · 4 clicks\" is the hi row and its ring grows on the rise sfx, and other rows are things like \"why is my bread dense\", \"can you freeze banana bread\". Cut back to mayaTight: \"Oh.\" Then DUO.stat \"6 posts\" in a good tone by her head. Button: Maya, energised, sips her coffee, finds it cold (running joke) and pulls a face. Floey pivots to the front: \"You're welcome.\" Then the end card.",
+ "pillar": "problem",
+ "instinct": "I've run out of things to write about, so the blog is done unless I find some new idea out there.",
+ "flip": "Google's own Search Central blog says a Search Console query filter of what|how|when|why can show the questions your pages already appear for and should be answering, so the next topic list is already in your data.",
+ "idea": "Your customers' questions are already in your Search Console",
+ "style": "duo"
+}

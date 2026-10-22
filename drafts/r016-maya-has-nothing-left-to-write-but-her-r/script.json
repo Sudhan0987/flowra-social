@@ -1,0 +1,111 @@
+{
+ "title": "Nothing Left to Write",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "I've written about everything, Floey. The blog is done.",
+   "emotion": "worried",
+   "visual": "Night set, desk-lamp glow. mayaTight from frame one: Maya in the chin pose (chin on fist), worried face, a zzz mark by her bun. From frame one a small listInsert sits in the top corner, titled 'Thursday's post', sub 'Ideas', with one dim row in a bad tone: 'nothing yet · 0'. That tells you she has no ideas before she says a word."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Your readers disagree.",
+   "emotion": "playful",
+   "visual": "Ideas insert fades out. floeyTight: Floey on the laptop lid, deadpan. She blinks once slowly, then tilts her head toward where Maya is. Small blink sound."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "What readers? Nobody's asked me anything.",
+   "emotion": "worried",
+   "visual": "wide: Maya sits up, annoyed face, fist pose, with a '?' mark over her head. Floey turns on the lid to face her, unimpressed."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "They ask Google. Search Console, Performance, filter queries: what, how, when, why.",
+   "emotion": "playful",
+   "caption": "They ask Google. Search Console > Performance > Query > Custom (regex): what|how|when|why",
+   "visual": "wide: Floey chips once on the lid and tilts toward the laptop. Maya uses leanTo toward the laptop and switches to the type pose. Typing sound panned to the desk, under Floey's line. No dialog cutaway: the filter appears on the next insert."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Wait. People Googled these and got my pages?",
+   "emotion": "curious",
+   "visual": "Whoosh into the listInsert, titled 'Maya's blog · Queries', sub 'Custom (regex): what|how|when|why'. Six rows slide in one by one with a soft tick each (Maya's own example numbers): 'how long does banana bread keep · 2,140 impr · 4 clicks', 'why is my banana bread dense · 880 impr · 31 clicks', 'how to freeze banana bread · 610 impr · 22 clicks', 'how ripe should bananas be · 540 impr · 19 clicks', 'when to add walnuts to banana bread · 320 impr · 9 clicks', 'what can i use instead of eggs · 290 impr · 7 clicks'."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "How long does banana bread keep? Shown over two thousand times. Four clicks.",
+   "emotion": "worried",
+   "caption": "How long does banana bread keep? Shown over 2,000 times. 4 clicks.",
+   "visual": "Still on the listInsert: the top row 'how long does banana bread keep · 2,140 impr · 4 clicks' becomes the hi row, and a ring grows around it on a rising sound. Cut to mayaTight: Maya in the cheeks pose, surprised face, a '!' mark popping by her bun."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "That one, you never answered.",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey on the laptop lid tilts her head toward the screen, then blinks slowly back at Maya. Calm, a little smug."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Oh. I'm not out of ideas. It's a backlog.",
+   "emotion": "bright",
+   "visual": "mayaTight: Maya's face goes bright, fist pose for a small 'yes', then she drops into the type pose with a quick typing sound. A good-tone stat pill '6 posts' pops in with a soft chime. It is nudged up and left of the world default so it sits above her head, fully inside the mayaTight frame and not beside her face. The pill fades out before the cut to wide."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Keep that list. You'll quit again next week.",
+   "emotion": "proud",
+   "visual": "wide: Floey says it to Maya from the lid, then turns to face the camera and holds, smug. One beat. Then Maya, in the mug pose (her pose holds the mug, so no separate DUO.mug), takes a big sip, freezes, and pulls a face: cold coffee again, with a small gulp sound. Then a flat look to camera over her glasses. Hold that look for a full beat, and push END later so the look has room before the end card."
+  }
+ ],
+ "loopNote": "Floey's 'You'll quit again next week' and Maya's cold-coffee face cut straight back to frame one: Maya slumped in the chin pose with the 'nothing yet' ideas card, saying the blog is done. The replay plays as next week's meltdown.",
+ "caption": "Maya, the night before posting day: \"I've written about everything. The blog is done.\" 🫠\n\nFloey's fix: open Search Console, go to the Performance report, add a Query filter, choose Custom (regex) and type what|how|when|why. Use the pipes, no commas, all lowercase. You get the real questions your pages already show up for in Google, straight from Google's own Search Central suggestion.\n\nLook for rows with lots of impressions and hardly any clicks. Often that's a question you never properly answered, so it's your next post, and you already know people search for it.\n\n(Google hides some rare queries for privacy, so the list isn't complete. There's still plenty there.)\n\nSave this for the next time you're \"out of ideas\". How many questions turned up on yours? 👇",
+ "hashtags": [
+  "#bloggingtips",
+  "#searchconsole",
+  "#contentideas",
+  "#seotips",
+  "#bloggerlife"
+ ],
+ "sticky": 50,
+ "id": "r016-maya-has-nothing-left-to-write-but-her-r",
+ "format": "duo-sitcom",
+ "goal": "save",
+ "topic": "Maya has \"nothing left to write\", but her readers' unanswered questions are already sitting in her Search Console",
+ "editorNotes": [
+  "Hook visual: a 'small listInsert in the top corner' isn't something the studio can draw. DUO.listInsert is a cutaway to her screen, not a corner widget. In mayaTight it would either cover her face or sit in the top 200 px that Instagram hides. A one-row 'Ideas' table reading 'nothing yet · 0' is also a padded card. Use DUO.notification instead, already on screen at frame one, under 34 characters. For example 'Thursday's post is due tomorrow' (31), from Reminders. That puts the deadline and the blank in frame one with something we can actually draw.",
+  "Doubt beat: the fist pose is Maya's small 'yes!' gesture. It contradicts the annoyed face, the '?' mark and the line 'What readers? Nobody's asked me anything.' Use crossed or shrug.",
+  "Tip caption: 'They ask Google. Search Console > Performance > Query > Custom (regex): what|how|when|why' is about 88 characters. At y 1540 that is likely three lines, overflowing the 1440 to 1580 caption band into the area Instagram covers. Measure it. The insert's sub line already shows 'Custom (regex): what|how|when|why', so the caption can be shorter, e.g. 'They ask Google. Performance > Query > Custom (regex): what|how|when|why', or split the line into two beats.",
+  "First payoff: the visual cuts to mayaTight during 'How long does banana bread keep? Shown over two thousand times. Four clicks.' That takes the numbers off screen while she says them. The rule is that a spoken number stays on screen beside the thing it belongs to. Hold the listInsert, with the ring growing on the hi row, through 'Four clicks.' Only then cut to mayaTight for the cheeks, surprised face and '!'.",
+  "(polish) Spoken tip: 'Search Console, Performance, filter queries: what, how, when, why.' sounds like a menu path read out, not Floey talking. Said alone it also reads as four comma-separated words, which wouldn't match anything if someone typed it like that. Make it more spoken while keeping it plain, e.g. 'They ask Google. Filter your Search Console queries for what, how, when, why.' Let the insert's sub line and the caption carry the exact regex and menu path.",
+  "(polish) 'That one, you never answered.' is written word order. Spoken, Floey would say 'You never answered that one.' It is shorter and drier too.",
+  "(polish) Mug continuity: Maya hasn't touched a mug all reel, and then in the button her mug pose makes one appear in her hand. Draw DUO.mug() on the desk from frame one, which also gives the cold-coffee joke a setup. Stop drawing it the moment she switches to the mug pose, so there is only ever one mug.",
+  "(polish) The button is overloaded. Floey turns to camera and holds, then Maya sips, freezes, pulls a face, then gives a held look to camera. That is well over the roughly 3 seconds of silent acting allowed after the last line, and two buttons compete. Drop Floey's front turn: she says the line to Maya and goes smug. Then sip, grimace, look to camera, end card inside 3 seconds.",
+  "(polish) Sound kinds: 'blink sound' (reframe), 'gulp' (button) and 'soft chime' aren't on the cue list. Use tk for Floey's blink or tilt, sip for the cold coffee, and ding for the '6 posts' pill. The six row ticks in the check beat must be at least 0.4 s apart. Otherwise tick only the hi row and use one whoosh for the rest.",
+  "(polish) Hook mark: 'zzz' reads as asleep or bored, not as the worried 'blog is done' moment. Use 'sweat'. The brief's blank draft also never appears. The notification fix above covers it.",
+  "(polish) Emotion fits: the button 'Keep that list. You'll quit again next week.' is teasing, so play it playful (or warm), not proud. For the first payoff, the cheeks pose with a surprised face would sit better with a voice read closer to surprise than 'worried'. Make sure the face set at that line's start matches whichever delivery you pick.",
+  "(polish) List insert: labels like 'when to add walnuts to banana bread' next to '320 impr · 9 clicks' risk overflowing a row. Use cols (Query, Impr, Clicks) so the numbers sit in their own columns, and measure the longest label. Keep the title clearly Maya's ('Maya's blog · Queries'), since every number except the banana bread row is invented for her example.",
+  "(polish) '6 posts' pill: 'nudged up and left so it sits above her head' in mayaTight risks pushing it into the top 200 px Instagram covers. Check the still at phone size and keep it at y 220 or lower on screen."
+ ],
+ "style": "duo",
+ "template": "../drafts/r016-maya-has-nothing-left-to-write-but-her-r/scene.html"
+}

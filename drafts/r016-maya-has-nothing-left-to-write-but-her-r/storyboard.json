@@ -1,0 +1,214 @@
+{
+ "style": "Night set: Maya's room in the desk-lamp glow, with the moon and stars in the window, the spark poster on the wall and the laptop showing its spark sticker. Maya (a panicky solo blogger with glasses and a pencil bun) sits behind the desk. Floey (the calm, dry hummingbird) perches on the laptop lid facing Maya. The reel uses one cutaway insert only (the Queries listInsert in beats 4 and 5) and no notification. The beat 0 'Ideas' insert is replaced by an in-room stat pill.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya alone at night in the lamp glow, chin on her fist, worried face, a zzz mark drifting by her bun. A bad-tone stat pill reading '0 ideas' sits up and left of her head, fully inside the frame.",
+   "action": "Problem already happening from frame one. Maya sighs out the line in the chin pose, eyes drifting down to the laptop and back. The zzz bobs and the pill pulses once on 'done'.",
+   "onScreenData": "0 ideas",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone, perched on the laptop lid, deadpan",
+   "action": "A hard cut on the speaker change, and the '0 ideas' pill is gone. Floey blinks once, slowly, then tilts her head toward where Maya sits off screen as she delivers the line flat.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk and Floey on the lid, two-shot",
+   "action": "Maya sits up straight, annoyed face, fist pose, and a '?' mark pops over her bun. Floey turns on the lid to face her squarely, unimpressed, and holds still while Maya argues.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: the closer two-shot favouring Floey on the lid, with Maya at the edge of frame and her whole head inside it",
+   "action": "Floey chips once, then tilts toward the laptop screen on 'Search Console' as she gives the tip. Maya listens, her eyes moving from Floey to the laptop, and her face shifts from annoyed to think.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 2.4,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them, with Maya at the keyboard",
+   "action": "On 'filter queries' Maya leans toward the laptop and switches to the type pose, her hands moving fast. Floey stays tilted toward the screen and nods on 'why'.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The one cutaway: a listInsert on Maya's laptop, titled 'Maya's blog · Queries', sub 'Custom (regex): what|how|when|why'. The numbers are Maya's own example data.",
+   "action": "The insert whooshes in and six rows slide in one by one: 'how long does banana bread keep · 2,140 impr · 4 clicks', 'why is my banana bread dense · 880 impr · 31 clicks', 'how to freeze banana bread · 610 impr · 22 clicks', 'how ripe should bananas be · 540 impr · 19 clicks', 'when to add walnuts to banana bread · 320 impr · 9 clicks', 'what can i use instead of eggs · 290 impr · 7 clicks'. Maya's disbelieving line plays over it.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.4,
+     "kind": "pop"
+    },
+    {
+     "at": 0.8,
+     "kind": "pop"
+    },
+    {
+     "at": 1.2,
+     "kind": "pop"
+    },
+    {
+     "at": 1.6,
+     "kind": "pop"
+    },
+    {
+     "at": 2,
+     "kind": "pop"
+    },
+    {
+     "at": 2.4,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The same Queries listInsert, with the top row as the hi row",
+   "action": "On 'How long does banana bread keep' a ring grows around the top row and closes on 'two thousand times'. Her number sits right beside the row it belongs to.",
+   "onScreenData": "2,140 impr · 4 clicks",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 2.9,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame",
+   "action": "The insert cuts out on 'Four clicks'. Maya snaps into the cheeks pose with a surprised face, and a '!' mark pops by her bun as the camera creeps in on the realisation.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid",
+   "action": "Floey tilts her head toward the screen on 'That one', then turns back toward Maya off screen and gives her a slow, slightly smug blink on 'never answered'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya, with a good-tone stat pill nudged up and left so it sits above her head, fully inside the frame and clear of her face",
+   "action": "On 'Oh' Maya's face goes bright and she does a small 'yes' with the fist pose. On 'backlog' she drops into the type pose. The '6 posts' pill pops in on 'ideas' and fades out by 2.1s, before the cut.",
+   "onScreenData": "6 posts",
+   "sfx": [
+    {
+     "at": 0.9,
+     "kind": "ding"
+    },
+    {
+     "at": 1.4,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya at the keyboard and Floey on the lid",
+   "action": "Floey says the line to Maya from the lid. Maya keeps typing, happy, and her face drops to deadpan on 'quit again'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 2,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "wide, pushing slightly toward Floey on the lid",
+   "action": "Floey pivots front to face the camera and holds, smug and still, for one beat. Behind her, Maya reaches into the mug pose. No desk mug is drawn while she holds it.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 2.9,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, holding the mug",
+   "action": "Maya takes a big sip, freezes mid-gulp and pulls a face: the coffee is cold again. Her shoulders slump.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.7,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 4.1,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face with the mug still at her chin",
+   "action": "The button: Maya lowers the mug and gives the camera a flat look over her glasses, holding it for a full second with no words. END comes at about 5.4s, then the end card.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.5,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1.2
+}
