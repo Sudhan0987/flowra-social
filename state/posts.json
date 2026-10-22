@@ -283,6 +283,17 @@
    "idea": "Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
    "style": "duo",
    "run": 39581961662
+  },
+  {
+   "id": "r016-maya-has-nothing-left-to-write-but-her-r",
+   "status": "draft",
+   "topic": "Maya has \"nothing left to write\", but her readers' unanswered questions are already sitting in her Search Console",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-22T10:32:44.602Z",
+   "seconds": 32,
+   "idea": "Your customers' questions are already in your Search Console",
+   "style": "duo",
+   "run": 39760711012
   }
  ]
 }
