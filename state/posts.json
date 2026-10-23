@@ -1,301 +1,312 @@
 {
-  "posts": [
-    {
-      "id": "r001-find-decaying-pages",
-      "status": "approved",
-      "topic": "Find the pages quietly losing traffic, in Search Console, in under a minute",
-      "format": "fix",
-      "madeAt": "2026-09-30T15:41:53.297Z",
-      "seconds": 35,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1790782912.921789"
-      },
-      "reason": "Same topic as r002, which is already posted; held so the feed does not repeat itself."
-    },
-    {
-      "id": "r002-find-the-pages-quietly-losing-traffic-in",
-      "status": "published",
-      "topic": "Find the pages quietly losing traffic in Search Console in under a minute: Compare last 3 months to previous period, Pages tab, sort by Clicks Difference",
-      "format": "before-after-bridge",
-      "madeAt": "2026-10-02T12:51:32.645Z",
-      "seconds": 38,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1790945492.032209"
-      },
-      "published": {
-        "at": "2026-10-06",
-        "instagram": "17925280614201804",
-        "facebook": true,
-        "youtube": "EB3oxycDhDw",
-        "youtubePrivacy": "public"
-      }
-    },
-    {
-      "id": "r003-how-long-google-takes-to-notice-your-pag",
-      "status": "published",
-      "topic": "How long Google takes to notice your page update: Google's own timing numbers, shown on a day counter",
-      "format": "ticking-clock",
-      "madeAt": "2026-10-06T15:54:08.148Z",
-      "seconds": 36,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1791302046.654929"
-      },
-      "published": {
-        "at": "2026-10-07",
-        "instagram": "18136110796726726",
-        "facebook": "3226893170839219",
-        "linkedin": "pack ready, post by hand",
-        "x": "pack ready, post by hand",
-        "youtube": "HkYKvDpEGOQ",
-        "youtubePrivacy": "public"
-      }
-    },
-    {
-      "id": "r004-google-s-september-2026-spam-update-is-f",
-      "status": "published",
-      "topic": "Google's September 2026 spam update is finishing its rollout: how to tell whether it caused your traffic drop, or something else did",
-      "format": "explain-like-five",
-      "madeAt": "2026-10-07T15:39:48.425Z",
-      "seconds": 37,
-      "run": 37646934573,
-      "note": "Corrected in two director passes (7 Oct); founder asked for it to be posted. Known flaw: Floey briefly covers the chart tag in the Compare beat.",
-      "published": {
-        "at": "2026-10-08",
-        "instagram": "18162030133498062",
-        "facebook": "1644772320616309",
-        "youtube": "v7x4yst4Ef4",
-        "youtubePrivacy": "public"
-      }
-    },
-    {
-      "id": "r005-old-blog-posts-leave-refresh-merge-or-cu",
-      "status": "failed",
-      "topic": "Old blog posts: leave, refresh, merge or cut. How to pick for each page, based on what it does and not on how old it is",
-      "format": "expert-contrast",
-      "madeAt": "2026-10-09T12:41:54.069Z",
-      "seconds": 37,
-      "reason": "Frame 03: Voice says 'Instead, ask what each page does' but Floey just hovers with an empty beak. The four blank tags she should fan out like cards never appear, so nothing on screen explains the line. A single blank tag is left lying in the grass from when she dropped it in frame 02. It reads as a stray white blob and almost touches the caption box. Frame 09: Voice says 'Flowra finds fading posts and overlaps' but only the two 'fading' labels appear. No ring links the two purple flowers leaning"
-    },
-    {
-      "id": "r006-search-console-s-new-generative-ai-repor",
-      "status": "published",
-      "topic": "Search Console's new Generative AI report: see how often your pages show up in AI Overviews and AI Mode, then check whether those pages still get clicks",
-      "format": "countdown",
-      "madeAt": "2026-10-09T15:55:00.000Z",
-      "seconds": 42,
-      "run": 37951171503,
-      "idea": "Search Console now shows how often you appear in AI Overviews and AI Mode",
-      "note": "Passed its final test on the repair run; that run could not save its state (git pull refused), so this record was written by hand. Approved by the founder in chat, 9 Oct 21:4x IST.",
-      "published": {
-        "at": "2026-10-09",
-        "instagram": "18013515155956552",
-        "facebook": "1630990145416568",
-        "youtube": "FxShnVNUUf8",
-        "youtubePrivacy": "public"
-      }
-    },
-    {
-      "id": "r007-moving-your-site-google-s-own-range-is-1",
-      "status": "published",
-      "topic": "Moving your site? Google's own range is 1 to 3 months, and the slow end is a year",
-      "format": "problem-agitate-solve",
-      "madeAt": "2026-10-12T05:01:57.909Z",
-      "seconds": 22,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1791781317.558629"
-      },
-      "idea": "Moving your site? Google's own range is 1 to 3 months",
-      "experiment": "short-first-frame",
-      "style": "pro",
-      "run": 38204391382,
-      "note": "Approved in advance by the founder in chat, 12 Oct 2026 (\"approve for all\"). First reel in the pro style.",
-      "published": {
-        "at": "2026-10-12",
-        "instagram": "18134893840733552",
-        "facebook": "1631842495621476",
-        "youtube": "6BR4nE7Ee7Y",
-        "youtubePrivacy": "public"
-      }
-    },
-    {
-      "id": "r008-maya-asks-chatgpt-for-the-best-blogs-in-",
-      "status": "published",
-      "topic": "Maya asks ChatGPT for the best blogs in her niche, isn't on the list and panics. Floey shows her that the list changes on every ask, and that GA4 shows the visits ChatGPT actually sent.",
-      "format": "duo-sitcom",
-      "madeAt": "2026-10-14T04:05:54.476Z",
-      "seconds": 34,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1791950752.293889"
-      },
-      "idea": "Being cited by ChatGPT next to actually getting the visit",
-      "style": "duo",
-      "run": 38507286066,
-      "note": "Approved by the founder in chat, 14 Oct 2026 (\"r008 - approved\"); no ✅ was added in Slack.",
-      "published": {
-        "at": "2026-10-14",
-        "instagram": "17910719484507111",
-        "facebook": "1101027012852133",
-        "youtube": "5-IlrWGNWiA",
-        "youtubePrivacy": "public"
-      }
-    },
-    {
-      "id": "r009-a-detector-says-maya-s-handwritten-post-",
-      "status": "failed",
-      "topic": "A detector says Maya's handwritten post is \"likely AI\", and she's sure Google will bin it",
-      "format": "duo-sitcom",
-      "madeAt": "2026-10-15T10:10:30.325Z",
-      "seconds": 30,
-      "reason": "Frames 07–08 (claim is untrue): The payoff says 'Google never asked how I wrote it', and the 'Google's questions' card, credited to Search Central, is built to show that 'none of Google's questions asks how the post was written'. That is false. Google's Search Central guidance on helpful content tells creators to ask 'Who, How, and Why' about their content. 'How was this content created?' is one of the questions, and it says to disclose when automation or AI was used. As written, the card misquo",
-      "idea": "Floey gets graded by an AI detector that never read the words",
-      "style": "duo"
-    },
-    {
-      "id": "r010-a-client-s-ai-detector-says-maya-s-handw",
-      "status": "published",
-      "topic": "A client's AI detector says Maya's handwritten post is AI, and she thinks Google will bury it",
-      "format": "duo-sitcom",
-      "madeAt": "2026-10-16T09:56:05.712Z",
-      "seconds": 32,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1792144565.346639"
-      },
-      "idea": "Floey gets graded by an AI detector that never read the words",
-      "style": "duo",
-      "run": 38880494151,
-      "note": "Approved by the founder in chat, 16 Oct 2026.",
-      "published": {
-        "at": "2026-10-16",
-        "instagram": "18114059456029508",
-        "facebook": "1085658637569125",
-        "youtube": "bwNIrS4LhZI",
-        "youtubePrivacy": "public"
-      }
-    },
-    {
-      "id": "r011-maya-has-clicked-request-indexing-on-her",
-      "status": "published",
-      "topic": "Maya has clicked \"Request Indexing\" on her new post again and again, and it still isn't on Google",
-      "format": "duo-sitcom",
-      "madeAt": "2026-10-17T07:54:39.185Z",
-      "seconds": 25,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1792223678.857089"
-      },
-      "style": "duo",
-      "run": 39014181617,
-      "note": "Approved by the founder in chat, 17 Oct 2026.",
-      "published": {
-        "at": "2026-10-17",
-        "instagram": "18050784332814101",
-        "facebook": "978445747980186",
-        "youtube": "1Sbah9cFA6A",
-        "youtubePrivacy": "public"
-      }
-    },
-    {
-      "id": "r012-maya-s-impressions-are-up-and-her-clicks",
-      "status": "published",
-      "topic": "Maya's impressions are up and her clicks are flat, and the extra impressions are in long, chatty queries at the bottom of her Search Console list",
-      "format": "duo-sitcom",
-      "madeAt": "2026-10-18T09:50:22.367Z",
-      "seconds": 32,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1792317021.863589"
-      },
-      "idea": "Maya's impressions are up, but some of those searches weren't typed by a person",
-      "style": "duo",
-      "run": 39114628540,
-      "note": "Approved by the founder in chat, 19 Oct 2026.",
-      "published": {
-        "at": "2026-10-19",
-        "instagram": "18105812195367655",
-        "facebook": "1653800312986152",
-        "youtube": "O09UezfzO38",
-        "youtubePrivacy": "public"
-      }
-    },
-    {
-      "id": "r013-five-posts-on-one-keyword-aren-t-five-ch",
-      "status": "published",
-      "topic": "Five posts on one keyword aren't five chances to rank: Maya finds five of her banana bread posts all showing for one search",
-      "format": "duo-sitcom",
-      "madeAt": "2026-10-19T10:49:47.350Z",
-      "seconds": 26,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1792406986.968389"
-      },
-      "idea": "Five pages on one keyword isn't five chances to rank (myth, about 25 seconds)",
-      "style": "duo",
-      "run": 39237326109,
-      "note": "Approved by the founder in chat, 19 Oct 2026.",
-      "published": {
-        "at": "2026-10-20",
-        "instagram": "18346518691250362",
-        "facebook": "2987502814932947",
-        "youtube": "DL9vrNz7dKQ",
-        "youtubePrivacy": "public"
-      }
-    },
-    {
-      "id": "r014-the-client-asks-how-many-sign-ups-and-ma",
-      "status": "published",
-      "topic": "The client asks \"how many sign-ups?\" and Maya's report only has impressions",
-      "format": "duo-sitcom",
-      "madeAt": "2026-10-20T09:21:09.164Z",
-      "seconds": 28,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1792488067.263599"
-      },
-      "idea": "The client asks how many sign-ups, and the report only has impressions",
-      "style": "duo",
-      "run": 39398236576,
-      "note": "Approved by the founder in chat, 20 Oct 2026.",
-      "published": {
-        "at": "2026-10-21",
-        "instagram": "18009336611782216",
-        "facebook": "1919341919447046",
-        "youtube": "TzD5pqaB0RE",
-        "youtubePrivacy": "public"
-      }
-    },
-    {
-      "id": "r015-myth-google-buries-ai-drafts-google-s-ac",
-      "status": "approved",
-      "topic": "Myth: \"Google buries AI drafts.\" Google's actual ask is to fact-check every AI line before publishing, including the title and meta description.",
-      "format": "duo-sitcom",
-      "madeAt": "2026-10-21T10:24:31.204Z",
-      "seconds": 30,
-      "slack": {
-        "channel": "C0C4Q821E9M",
-        "ts": "1792578270.744769"
-      },
-      "idea": "Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
-      "style": "duo",
-      "run": 39581961662,
-      "note": "Approved by the founder in chat, 23 Oct 2026."
-    },
-    {
-      "id": "r016-maya-has-nothing-left-to-write-but-her-r",
-      "status": "approved",
-      "topic": "Maya has \"nothing left to write\", but her readers' unanswered questions are already sitting in her Search Console",
-      "format": "duo-sitcom",
-      "madeAt": "2026-10-22T10:32:44.602Z",
-      "seconds": 32,
-      "idea": "Your customers' questions are already in your Search Console",
-      "style": "duo",
-      "run": 39760711012,
-      "note": "Approved by the founder in chat, 23 Oct 2026."
-    }
-  ]
+ "posts": [
+  {
+   "id": "r001-find-decaying-pages",
+   "status": "approved",
+   "topic": "Find the pages quietly losing traffic, in Search Console, in under a minute",
+   "format": "fix",
+   "madeAt": "2026-09-30T15:41:53.297Z",
+   "seconds": 35,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1790782912.921789"
+   },
+   "reason": "Same topic as r002, which is already posted; held so the feed does not repeat itself."
+  },
+  {
+   "id": "r002-find-the-pages-quietly-losing-traffic-in",
+   "status": "published",
+   "topic": "Find the pages quietly losing traffic in Search Console in under a minute: Compare last 3 months to previous period, Pages tab, sort by Clicks Difference",
+   "format": "before-after-bridge",
+   "madeAt": "2026-10-02T12:51:32.645Z",
+   "seconds": 38,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1790945492.032209"
+   },
+   "published": {
+    "at": "2026-10-06",
+    "instagram": "17925280614201804",
+    "facebook": true,
+    "youtube": "EB3oxycDhDw",
+    "youtubePrivacy": "public"
+   }
+  },
+  {
+   "id": "r003-how-long-google-takes-to-notice-your-pag",
+   "status": "published",
+   "topic": "How long Google takes to notice your page update: Google's own timing numbers, shown on a day counter",
+   "format": "ticking-clock",
+   "madeAt": "2026-10-06T15:54:08.148Z",
+   "seconds": 36,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1791302046.654929"
+   },
+   "published": {
+    "at": "2026-10-07",
+    "instagram": "18136110796726726",
+    "facebook": "3226893170839219",
+    "linkedin": "pack ready, post by hand",
+    "x": "pack ready, post by hand",
+    "youtube": "HkYKvDpEGOQ",
+    "youtubePrivacy": "public"
+   }
+  },
+  {
+   "id": "r004-google-s-september-2026-spam-update-is-f",
+   "status": "published",
+   "topic": "Google's September 2026 spam update is finishing its rollout: how to tell whether it caused your traffic drop, or something else did",
+   "format": "explain-like-five",
+   "madeAt": "2026-10-07T15:39:48.425Z",
+   "seconds": 37,
+   "run": 37646934573,
+   "note": "Corrected in two director passes (7 Oct); founder asked for it to be posted. Known flaw: Floey briefly covers the chart tag in the Compare beat.",
+   "published": {
+    "at": "2026-10-08",
+    "instagram": "18162030133498062",
+    "facebook": "1644772320616309",
+    "youtube": "v7x4yst4Ef4",
+    "youtubePrivacy": "public"
+   }
+  },
+  {
+   "id": "r005-old-blog-posts-leave-refresh-merge-or-cu",
+   "status": "failed",
+   "topic": "Old blog posts: leave, refresh, merge or cut. How to pick for each page, based on what it does and not on how old it is",
+   "format": "expert-contrast",
+   "madeAt": "2026-10-09T12:41:54.069Z",
+   "seconds": 37,
+   "reason": "Frame 03: Voice says 'Instead, ask what each page does' but Floey just hovers with an empty beak. The four blank tags she should fan out like cards never appear, so nothing on screen explains the line. A single blank tag is left lying in the grass from when she dropped it in frame 02. It reads as a stray white blob and almost touches the caption box. Frame 09: Voice says 'Flowra finds fading posts and overlaps' but only the two 'fading' labels appear. No ring links the two purple flowers leaning"
+  },
+  {
+   "id": "r006-search-console-s-new-generative-ai-repor",
+   "status": "published",
+   "topic": "Search Console's new Generative AI report: see how often your pages show up in AI Overviews and AI Mode, then check whether those pages still get clicks",
+   "format": "countdown",
+   "madeAt": "2026-10-09T15:55:00.000Z",
+   "seconds": 42,
+   "run": 37951171503,
+   "idea": "Search Console now shows how often you appear in AI Overviews and AI Mode",
+   "note": "Passed its final test on the repair run; that run could not save its state (git pull refused), so this record was written by hand. Approved by the founder in chat, 9 Oct 21:4x IST.",
+   "published": {
+    "at": "2026-10-09",
+    "instagram": "18013515155956552",
+    "facebook": "1630990145416568",
+    "youtube": "FxShnVNUUf8",
+    "youtubePrivacy": "public"
+   }
+  },
+  {
+   "id": "r007-moving-your-site-google-s-own-range-is-1",
+   "status": "published",
+   "topic": "Moving your site? Google's own range is 1 to 3 months, and the slow end is a year",
+   "format": "problem-agitate-solve",
+   "madeAt": "2026-10-12T05:01:57.909Z",
+   "seconds": 22,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1791781317.558629"
+   },
+   "idea": "Moving your site? Google's own range is 1 to 3 months",
+   "experiment": "short-first-frame",
+   "style": "pro",
+   "run": 38204391382,
+   "note": "Approved in advance by the founder in chat, 12 Oct 2026 (\"approve for all\"). First reel in the pro style.",
+   "published": {
+    "at": "2026-10-12",
+    "instagram": "18134893840733552",
+    "facebook": "1631842495621476",
+    "youtube": "6BR4nE7Ee7Y",
+    "youtubePrivacy": "public"
+   }
+  },
+  {
+   "id": "r008-maya-asks-chatgpt-for-the-best-blogs-in-",
+   "status": "published",
+   "topic": "Maya asks ChatGPT for the best blogs in her niche, isn't on the list and panics. Floey shows her that the list changes on every ask, and that GA4 shows the visits ChatGPT actually sent.",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-14T04:05:54.476Z",
+   "seconds": 34,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1791950752.293889"
+   },
+   "idea": "Being cited by ChatGPT next to actually getting the visit",
+   "style": "duo",
+   "run": 38507286066,
+   "note": "Approved by the founder in chat, 14 Oct 2026 (\"r008 - approved\"); no ✅ was added in Slack.",
+   "published": {
+    "at": "2026-10-14",
+    "instagram": "17910719484507111",
+    "facebook": "1101027012852133",
+    "youtube": "5-IlrWGNWiA",
+    "youtubePrivacy": "public"
+   }
+  },
+  {
+   "id": "r009-a-detector-says-maya-s-handwritten-post-",
+   "status": "failed",
+   "topic": "A detector says Maya's handwritten post is \"likely AI\", and she's sure Google will bin it",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-15T10:10:30.325Z",
+   "seconds": 30,
+   "reason": "Frames 07–08 (claim is untrue): The payoff says 'Google never asked how I wrote it', and the 'Google's questions' card, credited to Search Central, is built to show that 'none of Google's questions asks how the post was written'. That is false. Google's Search Central guidance on helpful content tells creators to ask 'Who, How, and Why' about their content. 'How was this content created?' is one of the questions, and it says to disclose when automation or AI was used. As written, the card misquo",
+   "idea": "Floey gets graded by an AI detector that never read the words",
+   "style": "duo"
+  },
+  {
+   "id": "r010-a-client-s-ai-detector-says-maya-s-handw",
+   "status": "published",
+   "topic": "A client's AI detector says Maya's handwritten post is AI, and she thinks Google will bury it",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-16T09:56:05.712Z",
+   "seconds": 32,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1792144565.346639"
+   },
+   "idea": "Floey gets graded by an AI detector that never read the words",
+   "style": "duo",
+   "run": 38880494151,
+   "note": "Approved by the founder in chat, 16 Oct 2026.",
+   "published": {
+    "at": "2026-10-16",
+    "instagram": "18114059456029508",
+    "facebook": "1085658637569125",
+    "youtube": "bwNIrS4LhZI",
+    "youtubePrivacy": "public"
+   }
+  },
+  {
+   "id": "r011-maya-has-clicked-request-indexing-on-her",
+   "status": "published",
+   "topic": "Maya has clicked \"Request Indexing\" on her new post again and again, and it still isn't on Google",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-17T07:54:39.185Z",
+   "seconds": 25,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1792223678.857089"
+   },
+   "style": "duo",
+   "run": 39014181617,
+   "note": "Approved by the founder in chat, 17 Oct 2026.",
+   "published": {
+    "at": "2026-10-17",
+    "instagram": "18050784332814101",
+    "facebook": "978445747980186",
+    "youtube": "1Sbah9cFA6A",
+    "youtubePrivacy": "public"
+   }
+  },
+  {
+   "id": "r012-maya-s-impressions-are-up-and-her-clicks",
+   "status": "published",
+   "topic": "Maya's impressions are up and her clicks are flat, and the extra impressions are in long, chatty queries at the bottom of her Search Console list",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-18T09:50:22.367Z",
+   "seconds": 32,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1792317021.863589"
+   },
+   "idea": "Maya's impressions are up, but some of those searches weren't typed by a person",
+   "style": "duo",
+   "run": 39114628540,
+   "note": "Approved by the founder in chat, 19 Oct 2026.",
+   "published": {
+    "at": "2026-10-19",
+    "instagram": "18105812195367655",
+    "facebook": "1653800312986152",
+    "youtube": "O09UezfzO38",
+    "youtubePrivacy": "public"
+   }
+  },
+  {
+   "id": "r013-five-posts-on-one-keyword-aren-t-five-ch",
+   "status": "published",
+   "topic": "Five posts on one keyword aren't five chances to rank: Maya finds five of her banana bread posts all showing for one search",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-19T10:49:47.350Z",
+   "seconds": 26,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1792406986.968389"
+   },
+   "idea": "Five pages on one keyword isn't five chances to rank (myth, about 25 seconds)",
+   "style": "duo",
+   "run": 39237326109,
+   "note": "Approved by the founder in chat, 19 Oct 2026.",
+   "published": {
+    "at": "2026-10-20",
+    "instagram": "18346518691250362",
+    "facebook": "2987502814932947",
+    "youtube": "DL9vrNz7dKQ",
+    "youtubePrivacy": "public"
+   }
+  },
+  {
+   "id": "r014-the-client-asks-how-many-sign-ups-and-ma",
+   "status": "published",
+   "topic": "The client asks \"how many sign-ups?\" and Maya's report only has impressions",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-20T09:21:09.164Z",
+   "seconds": 28,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1792488067.263599"
+   },
+   "idea": "The client asks how many sign-ups, and the report only has impressions",
+   "style": "duo",
+   "run": 39398236576,
+   "note": "Approved by the founder in chat, 20 Oct 2026.",
+   "published": {
+    "at": "2026-10-21",
+    "instagram": "18009336611782216",
+    "facebook": "1919341919447046",
+    "youtube": "TzD5pqaB0RE",
+    "youtubePrivacy": "public"
+   }
+  },
+  {
+   "id": "r015-myth-google-buries-ai-drafts-google-s-ac",
+   "status": "approved",
+   "topic": "Myth: \"Google buries AI drafts.\" Google's actual ask is to fact-check every AI line before publishing, including the title and meta description.",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-21T10:24:31.204Z",
+   "seconds": 30,
+   "slack": {
+    "channel": "C0C4Q821E9M",
+    "ts": "1792578270.744769"
+   },
+   "idea": "Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
+   "style": "duo",
+   "run": 39581961662,
+   "note": "Approved by the founder in chat, 23 Oct 2026."
+  },
+  {
+   "id": "r016-maya-has-nothing-left-to-write-but-her-r",
+   "status": "approved",
+   "topic": "Maya has \"nothing left to write\", but her readers' unanswered questions are already sitting in her Search Console",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-22T10:32:44.602Z",
+   "seconds": 32,
+   "idea": "Your customers' questions are already in your Search Console",
+   "style": "duo",
+   "run": 39760711012,
+   "note": "Approved by the founder in chat, 23 Oct 2026."
+  },
+  {
+   "id": "r017-stop-writing-post-number-31-the-page-tha",
+   "status": "draft",
+   "topic": "Stop writing post number 31: the page that is already one step below the top ten",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-23T11:06:54.772Z",
+   "seconds": 31,
+   "idea": "Floey and the flower one shelf below the top (short-first-frame retest)",
+   "style": "duo",
+   "run": 39935982485
+  }
+ ]
 }
