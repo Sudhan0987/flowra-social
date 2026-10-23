@@ -1,0 +1,47 @@
+{
+ "topic": "Stop writing post number 31: the page that is already one step below the top ten",
+ "angle": "Maya has posted a new article every day for a month and gets almost no clicks, so she starts writing yet another one. Floey has her open the Queries tab in Search Console, turn on Average position and sort by it. A post Maya forgot about turns out to be sitting at about position 11 for a search people really make. That page is already indexed and already showing up, while every new post still has to be crawled first, which Google says can take a few days to a few weeks. The reel shows the check on screen and pokes fun at a habit nearly everyone has: thinking more new posts is the only fix.",
+ "whyNow": "This week's social listening found a beginner r/SEO thread asking how long organic traffic realistically takes, a question that keeps coming up. Our own data says the duo myth reels started strongest, and r006 (a Search Console check with a clear payoff) is still our only reel with saves. This brief puts both together in about 25 seconds, the length of our best-held reel, r011.",
+ "goal": "save",
+ "audience": "Solo bloggers and small content teams 3 to 12 months into a site. They publish steadily, see few clicks, and their only plan is to write more. They have Search Console connected but mostly look at the top chart.",
+ "facts": [
+  {
+   "fact": "Demand: a beginner on r/SEO asks how long organic traffic realistically takes to arrive, a question that keeps coming up (from Flowra's 2026-10-18 social listening; we could not fetch the thread itself, so do not quote it on screen).",
+   "source": "https://www.reddit.com/r/SEO/comments/1x8sqlo/beginner_in_seo_how_long_does_it_realistically/"
+  },
+  {
+   "fact": "Google says crawling a URL 'can take anywhere from a few days to a few weeks', and that 'requesting a recrawl multiple times for the same URL won't get it crawled any faster.'",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl"
+  },
+  {
+   "fact": "Google's SEO Starter Guide: 'Some changes might take effect in a few hours, others could take several months', and you likely want to wait 'a few weeks to assess whether your work had beneficial effects in Google Search results.'",
+   "source": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+  },
+  {
+   "fact": "Google tells site owners: 'If you're not sure what keywords to start with, you can check your Search Console Performance report for ideas.'",
+   "source": "https://developers.google.com/search/docs/monitor-debug/trends-start"
+  },
+  {
+   "fact": "In the Search Console Performance report, the Queries dimension groups data by the search query users typed. In the table, Average position is 'the average position in Search results for the specific URL or grouping dimension shown in the table row.' You can switch on the Average position metric and use the Queries and Pages tabs.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "Industry practice calls queries where a page ranks roughly positions 8 to 20 'striking distance' of page one. This is a practitioner term, not a Google one.",
+   "source": "https://www.clearscope.io/support/striking-distance"
+  },
+  {
+   "fact": "Maya's numbers on screen (for example her old post at position 11.4 with 2,300 impressions and 9 clicks) are an example and framed as hers, not real data.",
+   "source": "Flowra finding"
+  },
+  {
+   "fact": "End card context only (never spoken): Flowra's Free plan shows the top 5 striking distance queries, where a page ranks roughly positions 8 to 20.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Night set, desk lamp on, Floey perched on the laptop. Hook (mayaTight): Maya is typing hard with a \"Post 31\" feeling. Maya: \"Thirty posts in thirty days and Google sent me eleven people.\" The DUO.stat pill \"11 clicks\" turns bad. Floey (floeyTight, deadpan): \"Stop writing. Open Queries.\" Maya pushes back: \"But new posts are how you get traffic!\" Floey: \"New posts wait in line. Sort by position.\" Cutaway with a whoosh: DUO.listInsert titled \"Search Console · Queries\", columns Query / Position, six example rows of Maya's (e.g. \"best budget rail pass europe\" 4.2 ... \"cheap night trains italy\" 11.4 ...). The 11.4 row gets the hi ring as hiK grows, with a ding. Back to wide: Maya says \"Oh.\" and a \"!\" mark pops. Floey gives the one tip: \"That one's already in the room. Make it answer that search better, then give it a few weeks.\" Button: Maya picks up her mug, sips, grimaces (cold coffee, the running joke). Floey: \"You're welcome.\" Maya looks to camera. A caption or Floey line asks viewers to save this for their next audit. End card.",
+ "pillar": "myth",
+ "instinct": "No traffic means I'm not publishing enough, so the fastest fix is another new post.",
+ "flip": "Search Console already shows the searches your existing pages appear for and their average position, so a page sitting just below the top ten is already indexed and being seen today, while a new post still has to be crawled, which Google says can take a few days to a few weeks.",
+ "idea": "Floey and the flower one shelf below the top (short-first-frame retest)",
+ "style": "duo"
+}

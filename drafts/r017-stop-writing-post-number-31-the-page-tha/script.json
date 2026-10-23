@@ -1,0 +1,105 @@
+{
+ "title": "Post thirty-one",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Thirty posts in thirty days, and Google sent me twelve people.",
+   "emotion": "worried",
+   "caption": "30 posts in 30 days, and Google sent me 12 people.",
+   "visual": "Shot: maya (not mayaTight, so the pills at about x 880, y 610 stay in frame). Night set, desk lamp on, DUO.mug() on the desk. At t=0 the DUO.stat pill '12 clicks' is already up and red, with a neutral DUO.stat pill 'Post 31' beside it. Maya is already typing hard: pose type, expr panic, key clacks from the first frame. On 'twelve' the red pill pulses with a buzz."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Stop typing. You already wrote the answer.",
+   "emotion": "determined",
+   "visual": "Shot: floeyTight, Floey alone on the laptop lid. She pivots toward Maya, tilts her head, gives one slow deadpan blink (tick sound). No Maya reaction in this shot."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "But new posts are how you get traffic!",
+   "emotion": "worried",
+   "visual": "Shot: wide. Maya jolts, pose point at the laptop, expr panic, faster and higher. On the lid, Floey tilts her head the other way, unbothered. Both pills still beside Maya."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "New ones can take weeks to get crawled. Search Console, Queries, turn on Average position.",
+   "emotion": "playful",
+   "visual": "Shot: wide. Floey pivots to face Maya, deadpan, and gives one small nod on 'turn on'. Maya drops from point to pose type, expr annoyed. The neutral 'Post 31' pill pops out with a soft pop as she gives up on it. The red '12 clicks' pill stays."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "Fine. Sorting...",
+   "emotion": "determined",
+   "visual": "Starts wide: Maya types, expr annoyed, flat. Then a cutaway with a whoosh to the laptop screen insert, DUO.listInsert titled 'Search Console · Queries', sub 'Average position on · sorted by position', columns Query / Impressions / Position. Rows slide in already sorted with rowsK, one tick per row (all Maya's example numbers): 'best budget rail pass europe 310 4.2', 'interrail packing list 180 7.9', 'cheap night trains italy 2,300 11.4', 'lisbon on a budget 90 18.6', 'hostel or hotel paris 60 23.1', 'slow travel tips 40 31.5'."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Wait. Cheap night trains Italy. My old post's at eleven!",
+   "emotion": "bright",
+   "caption": "Wait. Cheap night trains Italy. My old post's at 11!",
+   "visual": "The insert holds: the 'cheap night trains italy 2,300 11.4' row gets the hi ring, growing as hiK rises, with a ding. Cut to wide so both are in frame: Maya jolts, expr surprised, and a '!' mark pops over her bun. On the lid, Floey preens once, smug."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "People already see it. Make that post answer it better. Give it a few weeks.",
+   "emotion": "warm",
+   "visual": "Shot: wide. Floey tilts toward Maya, warm. Maya nods slowly, then goes back to pose type, calm now, expr focused, with soft key clacks. The red '12 clicks' pill is still there: no instant win."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Save this for post sixty.",
+   "emotion": "proud",
+   "caption": "Save this for post 60.",
+   "visual": "Shot: wide. Floey pivots to face the camera, deadpan and smug. Under her line, Maya switches to pose mug: the desk DUO.mug() stops drawing at that frame so there is only one mug. She sips, then grimaces (expr annoyed, cold coffee, a sip sound) without a word. After the line, Maya turns and gives the camera a slow flat look over her glasses, still holding the mug. END comes about 1.5 seconds after the line so the look plays out, then the end card with its thump."
+  }
+ ],
+ "loopNote": "Floey's 'post sixty' points at a future Maya stuck in the same habit. The reel ends on Maya holding her cold mug and staring at the camera, then restarts on her at night, typing hard next to the red '12 clicks' pill and a fresh 'Post 31' pill, so the replay looks like she's already heading back there.",
+ "caption": "Thirty posts in thirty days, and Maya was about to write number thirty-one. 😅\n\nBefore you write another new post, try this. In Search Console, open Performance and click the Queries tab. Turn on Average position (it's off by default), then sort by it. Look for searches where you sit around position eleven, just below the top ten. Click one and open the Pages tab to see which post it is. That page is already indexed and people already see it, so make it answer that search better, then give it a few weeks. A brand new post has to be crawled first, and Google says that alone can take a few days to a few weeks.\n\nSave this for your next content audit. What post number are you on right now? 👇\n\n(Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#blogging",
+  "#searchconsole",
+  "#contentmarketing",
+  "#bloggingtips"
+ ],
+ "sticky": 49,
+ "id": "r017-stop-writing-post-number-31-the-page-tha",
+ "format": "duo-sitcom",
+ "goal": "save",
+ "topic": "Stop writing post number 31: the page that is already one step below the top ten",
+ "editorNotes": [
+  "The payoff only works if you already know that position 11 is the first spot below the top ten. Maya shouts \"My old post's at eleven!\" with a bright delivery, but a beginner (the audience in the brief) is just as likely to hear 11 as bad news. No line says why 11 is good, and that is the whole point of the topic ('one step below the top ten'). Have Maya or Floey say it in a few spoken words, for example Maya: \"Eleven. That's... page two. The top of page two.\" Or put it in Floey's reframe of the number. Don't add a text card.",
+  "The two lines contradict each other. Floey's argument is \"New ones can take weeks to get crawled\", then her advice for the old post is \"Give it a few weeks.\" A viewer hears that both options take weeks, so the reason she gave falls apart. (An edited page also has to be recrawled, which per the brief takes a few days to a few weeks.) The real advantage in the brief is that the old page is already indexed and already being seen, not that it is faster. Either lead with that ('New posts start from zero; old ones are already in the room') or make the crawl line about a new post starting from nothing. Don't set crawl time against waiting time.",
+  "Floey's tip line is unclear when spoken: \"People already see it. Make that post answer it better.\" The first 'it' is the post and the second is the search, and the ear can't tell them apart. The tip is the line people are supposed to save, so it has to be clear the first time. Name the search: \"Make that post answer that search better.\" Or use the brief's \"already in the room\" image.",
+  "\"expr focused\" (Floey's payoff line, Maya going back to typing) isn't one of Maya's expressions. The available ones are neutral, happy, proud, panic, worried, annoyed, smug, surprised, think, deadpan and sad. Use think or neutral.",
+  "(polish) Floey gives three pieces of advice across two lines: open Queries and turn on Average position, improve that post, and wait a few weeks. She also speaks about 34 words to Maya's 22, which breaks her 'fewest words in the room' trait and starts to sound like a lecture. Keep one clear tip (find the query sitting just below the top ten and improve the page that ranks for it), trim the menu path, and treat the wait as a short tag or drop it.",
+  "(polish) \"Search Console, Queries, turn on Average position.\" sounds like a menu path read off a help page, not something Floey would say. It also sits in the same breath as the crawl claim, so the line carries two ideas. Split it, or shorten it to something like \"Queries. Average position on.\" and let Maya and the insert show the rest.",
+  "(polish) A few emotions don't fit their lines. The tip line is marked 'playful' but the visual says deadpan. Maya's \"Fine. Sorting...\" is marked 'determined' but the visual says annoyed and flat (the cast says she goes flat when annoyed). The payoff is 'bright' but the face is set to surprised. Pick delivery and face so they match: 'warm' or 'determined' for the tip, 'worried' or a flatter reading for \"Fine\", and Maya's face set to happy or surprised at the start of \"Wait\" and changed again on \"eleven\".",
+  "(polish) Shot logic in the payoff isn't clear. The insert is up while Maya says the whole line, so her face can't be seen, and then \"cut to wide\" has no cue. Say where the cut lands (for example on \"My old post's at eleven!\"), and keep the ding, Maya's jolt pop and the '!' mark at least 0.4 s apart. Maya has also already jolted on the doubt line, so a second jolt repeats the beat; try a lean in instead.",
+  "(polish) Queries rows show searches, not pages. Maya jumping from 'cheap night trains italy 11.4' to \"my old post\" is fine because she remembers writing it, but an SEO viewer may notice. Optionally have her type or click once, so it reads like she's checking which page it is.",
+  "(polish) The button is crowded. Maya's sip and grimace (the running joke) happen while Floey delivers her spoken button, so the two jokes step on each other, and 1.5 s after the line isn't long enough for the grimace plus a slow look to camera. Put Floey's line first, then the sip and grimace, then the look, and push END to about 2.5 to 3 s. 'Over her glasses' isn't something the studio can do; use MY.look at the camera with expr deadpan.",
+  "(polish) \"Save this for post sixty.\" lands as a jab, but it is close to engagement bait. Deliver it as a dig at Maya (she will be back at post sixty) with a glance between them before Floey turns to the camera, so it plays as a joke between them and not a call to action. 'proud' reads as pleased with herself; 'playful' fits a deadpan jab better.",
+  "(polish) Length: about 69 spoken words, plus pauses, the insert hold, about 2.5 s of silent button and the end card, comes to roughly 32 to 34 s. The brief targets about 25 s, the length of the best-held reel (r011). Trim Floey's two long lines first.",
+  "(polish) Hook pills: DUO.stat only lists 'bad' and 'good' tones, so a 'neutral' 'Post 31' pill may not exist. Two pills side by side starting at x about 880 will also cross the safe edge at x 1020. Stack them vertically or use a good/bad tone, and measure both. A buzz is the phone-vibrate sound, so it's an odd fit for a pill pulse; use a tick or a pop.",
+  "(polish) Floey 'pivots toward Maya' in the reframe and 'pivots to face Maya' in the tip, but she's already perched facing Maya (facing -1). F.pivot is for turning to the camera. Describe these as a head tilt or turn so the animator doesn't spin her away from Maya. Also measure the three-column list insert: long query labels like 'best budget rail pass europe' next to Impressions and Position may overflow their box."
+ ],
+ "style": "duo",
+ "template": "../drafts/r017-stop-writing-post-number-31-the-page-tha/scene.html"
+}
