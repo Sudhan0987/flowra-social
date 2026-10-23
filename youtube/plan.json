@@ -10,20 +10,20 @@
    "note": "Step by step in the guide. Banner and picture: Desktop/Flowra/YouTube."
   },
   {
-   "date": "2026-10-19",
+   "date": "2026-10-23",
    "kind": "youtube-video",
    "title": "Tutorial 1 video ready for your review: Why did my organic traffic drop?",
    "owner": "flowra",
    "file": "youtube/t001-why-did-my-traffic-drop/script.md",
-   "note": "Script is written. Flowra builds the video (screens in the product film's style, Floey's voice) and sends it for review."
+   "note": "Rendered 23 Oct 2026 (late: missed its 19 Oct slot). Video at ~/Desktop/Flowra/YouTube/t001-why-did-my-traffic-drop/renders/. Founder reviews, then Claude uploads it with the Upload a YouTube video workflow, scheduled for the publish date."
   },
   {
-   "date": "2026-10-22",
+   "date": "2026-10-29",
    "kind": "youtube-video",
    "title": "Publish Tutorial 1: Why did my organic traffic drop? Find the cause in 4 checks",
-   "owner": "you",
+   "owner": "flowra",
    "file": "youtube/t001-why-did-my-traffic-drop/script.md",
-   "note": "Title, description, chapters, tags and pinned comment are in the script file. Then embed it in the blog article."
+   "note": "Goes live Thursday 29 Oct 2026, 19:00 India (scheduled upload, meta.json in youtube/videos/t001-why-did-my-traffic-drop). Then embed it in the blog article."
   },
   {
    "date": "2026-11-02",
