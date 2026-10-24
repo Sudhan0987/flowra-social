@@ -64,8 +64,16 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci --ignore-scripts
+      # 23 Oct: apt-get hung for the whole 30 minute job and the reel never posted.
+      # A static build first (fast, no apt), apt only as a bounded fallback.
       - name: ffmpeg (audio check before Instagram)
-        run: command -v ffmpeg || (sudo apt-get update -q && sudo apt-get install -y -q ffmpeg)
+        timeout-minutes: 6
+        run: |
+          command -v ffmpeg && exit 0
+          if curl -fsSL --max-time 120 -o /tmp/ff.tar.xz https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz; then
+            mkdir -p /tmp/ff && tar -xf /tmp/ff.tar.xz -C /tmp/ff --strip-components=1 && sudo cp /tmp/ff/ffmpeg /tmp/ff/ffprobe /usr/local/bin/ && ffmpeg -version | head -1 && exit 0
+          fi
+          sudo apt-get update -q -o Acquire::http::Timeout=20 && sudo apt-get install -y -q ffmpeg
       - name: Post the next approved reel
         run: npx tsx src/autopost.ts ${{ inputs.check == 'true' && '--check' || '' }} ${{ inputs.youtube != '' && format('--youtube={0}', inputs.youtube) || '' }}
       - name: Post the approved LinkedIn draft to the Flowra page (Buffer)
