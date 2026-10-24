@@ -81,6 +81,8 @@ export function parseDraft(md: string): { text: string; firstComment: string } {
 /** Drafts that are approved, due and not posted yet, oldest first. */
 export function dueDrafts(today = istDay()): string[] {
   if (!existsSync(DIR)) return [];
+  const off = path.join(path.dirname(fileURLToPath(import.meta.url)), "../state/no-post-dates.txt");
+  if (existsSync(off) && readFileSync(off, "utf8").split("\n").includes(today)) return [];
   return readdirSync(DIR).filter((f) => /^\d{4}-\d{2}-\d{2}\.md$/.test(f)).map((f) => f.slice(0, 10))
     .filter((d) => d <= today && existsSync(path.join(DIR, `${d}.approved`)) && !existsSync(path.join(DIR, `${d}.posted`))).sort();
 }

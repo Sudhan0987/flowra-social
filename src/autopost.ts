@@ -226,6 +226,7 @@ async function main() {
   const notes = await slackDecisions(state);
   if (notes.length) { save(state); notes.forEach((n) => console.log(n)); }
   const today = istDay();
+  if (existsSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "../state/no-post-dates.txt")) && readFileSync(path.join(path.dirname(fileURLToPath(import.meta.url)), "../state/no-post-dates.txt"), "utf8").split("\n").includes(today)) return console.log(`Posting is paused for ${today} (state/no-post-dates.txt).`);
   if (state.posts.some((p) => p.published?.at === today)) return console.log(`A reel already went out today (${today}); next one tomorrow.`);
   // Only 18:00-22:59 India time, so the 19:00 IST run posts (09:30 New York, 14:30 London,
   // India's evening peak) and the 22:00 run is the fallback. Research note:
