@@ -1,0 +1,111 @@
+{
+ "title": "The Dotted Line",
+ "hookPattern": "The aftermath first",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "Floey. My clicks just fell off a cliff. Sixty percent.",
+   "emotion": "worried",
+   "caption": "Floey. My clicks just fell off a cliff. -60%",
+   "visual": "Frame one, mayaTight, morning daylight: Maya in the mug pose, leaning back from the laptop, eyes wide behind her round glasses. The red '-60%' pill (her own example) is moved inward so it sits fully inside the mayaTight frame beside her head; check it at phone size. On 'cliff', cut to the laptop screen insert: a 24-hour chart labelled 'Clicks' and 'Hourly'. The line runs steady, then dives over the last stretch, and that last short dive is already a dotted segment, small but visible. Maya missed it."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Is the end of the line dotted?",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey on the laptop lid, totally unbothered. She tilts her head, then gives one small wink."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Does that matter? It's falling!",
+   "emotion": "worried",
+   "visual": "maya: Maya puts the mug down (switch to the point pose, and DUO.mug() now stands on the desk) and points toward the screen, screen right. Her voice goes up and the pencil in her bun wobbles."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "In Search Console, dotted means Google's still counting. Look again in a few hours.",
+   "emotion": "warm",
+   "visual": "wide: Floey stays on the lid and tilts her head down toward the screen side. Maya, in the rest pose, leans in toward the laptop. The mug is on the desk. Cutaway to the screen insert: it zooms into the tail, and the dive is clearly a dotted segment while the rest of the line is solid. One soft tick plays as the zoom lands."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Wait... it is dotted.",
+   "emotion": "bright",
+   "visual": "mayaTight: Maya in the think pose, leaning toward the screen. Her eyes narrow on the dots, then her shoulders drop a little. The mug stays on the desk, untouched."
+  },
+  {
+   "role": "check",
+   "speaker": "floey",
+   "pause": 1.4,
+   "say": "Good. Now drink your coffee.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey on the lid preens one wing without looking up. Then the transition gets its own beat, in wide: Maya in the same chair, same lean, the mug untouched on the desk, Floey on the lid. The window fades from day to night and the desk lamp clicks on with one click sound. If DUO.room cannot fade, hard cut to the night set on the lamp click."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Oh. It filled back in. Up two percent.",
+   "emotion": "bright",
+   "caption": "Oh. It filled back in. +2%",
+   "visual": "Cutaway to the screen insert, lamp glow at the edge: the old dip is now solid and level with the rest of the line, and a new short dotted stub sits at the far right for the newest hours. One soft ding, and the pill flips from red '-60%' to green '+2%'. Cut to maya: rest pose, relieved and a bit sheepish."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "Ugh. It's cold.",
+   "emotion": "playful",
+   "visual": "maya: Maya picks the mug up (back to the mug pose; DUO.mug() is removed from the desk) and sips. Her face goes flat and deadpan right at the start of the line, and she stares into the mug. One small slurp sound."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Sorry, Maya. The coffee isn't dotted.",
+   "emotion": "playful",
+   "visual": "floeyTight: F.pivot(t, 'front'). Floey looks straight down the lens, deadpan, and gives one tongue flick. Cut to mayaTight: Maya in the mug pose gives the camera a long silent look. END is pushed back about 1.5 s so the look plays out before the end card."
+  }
+ ],
+ "loopNote": "The last frame is Maya in mayaTight, in the mug pose, looking at the camera. The first frame is the same shot and the same pose in morning light with the red pill. So the replay plays like the next morning starting with the same panic, and the dotted tail she missed is there again in the first cutaway.",
+ "caption": "Me, first thing in the morning, coffee in hand, watching my Search Console clicks fall off a cliff. Floey, not even looking up: \"Is the end of the line dotted?\"\n\nThe tip: in the Search Console Performance report, the newest data can still be getting counted. Google marks it with a dotted line, and it can change over the next few hours. So before you panic, check whether the dip is dotted, then look again later. (And drink your coffee while it's hot.)\n\nSend this to the friend who refreshes Search Console at midnight. What's the worst false alarm you've ever panicked over?",
+ "hashtags": [
+  "#seo",
+  "#searchconsole",
+  "#blogging",
+  "#contentmarketing",
+  "#bloggerlife"
+ ],
+ "sticky": 52,
+ "id": "r018-maya-s-search-console-line-nosedives-in-",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Maya's Search Console line nosedives in the last few hours, and the bit that dived is dotted: Google is still counting it",
+ "editorNotes": [
+  "Check beat ('Wait... it is dotted.'): the studio has no pose called 'think'. Maya's poses are rest, type, facepalm, panic, cheeks, point, pointL, shrug, chin, wave, phone, mug, crossed, fist. 'think' is only an expression. Use the 'chin' pose with expr 'think' at the start of the line. When her shoulders drop, switch to a named expression such as 'surprised' or 'happy' rather than leaving it to the animator.",
+  "(polish) The reveal lands on the wrong line. The visual zooms the insert into the dotted tail during Floey's tip, so the viewer has already seen the dots before Maya says 'Wait... it is dotted.' Her discovery then plays on a face with nothing new on screen. The duo rule is that Floey gives the tip and Maya does it on screen. Keep Floey's tip on the wide shot, or on the first un-zoomed chart. Move the zoom into the dotted tail, and its tick, to the start of Maya's 'Wait...' line, then cut to mayaTight for 'it is dotted.'",
+  "(polish) Hook face isn't named. 'Eyes wide' is not an expression call, and the final test samples frame one. Set MY.expr(0, 'panic'), or 'worried' to match the voice, explicitly. A relaxed mug-holding default would read as calm on the very frame that has to show the panic. Also tilt the mug or lean her back hard so the mug pose reads as frozen mid-sip, not as a casual morning.",
+  "(polish) The time skip has to read at phone size with no caption. In a wide shot the window is a small, pale background element. Commit to one approach instead of 'fade, or hard cut if it can't'. DUO.room only takes a night flag, so plan a hard cut to the night set on the lamp click. Hold the wide shot for the full 1.4 s so the moon and lamp glow register before the insert comes back. Also, morning to night is more than 'a few hours'. That's fine as a joke (she sat there all day), but 'same lean, same chair, untouched mug' is what sells it, so keep all three exactly the same.",
+  "(polish) There isn't enough time between 'Up two percent.' and 'Ugh. It's cold.' The visual needs Maya to pick up the mug, change pose, sip and go deadpan, and that has to happen before 'Ugh'. A 0.3 s gap can't fit it, so the sip will land on top of the line or after it. Make the gap about 1.0 to 1.2 s so the sip and the deadpan face come first and 'Ugh' is the reaction.",
+  "(polish) 'slurp' isn't in the sound kit. Use F.sfx(t, 'sip') for Maya's sip, once.",
+  "(polish) 'Oh. It filled back in. Up two percent.' Saying 'Up two percent' aloud waters down the relief beat and adds a third number to a 25 second reel. The brief's facts only frame -60% as Maya's example; +2% comes from the visual idea. Keep the green '+2%' pill on screen and end the line at 'Oh. It filled back in.' If you keep the number spoken, have Maya say it's hers ('I'm up two percent'). Also, the pill is a world-space prop and the insert is screen-space, so if the ding and pill flip happen during the cutaway the insert hides them. Flip the pill on the cut back to the maya shot, with the ding on the flip.",
+  "(polish) The payoff insert's 'new short dotted stub at the far right' has to be clearly level or rising. If it dips even a little, the viewer reads it as the next crash and the payoff muddies. Draw it flat.",
+  "(polish) The payoff expression is described as 'relieved and a bit sheepish', which isn't a studio expression. Name it ('happy', or 'smug' for a sheepish half-grin) at the start of the line.",
+  "(polish) Floey's tip is a little written: 'In Search Console, dotted means Google's still counting.' Floey uses the fewest words in the room, and the Hourly chart already says where this is. 'Dotted means Google's still counting. Look again in a few hours.' sounds more like her and is just as true.",
+  "(polish) Button line: 'Sorry, Maya' puts an apology in front of the punchline, and Floey is smug, not apologetic. It also delays 'isn't dotted'. 'Coffee's not dotted, Maya.' gets there faster and keeps the deadpan. The current line works; this is a sharpening suggestion.",
+  "(polish) 'Ugh. It's cold.' is tagged 'playful'. The cast says Maya is flat when she is annoyed, and the visual asks for deadpan. Playful delivery would play the line as a bit instead of a defeat. None of the allowed emotions is 'flat', so the nearest fit is 'worried' at a low pitch. Otherwise make sure the TTS take isn't bouncy.",
+  "(polish) Silent actions: Floey's head tilt and wink on 'Is the end of the line dotted?' and her preen on 'Good. Now drink your coffee.' need a sound each (tk, swish), and the mug going down on the doubt line needs a soft click. Keep each at least 0.4 s from the next cue."
+ ],
+ "style": "duo",
+ "template": "../drafts/r018-maya-s-search-console-line-nosedives-in-/scene.html"
+}

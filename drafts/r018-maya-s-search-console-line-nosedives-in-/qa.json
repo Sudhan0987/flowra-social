@@ -1,0 +1,9 @@
+{
+ "pass": false,
+ "problems": [
+  "Frame 07 (night payoff insert): there is a pale, flat strip about 55px tall across the top of the frame, above the night room. The background doesn't reach the top edge, so it reads as a render glitch. Fill the frame or fix the room's offset/scale for this shot.",
+  "Frame 08 (payoff line, caption 'in. +2%'): Maya already has the mug at her mouth, sipping and smiling, while she is still saying 'It filled back in. Up two percent.' The script says she is in the rest pose here, relieved and a bit sheepish, with the mug untouched on the desk. If she sips early and happily, the 'Ugh. It's cold.' gag that comes next makes no sense. Keep the mug on the desk until the 'cold' line.",
+  "Frame 02 (doubt line): Maya's pointing hand overlaps Floey's beak on the laptop lid, so it looks like she's poking Floey or Floey is biting her finger. She also points up at Floey rather than at the screen. Move the hand clear of Floey and aim it at the laptop screen.",
+  "Frame 10 (after the button line): Maya's 'long silent look' to the camera isn't there. Her eyes are down and to the side, at the mug, not down the lens, so the deadpan beat aimed at the viewer is lost before the end card. Turn her pupils to the camera for this hold."
+ ]
+}

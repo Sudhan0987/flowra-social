@@ -1,0 +1,46 @@
+{
+ "topic": "Maya's Search Console line nosedives in the last few hours, and the bit that dived is dotted: Google is still counting it",
+ "angle": "Maya opens Search Console with her morning coffee and the line on today's chart drops off a cliff. Floey asks one thing: is the end of the line dotted? Google marks its newest data as preliminary, still being collected, with a dotted line. Maya checks, it is dotted, and when she looks again a few hours later the dip has filled back in. It shows the most common false alarm in Search Console, the half-counted last data point, and gives a check anyone can do in two seconds.",
+ "whyNow": "This is evergreen, but people keep posting it. In August 2026 site owners on X, Bluesky, LinkedIn and the Google forums reported a \"cliff-edge drop\" and \"a very large decrease in impressions in the past 2 days\", and Google said it was a logging problem, not lost visibility. It also fits what our numbers say works: a relatable panic, a Search Console check with a clear payoff (the topic behind our only saves on r006), and a length of about 25 seconds.",
+ "goal": "send",
+ "audience": "Solo bloggers, content marketers and small agency people who open Search Console first thing in the morning (or refresh it at night) and read the last data point as a verdict.",
+ "facts": [
+  {
+   "fact": "In the Search Console Performance report, the newest data can be preliminary: it is still being collected and might change in the next few hours.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "Search Console marks preliminary data with a dotted line on the graph.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "In the 24-hour view, the data points are hours and include preliminary data. The Hourly setting is only available in the 24-hour view.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "Google says Search Console shows data points as soon as it has any data on them, even before it has finished collecting all the data for those points, and marks them with a dotted line.",
+   "source": "https://developers.google.com/search/blog/2024/12/recent-data-search-console"
+  },
+  {
+   "fact": "Google launched the 24-hour view in Search Console in December 2024. Data appears in it with a delay of only a few hours, and it uses your local time zone based on your browser settings.",
+   "source": "https://www.searchenginejournal.com/google-launches-new-24-hours-view-in-search-console/535182"
+  },
+  {
+   "fact": "Demand: in August 2026 site owners reported sudden drops in Search Console clicks and impressions, including \"a sudden cliff-edge drop within a couple of days\" and \"a very large decrease in impressions in the past 2 days\". Google's John Mueller said it was a logging issue, not a real change in Search visibility.",
+   "source": "https://www.seroundtable.com/google-search-console-performance-reports-drop-41884.html"
+  },
+  {
+   "fact": "Google keeps a public Data anomalies page in Search Console Help that lists known logging problems (for example, a logging error on 13 Aug 2026 lowered reported Discover clicks and impressions). It is a backup check if a dip is still there after the data settles. Keep it off screen or to one short mention.",
+   "source": "https://support.google.com/webmasters/answer/6211453"
+  },
+  {
+   "fact": "Example only, framed as Maya's own: her chart shows something like '-60%' on the last point before it fills back in. This is not a statistic.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "The whole reel rests on the screenInsert chart. A line draws itself across Maya's laptop screen, steady, then takes a steep dive over the last stretch, with a red \"-60%\" pill (Maya's own example) by her head. When Floey asks \"Is it dotted?\", the insert zooms in to the tail and the dive is clearly a dotted segment. For the payoff, a \"few hours later\" beat (day window turning to the night set, with the desk lamp on) brings the insert back: the dotted tail turns solid and climbs back level, a ding sounds, and the pill turns into a green \"+2%\". The cutaway can be one live 24-hour chart with a \"Hourly\" label so it reads as Search Console without a logo. Button: Maya reaches for her mug, sips, and the coffee is cold (the running joke). Floey: \"Dotted means 'not finished', Maya.\" Maya looks to camera.",
+ "pillar": "problem",
+ "instinct": "The line dived at the end of today's chart, so Maya thinks her traffic is crashing right now and starts thinking about deleting the blog.",
+ "flip": "Google's own Search Console help says the newest data can be preliminary, still being collected and may change in the next few hours, and it marks that data with a dotted line on the graph.",
+ "style": "duo"
+}
