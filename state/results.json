@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-18",
+ "updated": "2026-10-25",
  "reels": [
   {
    "id": "r002-find-the-pages-quietly-losing-traffic-in",
@@ -16,8 +16,8 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-10-18",
-    "ageDays": 11.7,
+    "date": "2026-10-25",
+    "ageDays": 18.7,
     "instagram": {
      "views": 89,
      "reach": 79,
@@ -107,6 +107,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-25",
+     "ageDays": 18.7,
+     "instagram": {
+      "views": 89,
+      "reach": 79,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 4207,
+      "ig_reels_video_view_total_time": 370285
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 16,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -125,8 +148,8 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-10-18",
-    "ageDays": 10.7,
+    "date": "2026-10-25",
+    "ageDays": 17.7,
     "instagram": {
      "views": 18,
      "reach": 19,
@@ -216,6 +239,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-25",
+     "ageDays": 17.7,
+     "instagram": {
+      "views": 18,
+      "reach": 19,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2240,
+      "ig_reels_video_view_total_time": 42561
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 54,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -234,8 +280,8 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-10-18",
-    "ageDays": 10.4,
+    "date": "2026-10-25",
+    "ageDays": 17.4,
     "instagram": {
      "views": 5,
      "reach": 5,
@@ -249,7 +295,7 @@
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 134,
+     "viewCount": 135,
      "likeCount": 1,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -325,6 +371,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-25",
+     "ageDays": 17.4,
+     "instagram": {
+      "views": 5,
+      "reach": 5,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 9861,
+      "ig_reels_video_view_total_time": 59166
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 135,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -343,18 +412,18 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-10-18",
-    "ageDays": 8.6,
+    "date": "2026-10-25",
+    "ageDays": 15.6,
     "instagram": {
-     "views": 116,
-     "reach": 103,
+     "views": 117,
+     "reach": 104,
      "saved": 2,
      "shares": 1,
      "likes": 3,
      "comments": 0,
      "total_interactions": 6,
-     "ig_reels_avg_watch_time": 3057,
-     "ig_reels_video_view_total_time": 324120
+     "ig_reels_avg_watch_time": 3031,
+     "ig_reels_video_view_total_time": 324342
     },
     "facebook": {},
     "youtube": {
@@ -434,6 +503,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-25",
+     "ageDays": 15.6,
+     "instagram": {
+      "views": 117,
+      "reach": 104,
+      "saved": 2,
+      "shares": 1,
+      "likes": 3,
+      "comments": 0,
+      "total_interactions": 6,
+      "ig_reels_avg_watch_time": 3031,
+      "ig_reels_video_view_total_time": 324342
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 26,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -452,8 +544,8 @@
    "experiment": "short-first-frame",
    "style": "pro",
    "latest": {
-    "date": "2026-10-18",
-    "ageDays": 5.7,
+    "date": "2026-10-25",
+    "ageDays": 12.7,
     "instagram": {
      "views": 15,
      "reach": 12,
@@ -497,6 +589,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-25",
+     "ageDays": 12.7,
+     "instagram": {
+      "views": 15,
+      "reach": 12,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2676,
+      "ig_reels_video_view_total_time": 37465
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 8,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -515,8 +630,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-10-18",
-    "ageDays": 3.6,
+    "date": "2026-10-25",
+    "ageDays": 10.7,
     "instagram": {
      "views": 12,
      "reach": 10,
@@ -560,6 +675,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-10-25",
+     "ageDays": 10.7,
+     "instagram": {
+      "views": 12,
+      "reach": 10,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 8333,
+      "ig_reels_video_view_total_time": 91669
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 19,
+      "likeCount": 2,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -578,22 +716,22 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-10-18",
-    "ageDays": 1.7,
+    "date": "2026-10-25",
+    "ageDays": 8.7,
     "instagram": {
-     "views": 116,
-     "reach": 100,
+     "views": 117,
+     "reach": 101,
      "saved": 0,
      "shares": 0,
      "likes": 1,
      "comments": 0,
      "total_interactions": 1,
-     "ig_reels_avg_watch_time": 7352,
-     "ig_reels_video_view_total_time": 742608
+     "ig_reels_avg_watch_time": 7268,
+     "ig_reels_video_view_total_time": 748623
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 481,
+     "viewCount": 506,
      "likeCount": 8,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -623,6 +761,29 @@
       "favoriteCount": 0,
       "commentCount": 1
      }
+    },
+    {
+     "date": "2026-10-25",
+     "ageDays": 8.7,
+     "instagram": {
+      "views": 117,
+      "reach": 101,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 7268,
+      "ig_reels_video_view_total_time": 748623
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 506,
+      "likeCount": 8,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 1
+     }
     }
    ]
   },
@@ -641,22 +802,22 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-10-18",
-    "ageDays": 0.7,
+    "date": "2026-10-25",
+    "ageDays": 7.7,
     "instagram": {
-     "views": 145,
-     "reach": 119,
+     "views": 193,
+     "reach": 162,
      "saved": 0,
      "shares": 1,
-     "likes": 0,
+     "likes": 2,
      "comments": 0,
-     "total_interactions": 1,
-     "ig_reels_avg_watch_time": 10564,
-     "ig_reels_video_view_total_time": 1257213
+     "total_interactions": 3,
+     "ig_reels_avg_watch_time": 9642,
+     "ig_reels_video_view_total_time": 1571686
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 123,
+     "viewCount": 142,
      "likeCount": 4,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -682,6 +843,218 @@
      "youtube": {
       "viewCount": 123,
       "likeCount": 4,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    },
+    {
+     "date": "2026-10-25",
+     "ageDays": 7.7,
+     "instagram": {
+      "views": 193,
+      "reach": 162,
+      "saved": 0,
+      "shares": 1,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 9642,
+      "ig_reels_video_view_total_time": 1571686
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 142,
+      "likeCount": 4,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r012-maya-s-impressions-are-up-and-her-clicks",
+   "title": "Google's showing my blog to ghosts",
+   "hook": "Impressions up sixty percent, clicks flat. Google's showing my blog to ghosts.",
+   "hookPattern": "The voiced frustration",
+   "format": "duo-sitcom",
+   "pillar": "problem",
+   "goal": "save",
+   "topic": "Maya's impressions are up and her clicks are flat, and the extra impressions are in long, chatty queries at the bottom of her Search Console list",
+   "postedAt": "2026-10-19T17:05:31+0000",
+   "seconds": 32,
+   "idea": "Maya's impressions are up, but some of those searches weren't typed by a person",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-10-25",
+    "ageDays": 5.6,
+    "instagram": {
+     "views": 113,
+     "reach": 101,
+     "saved": 1,
+     "shares": 0,
+     "likes": 0,
+     "comments": 0,
+     "total_interactions": 1,
+     "ig_reels_avg_watch_time": 5216,
+     "ig_reels_video_view_total_time": 537332
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 22,
+     "likeCount": 0,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-10-25",
+     "ageDays": 5.6,
+     "instagram": {
+      "views": 113,
+      "reach": 101,
+      "saved": 1,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 5216,
+      "ig_reels_video_view_total_time": 537332
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 22,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r013-five-posts-on-one-keyword-aren-t-five-ch",
+   "title": "Five Banana Breads",
+   "hook": "Five banana bread posts. Five chances to rank!",
+   "hookPattern": "Good news with a catch",
+   "format": "duo-sitcom",
+   "pillar": "myth",
+   "goal": "send",
+   "topic": "Five posts on one keyword aren't five chances to rank: Maya finds five of her banana bread posts all showing for one search",
+   "postedAt": "2026-10-20T15:17:25+0000",
+   "seconds": 26,
+   "idea": "Five pages on one keyword isn't five chances to rank (myth, about 25 seconds)",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-10-25",
+    "ageDays": 4.7,
+    "instagram": {
+     "views": 118,
+     "reach": 109,
+     "saved": 0,
+     "shares": 0,
+     "likes": 0,
+     "comments": 0,
+     "total_interactions": 0,
+     "ig_reels_avg_watch_time": 4769,
+     "ig_reels_video_view_total_time": 515104
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 39,
+     "likeCount": 0,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-10-25",
+     "ageDays": 4.7,
+     "instagram": {
+      "views": 118,
+      "reach": 109,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 4769,
+      "ig_reels_video_view_total_time": 515104
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 39,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r014-the-client-asks-how-many-sign-ups-and-ma",
+   "title": "How many sign-ups?",
+   "hook": "No. Four months of impressions. She'll think I did nothing.",
+   "hookPattern": "The voiced frustration",
+   "format": "duo-sitcom",
+   "pillar": "problem",
+   "goal": "send",
+   "topic": "The client asks \"how many sign-ups?\" and Maya's report only has impressions",
+   "postedAt": "2026-10-21T15:30:08+0000",
+   "seconds": 28,
+   "idea": "The client asks how many sign-ups, and the report only has impressions",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-10-25",
+    "ageDays": 3.7,
+    "instagram": {
+     "views": 140,
+     "reach": 123,
+     "saved": 0,
+     "shares": 0,
+     "likes": 1,
+     "comments": 0,
+     "total_interactions": 1,
+     "ig_reels_avg_watch_time": 8817,
+     "ig_reels_video_view_total_time": 1084564
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 44,
+     "likeCount": 0,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-10-25",
+     "ageDays": 3.7,
+     "instagram": {
+      "views": 140,
+      "reach": 123,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 8817,
+      "ig_reels_video_view_total_time": 1084564
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 44,
+      "likeCount": 0,
       "dislikeCount": 0,
       "favoriteCount": 0,
       "commentCount": 0

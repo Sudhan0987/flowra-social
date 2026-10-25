@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T04:37:54.042Z",
+  "updated": "2026-10-25T07:58:52.872Z",
   "items": [
     {
       "date": "2026-10-06",
@@ -183,18 +183,6 @@
       "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
-      "date": "2026-10-19",
-      "kind": "youtube-video",
-      "title": "Tutorial 1 video ready for your review: Why did my organic traffic drop?",
-      "channels": [
-        "youtube"
-      ],
-      "owner": "flowra",
-      "note": "Script is written. Flowra builds the video (screens in the product film's style, Floey's voice) and sends it for review.",
-      "file": "youtube/t001-why-did-my-traffic-drop/script.md",
-      "status": "planned"
-    },
-    {
       "date": "2026-10-20",
       "kind": "linkedin-post",
       "title": "GPTBot got 429 at the host edge while robots.txt allowed it",
@@ -224,7 +212,21 @@
       "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
-      "date": "2026-10-20",
+      "date": "2026-10-21",
+      "kind": "linkedin-post",
+      "title": "Customer questions already sit in Search Console",
+      "channels": [
+        "linkedin"
+      ],
+      "owner": "flowra",
+      "format": "image",
+      "status": "posted",
+      "note": "Ready with its image. Approve and it posts on the Flowra page.",
+      "file": "posts/linkedin/2026-10-21.md",
+      "media": "posts/linkedin/2026-10-21.png"
+    },
+    {
+      "date": "2026-10-21",
       "kind": "reel",
       "title": "The client asks \"how many sign-ups?\" and Maya's report only has impressions",
       "channels": [
@@ -234,29 +236,15 @@
         "linkedin",
         "x"
       ],
-      "status": "ready",
-      "owner": "you",
-      "ref": "r014-the-client-asks-how-many-sign-ups-and-ma",
-      "note": "Approved. Ask Claude to post it to Instagram and Facebook."
-    },
-    {
-      "date": "2026-10-21",
-      "kind": "linkedin-post",
-      "title": "Customer questions already sit in Search Console",
-      "channels": [
-        "linkedin"
-      ],
+      "status": "posted",
       "owner": "flowra",
-      "format": "image",
-      "status": "approved",
-      "note": "Ready with its image. Approve and it posts on the Flowra page.",
-      "file": "posts/linkedin/2026-10-21.md",
-      "media": "posts/linkedin/2026-10-21.png"
+      "ref": "r014-the-client-asks-how-many-sign-ups-and-ma",
+      "note": "On Instagram and Facebook. YouTube Shorts, LinkedIn and X: post the video by hand with the text in its pack."
     },
     {
       "date": "2026-10-21",
       "kind": "reel",
-      "title": "Maya & Floey: Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
+      "title": "Myth",
       "channels": [
         "instagram",
         "facebook",
@@ -264,12 +252,10 @@
         "linkedin",
         "x"
       ],
-      "status": "making",
-      "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Maya: \"We used AI for the draft, so Google will bury it.\" Floey: \"Google's actual ask is to check the facts before you publish.\"",
-      "sources": [
-        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/"
-      ]
+      "status": "ready",
+      "owner": "you",
+      "ref": "r015-myth-google-buries-ai-drafts-google-s-ac",
+      "note": "Approved. Ask Claude to post it to Instagram and Facebook."
     },
     {
       "date": "2026-10-22",
@@ -280,7 +266,7 @@
       ],
       "owner": "flowra",
       "format": "carousel",
-      "status": "approved",
+      "status": "posted",
       "note": "Ready with its carousel. Approve and it posts on the Flowra page.",
       "file": "posts/linkedin/2026-10-22.md",
       "media": "posts/linkedin/2026-10-22.pdf"
@@ -288,7 +274,7 @@
     {
       "date": "2026-10-22",
       "kind": "reel",
-      "title": "Maya & Floey: Your customers' questions are already in your Search Console",
+      "title": "Maya has \"nothing left to write\", but her readers' unanswered questions are already sitting in her Search Console",
       "channels": [
         "instagram",
         "facebook",
@@ -296,24 +282,10 @@
         "linkedin",
         "x"
       ],
-      "status": "planned",
-      "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Your next topic list is already in Search Console: the questions your pages show up for and nobody answered.",
-      "sources": [
-        "https://www.reddit.com/r/content_marketing/comments/1x8hsmf/how_do_you_choose_content_topics_when_customer/"
-      ]
-    },
-    {
-      "date": "2026-10-22",
-      "kind": "youtube-video",
-      "title": "Publish Tutorial 1: Why did my organic traffic drop? Find the cause in 4 checks",
-      "channels": [
-        "youtube"
-      ],
+      "status": "ready",
       "owner": "you",
-      "note": "Title, description, chapters, tags and pinned comment are in the script file. Then embed it in the blog article.",
-      "file": "youtube/t001-why-did-my-traffic-drop/script.md",
-      "status": "ready"
+      "ref": "r016-maya-has-nothing-left-to-write-but-her-r",
+      "note": "Approved. Ask Claude to post it to Instagram and Facebook."
     },
     {
       "date": "2026-10-23",
@@ -324,7 +296,7 @@
       ],
       "owner": "flowra",
       "format": "image",
-      "status": "approved",
+      "status": "posted",
       "note": "Ready with its image. Approve and it posts on the Flowra page.",
       "file": "posts/linkedin/2026-10-23.md",
       "media": "posts/linkedin/2026-10-23.png"
@@ -332,7 +304,7 @@
     {
       "date": "2026-10-23",
       "kind": "reel",
-      "title": "Maya & Floey: Floey and the flower one shelf below the top (short-first-frame retest)",
+      "title": "Stop writing post number 31",
       "channels": [
         "instagram",
         "facebook",
@@ -340,32 +312,27 @@
         "linkedin",
         "x"
       ],
-      "status": "planned",
-      "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Your fastest traffic isn't a new post. It's the page already sitting just below page one.",
-      "sources": [
-        "https://www.reddit.com/r/SEO/comments/1x8sqlo/beginner_in_seo_how_long_does_it_realistically/"
-      ]
+      "status": "ready",
+      "owner": "you",
+      "ref": "r017-stop-writing-post-number-31-the-page-tha",
+      "note": "Approved. Ask Claude to post it to Instagram and Facebook."
     },
     {
-      "date": "2026-10-24",
-      "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "date": "2026-10-23",
+      "kind": "youtube-video",
+      "title": "Tutorial 1 video ready for your review: Why did my organic traffic drop?",
       "channels": [
-        "instagram",
-        "facebook",
-        "youtube",
-        "linkedin",
-        "x"
+        "youtube"
       ],
-      "status": "planned",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "Rendered 23 Oct 2026 (late: missed its 19 Oct slot). Video at ~/Desktop/Flowra/YouTube/t001-why-did-my-traffic-drop/renders/. Founder reviews, then Claude uploads it with the Upload a YouTube video workflow, scheduled for the publish date.",
+      "file": "youtube/t001-why-did-my-traffic-drop/script.md",
+      "status": "posted"
     },
     {
       "date": "2026-10-25",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya & Floey: My robots.txt lets GPTBot in, so why is my host turning it away?",
       "channels": [
         "instagram",
         "facebook",
@@ -373,9 +340,12 @@
         "linkedin",
         "x"
       ],
-      "status": "planned",
+      "status": "making",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Maya, mid-sentence: \"I allowed GPTBot in robots.txt and it's still getting bounced.\" Caption, Floey: \"Your robots.txt isn't the only door.\"",
+      "sources": [
+        "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic"
+      ]
     },
     {
       "date": "2026-10-26",
@@ -394,7 +364,7 @@
     {
       "date": "2026-10-26",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya & Floey: Your traffic spike isn't readers until you check who actually arrived",
       "channels": [
         "instagram",
         "facebook",
@@ -404,7 +374,10 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Maya, thrilled: \"My post went viral, look at this traffic!\" Caption, Floey: \"Before you tell the client, check who it was.\"",
+      "sources": [
+        "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic"
+      ]
     },
     {
       "date": "2026-10-27",
@@ -423,7 +396,7 @@
     {
       "date": "2026-10-27",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya & Floey: Did my rewrite work? Three steps: tag it, wait, compare",
       "channels": [
         "instagram",
         "facebook",
@@ -433,7 +406,8 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Maya, staring at her page: \"I rewrote it three weeks ago and I still can't say if it worked.\" Caption, Floey: \"Three steps. Save them.\"",
+      "sources": []
     },
     {
       "date": "2026-10-28",
@@ -452,7 +426,7 @@
     {
       "date": "2026-10-28",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya & Floey: Getting cited by ChatGPT isn't the same as getting visits",
       "channels": [
         "instagram",
         "facebook",
@@ -462,27 +436,29 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Your site getting cited by ChatGPT doesn't mean anyone visited until you check which pages it actually sent people to.",
+      "sources": [
+        "https://citerank.thecompound.tech",
+        "https://www.clicksdynasty.com/blog-post-chatgpt-perplexity-local-recommendations.html"
+      ]
     },
     {
       "date": "2026-10-29",
       "kind": "linkedin-post",
-      "title": "Five pages on one keyword isn't five chances to rank (myth, about 25 seconds)",
+      "title": "ChatGPT citations vs real visits: the GA4 landing page check",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
-      "status": "planned",
-      "note": "From social listening: A bigseo poster says one keyword brings impressions to 5 or 6 of their pages after they published a lot of content without a keyword plan. Duo myth reel, the 25 second half of the length experiment, with a send ask at the end. On screen: Performance, filter one query, open the Pages tab and count the pages. Pro's keyword cannibalization report is the product mention. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026.",
-      "sources": [
-        "https://www.reddit.com/r/bigseo/comments/1x7f5th/cannibalisation_issue_with_the_content/"
-      ]
+      "status": "ready",
+      "note": "Text is ready; the image is made on the next drafts run.",
+      "file": "posts/linkedin/2026-10-29.md"
     },
     {
       "date": "2026-10-29",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya & Floey: Your page is near the top for a question, and someone else got the snippet",
       "channels": [
         "instagram",
         "facebook",
@@ -492,24 +468,38 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Maya, pointing at the results: \"I'm right under the answer box on my own question, and someone else got it.\" Caption, Floey: \"You're closer than you think.\"",
+      "sources": []
+    },
+    {
+      "date": "2026-10-29",
+      "kind": "youtube-video",
+      "title": "Publish Tutorial 1: Why did my organic traffic drop? Find the cause in 4 checks",
+      "channels": [
+        "youtube"
+      ],
+      "owner": "flowra",
+      "note": "Uploaded 23 Oct as https://youtu.be/6yNVb_vIjcc, private until Thu 29 Oct 2026 19:00 IST (scheduled by YouTube). After it goes live: embed it in https://useflowra.com/blog/why-did-my-traffic-drop and pin the comment from the script.",
+      "file": "youtube/t001-why-did-my-traffic-drop/script.md",
+      "status": "planned"
     },
     {
       "date": "2026-10-30",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/why-did-my-traffic-drop",
+      "title": "AI agrees on humans, not on who to recommend",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "image",
-      "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it. Text post with one image card."
+      "status": "ready",
+      "note": "Text is ready; the image is made on the next drafts run.",
+      "file": "posts/linkedin/2026-10-30.md"
     },
     {
       "date": "2026-10-30",
       "kind": "reel",
-      "title": "Maya & Floey: Flowra picks today's situation",
+      "title": "Maya & Floey: The page that was indexed last month and quietly isn't now",
       "channels": [
         "instagram",
         "facebook",
@@ -519,7 +509,8 @@
       ],
       "status": "planned",
       "owner": "flowra",
-      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening."
+      "note": "A Maya & Floey sitcom reel, made at 10:30 India time and sent to Slack #social for your ✅; after it, Instagram, Facebook and YouTube that evening. Likely situation from listening: Your best guide was in Google last month. Maya finds out today it isn't, and nobody told her when it dropped out.",
+      "sources": []
     },
     {
       "date": "2026-10-31",
@@ -554,18 +545,15 @@
     {
       "date": "2026-11-02",
       "kind": "linkedin-post",
-      "title": "The client asks how many sign-ups, and the report only has impressions",
+      "title": "save-ask: Did the rewrite work? Tag, wait 14 days, compare",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "image",
-      "status": "planned",
-      "note": "From social listening: A founder in content_marketing says four months of agency reports only showed impressions and new followers, and when they asked twice how many sign-ups came from the campaign, they got no answer. Duo reel on the voiced frustration pattern: put Search Console clicks next to GA4 in one report the client opens as a link, which Flowra's client reports do. End with 'send this to the agency that only reports impressions'. Text post with one image card.",
-      "sources": [
-        "https://www.reddit.com/r/content_marketing/comments/1x8gd0s/4_months_with_an_agency_reports_full_of/",
-        "https://www.reddit.com/r/marketing/comments/1x8j8wu/rant_me_whats_your_biggest_frustration_about/"
-      ]
+      "status": "ready",
+      "note": "Text is ready; the image is made on the next drafts run.",
+      "file": "posts/linkedin/2026-11-02.md"
     },
     {
       "date": "2026-11-02",
@@ -597,14 +585,15 @@
     {
       "date": "2026-11-03",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/fresh-content-seo",
+      "title": "Your page is near the top for a question, and someone else got the snippet",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
       "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+      "note": "From social listening: This comes from the facts file, not from a thread this month, and we haven't posted it before. Featured snippet opportunities find question queries where a page already ranks near the top and could win the snippet. Make it a send-ask duo reel ending on 'send this to the writer who owns that page'. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026.",
+      "sources": []
     },
     {
       "date": "2026-11-03",
@@ -624,17 +613,15 @@
     {
       "date": "2026-11-04",
       "kind": "linkedin-post",
-      "title": "Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
+      "title": "The page that was indexed last month and quietly isn't now",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "image",
       "status": "planned",
-      "note": "From social listening: Search Engine Journal reports Google telling sites to fact-check AI content before publishing. The detector reels covered whether a tool can spot AI writing. This one teaches a different step: checking every claim before the post goes live. It's the 32 second half of the length experiment, with a send ask, and the outline-first Writer is the product angle. Text post with one image card.",
-      "sources": [
-        "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/"
-      ]
+      "note": "From social listening: This comes from the facts file, not from a thread this month. It's different from the Request Indexing reel we posted, because it covers a page that drops out after being indexed, not a new post that never got in. The Index Coverage Monitor (Pro, WordPress) checks indexing and records when it changes. It's an aftermath-first duo reel. Never promise reindexing. Text post with one image card.",
+      "sources": []
     },
     {
       "date": "2026-11-04",
@@ -654,14 +641,14 @@
     {
       "date": "2026-11-05",
       "kind": "linkedin-post",
-      "title": "Share the blog article: useflowra.com/blog/content-audit",
+      "title": "LinkedIn post (no topic yet)",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "carousel",
       "status": "planned",
-      "note": "Pull one useful idea out of the article and link to it. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
+      "note": "No unused topic this week: the Sunday listening run brings new ones. Document post (PDF carousel): the format with the most reach on LinkedIn in 2026."
     },
     {
       "date": "2026-11-05",
@@ -693,17 +680,14 @@
     {
       "date": "2026-11-06",
       "kind": "linkedin-post",
-      "title": "Floey and the flower one shelf below the top (short-first-frame retest)",
+      "title": "LinkedIn post (no topic yet)",
       "channels": [
         "linkedin"
       ],
       "owner": "you",
       "format": "image",
       "status": "planned",
-      "note": "From social listening: A beginner thread asks how long organic traffic takes to arrive, which keeps coming up. It's the 22 second garden retest from our plan, with only the first frame changed: Floey ignores a fresh seedling and flies to a flower one rung below the top of the trellis, which stands for pages around positions 8 to 20. Free shows the top 5 striking distance queries. Text post with one image card.",
-      "sources": [
-        "https://www.reddit.com/r/SEO/comments/1x8sqlo/beginner_in_seo_how_long_does_it_realistically/"
-      ]
+      "note": "No unused topic this week: the Sunday listening run brings new ones. Text post with one image card."
     },
     {
       "date": "2026-11-06",

@@ -1,86 +1,93 @@
 {
- "date": "2026-10-18",
- "reels": 8,
- "summary": "The new duo sitcom reels (Maya talking through an SEO problem) are the first ones that hold people. Viewers watch 7 to 11 seconds of them, against 2 to 4 seconds on the garden reels, and two of them got our fastest starts on both platforms. They have not earned saves yet, though: r006 is still the only reel with any saves. We have eight reels, and the duo reels are only 1 to 4 days old, so treat all of this as an early signal, not a rule.",
+ "date": "2026-10-25",
+ "reels": 11,
+ "summary": "The Maya duo reels are now clearly our best at holding attention. All six held Instagram viewers for 4.8 to 9.6 seconds, against 2.2 to 4.2 seconds on the garden reels, and five of the six reached over 100 Instagram views. They still almost never lead to saves or shares, though. Across all 11 reels we have 3 saves and 2 shares in total. The attention finding is fairly solid now. Everything about saves, shares, pillars, hooks and length is still an early signal, because the counts are tiny.",
  "signals": [
   {
-   "finding": "Duo sitcom reels hold Instagram viewers about two to three times longer than the floey-garden reels.",
-   "evidence": "Average Instagram watch time: r011 10.6s of 25s (watchShare 0.42, 145 views), r010 7.4s of 32s (0.23, 116 views), r008 8.3s of 34s (0.25, only 12 views). The floey-garden reels with real views: r002 4.2s of 38s (0.11), r006 3.1s of 42s (0.07), r003 2.2s of 36s (0.06). r004 shows 0.27 but on only 5 views. r011 has already built up 1,257 seconds of total watch time, almost four times r006's 324 seconds.",
+   "finding": "Duo sitcom reels hold Instagram viewers longer than every floey-garden or pro reel that had real views. This is now repeated across six reels.",
+   "evidence": "Average Instagram watch time for the duo reels: r011 9.6s of 25s (watchShare 0.39), r014 8.8s of 28s (0.31), r008 8.3s of 34s (0.25), r010 7.3s of 32s (0.23), r012 5.2s of 32s (0.16), r013 4.8s of 26s (0.18). Garden and pro reels: r002 4.2s, r006 3.0s, r007 2.7s, r003 2.2s. r004 shows 9.9s, but on only 5 views. The five reels with the most total watch time are all duo reels: r011 1,572s, r014 1,085s, r010 749s, r012 537s, r013 515s. The best garden reel, r002, has 370s.",
+   "confidence": "high"
+  },
+  {
+   "finding": "Duo reels reliably reach about 100 or more people on Instagram. Garden reels were hit or miss.",
+   "evidence": "Instagram views for the duo reels at 3.7 to 10.7 days: r011 193, r014 140, r013 118, r010 117, r012 113, r008 12. Garden reels at a similar age (day 2 to 4 snapshots): r006 115, r002 87, r003 15, r004 2. So five of six duo reels passed 100 views, against one of four garden reels.",
    "confidence": "medium"
   },
   {
-   "finding": "Two duo reels got our fastest starts, and unlike the garden reels they did well on both platforms.",
-   "evidence": "r011 had 145 Instagram views and 123 YouTube views at 0.7 days. At 0.5 days, r006 had 6 and 17. r010 had 116 Instagram views and 481 YouTube views at 1.7 days. r006 had 115 and 21 at the same age. 481 is more than three times our next best YouTube reel (r004, 134 views after 10 days). The third duo reel, r008, is weak: 12 Instagram and 19 YouTube views at 3.6 days.",
-   "confidence": "low"
-  },
-  {
-   "finding": "The duo reels hold attention, but they have not turned it into saves or shares yet. r006 is still our only reel with saves.",
-   "evidence": "r006: 2 saves and 1 share from 103 reach. r011: 0 saves and 1 share from 119 reach. r010: 0 saves and 0 shares from 100 reach. r008: 0 and 0 from 10 reach. All three duo reels had the goal 'send', so 0 saves is no surprise, but 1 share across 229 reach is still thin. r011 is under a day old, so it may still pick up more.",
-   "confidence": "low"
-  },
-  {
-   "finding": "Duo reels get the most YouTube likes and our first comment.",
-   "evidence": "YouTube likes: r010 8 likes and 1 comment (the first comment on any reel), r011 4, r008 2. Every older reel has 0 or 1 like and no comments.",
-   "confidence": "low"
-  },
-  {
-   "finding": "Both myth reels started strong. The duo problem reel did not.",
-   "evidence": "Myth pillar: r010 (116 Instagram views, 481 YouTube) and r011 (145 Instagram, 123 YouTube). Problem pillar, same style: r008 (12 Instagram, 19 YouTube at 3.6 days). r011 and r008 share a hook pattern ('animated action'), so the pattern does not explain the gap. Pillar might, but this is one reel against two.",
-   "confidence": "low"
-  },
-  {
-   "finding": "Instagram views come in the first one to two days and then stop. YouTube keeps adding a few views for over a week.",
-   "evidence": "Instagram, from the day 2 to 5 snapshot to day 9 to 12: r002 87 to 89, r006 115 to 116, r003 16 to 18, r004 4 to 5. YouTube over the same week: r002 6 to 16, r003 49 to 54, r004 127 to 134, r006 21 to 26. Four reels, three snapshots each, all showing the same thing.",
+   "finding": "Better attention has not turned into saves or shares. This is our biggest gap.",
+   "evidence": "Across all 11 reels there are only 3 saves (r006 2, r012 1) and 2 shares (r006 1, r011 1). The five duo reels with a 'send' goal (r008, r010, r011, r013, r014) got 1 share from 505 combined reach. Saves only ever appeared on reels with a 'save' goal.",
    "confidence": "medium"
   },
   {
-   "finding": "The short-first-frame test (r007) is not working so far.",
-   "evidence": "r007 is 22 seconds, pro style, and 5.7 days old. Its watchShare is 0.12, but that is mostly because it is short: people watched 2.7 seconds, the same as the long garden reels (2.2 to 4.2s). It has 15 Instagram views, 8 YouTube views, 0 saves and 0 shares. It is one reel, and it changed both the style and the length at once, so we cannot tell which change did what. The 25-second duo reel r011 shows that a short reel can hold people.",
+   "finding": "The first duo reel with a save goal (r012) earned a save, but fewer than r006 did, and it held people less than the other duo reels.",
+   "evidence": "r012 is a duo reel with a save goal, on a topic close to r006 (impressions up, clicks flat). At 5.6 days: 1 save and 0 shares from 101 reach. r006 had 2 saves and 1 share from 104 reach. r012 held 5.2s, near the bottom of the duo range (4.8 to 9.6s) but still above r006's 3.0s. This is one reel.",
    "confidence": "low"
   },
   {
-   "finding": "Garden reels still rank almost in reverse across the two platforms.",
-   "evidence": "Instagram: r006 116, r002 89, r003 18, r004 5. YouTube: r004 134, r003 54, r006 26, r002 16. The duo reels r010 and r011 broke this pattern by doing well on both.",
+   "finding": "Length does not explain which duo reels hold people. Some short ones held well and some held poorly.",
+   "evidence": "Seconds watched by length: 25s held 9.6s (r011), 26s held 4.8s (r013), 28s held 8.8s (r014), 32s held 7.3s (r010) and 5.2s (r012), 34s held 8.3s (r008). Shorter reels get a higher watchShare almost by default. In seconds, there is no pattern. None of these reels was labeled as a length test.",
    "confidence": "low"
   },
   {
-   "finding": "Hook patterns are now recorded, but there are too few to compare.",
-   "evidence": "Four reels have a pattern: 'animated action' (r011 and r008, our best and weakest duo reels), 'brutal report card' (r010) and 'flat contradiction' (r007). Every reel before r007 is 'not recorded'.",
+   "finding": "Hook pattern does not explain the gap yet either. Each pattern we have used twice gave one strong reel and one weak reel.",
+   "evidence": "'Animated action': r011 9.6s, r008 8.3s, but r008 got only 12 views. 'Voiced frustration': r014 8.8s, r012 5.2s. 'Brutal report card' r010 7.3s, 'good news with a catch' r013 4.8s, 'flat contradiction' r007 2.7s. One loose observation: the two weakest duo holds opened on a statistic (r012, 'Impressions up sixty percent') or a cheerful wrong claim (r013, 'Five chances to rank!'). The strongest opened on Maya stuck in the middle of an action. That is only an idea to test, not a finding.",
+   "confidence": "low"
+  },
+  {
+   "finding": "The earlier myth versus problem gap has mostly disappeared on Instagram.",
+   "evidence": "Instagram views. Myth: r011 193, r013 118, r010 117. Problem: r014 140, r012 113, r008 12. On YouTube, myth leads with r010 506 and r011 142, but myth r013 (39) did no better than problem r014 (44), r012 (22) and r008 (19). Last week's signal rested on r008 alone.",
+   "confidence": "low"
+  },
+  {
+   "finding": "r010's big YouTube number looks like a one-off. Most duo reels get modest YouTube views.",
+   "evidence": "YouTube views for the duo reels: r010 506, r011 142, r014 44, r013 39, r012 22, r008 19. 506 is still more than three times any other reel (next best is r011 at 142, then garden r004 at 135). YouTube likes follow the same order: r010 8, r011 4, r008 2, and 0 on the three newest. r010's single comment is still our only one.",
+   "confidence": "low"
+  },
+  {
+   "finding": "Instagram views arrive in the first one to two days. YouTube adds a few more for about a week and a half, then stops.",
+   "evidence": "Instagram from about day 9 to day 16 or later: r002 89 to 89, r006 116 to 117, r003 18 to 18, r004 5 to 5, r010 116 to 117 (from day 1.7 to 8.7). YouTube from about day 10 to day 17: r002 16 to 16, r003 54 to 54, r004 134 to 135, r006 26 to 26. Earlier weeks: r010 481 to 506 and r011 123 to 142. So r012, r013 and r014 may still pick up a few YouTube views but are unlikely to gain much on Instagram.",
+   "confidence": "medium"
+  },
+  {
+   "finding": "The short-first-frame test (r007) did not work. The verdict is final for this reel, but the test was confounded.",
+   "evidence": "At 12.7 days, r007 has 15 Instagram views, 8 YouTube views, 0 saves, 0 shares and 2.7s average watch time. It has not grown since day 5.7. It changed style (pro) and length (22s) at the same time, so we cannot tell which one failed. No newer reel carries an experiment label, so no test is running right now.",
    "confidence": "low"
   },
   {
    "finding": "We still have no Facebook numbers.",
-   "evidence": "The Facebook field is empty on all eight reels.",
+   "evidence": "The Facebook field is empty on all 11 reels.",
    "confidence": "low"
   }
  ],
  "doMore": [
-  "Duo sitcom reels with a character in a relatable SEO mess. They hold people 7 to 11 seconds, against 2 to 4 for everything else.",
-  "Myth topics that make fun of a common habit (clicking Request Indexing forty times, trusting AI detectors). Both myth reels started strong.",
-  "Reels around 25 seconds in the duo style. r011 got the best watchShare (0.42) and the longest watch time (10.6s).",
-  "Search Console checks with a clear payoff, the topic behind our only saves (r006).",
-  "Recording the hook pattern on every reel, so we can compare patterns in a few weeks."
+  "Keep making duo sitcom reels with Maya. All six held people longer than any garden reel with real views, and five of six reached over 100 Instagram views.",
+  "Open on Maya stuck in the middle of a concrete action with a personal stake, like r011 ('clicked Request Indexing forty times', 9.6s held) and r014 ('She'll think I did nothing', 8.8s held).",
+  "Use the save goal on duo reels with a practical, reusable check. Saves have only ever come from save-goal reels (r006, r012).",
+  "Label each new reel with the experiment it tests, so we can judge it after a few days.",
+  "Judge Instagram at day 2 and YouTube at about day 10. That is when each one stops growing."
  ],
  "doLess": [
-  "Floey-garden reels of 36 to 42 seconds with no experiment. Four of them all lose people within 2 to 4 seconds.",
-  "Changing style and length in the same test, as r007 did. We cannot tell which change mattered.",
-  "Judging an Instagram reel after day 2, or writing off a YouTube reel early. Instagram stops growing by then, while YouTube keeps adding views for over a week."
+  "Floey-garden reels. They held people for only 2.2 to 4.2 seconds, and only one of four reached 100 Instagram views.",
+  "The send goal without a clear ask. Five send reels got 1 share from 505 reach.",
+  "Changing two things at once in a test, as r007 did with style and length.",
+  "Treating r010's 506 YouTube views as normal. The other duo reels got 19 to 142.",
+  "Chasing likes or reading much into them. They matter least to us, and they stay at 0 to 8 per reel."
  ],
  "tryNext": [
   {
-   "experiment": "Make a duo sitcom reel with a 'save' goal on r006's topic: Maya finds a page Google's AI keeps showing while its clicks fall, does the one Search Console check on screen, and ends with 'save this for your next audit'.",
-   "why": "The duo style holds people and r006's topic earns saves, but no reel has done both yet. Saves matter more to us than watch time.",
-   "measure": "Instagram saves and shares per reach at day 2, compared with r006 (2 saves and 1 share from 103 reach), plus watchShare compared with the duo range of 0.23 to 0.42."
+   "experiment": "Make two duo reels with a 'save' goal and an obvious reason to come back: Maya does a short, named check on screen (for example three Search Console steps), the steps stay on screen at the end, and she says 'save this for your next audit'. Open with Maya stuck in the middle of an action, not on a statistic. Label them 'save-ask'.",
+   "why": "Saves matter most to us and are our weakest number. r012 showed a duo reel can earn a save (1 from 101 reach), but r006 still did better (2 from 104), and r012's statistic-led opening held people only 5.2s.",
+   "measure": "Instagram saves per reach at day 3 to 5, compared with r006 (2 from 104) and r012 (1 from 101). Also seconds watched, compared with the duo range of 4.8 to 9.6s."
   },
   {
-   "experiment": "Make two more duo myth reels in the same week, one about 25 seconds and one about 32 seconds. Give both a plain send ask at the end ('send this to the client who keeps asking'). Label them with a length experiment.",
-   "why": "It shows whether r010 and r011 were luck or a repeatable style, and whether r011's shorter length explains its higher watchShare. It also tests whether asking for the send gets more than the 1 share we have from 229 duo reach.",
-   "measure": "Instagram average watch time and watchShare at day 1 to 2, Instagram shares per reach, and YouTube views at day 2 compared with r010's 481."
+   "experiment": "Make two duo reels with a 'send' goal that end with a spoken and on-screen ask naming who to send it to ('send this to the client who keeps asking for sign-ups'). Label them 'send-ask'.",
+   "why": "The send goal has not produced sends so far: 1 share from 505 reach across five reels. Before giving up on it, we should see whether a direct ask changes that.",
+   "measure": "Instagram shares per reach at day 2 to 5, compared with 1 share from 505 reach on the earlier send reels."
   },
   {
-   "experiment": "Run the short-first-frame test again on a floey-garden reel at about 22 seconds, keeping everything else the same as the older garden reels.",
-   "why": "r007 changed style and length together and got the same 2.7 seconds of watch time as the long reels. Changing one thing at a time tells us whether the experiment itself works.",
-   "measure": "Instagram average watch time in seconds at day 2, compared with the garden reels' 2.2 to 4.2 seconds."
+   "experiment": "Make a hook test: two duo reels at about 28 seconds on the same pillar. One opens on Maya in the middle of an action (like r011 or r014). The other opens on a statistic or upbeat claim (like r012 or r013). Keep everything else the same and label them 'hook-action-vs-stat'.",
+   "why": "Duo reels range from 4.8 to 9.6 seconds of watch time, and neither length nor the recorded hook pattern explains why. The opening line is the most likely difference, and testing one change at a time will tell us.",
+   "measure": "Instagram average watch time in seconds at day 2 for each reel, compared with each other and with the duo range of 4.8 to 9.6s."
   }
  ]
 }

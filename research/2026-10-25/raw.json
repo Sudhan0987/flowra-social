@@ -1,0 +1,74 @@
+[
+  {
+    "query": "AI Overviews clicks lost blog traffic",
+    "source": "hackernews",
+    "url": "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic",
+    "title": "I posted to HN, and then my website was flooded with AI bot traffic",
+    "date": "2026-10-13",
+    "engagement": "188 comments, 352 points",
+    "summary": "It's too late to comment on your older posts, but I'd just like to say: it's nice to see someone making oldschool web browsers work properly on the modern web.\nhttps://www.sammystraus.com/#using-llms-to-make-the-emacs-we... I _also_ posted to HN and made it to #1[0]; the effect this had on my CPU/network traffic on a 5/EUR month VPS over at Hetzner was in the single digit percentages.\nAs per the wiki page for the C10k problem[1] where it says \"_was_ [emphasis mine] the problem of optimizing comp"
+  },
+  {
+    "query": "AI Overviews clicks lost blog traffic",
+    "source": "hackernews",
+    "url": "https://reuters.com/legal/litigation/google-wins-dismissal-chegg-penske-media-lawsuits-over-ai-overviews-2026-10-01",
+    "title": "US judge dismisses Chegg, Penske antitrust suits over Google AI Overviews",
+    "date": "2026-10-01",
+    "engagement": "0 comments, 20 points",
+    "summary": "US judge dismisses Chegg, Penske antitrust suits over Google AI Overviews"
+  },
+  {
+    "query": "AI Overviews clicks lost blog traffic",
+    "source": "hackernews",
+    "url": "https://www.modelcompare.ai/blog/ai-models-controversial-take-on-humans",
+    "title": "Every AI model has the same \"controversial\" take on humans",
+    "date": "2026-10-22",
+    "engagement": "623 comments, 648 points",
+    "summary": "So AI holds the same beliefs as the final boss of a typical JRPG. We're still doing \"I asked an LLM for its opinion on X and you won't believe what it thinks\"?\nWhat am I supposed to conclude from this? Did they all get their opinions from me?"
+  },
+  {
+    "query": "AI Overviews clicks lost blog traffic",
+    "source": "hackernews",
+    "url": "https://typesafe.ai/blog/series-ai",
+    "title": "Typesafe AI raises $870M at $7.5B",
+    "date": "2026-10-09",
+    "engagement": "357 comments, 446 points",
+    "summary": "What edge do they have over the market to justify such evaluation I really don't understand how this can be. I have sat in fund raising meetings with VCs in toronto and my experience is that there is shit ton of due diligence at the tech level. a product which has no moat, was already available, was duplicated within a couple of days is valued at 7B - i thought we... Every time I see these headlines I wonder why the Scala company is back in the news"
+  },
+  {
+    "query": "content decay updating old blog posts",
+    "source": "hackernews",
+    "url": "https://www.techdirt.com/2026/10/09/hey-platforms-your-violent-content-policies-are-about-to-meet-the-pentagons-firing-squad/",
+    "title": "Platforms' Violent Content Rules Are About to Meet The Pentagon's Firing Squad",
+    "date": "2026-10-09",
+    "engagement": "54 comments, 60 points",
+    "summary": "The original title is:\n> Hey Platforms: Your Violent Content Policies Are About To Meet The Pentagon’s Firing Squad You can only cry \"muh terms of service\" so many times before it's dismissed with a collective eyeroll.\nUnfortunately they blew their wad back in 2020. > In theory, Hasan’s family could ask X to remove the video, and then the question is whether Elon would honor that request.\nWhy bother spending a blog post speculating like this and picking away at the rules? The platforms will all "
+  },
+  {
+    "query": "Google core update recovery content",
+    "source": "hackernews",
+    "url": "https://www.searchenginejournal.com/google-fact-check-ai-content-before-publishing/591782/",
+    "title": "Google Tells Sites to Fact-Check AI Content Before Publishing",
+    "date": "2026-10-04",
+    "engagement": "0 comments, 3 points",
+    "summary": "Google Tells Sites to Fact-Check AI Content Before Publishing"
+  },
+  {
+    "query": "ChatGPT Perplexity referral traffic SEO",
+    "source": "hackernews",
+    "url": "https://citerank.thecompound.tech",
+    "title": "Show HN: CiteRank, track whether ChatGPT and Perplexity cite your site",
+    "date": "2026-09-25",
+    "engagement": "3 comments, 3 points",
+    "summary": "Show HN: CiteRank, track whether ChatGPT and Perplexity cite your site"
+  },
+  {
+    "query": "ChatGPT Perplexity referral traffic SEO",
+    "source": "hackernews",
+    "url": "https://www.clicksdynasty.com/blog-post-chatgpt-perplexity-local-recommendations.html",
+    "title": "ChatGPT and Perplexity agreed on only 1 in 4 local business recommendations",
+    "date": "2026-09-27",
+    "engagement": "0 comments, 3 points",
+    "summary": "ChatGPT and Perplexity agreed on only 1 in 4 local business recommendations"
+  }
+]
