@@ -318,6 +318,17 @@
    "seconds": 27,
    "reason": "Frame 07 (night payoff insert): there is a pale, flat strip about 55px tall across the top of the frame, above the night room. The background doesn't reach the top edge, so it reads as a render glitch. Fill the frame or fix the room's offset/scale for this shot. Frame 08 (payoff line, caption 'in. +2%'): Maya already has the mug at her mouth, sipping and smiling, while she is still saying 'It filled back in. Up two percent.' The script says she is in the rest pose here, relieved and a bit sheepi",
    "style": "duo"
+  },
+  {
+   "id": "r019-my-robots-txt-lets-gptbot-in-so-why-is-m",
+   "status": "draft",
+   "topic": "My robots.txt lets GPTBot in, so why is my host turning it away? (save-ask duo reel)",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-25T10:18:17.842Z",
+   "seconds": 27,
+   "idea": "My robots.txt lets GPTBot in, so why is my host turning it away?",
+   "style": "duo",
+   "run": 40182052696
   }
  ]
 }
