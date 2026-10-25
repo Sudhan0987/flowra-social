@@ -1,0 +1,67 @@
+{
+ "topic": "My robots.txt lets GPTBot in, so why is my host turning it away? (save-ask duo reel)",
+ "angle": "Maya has allowed GPTBot in robots.txt, still sees it getting bounced, and decides the bot hates her or robots.txt is broken. Floey points out that robots.txt is a note on the door, not the bouncer: your host or CDN's bot settings decide who actually gets in. Maya opens her host's bot log and finds GPTBot getting \"429 Too Many Requests\" while other AI crawlers get through. The reel ends on a three-step check that stays on screen (robots.txt, then host/CDN bot settings, then GA4 Traffic acquisition) and Maya says \"save this for your next audit\". Experiment label: save-ask.",
+ "whyNow": "This month's biggest Hacker News thread on this subject is \"I posted to HN, and then my website was flooded with AI bot traffic\" (352 points, 188 comments). In it, the poster says the bots are now \"banned at the edge in Cloudflare (now), they never hit my application\", and commenters argue about which bots respect robots.txt. Separately, Cloudflare announced on 1 July 2026 that from 15 September 2026, new domains block Training and Agent crawlers by default on pages that show ads. So since last month, more sites have an edge-level block their robots.txt says nothing about. Our own first-hand finding (Sept 2026) is the exact story: robots.txt allowed GPTBot and the host returned 429 at the edge. Honest gate note: the exact GPTBot-429 case is niche. The broader belief that \"robots.txt decides who gets in\" is shared by most site owners, and that belief is what the reel flips. Keep the host unnamed in the reel.",
+ "goal": "save",
+ "audience": "Solo bloggers and small content teams on managed WordPress hosting or behind a CDN who edited robots.txt for AI crawlers and assumed that settled it. Also agency people who manage client sites and get asked \"are we blocking ChatGPT?\"",
+ "facts": [
+  {
+   "fact": "Google: \"The instructions in robots.txt files cannot enforce crawler behavior to your site; it's up to the crawler to obey them.\"",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/robots/intro"
+  },
+  {
+   "fact": "Google: robots.txt rules may not be supported by all search engines.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/robots/intro"
+  },
+  {
+   "fact": "HTTP 429 \"Too Many Requests\" means the client sent too many requests in a given time, and the server is asking it to slow down (rate limiting).",
+   "source": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/429"
+  },
+  {
+   "fact": "First-hand finding (Sept 2026): the web host blocked GPTBot at the edge with HTTP 429 even though robots.txt allowed it, while other AI crawlers got through. Show it as Maya's own log, as an example, with the host unnamed.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "OpenAI: GPTBot is the crawler for training its generative AI models. OAI-SearchBot is the one that surfaces sites in ChatGPT search, and \"Sites that are opted out of OAI-SearchBot will not be shown in ChatGPT search answers.\" Each setting is independent of the others. (Guardrail: never say that allowing GPTBot gets you into ChatGPT answers.)",
+   "source": "https://developers.openai.com/api/docs/bots"
+  },
+  {
+   "fact": "OpenAI publishes the IP addresses each of its bots uses (for example openai.com/gptbot.json and openai.com/searchbot.json), and recommends allowing both the bot in robots.txt and requests from its published IP ranges.",
+   "source": "https://developers.openai.com/api/docs/bots"
+  },
+  {
+   "fact": "Cloudflare (blog, 1 July 2026): \"On September 15, 2026, we'll be setting new defaults.\" For all new domains onboarding to Cloudflare, Training and Agent crawlers are blocked by default on pages that display ads, while Search remains allowed by default. Owners can change this in their Security settings.",
+   "source": "https://blog.cloudflare.com/content-independence-day-ai-options/"
+  },
+  {
+   "fact": "Cloudflare describes content-use signals in robots.txt as expressing a website owner's preference, \"rather than issuing blocks directly.\"",
+   "source": "https://blog.cloudflare.com/content-independence-day-ai-options/"
+  },
+  {
+   "fact": "Coverage of the change: when a site blocks Training crawlers, multi-purpose crawlers such as Googlebot, Applebot and BingBot are blocked too, even if Search crawlers are allowed. (Background for the brief only; don't put this in the reel.)",
+   "source": "https://www.helpnetsecurity.com/2026/07/02/cloudflare-ai-crawler-controls/"
+  },
+  {
+   "fact": "HN thread \"I posted to HN, and then my website was flooded with AI bot traffic\": 352 points, 188 comments. The poster says the bots are now \"banned at the edge in Cloudflare (now), they never hit my application.\"",
+   "source": "https://news.ycombinator.com/item?id=50073221"
+  },
+  {
+   "fact": "In the original post, the author added robots.txt rules to discourage most AI scrapers while allowing Googlebot, and also needed rate limits, because robots.txt alone didn't control the load.",
+   "source": "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic"
+  },
+  {
+   "fact": "GA4: Reports > Acquisition > Traffic acquisition. The Session source dimension shows where visits came from, and you can type a source into the search bar above the table.",
+   "source": "https://support.google.com/analytics/answer/12923437"
+  },
+  {
+   "fact": "ChatGPT visits usually show in GA4 as referral sessions. You find them by setting Traffic acquisition to Session source and searching for \"chatgpt\". Some AI visits lose their referrer and show as Direct.",
+   "source": "https://www.orbitmedia.com/blog/track-ai-traffic-ga4/"
+  }
+ ],
+ "visualIdea": "One central image: Maya's laptop cutaway as a bouncer's guest list. A DUO.listInsert titled \"Host bot log (today)\", with rows like GPTBot \"429 Too many requests\" (bad tone, hi ring grows on it), OAI-SearchBot \"200 OK\", ClaudeBot \"200 OK\", Googlebot \"200 OK\". This is labelled as Maya's own example log; every row has a real value. Story beats: Maya opens in a night set, mid-action, hammering save on robots.txt (typing sfx, a \"!\" mark): \"I've allowed GPTBot three times and it's still getting bounced!\" Floey on the laptop, floeyTight, deadpan: \"Robots.txt is a note on the door, Maya. Not the bouncer.\" Maya: \"Then who's the bouncer?\" Floey: \"Your host.\" Whoosh to the list insert, and the ring lands on the 429 row. mayaTight: \"My own host. Bouncing my own guests.\" Floey's tip: \"Check its bot settings, not just the file.\" Payoff: a second listInsert, \"The 3-door check\": 1 robots.txt, 2 host or CDN bot settings, 3 GA4 Traffic acquisition (search \"chatgpt\"). It stays on screen while Maya says \"Save this for your next audit.\" Button: Maya reaches for her mug and it's cold (running joke); Floey: \"You're welcome.\" Maya looks to camera, then the end card.",
+ "pillar": "problem",
+ "instinct": "I allowed GPTBot in robots.txt, so if it's still being turned away, robots.txt is broken or the bot is ignoring me.",
+ "flip": "Robots.txt only asks crawlers to behave and cannot enforce anything; your host or CDN's firewall and bot settings decide who actually gets in, and they can block a bot your robots.txt allows.",
+ "idea": "My robots.txt lets GPTBot in, so why is my host turning it away?",
+ "style": "duo"
+}

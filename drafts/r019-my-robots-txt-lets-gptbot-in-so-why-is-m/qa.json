@@ -1,0 +1,10 @@
+{
+ "pass": true,
+ "problems": [
+  "Frame 06 (minor timing): when Maya starts 'Wait. Too many…', the host bot log is still filling in. ClaudeBot is still sliding in, the Googlebot row isn't there yet, the bottom third of the box is empty, and there's no highlight ring on the GPTBot 429 row. The rows should finish during Floey's tip line, so the box is full and the ring is growing when Maya reacts. Worth tightening, but the 429 row and two 200 rows are readable, so a viewer still gets the point.",
+  "Frame 07 (minor): Floey's line 'Your note said come…' starts over a close-up of Maya alone, and Floey is off-screen while she talks. Maya's 'point at the laptop' pose from the previous line never shows up in the sampled frames. Frame 08 does reach the planned wide shot with Floey hovering, so it reads as a reaction shot rather than a mistake.",
+  "Frame 05 (minor continuity): the red 'GPTBot: refused' tag is gone during Floey's tip, before Maya learns the reason. The script fades it out in the payoff. A viewer is unlikely to notice.",
+  "Frame 09 (note, not a fault): the 3-step checklist on screen differs from the script. It shows robots.txt / Allow: GPTBot, Host or CDN rules / GPTBot allowed, and Host's bot log / No 429 errors. The script's GA4 step is gone. The on-screen version is clearer, readable on a phone, and every line is accurate, so I'm accepting it.",
+  "Frame 10 (unverified): Floey's 'You're welcome' close-up has no caption, and Maya's silent flat look at the camera isn't in any sampled frame before the end card (frame 11). Check in the full render that the caption shows during the line and that Maya's beat is there."
+ ]
+}

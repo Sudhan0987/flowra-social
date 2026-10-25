@@ -1,0 +1,103 @@
+{
+ "title": "The note on the door (save-ask)",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "I've allowed gee pee tee bot in my robots dot text. Still bounced!",
+   "emotion": "worried",
+   "caption": "I've allowed GPTBot in my robots.txt. Still bounced!",
+   "visual": "Night set, wide from frame one so we see both. Maya, pose 'typing', face 'worried', hammers save on the file (fast typing sfx, a '!' mark pops above her bun). A red DUO.stat pill sits by her head from the first frame: 'GPTBot: refused' (no reason given, so the 429 stays hidden for the reveal). Floey sits on the laptop, tilting her head, then gives a slow, unimpressed blink."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Robots dot text is a note on the door, Maya. Not the bouncer.",
+   "emotion": "warm",
+   "caption": "robots.txt is a note on the door, Maya. Not the bouncer.",
+   "visual": "floeyTight: Floey deadpan, a small head bob with a 'tk' sound on 'note on the door', then a slow blink and tilt on 'Not the bouncer.' Off her line, cut to maya: Maya stops typing, face 'surprised'."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Then who's the bouncer?",
+   "emotion": "curious",
+   "visual": "maya: face 'curious', Maya looks up from the laptop toward Floey, eyebrows raised. The red 'GPTBot: refused' pill is still by her head."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "Your host. Check its bot settings, not just the file.",
+   "emotion": "playful",
+   "visual": "floey: Floey turns her head toward the laptop screen, then back to Maya, one blink. Cut to maya: pose 'typing', Maya opens her host's bot log (typing sfx). Whoosh into the laptop screen insert (DUO.listInsert) titled 'My host's bot log (today)', tagged 'Maya's example'. Rows slide in one by one with soft ticks: GPTBot / 429 Too many requests (bad tone, hi row); OAI-SearchBot / 200 OK; ClaudeBot / 200 OK; Googlebot / 200 OK."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "Wait. Too many requests? Everyone else got in.",
+   "emotion": "curious",
+   "visual": "Insert holds: the hiK ring grows on the GPTBot 429 row (low ding). Cut to mayaTight: pose 'point' at the laptop, face 'surprised' on 'Too many requests?', switching to 'annoyed' on 'Everyone else got in.'"
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Your note said come in. Your host said slow down.",
+   "emotion": "playful",
+   "visual": "wide: Floey lifts off the laptop (wing hum, panned right) and hovers by Maya's head, tilting toward her on 'slow down'. Maya stares at the laptop, face 'annoyed', mouth flat. The red pill fades out now that she knows the reason."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Right. Saving this for my next audit.",
+   "emotion": "determined",
+   "visual": "maya: pose 'phone', Maya raises her phone to the laptop as if taking a screenshot (shutter sfx), talking to herself. Whoosh to a second DUO.listInsert, 'My bot check: 3 steps', rows ticking in, every row with a value, box sized to the longest measured row: 1 robots.txt / Allow: GPTBot. 2 Host or CDN bot settings / GPTBot blocked? 3 GA4 Traffic acquisition / ChatGPT visits? Search chatgpt. The list holds full screen for about two seconds so the viewer can screenshot it, then cut back to the room."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "You're welcome.",
+   "emotion": "proud",
+   "visual": "floeyTight: Floey, back on the laptop, turns to the camera, smug, with a tiny preen. Cut to maya: Maya, phone still in hand, face 'annoyed', gives the camera a long flat look with no words. Hold about 1.2 seconds of silent acting before the end card."
+  }
+ ],
+ "loopNote": "No loop. Duo reels end on the button: Floey's 'You're welcome.', then Maya's silent flat look to camera held for about 1.2 seconds, then the end card.",
+ "caption": "Maya allowed GPTBot in robots.txt. Three times. It still got bounced. 🙃\n\nrobots.txt is a note on the door, not the bouncer. It asks bots to behave, but it can't make them. Your host's or CDN's bot settings decide who actually gets in, and they can turn away a bot your file allows. A \"429 Too Many Requests\" in your host's bot log means it is rate limiting that bot.\n\nHer 3-step bot check:\n1. robots.txt: is the bot allowed?\n2. Host or CDN bot settings: is it blocked or rate limited there?\n3. A separate question: in GA4, go to Reports > Acquisition > Traffic acquisition, set Session source and search \"chatgpt\" to see whether ChatGPT visits are arriving.\n\nSave this for your next audit. When did you last open your host's bot settings? (Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#robotstxt",
+  "#wordpress",
+  "#aicrawlers",
+  "#blogging"
+ ],
+ "sticky": 49,
+ "id": "r019-my-robots-txt-lets-gptbot-in-so-why-is-m",
+ "format": "duo-sitcom",
+ "goal": "save",
+ "topic": "My robots.txt lets GPTBot in, so why is my host turning it away? (save-ask duo reel)",
+ "editorNotes": [
+  "The 3-step card breaks the brief's guardrail. Row 1 says 'Allow: GPTBot' and row 3 says 'GA4 ... ChatGPT visits? Search chatgpt', so the card tells the viewer that letting GPTBot in leads to ChatGPT visits. GPTBot is OpenAI's training crawler. ChatGPT search visits come from OAI-SearchBot, and each setting is independent. Change step 3 so it does not tie GPTBot to ChatGPT traffic. For example, make row 1 'Allow: GPTBot, OAI-SearchBot' and keep row 3 clearly about ChatGPT search referrals. Or drop step 3.",
+  "The checklist comes out of nowhere and works as a second and third tip. Floey gives one tip (check the host's bot settings), but the card Maya 'saves' adds a GA4 step that nobody mentions and that has nothing to do with the bouncer story. A viewer can't tell where it came from. Either cut the card to the robots.txt then host/CDN check that the dialogue earned, or have a line set up the GA4 step. The second option breaks the one-tip rule, so cutting is safer.",
+  "The reveal can't be read. After the tip there's only a 0.5 s pause before Maya's line. In that time the whoosh, the typing and four row ticks (at least 0.4 s apart) have to land, and line 5 then cuts to mayaTight while the hi ring is still growing. That hides the log just as Maya says 'Everyone else got in', which only makes sense if the viewer can see the other 200 OK rows. Lengthen the pause after the tip to about 1.5 to 2 s. Keep the insert on screen through all of line 5, and cut to Maya's face only for a reaction after she finishes.",
+  "Line 3 asks for face 'curious'. Maya has no such expression; her faces are neutral, happy, proud, panic, worried, annoyed, smug, surprised, think, deadpan and sad. Use 'think' or 'surprised'. (A 'curious' voice emotion is fine. The face is the problem.)",
+  "Line 7 can't be drawn as written. Pose 'phone' means Maya is on a call, not holding her phone up to take a screenshot, and there is no shutter sound in the kit. On screen she will look like she's taking a call while she says 'Saving this'. Use pose 'type' with a 'click' sound to save. Line 8 also says 'phone still in hand' for her flat look to camera, so she would give that look mid-call. Give her 'crossed' or 'rest' there.",
+  "(polish) Line 5 asks for pose 'point' 'at the laptop'. In this room 'point' aims to screen right. The laptop, with Floey on it, is screen left ('pointL'), so she would point away from it. In mayaTight her hands may also be out of frame. Use a downward look (MY.look y 1) or 'pointL' in a wider shot.",
+  "(polish) Lines 1 and 4 ask for pose 'typing'. The pose is called 'type'. Fix the name so the animator doesn't have to guess.",
+  "(polish) The hook reads like a written sentence and loses the panic. 'I've allowed gee pee tee bot in my robots dot text. Still bounced!' is clipped like a caption. The brief's 'three times' exaggeration, which is very Maya, is gone, and the face is 'worried', not 'panic'. Make it sound spoken and over the top, something like 'I've let GPTBot in three times and it's STILL getting bounced!' Use the panic face, and keep GPTBot as the name (not 'ChatGPT's bot', which would mislead).",
+  "(polish) Floey flies off the laptop to hover in line 6, then is 'back on the laptop' in line 8 with no beat for the return. Add a flutter cue for her flying back while line 7 is on the Maya shot, so the cut to floeyTight doesn't make her jump between places.",
+  "(polish) Floey's tip says 'Your host' only, but the brief and the card say host or CDN. Many of the audience are behind Cloudflare, not a host's own firewall. Think about 'Your host. Or your CDN.' so it holds true for them. Keep it short.",
+  "(polish) Card rows: 'GPTBot blocked?' and 'ChatGPT visits? Search chatgpt' are questions or instructions, not values, and the GA4 row is long for one listInsert row at 1080 wide. Measure it with PROPS.measure and shorten it (for example 'Session source: chatgpt') so nothing overflows or wraps into the next row.",
+  "(polish) The save ask is weak. 'Saving this for my next audit' fits an agency person better than a solo blogger, and the card holds full screen only after her line. Show the card while she says the line so the viewer sees exactly what 'this' is. Something closer to her world, like 'Screenshotting this before I panic again', also lands better.",
+  "(polish) The button is the stock 'You're welcome.' plus a flat look, and the strongest line in the reel ('Your note said come in. Your host said slow down.') comes two beats earlier. Think about giving Maya a reply that calls back to the bouncer image before Floey's 'You're welcome.', so the ending tops the payoff instead of settling for it."
+ ],
+ "style": "duo",
+ "template": "../drafts/r019-my-robots-txt-lets-gptbot-in-so-why-is-m/scene.html"
+}
