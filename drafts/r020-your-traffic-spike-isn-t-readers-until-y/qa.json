@@ -1,0 +1,12 @@
+{
+ "pass": false,
+ "problems": [
+  "Frames 09–10 (button): the planned closing joke is missing. The script says Maya puts the mug down, picks up her phone and starts typing again, grinning as if she learned nothing. Instead, both frames show her holding the mug with a blank face for the whole line. Without that joke the reel has no real button, and nothing leads back to frame 00 (Maya typing happily), so the ending doesn't loop to the start.",
+  "Frame 03 (tip, meant to be a Floey two-shot): Maya is pushed off the right edge, with only a sliver of her hair and arm showing. The top half of the frame is empty wall. The 'Landing page' chip that should appear by Floey is missing too. This looks like a framing mistake, not a two-shot.",
+  "Frame 07 (Maya: 'Fine. Good week.'): Floey is cut off at the left edge, and only her beak tip shows as a stray dark spike at x≈0, y≈620. Maya's mouth is wide open in surprise, when the line calls for a flat, deadpan 'Fine.' The caption also sits right on top of her hands and phone.",
+  "Frame 07: the client notification still says 'WE WENT VIRAL!!' while she is saying the toned-down 'Fine. Good week.' The new 'Good week. Details Monday.' draft should replace it while she types this line, so the picture contradicts the voice.",
+  "Frame 08 (silent pause, cold-coffee gag): there's no sweat mark and no annoyed look. Her face is neutral and wide-eyed, so a viewer can't tell the coffee is cold and the gag is lost. Her raised arm with the mug also looks awkwardly bent behind her head.",
+  "Frames 04, 06, 09, 10: the 'zzz' above the mug, which shows the coffee has been sitting forgotten, only appears in the tight shots (00, 07). The mug has no 'zzz' in every wide shot. This weakens the cold-coffee setup and breaks continuity from shot to shot.",
+  "Frame 04 (tip): Maya's hands rest on the desk instead of typing, and the 'Landing page' chip still hasn't appeared. The tip's on-screen action doesn't match the plan."
+ ]
+}

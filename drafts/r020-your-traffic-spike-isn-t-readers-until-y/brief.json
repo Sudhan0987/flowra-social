@@ -1,0 +1,51 @@
+{
+ "topic": "Your traffic spike isn't readers until you check who actually arrived",
+ "angle": "Maya sees a huge spike on her host's traffic graph and is already typing \"WE WENT VIRAL\" to her client. Floey stops her: the host graph counts every request, bots included, but GA4 automatically leaves out known bots. Maya opens GA4's Traffic acquisition report and then the Landing page report on screen. The real number of readers is smaller, but it's real, and now she knows which post they read and where they came from. It's a good-news-with-a-catch moment that ends on a send-ask: \"Send this to the friend who screenshots their server graph.\"",
+ "whyNow": "This month's top Hacker News thread, \"I posted to HN, and then my website was flooded with AI bot traffic\" (352 points, 188 comments), is about this exact pattern. After a front-page post, a founder's site slowed to a crawl. His server logs showed that nearly half the traffic came from a single AI newsletter service, while only a handful of real users were active. Commenters traded notes on spotting bot traffic in their logs and referrers. Other forum threads (Discourse Meta, Adobe community, NameHero) show site owners regularly confused when a spike shows up in one tool and not another.",
+ "goal": "send",
+ "audience": "Solo bloggers, content marketers and small-agency people who check their host or server dashboard, see a spike and want to celebrate (or report it to a client) before they know whether real people came.",
+ "facts": [
+  {
+   "fact": "A founder posted his feed reader to Hacker News. Afterwards the site became very slow even though only a handful of real users seemed active. His NGINX logs showed nearly half the traffic came from one service that turns websites into AI-generated newsletters and queried his site many times per minute.",
+   "source": "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic"
+  },
+  {
+   "fact": "In the same case, self-identified crawlers (ClaudeBot, OpenAI's bot, Google's indexer) and vulnerability scanners probing WordPress paths also hit the site. Most requests never ran the JavaScript needed to render the app.",
+   "source": "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic"
+  },
+  {
+   "fact": "The Hacker News thread 'I posted to HN, and then my website was flooded with AI bot traffic' had 352 points and 188 comments when checked (October 2026).",
+   "source": "https://news.ycombinator.com/item?id=50073221"
+  },
+  {
+   "fact": "In Google Analytics properties, traffic from known bots and spiders is automatically excluded. You cannot turn this off or see how much was excluded. Bots are identified using Google research and the IAB's international spiders and bots list.",
+   "source": "https://support.google.com/analytics/answer/9888366"
+  },
+  {
+   "fact": "GA4's Traffic acquisition report shows where your website visitors come from, new and returning, by session default channel group (for example Organic Search, Direct, Organic Social) or by session source / medium.",
+   "source": "https://support.google.com/analytics/answer/12923437"
+  },
+  {
+   "fact": "GA4's Landing page report (Reports > Engagement > Landing page) shows the first page a visitor lands on and how many visitors land on each page.",
+   "source": "https://support.google.com/analytics/answer/12931766"
+  },
+  {
+   "fact": "Caveat, so Floey never overclaims: GA4 removes KNOWN bots only. Some advanced bots run JavaScript and can still be counted, and ad blockers or consent refusals can hide some real visitors, so GA4 is a better read of humans, not a perfect one. The script must not say GA4 shows 'only humans'.",
+   "source": "https://www.clickcease.com/blog/?p=11118"
+  },
+  {
+   "fact": "Other site owners report the same confusion: a spike that appears in one tool but not others (Discourse admin traced one to thousands of identical requests from one IP in nginx logs; an Adobe community thread traced one to a crawler).",
+   "source": "https://meta.discourse.org/t/unexplainable-spike-in-page-views/169475"
+  },
+  {
+   "fact": "Any numbers Maya sees (for example '+900%' on her host graph, or the session counts in her GA4 rows) are her own example numbers, framed as hers, not statistics.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "Day set. The hook is a mayaTight shot of Maya beaming. Her laptop screenInsert shows her host's requests chart shooting up (title \"Host: requests\", good tone), with a number pill \"+900%\" (her example) by her head, and she is mid-typing on her phone (pose phone, typing sfx). A notification preview reads \"To client: WE WENT VIRAL!!\" Floey, perched on the laptop, says deadpan: \"Before you tell the client, check who it was.\" Maya pushes back: \"Traffic is people!\" Floey: \"Your host counts every visitor. Bots too. GA4 drops the known ones.\" Maya types, and a listInsert swings in: \"GA4: Traffic acquisition\", rows like Organic Search, Direct, Organic Social, Referral with modest example session counts. Then a second listInsert, \"Landing page\", where one row (her soup post) gets the hi ring. The pill deflates from \"+900%\" to a smaller but good \"+38%\" (example). Maya: \"Oh. Smaller.\" Floey: \"But real. And now you know which post.\" Button: Maya deletes the client draft and retypes \"Good week. Details Monday.\" She sips her coffee, which is cold (running joke), and looks to camera. Floey turns front: \"Send this to the friend who screenshots their server graph.\" Then the end card.",
+ "pillar": "problem",
+ "instinct": "A big spike on my host's traffic graph means my post went viral and real readers poured in.",
+ "flip": "Server traffic counts bots too (in one recent case nearly half came from a single AI bot), while GA4 automatically excludes known bots and spiders, so GA4's Traffic acquisition and Landing page reports show which visits came, from where and to which page.",
+ "idea": "Your traffic spike isn't readers until you check who actually arrived",
+ "style": "duo"
+}

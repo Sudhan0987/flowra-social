@@ -1,0 +1,278 @@
+{
+ "style": "Duo sitcom, Maya's room by day: soft day sky with a drifting cloud in the window, shelf, plant, spark poster. Maya (amber captions) is behind the desk with her pencil bun, and Floey (pink captions) is perched on the laptop lid facing her (facing -1). The forgotten mug sits on the desk's right end with a fixed 'zzz' mark. Only two things appear on screen: one notification, used in the hook ('Draft to client: WE WENT VIRAL!!'), and one cutaway insert, used for the check (GA4 Landing page listInsert, every number labelled as an example). The host spike is carried by a '+900%' pill (her example) instead of a second insert. Stat pills stay near x 880, y 610 and inside the safe area x 60 to 1020, y 220 to 1420. No em or en dashes.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya beaming, pose phone, thumbs typing. The '+900%' stat pill (good tone, her example) is already by her head. The DUO.notification 'Draft to client: WE WENT VIRAL!!' is already down at the top of the safe area. The edge of the mug with its 'zzz' sits low in frame.",
+   "action": "Frame one is the problem already happening: she types fast and grins at her phone, her bun wobbling with each thumb tap.",
+   "onScreenData": "+900%",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.9,
+   "shot": "medium",
+   "camera": "pull-out",
+   "subject": "maya: Maya waist up behind the desk with the '+900%' pill by her head and the mug and 'zzz' on the desk. Floey is still out of frame.",
+   "action": "On 'went viral' she breaks off typing for a small fist pump (pose fist), expr proud, then her thumbs swing back toward the phone.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.95,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey perched on the laptop lid, Maya behind the desk in pose phone, the '+900%' pill by her head, the mug and 'zzz' on the desk's right end.",
+   "action": "On 'Hold on', Floey turns her head to Maya, dead flat. Maya jolts (MY.jolt) and freezes with her thumbs in the air, expr surprised.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.15,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 1.5,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floeyTight: Floey alone on the laptop lid. The 'bots too' chip pops in beside her.",
+   "action": "On 'Bots too', the chip pops up next to her and she gives one slow blink.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "drift",
+   "subject": "maya: Maya with the phone still in hand and the '+900%' pill by her head.",
+   "action": "She leans toward the laptop (MY.leanTo), expr worried, and her eyes go left to Floey (MY.look -1). A '?' mark pops above her head.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: a closer two-shot favouring Floey on the laptop, with Maya behind. The '+900%' pill fades out before the shot change.",
+   "action": "Floey tilts her head, then winks at Maya. Maya puts the phone down and goes to pose type, expr think.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 1.6,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: Floey with a 'Landing page' chip popping in beside her. Maya types in the background.",
+   "action": "The chip pops up on 'Open the Landing page'. Floey hops a little on the lid and Maya's hands keep moving on the keys.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.7,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 2.6,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The single cutaway: DUO.listInsert titled 'GA4: Landing page', sub line 'Example: sessions this week vs last +38%'. The cols are Page and Sessions, and every row is labelled as an example: Soup post 412, Bread basics 96, Pantry list 71, About 38.",
+   "action": "The insert whooshes in on 'Landing page report' and the rows slide in one by one. No ring yet.",
+   "onScreenData": "+38%",
+   "sfx": [
+    {
+     "at": 2.6,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "push-in",
+   "subject": "The same GA4 Landing page listInsert, still up: sub line '+38%' with the Soup post row on top.",
+   "action": "On 'Oh. Up thirty eight percent' the hi ring grows around the Soup post row (hiK) while the camera eases toward the sub line.",
+   "onScreenData": "+38%",
+   "sfx": [
+    {
+     "at": 0.25,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0.7,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face with the '+900%' pill back by her head.",
+   "action": "Deflated: expr deadpan, MY.slump. The '+900%' pill shrinks away and a '+38%' pill (good tone) pops in where it was.",
+   "onScreenData": "+38%",
+   "sfx": [
+    {
+     "at": 0.9,
+     "kind": "pop"
+    },
+    {
+     "at": 1.35,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid.",
+   "action": "A quick little preen on 'Mostly people, though', then she looks back up at Maya, unbothered.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 1.2,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them, with the '+38%' pill by Maya's head and the mug and 'zzz' on the desk.",
+   "action": "On 'For your soup post' Maya's face softens into a small smile (expr happy) and she nods once (MY.nod). Floey gives a tiny tilt.",
+   "onScreenData": "+38%",
+   "sfx": [
+    {
+     "at": 1.5,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya in pose phone. The '+38%' pill fades out.",
+   "action": "A flat, grudging 'Fine.' (expr deadpan, eyes rolling up), then a lighter 'Good week. Details Monday.' (expr neutral) as her thumbs type the new draft. There is no second notification, so the typing carries it.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.6,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 2.2,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya in pose mug. DUO.mug() stops drawing on the desk and the 'zzz' goes with it.",
+   "action": "She grabs the forgotten mug and takes a long sip. Her face curdles (expr annoyed) and a sweat mark pops by the mug: the coffee is stone cold.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.3,
+     "kind": "step"
+    },
+    {
+     "at": 2.9,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 3.4,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya holding the cold mug and looking straight down the lens.",
+   "action": "She gives the camera a silent, flat look and holds it.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: a two-shot favouring Floey, with Maya behind her still holding the mug.",
+   "action": "Floey pivots front to the camera (F.pivot front) for the button line and gives a small preen on 'the friend'.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 1.2,
+   "shot": "medium",
+   "camera": "drift",
+   "subject": "floey: the same two-shot. Behind Floey, Maya puts the mug down and DUO.mug() draws on the desk again.",
+   "action": "Maya sets the mug down, switches back to pose phone and starts typing again, beaming (expr happy) as if she never learned.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.3,
+     "kind": "bonk"
+    },
+    {
+     "at": 1.8,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 3.1,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them, with the mug back on the desk.",
+   "action": "Silent button: Maya keeps grinning and typing. Floey slowly turns her head to watch her, then looks back at the camera, deadpan, and blinks once. Hold, then the end card thumps in.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 3.9,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1.2
+}

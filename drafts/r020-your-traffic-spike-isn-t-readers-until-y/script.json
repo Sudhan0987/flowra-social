@@ -1,0 +1,108 @@
+{
+ "title": "We Went Viral (Did We?)",
+ "hookPattern": "Good news with a catch",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Nine hundred percent! I'm telling my client we went viral.",
+   "emotion": "excited",
+   "caption": "+900%! I'm telling my client we went viral.",
+   "visual": "mayaTight, day set. Frame one already shows the problem: Maya beaming in pose phone, thumbs typing (typing sfx, panned right). The number pill '+900%' (her example) is already by her head, and the DUO.notification 'Draft to client: WE WENT VIRAL!!' is already showing. DUO.mug() sits on the desk from frame one with a fixed 'zzz' mark beside it, so it's clearly been forgotten. On 'went viral', cut to the laptop screenInsert titled 'Host: requests' (good tone), the chart line shooting straight up."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "Hold on. Your host counts every visit. Bots too.",
+   "emotion": "warm",
+   "visual": "wide: Floey, perched on the laptop lid, turns her head toward Maya on 'Hold on', dead flat. Maya jolts and freezes in pose phone, thumbs stopped mid-air. The mug and its 'zzz' sit on the desk. On 'Bots too', cut to the 'Host: requests' screenInsert with the spike, and Floey's chip 'bots too' pops beside it with a tk."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So who's real?",
+   "emotion": "curious",
+   "visual": "maya: MY.leanTo toward the laptop, expr worried, then MY.look(-1) toward Floey. DUO.mark '?' pops above her head. Phone still in hand."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Google Analytics skips the known bots. Open the Landing page report.",
+   "emotion": "warm",
+   "caption": "GA4 skips the known bots. Open the Landing page report.",
+   "visual": "floey two-shot: Floey does an F tilt, then a wink, and a chip 'Landing page' appears by her. Maya switches to MY.pose type and types (typing sfx). On 'Landing page report', a listInsert whooshes in titled 'GA4: Landing page'. Rows slide in: a few of her posts with modest example session counts, and a sub line 'Sessions this week vs last: +38%' (her example). No ring yet."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "Oh. Up thirty eight percent...",
+   "emotion": "worried",
+   "caption": "Oh. Up 38%...",
+   "visual": "Opens on the listInsert holding on the sub line '+38%', then cuts to mayaTight: expr deadpan, MY.slump. The '+900%' pill by her head shrinks away on its k with a soft pop, and a '+38%' pill pops in its place in good tone. A small, deflated delivery."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Mostly people, though. For your soup post.",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey does a little preen on 'Mostly people, though.' Cut to the 'GA4: Landing page' listInsert: on 'soup post', the hi ring grows (hiK) around the soup post row (soft chime). In the pause, cut to wide: Maya breaks into a small smile, expr happy."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 1,
+   "say": "Fine. Good week. Details Monday.",
+   "emotion": "warm",
+   "visual": "maya: a flat, grudging 'Fine.' (expr deadpan), then a lighter 'Good week. Details Monday.' as she types in pose phone (typing sfx). A second DUO.notification 'Draft to client: Good week. Details Monday.' replaces the first with a whoosh. In the long silent pause: Maya switches to pose mug (DUO.mug() stops drawing on the desk), sips (F.sfx sip), expr annoyed, and a sweat mark pops by the mug because the coffee is cold. She gives the camera a look, no words."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Send this to the friend who screenshots their host graph.",
+   "emotion": "proud",
+   "visual": "floey two-shot: Floey does F.pivot front to the camera and a small preen. Behind her, in frame, Maya puts the mug down (DUO.mug() back on the desk), switches from pose mug to pose phone and starts typing again (typing sfx), beaming as if she never learned. Hold, then the end card."
+  }
+ ],
+ "loopNote": "The last frame is Maya beaming in pose phone and typing again, with the mug back on the desk. That's almost exactly frame one (Maya typing, pill by her head, mug and 'zzz' on the desk), so on replay 'Nine hundred percent!' plays as her relapse.",
+ "caption": "Maya's host graph jumped nine hundred percent and she nearly told her client she'd gone viral. 📈\n\nYour host graph counts every visit to your site, bots included. GA4 leaves out known bots and spiders on its own. So before you celebrate, open the Landing page report (Reports > Engagement > Landing page) and see which post people actually landed on. It isn't perfect: some clever bots slip through, and some real readers block tracking. But it gets you much closer to actual people.\n\nFewer, but real. And now she knows it was the soup post.\n\nWho do you know who screenshots their host graph? Send them this. 👇",
+ "hashtags": [
+  "#bloggingtips",
+  "#googleanalytics",
+  "#ga4",
+  "#seotips",
+  "#contentmarketing"
+ ],
+ "sticky": 51,
+ "id": "r020-your-traffic-spike-isn-t-readers-until-y",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Your traffic spike isn't readers until you check who actually arrived",
+ "editorNotes": [
+  "Maya can't type on her phone the way the script asks. In the studio, pose `phone` means 'on a call' (phone held up as if talking), and no pose shows thumbs typing on a phone. The hook ('beaming in pose phone, thumbs typing'), the reframe ('thumbs stopped mid-air'), line 7 ('types in pose phone') and the final relapse all depend on it. Fix: have her draft the client message on the laptop (pose `type`, typing sfx). Or make the hook a call she is about to make to the client, and say what the phone pose shows.",
+  "A phone notification of Maya's own draft doesn't make sense. `DUO.notification` is a message arriving on the phone (the client, a Google alert), not something she is writing. 'Draft to client: WE WENT VIRAL!!' sliding down from the top of the screen reads as the client texting her. Fix: make the notification the client's question (for example 'Client: how was the week?') and let her answer by typing. Or show the draft some other way the studio can draw.",
+  "Floey's 'chip' labels can't be drawn and break a standing rule. 'Floey's chip \"bots too\" pops beside it' and 'a chip \"Landing page\" appears by her' treat a chip as a text label. In this studio a chip is Floey's chirp sound and behaviour. Nothing draws text labels, and putting her spoken words on screen as a card breaks the rule that animation explains and captions carry the words. Cut both labels. Keep the chirp sound if you like.",
+  "Floey has no joke. Every line she says is information: 'Hold on. Your host counts...', 'Google Analytics skips...', 'Mostly people, though. For your soup post.', then a share request. The cast sheet makes her the deadpan one-liner, and the reframe should flip the moment (a dry question or fact), not explain it. As written, the only laughs are Maya deflating and the cold coffee. That isn't enough for someone to send it to a friend. Give Floey one dry, character line, at the reframe or the payoff.",
+  "Maya's doubt beat is gone. 'So who's real?' isn't the viewer pushing back; it just sets Floey up. The brief's 'Traffic is people!' was the viewer's own wrong belief, said out loud in Maya's voice, and it was funnier. Without it, the tip answers a question nobody really doubted. Bring back a real pushback ('So?', 'But...'), in character.",
+  "The ending has two buttons and then undoes itself. The cold sip and look to camera is already a button. After it comes a direct share request, then Maya 'typing again, beaming as if she never learned'. Relapsing seconds after learning makes her look dumb, which the cast sheet forbids. It also leaves the viewer unsure what she is typing: VIRAL again, or sending this to a friend? Choose one ending. Either the look to camera, then Floey's send line as the last word. Or make Maya's typing clearly her sending it on, not a relapse. The loopNote doesn't help: loops are for narrated reels, and duo reels end on the end card.",
+  "The 1.0 s pause after 'Details Monday.' is too short for all the silent acting in it. Inside it, Maya changes from phone to mug pose, sips, turns annoyed, a mark pops and she looks to camera. That needs about 2.5 to 3 s, or the look to camera gets cut off by Floey's line. Lengthen this pause.",
+  "(polish) Floey's 'Your host counts every visit. Bots too.' uses the wrong word. The brief and the insert title say requests, and a 'visit' sounds like a person, so the line half argues against itself. Use 'hit' or 'request' so the line matches the 'Host: requests' chart.",
+  "(polish) Maya has a client, but the cast sheet says she runs her own blog, and the post is her own soup post. 'Telling my client we went viral' about her own recipe blog is a small puzzle. Make it a sponsor or a brand partner, or something else that fits a solo blogger.",
+  "(polish) The cold coffee won't read as cold. A 'zzz' by the mug from frame one reads as sleepy or boring, and a sweat mark after the sip reads as nervous. The annoyed sip and the look to camera carry the joke on their own. Drop both marks, or use the mark that best says 'cold'.",
+  "(polish) Some faces don't match their lines. Line 3 is curious but the face is worried. Line 5 is 'worried' but it's a deflation (deadpan or sad face). Line 7 is warm but opens deadpan, and the line before ends with her smiling, so the face goes smile, then grudging, then warm in about 2 seconds. Line 3 needs a curious face (think works) and line 5 a sad or deadpan one, with an emotion tag that suits it. Give line 7 the emotion of its first word, or split it into two lines. Remember the final test samples frames, so a face left over from the last line fails it.",
+  "(polish) The two percentages compare different time windows. The host chart is a spike (by day?), but the GA4 sub line says 'Sessions this week vs last: +38%'. Use the same period for both, so the drop from +900% to +38% reads as bots taken out, not a change of date range. Also, the Landing page report only shows a vs-last-week change if you turn on date comparison, so show that on the insert.",
+  "(polish) The Landing page listInsert has no rows yet. The studio needs every row filled in with a label and a value, nothing blank. List them, with the soup post marked as the hi row and the session counts framed as Maya's example numbers.",
+  "(polish) Check the '+900%' and '+38%' pills in mayaTight. The pill sits at about x 880, y 610 in the room, and the tight zoom may push it off the edge or slice it. Check the hook and line 5 frames at phone size, and move the pill or fade it if needed.",
+  "(polish) Line 6, 'Mostly people, though. For your soup post.', sounds written. 'For your soup post' hangs off the end of the sentence. Say it the way Floey would say it out loud. Keep the hedge 'mostly' (never 'only humans'), because GA4 removes known bots only.",
+  "(polish) Line 6 crams three cuts into about 2.5 s: floeyTight, the insert, then wide in a 0.4 s pause. Then line 7 cuts again. It will feel jumpy. Cut out one shot.",
+  "(polish) The button's emotion is 'proud', but a share joke about a friend's habit reads better as 'playful'."
+ ],
+ "style": "duo",
+ "template": "../drafts/r020-your-traffic-spike-isn-t-readers-until-y/scene.html"
+}
