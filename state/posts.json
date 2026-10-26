@@ -329,6 +329,17 @@
    "idea": "My robots.txt lets GPTBot in, so why is my host turning it away?",
    "style": "duo",
    "run": 40182052696
+  },
+  {
+   "id": "r020-your-traffic-spike-isn-t-readers-until-y",
+   "status": "failed",
+   "topic": "Your traffic spike isn't readers until you check who actually arrived",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-26T11:31:03.667Z",
+   "seconds": 30,
+   "reason": "Frames 09–10 (button): the planned closing joke is missing. The script says Maya puts the mug down, picks up her phone and starts typing again, grinning as if she learned nothing. Instead, both frames show her holding the mug with a blank face for the whole line. Without that joke the reel has no real button, and nothing leads back to frame 00 (Maya typing happily), so the ending doesn't loop to the start. Frame 03 (tip, meant to be a Floey two-shot): Maya is pushed off the right edge, with only",
+   "idea": "Your traffic spike isn't readers until you check who actually arrived",
+   "style": "duo"
   }
  ]
 }
