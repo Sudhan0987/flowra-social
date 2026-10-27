@@ -347,6 +347,17 @@
    "reason": "Frames 09–10 (button): the planned closing joke is missing. The script says Maya puts the mug down, picks up her phone and starts typing again, grinning as if she learned nothing. Instead, both frames show her holding the mug with a blank face for the whole line. Without that joke the reel has no real button, and nothing leads back to frame 00 (Maya typing happily), so the ending doesn't loop to the start. Frame 03 (tip, meant to be a Floey two-shot): Maya is pushed off the right edge, with only",
    "idea": "Your traffic spike isn't readers until you check who actually arrived",
    "style": "duo"
+  },
+  {
+   "id": "r021-your-traffic-spike-isn-t-readers-until-y",
+   "status": "failed",
+   "topic": "Your traffic spike isn't readers until you check who actually arrived (host stats vs GA4)",
+   "format": "duo-sitcom",
+   "madeAt": "2026-10-27T11:00:41.118Z",
+   "seconds": 33,
+   "reason": "Frame 07 (payoff): the picture contradicts the voice. Floey says 'Just not thirty-eight thousand', but the green 'Host: 38,000' pill is still by Maya's head, untouched. It was meant to become a red '38,000' pill with a line through it. The old number still reads as a win at the exact moment the line takes it away. Frames 08–09 (Maya's 'Wait. Now I have to send them the real number...'): there is no caption in either frame, even though every other spoken line has one. Her line runs about 5 second",
+   "idea": "Your traffic spike isn't readers until you check who actually arrived",
+   "style": "duo"
   }
  ]
 }
