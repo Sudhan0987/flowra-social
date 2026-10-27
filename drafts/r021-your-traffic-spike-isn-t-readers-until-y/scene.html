@@ -1,0 +1,304 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<script src="lines.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../../reel/assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../../reel/assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r021 "38,000 visits (three of them are Mum)". Day. Frame one: Maya's fist up, grinning, a green
+// "Host: 38,000" by her head and the sponsor's "Wow 38k?! Can we get the numbers?" already on her
+// phone. Floey, heavy-lidded and flat, blinks; on "screenshot" a push in and a "?" over her. "Everything
+// that knocks": her host chart rockets to 38,000 and little bots climb the spike. "Bots?": the pill
+// wobbles and shrinks. The tip on Floey, Maya types and clicks, GA4 Traffic acquisition (her example
+// numbers): the ring finds Hacker News, then moves to Facebook's 3 for "That's Mum". Floey hovers in for
+// the kind line: GA4 1,511 green pops in, and Host 38,000 turns red and is crossed out. Floey stays in
+// the air; the sponsor is "Sharing this with the team!"; Floey's send line to camera while Maya's eyes
+// slide to the lens; Maya's slow, flat blink down the lens; end card.
+const M = window.MOUTHS || {};
+const LINES = window.LINES;
+// the pause after each line, from the story
+const GAP = { hook0: 0.3, reframe1: 0.3, doubt2: 0.25, tip3: 0.35, check4: 0.3, check5: 0.35, payoff6: 0.35, payoff7: 0.55, button8: 0.7 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+const b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+// Maya's silent look down the lens plays out after Floey's last line, before the end card
+const END = Math.max(SPOKEN + 0.6, b.button8.end + 2.0), DUR = END + 1.6;
+
+// Maya's faces: the rig's open mouth is a grin shape, so on her worried, sad, annoyed and deadpan
+// beats the open mouth is drawn as a fret (corners down) instead
+const EX = MAYA.EXPR;
+EX.worried = { ...EX.worried, brow: [18, 10] };
+const FRET = { worried: 1, panic: 1, sad: 1, annoyed: 0.7, deadpan: 0.5 };
+const OPEN = /<path d="[^"]*" fill="#5a1f22"[^>]*\/>\s*<clipPath id="(mq\d+)"><path d="[^"]*"\/><\/clipPath>\s*<g clip-path="url\(#\1\)">[\s\S]*?<\/g>/;
+const r1 = (n) => Math.round(n * 10) / 10;
+function fretMouth(open, u, id) {
+  const cx = 300, cy = 336, w = (u > 0 ? 30 + 8 * u : 22) + open * 6, h = 14 + open * 38, cY = cy + h * 0.3 * u, lo = cy + h * 0.6;
+  const d = `M${r1(cx - w)},${r1(cY)} Q${cx},${r1(cy - h * 0.85)} ${r1(cx + w)},${r1(cY)} Q${r1(cx + w * 0.9)},${r1(lo)} ${cx},${r1(lo)} Q${r1(cx - w * 0.9)},${r1(lo)} ${r1(cx - w)},${r1(cY)}Z`;
+  return `<path d="${d}" fill="#5a1f22" stroke="${HUM.colors.ink}" stroke-width="6" stroke-linejoin="round"/><clipPath id="${id}f"><path d="${d}"/></clipPath><g clip-path="url(#${id}f)"><ellipse cx="${cx}" cy="${r1(lo)}" rx="${r1(w * 0.6)}" ry="${r1(h * 0.32)}" fill="#e07a76"/></g>`;
+}
+
+// her poses for this scene: still hands on the keys, and a click on the trackpad
+const KEYS = { L: [252, 690], R: [348, 690] };
+const CLICK = { L: [252, 690], R: [360, 668] };
+// the "yes!" fist punched up above her head
+const YES = { L: [228, 705], R: [486, 196] };
+
+// framings: frame one (the brag, the pill, the notification, Floey on the lid), the tight variants,
+// the look down the lens
+const HOOK = { camX: 560, camY: 1010, zoom: 1.12 };
+const TIGHT = { camX: 690, camY: 845, zoom: 2.1 }; // Floey's beak stays fully out of the left edge
+const LOOKCAM = { camX: 705, camY: 790, zoom: 2.0 };
+
+// her host chart (her example): flat all week, then the spike
+const HOST = { title: "Host stats: visits", points: [0.06, 0.07, 0.06, 0.08, 0.07, 0.09, 0.95], tone: "good", label: "38,000" };
+// GA4 Traffic acquisition, engaged sessions by source (Maya's example numbers; they add up to 1,511)
+const ROWS = [
+  { label: "news.ycombinator.com / referral", value: "1,200", tone: "good" },
+  { label: "google / organic", value: "186" },
+  { label: "(direct) / (none)", value: "64" },
+  { label: "reddit.com / referral", value: "41" },
+  { label: "newsletter / email", value: "17" },
+  { label: "facebook.com / referral", value: "3", tone: "brand" },
+];
+const REPORT = { title: "GA4 · Traffic acquisition", sub: "Last 2 days. Engaged: stayed 10s+ or opened 2 pages", cols: ["Session source / medium", "Engaged sessions"] };
+
+// ---------- the cast ----------
+const F = FLOEY.create({ ...SP.floeyLaptop, facing: -1, mood: "think", perched: true, view: "side" });
+// her flat, heavy-lidded stare from frame one: the first sign this is about to go wrong
+const LID = 0.6;
+F.S.squint = LID;
+const MY = MAYA.create({ ...SP.maya, expr: "happy", pose: YES, floey: F });
+const W = { ...HOOK, note1: 1, note2: 0, ask: 0, hostP: 1, shrink: 1, wob: 0, gaP: 0, red: 0, strike: 0,
+  host: 0, draw: 0, bots: 0, list: 0, rows: 0, hi: 0, hiRow: 0, end: 0 };
+const wt = gsap.timeline({ paused: true });
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => wt.to(W, { ...s, duration: d, ease }, t);
+const cut = (t, s) => wt.set(W, { ...s }, t);
+// Floey's slow, unimpressed blink
+const blink = (t) => { F.tl.to(F.S, { squint: 1, duration: 0.16 }, t).to(F.S, { squint: LID, duration: 0.22 }, t + 0.45); };
+
+// HOOK0: frame one is the brag already sent: fist up, the pill, the sponsor's message on her phone.
+// She bounces on it; Floey stares, blinks slowly, and on "screenshot" a "?" pops over her
+MY.look(0, -0.2, -0.1).say(b.hook0.start, M.hook0 || [], "hook0").nod(b.hook0.start + 0.1, 2)
+  .tiltTo(b.hook0.start + 1.6, -6, 0.3).look(b.hook0.start + 1.6, 0.3, -0.6).tiltTo(b.hook0.start + 2.6, 2, 0.3);
+F.sfx(0.05, "buzz");
+F.look(0, 0.4, -0.2);
+blink(b.hook0.start + 1.0);
+F.tiltTo(b.hook0.start + 1.9, -8, 0.4);
+shot(0, { camX: 580, camY: 990, zoom: 1.18 }, 3.0, "none"); // a slow drift in on the grin
+const SHOTW = b.hook0.start + 3.05; // "screenshot"
+// on "screenshot" the camera pushes in to a two-shot favouring Floey: her flat stare beside the grin
+const PUSH = { camX: 465, camY: 905, zoom: 1.36 };
+shot(SHOTW - 0.25, PUSH, 0.45, "power3.out");
+wt.to(W, { hostP: 0, duration: 0.2 }, SHOTW - 0.25);
+wt.to(W, { note1: 0, duration: 0.3, ease: "power2.in" }, SHOTW - 0.3);
+wt.to(W, { ask: 1, duration: 0.25, ease: "back.out(2)" }, SHOTW + 0.15);
+F.sfx(SHOTW + 0.15, "pop");
+F.tiltTo(SHOTW + 0.15, 0, 0.3);
+blink(SHOTW + 0.35);
+
+// REFRAME1: hold the two-shot; Floey, dry, "Your host counts everything that knocks." Maya's grin
+// freezes on "knocks" (a tilt and a tk from Floey). Then her host chart: the spike, and "Bots too." bots climb it
+const RE = b.reframe1.start;
+wt.to(W, { ask: 0, duration: 0.25 }, RE + 0.2);
+F.mood(RE - 0.1, "think").look(RE - 0.1, 0.2, 0).say(RE, M.reframe1 || [], "reframe1");
+MY.look(RE + 0.2, -1, 0.1);
+const KNOCK = RE + 1.3;
+F.tiltTo(KNOCK, 12, 0.15).tiltTo(KNOCK + 0.35, 0, 0.25).sfx(KNOCK, "tk");
+MY.expr(KNOCK + 0.05, "surprised").pose(KNOCK + 0.05, "rest", 0.5);
+shot(SHOTW + 0.2, { ...PUSH, zoom: 1.42, camX: 455, camY: 915 }, RE + 1.75 - SHOTW - 0.2, "none");
+const CHART = RE + 1.75;
+wt.to(W, { host: 1, duration: 0.3, ease: "power3.out" }, CHART)
+  .to(W, { draw: 1, duration: 0.45, ease: "power2.in" }, CHART + 0.1)
+  .to(W, { bots: 1, duration: 0.5, ease: "none" }, b.reframe1.start + 2.1);
+F.sfx(CHART, "whoosh").sfx(b.reframe1.start + 2.15, "pop");
+MY.expr(b.reframe1.start + 2.1, "worried");
+
+// DOUBT2: wide on both; the chart goes, she leans in, worried; the pill wobbles and shrinks;
+// Floey tilts her head at her
+const DO = b.reframe1.end + 0.2;
+cut(DO, { ...SH.wide, host: 0, bots: 0, draw: 0, hostP: 1 });
+MY.expr(b.doubt2.start - 0.05, "worried").leanTo(b.doubt2.start, -4).tiltTo(b.doubt2.start, -6).look(b.doubt2.start, -1, 0.1)
+  .say(b.doubt2.start, M.doubt2 || [], "doubt2");
+wt.to(W, { shrink: 0.72, duration: 0.35, ease: "back.in(2)" }, b.doubt2.start + 0.35)
+  .to(W, { wob: 1, duration: 0.7, ease: "none" }, b.doubt2.start + 0.35);
+F.sfx(b.doubt2.start + 0.4, "boing");
+F.tiltTo(b.doubt2.start + 0.7, -14, 0.25);
+shot(DO, { ...SH.wide, zoom: 1.16, camX: 570 }, b.doubt2.end - DO, "none");
+
+// TIP3: Floey alone, the tip; a chip at the end of "known bots out." Then the wide as Maya types and
+// clicks through to the report; then close on her face, holding her breath
+const TIP = b.doubt2.end + 0.12;
+// the two-shot favouring Floey: her tip, with Maya beside her listening (a close-up of a small bird
+// on a tall frame is mostly empty wall)
+const FT = { ...SH.floey, camY: 975 };
+wt.to(W, { hostP: 0, duration: 0.2 }, TIP - 0.1);
+shot(TIP, FT, 0.5, "power3.inOut");
+F.tl.to(F.S, { squint: 0, duration: 0.2 }, b.tip3.start - 0.1);
+F.tiltTo(TIP, 0, 0.2).mood(b.tip3.start - 0.1, "happy").look(b.tip3.start, 0.3, 0).say(b.tip3.start, M.tip3 || [], "tip3")
+  .tiltTo(b.tip3.start + 0.4, -10, 0.25).tiltTo(b.tip3.start + 1.5, 0, 0.3).chips(b.tip3.start + 2.15, 2);
+MY.leanTo(TIP, 0).tiltTo(TIP, 0).expr(TIP, "think");
+shot(TIP + 0.5, { ...FT, zoom: 1.4, camX: 455, camY: 960 }, 1.9, "none");
+const TYPE = b.tip3.start + 2.45; // "Open Traffic acquisition"
+cut(TYPE, SH.wide);
+MY.pose(TYPE - 0.1, "type", 0.25).expr(TYPE, "neutral").look(TYPE, -0.5, 0.9);
+F.look(TYPE + 0.1, 0.3, 0.6, 0.15);
+F.sfx(TYPE + 0.05, "typing", { d: 1.1 });
+const CLK = b.tip3.start + 3.8;
+[0, 0.45, 0.9].forEach((d) => { MY.pose(CLK + d - 0.08, CLICK, 0.08).pose(CLK + d + 0.05, KEYS, 0.12); F.sfx(CLK + d, "click"); });
+MY.pose(TYPE + 1.2, KEYS, 0.15);
+shot(TYPE, { ...SH.wide, zoom: 1.2, camX: 590, camY: 990 }, 1.7, "none");
+const BREATH = b.tip3.start + 4.75;
+cut(BREATH, TIGHT);
+MY.expr(BREATH, "worried").look(BREATH, -0.5, 0.8);
+shot(BREATH, { ...TIGHT, zoom: 2.18, camY: 850 }, b.tip3.end + 0.1 - BREATH, "none");
+
+// CHECK4: her screen: GA4 Traffic acquisition swings in, rows slide in; the ring grows round
+// Hacker News on "Twelve hundred"
+const LIST = b.tip3.end + 0.05;
+wt.to(W, { list: 1, duration: 0.3, ease: "power3.out" }, LIST)
+  .to(W, { rows: 1, duration: 1.0, ease: "none" }, LIST + 0.3)
+  .to(W, { hi: 1, duration: 0.35, ease: "power2.out" }, b.check4.start + 0.25);
+F.sfx(LIST, "whoosh").sfx(b.check4.start + 0.3, "ding");
+MY.expr(b.check4.start - 0.05, "deadpan").say(b.check4.start, M.check4 || [], "check4");
+
+// CHECK5: the ring moves down to Facebook's 3; then on "That's Mum." her face, fond
+wt.set(W, { hiRow: 5, hi: 0 }, b.check5.start - 0.05).to(W, { hi: 1, duration: 0.3, ease: "power2.out" }, b.check5.start);
+F.sfx(b.check5.start, "tick");
+MY.expr(b.check5.start - 0.05, "neutral").say(b.check5.start, M.check5 || [], "check5");
+const MUM = b.check5.start + 0.85;
+cut(MUM, { ...TIGHT, list: 0 });
+MY.expr(MUM, "proud").look(MUM, 0.3, 0.4).tiltTo(MUM, 7, 0.4);
+shot(MUM, { ...TIGHT, zoom: 2.16, camY: 848 }, b.check5.end + 0.2 - MUM, "none");
+
+// PAYOFF6: wide; her old host number is back by her head. Floey lifts off the lid and hovers by her,
+// kind. "A real crowd": the real number pops in under it. "Just not thirty-eight thousand": the host
+// number grows, turns red and gets crossed out; Maya looks at it, deflates, then Floey's small nod and
+// Maya nods back. Floey stays in the air from here to the end card
+const PAY = b.check5.end + 0.15;
+cut(PAY, { ...SH.wide, hostP: 1, shrink: 0.72, wob: 1 });
+MY.tiltTo(PAY, 0, 0.3).expr(PAY, "neutral").look(PAY + 0.3, -1, -0.3);
+F.takeoff(PAY + 0.05).move(PAY + 0.3, SP.floeyHover.x, SP.floeyHover.y, 0.5).mood(PAY + 0.2, "happy").look(PAY + 0.3, 0.3, 0)
+  .say(b.payoff6.start, M.payoff6 || [], "payoff6");
+wt.to(W, { gaP: 1, duration: 0.3, ease: "back.out(2)" }, b.payoff6.start + 0.35);
+F.sfx(b.payoff6.start + 0.4, "ding");
+MY.look(b.payoff6.start + 0.45, 1, -0.7, 0.15).expr(b.payoff6.start + 0.5, "surprised");
+const STRIKE = b.payoff6.start + 1.2; // "Just not"
+wt.to(W, { shrink: 1, red: 1, duration: 0.25, ease: "back.out(2)" }, STRIKE)
+  .to(W, { strike: 1, duration: 0.4, ease: "power2.inOut" }, STRIKE + 0.3);
+F.sfx(STRIKE + 0.3, "swish");
+MY.expr(STRIKE + 0.35, "sad").tiltTo(STRIKE + 0.35, 4, 0.3);
+const NOD = b.payoff6.start + 2.05;
+F.tiltTo(NOD, 14, 0.15).tiltTo(NOD + 0.2, 0, 0.2);
+MY.look(NOD - 0.1, -1, -0.3, 0.15).expr(NOD + 0.2, "neutral").tiltTo(NOD + 0.2, 0, 0.3).nod(NOD + 0.3, 1);
+shot(PAY, { ...SH.wide, zoom: 1.15, camX: 555 }, b.payoff6.end - PAY, "none");
+
+// PAYOFF7: buzz; the sponsor again: "Sharing this with the team!"; on Maya: "Wait." eyes up at it,
+// then the dread, a facepalm and a slump on "the real number"
+const BUZZ = b.payoff6.end + 0.1;
+cut(BUZZ, { ...SH.maya, camX: 785, gaP: 0, hostP: 0 });
+wt.to(W, { note2: 1, duration: 0.3, ease: "power3.out" }, BUZZ);
+F.sfx(BUZZ, "buzz");
+// off screen, Floey drifts a little left so her wings stay out of Maya's close shots
+F.move(BUZZ + 0.1, 295, 770, 0.6, "sine.inOut");
+MY.look(BUZZ + 0.05, 0.2, -1).expr(b.payoff7.start - 0.05, "panic").say(b.payoff7.start, M.payoff7 || [], "payoff7")
+  .expr(b.payoff7.start + 0.35, "worried").look(b.payoff7.start + 0.6, 0, 0.2);
+// she sinks away from the laptop (a lean to the right keeps her hair inside the frame)
+MY.pose(b.payoff7.start + 1.2, "facepalm", 0.35).slump(b.payoff7.start + 1.2, 0.6).leanTo(b.payoff7.start + 1.22, 3, 0.6);
+shot(BUZZ, { ...SH.maya, camX: 785, zoom: 1.7, camY: 830 }, b.payoff7.end - BUZZ, "none");
+
+// BUTTON8: the two-shot, Floey still hovering by Maya's head; she pivots to the lens and says it,
+// then a smug wink; Maya, slumped and flat, listens, and on "who already sent" her eyes slide to the
+// lens: she is the friend
+const BTN = b.payoff7.end + 0.3;
+const TWO = { camX: 468, camY: 880, zoom: 1.34 };
+wt.to(W, { note2: 0, duration: 0.3, ease: "power2.in" }, BTN - 0.3);
+cut(BTN, TWO);
+MY.pose(BTN, "rest", 0.4).expr(BTN, "deadpan").look(BTN, -1, -0.3);
+F.pivot(b.button8.start - 0.15, "front").mood(b.button8.start - 0.1, "happy").look(b.button8.start, 0, 0)
+  .say(b.button8.start, M.button8 || [], "button8").wink(b.button8.end + 0.02);
+MY.look(b.button8.start + 1.35, 0, 0.05, 0.3);
+shot(BTN, { ...TWO, zoom: 1.4, camX: 470, camY: 870 }, b.button8.end - BTN, "none");
+
+// the silent button: close on Maya, she looks straight down the lens, flat, and blinks once slowly
+const LOOK = b.button8.end + 0.15;
+cut(LOOK, LOOKCAM);
+MY.look(LOOK + 0.25, 0, 0, 0.25).expr(LOOK, "deadpan").pose(LOOK, "crossed", 0.4).tiltTo(LOOK + 0.3, 3, 0.3);
+const SLOW = LOOK + 0.95; // the slow blink
+shot(LOOK, { ...LOOKCAM, zoom: 2.08, camY: 795 }, END - LOOK, "none");
+
+// END: the logo card drops in
+wt.to(W, { end: 1, duration: 0.5, ease: "back.out(1.6)" }, END);
+F.sfx(END + 0.05, "thump");
+wt.set({}, {}, DUR);
+
+// Maya with this scene's mouths and her slow blink
+function maya(t) {
+  const st = MY.state(t), u = FRET[st.expr];
+  if (t > SLOW && t < SLOW + 0.55) st.blink = Math.sin((t - SLOW) / 0.55 * Math.PI);
+  let s = MAYA.svg(st);
+  if (u !== undefined) {
+    const open = EX[st.expr].round ? Math.max(st.mouth, 0.2) : st.mouth;
+    s = s.replace(OPEN, (all, id) => fretMouth(open, u, id));
+  }
+  return `<g transform="translate(${MY.S.x} ${r1(MY.S.y + MY.S.bob)}) scale(1.3 1.3) translate(-300 -760)">${s}</g>`;
+}
+// the pills sit right of her head, small enough to stay inside the frame in the wide shot
+const PX = 860;
+// strike (0..1) draws a line through it from left to right: the old number, crossed out
+const pill = (k, y, text, tone, s = 1, rot = 0, strike = 0) => {
+  if (k <= 0.01) return "";
+  let line = "";
+  if (strike > 0.01) {
+    const hw = (PROPS.measure(text, "700 54px 'Space Grotesk'") + 64) / 2 + 14, x0 = PX - hw, x1 = x0 + 2 * hw * strike;
+    line = `<path d="M${r1(x0)},${y + 10} L${r1(x1)},${r1(y + 10 - 20 * strike)}" stroke="${INK}" stroke-width="10" stroke-linecap="round"/>`;
+  }
+  return `<g transform="translate(${PX} ${y}) rotate(${r1(rot)}) scale(${Math.round(0.6 * s * 100) / 100}) translate(${-PX} ${-y})">${DUO.stat(PX, y, k, text, tone)}${line}</g>`;
+};
+// little bots riding the spike on the host chart (same slide and fade as the insert)
+const INK = HUM.colors.ink;
+const onInsert = (k, inner) => k <= 0.01 ? "" : `<g transform="translate(0 ${r1(1920 * (1 - Math.min(1, k)) * 0.6)})" opacity="${r1(Math.min(1, k * 2))}">${inner}</g>`;
+const robot = (x, y, k) => k <= 0.01 ? "" : `<g transform="translate(${r1(x)} ${r1(y)}) scale(${Math.round((0.6 + 0.9 * k) * 100) / 100})" opacity="${r1(Math.min(1, k * 2))}"><path d="M0,-30 v-16" stroke="${INK}" stroke-width="5"/><circle cx="0" cy="-50" r="7" fill="#d24b4b" stroke="${INK}" stroke-width="4"/><rect x="-28" y="-30" width="56" height="44" rx="12" fill="#c9cbe0" stroke="${INK}" stroke-width="5"/><circle cx="-11" cy="-8" r="7" fill="#d24b4b"/><circle cx="11" cy="-8" r="7" fill="#d24b4b"/><path d="M-10,6 h20" stroke="${INK}" stroke-width="4" stroke-linecap="round"/></g>`;
+function hostBots(k, p) {
+  if (p <= 0.01) return "";
+  // the last segment of the chart: from day six to the spike
+  const a = [800, 1180 - 420 * 0.09], z = [930, 1180 - 420 * 0.95], at = (u) => [a[0] + (z[0] - a[0]) * u, a[1] + (z[1] - a[1]) * u];
+  const pk = (i) => Math.max(0, Math.min(1, p * 3 - i));
+  let s = "";
+  [0.15, 0.5, 0.85].forEach((u, i) => { const q = at(u); s += robot(q[0] - 62, q[1] + 12, pk(i)); });
+  return onInsert(k, s);
+}
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  // the room's pills hide while a full-screen insert covers it
+  const covered = W.host > 0.99 || W.list > 0.99, rot = Math.sin(W.wob * Math.PI * 4) * 9 * (1 - W.wob);
+  const world = DUO.room(t) + maya(t) + DUO.deskFront() + DUO.laptop() + F.svg(t)
+    + DUO.mark("?", 330, 880, W.ask, t)
+    + (covered ? "" : pill(W.hostP, 600, "Host: 38,000", W.red > 0.5 ? "bad" : "good", W.shrink, rot, W.strike)
+      + pill(W.gaP, 700, "GA4: 1,511", "good"));
+  document.getElementById("stage").innerHTML = DUO.cam(world, W)
+    + DUO.notification(W.note1, "Sponsor", "Wow 38k?! Can we get the numbers?", 230)
+    + DUO.notification(W.note2, "Sponsor", "Sharing this with the team!", 230)
+    + DUO.screenInsert(W.host, W.draw, HOST) + hostBots(W.host, W.bots)
+    + DUO.listInsert(W.list, W.rows, { ...REPORT, rows: ROWS.map((r, i) => ({ ...r, hi: i === W.hiRow })), hiK: W.hi })
+    + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")
+    + DUO.endCard(W.end, t);
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>

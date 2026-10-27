@@ -1,0 +1,247 @@
+{
+ "style": "Duo sitcom, Maya's room on a bright morning (day window with a drifting cloud). Warm amber for Maya, Floey's pink and green, one green number pill that later turns red. Maya behind the desk, Floey perched on the laptop lid facing her, then hovering by her head. Inserts and notifications use the house palette: green is good, red is bad.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk in fist pose, big manic grin, a green DUO.stat pill reading \"38,000 visits\" by her head. The sponsor notification is already on screen at the top: \"Sponsor\" / \"Wow 38k?! Can we get the numbers?\". Floey is perched at floeyLaptop with a deadpan face.",
+   "action": "Frame one is already the brag. Maya bounces on her fist as she starts the line, her bun wobbling. The notification sits on screen, and Floey does one slow blink.",
+   "onScreenData": "38,000 visits",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 2.1,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floeyTight: Floey alone on the lid, flat stare.",
+   "action": "The reaction that sells the hook: on \"screenshot\", Floey slowly turns her head toward Maya and holds the stare. The notification slides up and out of frame.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: closer two-shot favouring Floey on the lid. Maya's grin is at the frame edge, with the green \"38,000 visits\" pill still by her head.",
+   "action": "Floey delivers the reframe, dry and calm. Maya's grin freezes and her eyes flick toward Floey.",
+   "onScreenData": "38,000 visits",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 1.4,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floeyTight: Floey on the lid.",
+   "action": "On \"knocks\", Floey taps the lid twice with her beak without leaving her perch, then says \"Bots too\" flatly.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.5,
+     "kind": "bonk"
+    },
+    {
+     "at": 1.95,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Maya and Floey, with the green pill by Maya's head.",
+   "action": "Maya's fist drops and she leans toward the laptop with a worried face. The green \"38,000 visits\" pill wobbles and shrinks. Floey tilts her head at her.",
+   "onScreenData": "38,000 visits",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey on the lid, facing Maya.",
+   "action": "Floey gives the tip with a playful half smile and a small chip-like head bob on \"Traffic acquisition\". The shrunken pill fades out before the cut.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 2.6,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone at the desk, worried and focused.",
+   "action": "Maya types fast with her eyes down at the laptop, following Floey's instructions as she speaks.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.7,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 4.6,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face lit by the screen.",
+   "action": "Three deliberate clicks, her eyes narrowing a little with each one, then she holds her breath.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.7,
+     "kind": "pop"
+    },
+    {
+     "at": 5.2,
+     "kind": "pop"
+    },
+    {
+     "at": 5.7,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "listInsert (the reel's one cutaway): titled \"GA4 · Traffic acquisition\", sub \"Last 2 days\", columns \"Session source / medium\" and \"Engaged sessions\". Rows: news.ycombinator.com / referral 1,200 (hi); google / organic 186; (direct) / (none) 64; reddit.com / referral 41; newsletter / email 17; facebook.com / referral 3. No total row.",
+   "action": "The insert swings in and all six rows slide in quickly. As Maya says \"Twelve hundred\" in a flat, worried voice, the ring grows around the Hacker News row.",
+   "onScreenData": "1,200",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "listInsert held, with the ring on the Hacker News row. The facebook.com / referral 3 row is visible at the bottom.",
+   "action": "The insert holds for half a beat while Maya says \"Three from Facebook\".",
+   "onScreenData": "3",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0.85,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face.",
+   "action": "Cut to Maya on \"That's Mum\": a small, fond smile and a soft face, with a tiny tilt of her head.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Floey lifts off the lid to floeyHover by Maya's head. A red DUO.stat pill reading \"38,000\" with a line struck through it appears by Maya's head.",
+   "action": "Floey takes off with a wing flutter and hovers at Maya's eye height. The red, struck-through 38,000 pops in where the green pill was. Floey says the line kindly.",
+   "onScreenData": "38,000",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 1.7,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey hovering, Maya beside her.",
+   "action": "On \"thirty-eight thousand\", Floey gives Maya a small, kind nod. Maya nods back, calmer, and her shoulders drop.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone. The red pill fades out before the cut.",
+   "action": "Her phone buzzes on the desk (no on-screen notification). She lifts it into phone pose and looks down at it, and her face drops on \"Wait\".",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 1.1,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya with the phone at her chin.",
+   "action": "On \"the real number\", she slumps slowly, worried face, and lets out a long exhale.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: closer two-shot favouring Floey, hovering at floeyHover with slumped Maya beside her.",
+   "action": "Floey pivots to face the camera and delivers the button smugly, then preens one wing on \"screenshot\".",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 2.9,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face.",
+   "action": "Silent button: Maya turns and looks straight down the lens, deadpan, and blinks once slowly. The shot holds so the look lands.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 4.6,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the intact Flowra logo with \"Maya & Floey, every day\". Floey perches in front on the spark's left arm.",
+   "action": "The end card lands, and Floey settles sideways onto the left arm, then turns to the camera.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.6,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1.2
+}

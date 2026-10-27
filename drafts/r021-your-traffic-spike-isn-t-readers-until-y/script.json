@@ -1,0 +1,116 @@
+{
+ "title": "38,000 visits (three of them are Mum)",
+ "hookPattern": "Good news with a catch",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Thirty-eight thousand visits! I've already sent the sponsor the screenshot!",
+   "emotion": "bright",
+   "caption": "38,000 visits! I've already sent the sponsor the screenshot!",
+   "visual": "Shot: wide, morning light, from frame one. Maya in fist pose with a huge grin, a green stat pill reading \"Host: +900%\" by her head, clearly her own number. DUO.notification slides in from the top with a buzz panned right: \"Sponsor\" / \"Wow 38k?! Can we get the numbers?\". Floey sits perched at floeyLaptop on the lid, deadpan face, one slow blink, and turns her head toward Maya. Her flat stare is the first sign this is about to go wrong. Voice direction: a touch too fast and too high, manic pride."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Your host counts everything that knocks. Bots too.",
+   "emotion": "warm",
+   "visual": "Cut to screenInsert, swinging in with a whoosh, titled \"Host stats: visits\". The chart rockets straight up and stops on the label \"38,000\", with a rising tone. On \"knocks\", cut to floey: Floey on the lid, deadpan, taps the lid twice with her beak (tk, tk, panned to the laptop). She doesn't move from her perch."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "Bots? So who actually read it?",
+   "emotion": "worried",
+   "visual": "Shot: wide. Maya's fist drops into leanTo toward the laptop, worried face. The green \"Host: +900%\" pill by her head wobbles and shrinks (a small deflating sound). Floey, still perched on the lid, tilts her head at her."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Google Analytics leaves known bots out. Open Traffic acquisition, engaged sessions by source.",
+   "emotion": "playful",
+   "visual": "Shot: floeyTight. Floey on the lid turns toward Maya, playful half smile. Cut to maya: she types fast (typing sfx panned left), then three clicks, each with its own tick. Floey's line ends, then the listInsert swings in with a whoosh."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Twelve hundred from Hacker News.",
+   "emotion": "worried",
+   "caption": "1,200 from Hacker News.",
+   "visual": "Shot: listInsert titled \"GA4 · Traffic acquisition\", sub \"Last 2 days\", columns \"Session source / medium\" and \"Engaged sessions\", so the dimension switch is visible. Rows slide in: \"news.ycombinator.com / referral 1,200\" (hi, the ring grows around it as she says the number), \"google / organic 186\", \"(direct) / (none) 64\", \"reddit.com / referral 41\", \"newsletter / email 17\", \"facebook.com / referral 3\". All six are on screen by the end of the line. There is no total row, and the rows add up to 1,511. Maya's voice over the list is flat and worried."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Three from Facebook. That's Mum.",
+   "emotion": "bright",
+   "caption": "3 from Facebook. That's Mum.",
+   "visual": "Hold on the listInsert for half a beat. The \"facebook.com / referral 3\" row is already visible at the bottom and the ring stays on the Hacker News row. Cut to mayaTight: a small, fond smile, soft face."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "A real crowd. Just not thirty-eight thousand.",
+   "emotion": "warm",
+   "visual": "Shot: wide. Floey takes off from the lid with a wing flutter (whirr panned centre) and hovers at DUO.SPOT.floeyHover, then gives Maya a small, kind nod. By Maya's head, the shrunken pill is replaced by a red \"38,000\" pill with a line struck through it: her old host number, crossed out. Maya nods back, calmer."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.55,
+   "say": "Wait. Now I have to send them the real number...",
+   "emotion": "worried",
+   "visual": "Buzz. DUO.notification slides in: \"Sponsor\" / \"Sharing this with the team!\". Shot: maya. MY.look down at the notification, then she slumps, worried face. The new message is the reveal that the brag has already spread."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Send this to the friend who already sent the screenshot.",
+   "emotion": "playful",
+   "caption": "Send this to the friend who already sent the screenshot.",
+   "visual": "Shot: floey, hovering at DUO.SPOT.floeyHover. Floey turns to camera and delivers it smugly, then preens one wing. Cut to mayaTight: Maya looks straight to camera, deadpan face, and blinks once slowly. Then the Flowra end card."
+  }
+ ],
+ "loopNote": "The reel ends on Maya's deadpan look to camera just after the sponsor's 'Sharing this with the team!' buzz. The replay opens on the same room in wide: her fist up, the +900% pill and the sponsor's first notification sliding in. So the loop plays the moment just before she found out.",
+ "caption": "Your host dashboard says 38,000 visits the morning after your post took off. Before you send that screenshot anywhere: your host counts every request, bots included. Google Analytics leaves known bots out automatically. Open Reports, then Acquisition, then Traffic acquisition, switch the dimension to session source / medium, and look at engaged sessions. That's who actually came to read, and where they came from. Bots that don't announce themselves can still slip through, so low engagement is your second clue. (Maya's numbers are her own example. Three of them are her mum.)\n\nSend this to the friend who already sent the screenshot. Who's shown a client a spike before checking it?",
+ "hashtags": [
+  "#blogging",
+  "#ga4",
+  "#googleanalytics",
+  "#bloggingtips",
+  "#contentmarketing"
+ ],
+ "sticky": 49,
+ "id": "r021-your-traffic-spike-isn-t-readers-until-y",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Your traffic spike isn't readers until you check who actually arrived (host stats vs GA4)",
+ "editorNotes": [
+  "The hook has no problem a stranger can see. \"Thirty-eight thousand visits! I've already sent the sponsor the screenshot!\" said brightly reads as a win. The rules want Maya's first line mid-panic, with the problem already happening. The only sign of trouble is Floey's stare, which nobody catches in 2 seconds. Get the risk into frame one and the first line: for example, the sponsor's notification asking for the numbers is already on screen, Maya is already a little too manic, and a DUO.mark '!' or '?' appears by Floey on the word 'screenshot'. Or the line itself admits the bet she has made. Any fix works if a scroller can tell it is about to go wrong before Floey speaks.",
+  "The 38,000 Maya says in the hook is not on screen beside its source. The pill says \"Host: +900%\" and the notification says \"38k\". The host chart labelled 38,000 only appears during Floey's next line. The rules say a number the voice says is on screen beside the thing it belongs to. Either make the hook pill read \"Host: 38,000\" or put the host chart insert up from frame one.",
+  "Floey's tip has jargon and no plain version: \"engaged sessions by source\". The cast rules say Floey never uses jargon without the plain version, and this also sounds written rather than spoken. Keep Traffic acquisition and the source, but say what 'engaged' means in plain words, using the brief's own definition (stayed more than 10 seconds or opened a second page). For example, the people who actually stayed, and where they came from. Keep it to one tip.",
+  "Payoff visual: a red \"38,000\" pill \"with a line struck through it\" cannot be drawn. DUO.stat only takes (x, y, k, text, tone) and has no strike-through. Use a plain bad-tone pill instead (for example \"Host: 38,000\" red next to a good \"GA4: 1,511\"), or just fade the shrunken pill out.",
+  "Payoff, Maya's 'Wait' line and button: once Floey hovers at DUO.SPOT.floeyHover (Maya's left, which is screen right, at eye height), she sits about where the stat pill lives (x about 880, y about 610). The pill and Floey will overlap in the wide shot. Also, the 'Wait' line is set in shot maya, which assumes Floey is out of frame, but from the hover spot she may be in it or cut off at the edge. The button's 'floey' shot is framed for Floey on the laptop, not hovering. Either move Floey back to the lid (or to floeyShoulder) before those shots, or move the pill. Then check each frame for slicing.",
+  "(polish) The numbers differ from the brief's example set. The brief's visualIdea has rows 1,610 / 312 / 148 / 54 / 21 / 3, and the facts give GA4 '2,140 sessions'. The script uses 1,200 / 186 / 64 / 41 / 17 / 3 (1,511 engaged). The script's set is actually more consistent: 1,511 engaged out of 2,140 sessions holds up, while the brief's rows add to more than its own session total. They are still invented numbers outside the facts. Confirm them with the brief, or record that they are Maya's example figures that fit the 2,140 sessions.",
+  "(polish) The button changes the experiment ask. The brief's send-ask label is \"Send this to the friend who already posted the screenshot.\" The script says \"sent\". 'Sent' echoes Maya's hook nicely, but the experiment measures a fixed line. Use the exact wording or get sign-off.",
+  "(polish) Floey's faces are written as 'deadpan face', 'playful half smile' and 'small, kind nod'. None of these are in her controls. Her moods are hello, happy, worried, think, surprised, determined, sad and party, and her behaviours are tilt, turn, wink, chip, preen, sip, take off and hover. Say which mood and behaviour to use (for example 'think' plus a slow tilt instead of a nod) so the animator isn't guessing.",
+  "(polish) Reframe visual: 'taps the lid twice with her beak' isn't a listed Floey behaviour. The insert also cuts away on 'knocks', about one second into a three-second line, before the chart has finished drawing up to 38,000. Let the chart finish under the whole line, then cut to Floey for a tilt with the tk sound.",
+  "(polish) Sounds that don't exist: 'a small deflating sound' and 'whirr'. The available kinds are pop, boing, whoosh, ding, buzz, typing, click, tick, rise, thump, chip, tk, swish, flutter and sip. Use boing for the pill shrinking and flutter for the takeoff. In the tip, 'three clicks, each with its own tick' is two sounds per event, and on top of the typing it breaks the one-sound-per-0.4-seconds rule. Use one click per click.",
+  "(polish) Line emotions: the hook is directed as 'manic pride' but tagged bright; excited or proud fits better. \"Three from Facebook. That's Mum.\" is fond, so warm suits it better than bright. \"Twelve hundred from Hacker News\" is tagged worried, but 1,200 real readers is a let-down, not a scare. Flat and annoyed doesn't exist as a voice emotion, so curious or worried (said quietly) is closer, as long as her face is set to sad or deadpan to match.",
+  "(polish) Mum beat: the ring stays on the Hacker News row while the punchline is on the bottom Facebook row, so the viewer's eye is in the wrong place for the best joke in the reel. listInsert has only one hi row. Either cut to mayaTight on 'That's Mum' only after a beat where the 3 is easy to read, or use a second short listInsert pass with hi on facebook.com / referral.",
+  "(polish) 'Wait' line visual: 'MY.look down at the notification' is the wrong direction, because DUO.notification is in screen space and slides in at the top. Have her look up, or jolt on the buzz, before the slump.",
+  "(polish) Button visual: Floey 'preens one wing' while hovering. Preening reads as a perched behaviour. Land her before the preen, or swap it for a wink after pivot front.",
+  "(polish) List text may overflow: the column header 'Session source / medium' and the row 'news.ycombinator.com / referral' with its value next to it are long for a phone-width row. Measure them with PROPS.measure. If needed, shorten the header to 'Source / medium' (the brief's own wording).",
+  "(polish) The loop note is wrong: it says the reel ends 'just after' the sponsor's buzz, but Floey's button line comes in between. Duo reels also don't need a loop. Fix or drop the note so the director isn't misled."
+ ],
+ "style": "duo",
+ "template": "../drafts/r021-your-traffic-spike-isn-t-readers-until-y/scene.html"
+}
