@@ -294,7 +294,7 @@
   },
   {
    "id": "r016-maya-has-nothing-left-to-write-but-her-r",
-   "status": "approved",
+   "status": "published",
    "topic": "Maya has \"nothing left to write\", but her readers' unanswered questions are already sitting in her Search Console",
    "format": "duo-sitcom",
    "madeAt": "2026-10-22T10:32:44.602Z",
@@ -303,8 +303,12 @@
    "style": "duo",
    "run": 39760711012,
    "note": "Approved by the founder in chat, 23 Oct 2026.",
-   "partial": {
-    "facebook": "1896942501726526"
+   "published": {
+    "at": "2026-10-28",
+    "instagram": "18141369469616934",
+    "facebook": "1896942501726526",
+    "youtube": "X06TdGU1_mU",
+    "youtubePrivacy": "public"
    }
   },
   {
