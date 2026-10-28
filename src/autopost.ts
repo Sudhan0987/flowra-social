@@ -95,8 +95,10 @@ async function fetchVideo(p: Post): Promise<string> {
 function forInstagram(file: string): string {
   try {
     const rate = execFileSync("ffprobe", ["-v", "error", "-select_streams", "a:0", "-show_entries", "stream=sample_rate", "-of", "csv=p=0", file], { encoding: "utf8" }).trim();
-    if (Number(rate) <= 48000) return file;
     const out = file.replace(/\.mp4$/, ".48k.mp4");
+    // 28 Oct 2026: r016 was refused twice with 2207076 although audio and layout were fine; a clean re-encode of the picture too.
+    if (process.env.IG_REENCODE === "1") { execFileSync("ffmpeg", ["-v", "error", "-y", "-i", file, "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-pix_fmt", "yuv420p", "-r", "30", "-profile:v", "high", "-level", "4.0", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", out]); console.log("Re-encoded picture and audio for Instagram."); return out; }
+    if (Number(rate) <= 48000) return file;
     execFileSync("ffmpeg", ["-v", "error", "-y", "-i", file, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", out]);
     console.log(`Audio ${rate} Hz re-encoded to 48000 Hz for Instagram.`);
     return out;
