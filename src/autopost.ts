@@ -235,7 +235,7 @@ async function main() {
   // research/2026-10-08-calendar-research.md. Also guards against GitHub starting a
   // scheduled check hours late: one such run posted r004 at 02:56 IST.
   const istHour = new Date(Date.now() + 5.5 * 3600000).getUTCHours();
-  if (istHour < 18 || istHour >= 23) return console.log(`Outside the 18:00-23:00 India posting window (now ${istHour}:xx IST); waiting.`);
+  if (istHour < 18 || istHour >= 24) return console.log(`Outside the 18:00-24:00 India posting window (now ${istHour}:xx IST); waiting.`);
   const next = state.posts.filter((p) => p.status === "approved" && !p.reason && !p.published).sort((a, b) => a.madeAt.localeCompare(b.madeAt))[0];
   if (!next) return console.log("Nothing approved and waiting.");
   console.log(`Posting ${next.id}`);

@@ -17,7 +17,7 @@ on:
     # starts scheduled runs up to 2 hours late (12 Oct 2026: the 19:00 IST
     # check had not started by 20:27) and one slot can miss the window
     - cron: "30 4,7,10 * * *"
-    - cron: "0 13-17 * * *"
+    - cron: "*/20 12-18 * * *"   # 1 Nov 2026: reel 17 missed three evenings because only one hourly run in five started; more tries, window now to midnight IST
   push:
     branches: [main]
     paths: [state/posts.json]
