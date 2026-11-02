@@ -252,12 +252,20 @@ async function main() {
       q.partial = { ...q.partial, facebook: fb }; save(s);
     }
   }
-  let ig: string;
-  try { ig = await postInstagram(file, text); }
-  catch (e) {
-    if (typeof fb !== "string") throw e;
-    console.log(`Instagram direct upload failed (${(e as Error).message}); using Facebook's video link instead.`);
-    ig = await igFromUrl(await fbSource(fb), text);
+  // 2 Nov 2026: Instagram refuses some uploads with 2207076 and takes the same file minutes later
+  // (r016 went through on the third try, r017 failed once a night). Up to 3 rounds, 3 minutes apart.
+  let ig = "";
+  for (let round = 1; !ig; round++) {
+    try { ig = await postInstagram(file, text); break; }
+    catch (e) {
+      if (typeof fb !== "string" && round >= 3) throw e;
+      console.log(`Instagram direct upload failed (${(e as Error).message})${typeof fb === "string" ? "; trying Facebook's video link" : ""}.`);
+    }
+    if (typeof fb === "string") {
+      try { ig = await igFromUrl(await fbSource(fb), text); break; }
+      catch (e) { if (round >= 3) throw e; console.log(`Instagram from the Facebook link failed (${(e as Error).message}); round ${round} of 3.`); }
+    }
+    await new Promise((r) => setTimeout(r, 180000));
   }
   console.log(`Instagram: ${ig}`);
   let yt: { id: string; privacy: string } | undefined;
