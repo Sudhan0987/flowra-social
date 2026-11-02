@@ -313,7 +313,7 @@
   },
   {
    "id": "r017-stop-writing-post-number-31-the-page-tha",
-   "status": "approved",
+   "status": "published",
    "topic": "Stop writing post number 31: the page that is already one step below the top ten",
    "format": "duo-sitcom",
    "madeAt": "2026-10-23T11:06:54.772Z",
@@ -322,8 +322,12 @@
    "style": "duo",
    "run": 39935982485,
    "note": "Approved by the founder in chat, 24 Oct 2026.",
-   "partial": {
-    "facebook": "3290861827970453"
+   "published": {
+    "at": "2026-11-02",
+    "instagram": "17941479129400272",
+    "facebook": "3290861827970453",
+    "youtube": "WMizHU_PyzA",
+    "youtubePrivacy": "public"
    }
   },
   {
