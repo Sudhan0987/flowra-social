@@ -338,14 +338,15 @@
   },
   {
    "id": "r019-my-robots-txt-lets-gptbot-in-so-why-is-m",
-   "status": "draft",
+   "status": "approved",
    "topic": "My robots.txt lets GPTBot in, so why is my host turning it away? (save-ask duo reel)",
    "format": "duo-sitcom",
    "madeAt": "2026-10-25T10:18:17.842Z",
    "seconds": 27,
    "idea": "My robots.txt lets GPTBot in, so why is my host turning it away?",
    "style": "duo",
-   "run": 40182052696
+   "run": 40182052696,
+   "note": "Approved by the founder in chat, 2 Nov 2026 (\"approve everything\"). QA passed with minor notes."
   },
   {
    "id": "r020-your-traffic-spike-isn-t-readers-until-y",
