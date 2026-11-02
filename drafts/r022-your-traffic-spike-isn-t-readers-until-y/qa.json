@@ -1,0 +1,10 @@
+{
+ "pass": false,
+ "problems": [
+  "Frame 08: in the mayaTight 'my mum' punchline shot the caption box sits right over Maya's hand and the mug (the joke's prop); a pink object under the mug runs into the MAYA name tag. Move the caption or reframe so the mug and hand are clear.",
+  "Frame 08: the mug shows steam lines, which contradicts the ending gag that the coffee is cold (sip, wince). The mug's stripe is also pink/red here, but white with a purple stripe in every other shot (00, 05, 07, 09). Prop continuity break.",
+  "Frames 06-07: misleading claim. 'Forty-one real ones' equates GA4 engaged sessions with real visitors, implying every non-engaged session was a bot. Quick-leaving humans are non-engaged sessions too. Reword (e.g. 'Forty-one who actually read'). The GA4 card is also hard to believe: Total 41 with 100% from one forum, nothing from search or direct, and 'travel forum / referral' instead of a real source domain.",
+  "Frame 06: the scripted ring landing on the 'travel forum / referral 41' row as Floey names it is not visible. Confirm in the full render that the ring actually lands.",
+  "Frame 00: Floey has a happy closed-eye smile instead of the scripted 'think' mood and head tilt, so she reads as sharing Maya's excitement and the catch doesn't show before she speaks (unless this is a mid-blink frame; check)."
+ ]
+}

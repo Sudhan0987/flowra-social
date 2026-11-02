@@ -1,0 +1,308 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<script src="lines.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../../reel/assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../../reel/assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r022 "The Screenshot". Day. Frame one: Maya, fist up and grinning, an amber "12,400 host visits"
+// by her head; Floey on the lid, heavy-lidded, with a "?". On "Sending it to my sponsor" she grabs her
+// phone and a draft "To: Sponsor" types itself: "12,400 visits yesterday!". Reframe: her host chart
+// (flat, a sheer wall, flat) with little bots on the wall on "Bots included". "So? Traffic's traffic.":
+// arms crossed, the unsent draft still waiting. The tip on Floey; "Check Traffic acquisition": the
+// draft slides away, she types. GA4 Traffic acquisition: one source, "travel forum / referral 41".
+// "Oh." close on her face. The ring lands on the forum row as Floey names it; "They stayed": a green
+// "41 engaged sessions". "One of them's my mum", mug in hand. "Engaged session, though." Then Floey to
+// camera for the send ask while Maya, happy, types a new draft: "41 engaged sessions!" and sends it.
+// Silent: close on Maya sipping, eyes to the camera. End card.
+const M = window.MOUTHS || {};
+const LINES = window.LINES;
+// the pause after each line, from the story
+const GAP = { hook0: 0.3, reframe1: 0.25, doubt2: 0.2, tip3: 0.35, check4: 0.5, payoff5: 0.35, payoff6: 0.3, button7: 0.2, button8: 0.4, button9: 0.7 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+const b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+// her silent send and look to camera play out after Floey's last line, before the end card
+const END = Math.max(SPOKEN + 0.6, b.button9.end + 2.95), DUR = END + 1.6;
+const INK = HUM.colors.ink;
+const r1 = (n) => Math.round(n * 10) / 10;
+
+// Maya's faces: the rig's open mouth is a grin shape, so on her worried, sad, annoyed and deadpan
+// beats the open mouth is drawn as a fret (corners down) instead
+const EX = MAYA.EXPR;
+const FRET = { worried: 1, panic: 1, sad: 1, annoyed: 0.7, deadpan: 0.5 };
+const OPEN = /<path d="[^"]*" fill="#5a1f22"[^>]*\/>\s*<clipPath id="(mq\d+)"><path d="[^"]*"\/><\/clipPath>\s*<g clip-path="url\(#\1\)">[\s\S]*?<\/g>/;
+function fretMouth(open, u, id) {
+  const cx = 300, cy = 336, w = (u > 0 ? 30 + 8 * u : 22) + open * 6, h = 14 + open * 38, cY = cy + h * 0.3 * u, lo = cy + h * 0.6;
+  const d = `M${r1(cx - w)},${r1(cY)} Q${cx},${r1(cy - h * 0.85)} ${r1(cx + w)},${r1(cY)} Q${r1(cx + w * 0.9)},${r1(lo)} ${cx},${r1(lo)} Q${r1(cx - w * 0.9)},${r1(lo)} ${r1(cx - w)},${r1(cY)}Z`;
+  return `<path d="${d}" fill="#5a1f22" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/><clipPath id="${id}f"><path d="${d}"/></clipPath><g clip-path="url(#${id}f)"><ellipse cx="${cx}" cy="${r1(lo)}" rx="${r1(w * 0.6)}" ry="${r1(h * 0.32)}" fill="#e07a76"/></g>`;
+}
+// her own poses for this scene
+const YES = { L: [228, 705], R: [486, 196] };                         // the "yes!" fist beside her head
+const TEXT = { L: [300, 590], R: [372, 560], hold: "phone" };          // the phone at her chest, thumbing a message
+const MUGUP = { L: [262, 650], R: [400, 520], hold: "mug" };           // the mug held up at her chest
+const SIP = { L: [262, 650], R: [356, 392], hold: "mug" };             // sipping, eyes over the rim
+// a muttered line: the same mouth timing, smaller
+const mutter = (m, k) => (m || []).map((v) => v * k);
+
+// framings
+const HOOK = { camX: 560, camY: 1010, zoom: 1.12 };          // frame one: both, the number, the lid
+const TIGHT = { camX: 670, camY: 840, zoom: 2.1 };           // her face; Floey stays out of the left edge
+const MAYA_M = { camX: 748, camY: 880, zoom: 1.55 };         // Maya medium: a clear corner of the laptop, Floey's beak out
+const MUGSHOT = { camX: 748, camY: 905, zoom: 1.55 };        // Maya medium with the mug clear of the captions
+const BTN9 = { camX: 520, camY: 1000, zoom: 1.2 };           // the send ask: Floey to camera, Maya typing beside her
+
+// her host chart (her example): flat all day, a sheer wall, flat again
+const HOST = { title: "Host stats, yesterday", points: [0.07, 0.08, 0.06, 0.07, 0.08, 0.07, 0.78, 0.8, 0.79, 0.81, 0.79, 0.8], color: "#e08a1e", label: "12,400" };
+// GA4 Traffic acquisition by source / medium, her example: the total row, and the one source it came from
+const ROWS = [
+  { label: "Total", value: "41" },
+  { label: "travel forum / referral", value: "41", tone: "good", hi: true },
+];
+const REPORT = { title: "GA4 · Traffic acquisition", sub: "Reports > Acquisition > Traffic acquisition", cols: ["Session source / medium", "Engaged sessions"] };
+
+// ---------- the cast ----------
+const F = FLOEY.create({ ...SP.floeyLaptop, facing: -1, mood: "think", perched: true, view: "side" });
+// her flat, heavy-lidded stare: she has seen this screenshot before
+const LID = 0.45;
+F.S.squint = LID;
+const MY = MAYA.create({ ...SP.maya, expr: "happy", pose: YES, floey: F });
+const W = { ...HOOK, ask: 1, askS: 1, d1: 0, t1: 0, d2: 0, t2: 0, sent: 0, hostP: 1, realP: 0, host: 0, draw: 0, bots: 0, list: 0, rows: 0, hi: 0, mugOut: 0, end: 0 };
+const wt = gsap.timeline({ paused: true });
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => wt.to(W, { ...s, duration: d, ease }, t);
+const cut = (t, s) => wt.set(W, { ...s }, t);
+// Floey's slow, unimpressed blink
+const blink = (t) => { F.tl.to(F.S, { squint: 1, duration: 0.16 }, t).to(F.S, { squint: LID, duration: 0.22 }, t + 0.45); };
+
+// HOOK0: frame one is the brag: fist up, the number up, Floey's "?". She bounces on it. On "Sending it
+// to my sponsor" she grabs her phone and the draft types itself; we push in on Floey's flat stare
+const H = b.hook0.start;
+F.sfx(0.05, "ding");
+MY.look(0, -0.2, -0.2).say(H, M.hook0 || [], "hook0").nod(H + 0.15, 2).nod(H + 1.2, 1);
+F.tiltTo(0, -8, 0.01).look(0, 0.4, -0.1);
+blink(H + 1.1);
+shot(0, { camX: 575, camY: 995, zoom: 1.18 }, 2.1, "none"); // a slow drift in on the grin
+const SEND = H + 2.2; // "Sending it to my sponsor"
+MY.pose(SEND - 0.2, TEXT, 0.3).look(SEND, 0.3, 0.7, 0.15).expr(SEND, "proud");
+wt.to(W, { hostP: 0, duration: 0.2 }, SEND - 0.1)
+  .to(W, { d1: 1, duration: 0.3, ease: "back.out(1.6)" }, SEND - 0.05)
+  .to(W, { t1: 1, duration: 1.1, ease: "none" }, SEND + 0.2);
+F.sfx(SEND, "pop").sfx(SEND + 0.45, "typing", { d: 0.9 });
+shot(SEND + 0.1, SH.floey, 0.6, "power3.inOut");
+// Floey: eyes up to the draft, back to Maya, the "?" grows
+F.look(SEND + 0.4, 0.2, -0.9, 0.12).look(SEND + 1.15, 0.4, -0.1, 0.12).tiltTo(SEND + 1.15, 6, 0.25);
+wt.to(W, { askS: 1.35, duration: 0.25, ease: "back.out(3)" }, SEND + 1.2);
+F.sfx(SEND + 1.45, "tk");
+
+// REFRAME1: Floey, dry; the "?" goes; a slow deadpan tilt; Maya, phone in hand, looks over, grin
+// fading. On "every request" her host chart: the sheer wall; on "Bots included" bots climb onto it
+const RE = b.reframe1.start;
+wt.to(W, { ask: 0, duration: 0.2 }, RE - 0.1);
+F.mood(RE - 0.1, "think").tiltTo(RE, 0, 0.2).look(RE, 0.4, 0).say(RE, M.reframe1 || [], "reframe1")
+  .tiltTo(RE + 0.8, -12, 0.45);
+MY.look(RE + 0.15, -0.9, 0.1).expr(RE + 0.6, "neutral");
+shot(SEND + 0.7, { ...SH.floey, zoom: 1.36, camX: 480 }, RE + 1.1 - SEND - 0.7, "none");
+const CHART = RE + 1.1;
+wt.to(W, { host: 1, duration: 0.3, ease: "power3.out" }, CHART)
+  .to(W, { draw: 1, duration: 0.6, ease: "power2.in" }, CHART + 0.15)
+  .to(W, { bots: 1, duration: 0.5, ease: "none" }, RE + 2.2)
+  .to(W, { host: 0, duration: 0.25, ease: "power2.in" }, RE + 2.75);
+F.sfx(CHART, "whoosh").sfx(RE + 2.25, "pop");
+// back on Maya for her reaction to "Bots included": the grin is gone
+const REACT = RE + 2.95;
+cut(REACT, { ...MAYA_M, draw: 0, bots: 0 });
+MY.expr(REACT, "surprised").look(REACT, -1, 0.1);
+F.tiltTo(REACT, 0, 0.2);
+
+// DOUBT2: stubborn: phone down, arms crossed, flat, eyebrows up; her number pops back beside her.
+// The unsent draft still waits at the top
+const DO = b.doubt2.start;
+MY.expr(DO - 0.05, "annoyed").pose(DO - 0.1, "crossed", 0.3).say(DO, M.doubt2 || [], "doubt2")
+  .tiltTo(DO + 0.55, -7, 0.25).look(DO + 0.55, -0.6, 0);
+wt.to(W, { hostP: 1, duration: 0.25, ease: "back.out(2)" }, DO + 0.05);
+F.sfx(DO + 0.1, "tick");
+shot(REACT, { ...MAYA_M, zoom: 1.6, camY: 860 }, b.doubt2.end - REACT, "none");
+
+// TIP3: a hard cut to the two-shot favouring Floey as she starts; Maya rolls her eyes, then thinks.
+// A chip after "known ones". "Check Traffic acquisition": pull wide, a sigh, she uncrosses and types;
+// the unsent draft slides away
+const TIP = b.tip3.start;
+cut(TIP - 0.15, { ...SH.floey, hostP: 0 });
+F.mood(TIP - 0.1, "think").look(TIP, 0.4, 0).say(TIP, M.tip3 || [], "tip3").tiltTo(TIP + 0.25, 10, 0.2).tiltTo(TIP + 0.9, 0, 0.25)
+  .mood(TIP + 1.3, "determined").chips(TIP + 2.95, 2);
+MY.tiltTo(TIP, 0, 0.3).look(TIP + 0.25, 0.5, -1, 0.15).look(TIP + 1.05, -0.9, 0, 0.15).expr(TIP + 1.4, "think");
+shot(TIP + 0.35, { ...SH.floey, zoom: 1.36, camX: 478 }, 2.9, "none");
+const GO = TIP + 3.35; // "Check Traffic acquisition"
+shot(GO, SH.wide, 0.6, "power2.inOut");
+MY.expr(GO, "deadpan").slump(GO, 0.35).sit(GO + 0.4, 0.35).pose(GO + 0.15, "type", 0.35).look(GO + 0.2, -0.45, 0.9);
+wt.to(W, { d1: 0, duration: 0.3, ease: "power2.in" }, GO + 0.1);
+F.sfx(GO + 0.1, "whoosh");
+F.mood(GO + 0.3, "think").look(GO + 0.45, 0.4, 0.9, 0.15).tiltTo(GO + 0.45, 14, 0.25);
+F.sfx(GO + 0.55, "typing", { d: 1.3 });
+
+// CHECK4: muttered, grudging, while she types (a small mouth: no surprise before the data). Then her
+// screen: GA4 Traffic acquisition, the rows slide in
+const CK = b.check4.start;
+MY.expr(CK - 0.05, "annoyed").say(CK, mutter(M.check4, 0.3), "check4").expr(CK + 0.5, "deadpan");
+F.sfx(CK + 0.3, "click");
+shot(GO + 0.6, { ...SH.wide, zoom: 1.18, camX: 575, camY: 1000 }, CK + 0.7 - GO - 0.6, "none");
+const LIST = CK + 0.7;
+wt.to(W, { list: 1, duration: 0.3, ease: "power3.out" }, LIST)
+  .to(W, { rows: 1, duration: 0.6, ease: "none" }, LIST + 0.25)
+  .to(W, { list: 0, duration: 0.01 }, b.check4.end + 0.4);
+F.sfx(LIST, "whoosh");
+
+// PAYOFF5: "Oh." close on her face: wide eyes, then she deflates (a soft boing)
+const OH = b.check4.end + 0.4;
+cut(OH, TIGHT);
+MY.expr(OH, "surprised").pose(OH, "rest", 0.3).look(OH, -0.3, 0.5).say(b.payoff5.start, M.payoff5 || [], "payoff5")
+  .expr(b.payoff5.start + 0.3, "worried").slump(b.payoff5.start + 0.3, 0.45).look(b.payoff5.start + 0.35, -0.2, 0.8, 0.3);
+F.sfx(b.payoff5.start + 0.35, "boing");
+shot(OH, { ...TIGHT, zoom: 2.2, camY: 842 }, b.payoff5.end + 0.2 - OH, "none");
+
+// PAYOFF6: back to her screen; the ring lands on the forum row as Floey names it. On "They stayed" the
+// wide: the real number in green by her head, Floey softens (a fond wing stretch), Maya smiles a little
+const P6 = b.payoff6.start;
+cut(P6 - 0.1, { ...SH.wide, list: 1, rows: 1, hi: 0 });
+F.mood(P6 - 0.1, "happy").look(P6, 0.4, 0).say(P6, M.payoff6 || [], "payoff6");
+wt.to(W, { hi: 1, duration: 0.45, ease: "power2.out" }, P6 + 0.9);
+F.sfx(P6 + 0.95, "ding");
+const STAY = P6 + 2.3;
+cut(STAY, { ...SH.wide, list: 0 });
+F.tl.to(F.S, { squint: 0, duration: 0.2 }, STAY);
+F.tiltTo(STAY, 0, 0.2).look(STAY, 0.4, -0.1).stretch(STAY + 0.65, 0.75);
+MY.sit(STAY, 0.3).look(STAY, -0.6, 0.6).expr(STAY + 0.15, "sad").look(STAY + 0.5, -1, 0, 0.2).expr(STAY + 0.6, "proud").tiltTo(STAY + 0.6, -5, 0.3);
+wt.to(W, { realP: 1, duration: 0.3, ease: "back.out(2)" }, STAY + 0.2);
+F.sfx(STAY + 0.2, "pop");
+shot(STAY, { ...SH.wide, zoom: 1.16, camX: 570 }, b.payoff6.end + 0.15 - STAY, "none");
+
+// BUTTON7: on Maya, dry: "Forty-one." Then she reaches for her mug without looking: "One of them's my mum."
+const B7 = b.button7.start;
+cut(B7 - 0.1, MUGSHOT);
+MY.expr(B7 - 0.1, "deadpan").tiltTo(B7, 0, 0.3).look(B7, -0.8, 0).say(B7, M.button7 || [], "button7")
+  .pose(B7 + 0.55, MUGUP, 0.4).nod(B7 + 1.1, 1).expr(b.button7.end - 0.1, "smug");
+wt.set(W, { mugOut: 1 }, B7 + 0.75);
+F.sfx(B7 + 0.75, "tick");
+shot(B7 - 0.1, { ...MUGSHOT, zoom: 1.6, camY: 900 }, b.button7.end + 0.05 - B7 + 0.1, "none");
+
+// BUTTON8: Floey alone: the smug tilt, then a chip
+const B8 = b.button8.start;
+cut(B8 - 0.1, { ...SH.floeyTight, realP: 0 });
+F.mood(B8 - 0.1, "happy").look(B8, 0.4, 0).say(B8, M.button8 || [], "button8").tiltTo(B8 + 0.2, -14, 0.3).chips(b.button8.end + 0.08, 1);
+F.tl.to(F.S, { squint: 0.35, duration: 0.2 }, B8 + 0.2);
+MY.expr(B8, "deadpan");
+
+// BUTTON9: Floey turns to the camera for the send ask, then a wink. Beside her, Maya has put the mug
+// down and is typing again, happy: a new draft to the sponsor types itself, "41 engaged sessions!"
+const B9 = b.button9.start;
+cut(B9 - 0.2, BTN9);
+F.pivot(B9 - 0.15, "front").mood(B9 - 0.1, "happy").look(B9 - 0.1, 0, 0).tiltTo(B9 - 0.1, 0, 0.2)
+  .say(B9, M.button9 || [], "button9").wink(b.button9.end + 0.05);
+F.tl.to(F.S, { squint: 0, duration: 0.1 }, B9 - 0.1);
+MY.pose(B9 - 0.2, TEXT, 0.01).expr(B9 - 0.2, "happy").look(B9 - 0.2, 0.3, 0.7).tiltTo(B9, 4, 0.3);
+wt.set(W, { mugOut: 0 }, B9 - 0.2);
+wt.to(W, { d2: 1, duration: 0.3, ease: "back.out(1.6)" }, B9 + 0.2)
+  .to(W, { t2: 1, duration: 1.2, ease: "none" }, B9 + 0.45);
+F.sfx(B9 + 0.25, "pop").sfx(B9 + 0.7, "typing", { d: 1.0 });
+shot(B9 - 0.2, { ...BTN9, zoom: 1.24, camX: 510 }, b.button9.end - B9 + 0.2, "none");
+
+// SILENT: she hits Send, the draft says Sent, Floey chips. Then close on Maya: she lifts the mug, sips,
+// and gives the lens a small, satisfied look over the rim. That look is the last thing before the end card
+const SENT = b.button9.end + 0.3;
+wt.set(W, { sent: 1 }, SENT);
+MY.nod(SENT - 0.05, 1);
+F.sfx(SENT, "click").chips(SENT + 0.5, 1);
+const LOOK = b.button9.end + 1.05;
+wt.to(W, { d2: 0, duration: 0.25, ease: "power2.in" }, LOOK - 0.25);
+cut(LOOK, TIGHT);
+MY.pose(LOOK, SIP, 0.01).tiltTo(LOOK, 0, 0.2).look(LOOK + 0.35, -0.5, 0, 0.25).expr(LOOK + 0.35, "smug");
+wt.set(W, { mugOut: 1 }, LOOK);
+F.sfx(LOOK + 0.2, "sip");
+shot(LOOK, { ...TIGHT, zoom: 2.2, camY: 830 }, END - LOOK, "none");
+
+// END: the logo card drops in
+wt.to(W, { end: 1, duration: 0.5, ease: "back.out(1.6)" }, END);
+F.sfx(END + 0.05, "thump");
+wt.set({}, {}, DUR);
+
+// Maya with this scene's mouths
+function maya(t) {
+  const st = MY.state(t), u = FRET[st.expr];
+  let s = MAYA.svg(st);
+  if (u !== undefined) {
+    const open = EX[st.expr].round ? Math.max(st.mouth, 0.2) : st.mouth;
+    s = s.replace(OPEN, (all, id) => fretMouth(open, u, id));
+  }
+  return `<g transform="translate(${MY.S.x} ${r1(MY.S.y + MY.S.bob)}) scale(1.3 1.3) translate(-300 -760)">${s}</g>`;
+}
+// a two-line number pill by her head: the number big, what it counts under it
+const PX = 878, PY = 552, PS = 0.85;
+function pill(k, num, label, col) {
+  if (k <= 0.01) return "";
+  const wn = PROPS.measure(num, "700 60px 'Space Grotesk'"), wl = PROPS.measure(label, "800 28px 'Public Sans'");
+  const w = Math.max(wn, wl) + 56, h = 132, s = PS * (0.6 + 0.4 * Math.min(1, k));
+  return `<g transform="translate(${PX} ${PY}) scale(${Math.round(s * 100) / 100})" opacity="${r1(Math.min(1, k * 1.5))}"><rect x="${r1(-w / 2)}" y="${-h / 2}" width="${r1(w)}" height="${h}" rx="26" fill="${col}" stroke="${INK}" stroke-width="6"/>
+<text x="0" y="-4" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="60" fill="#fff">${PROPS.esc(num)}</text>
+<text x="0" y="44" text-anchor="middle" font-family="Public Sans" font-weight="800" font-size="28" fill="#fff">${PROPS.esc(label)}</text></g>`;
+}
+// her message draft on the phone (screen space, same look as DUO.notification): "To: Sponsor", the text
+// typing itself with a cursor, and a Send button that turns into a green "Sent". The card is sized to
+// the full message, so it never grows while she types
+function draft(k, typed, text, sent, t, y = 236) {
+  if (k <= 0.01) return "";
+  const fs = 40, to = "To: Sponsor";
+  const tw = PROPS.measure(text, `600 ${fs}px 'Public Sans'`), hw = PROPS.measure(to, "700 34px 'Space Grotesk'");
+  const bw = Math.max(PROPS.measure("Send", "800 30px 'Public Sans'"), PROPS.measure("Sent", "800 30px 'Public Sans'")) + 44;
+  const w = Math.max(tw, hw) + 138 + 40 + bw + 28, h = 150, dy = (1 - Math.min(1, k)) * -260;
+  const n = Math.round(text.length * Math.min(1, typed)), shown = text.slice(0, n);
+  const cx = 138 + PROPS.measure(shown, `600 ${fs}px 'Public Sans'`) + 4;
+  const caret = !sent && (typed < 1 || (t * 2) % 1 < 0.55) ? `<rect x="${r1(cx)}" y="84" width="5" height="44" rx="2" fill="${HUM.colors.magenta}"/>` : "";
+  const bx = w - bw - 28, bcol = sent ? "#2f9e62" : HUM.colors.coral;
+  return `<g transform="translate(${r1(540 - w / 2)} ${r1(y + dy)})" opacity="${r1(Math.min(1, k * 2))}"><rect x="0" y="0" width="${r1(w)}" height="${h}" rx="34" fill="#fffaf2" stroke="${INK}" stroke-width="6"/>
+<rect x="28" y="33" width="84" height="84" rx="22" fill="${HUM.colors.violet}" stroke="${INK}" stroke-width="5"/><text x="70" y="91" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="44" fill="#fff">S</text>
+<text x="138" y="66" font-family="Space Grotesk" font-weight="700" font-size="34" fill="${INK}" opacity=".7">${to}</text>${shown ? `<text x="138" y="118" font-family="Public Sans" font-weight="600" font-size="${fs}" fill="${INK}">${PROPS.esc(shown)}</text>` : ""}${caret}
+<rect x="${r1(bx)}" y="47" width="${r1(bw)}" height="56" rx="28" fill="${bcol}" stroke="${INK}" stroke-width="5"/><text x="${r1(bx + bw / 2)}" y="86" text-anchor="middle" font-family="Public Sans" font-weight="800" font-size="30" fill="#fff">${sent ? "Sent" : "Send"}</text></g>`;
+}
+// the "?" by Floey, which can grow
+const ask = (k, s) => k <= 0.01 ? "" : `<g transform="translate(330 880) scale(${Math.round(s * 100) / 100}) translate(-330 -880)">${DUO.mark("?", 330, 880, k)}</g>`;
+// little bots on the wall of the host chart (same slide and fade as the insert)
+const onInsert = (k, inner) => k <= 0.01 ? "" : `<g transform="translate(0 ${r1(1920 * (1 - Math.min(1, k)) * 0.6)})" opacity="${r1(Math.min(1, k * 2))}">${inner}</g>`;
+const robot = (x, y, k) => k <= 0.01 ? "" : `<g transform="translate(${r1(x)} ${r1(y)}) scale(${Math.round((0.6 + 0.9 * k) * 100) / 100})" opacity="${r1(Math.min(1, k * 2))}"><path d="M0,-30 v-16" stroke="${INK}" stroke-width="5"/><circle cx="0" cy="-50" r="7" fill="#d24b4b" stroke="${INK}" stroke-width="4"/><rect x="-28" y="-30" width="56" height="44" rx="12" fill="#c9cbe0" stroke="${INK}" stroke-width="5"/><circle cx="-11" cy="-8" r="7" fill="#d24b4b"/><circle cx="11" cy="-8" r="7" fill="#d24b4b"/><path d="M-10,6 h20" stroke="${INK}" stroke-width="4" stroke-linecap="round"/></g>`;
+function hostBots(k, p) {
+  if (p <= 0.01) return "";
+  const pk = (i) => Math.max(0, Math.min(1, p * 3 - i));
+  return onInsert(k, [640, 755, 870].map((x, i) => robot(x, 830, pk(i))).join(""));
+}
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  const covered = W.host > 0.99 || W.list > 0.99;
+  const world = DUO.room(t) + maya(t) + DUO.deskFront() + DUO.laptop() + (W.mugOut ? "" : DUO.mug()) + F.svg(t)
+    + ask(W.ask, W.askS)
+    + (covered ? "" : pill(W.hostP, "12,400", "host visits", "#e08a1e") + pill(W.realP, "41", "engaged sessions", "#2f9e62"));
+  document.getElementById("stage").innerHTML = DUO.cam(world, W)
+    + draft(W.d1, W.t1, "12,400 visits yesterday!", false, t)
+    + draft(W.d2, W.t2, "41 engaged sessions!", W.sent > 0.5, t)
+    + DUO.screenInsert(W.host, W.draw, HOST) + hostBots(W.host, W.bots)
+    + DUO.listInsert(W.list, W.rows, { ...REPORT, rows: ROWS, hiK: W.hi })
+    + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")
+    + DUO.endCard(W.end, t);
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>

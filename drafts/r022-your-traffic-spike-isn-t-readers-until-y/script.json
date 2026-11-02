@@ -1,0 +1,122 @@
+{
+ "title": "The Screenshot",
+ "hookPattern": "Good news with a catch",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Twelve thousand four hundred visits yesterday! Sending it to my sponsor.",
+   "emotion": "excited",
+   "caption": "12,400 visits yesterday! Sending it to my sponsor.",
+   "visual": "Wide, day set, frame one: Maya in `point` at the laptop screen, happy face, bouncing in her chair. The number pill \"12,400 host visits\" pops by her head. A phone notification draft slides in and types itself: \"To sponsor: 12,400 visits yesterday!\" Floey is perched on `floeyLaptop` with mood think, head tilted at Maya, a small \"?\" by her, so the catch shows before she speaks. Quick cutaway: `screenInsert` titled \"Host stats, yesterday\", the chart line rocketing up."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "Your host counts every request, Maya. Bots included.",
+   "emotion": "playful",
+   "visual": "floey: on the laptop, Floey turns from the screen to face Maya and gives a slow, deadpan tilt of the head."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So? Traffic's traffic.",
+   "emotion": "determined",
+   "visual": "maya: Maya drops the point, flat unimpressed face, eyebrows up, stubborn. The notification draft still waits beside her, unsent."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Bots don't read. Google Analytics skips the known ones. Check Traffic acquisition.",
+   "emotion": "playful",
+   "visual": "Wide: Floey chips once and turns back to the laptop screen. Maya sighs and moves into `type`; the unsent notification draft slides away."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "Fine. Traffic acquisition...",
+   "emotion": "warm",
+   "visual": "Wide: Maya in `type`, flat face, with tick, tick, click sounds on each keypress. Floey on `floeyLaptop` turns her head to watch. Whoosh into `listInsert` titled \"GA4 · Traffic acquisition\", subtitle \"Yesterday, engaged sessions by source\". One row slides in: \"travel forum / referral 41\"."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Oh.",
+   "emotion": "worried",
+   "visual": "mayaTight: Maya's face falls behind her glasses, wide-eyed then deflated. The pill by her head swaps from \"12,400 host visits\" to \"41 engaged sessions\" with a soft boing."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Forty-one real ones, from one forum link. They stayed.",
+   "emotion": "warm",
+   "caption": "41 real ones, from one forum link. They stayed.",
+   "visual": "Cutaway `listInsert`: the ring lands on the \"travel forum / referral 41\" row as Floey names it. Cut to floey: she turns to Maya with a small, fond preen of one wing, softening for a second."
+  },
+  {
+   "role": "button",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Forty-one. One of them's my mum.",
+   "emotion": "playful",
+   "caption": "41. One of them's my mum.",
+   "visual": "maya: Maya, dry and deadpan, reaches for her mug without looking."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Engaged session, though.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey tilts her head, then chips once, smug."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Send this to the friend who screenshots their host stats.",
+   "emotion": "proud",
+   "visual": "Wide: Floey turns to the camera, smug and proud. Next to her, Maya is already back in `type`, happy again, and a new phone notification draft types itself: \"To sponsor: 41 engaged sessions!\" The send ask holds as the line's caption. Hold after the line: Maya turns to the camera, sips her coffee, winces because it's cold (boing), and Floey chips. Her silent look to camera is the last thing seen before the end card."
+  }
+ ],
+ "loopNote": "This reel has no loop, because loops are a rule for the narrated styles. It ends on the button. Floey says the send ask while Maya is already drafting her sponsor message about the forty-one, a callback to the 12,400 draft in frame one. Then we hold on Maya's silent sip of cold coffee and her look to camera, so the laugh comes after the ask. The end card follows.",
+ "caption": "Maya's host stats said 12,400 visits yesterday. She was halfway through texting her sponsor. 📸\n\nThe catch: your host counts every request to your site, bots and crawlers included. Google Analytics leaves out known bots automatically. So before you share a spike, open GA4 and go to Reports > Acquisition > Traffic acquisition. Break it down by source to see where the real visits came from, and check how many were engaged.\n\nMaya's real bump: 41 engaged sessions from one forum link. Smaller, but real. (One of them was her mum.)\n\nSend this to the friend who screenshots their host stats. Who's yours?\n\nMaya and Floey, from Flowra.",
+ "hashtags": [
+  "#blogging",
+  "#googleanalytics",
+  "#ga4",
+  "#seo",
+  "#contentmarketing"
+ ],
+ "sticky": 51,
+ "id": "r022-your-traffic-spike-isn-t-readers-until-y",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Your traffic spike isn't readers until you check who actually arrived",
+ "editorNotes": [
+  "The ending hides its own best joke. After \"Engaged session, though.\" the last beat runs the spoken send ask, the on-screen ask caption, Maya typing \"To sponsor: 41 engaged sessions!\", a cold-coffee sip, a wince with a boing and a Floey chip, all within about 4 seconds. The callback (proudly sending the 41 to her sponsor) is the funniest thing in the reel, but it plays while Floey is speaking and the caption is being read, so nobody reads the draft. Fix the order: Maya's sponsor draft of the 41 is her silent reaction to \"Engaged session, though.\", with its own beat and nothing else on screen. Then Floey turns to camera for the send ask. Then a short hold on Maya's look, then the end card.",
+  "The cold-coffee gag is wrong here and is a second running joke. The cast joke is that her coffee goes cold by the time she finds out it was FINE. In this reel she finds out it was mostly bots, so the wince has nothing to land on. It also stacks on top of the mum joke, and the cast rule is one running joke per reel. Keep the mum joke and cut the cold sip and its boing.",
+  "The phone 'draft that types itself' is not something DUO.notification draws. It is an incoming notification that slides down; it has no typing animation and no outgoing-draft look. Also \"To sponsor: 12,400 visits yesterday!\" is 36 characters, over the roughly 34-character limit, so it may overflow. Two options. (a) Use it as a real notification Maya is answering, e.g. from \"Sponsor\" with text \"Any numbers from yesterday's post?\" (well under 34). Her line then answers it, and the final draft becomes her reply. (b) Show the draft on the laptop with screenInsert or listInsert. Either way, keep every text under the limit.",
+  "The check line \"Fine. Traffic acquisition...\" is marked warm, but she is grudging and has just been told she was wrong. Said warmly, \"Fine.\" sounds like she has agreed happily, which fights the flat face in the visual and kills the sulk. Change the emotion to determined, or a flat delivery, so the voice and face agree.",
+  "(polish) Frame one is overloaded. Inside one roughly 3-second line it has the point pose, a bounce, the 12,400 pill, the notification, Floey's '?' and then a screenInsert cutaway. That cutaway covers the pill and the notification right after they appear, so the viewer gets none of them. Pick two for the opening: Maya excited with the pill, and the sponsor notification. Move the host-stats chart insert to the start of Floey's reframe line, where it shows what 'counts every request' means. Also, there is no 'bounce' control: use MY.jolt or a nod.",
+  "(polish) The hook's problem is only hinted. A stranger sees a happy woman with a big number, and the catch rests on Floey's small '?'. Make the chart itself look suspicious so the problem reads in 2 seconds: flat, then a sheer vertical wall, then flat again. Keep the pill saying \"host visits\" (it does) so the word 'host' is already planted before Floey's line.",
+  "(polish) \"Forty-one real ones\" claims more than the facts allow. Engaged sessions are not the only real visitors: real people who left inside 10 seconds are real but not engaged. The facts also say a few disguised bots can slip past GA4's filter. The 12,400 to 41 drop then implies everything else was bots, which the facts never say. Something like \"Forty-one actually read it, from one forum link.\" stays true to the engaged-session definition and keeps the warmth.",
+  "(polish) The listInsert has a single row, \"travel forum / referral 41\". A one-row Traffic acquisition table looks fake, and putting a ring on the only row adds nothing. 'Source / medium' is also not the report's default view: the default is channel group (Referral, Organic Search...). Either label the row as the default view would (\"Referral\") and put the forum name in the subtitle, or add rows. If you add rows, numbers like 18, 9 and 3 from the visual idea are Maya's example numbers only, and Floey's line can no longer suggest 41 is the total.",
+  "(polish) Floey's tip says \"Check Traffic acquisition\" but never shows where it is, so a viewer can't follow it today. Use the path from the facts in the insert subtitle: \"Reports > Acquisition > Traffic acquisition\". The subtitle can still say 'engaged sessions' in a short form, e.g. \"Reports > Acquisition, yesterday, engaged\", sized to fit.",
+  "(polish) In the payoff the pill swaps from 12,400 to 41 during the mayaTight shot. At the stat position (about x 880, y 610) the pill will be cut off or out of frame in her tight close-up. Swap it in the wide or maya shot, or fade it out before the push-in and bring the 41 back afterwards.",
+  "(polish) The sound spec \"tick, tick, click on each keypress\" breaks the rule of one cue per real event, never closer than 0.4 seconds apart. Use one typing cue (F.sfx typing with d) and a single click on Enter. Maya's 'sighs' in the tip beat has no sound listed. There is no sigh cue, so either use her breath acting with a soft cue from the list or drop the sigh.",
+  "(polish) Floey's blocking doesn't fit where she sits. She is perched on the laptop lid facing Maya (facing -1), so she can't 'turn from the screen' in the reframe or 'turn back to the laptop screen' in the tip, because the screen faces Maya. Write it as a head tilt towards Maya, then a lean or look down over the lid's edge. Or move her to floeyShoulder for the check, where she can really look at the screen.",
+  "(polish) The mug never appears and then changes hands. It is never set up in the hook (draw DUO.mug from frame one if it is used). Maya then goes mug, then type, then mug across the last two beats, and the mug must not be drawn on the desk while her pose is 'mug'. If the cold sip is cut (see above), let her keep the mug in hand from 'my mum' through to the end card, or skip the mug altogether.",
+  "(polish) Floey's reframe, tip and 'Engaged session, though.' are all marked playful, so she sounds the same three times. She is dry and deadpan. Give the reframe and the tip a flatter, curious or determined delivery and save playful for the button, so the button lands as a shift.",
+  "(polish) Maya's final silent look to camera happens in a wide shot, where her face is small on a phone. Cut to mayaTight for the look (or end the beat on it), so the last image before the end card is her face."
+ ],
+ "style": "duo",
+ "template": "../drafts/r022-your-traffic-spike-isn-t-readers-until-y/scene.html"
+}

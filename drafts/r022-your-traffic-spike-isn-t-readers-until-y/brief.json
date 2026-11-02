@@ -1,0 +1,59 @@
+{
+ "topic": "Your traffic spike isn't readers until you check who actually arrived",
+ "angle": "Maya is thrilled. Her hosting dashboard shows a huge jump on yesterday's post, and she's about to screenshot it for her client. Floey stops her: the host counts every request, bots included, but GA4 automatically leaves out known bots. So Maya opens GA4's Traffic acquisition report. The real bump is small, it comes from one forum link, and those people actually read the post. It's good news with a catch. Viewers send it because everyone has a friend who screenshots the wrong number.",
+ "whyNow": "A founder's post about his site getting flooded with AI bot traffic after his Hacker News post was the top HN thread this month (352 points, 188 comments, from our 25 Oct social listening). It was mirrored and written up widely around 13 Oct 2026. AI crawlers are driving up server hits on small sites, so more site owners are seeing \"spikes\" that aren't readers. People keep asking why the host's numbers don't match GA4 (hosting knowledge bases, analytics guides and forum threads all cover it).",
+ "goal": "send",
+ "audience": "Solo bloggers, freelance writers and small agency people who see a jump in their host, CDN or plugin stats and want to share it (with a client, a boss or on social media) before checking whether real people arrived. Experiment label: send-ask. The last line says out loud, and shows on screen, who to send it to: \"Send this to the friend who screenshots their host stats.\"",
+ "facts": [
+  {
+   "fact": "In Google Analytics properties, traffic from known bots and spiders is automatically excluded. You cannot turn this off or see how much was excluded.",
+   "source": "https://support.google.com/analytics/answer/9888366"
+  },
+  {
+   "fact": "GA4 identifies known bots using Google research and the IAB's International Spiders and Bots List. The filter covers known bots only, so a few disguised bots can still slip through (the reel says 'known bots', never 'all bots').",
+   "source": "https://support.google.com/analytics/answer/9888366"
+  },
+  {
+   "fact": "GA4's Traffic acquisition report shows where visitors come from, both new and returning. Find it at Reports > Acquisition > Traffic acquisition. Its default view is the session's default channel group (Direct, Organic Search, Organic Social, Referral, Email and so on).",
+   "source": "https://support.google.com/analytics/answer/12923437"
+  },
+  {
+   "fact": "GA4 counts a session as 'engaged' if it lasts longer than 10 seconds, has a key event, or has 2 or more page or screen views. Engagement rate is the percentage of sessions that were engaged.",
+   "source": "https://support.google.com/analytics/answer/12195621"
+  },
+  {
+   "fact": "Hosting dashboards count every HTTP request to a site, bots and crawlers included. Google Analytics only counts visitors whose browsers run its JavaScript, and most bots don't.",
+   "source": "https://kb.hosting.com/docs/what-is-the-difference-between-visitors-on-the-hostingcom-dashboard-and-pageviews-on-google-analytics"
+  },
+  {
+   "fact": "In one analytics company's test, server logs recorded about 18 times more pageviews than the analytics tool for the same site, because logs count bots and automated scans. (Background only. If used, frame it as one company's test and don't name the company in the reel.)",
+   "source": "https://plausible.io/blog/spike-in-website-traffic"
+  },
+  {
+   "fact": "To check a spike, break it down by source and look at which pages people entered on. Real visits fit their source and show some engagement.",
+   "source": "https://plausible.io/blog/spike-in-website-traffic"
+  },
+  {
+   "fact": "After a Hacker News post that got about a hundred upvotes, a founder's site slowed down for days. His logs showed Claude's bot, OpenAI's bot, Google's indexer, vulnerability scanners, and one AI newsletter bot that made up nearly half of all traffic.",
+   "source": "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic"
+  },
+  {
+   "fact": "The HN thread about this post was the biggest AI bot conversation of the month: 352 points and 188 comments.",
+   "source": "Flowra social listening, 2026-10-25 (https://zeli.app/story/50073221 mirror)"
+  },
+  {
+   "fact": "Forum demand: site owners ask why GA4 shows 0 seconds of engagement or why the numbers jump. The top answers list bots first, but also say a single signal doesn't prove it.",
+   "source": "https://www.namepros.com/threads/google-analytics-question.1351837/post-9382370"
+  },
+  {
+   "fact": "Maya's numbers are her own example: her host dashboard shows 12,400 visits yesterday, and GA4 shows 41 engaged sessions from one forum referral. These are illustrative, not real data, and are framed as hers.",
+   "source": "Example (clearly framed as Maya's own)"
+  }
+ ],
+ "visualIdea": "Two screens, one gag. Day set. Wide shot: Maya bounces in her chair, phone up, and the number pill \"12,400\" pops by her head. Cutaway: DUO.screenInsert, titled \"Host stats, yesterday\", with a chart line rocketing up. Floey flicks one wing at the laptop. Whoosh into DUO.listInsert, titled \"GA4 · Traffic acquisition\" with the subtitle \"Yesterday, engaged sessions\". Rows slide in: Referral 41, Organic Search 18, Direct 9, Organic Social 3. The Referral row gets the ring. Cut to mayaTight for her one-word realisation: \"Oh.\" Then the button. Maya: \"Forty-one. One of them's my mum.\" Floey: \"Engaged session, though.\" Maya looks at the camera and sips her cold coffee. Caption ask: \"Send this to the friend who screenshots their host stats.\"",
+ "pillar": "problem",
+ "instinct": "A huge jump in my hosting dashboard means my post went viral and thousands of people are reading it.",
+ "flip": "Your host counts every request, bots included, but GA4 automatically leaves out known bots. So open Reports > Acquisition > Traffic acquisition to see the real, engaged visitors and where they came from.",
+ "idea": "Your traffic spike isn't readers until you check who actually arrived",
+ "style": "duo"
+}

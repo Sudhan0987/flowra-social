@@ -1,0 +1,252 @@
+{
+ "style": "Duo sitcom, Maya's room by day (day sky window, a cloud drifting, shelf, plant, spark poster). Warm daylight palette, with an amber pill for the big number and a calm green pill for the real one. Maya (solo travel blogger, glasses, pencil bun) sits behind the desk; Floey (Flowra's hummingbird, dry and always right) perches on the laptop lid facing her. The mug is on the desk. Only one notification (the unsent sponsor draft) and one cutaway insert (GA4 Traffic acquisition) in the whole reel. Flowra appears only in the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "drift",
+   "subject": "wide: Maya behind the desk in pose point at the screen, happy face; Floey on floeyLaptop, mood think, head tilted at Maya, a small '?' mark by her; amber stat pill by Maya's head; notification draft already sliding down at the top",
+   "action": "Frame one, the problem is already happening: Maya bounces in her chair pointing at the laptop. The pill '12,400 host visits' is already up. The notification draft (from 'Draft to Sponsor') slides down and types itself: '12,400 visits yesterday!'. Floey slowly tilts the other way, unconvinced.",
+   "onScreenData": "12,400 host visits",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "ding"
+    },
+    {
+     "at": 0.6,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 2.2,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floeyTight: Floey alone on the laptop lid, the notification draft still at the top of the frame",
+   "action": "Floey reacts while Maya says 'Sending it to my sponsor.' off screen: her eyes go to the draft, then back to Maya, and the '?' mark pops bigger. It shows the catch before she speaks.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: closer two-shot favouring Floey on the laptop, Maya's shoulder and grin at the frame edge",
+   "action": "Floey turns from the screen to face Maya (mood think to deadpan) and gives a slow, flat head tilt on 'every request'. Maya is still grinning and slowly lowers her pointing hand.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 1.8,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone, the notification draft still waiting at the top",
+   "action": "Listener reaction on 'Bots included.': Maya's grin freezes and her expression goes to surprised. Her eyes flick left to Floey and a small push-in lands on her face.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya, the unsent notification draft still beside her at the top",
+   "action": "Maya drops the point into pose crossed with an annoyed face, eyebrows up, and a stubborn little head tilt on 'Traffic's traffic.'",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: closer two-shot favouring Floey, Maya's crossed arms at the edge",
+   "action": "Floey, deadpan, delivers 'Bots don't read.' with a gentle push-in. Maya's eyes roll up and to the side as she listens.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 1.8,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both, Floey on floeyLaptop, Maya behind the desk",
+   "action": "Floey chips once and turns back to the laptop screen. Maya sighs, slumps a little and uncrosses into pose type with a worried face. The unsent notification draft slides up and away.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 3.4,
+   "shot": "medium",
+   "camera": "drift",
+   "subject": "maya: Maya typing, looking down at the laptop",
+   "action": "Maya sits back up on 'Check Traffic acquisition' and starts typing, her face set to deadpan, look down at the screen.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya in pose type with a flat face; Floey on floeyLaptop turning her head to watch the screen",
+   "action": "Maya mutters 'Fine. Traffic acquisition...' while she types. Floey cranes her head towards the screen.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0.6,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "listInsert cutaway (the only insert): 'GA4 · Traffic acquisition', sub 'Yesterday, engaged sessions by source'",
+   "action": "The screen swings in. One row slides in: 'travel forum / referral' with the value 41. The highlight ring grows around that row.",
+   "onScreenData": "travel forum / referral 41",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame, glasses, pill by her head",
+   "action": "'Oh.' Her eyes go wide (surprised), then her face falls to sad, deflating behind her glasses. The pill swaps from '12,400 host visits' to '41 engaged sessions' and turns green.",
+   "onScreenData": "41 engaged sessions",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both, with the green pill '41 engaged sessions' by Maya's head",
+   "action": "Floey turns from the screen to Maya on 'Forty-one real ones, from one forum link.' Maya, still sad, looks over to Floey. The pill sits beside her and fades out before the next cut.",
+   "onScreenData": "41 engaged sessions",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 1.9,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: closer two-shot favouring Floey, Maya at the edge",
+   "action": "On 'They stayed.' Floey softens for a second (mood happy) and gives a small, fond preen of one wing. At the edge, Maya's face eases from sad to a small proud smile.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, deadpan, the mug on the desk beside her",
+   "action": "With a deadpan face, Maya says 'Forty-one. One of them's my mum.' and reaches for the mug without looking. Her pose blends into mug, and the desk mug is no longer drawn while she holds it.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid",
+   "action": "'Engaged session, though.' Floey tilts her head smugly, then chips once.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.8,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey pivots to front on the laptop; Maya behind her, back in pose type with a happy face",
+   "action": "Floey turns to the camera, smug and proud (mood happy), for 'Send this to the friend who screenshots their host stats.' Maya is already typing again, happy, and the green pill '41 engaged sessions' pops back up by her head. The send ask holds as the caption.",
+   "onScreenData": "41 engaged sessions",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "type"
+    },
+    {
+     "at": 0.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 3.3,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, pose mug",
+   "action": "After the line, silent acting: Maya lifts the mug and sips, then winces because the coffee is cold. Floey chips off screen.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.7,
+     "kind": "boing"
+    },
+    {
+     "at": 1.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 4.8,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face, mug still in hand",
+   "action": "Maya slowly turns her eyes to the camera and holds a deadpan look, no words. This is the last thing seen before the end card thumps in.",
+   "onScreenData": "",
+   "sfx": []
+  }
+ ],
+ "posterAt": 1.2
+}
