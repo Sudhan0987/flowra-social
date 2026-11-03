@@ -1,0 +1,11 @@
+{
+ "pass": false,
+ "problems": [
+  "Frame 06: the GA4 'Landing page' box is empty (only the title, column headers and a subtitle stranded at the bottom) while Floey says 'That's where they came from'. The picture doesn't match the voice, and the key tip moment shows an unfinished-looking empty box at phone size. The source rows should be visible during this line.",
+  "Frame 01: Floey says 'That graph can count bots too' but no graph is on screen (the 48,000 pill is cropped out of this shot), and none of the sampled frames shows the planned 'Host: requests' chart cutaway. Make sure the chart is on screen when 'that graph' is spoken.",
+  "Frame 03 (minor): the script has the '48,000 requests' pill wobble on this line, but the pill is out of frame, so the wobble sound has nothing to show.",
+  "Frame 07 (minor): a small fragment (likely Floey) is cut off at the far left edge, about two-thirds of the way down; Maya looks shocked rather than the scripted sad slump.",
+  "Frames 01-03 (minor): the 'To: Sponsor, WE WENT VIRAL!!' draft bar stays on screen for three lines, covering the shelf and poster.",
+  "Frame 08 (not confirmed): none of the sampled frames shows the Pinterest row being highlighted; check that this payoff beat plays in the full render."
+ ]
+}

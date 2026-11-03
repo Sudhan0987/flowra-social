@@ -1,0 +1,129 @@
+{
+ "title": "We Went Viral (Mostly Bots)",
+ "hookPattern": "Good news with a catch",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "My post exploded. I'm telling the sponsor we went viral.",
+   "emotion": "bright",
+   "visual": "Night set, desk-lamp glow, DUO.mug on the desk beside the laptop. Wide, one image: Maya grinning at the laptop, expr happy, rest pose, with a big green DUO.stat pill by her head reading \"48,000 requests\" (Maya's own example number). A phone notification slides down from the top: \"Saw your post! Numbers?\" (notification ping). Floey hovers at Maya's eye height on her left (floeyHover), head tilted, watching."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "That graph can count bots too, Maya.",
+   "emotion": "playful",
+   "visual": "Cutaway: DUO.screenInsert titled \"Host: requests\", its amber line shooting off the top of the chart (rising whoosh). Cut to floey (two-shot favouring Floey): Floey lands on the laptop lid (wing flutter, panned left), then turns and tilts her head toward the screen. Maya reacts behind her: expr surprised, a small jolt, grin frozen."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So? Traffic's traffic.",
+   "emotion": "warm",
+   "visual": "maya: Maya in the point pose, jabbing at the laptop, expr deadpan, defending her graph. Floey on the lid at the frame edge, blinks once, unimpressed."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Not to a sponsor. Google Analytics leaves known bots out.",
+   "emotion": "warm",
+   "visual": "wide: Floey turns from the laptop to face Maya, deadpan. The green \"48,000 requests\" pill wobbles (wobble sfx). Maya drops back to the rest pose, expr shifting from happy to surprised."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "So where are my actual readers?",
+   "emotion": "worried",
+   "visual": "maya: Maya, expr worried, rest pose, leaning toward the laptop. Floey, visible on the lid, tilts her head toward her."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Open the Landing page report. Add session source and medium. That's where they came from.",
+   "emotion": "warm",
+   "caption": "Open the Landing page report. Add session source / medium. That's where they came from.",
+   "visual": "floey: Floey turns toward the laptop. Maya switches to the type pose (typing sfx), then one click (click sfx, panned left). Cutaway: DUO.listInsert opens already on the right view, titled \"GA4: Landing page\", sub \"New post, by session source / medium\"."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "Oh. It's smaller...",
+   "emotion": "worried",
+   "visual": "Laptop insert: rows slide in one by one, largest first, with Maya's example session counts (soft tick per row): google / organic 640, pinterest.com / referral 410, (direct) / (none) 220, chatgpt.com / referral 90. Cut to maya: Maya slumps, expr sad. The green \"48,000 requests\" pill shrinks and fades out (deflating sfx), and a small grey DUO.stat pill reading \"1,360 sessions\" pops in at its place at half the size."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Wait. My pin brought people?",
+   "emotion": "bright",
+   "visual": "Laptop insert: the hi ring grows around the pinterest.com / referral row (410) with a soft chime. Cut to maya: Maya leans in, expr surprised turning to happy. Floey on the lid watches her."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "Real people. Show the sponsor those.",
+   "emotion": "warm",
+   "visual": "floey: Floey nods toward the laptop, wings folded. Behind her Maya, expr happy, nods along fast."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Yes!",
+   "emotion": "bright",
+   "visual": "maya: Maya in the fist pose, expr happy (ding sfx). Floey on the lid gives one slow blink."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Still more than your mum on a Sunday.",
+   "emotion": "proud",
+   "visual": "floeyTight: Floey on the laptop lid turns to camera, smug. Cut to maya: Maya switches to the mug pose (DUO.mug on the desk hides), takes a proud sip, winces at the stone-cold coffee, expr deadpan, and gives the camera a long flat look. Hold, then DUO.endCard with the line \"Send this to the friend who screenshots their traffic.\" (measured, box sized to the text, two lines at most)."
+  }
+ ],
+ "loopNote": "No loop. This is a duo reel: it ends on Floey's button and Maya's flat look over cold coffee, then the end card carries the send-ask.",
+ "caption": "Your host's graph says the new post exploded. The sponsor texts \"Numbers?\" and you're about to type WE WENT VIRAL...\n\nHold on. Your host counts traffic its own way, and bots make requests too. Google Analytics automatically leaves out known bots. So before you send a screenshot, open GA4: Reports > Engagement > Landing page, find your post, and add session source / medium as a secondary dimension. Now you can see the people who actually landed on it and where they came from.\n\nThe number might be smaller, but it's the real one. You might even find out an old pin is still sending readers.\n\nSend this to the friend who screenshots their traffic. Who's the spike screenshotter in your group chat? 👀",
+ "hashtags": [
+  "#blogging",
+  "#googleanalytics",
+  "#ga4",
+  "#seotips",
+  "#bloggerlife"
+ ],
+ "sticky": 51,
+ "id": "r023-my-post-went-viral-it-was-mostly-bots-ch",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "My post went viral! (It was mostly bots.) Check who actually arrived before you tell anyone",
+ "editorNotes": [
+  "Frame one breaks the studio's hard rule. The hook says the sponsor notification 'slides down' and Maya sits in the rest pose, so the problem isn't on screen yet. The brief's funniest image is also missing: Maya halfway through typing 'WE WENT VIRAL'. Fix: at t=0 the notification 'Saw your post! Numbers?' is already showing, Maya is in the type pose with typing sfx, and the green pill is already up.",
+  "Two running jokes in the button: the mum joke ('Still more than your mum on a Sunday') and the stone-cold coffee sip with a wince. The cast rule is one running joke every few reels, never all at once, and the brief's visual idea said 'or'. Keep the mum line. Replace the coffee gag with a reaction to Floey's dig, such as Maya's flat look or a reluctant 'Fair.' face. Or keep the coffee and drop the mum line, not both.",
+  "The 'maya' shot keeps Floey in frame, but in that shot Floey is fully out of frame. Line 3 says 'Floey on the lid at the frame edge, blinks once', which would also slice her at the edge (not allowed). Line 5 says 'Floey, visible on the lid, tilts her head'. Fix: use 'wide' for both lines if Floey's reaction matters, or drop her from those directions.",
+  "Line 3: the point pose aims at screen right, but the laptop with Floey on it is screen left (pointL). As written, Maya 'jabbing at the laptop' points at empty room. Use pointL.",
+  "Line 4 continuity error: Maya 'shifting from happy to surprised', but her last expression (line 3) was deadpan. The final test samples frames, so the animator needs the right starting face. Fix: deadpan to surprised, or annoyed to surprised.",
+  "Some sound cues don't exist in the room's sfx list: 'wobble sfx' (line 4), 'deflating sfx' (line 7) and 'soft chime' (line 8). 'Rising whoosh' is two kinds. Map each to a real kind: boing for the wobble, pop or boing for the deflate, ding for the hi ring, and whoosh for the insert (rise only before the payoff). Keep cues at least 0.4 s apart: line 7 already stacks row ticks, the pill swap and the new pill pop.",
+  "The tip line is written, not spoken. 'Open the Landing page report. Add session source and medium. That's where they came from.' is three manual-style sentences and the longest line in the reel from the character with the fewest words. 'Source and medium' also suggests two dimensions when there's one, and 'That's where they came from' is filler. Cut it to one or two short spoken beats, for example: 'Landing page report. Add session source slash medium.' The caption's '/' then matches what she says.",
+  "The comic peak is underwritten. 48,000 shrinking to 1,360 is the 'mostly bots' moment the whole reel is named for, and Maya meets it with 'Oh. It's smaller...', a flat, writerly line with an ellipsis. Give her a short, human, dramatic reaction in her own voice, e.g. 'Oh.' then a beat, or a one-word deflation she would actually say. Do not state a bots percentage.",
+  "(polish) 'Real people. Show the sponsor those.' overclaims a little. GA4 leaves out known bots only, not every bot, and the brief's own Reddit fact is about bot-looking traffic. Try a softer wording that is still short and dry (e.g. 'Those are readers. Send those.' or 'Those clicked. Show the sponsor those.').",
+  "(polish) The 48,000 'requests' pill against the 1,360 'sessions' pill compares different units. One page view is many requests even with zero bots, so the shrink reads as 'about 97% bots', which is an implied result from example data. That's acceptable because it's Maya's example and Floey only says the graph 'can' count bots. Just don't add a caption, mark or line that calls the gap bots. The title 'Mostly Bots' should stay a joke title, not a claim on screen.",
+  "(polish) The sponsor thread is dropped. 'Numbers?' opens the reel but Maya never replies. 'Show the sponsor those' and 'Yes!' would land harder with a visible payoff: she deletes 'WE WENT VIRAL' and sends the real number, or the notification returns as 'Sent'. That needs a notification or typing beat, not a new insert.",
+  "(polish) Emotion mismatches in the voice: line 3 'So? Traffic's traffic.' marked warm should be determined or playful (she's defending her graph). The button marked proud should be playful, since a deadpan dig said proudly turns smug in the wrong way.",
+  "(polish) 'Show the tip happening': the list insert 'opens already on the right view', so the viewer never sees the dimension being added. At least reveal the sub line 'by session source / medium' as Maya clicks, so the action matches Floey's instruction.",
+  "(polish) Line 2 does too much in about 2 seconds: insert cutaway, cut to the floey shot, Floey lands, turns and tilts, Maya jolts. The cutaway also hides Maya's reaction. Also 'grin frozen' clashes with expr surprised. Pick one face, and either open the insert just before Floey's line or keep it short.",
+  "(polish) Back-and-forth cutting in lines 7 and 8: insert, then Maya, then insert, then Maya, within about 4 seconds. Consider leaving the insert up through 'Wait. My pin brought people?' and cutting to Maya's face only for the turn to happy.",
+  "(polish) Small studio checks. The 48,000 pill sits near x 880 and must fade before the 'floey' shots in lines 2 and 6 or it will be cut off at the frame edge. A 'grey' DUO.stat tone may not exist (tones are bad and good), so pick an available tone for '1,360 sessions'. 'Floey nods' (line 9) isn't a listed Floey behaviour; use a tilt or a chip. The list insert needs a column header such as 'Sessions'. The end-card line runs to 53 characters against a 'short line' slot: confirm DUO.endCard wraps it to two lines and measure it."
+ ],
+ "style": "duo",
+ "template": "../drafts/r023-my-post-went-viral-it-was-mostly-bots-ch/scene.html"
+}

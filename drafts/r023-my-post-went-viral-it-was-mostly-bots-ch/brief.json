@@ -1,0 +1,55 @@
+{
+ "topic": "My post went viral! (It was mostly bots.) Check who actually arrived before you tell anyone",
+ "angle": "It's night. Maya's hosting dashboard shows a huge spike on her new post, a sponsor has just texted \"Saw your post! Numbers?\", and she's halfway through typing \"WE WENT VIRAL\". Floey stops her: a host counts requests its own way, and bots make requests too, while GA4 automatically leaves out known bots. Maya opens GA4's Traffic acquisition with session source / medium. The real number is smaller but real, and now she knows exactly where her readers came from. Good news with a catch, ending on a send-ask: \"Send this to the friend who screenshots their traffic.\"",
+ "whyNow": "This month's top Hacker News thread, \"I posted to HN, and then my website was flooded with AI bot traffic\" (352 points, 188 comments), is about a founder whose spike turned out to be mostly automated traffic. Commenters say bots have made their logs \"unreadable\" and their \"visitor metrics useless\". An r/Blogging thread (\"Sudden increase of traffic on my blog\") asks the same thing for a small blog. Bloggers are asking: was that spike readers or bots?",
+ "goal": "send",
+ "audience": "Solo bloggers and small content-site owners (and the agency people who report numbers to clients) who check their host dashboard or stats after a post goes out and get excited by a spike, before they look at who actually arrived. Experiment label: send-ask.",
+ "facts": [
+  {
+   "fact": "A Hacker News post titled 'I posted to HN, and then my website was flooded with AI bot traffic' drew 352 points and 188 comments.",
+   "source": "https://news.ycombinator.com/item?id=50073221"
+  },
+  {
+   "fact": "The author, who runs the feed reader sprinklz.io, got about a hundred upvotes on HN. The site then slowed down, and his logged metrics did not match the number of real logged-in users.",
+   "source": "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic"
+  },
+  {
+   "fact": "In that case, most requests never ran the JavaScript needed to render a page. One automated client made up close to half of all traffic. Self-identified crawlers (Claude's, OpenAI's, Google's indexer) and vulnerability scanners made up much of the rest.",
+   "source": "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic"
+  },
+  {
+   "fact": "HN commenters on the thread said bot traffic left 'our logs becoming unreadable and our visitor metrics useless'. Another said ChatGPT is now the top referrer on their sites, so some AI traffic does bring real people.",
+   "source": "https://news.ycombinator.com/item?id=50073221"
+  },
+  {
+   "fact": "Google Analytics automatically excludes traffic from known bots and spiders. You cannot turn this off or see how much was excluded. Known bots are identified using Google research and the IAB International Spiders and Bots List.",
+   "source": "https://support.google.com/analytics/answer/9888366"
+  },
+  {
+   "fact": "A host's visit count can differ from Google Analytics because the two measure traffic in different ways. Kinsta, for example, says traffic only 'likely automated' may still count in its numbers.",
+   "source": "https://kinsta.com/docs/wordpress-hosting/using-kinsta/kinsta-understand-your-traffic-and-usage/"
+  },
+  {
+   "fact": "GA4's Traffic acquisition report (Reports > Acquisition > Traffic acquisition) shows where new and returning users come from, by session source / medium or default channel group (Organic Search, Organic Social, Direct and others).",
+   "source": "https://support.google.com/analytics/answer/12923437"
+  },
+  {
+   "fact": "GA4's Landing page report (Reports > Engagement > Landing page) shows the first page of each session. You can add session source / medium as a secondary dimension to see where the people landing on one post came from.",
+   "source": "https://support.google.com/analytics/answer/12931766?hl=en"
+  },
+  {
+   "fact": "Demand: an r/Blogging thread, 'Sudden increase of traffic on my blog', has a long-running blogger asking about a sudden jump that seemed mostly bots. Commenters suggested checking which pages and referrers the traffic came from.",
+   "source": "https://www.reddit.com/r/Blogging/comments/1nkke27/sudden_increase_of_traffic_on_my_blog/"
+  },
+  {
+   "fact": "Example only, framed as Maya's own numbers: her host graph spikes on the new post, while GA4 shows a smaller set of real sessions split by source (for example google / organic, pinterest.com / referral, chatgpt.com / referral, (direct) / (none)). No real data.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "Two screens against each other. First, a DUO.screenInsert titled \"Host: requests\" whose amber line shoots off the top, with a DUO.stat pill by Maya's head showing her own example number (big, green) as she types to the sponsor. Then Floey hops onto the laptop lid and Maya opens a DUO.listInsert titled \"GA4: Traffic acquisition\", sub \"Session source / medium, new post\". Real rows slide in: google / organic, pinterest.com / referral, (direct) / (none), chatgpt.com / referral, each with a modest example value. The hi ring grows on the row that surprises her (pinterest.com / referral: \"Wait. My pin?\"). Night set with desk-lamp glow, the sponsor's notification sliding down in the hook, and a cold-coffee mug for the button (or the mum running joke: Floey, deadpan, \"Still more than your mum on a Sunday.\").",
+ "pillar": "problem",
+ "instinct": "A huge spike on my host's traffic graph means my post went viral and I should tell the sponsor right now.",
+ "flip": "A host counts traffic its own way and bots make requests too, while Google Analytics automatically leaves out known bots, so GA4's Traffic acquisition report (session source / medium) is where you see the people who actually arrived and where they came from.",
+ "idea": "Your traffic spike isn't readers until you check who actually arrived",
+ "style": "duo"
+}

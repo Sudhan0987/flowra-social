@@ -1,0 +1,273 @@
+{
+ "style": "Night set in Maya's room (moon, stars, desk-lamp glow), DUO.mug on the desk's right end until Maya picks it up in the button. Cast: Maya behind the desk, Floey hovering on her left and then perched on the laptop lid (facing -1). The reel uses one notification (beat 0) and one cutaway insert (the GA4 listInsert, beats 5 to 6). There is no requests chart: the green \"48,000 requests\" pill is the only number on show until the check. All numbers are Maya's own example numbers. Captions: MAYA amber, FLOEY pink.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk, grinning at the laptop, with the green DUO.stat pill by her head (x 880, y 610). Floey at floeyHover by her eye on the left, head tilted, watching her. Mug on the desk, night window behind.",
+   "action": "Frame one is already the problem. A DUO.notification is halfway down from the top: \"Saw your post! Numbers?\". Maya, expr happy, rest pose, grins and nods at the screen while she says \"My post exploded.\" Floey's head tilts a little further, and she blinks.",
+   "onScreenData": "48,000 requests",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.6,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone, the green pill still by her head. The notification slides back up and out. Floey is out of frame.",
+   "action": "Push in on \"I'm telling the sponsor\". Maya goes to expr smug, drops into the type pose and types a reply with a little chin lift. The pencil bun wobbles.",
+   "onScreenData": "48,000 requests",
+   "sfx": [
+    {
+     "at": 1.9,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: a two-shot favouring Floey on the laptop lid. Maya is behind her, and the green pill stays in frame at the upper right (checked, not sliced).",
+   "action": "Cut. Floey flutters down and lands on the laptop lid, wings folding, then tilts her head down at the screen and back up to Maya: \"That graph can count bots too, Maya.\" On \"bots\", Maya jolts a little, expr surprised, her grin frozen mid-type.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, the green pill by her head. Floey is out of frame.",
+   "action": "Cut to the speaker. Maya in the pointL pose jabs twice at the laptop, expr deadpan, defending her number: \"So? Traffic's traffic.\" A tiny tiltTo on the second \"traffic\".",
+   "onScreenData": "48,000 requests",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them. Floey on the lid, Maya behind the desk, the green pill by her head.",
+   "action": "Pull out to see both after the doubt. Floey holds one slow deadpan blink, then pivots on the lid to face Maya square: \"Not to a sponsor.\" Maya drops from pointL back to rest. The green pill wobbles on \"sponsor\".",
+   "onScreenData": "48,000 requests",
+   "sfx": [
+    {
+     "at": 1,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 1.8,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: a two-shot favouring Floey. Maya is behind her, her face clear of Floey.",
+   "action": "Push in for the reframe: \"Google Analytics leaves known bots out.\" Floey gives a small dry nod on \"out\". Behind her, Maya's face goes from happy to surprised, and her eyes slide from Floey to the laptop.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, the green pill by her head. Floey is out of frame.",
+   "action": "Cut to the speaker. Maya, expr worried, rest pose, leans toward the laptop (leanTo) with her eyes down and left: \"So where are my actual readers?\" Her shoulders creep up on \"actual\".",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: a two-shot favouring Floey on the lid. Maya is behind, looking at the screen.",
+   "action": "Cut. Floey turns her head down toward the laptop, wings folded, and gives the tip in her calm voice: \"Open the Landing page report. Add session source and medium.\" At 0.8 Maya switches to the type pose and types fast, nodding along. At 2.6 she gives one decisive click and her finger lifts off.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.8,
+     "kind": "type"
+    },
+    {
+     "at": 2.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 3.4,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "insert: DUO.listInsert, the one cutaway, titled \"GA4: Landing page\" with the sub \"New post, by session source / medium\" and the columns source / medium and sessions.",
+   "action": "The insert swings in already on the right view during \"That's where they came from.\" Rows slide in one at a time, largest first: google / organic 640, pinterest.com / referral 410, (direct) / (none) 220, chatgpt.com / referral 90. After the last row, the hi ring grows softly around pinterest.com / referral 410. Set this beat's GAP to about 0.7 so the ring lands before the cut.",
+   "onScreenData": "GA4: Landing page",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.4,
+     "kind": "pop"
+    },
+    {
+     "at": 0.85,
+     "kind": "pop"
+    },
+    {
+     "at": 1.3,
+     "kind": "pop"
+    },
+    {
+     "at": 1.75,
+     "kind": "pop"
+    },
+    {
+     "at": 2.2,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, the green pill by her head. Floey is out of frame.",
+   "action": "Cut out of the insert to her face for the reaction. Maya, expr sad, slumps (MY.slump) on \"Oh. It's smaller...\" with her eyes on the laptop. The green \"48,000 requests\" pill shrinks and fades out, and a small grey DUO.stat pill pops in at the same place at half the size. Set this beat's GAP to about 1.0 so the swap plays out.",
+   "onScreenData": "1,360 sessions",
+   "sfx": [
+    {
+     "at": 0.7,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya, nudged slightly closer, with the grey pill still inside the frame. Floey is out of frame.",
+   "action": "A slow push-in for the realisation. On \"Wait.\" Maya jolts upright out of the slump and does a double take at the laptop, leaning in (leanTo), expr surprised. On \"My pin brought people?\" her face turns to happy, her eyebrows still up.",
+   "onScreenData": "1,360 sessions",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: a two-shot favouring Floey on the lid, wings folded. Maya is behind her. The grey pill fades out on the cut.",
+   "action": "Cut to the speaker. Floey nods once toward the laptop: \"Real people. Show the sponsor those.\" Behind her, Maya, expr happy, nods along fast (MY.nod 3) on \"sponsor\".",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: both of them. Maya behind the desk, Floey on the lid, the mug on the desk.",
+   "action": "Cut wide for the win. Maya throws a small fist pose, expr happy: \"Yes!\" Floey, still on the lid, gives one slow, unbothered blink.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid.",
+   "action": "Cut. Floey pivots to the front (F.pivot front) and delivers the button straight to camera with a small wink, mood happy: \"Still more than your mum on a Sunday.\"",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 2,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone. The mug is now in her hand, so DUO.mug on the desk is hidden. Floey is out of frame.",
+   "action": "Cut to the listener for the reaction. Maya switches to the mug pose and takes a proud sip, then winces at the stone-cold coffee and goes to expr deadpan, the mug still at her lips.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 3.2,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame, mug at her chin.",
+   "action": "A slow push-in while Maya turns her eyes to the lens and gives the camera a long flat look, no words. Hold about 1.3 s. Push END back so this plays out before the end card.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 4.6,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "DUO.endCard: the Flowra logo intact with Floey perched in front of it (not covering the spark). Captions hidden.",
+   "action": "The end card slams in with the line, measured with PROPS.measure and the box sized to the text, two lines at most. Floey settles and blinks.",
+   "onScreenData": "Send this to the friend who screenshots their traffic.",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}

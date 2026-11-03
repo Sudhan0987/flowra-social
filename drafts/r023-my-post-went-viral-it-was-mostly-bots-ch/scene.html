@@ -1,0 +1,328 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<script src="lines.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../../reel/assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../../reel/assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#d9cfe6}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r023 "We Went Viral (Mostly Bots)". Night, lamp on.
+// Frame one: Maya's grin, one hand flung up, the green "48,000 requests" pill by her head, the sponsor's
+// "Saw your post! Numbers?" already on screen, Floey hovering by her ear, heavy-lidded.
+// "I'm telling the sponsor": she types "WE WENT VIRAL!!" while Floey drops onto the laptop lid.
+// "That graph can count bots too": the typing stops on "bots". "So? Traffic's traffic.": deadpan, she jabs
+// at the laptop. "Not to a sponsor": the pill wobbles. "Google Analytics leaves known bots out": she
+// deletes the draft. The tip: GA4 Landing page opens on the new post, she clicks, the rows split by
+// session source / medium. "Oh. It's smaller...": the 48,000 pill deflates into a grey "1,360 sessions".
+// "Wait. My pin": the ring lands on pinterest.com. "Show the sponsor those": she types the real number and
+// sends it on "Yes!", the pill goes green. Floey to camera for the mum line, Maya's flat look, end card.
+// Every camera move is scheduled through one list so no two moves ever overlap.
+const M = window.MOUTHS || {};
+const LINES = window.LINES;
+// the pause after each line, from the story
+const GAP = { hook0: 0.3, reframe1: 0.2, doubt2: 0.2, reframe3: 0.35, doubt4: 0.3, tip5: 0.4, check6: 0.5, payoff7: 0.3, payoff8: 0.25, payoff9: 0.3, button10: 0.7 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+const b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+// her long flat look to camera plays out after Floey's last line, before the end card
+const END = Math.max(SPOKEN + 0.6, b.button10.end + 2.6), DUR = END + 1.6;
+const INK = HUM.colors.ink;
+const r1 = (n) => Math.round(n * 10) / 10;
+
+// Maya's faces: the rig's open mouth reads as a grin, so on her worried, sad and deadpan beats the open
+// mouth is drawn as a fret (corners down) instead
+const EX = MAYA.EXPR;
+const FRET = { worried: 1, panic: 1, sad: 1, annoyed: 0.7, deadpan: 0.5 };
+const OPEN = /<path d="[^"]*" fill="#5a1f22"[^>]*\/>\s*<clipPath id="(mq\d+)"><path d="[^"]*"\/><\/clipPath>\s*<g clip-path="url\(#\1\)">[\s\S]*?<\/g>/;
+function fretMouth(open, u, id) {
+  const cx = 300, cy = 336, w = (u > 0 ? 30 + 8 * u : 22) + open * 6, h = 14 + open * 38, cY = cy + h * 0.3 * u, lo = cy + h * 0.6;
+  const d = `M${r1(cx - w)},${r1(cY)} Q${cx},${r1(cy - h * 0.85)} ${r1(cx + w)},${r1(cY)} Q${r1(cx + w * 0.9)},${r1(lo)} ${cx},${r1(lo)} Q${r1(cx - w * 0.9)},${r1(lo)} ${r1(cx - w)},${r1(cY)}Z`;
+  return `<path d="${d}" fill="#5a1f22" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/><clipPath id="${id}f"><path d="${d}"/></clipPath><g clip-path="url(#${id}f)"><ellipse cx="${cx}" cy="${r1(lo)}" rx="${r1(w * 0.6)}" ry="${r1(h * 0.32)}" fill="#e07a76"/></g>`;
+}
+function maya(t) {
+  const st = MY.state(t), u = FRET[st.expr];
+  let s = MAYA.svg(st);
+  if (u !== undefined) {
+    const open = EX[st.expr].round ? Math.max(st.mouth, 0.2) : st.mouth;
+    s = s.replace(OPEN, (all, id) => fretMouth(open, u, id));
+  }
+  return `<g transform="translate(${MY.S.x} ${r1(MY.S.y + MY.S.bob)}) scale(${SP.maya.scale} ${SP.maya.scale}) translate(-300 -760)">${s}</g>`;
+}
+// her own poses for this scene (local units, see maya.js)
+const BOOM = { L: [228, 705], R: [478, 236], kR: "open" };   // "my post exploded": one hand flung up
+const JAB = { L: [92, 566], R: [372, 705], kL: "point" };    // jabbing a finger at the laptop (screen left)
+const PULL = { L: [128, 600], R: [372, 705], kL: "point" };  // the jab pulled back
+
+// framings
+const HOOK = { camX: 585, camY: 1000, zoom: 1.14 };    // frame one: both, the number, the notification
+const HOOK2 = { camX: 600, camY: 985, zoom: 1.2 };     // the slow drift in on the brag
+const TWO = { camX: 600, camY: 985, zoom: 1.2 };       // a two-shot favouring Maya, Floey on the lid in frame
+const FL = { ...SH.floey };                            // a two-shot favouring Floey (the pill is out of this frame)
+const MAYA_M = { camX: 735, camY: 840, zoom: 1.55 };   // Maya and her number; Floey out of the left edge
+const TIGHT = { camX: 680, camY: 800, zoom: 2.05 };    // her face for the look to camera
+
+// her example numbers: GA4, Landing page, the new post, by session source / medium (they add up to 1,360)
+const PAGE_ROWS = [{ label: "/my-viral-post", value: "1,360" }];
+const SRC_ROWS = [
+  { label: "google / organic", value: "640" },
+  { label: "pinterest.com / referral", value: "410", tone: "good", hi: true },
+  { label: "(direct) / (none)", value: "220" },
+  { label: "chatgpt.com / referral", value: "90" },
+];
+const PAGE_VIEW = { title: "GA4: Landing page", sub: "Reports > Engagement > Landing page", cols: ["Landing page", "Sessions"], rows: PAGE_ROWS };
+const SRC_VIEW = { title: "GA4: Landing page", sub: "New post, by session source / medium", cols: ["Session source / medium", "Sessions"], rows: SRC_ROWS };
+
+// ---------- the cast ----------
+const F = FLOEY.create({ ...SP.floeyHover, x: 318, facing: -1, mood: "think", perched: false, view: "side" });
+// her flat, heavy-lidded stare: she has seen this brag before
+const LID = 0.42;
+F.S.squint = LID;
+const MY = MAYA.create({ ...SP.maya, expr: "happy", pose: BOOM, floey: F });
+const W = { ...HOOK, note: 1, d1: 0, t1: 0, d2: 0, t2: 0, sent: 0, bigP: 1, wob: 0, realP: 0, green: 0, list: 0, view: 0, rows: 0, hi: 0, end: 0 };
+const wt = gsap.timeline({ paused: true });
+// camera: every move goes into CAMS and is added at the end, each one clipped so it ends before the next starts
+const CAMS = [];
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => CAMS.push({ t, s, d, ease });
+const cut = (t, s) => CAMS.push({ t, s, d: 0 });
+const drift = (t, from, to, until) => { cut(t, from); shot(t + 0.01, to, until - t - 0.01, "none"); };
+const set = (t, v) => wt.set(W, v, t);
+// Floey's slow, unimpressed blink
+const slowBlink = (t, back = LID) => { F.tl.to(F.S, { squint: 1, duration: 0.16 }, t).to(F.S, { squint: back, duration: 0.22 }, t + 0.45); };
+
+// HOOK0: frame one is the brag. On "I'm telling the sponsor" the notification goes up, her reply draft comes
+// down and she types "WE WENT VIRAL!!", while Floey glides down onto the laptop lid
+const H = b.hook0.start, TELL = H + 1.45;
+F.sfx(0.05, "buzz");
+MY.look(0, -0.9, -0.1).say(H, M.hook0 || [], "hook0").nod(H + 0.25, 2);
+F.tiltTo(0, -10, 0.01).look(0, 0.3, 0);
+drift(0, HOOK, HOOK2, b.hook0.end + 0.25);
+MY.expr(TELL, "proud").pose(TELL - 0.1, "type", 0.3).look(TELL, -0.45, 0.85, 0.15).tiltTo(TELL + 0.2, 4, 0.3);
+wt.to(W, { note: 0, duration: 0.25, ease: "power2.in" }, TELL - 0.15)
+  .to(W, { d1: 1, duration: 0.3, ease: "back.out(1.6)" }, TELL + 0.1)
+  .to(W, { t1: 1, duration: 1.3, ease: "none" }, TELL + 0.45);
+F.sfx(TELL + 0.1, "whoosh").sfx(TELL + 0.55, "typing", { d: 1.3 });
+slowBlink(H + 0.7);
+F.land(TELL + 0.3, SP.floeyLaptop.x, SP.floeyLaptop.y, 0.6).tiltTo(TELL + 0.4, 0, 0.3).look(TELL + 1.1, 0.4, 0.1);
+
+// REFRAME1: the two-shot favouring Floey (a hard cut; the pill's corner of the room is out of this frame).
+// She looks down at the screen, then back up at Maya. The typing stops dead on "bots"
+const RE = b.reframe1.start, BOTS = RE + 1.05;
+cut(RE - 0.12, FL); set(RE - 0.12, { bigP: 0 });
+shot(RE, { ...FL, zoom: 1.36, camX: 462 }, b.reframe1.end - RE + 0.05, "none");
+F.mood(RE - 0.1, "think").say(RE, M.reframe1 || [], "reframe1").look(RE, 0.3, 0.8, 0.15).tiltTo(RE, 12, 0.25)
+  .look(BOTS, 0.4, 0, 0.12).tiltTo(BOTS, -6, 0.25);
+MY.expr(BOTS, "surprised").pose(BOTS, "rest", 0.25).look(BOTS + 0.05, -0.9, 0.1).jolt(BOTS + 0.05).tiltTo(BOTS, 0, 0.2);
+
+// DOUBT2: a two-shot favouring Maya, the pill back by her head. Deadpan, she jabs at the laptop twice,
+// defending her number; Floey, on the lid, gives one slow unimpressed blink
+const DO = b.doubt2.start;
+drift(DO - 0.1, { ...TWO, zoom: 1.18 }, { ...TWO, zoom: 1.24, camY: 975 }, b.doubt2.end + 0.15);
+set(DO - 0.1, { bigP: 1 });
+MY.expr(DO - 0.1, "deadpan").pose(DO - 0.1, JAB, 0.22).look(DO - 0.1, -0.85, 0.3).say(DO, M.doubt2 || [], "doubt2")
+  .pose(DO + 0.5, PULL, 0.1).pose(DO + 0.62, JAB, 0.1).pose(DO + 0.95, PULL, 0.1).pose(DO + 1.07, JAB, 0.1)
+  .tiltTo(DO + 0.7, -6, 0.25);
+F.sfx(DO + 0.65, "tick");
+F.look(DO, 0.4, 0);
+slowBlink(DO + 0.75);
+
+// REFRAME3: wide on both. "Not to a sponsor.": Floey turns her head square to Maya, the pill wobbles on
+// "sponsor", Maya's hand drops and her face goes from deadpan to surprised. Then a cut in on Floey for
+// "Google Analytics leaves known bots out." and Maya, worried, quietly deletes the draft
+const R3 = b.reframe3.start, GA = R3 + 1.25;
+cut(R3 - 0.12, SH.wide);
+MY.pose(R3 - 0.05, "rest", 0.35).tiltTo(R3, 0, 0.25).look(R3, -0.9, 0.05).expr(R3 + 0.4, "surprised");
+F.mood(R3 - 0.05, "think").look(R3, 0.45, -0.05).say(R3, M.reframe3 || [], "reframe3").tiltTo(R3 + 0.2, -10, 0.3);
+F.tl.to(F.S, { squint: 0.2, duration: 0.2 }, R3 + 0.2);
+wt.to(W, { wob: 1, duration: 0.6, ease: "none" }, R3 + 0.55);
+F.sfx(R3 + 0.55, "boing");
+cut(GA - 0.08, FL); set(GA - 0.08, { bigP: 0 });
+shot(GA - 0.07, { ...FL, zoom: 1.36, camX: 462 }, b.reframe3.end - GA + 0.3, "none");
+F.mood(GA, "determined").tiltTo(GA, 0, 0.25).chips(GA + 0.05, 1);
+MY.look(GA + 0.4, -0.5, 0.75, 0.2).expr(GA + 0.6, "worried");
+const DEL = b.reframe3.end - 0.5;
+MY.pose(DEL - 0.2, "type", 0.25);
+wt.to(W, { t1: 0, duration: 0.5, ease: "none" }, DEL);
+F.sfx(DEL, "typing", { d: 0.5 });
+wt.to(W, { d1: 0, duration: 0.25, ease: "power2.in" }, DEL + 0.6);
+
+// DOUBT4: the two-shot favouring Maya, both in frame. She leans toward the laptop, worried, eyes down and
+// left; Floey tilts her head toward her
+const D4 = b.doubt4.start;
+drift(D4 - 0.1, TWO, { ...TWO, zoom: 1.27, camX: 610, camY: 970 }, b.doubt4.end + 0.2);
+set(D4 - 0.1, { bigP: 1, wob: 1 });
+MY.expr(D4 - 0.1, "worried").pose(D4 - 0.1, "rest", 0.3).look(D4 - 0.05, -0.7, 0.6).say(D4, M.doubt4 || [], "doubt4")
+  .leanTo(D4 + 0.2, -5, 0.5).tiltTo(D4 + 0.8, 6, 0.3);
+F.mood(D4, "think").look(D4 + 0.3, 0.45, -0.1).tiltTo(D4 + 0.5, -14, 0.3);
+
+// TIP5: cut to Floey (the pill is out of this frame). She turns to the laptop and walks Maya through it.
+// Maya types; GA4's Landing page report opens on the new post; at the end of "source and medium" she clicks
+// and the rows split by source, one by one
+const T = b.tip5.start;
+cut(T - 0.15, FL); set(T - 0.15, { bigP: 0 });
+shot(T - 0.14, { ...FL, zoom: 1.36, camX: 462 }, 1.3, "none");
+F.mood(T - 0.1, "happy").look(T, 0.3, 0.8, 0.15).tiltTo(T, 14, 0.25).say(T, M.tip5 || [], "tip5");
+F.tl.to(F.S, { squint: 0.15, duration: 0.2 }, T);
+MY.leanTo(T, 0, 0.3).tiltTo(T, 0, 0.3).expr(T, "think").look(T + 0.05, -0.8, 0.1).pose(T + 0.45, "type", 0.3)
+  .look(T + 0.45, -0.45, 0.85, 0.15).expr(T + 0.5, "neutral").nod(T + 0.9, 1);
+F.sfx(T + 0.5, "typing", { d: 0.7 });
+const OPENR = T + 1.3; // the report opens on "Landing page report"
+wt.to(W, { list: 1, duration: 0.35, ease: "power3.out" }, OPENR)
+  .to(W, { rows: 1, duration: 0.3, ease: "none" }, OPENR + 0.3);
+F.sfx(OPENR, "whoosh");
+const CLICK = T + 3.75;  // the end of "source and medium": the secondary dimension goes on
+set(CLICK, { view: 1, rows: 0 });
+wt.to(W, { rows: 1, duration: 1.6, ease: "none" }, CLICK + 0.3);
+F.sfx(CLICK, "click");
+for (let i = 0; i < 4; i++) F.sfx(CLICK + 0.45 + i * 0.4, "tick");
+MY.pose(CLICK - 0.1, "rest", 0.3);
+
+// CHECK6: out of the report to her face. "Oh.": the big green pill deflates. On "It's smaller..." the small
+// grey "1,360 sessions" pops in at the same place, and she slumps, sad
+const C6 = b.check6.start;
+cut(C6 - 0.1, MAYA_M); set(C6 - 0.1, { list: 0, bigP: 1, wob: 1 });
+shot(C6 - 0.09, { ...MAYA_M, zoom: 1.62, camY: 830 }, b.check6.end - C6 + 0.5, "none");
+MY.expr(C6 - 0.1, "worried").look(C6 - 0.1, -0.5, 0.75).say(C6, M.check6 || [], "check6")
+  .expr(C6 + 0.4, "sad").slump(C6 + 0.4, 0.5).look(C6 + 0.5, -0.3, 0.9, 0.3);
+wt.to(W, { bigP: 0, duration: 0.3, ease: "back.in(2)" }, C6 + 0.05)
+  .to(W, { realP: 1, duration: 0.3, ease: "back.out(2)" }, C6 + 0.45);
+F.sfx(C6 + 0.2, "boing").sfx(C6 + 0.62, "pop");
+
+// PAYOFF7: "Wait." She jolts upright and leans in, surprised. "My pin brought people?": back to the report,
+// already split, and the ring grows around pinterest.com / referral; it stays up into Floey's line
+const P7 = b.payoff7.start, RING = P7 + 0.5;
+MY.expr(P7 - 0.05, "surprised").say(P7, M.payoff7 || [], "payoff7").sit(P7, 0.2).jolt(P7).leanTo(P7 + 0.15, -4, 0.3).look(P7, -0.5, 0.8, 0.1)
+  .expr(RING + 0.7, "happy");
+set(RING, { list: 1, view: 1, rows: 1, hi: 0 });
+wt.to(W, { hi: 1, duration: 0.45, ease: "power2.out" }, RING + 0.15);
+F.sfx(RING, "whoosh").sfx(RING + 0.5, "ding");
+
+// PAYOFF8: out of the report to Floey, warm, tipping her head at the laptop. Maya, happy, nods along fast,
+// then types the real number to the sponsor
+const P8 = b.payoff8.start;
+cut(P8 - 0.1, FL); set(P8 - 0.1, { list: 0, realP: 0 });
+shot(P8 - 0.09, { ...FL, zoom: 1.36, camX: 462 }, b.payoff8.end - P8 + 0.15, "none");
+F.mood(P8 - 0.1, "happy").look(P8, 0.4, 0).say(P8, M.payoff8 || [], "payoff8").tiltTo(P8 + 0.9, 12, 0.25).look(P8 + 0.9, 0.3, 0.8, 0.12)
+  .tiltTo(P8 + 1.6, 0, 0.25).look(P8 + 1.6, 0.4, 0, 0.12);
+F.tl.to(F.S, { squint: 0.25, duration: 0.2 }, P8);
+MY.leanTo(P8 - 0.1, 0, 0.3).expr(P8 - 0.1, "happy").look(P8, -0.9, 0.1).nod(P8 + 1.0, 3)
+  .pose(P8 + 1.5, "type", 0.25).look(P8 + 1.5, -0.45, 0.85, 0.15);
+wt.to(W, { d2: 1, duration: 0.3, ease: "back.out(1.6)" }, P8 + 1.3)
+  .to(W, { t2: 1, duration: 0.8, ease: "none" }, P8 + 1.6);
+F.sfx(P8 + 1.3, "whoosh").sfx(P8 + 1.7, "typing", { d: 0.7 });
+
+// PAYOFF9: wide for the win: she hits Send, "Yes!", a small fist; the number turns green. Floey: a slow blink
+const P9 = b.payoff9.start;
+cut(P9 - 0.12, SH.wide); set(P9 - 0.12, { realP: 1, t2: 1 });
+set(P9 - 0.1, { sent: 1 });
+F.sfx(P9 - 0.1, "click");
+MY.pose(P9 - 0.05, "fist", 0.2).expr(P9 - 0.05, "happy").look(P9, -0.9, -0.1).say(P9, M.payoff9 || [], "payoff9").nod(P9 + 0.1, 1);
+wt.to(W, { green: 1, duration: 0.3 }, P9 + 0.3);
+F.sfx(P9 + 0.35, "ding");
+slowBlink(P9 + 0.2, 0.25);
+F.look(P9, 0.4, 0);
+
+// BUTTON10: the two-shot favouring Floey; she turns to camera for the dig and winks. Behind her, Maya's
+// face drops to deadpan on "your mum"
+const BT = b.button10.start;
+wt.to(W, { d2: 0, duration: 0.25, ease: "power2.in" }, BT - 0.35);
+cut(BT - 0.15, { ...FL, zoom: 1.4, camX: 455, camY: 985 }); set(BT - 0.15, { realP: 0 });
+shot(BT - 0.14, { ...FL, zoom: 1.48, camX: 440, camY: 975 }, b.button10.end - BT + 0.4, "none");
+F.pivot(BT - 0.12, "front").mood(BT - 0.1, "happy").look(BT - 0.1, 0, 0).tiltTo(BT - 0.1, 0, 0.2)
+  .say(BT, M.button10 || [], "button10").wink(b.button10.end + 0.05);
+F.tl.to(F.S, { squint: 0.3, duration: 0.15 }, BT - 0.1);
+MY.pose(BT - 0.1, "rest", 0.3).look(BT - 0.1, -0.9, 0.1).expr(BT + 0.75, "deadpan");
+
+// SILENT: close on Maya: arms fold, and she gives the lens a long flat look. Then the smallest smile
+const LOOK = b.button10.end + 0.45;
+cut(LOOK, TIGHT); set(LOOK, { green: 0 });
+shot(LOOK + 0.01, { ...TIGHT, zoom: 2.2, camY: 790 }, END - LOOK - 0.02, "none");
+MY.expr(LOOK, "deadpan").pose(LOOK, "crossed", 0.01).look(LOOK, -0.9, 0).look(LOOK + 0.45, 0, 0, 0.25).tiltTo(LOOK + 0.45, -3, 0.3);
+MY.expr(END - 0.55, "smug");
+F.sfx(LOOK + 0.45, "tick");
+
+// END: the logo card drops in
+wt.to(W, { end: 1, duration: 0.5, ease: "back.out(1.6)" }, END);
+F.sfx(END + 0.05, "thump");
+
+// the camera list, in time order, each move clipped to end before the next one starts
+CAMS.sort((a, c) => a.t - c.t).forEach((c, i) => {
+  const next = CAMS[i + 1] ? CAMS[i + 1].t : DUR;
+  const s = { camX: c.s.camX, camY: c.s.camY, zoom: c.s.zoom };
+  if (!c.d) wt.set(W, s, c.t);
+  else wt.to(W, { ...s, duration: Math.max(0.01, Math.min(c.d, next - c.t - 0.005)), ease: c.ease }, c.t);
+});
+wt.set({}, {}, DUR);
+
+// a number pill by her head: the number big, what it counts under it; spike draws a little bar chart
+const PX = 842, PY = 590, PS = 0.8;
+function pill(k, num, label, col, spike, wob) {
+  if (k <= 0.01) return "";
+  const wn = PROPS.measure(num, "700 60px 'Space Grotesk'"), wl = PROPS.measure(label, "800 28px 'Public Sans'");
+  const sw = spike ? 92 : 0, tw = Math.max(wn, wl), w = tw + sw + 56, h = 132, s = PS * (0.6 + 0.4 * Math.min(1, k));
+  // the wobble: a sideways shake with a little squash (no rotation, so the two texts never cross)
+  const wk = wob > 0 && wob < 1 ? Math.sin(wob * Math.PI * 5) * (1 - wob) : 0;
+  const cx = -w / 2 + 28 + sw + tw / 2, sxw = Math.round(s * (1 + 0.08 * wk) * 100) / 100, syw = Math.round(s * (1 - 0.08 * wk) * 100) / 100;
+  let g = `<g transform="translate(${r1(PX + wk * 16)} ${PY}) scale(${sxw} ${syw})" opacity="${r1(Math.min(1, k * 1.5))}"><rect x="${r1(-w / 2)}" y="${-h / 2}" width="${r1(w)}" height="${h}" rx="26" fill="${col}" stroke="${INK}" stroke-width="6"/>`;
+  if (spike) { const x0 = -w / 2 + 30; [12, 16, 12, 70].forEach((bh, i) => { g += `<rect x="${r1(x0 + i * 17)}" y="${40 - bh}" width="12" height="${bh}" rx="3" fill="#fff" opacity="${i === 3 ? 1 : 0.7}"/>`; }); }
+  g += `<text x="${r1(cx)}" y="-4" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="60" fill="#fff">${PROPS.esc(num)}</text>`;
+  g += `<text x="${r1(cx)}" y="44" text-anchor="middle" font-family="Public Sans" font-weight="800" font-size="28" fill="#fff">${PROPS.esc(label)}</text></g>`;
+  return g;
+}
+// her reply draft (screen space, same look as DUO.notification): "To: Sponsor", the text typing itself with
+// a cursor, and a Send button that turns into a green "Sent". The card is sized to the full message
+function draft(k, typed, text, sent, t, y = 232) {
+  if (k <= 0.01) return "";
+  const fs = 40, to = "To: Sponsor";
+  const tw = PROPS.measure(text, `600 ${fs}px 'Public Sans'`), hw = PROPS.measure(to, "700 34px 'Space Grotesk'");
+  const bw = Math.max(PROPS.measure("Send", "800 30px 'Public Sans'"), PROPS.measure("Sent", "800 30px 'Public Sans'")) + 44;
+  const w = Math.max(tw, hw) + 138 + 40 + bw + 28, h = 150, dy = (1 - Math.min(1, k)) * -260;
+  const n = Math.round(text.length * Math.max(0, Math.min(1, typed))), shown = text.slice(0, n);
+  const cx = 138 + PROPS.measure(shown, `600 ${fs}px 'Public Sans'`) + 4;
+  const caret = !sent && ((t * 2) % 1 < 0.6) ? `<rect x="${r1(cx)}" y="84" width="5" height="44" rx="2" fill="${HUM.colors.magenta}"/>` : "";
+  const bx = w - bw - 28, bcol = sent ? "#2f9e62" : HUM.colors.coral;
+  return `<g transform="translate(${r1(540 - w / 2)} ${r1(y + dy)})" opacity="${r1(Math.min(1, k * 2))}"><rect x="0" y="0" width="${r1(w)}" height="${h}" rx="34" fill="#fffaf2" stroke="${INK}" stroke-width="6"/>
+<rect x="28" y="33" width="84" height="84" rx="22" fill="${HUM.colors.violet}" stroke="${INK}" stroke-width="5"/><text x="70" y="91" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="44" fill="#fff">S</text>
+<text x="138" y="66" font-family="Space Grotesk" font-weight="700" font-size="34" fill="${INK}" opacity=".7">${to}</text>${shown ? `<text x="138" y="118" font-family="Public Sans" font-weight="600" font-size="${fs}" fill="${INK}">${PROPS.esc(shown)}</text>` : ""}${caret}
+<rect x="${r1(bx)}" y="47" width="${r1(bw)}" height="56" rx="28" fill="${bcol}" stroke="${INK}" stroke-width="5"/><text x="${r1(bx + bw / 2)}" y="86" text-anchor="middle" font-family="Public Sans" font-weight="800" font-size="30" fill="#fff">${sent ? "Sent" : "Send"}</text></g>`;
+}
+// the end card's send line on two lines: the first is DUO.endCard's line, the second sits under it; both
+// measured so neither runs wider than the frame
+const SEND1 = "Send this to the friend who", SEND2 = "screenshots their traffic.";
+function sendLine(k) {
+  if (k <= 0.01) return "";
+  const fnt = "800 40px 'Public Sans'", wmax = Math.max(PROPS.measure(SEND1, fnt), PROPS.measure(SEND2, fnt));
+  const fs = wmax > 880 ? 40 * 880 / wmax : 40, s = 0.85 + 0.15 * Math.min(1, k);
+  return `<g opacity="${r1(Math.min(1, k * 1.4))}" transform="translate(540 820) scale(${Math.round(s * 100) / 100})"><text x="0" y="172" text-anchor="middle" font-family="Public Sans" font-weight="800" font-size="${r1(fs)}" fill="${HUM.colors.magenta}">${PROPS.esc(SEND2)}</text></g>`;
+}
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  const covered = W.list > 0.99;
+  const realCol = W.green > 0.5 ? "#2f9e62" : "#7d7f98";
+  const world = DUO.room(t, { night: true }) + maya(t) + DUO.deskFront() + DUO.laptop() + DUO.mug() + F.svg(t)
+    + (covered ? "" : pill(W.bigP, "48,000", "requests", "#2f9e62", true, W.wob) + pill(W.realP, "1,360", "sessions", realCol, false, 0));
+  document.getElementById("stage").innerHTML = DUO.cam(world, W)
+    + DUO.notification(W.note, "Sponsor", "Saw your post! Numbers?", 232)
+    + draft(W.d1, W.t1, "WE WENT VIRAL!!", false, t)
+    + draft(W.d2, W.t2, "1,360 sessions in GA4!", W.sent > 0.5, t)
+    + DUO.listInsert(W.list, W.rows, { ...(W.view > 0.5 ? SRC_VIEW : PAGE_VIEW), hiK: W.hi })
+    + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")
+    + DUO.endCard(W.end, t, SEND1) + sendLine(W.end);
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>
