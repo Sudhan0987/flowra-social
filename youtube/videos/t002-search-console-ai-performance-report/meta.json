@@ -1,0 +1,18 @@
+{
+ "title": "How to See Your AI Overviews Traffic in Google Search Console",
+ "description": "Google added a report to Search Console that shows how often your pages appear in AI Overviews and AI Mode. It went out to every site worldwide on 31 August 2026. Here is where to find it, what each tab tells you, the three things it does not show, and a simple monthly check you can run with it.\n\nFeature page: https://useflowra.com/features/ai-traffic-tracking?utm_source=youtube&utm_medium=video&utm_campaign=t002\n\nChapters\n0:00 Are you showing up in AI answers?\n0:21 Where the report is\n0:41 What an impression means here\n1:05 The four tabs: pages, countries, dates, devices\n1:46 What it does not show\n2:16 A monthly check you can run\n2:57 Impressions are not visits\n\nEvery number in the video is example data.\n\nFlowra connects Search Console, GA4 and WordPress, finds the pages losing traffic and counts the visits AI assistants send you. Free to start: https://useflowra.com?utm_source=youtube&utm_medium=video&utm_campaign=t002\n\n#seo #googlesearchconsole #aioverviews",
+ "tags": [
+  "search console ai overviews",
+  "ai overviews traffic",
+  "ai mode search console",
+  "generative ai performance report",
+  "google search console tutorial",
+  "ai overview impressions",
+  "track ai overviews",
+  "seo ai overviews"
+ ],
+ "categoryId": "28",
+ "publishAt": "2026-11-05T13:30:00Z",
+ "thumbnail": "thumbnail.png",
+ "pinnedComment": "Did the report show up for your site yet? If it says there isn't enough data, tell us roughly how big your site is and we'll compare notes in a future video."
+}
