@@ -384,6 +384,17 @@
    "reason": "Frame 08: in the mayaTight 'my mum' punchline shot the caption box sits right over Maya's hand and the mug (the joke's prop); a pink object under the mug runs into the MAYA name tag. Move the caption or reframe so the mug and hand are clear. Frame 08: the mug shows steam lines, which contradicts the ending gag that the coffee is cold (sip, wince). The mug's stripe is also pink/red here, but white with a purple stripe in every other shot (00, 05, 07, 09). Prop continuity break. Frames 06-07: misl",
    "idea": "Your traffic spike isn't readers until you check who actually arrived",
    "style": "duo"
+  },
+  {
+   "id": "r023-my-post-went-viral-it-was-mostly-bots-ch",
+   "status": "failed",
+   "topic": "My post went viral! (It was mostly bots.) Check who actually arrived before you tell anyone",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-03T13:18:11.030Z",
+   "seconds": 32,
+   "reason": "Frame 06: the GA4 'Landing page' box is empty (only the title, column headers and a subtitle stranded at the bottom) while Floey says 'That's where they came from'. The picture doesn't match the voice, and the key tip moment shows an unfinished-looking empty box at phone size. The source rows should be visible during this line. Frame 01: Floey says 'That graph can count bots too' but no graph is on screen (the 48,000 pill is cropped out of this shot), and none of the sampled frames shows the pla",
+   "idea": "Your traffic spike isn't readers until you check who actually arrived",
+   "style": "duo"
   }
  ]
 }
