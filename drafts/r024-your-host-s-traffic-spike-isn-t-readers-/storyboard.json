@@ -1,0 +1,324 @@
+{
+ "style": "Night set in Maya's room (DUO.room night: moon and stars in the window, warm desk-lamp glow, laptop light cool on Maya's face). Maya behind the desk, Floey perched on the laptop lid (floeyLaptop, facing -1) until she moves to floeyShoulder in beat 4. Amber MAYA and pink FLOEY captions at y 1540. One notification (Maya's unsent draft to her sponsor, top of the safe area, stays up from beat 0 to beat 8) and one insert (the GA4 listInsert, which comes back once for the ring). Every number shown is Maya's example, never real data.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight, night: Maya's face lit blue by the laptop, big grin, '+14,000 visits' stat pill (tone good, her example) already floating by her head at about x 880, y 610. The host dashboard screenInsert from the script is cut, because the reel gets one insert and it goes to the GA4 check. The pill and the screenshot flash carry the brag instead.",
+   "action": "Opens mid-brag already grinning. She jabs a key and a quick white flash fills the frame (her screenshot), then her grin gets wider.",
+   "onScreenData": "+14,000 visits",
+   "sfx": [
+    {
+     "at": 0.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.6,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot: Maya typing fast, pose type, expr proud, pill still by her head. Floey is out of frame.",
+   "action": "Hands fly over the keys. The draft notification slides down at the top of the safe area (y about 240): from 'Draft to Sponsor', text 'IT WENT VIRAL (screenshot)'. It is not sent.",
+   "onScreenData": "IT WENT VIRAL (screenshot)",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "type"
+    },
+    {
+     "at": 0.7,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 3.1,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide two-shot: Maya typing and grinning, Floey perched on the laptop lid with her back mostly to camera, draft notification still up.",
+   "action": "Pull-out to show both. On 'viral' Floey slowly turns her head toward Maya. Maya is still typing and hasn't noticed.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.4,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floey shot (two-shot favouring Floey): Floey on the lid in the foreground, mood think, half-lidded eyes. Maya's frozen grin is visible behind her at frame left, fully in frame.",
+   "action": "Floey gives one dry chip and a small tail flick and says 'Your host counts every request, Maya.' Behind her, Maya stops typing with her hands above the keys.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.4,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 1.7,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face, the listener.",
+   "action": "Reaction cut on 'Bots too.' Her grin stays on but goes stiff, her eyes flick down to the screen, and she slumps a little.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "whip",
+   "subject": "maya shot: Maya, expr annoyed, pose point at the laptop screen. Floey is out of frame here.",
+   "action": "Comic reversal: a quick whip in as she pokes at the screen. 'But it says visits.' Her bun wobbles with each poke.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.4,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide two-shot: Floey on the laptop lid, head already tilted. Maya mid-point, the draft notification still up and unsent at the top.",
+   "action": "Floey tilts her head the other way, not impressed, and starts 'Check Google Analytics instead.' Maya lowers her pointing hand, sighs (MY.slump), and pulls the laptop closer with a small lean.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.9,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 1.9,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya listening, expr think, eyes down on the screen (look y 1). Floey's voice is off screen.",
+   "action": "On 'Traffic acquisition' Maya nods once, slowly, and her hands come back to the keys. She is giving in.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 3.5,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floey shot: Floey on the lid, mood determined, Maya fully in frame at the edge.",
+   "action": "Push to the speaker for the tip: 'It drops known bots by itself.' Floey gives a crisp chip on 'by itself' and a small tail flick.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot, nudged in a little: Maya typing, expr think. Floey takes off from the lid and lands on floeyShoulder (Maya's left shoulder, screen right), fully in frame.",
+   "action": "Maya types and mutters 'Reports. Acquisition.' Floey flutters up and lands on her shoulder to look at the screen, with a small settle.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "type"
+    },
+    {
+     "at": 0.4,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0.85,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "listInsert (the one insert of the reel), title 'GA4 · Traffic acquisition', sub 'Session source / medium (example)'. Rows: reddit.com / referral 180, google / organic 60, (direct) / (none) 40, pinterest.com / referral 20, Total 300. The draft notification stays visible above the card.",
+   "action": "The insert swings in as the page changes on 'Traffic acquisition...' and rows slide in one at a time, each with a tick.",
+   "onScreenData": "Total 300",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.4,
+     "kind": "pop"
+    },
+    {
+     "at": 0.8,
+     "kind": "pop"
+    },
+    {
+     "at": 1.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Same listInsert, the last rows landing.",
+   "action": "The pinterest.com row and the Total 300 row slide in with the last tick under Maya's 'Oh.'",
+   "onScreenData": "Total 300",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0.4,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot: Maya, expr deadpan, shoulders dropping (slump), '+14,000 visits' pill by her head, Floey on her shoulder in frame.",
+   "action": "On 'Three hundred' the pill shrinks with a deflating wobble into a small '300 sessions' pill (tone neutral). A '?' mark pops up over her head. Floey looks at her sideways.",
+   "onScreenData": "300 sessions",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "boing"
+    },
+    {
+     "at": 0.55,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "maya shot nudged right and in on the shoulder: Floey on floeyShoulder (mood happy) close to Maya's ear, Maya's head, bun and '?' fully in frame at left.",
+   "action": "Floey leans toward Maya's ear and gives a small, fond nod: 'Real ones, though.' Maya's eyes slide back to the screen.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The same GA4 listInsert, back for the check. The reddit.com / referral row is highlighted (hi).",
+   "action": "A ring grows around reddit.com / referral 180 as Maya says 'From Reddit!'",
+   "onScreenData": "reddit.com / referral 180",
+   "sfx": [
+    {
+     "at": 0.15,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0.55,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya, expr happy, the small '300 sessions' pill by her head.",
+   "action": "The '?' over her head disappears as she does a small fist pump (pose fist), with a tiny pleased smile.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "maya shot nudged in on floeyShoulder: Floey on Maya's shoulder fills the frame, Maya's head fully in frame at left, still smiling.",
+   "action": "Floey pivots to face the camera (F.pivot front), puffs her chest and delivers the button: 'Send this to the friend who screenshots their host dashboard.' One chip at the end.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 3.4,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide two-shot, silent: Maya behind the desk, expr deadpan, Floey on her shoulder, draft notification at the top.",
+   "action": "Maya clicks once, flatly. The draft notification changes to 'Draft deleted' with a tick.",
+   "onScreenData": "Draft deleted",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "type"
+    },
+    {
+     "at": 0.7,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 4.4,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "wide easing slowly toward the maya framing, silent: Maya deadpan, Floey on her shoulder, both fully in frame.",
+   "action": "Maya turns and stares straight into the camera without a word (look to camera). Floey preens a wing feather next to her. They hold it for about a second.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.4,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 5.6,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo intact with Floey perched on the spark's left arm facing camera, never covering the spark, and the line 'Maya & Floey, every day'. Captions hidden.",
+   "action": "The end card lands with a thump and Floey settles on her perch.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 2.8
+}

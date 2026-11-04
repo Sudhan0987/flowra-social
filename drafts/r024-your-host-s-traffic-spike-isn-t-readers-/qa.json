@@ -1,0 +1,11 @@
+{
+ "pass": true,
+ "problems": [
+  "Minor, not blocking. Frame 00: Floey is not in the opening shot, although the script puts her on the laptop lid from frame one. The hook still works on Maya's grin and the +14,000 pill.",
+  "Minor. Frame 02: as Floey says 'Bots too', Maya is smiling smugly at the keyboard. The script wanted her grin to go stiff and her hands to stop, so the reaction beat is weak.",
+  "Minor. Frame 03: in Maya's 'point' pose, her hand ends behind Floey, so the finger jab at the screen is hard to read.",
+  "Minor. Frames 07 and 09: the unsent 'IT WENT VIRAL' draft disappears in the tight shots and comes back in frame 10. The script says it stays up the whole time. Small continuity gap.",
+  "Minor. Frame 07: there is no '?' over Maya's head, so the '? turns into a fist' beat in frame 08's line can't land. Frame 10: Maya looks down and to the side, not straight at the camera as the button calls for.",
+  "Checked and OK. GA4 does drop known bots automatically, Reports > Acquisition > Traffic acquisition and 'Session source / medium' are the correct names, and the rows add up to 180+60+40+20=300. Captions are readable at phone size, nothing is clipped, the Flowra logo and Floey are kept separate on the end card, and there is no spoken address. 'Draft deleted' pays off the sponsor setup from the hook."
+ ]
+}

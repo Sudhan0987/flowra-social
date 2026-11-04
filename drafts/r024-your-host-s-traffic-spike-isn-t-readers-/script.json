@@ -1,0 +1,110 @@
+{
+ "title": "It Went Viral (Three Hundred Times)",
+ "hookPattern": "Good news with a catch",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Fourteen thousand visits overnight! I'm telling my sponsor it went viral.",
+   "emotion": "excited",
+   "caption": "14,000 visits overnight! I'm telling my sponsor it went viral.",
+   "visual": "Night set, frame one, mayaTight: Maya's face lit by the laptop, grinning, with the '+14,000 visits' pill (her example) already floating by her head. Floey perches on the laptop lid, back to camera. Cut to a screenInsert of her host dashboard: the chart labelled 'Visits' shoots straight up. A click sound and a quick white flash (her screenshot). Back to maya, typing fast with typing sounds, as a DUO.notification slides in for her outgoing draft: 'Draft to Sponsor: screenshot attached. IT WENT VIRAL', not yet sent. On 'viral' Floey slowly turns her head toward Maya."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "Your host counts every request, Maya. Bots too.",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey on the laptop lid, half-lidded eyes, gives one dry chip and a small tail flick. In the corner of the frame Maya's grin stays put but goes stiff, her hands stopping above the keys."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "But it says visits.",
+   "emotion": "determined",
+   "visual": "maya: face annoyed, pose point, jabbing a finger at the laptop screen where the chart says 'Visits'. Floey stays perched on the lid and tilts her head, not impressed."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Check Google Analytics instead. Traffic acquisition. It drops known bots by itself.",
+   "emotion": "playful",
+   "visual": "wide: Floey stays on the laptop lid, tilts her head the other way and gives a chip on 'by itself'. Maya lowers her pointing hand, sighs and drags the laptop closer. The draft notification stays up in the corner, still unsent."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.6,
+   "say": "Reports. Acquisition. Traffic acquisition...",
+   "emotion": "curious",
+   "visual": "mayaTight typing, with click sounds and a whoosh as the page changes. Floey takes off from the lid to floeyShoulder with her flutter sound and lands there to look. Cut to a listInsert titled 'GA4 · Traffic acquisition', subtitle 'Session source / medium'. Rows fill in one at a time, with a tick for each: reddit.com / referral 180, google / organic 60, (direct) / (none) 40, pinterest.com / referral 20. Total row: 300 sessions (her example)."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "Oh. Three hundred.",
+   "emotion": "worried",
+   "caption": "Oh. 300.",
+   "visual": "maya: face flat, shoulders dropping. The '+14,000 visits' pill by her head shrinks with a deflating boing into a small '300 sessions' pill. A '?' mark pops up over her head. Floey on her shoulder looks at her sideways."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Real ones, though.",
+   "emotion": "warm",
+   "visual": "floeyShoulder, tighter: Floey leans toward Maya's ear and gives a small, fond nod. Maya's eyes go back to the screen."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "From Reddit!",
+   "emotion": "bright",
+   "visual": "listInsert: a ring grows around the reddit.com / referral row (180 of the 300 sessions) with a ding. Back to mayaTight: the '?' mark over her head turns into a small fist, and she gives a tiny pleased smile."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Send this to the friend who screenshots their host dashboard.",
+   "emotion": "proud",
+   "visual": "floeyTight: Floey, still on Maya's shoulder, turns to face the camera, chest puffed, and gives one chip at the end. Then wide, silent, held about a second and a half: Maya, face deadpan, clicks once and the draft notification turns to 'Draft deleted' with a tick. She looks straight at the camera and doesn't say anything. Floey preens. End card."
+  }
+ ],
+ "loopNote": "The last shot is the 'Draft deleted' notification and Maya's deadpan look to camera beside the small '300 sessions' pill. Frame one is the same desk at night, with Maya grinning beside the big '+14,000 visits' pill as she writes the draft again. On a replay it plays as her falling for it all over again.",
+ "caption": "Maya's host dashboard said 14,000 visits overnight (her example). She screenshotted it and nearly sent it to her sponsor: \"IT WENT VIRAL.\" 😅\n\nHere's the catch. Your host counts every request to your site, and that includes search crawlers, uptime monitors, security scanners and bots of every kind. Google Analytics drops known bots automatically. So before you screenshot anything, open GA4 and go to Reports > Acquisition > Traffic acquisition, then look at Session source / medium. The number will be smaller, but those are people, and you'll see where they came from.\n\n(GA4 isn't a perfect head count either, because ad blockers hide some real visitors. It's still a much better answer to \"did people actually come?\")\n\nSend this to the friend who screenshots their host dashboard. You know who they are. 👇\n\nMaya & Floey, from the Flowra team.",
+ "hashtags": [
+  "#blogging",
+  "#ga4",
+  "#googleanalytics",
+  "#bottraffic",
+  "#bloggerlife"
+ ],
+ "sticky": 50,
+ "id": "r024-your-host-s-traffic-spike-isn-t-readers-",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Your host's traffic spike isn't readers: check GA4 to see who actually arrived",
+ "editorNotes": [
+  "Beat 2 (reframe) asks for floeyTight with 'Maya's grin goes stiff, her hands stopping above the keys' in the corner. floeyTight is Floey alone on the laptop, so Maya is not in the frame and this can't be drawn. Use the `floey` shot (the closer two-shot) so Maya's frozen grin and hands are visible. Otherwise the listener is off screen and can't react, which breaks the listener rule.",
+  "The first chart needs to say it is the host dashboard. The script labels it just 'Visits'. Then 'Your host counts every request' and the GA4 list look like the same tool to a stranger, and the whole flip depends on there being two different screens. Give the screenInsert a title like 'My host dashboard' and keep 'Visits' as the series label, so 'But it says visits.' still lands. Labelling it 'My...' also meets the brief's rule that her numbers are labelled as hers.",
+  "Beat 6 'Oh. Three hundred.' has emotion worried, but the visual says 'face flat', which is not an expression. The final test samples frames, and a flat or deadpan face on a worried line fails it. Set MY.expr to worried or sad at the start of the line, with MY.slump for the dropping shoulders.",
+  "Beat 8: 'the ? mark over her head turns into a small fist' can't be drawn. DUO.mark only has '!', '?', 'sweat' and 'zzz', and marks can't change shape. Fade the '?' out and use MY.pose(t, 'fist') with expr happy for the pleased smile.",
+  "(polish) Weak button. She has just found 180 real readers from Reddit, said brightly, and the last image is her deleting the draft and staring blankly. The good news never pays off, so the ending feels like defeat, not a punchline. Floey's send-ask is a fine line, but it is not a joke. The reel needs one laugh after it: Maya rewriting the draft with the real number, the cold-coffee running joke the brief asked for (a sip, a grimace, look to camera), or a 'You're welcome.' callback. Right now there is no running joke from the cast list at all.",
+  "(polish) Floey skips Maya's pushback. 'But it says visits.' gets no answer: Floey goes straight to the tip. A short dry answer to 'visits' first (with the tip still the only tip) would make Floey funnier and close the doubt the viewer just voiced. This is the reel's best chance at a Floey laugh line, and right now all her lines are information.",
+  "(polish) The hook visual packs too much into a line of about 4 seconds: mayaTight, a cut to the screenInsert, a click and a screenshot flash, a cut back to typing, the notification sliding in, and Floey turning. That is three cuts and four sounds in about 4 seconds, which breaks the one-sound-every-0.4s rule and is hard to read. The white flash is also not a studio part. Pick two of these: the chart already up on frame one, then the draft.",
+  "(polish) The draft is shown with DUO.notification, but notifications are incoming alerts, not your own outgoing draft. The text 'screenshot attached. IT WENT VIRAL' is 34 characters, right at the limit. Shorten it, for example to just 'IT WENT VIRAL', or follow the brief and use MY.pose phone. The notification also 'stays up in the corner' through the wide shot and the listInsert, where it will crowd or overlap the insert's title. Slide it out before the GA4 insert and bring it back for the 'Draft deleted' beat.",
+  "(polish) Check that the '+14,000 visits' pill fits in frame one. DUO.stat sits about x 880, y 610 in world space, and a mayaTight push may crop it or slice it at the frame edge. Nudge the shot or the pill so both Maya's face and the full pill are inside x 60 to 1020. The brief's example number is 14,200. 'Fourteen thousand' is easier to say and still her example, but keep the pill, the caption and the voice the same.",
+  "(polish) Beat 5: the visual says 'mayaTight typing' while she reads a menu path aloud. In GA4 you click through Reports > Acquisition, so use clicks, not typing sounds. Floey's flutter from the laptop to her shoulder will cross a tight face shot, so check that she isn't sliced mid-flight, or do the move in `wide` before cutting tight.",
+  "(polish) Some acting directions aren't controls in the studio: Floey 'back to camera' (she perches side-on, facing -1, already looking at Maya, so she doesn't need to 'turn toward' her), 'half-lidded eyes' and 'tail flick' (use a mood like think, plus tilt and chip), and Maya 'drags the laptop closer' (Floey is perched on it; use leanTo instead). Change these to real controls so the animator doesn't have to guess.",
+  "(polish) Beat 6 has a deflating boing and a '?' pop at the same moment. Space them at least 0.4s apart, or drop the pop."
+ ],
+ "style": "duo",
+ "template": "../drafts/r024-your-host-s-traffic-spike-isn-t-readers-/scene.html"
+}

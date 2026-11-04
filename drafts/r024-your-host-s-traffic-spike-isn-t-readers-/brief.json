@@ -1,0 +1,55 @@
+{
+ "topic": "Your host's traffic spike isn't readers: check GA4 to see who actually arrived",
+ "angle": "Maya opens her hosting dashboard at night, sees a huge overnight spike and starts typing \"IT WENT VIRAL\" to a brand she works with. Floey stops her: the host counts every request, bots included, but GA4 leaves out known bots automatically. Maya opens GA4's Traffic acquisition report. The real readers are a much smaller number, but they're real, and now she can see where they came from. Good news with a catch, ending on a send-ask: \"Send this to the friend who screenshots their host dashboard.\"",
+ "whyNow": "This month's top Hacker News thread (over 340 points and 180 comments) came from a founder whose site slowed down for days after an HN post. His logs showed most requests never loaded a page, and nearly half came from one AI newsletter bot. r/websecurity threads ask the same thing: \"more 'low quality' traffic... requests look real at first glance\". Small sites see bot-heavy spikes all the time, and the first thing people do is mistake them for readers.",
+ "goal": "send",
+ "audience": "Solo bloggers, content site owners and small agency people who check a hosting dashboard (cPanel, a host's stats page, Cloudflare) next to GA4. Anyone who has seen a spike and wanted to tell a client, a sponsor or their mum before checking.",
+ "facts": [
+  {
+   "fact": "In Google Analytics properties, traffic from known bots and spiders is automatically excluded. You cannot turn this off or see how much was excluded.",
+   "source": "https://support.google.com/analytics/answer/9888366"
+  },
+  {
+   "fact": "Google identifies known bots using its own research plus the International Spiders and Bots List maintained by the IAB.",
+   "source": "https://support.google.com/analytics/answer/9888366"
+  },
+  {
+   "fact": "GA4's Traffic acquisition report (Reports > Acquisition > Traffic acquisition) shows where visitors come from. The dimension 'Session source / medium' is the source and medium of each new session.",
+   "source": "https://support.google.com/analytics/answer/12923437"
+  },
+  {
+   "fact": "Hosting dashboards count every request to the site, including bots and crawlers. Google Analytics only counts visitors whose browser runs its JavaScript, so most bots never show up there. That is why host numbers run higher.",
+   "source": "https://kb.hosting.com/docs/what-is-the-difference-between-visitors-on-the-hostingcom-dashboard-and-pageviews-on-google-analytics"
+  },
+  {
+   "fact": "Host stats usually come from server logs. These include search crawlers, uptime monitors and security scanners, and bots often never run the tracking script the way a real visitor's browser does.",
+   "source": "https://app.microanalytics.io/articles/why-website-analytics-differ-from-siteground-google-analytics"
+  },
+  {
+   "fact": "Caveat (keep the script honest): GA4 is not a perfect count of humans either. Ad blockers can hide real visitors, and a few advanced bots can slip through. Floey must not say GA4 is 'exact'. Say it 'drops known bots', which is true.",
+   "source": "https://app.microanalytics.io/articles/why-website-analytics-differ-from-siteground-google-analytics"
+  },
+  {
+   "fact": "Demand: a founder posted to Hacker News and his site stayed slow for days. His logs showed most requests never tried to load content, nearly half came from one AI newsletter service, and he also saw ClaudeBot, OpenAI's bot, Google's crawler and vulnerability scanners.",
+   "source": "https://www.sammystraus.com/#i-posted-to-hn-and-then-my-website-was-flooded-with-ai-bot-traffic"
+  },
+  {
+   "fact": "Demand: the HN thread for that post has about 341 points and 183 comments, and commenters shared their own bot floods.",
+   "source": "https://zeli.app/story/50073221"
+  },
+  {
+   "fact": "Demand: an r/websecurity post asked 'Anyone else noticing more low quality traffic hitting sites recently?' One commenter checked their own site and found that nearly all its traffic was bots.",
+   "source": "https://reddit.sentinel-team.org/posts/1sk6hbm/snapshots/2026-04-17T17%3A00%3A11.258356Z"
+  },
+  {
+   "fact": "Every number on screen is Maya's own example, labelled as hers: host dashboard '14,200 visits' overnight, and GA4 Traffic acquisition rows such as reddit.com / referral, google / organic, (direct) / (none), pinterest.com / referral, adding up to a few hundred sessions. These are illustration only, not data.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "Night set. Maya's face is lit by the laptop and she's grinning. A screenInsert shows her host dashboard chart shooting straight up (labelled 'Host: requests'), with a \"+14,200\" pill (her example) by her head. She grabs her phone (pose phone) to text \"IT WENT VIRAL\". Floey on the laptop lid gives one chip and says the dry line. Maya types; whoosh. A listInsert titled 'GA4 · Traffic acquisition', sub 'Session source / medium', fills with real rows: reddit.com / referral, google / organic, (direct) / (none), pinterest.com / referral. The ring grows on the reddit row: that's where the readers came from. The big pill shrinks to a small, real one, and Maya's 'Oh.' gets a \"?\" mark that turns into a small fist. Running joke: her coffee has gone cold. Button: Floey pivots front to the viewer for the send-ask, and Maya looks to camera holding the phone with her unsent message.",
+ "pillar": "problem",
+ "instinct": "My host dashboard shows thousands of visits overnight, so my post went viral and I should tell everyone right now.",
+ "flip": "Your host counts every request, bots included, but GA4 leaves out known bots on its own, so Traffic acquisition in GA4 shows the readers who really came and where from.",
+ "idea": "Your traffic spike isn't readers until you check who actually arrived",
+ "style": "duo"
+}
