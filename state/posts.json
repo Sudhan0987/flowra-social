@@ -395,6 +395,17 @@
    "reason": "Frame 06: the GA4 'Landing page' box is empty (only the title, column headers and a subtitle stranded at the bottom) while Floey says 'That's where they came from'. The picture doesn't match the voice, and the key tip moment shows an unfinished-looking empty box at phone size. The source rows should be visible during this line. Frame 01: Floey says 'That graph can count bots too' but no graph is on screen (the 48,000 pill is cropped out of this shot), and none of the sampled frames shows the pla",
    "idea": "Your traffic spike isn't readers until you check who actually arrived",
    "style": "duo"
+  },
+  {
+   "id": "r024-your-host-s-traffic-spike-isn-t-readers-",
+   "status": "draft",
+   "topic": "Your host's traffic spike isn't readers: check GA4 to see who actually arrived",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-04T13:26:31.041Z",
+   "seconds": 30,
+   "idea": "Your traffic spike isn't readers until you check who actually arrived",
+   "style": "duo",
+   "run": 41833824089
   }
  ]
 }
