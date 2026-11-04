@@ -46,14 +46,16 @@
    "kind": "youtube-video",
    "title": "Tutorial 3 video ready for your review: Content pruning, what to cut and what to keep",
    "owner": "flowra",
-   "note": "From https://useflowra.com/blog/content-pruning"
+   "note": "From https://useflowra.com/blog/content-pruning",
+   "file": "youtube/t003-content-pruning/script.md"
   },
   {
    "date": "2026-11-19",
    "kind": "youtube-video",
    "title": "Publish Tutorial 3: Content pruning, update, merge, redirect or delete?",
    "owner": "you",
-   "note": "From https://useflowra.com/blog/content-pruning"
+   "note": "From https://useflowra.com/blog/content-pruning",
+   "file": "youtube/t003-content-pruning/script.md"
   }
  ]
 }
