@@ -413,6 +413,17 @@
    "idea": "Your traffic spike isn't readers until you check who actually arrived",
    "style": "duo",
    "run": 41833824089
+  },
+  {
+   "id": "r025-did-my-rewrite-work-three-steps-tag-the-",
+   "status": "failed",
+   "topic": "Did my rewrite work? Three steps: tag the date, wait a few weeks, compare against the whole site (save-ask)",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-05T13:38:02.568Z",
+   "seconds": 26,
+   "reason": "Frame 08: Floey says 'By 15 points' but the good-tone '+15 pts' pill never appears beside the page row. The card has a blank row where it should be, so the punchline isn't shown on screen. Frame 08: the speaker is missing. The script asks for a close shot of Floey alone giving a smug nod, but the card covers the scene and Floey can't be seen anywhere while she speaks. Frame 09: Floey overlaps the save card. Her body and wings sit on top of the card's title bar, as if she's poking through it, and",
+   "idea": "Did my rewrite work? Three steps: tag it, wait, compare",
+   "style": "duo"
   }
  ]
 }
