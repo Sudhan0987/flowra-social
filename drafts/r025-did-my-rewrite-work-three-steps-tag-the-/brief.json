@@ -1,0 +1,59 @@
+{
+ "topic": "Did my rewrite work? Three steps: tag the date, wait a few weeks, compare against the whole site (save-ask)",
+ "angle": "Maya rewrote her best post three weeks ago and is mid-refresh in Search Console. Her page's clicks are down a little, so she decides the rewrite failed and she's putting the old version back. Floey stops her with three steps that stay on screen: tag the change date (Search Console now has chart annotations), wait a few weeks (Google's own advice), then compare the page against the whole site over the same dates. The twist: her page is down 5% but the whole site is down 20%, so the rewrite actually beat the site. Save-ask experiment: the three steps stay on screen at the end and Floey says \"Save this for your next rewrite.\"",
+ "whyNow": "Evergreen, with real demand behind it: an r/SEO thread, \"How long do you wait when testing content changes?\" (16 points, 17 comments), asks this exact question, and the answers swing from \"7 to 14 days\" to \"at least 4 to 6 weeks\". Search Console's custom chart annotations, which make step one a single right-click, came out on 17 Nov 2025 and turn one year old this month. Many sites' traffic shifts with the seasons around now, which is the reason \"compare it to the whole site\" matters. This is also the first of the two planned 'save-ask' duo reels from our learnings.",
+ "goal": "save",
+ "audience": "Solo bloggers, in-house content writers and small agency people who refresh or rewrite old posts and then have no clear way to tell whether it worked, so they keep refreshing Search Console or roll the change back too early.",
+ "facts": [
+  {
+   "fact": "Google's SEO Starter Guide: \"Every change you make will take some time to be reflected on Google's end. Some changes might take effect in a few hours, others could take several months.\"",
+   "source": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+  },
+  {
+   "fact": "Google's SEO Starter Guide: \"In general, you likely want to wait a few weeks to assess whether your work had beneficial effects in Google Search results.\" (Floey's 'wait' step; say 'a few weeks', not a fixed number of days)",
+   "source": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+  },
+  {
+   "fact": "Search Console launched custom annotations on 17 November 2025: right-click a Performance report chart, choose 'Add annotation', pick the date and write a note of up to 120 characters.",
+   "source": "https://developers.google.com/search/blog/2025/11/custom-chart-annotations?hl=en"
+  },
+  {
+   "fact": "Google's own example uses for annotations include 'Changing content to focus on different user intents' and infrastructure changes like a template update or a site migration.",
+   "source": "https://developers.google.com/search/blog/2025/11/custom-chart-annotations?hl=en"
+  },
+  {
+   "fact": "Search Console limits: 200 annotations per property, notes can't be edited after you add them, and anyone with access to the property can see them.",
+   "source": "https://searchengineland.com/google-search-console-rolls-out-custom-annotations-for-performance-reports-464701"
+  },
+  {
+   "fact": "In the Performance report you can click the Date filter, then Compare, to put two date ranges side by side, and filter results by page URL.",
+   "source": "https://support.google.com/webmasters/answer/10268906"
+  },
+  {
+   "fact": "Google's traffic-drop guide says to check whether a drop is 'a wider trend or if it's just happening for your site', and that 'Different industries have different levels of seasonality.' (This is why the page gets compared to the whole site.)",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google's traffic-drop guide: 'some changes can take effect in a few days, while others could take several months.'",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Search Console's newest data can be preliminary and 'might change in the next few hours'; it shows as a dotted line on the chart. (Why refreshing today's numbers tells you little.)",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "Demand: the r/SEO thread 'How long do you wait when testing content changes?' (about Oct 2025, 16 points, 17 comments). Replies range from 'minimum of 7 to 14 days' to 'At least 4-6 weeks', and one points out that low-impression pages take longer to show a result.",
+   "source": "https://reddit.sentinel-team.org/posts/1sshp74/snapshots/2026-04-23T02%3A05%3A56.238666Z"
+  },
+  {
+   "fact": "EXAMPLE NUMBERS ONLY, framed as Maya's own: her rewritten page -5% clicks, her whole site -20% over the same dates. Not a statistic, never presented as one.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "Night set, desk lamp on, Maya's coffee going cold (running joke). Hook in mayaTight: Maya mid-refresh, clicking, then \"I rewrote it three weeks ago and it's DOWN. I'm putting the old one back.\" A \"-5%\" stat pill pops by her head (bad tone) with a \"sweat\" mark. Floey, perched on the laptop (floeyTight): \"Down compared to what?\" Maya: \"...To before?\" Floey: \"Three steps. Save them.\" Each step is a beat Maya acts out. 1) A screenInsert of her Performance chart drawing itself, and a small marker drops on the rewrite date (label \"Rewrote it, 14 Oct\": a made-up date, as an example). 2) Floey: \"Then wait a few weeks. Google says so.\" Maya looks at the mug: \"My coffee won't.\" 3) The central image is a listInsert titled \"Same dates, compared\" with two rows, \"This page: -5%\" (amber) and \"Whole site: -20%\" (red), and the hi ring growing round the page row. Maya: \"Wait. So it... won?\" Floey: \"By fifteen points.\" A small \"fist\" from Maya and a ding. Button: a final listInsert stays on screen, \"1 Tag the date / 2 Wait a few weeks / 3 Compare to the whole site\". Floey pivots front: \"Save this for your next rewrite.\" Maya sips, winces at the cold coffee and looks at camera. End card.",
+ "pillar": "problem",
+ "instinct": "Three weeks after a rewrite my page's clicks are still down a bit, so the rewrite failed and I should put the old version back.",
+ "flip": "Google says changes can take anywhere from hours to several months and suggests waiting a few weeks, and a page's change only means something next to the whole site's movement over the same dates (seasonality hits everyone), so tag the date, wait, then compare.",
+ "idea": "Did my rewrite work? Three steps: tag it, wait, compare",
+ "style": "duo"
+}

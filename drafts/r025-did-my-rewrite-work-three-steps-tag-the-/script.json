@@ -1,0 +1,116 @@
+{
+ "title": "Did My Rewrite Work? (save-ask)",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "My rewrite's down five percent. I'm putting the old one back.",
+   "emotion": "worried",
+   "caption": "My rewrite's down 5%. I'm putting the old one back.",
+   "visual": "Night set, desk lamp on. mayaTight from frame one, with only Maya in it: she is already in the panic face in the 'type' pose, mid-refresh, and the sweat mark is showing. A bad-tone '-5%' stat pill is up beside her head from t=0. It is nudged in to about x 760, y 560 so it sits fully inside the mayaTight frame, with nothing cut off at the edge. Fast keyboard clicks are panned to the laptop side."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "Down compared to what?",
+   "emotion": "playful",
+   "visual": "floey two-shot: Floey perches on the laptop lid facing Maya over the back of the laptop. She tilts her head, then gives one dry chip (chirp sound). Behind her, Maya freezes mid-type with her panic face held and the sweat mark still up."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "To before! I gave it three weeks. My coffee's gone cold.",
+   "emotion": "worried",
+   "visual": "wide: the mug (DUO.mug()) is on the desk by the laptop. Maya, annoyed, jolts upright (MY.jolt) out of the 'type' pose with a soft cloth rustle. On 'coffee' she glances down at the mug. Floey stays on the laptop lid and gives a slow smug nod, not impressed."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Good. Now check the whole site over the same dates.",
+   "emotion": "warm",
+   "visual": "floey two-shot: Floey takes off from the lid (wing whirr panned right to left) and hovers by Maya's head (floeyHover), then chips once on 'same dates'. Maya leans toward the laptop (MY.leanTo), her face moving from annoyed to deadpan, and goes back into the 'type' pose. Keyboard clacks."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Fine. Whole site's down... twenty percent?",
+   "emotion": "curious",
+   "caption": "Fine. Whole site's down... 20%?",
+   "visual": "listInsert, which comes in with a whoosh. Title: 'Same dates, compared'. Row one, 'Whole site: -20%' (red), slides in on 'twenty' (rowsK). Row two is still empty. Cut to maya: surprised face with MY.jolt, mouth open."
+  },
+  {
+   "role": "check",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "And your page?",
+   "emotion": "playful",
+   "visual": "floey two-shot: Floey, still hovering by Maya's head, tilts and gives a slow wink. Maya keeps the surprised face, frozen in the 'type' pose."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Five. Wait. So it beat the site?",
+   "emotion": "bright",
+   "caption": "5. Wait. So it beat the site?",
+   "visual": "listInsert again. Row two, 'This page: -5%' (amber), slides in under the red site row on 'Five' (rowsK). On 'Wait' a highlight ring grows round the page row (hiK) with one ding. Cut to maya: happy face, she sits up from the lean, and a fist mark pops with a soft tick at least 0.4 s after the ding."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "By fifteen points.",
+   "emotion": "proud",
+   "caption": "By 15 points.",
+   "visual": "listInsert holds with both rows and the ring on the page row. A good-tone '+15 pts' pill pops beside the page row (pop). Cut to floeyTight: Floey alone, hovering, gives one slow smug nod."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Save this for your next rewrite.",
+   "emotion": "proud",
+   "visual": "In order. (1) A new listInsert whooshes in as the save card while Floey says the line. Title: 'Did your rewrite work?'. One row: 'Page vs whole site, same dates'. It has no numbers and is short enough to sit inside its box. (2) The card whooshes out. (3) wide, silent acting, with END pushed about 1.5 s later to fit it. Floey, hovering by Maya's head, pivots to face the camera and gives a smug nod. Maya, pleased, switches to the 'mug' pose and sips (soft slurp). DUO.mug() is not drawn while she holds it. Her face drops to annoyed and she slumps a little: it's the cold coffee. Then she goes deadpan and gives the camera a slow look. End card."
+  }
+ ],
+ "loopNote": "The reel ends on Maya's deadpan look to camera with the cold mug in her hand, under the same lamp at the same desk. The replay cuts straight to frame one: Maya, close up, panicking over a '-5%' again, mid-refresh. It plays like her 'next rewrite' has already started and she's slipped back into the same panic.",
+ "caption": "Rewrote your best post, clicks dipped a bit, and now you want the old version back? Same, Maya. Same.\n\nBefore you undo anything, do one check. In the Search Console Performance report, filter to your page and look at its clicks since the change. Then remove the page filter, keep the same dates, and look at the whole site. If your page dipped a little but the whole site dipped a lot, the season hit everyone and your rewrite is actually ahead. Google also suggests waiting a few weeks before you judge a change.\n\n(Maya's numbers are just an example: page down 5%, whole site down 20%.)\n\nTip for next time: right-click the Performance chart and choose Add annotation to mark the day you changed the page.\n\nSave this for your next rewrite. Ever rolled back a change that was actually winning?\n\nMaya & Floey are from Flowra.",
+ "hashtags": [
+  "#seo",
+  "#blogging",
+  "#googlesearchconsole",
+  "#contentmarketing",
+  "#bloggingtips"
+ ],
+ "sticky": 50,
+ "id": "r025-did-my-rewrite-work-three-steps-tag-the-",
+ "format": "duo-sitcom",
+ "goal": "save",
+ "topic": "Did my rewrite work? Three steps: tag the date, wait a few weeks, compare against the whole site (save-ask)",
+ "editorNotes": [
+  "The cold-coffee joke is used up before the button. In the doubt line Maya says \"My coffee's gone cold\", and later the whole silent button is her sipping, wincing and realising it's cold. She already told us it was cold, so the wince is no surprise, the button falls flat and Maya looks dumb for forgetting. The line also doesn't help the doubt beat: it's a gag stuck onto her pushback. Fix: cut \"My coffee's gone cold\" from line 3 and save the coffee for the end, so she finds out it's cold at the same moment she finds out the rewrite was fine. That is the running joke as the cast sheet writes it.",
+  "The save card has nothing worth saving, and it isn't a complete insert. It is a listInsert with one row, 'Page vs whole site, same dates', and no value. The studio rule says every listInsert row has a real label and a real value with nothing blank. A one-line card also gives the viewer no reason to save, and this reel's goal is saves. Then the card whooshes out before the wide shot, but the brief asks for the save card to stay on screen at the end. Fix: make the save card a complete, readable listInsert that holds through Floey's line and the silent ending, for example the two real rows 'This page / -5%' and 'Whole site / -20%' under a title such as 'Did your rewrite work? Same dates'. Don't add more spoken tips.",
+  "The 'By fifteen points.' beat cuts to floeyTight, but floeyTight is 'Floey alone on the laptop'. By then Floey has flown off to floeyHover by Maya's head, so the shot would be empty or slice her. The beat also tries to hold the listInsert and cut to floeyTight at the same moment. The insert is screen space and covers the room, so her nod can't be seen. Pick one: hold the insert with the pill, then cut to a shot that actually frames floeyHover (wide or a nudged floey shot), and check nobody is cut off at the frame edge.",
+  "The '+15 pts' pill is placed 'beside the page row' of the listInsert. DUO.stat is a world-space pill in the room, near Maya's head, and the listInsert is a screen-space cutaway, so the animator can't attach one to a row of the other. Put the +15 in a way the studio supports: give the page row a value like '-5% (beat site by 15)', or close the insert and pop the stat pill by Maya's head in the room.",
+  "The payoff asks for 'a fist mark'. DUO.mark only draws '!', '?', 'sweat' and 'zzz'. Fist is a Maya pose (MY.pose 'fist', a small 'yes!'). Ask for the fist pose plus the tick sound, not a mark.",
+  "The button tries to fit too much into about 1.5 s of silent acting: the card whooshes out, a cut to wide, Floey pivots front and nods, Maya switches to the mug pose and sips, winces, slumps, goes deadpan and gives a slow look to camera. That is six or seven events, so they'll blur together and the look to camera won't land. The studio allows up to about 3 s. Push END to about 3 s and cut the beats down to sip, wince, look.",
+  "The save-ask is aimed at the viewer, but Floey says \"Save this for your next rewrite\" while still facing Maya, and only pivots to camera afterwards, during the silent acting. The studio allows Floey to turn front for the final button line, and this line is the one meant for the viewer. Use F.pivot(t, \"front\") at the start of the line. The silent ending then belongs to Maya.",
+  "(polish) \"Good.\" comes right after \"My coffee's gone cold\" and reads as Floey being glad the coffee is cold, not approving the three-week wait. That wait is the only place the brief's 'wait a few weeks' step survives. Once the coffee line goes, \"Good.\" lands on \"I gave it three weeks\" as intended. If the coffee line stays, Floey needs to say what is good (for example \"Three weeks is fair.\").",
+  "(polish) \"Now check the whole site over the same dates.\" The same dates as what? Read aloud once, a scroller might not get that it means the same before and after range as her page. Make it plainer, something like \"Now check the whole site, same dates.\" right after her \"to before\". Or let the insert title carry it.",
+  "(polish) MY.jolt is 'a startled jump with a pop sound', but the doubt beat uses it for Maya, annoyed, sitting upright. That's the wrong action, and the pop is a comic sound on an annoyed beat. The 'soft cloth rustle' isn't in the sound list either. Use MY.sit or MY.leanTo with the 'crossed' or 'shrug' pose, and save the jolt for the real surprise on 'twenty percent'.",
+  "(polish) Floey is asked for a 'slow smug nod' twice (doubt and payoff). MY.nod is Maya's control, and the duo README lists Floey's room behaviours as turn, tilt, wink, chip, preen, sip, take off and hover, with no nod. Check that floey.js has a nod. If it doesn't, use a tilt or a wink. In the doubt beat, 'smug nod, not impressed' also contradicts itself: pick one.",
+  "(polish) During the tip, Floey 'chips once on same dates', which puts her chirp on top of her own words. Move the chip into the pause after the line, or drop it. Her first line already has a chip.",
+  "(polish) The check beat says 'Row two is still empty'. Make sure the row simply hasn't slid in yet, through rowsK, and isn't drawn as a blank row, which the listInsert rule forbids. Also give each row a separate label and value ('Whole site' / '-20%') instead of 'Whole site: -20%' in the label.",
+  "(polish) The caption \"5. Wait. So it beat the site?\" starts with '5.', which looks like item five of a list, and this reel ends on a checklist-style save card. Caption it \"Five. Wait. So it beat the site?\" or \"-5%. Wait...\"",
+  "(polish) The '-5%' hook pill is placed for mayaTight, but the script never says what happens to it on the cut to the floey two-shot or wide. Fade it out before the first shot change, or confirm it stays inside the frame, so it isn't sliced at the edge.",
+  "(polish) Hook: on frame one, \"My rewrite's down five percent\" doesn't say down in what. That's fine for bloggers, but \"My rewritten post's down five percent\" or a quick Search Console chart behind the pill would make it clear to a stranger in 2 seconds. Keep the line short."
+ ],
+ "style": "duo",
+ "template": "../drafts/r025-did-my-rewrite-work-three-steps-tag-the-/scene.html"
+}

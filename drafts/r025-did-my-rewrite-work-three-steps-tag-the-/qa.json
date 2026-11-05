@@ -1,0 +1,11 @@
+{
+ "pass": false,
+ "problems": [
+  "Frame 08: Floey says 'By 15 points' but the good-tone '+15 pts' pill never appears beside the page row. The card has a blank row where it should be, so the punchline isn't shown on screen.",
+  "Frame 08: the speaker is missing. The script asks for a close shot of Floey alone giving a smug nod, but the card covers the scene and Floey can't be seen anywhere while she speaks.",
+  "Frame 09: Floey overlaps the save card. Her body and wings sit on top of the card's title bar, as if she's poking through it, and she already faces the camera before the card has gone (the turn should come after). The card also hides Maya's whole face except the top of her head.",
+  "Frame 09: the save card's content is wrong. The script asks for one short row with no numbers ('Page vs whole site, same dates'); the frame shows three rows with this reel's own numbers (-5%, -20%, 'Keep it'). That makes it a recap of Maya's case, not something worth saving for your own next rewrite.",
+  "Frame 05: Floey's beak stabs into Maya's hair and temple while she hovers by Maya's head. It reads as a collision rather than hovering beside her.",
+  "Frame 03 (minor): Maya doesn't match the line. For 'To before! I gave it three weeks...' she should jolt upright, annoyed, and glance at the mug on 'coffee'. She's still hunched in the typing pose with a shocked face, looking left towards the laptop, away from the mug on her right."
+ ]
+}
