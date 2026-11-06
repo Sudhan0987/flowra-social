@@ -1,0 +1,250 @@
+{
+ "style": "Maya's room at night: moon and stars in the window, warm desk-lamp glow, shelf, plant and spark poster kept soft. Maya (solo blogger, pencil bun) sits behind the desk with the back of her laptop (spark sticker) in front of her. Floey perches on the laptop lid facing her, and the mug sits at the desk's right end until Maya picks it up in beat 8. Captions are MAYA amber and FLOEY pink. The only cutaway is one laptop list insert (beats 6 to 7), there are no notifications, and Flowra appears only in the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "medium",
+   "camera": "shake",
+   "subject": "maya shot: Maya behind the desk, already mid-panic. A red '3 weeks' pill is up by her head (x 880, y 610), with a sweat mark on her other side. The laptop back and the mug are at the desk's right end.",
+   "action": "Frame one is mid-panic: hands up by her head (panic pose), wide panic eyes flicking down at the laptop. A small panic shake.",
+   "onScreenData": "3 weeks",
+   "sfx": []
+  },
+  {
+   "beat": 0,
+   "at": 1.5,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame. The pill has faded before the push.",
+   "action": "On 'squiggle' she jolts, then her hands slide to her cheeks (cheeks pose) and her eyes go wide at the screen.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone, perched side-on on the laptop lid, facing Maya.",
+   "action": "A slow head tilt on 'When', then one deadpan blink on 'rewrite'. Her feathers stay perfectly still.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "wide",
+   "camera": "whip",
+   "subject": "wide: both of them. Maya behind the desk, Floey on the lid.",
+   "action": "Whip back to the two-shot. Maya goes into the shrug pose with a worried face and her brows up. A '?' pops by her head. On the lid, Floey's mood goes flat (think) and her feathers settle.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.35,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey on the lid.",
+   "action": "Unbothered, she preens one wing while she talks, then turns her head back toward Maya on 'weeks'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 1.2,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face, listening.",
+   "action": "Reaction cut: her face goes surprised and her shoulders drop a little (slump).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya.",
+   "action": "Her face turns annoyed, arms crossed, with a flat stare left at Floey off screen (look x -1). On 'squiggle' she points left at the laptop (pointL).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floeyTight: Floey on the lid. The camera eases slightly closer.",
+   "action": "She winks on 'No date on it', then gives one chip on 'Add annotation' and stands a little taller, like a teacher.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.7,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 2.6,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot: Maya at the laptop. Floey is out of frame.",
+   "action": "Showing the tip happening: Maya switches to the type pose with a concentrating face (think), eyes down at the screen. She follows Floey's steps while 'Then Compare' plays.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.7,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The one cutaway: a laptop list insert slides into the top half over the wide shot. Title 'Same dates (my example numbers)', sub 'Annotated Wed 14 Oct: 3 wks before vs after'. Rows: 'This page' 120 to 150 '+25%' (good, hi); 'Whole site' 2,000 to 2,100 '+5%' (good).",
+   "action": "The insert swings in and its two rows slide in one after the other as she reads them. Every row is filled in.",
+   "onScreenData": "Wed 14 Oct",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.5,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 1.3,
+   "shot": "wide",
+   "camera": "drift",
+   "subject": "wide under the pinned insert: Maya behind the desk, Floey on the lid. Both are below the insert.",
+   "action": "Maya is in the chin pose, reading carefully. Her face lifts from think to happy on 'up five'. Floey watches her with a small head tilt.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight under the pinned insert: Floey on the lid. The insert's 'This page' row is above her.",
+   "action": "She chips once on 'beat the site'. A ring grows around the 'This page +25%' row. On 'That's the rewrite' she gives a small, satisfied preen.",
+   "onScreenData": "+25%",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 2,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey. The insert leaves.",
+   "action": "The list insert slides away and Floey settles her feathers.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face, the realisation.",
+   "action": "A push-in on 'Oh' with a surprised face, then a relieved, happy face and a small fist pose on 'It actually worked'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 1.5,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya with the mug in her hand. The desk mug is not drawn while she holds it.",
+   "action": "Silent beat (a longer gap after the line): she lifts the mug and takes a celebratory sip, stops mid-sip, gives the mug a flat deadpan look (it went cold), then sets it down hard.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.4,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them. The mug is back on the desk's right end, Floey is on the lid.",
+   "action": "Pull out to the two-shot. Maya, proud and happy, holds her phone up (phone pose) as if saving the reel, and her eyes slide to the camera on 'next rewrite'. Floey turns her head toward her.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey on the lid.",
+   "action": "She pivots front to the camera and says it dead flat, with one small preen after 'Wednesday'. It is a callback to the 'Wed 14 Oct' on the insert.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 1.2,
+   "shot": "close",
+   "camera": "whip",
+   "subject": "mayaTight: Maya's face.",
+   "action": "Whip to the listener for the button: arms crossed, an annoyed face, and a slow turn to the camera with a flat stare. A '?' pops by her head. She holds the look in silence (END pushed about 2 seconds after the line).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.7,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 3,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo intact, 'Maya & Floey, every day', and Floey perched in front on the spark's left arm.",
+   "action": "The end card lands as Floey arrives sideways and turns to face the camera. The captions are hidden.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}

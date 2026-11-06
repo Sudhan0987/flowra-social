@@ -1,0 +1,127 @@
+{
+ "title": "A... Tuesday?",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Three weeks since my rewrite. The chart's still a squiggle!",
+   "emotion": "worried",
+   "visual": "Frame one: the laptop screen insert is already up in the top half, showing her page's Search Console clicks line as a flat, wobbly squiggle with no marks on it. Below it, mayaTight: Maya in the panic pose, eyes wide, with a '?' mark beside her head. Her mug sits at the edge of the frame."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "When did you rewrite it?",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey perched on the laptop lid gives a slow head tilt, then one deadpan blink. The squiggle insert slides away with a soft whoosh."
+  },
+  {
+   "role": "reframe",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "A... Tuesday?",
+   "emotion": "worried",
+   "visual": "wide: Maya in the shrug pose with an unsure, worried face, eyebrows up. A '?' mark pops beside her head with a boing. On the lid, Floey's mood goes flat and unimpressed, feathers settling."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Well, Google says wait a few weeks.",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey preens one wing, unbothered, then pivots back toward Maya. Cut to mayaTight: Maya looks surprised, and her shoulders drop a little."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So why's it still a squiggle?",
+   "emotion": "warm",
+   "visual": "mayaTight: Maya in the annoyed pose, flat voice, flat stare at Floey off screen. On the last word she points left at the laptop (pointL)."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "No date on it. Right-click the Performance chart, Add annotation. Then Compare.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey winks on 'No date on it', then chips once on 'Add annotation' and once on 'Compare'. In the pause, cut to maya: Maya glances at her phone, then the type pose with a typing sfx. The laptop screen insert swings in with a whoosh: a right-click menu reading 'Add annotation' opens on the Performance chart, a small dot drops onto the line labelled 'Rewrote it, Wed 14 Oct', and it gets a green tick with a click sfx. Then the Date filter opens on the Compare tab: three weeks before the dot against three weeks after, and the chart redraws with the solid 'after' line above the dotted 'before' line."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Page up twenty five percent. Whole site, up five.",
+   "emotion": "bright",
+   "caption": "Page up 25%. Whole site, up 5%.",
+   "visual": "Typing sfx. A list insert slides in titled 'Same dates (my example numbers)', with rows: This page, 120 to 150, +25%. Whole site, 2,000 to 2,100, +5%. A '+25%' pill pops beside Maya's head with a ding. maya: Maya in the chin pose, reading it carefully, her face curious and lifting toward happy. Floey watches from the lid with a head tilt."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "Your page beat the site. That's the rewrite.",
+   "emotion": "warm",
+   "visual": "The list insert stays up, and a ring grows around the page row with a ding. floeyTight: Floey chips once, then gives a small, satisfied preen. The '+25%' pill fades out."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.7,
+   "say": "Oh. It actually worked.",
+   "emotion": "bright",
+   "visual": "mayaTight: Maya surprised on 'Oh', then happy and relieved on 'It actually worked', and she does the fist pose. In the silent beat after the line: she lifts the mug and sips (sip sfx), stops, and gives the mug a flat annoyed look while a tiny blue chill mark puffs off it. Nothing is said."
+  },
+  {
+   "role": "button",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Save this for your next rewrite.",
+   "emotion": "proud",
+   "visual": "A list insert slides in and stays pinned in screen space until the end card, titled 'Did my rewrite work?', with rows: 1 Tag the date (Wed 14 Oct). 2 Wait a few weeks. 3 Compare page vs site. wide: Maya, proud and happy, holds her phone up as if saving the card, her eyes sliding to the camera. Floey sits on the lid below the card."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "It was a Wednesday.",
+   "emotion": "proud",
+   "visual": "The three-step card stays pinned on screen. wide: Floey tilts her head up toward row one ('Wed 14 Oct', the date on the annotation Maya just added), then pivots front to the camera and says it dead flat with a small preen. Cut to mayaTight with the card still pinned over the shot: Maya in the annoyed pose turns slowly to the camera with a flat stare, and a '?' mark pops beside her head. End card."
+  }
+ ],
+ "loopNote": "The reel ends on mayaTight: Maya stares flat at the camera with a '?' mark beside her head. The first frame uses the same mayaTight framing and the same '?' mark, this time on her panic face under the squiggle chart. On a replay the Wednesday stare cuts straight into 'Three weeks since my rewrite', so the loop runs on the date she couldn't remember.",
+ "caption": "Rewrote your best post three weeks ago and can't remember what day you did it? Same. 🙃\n\nThe check, in three steps:\n1. Tag the date. In Search Console, right-click the Performance chart, choose Add annotation and mark the day you made the change.\n2. Wait a few weeks. That's Google's own advice, because changes take time to show up.\n3. Compare. Open the Date filter, go to the Compare tab and put the same length of time before and after side by side. Then check your whole site over the same dates. If your page beat the site, the rewrite did something. If both went up by the same amount, the rewrite didn't cause it.\n\nSave this for your next rewrite. Be honest: what day did you last update a post?\n\n(Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#searchconsole",
+  "#bloggingtips",
+  "#contentmarketing",
+  "#blogging"
+ ],
+ "sticky": 50,
+ "id": "r026-did-my-rewrite-work-three-steps-in-searc",
+ "format": "duo-sitcom",
+ "goal": "save",
+ "topic": "Did my rewrite work? Three steps in Search Console: tag it, wait, compare (save-ask)",
+ "editorNotes": [
+  "Plot hole: Maya's problem is that she doesn't know the rewrite date (\"A... Tuesday?\"). Two beats later she adds an annotation on exactly 'Wed 14 Oct' and the script never shows how she found it. A 0.5s 'glances at her phone' is too small to read. Viewers will ask how she knew the date, and the tip won't work for anyone who also doesn't know theirs. Show on screen how she finds the date (for example her post's last-updated date), or have Floey supply it. The Wednesday callback can't depend on information Maya already typed in herself.",
+  "The reframe doesn't follow. Maya has already said 'three weeks', and Google's 'wait a few weeks' is already met, so 'Well, Google says wait a few weeks' reads as either wrong or a non sequitur. It also drops the joke right after 'A... Tuesday?'. That line is where Floey should flip the problem in a few dry words: no date marked means any change is a guess. Then Google's 'a few weeks' should confirm that three weeks is enough time to judge, not tell her to wait. 'Well,' is filler.",
+  "Floey's tip line doesn't fully teach the method. 'Then Compare.' doesn't tell a listener what to compare (the same-length period before and after the date, in the Date filter's Compare tab). The whole-site check, which is the key fairness point in the brief, is never said by anyone. Maya just reads 'Whole site, up five'. Pressing menu labels together ('Right-click the Performance chart, Add annotation.') also sounds read rather than spoken. Present it as one plain method in Floey's few words: mark the date, compare the same weeks before and after, and check the whole site too. Keep it to one tip, not three separate pieces of advice spread over three lines.",
+  "Timing on the tip beat is impossible. In a 0.5s pause the script has a phone glance, a pose change to type, typing sfx, an insert swinging in, a right-click menu, a dot dropping, a tick with a click, the Date filter opening, and the chart redrawing as two lines. That also breaks the one-sound-per-0.4s rule. Split this into timed beats, giving each step at least 1.5 to 2s, and lengthen the GAP accordingly.",
+  "Some visuals can't be drawn with the studio. screenInsert draws one self-drawing chart with a title and label, so a right-click context menu, the Date filter/Compare tab UI, a dot with a green tick, and a dotted 'before' line under a solid 'after' line are not available. Rewrite these as what screenInsert and listInsert can show: titles and labels, separate inserts, or a listInsert with before/after rows. Also: Floey 'mood goes flat and unimpressed' isn't a Floey mood (hello, happy, worried, think, surprised, determined, sad, party), 'a tiny blue chill mark' isn't a mark (!, ?, sweat, zzz), and 'holds her phone up as if saving the card' isn't the phone pose, which is a call.",
+  "Spoken address breaks Sudhan's duo rule. 'Save this for your next rewrite.' is Maya speaking a CTA to the viewer, and duo reels end on a button with no spoken address. Keep the save ask but make it in-world: Maya saying it to herself or to Floey about saving the card, with only a look to camera.",
+  "Voice and face don't match on the doubt line. 'So why's it still a squiggle?' is marked 'warm', but the visual (and Maya's character) is flat and annoyed pushback. A warm read kills the doubt. Use a delivery that fits, such as worried or curious. Also, 'annoyed' is an expression, not a pose; the script says 'annoyed pose' here and in the last beat.",
+  "Layout collisions. In the hook, 'insert in the top half, mayaTight below, mug at frame edge' doesn't fit: mayaTight fills the frame with her face, the screenInsert covers it, and the mug at the desk end won't be in a tight shot. In the button, the three-step listInsert is 'pinned over' a wide shot where Floey must be visible 'below the card', then over mayaTight where Maya's face carries the final stare. State where the card sits and its size, and check that nobody's face is covered.",
+  "(polish) The payoff overclaims. 'That's the rewrite.' and 'It actually worked.' treat a before-and-after comparison as proof. Google's own guidance also says to check seasonality, and 120 to 150 clicks is small. Soften Floey's line ('That's probably your rewrite' / 'That's your rewrite showing') so the tip stays true.",
+  "(polish) Hook clarity: 'The chart's still a squiggle!' hints at the problem but never says it. The brief's 'can't tell if it worked' is clearer in the first 2 seconds. Also, '?' on a panic face reads oddly; '!' or 'sweat' fits panic better.",
+  "(polish) The ending mark is wrong. After 'It was a Wednesday', Maya now knows the date, so a '?' by her annoyed stare doesn't fit. Use no mark, or 'sweat'. The loop note relies on matching the '?' marks, so revisit that too.",
+  "(polish) Floey's emotions are off. 'When did you rewrite it?' as warm and 'It was a Wednesday.' as proud are both off for deadpan Floey. 'Curious' and 'playful' would carry the dry read better.",
+  "(polish) Step card content: listInsert needs a label and a value on every row. 'Wait a few weeks' and 'Compare page vs site' have no value set. Step 3 also merges the Compare-tab step and the whole-site check. Make the rows say what to do ('Same weeks before vs after', 'Check whole site too').",
+  "(polish) Small fixes: the caption 'up 5%' and the spoken 'up five' should match. The cold-coffee sip needs the mug pose and the desk mug hidden at the same time (one mug only). The ring ding and the +25% pill ding fall close together, so keep them at least 0.4s apart."
+ ],
+ "style": "duo",
+ "template": "../drafts/r026-did-my-rewrite-work-three-steps-in-searc/scene.html"
+}

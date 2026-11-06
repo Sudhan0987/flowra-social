@@ -1,0 +1,59 @@
+{
+ "topic": "Did my rewrite work? Three steps in Search Console: tag it, wait, compare (save-ask)",
+ "angle": "Maya rewrote her best post three weeks ago and can't tell if it worked. Floey asks when she rewrote it, and Maya can only say \"...a Tuesday?\" That's the whole problem: without a date marked, any change is a guess. Floey walks her through three Search Console steps she can do today. 1: right-click the Performance chart and add an annotation on the rewrite date. 2: wait a few weeks, which is Google's own advice. 3: use the Compare tab to put the same-length period before and after side by side, then check the whole site over the same dates so a sitewide rise doesn't get counted as her win. Experiment label: 'save-ask'. The three steps stay on screen at the end, and Maya says \"save this for your next rewrite.\"",
+ "whyNow": "",
+ "goal": "save",
+ "audience": "Solo bloggers, content marketers and small agency writers who refresh or rewrite old posts and then stare at Search Console unsure whether the change helped, especially anyone who has to tell a client or boss \"it worked.\"",
+ "facts": [
+  {
+   "fact": "Demand: an r/SEO post titled 'How long do you wait when testing content changes?' (16 points, 17 comments) asks how long to wait before judging a change to one blog post: 'I don't want to waste too much time waiting but at the same time I don't want to jump to premature conclusions.'",
+   "source": "https://reddit.sentinel-team.org/posts/1sshp74/snapshots/2026-04-23T02%3A05%3A56.238666Z"
+  },
+  {
+   "fact": "Demand: an r/seogrowth post asking for a process to update old content also asks how to measure whether an update worked, especially at scale.",
+   "source": "https://reddit.sentinel-team.org/posts/1snc17p/snapshots/2026-04-16T23%3A10%3A57.100538Z"
+  },
+  {
+   "fact": "Google's SEO Starter Guide: 'Every change you make will take some time to be reflected on Google's end.' Some changes take effect in a few hours, others could take several months.",
+   "source": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+  },
+  {
+   "fact": "Google's SEO Starter Guide: 'In general, you likely want to wait a few weeks to assess whether your work had beneficial effects in Google Search results.' It also says not every change has a visible effect, so you can keep adjusting.",
+   "source": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+  },
+  {
+   "fact": "Search Console has custom annotations: right-click the Performance chart, choose 'Add annotation', and write a note of up to 120 characters on a date. The note appears on the chart. Google gave 'Changing content to focus on different user intents' as an example use. (Search Central blog, 17 Nov 2025)",
+   "source": "https://developers.google.com/search/blog/2025/11/custom-chart-annotations?hl=en"
+  },
+  {
+   "fact": "Everyone with access to the Search Console property can see custom annotations, so keep personal information out of them.",
+   "source": "https://developers.google.com/search/blog/2025/11/custom-chart-annotations?hl=en"
+  },
+  {
+   "fact": "To compare periods in Search Console: open the Date filter, choose the Compare tab and pick periods to compare. The chart shows the two periods as a solid line and a dotted line.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google advises clicking through all the tabs (queries, pages and others) to see whether a change happened only on specific URLs or across the site, and checking for seasonality, since some drops happen every year.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Search Console's Performance report can show up to the last 16 months of data, and the newest data may be incomplete (drawn as a dotted line, it can change in the next few hours).",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Any click numbers Maya sees (for example, her page going from 120 to 150 clicks while the whole site also rises) are her own example numbers, framed as hers, not statistics.",
+   "source": "Flowra finding"
+  },
+  {
+   "fact": "Background only, not for the reel: Flowra's 'measure a change' feature tags a change, uses a 14 day settling window and adjusts for the whole site's movement. It is a before-and-after comparison, never a split test. The reel teaches the manual Search Console version and never mentions Flowra.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Day set. Maya at the desk with a cold mug, Floey perched on the laptop. Hook (mayaTight): Maya is stuck mid-scroll, saying \"I rewrote it three weeks ago and I still can't say if it worked.\" Floey (floeyTight): \"When did you rewrite it?\" Maya: \"...A Tuesday?\" A \"?\" mark pops by her head. A screenInsert cutaway swings in with whoosh. It shows her page's Search Console clicks chart drawing itself, and a small dot labelled 'Rewrote it, 14 Oct' drops onto the line with a tick (step 1, annotation). Back to wide: Maya pushes back once (\"So it didn't work?\"), and Floey answers that Google says give it a few weeks (step 2). A second screenInsert shows the dotted 'before' line under the solid 'after' line (step 3, Compare tab). A \"+25%\" pill pops near Maya's head with a ding, and she does the fist pose. Floey: \"Now check the whole site.\" A listInsert follows (title 'Same dates', rows: This page before 120 / after 150, Whole site before 2,000 / after 2,100; example numbers). The ring grows on the page row: the page beat the site, so the rewrite did something. Payoff: Maya says \"Oh.\" and sips the coffee, which is cold (running joke). Button: a listInsert of the three steps (1 Tag the date, 2 Wait a few weeks, 3 Compare page vs site) stays on screen. Maya, to camera: \"Save this for your next rewrite.\" Floey pivots front: \"You're welcome.\" End card.",
+ "pillar": "problem",
+ "instinct": "Three weeks after the rewrite the chart still looks like a squiggle, so Maya decides it didn't work and is ready to rewrite it again (or delete the blog).",
+ "flip": "Google says changes can take weeks to show and to wait a few weeks before judging. The fair check is the same-length period before and after a marked date, read against the whole site's movement, not a glance at the chart.",
+ "idea": "Did my rewrite work? Three steps: tag it, wait, compare",
+ "style": "duo"
+}
