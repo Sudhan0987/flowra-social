@@ -405,14 +405,15 @@
   },
   {
    "id": "r024-your-host-s-traffic-spike-isn-t-readers-",
-   "status": "draft",
+   "status": "approved",
    "topic": "Your host's traffic spike isn't readers: check GA4 to see who actually arrived",
    "format": "duo-sitcom",
    "madeAt": "2026-11-04T13:26:31.041Z",
    "seconds": 30,
    "idea": "Your traffic spike isn't readers until you check who actually arrived",
    "style": "duo",
-   "run": 41833824089
+   "run": 41833824089,
+   "note": "Approved by the founder in chat, 6 Nov 2026 (\"everything is approved\")."
   },
   {
    "id": "r025-did-my-rewrite-work-three-steps-tag-the-",
