@@ -436,6 +436,17 @@
    "idea": "Did my rewrite work? Three steps: tag it, wait, compare",
    "style": "duo",
    "run": 42221309374
+  },
+  {
+   "id": "r027-chatgpt-cited-my-blog-so-where-are-the-v",
+   "status": "failed",
+   "topic": "ChatGPT cited my blog, so where are the visitors? Mentions aren't clicks, and GA4 shows which pages the AI clicks actually landed on",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-07T12:06:14.857Z",
+   "seconds": 33,
+   "reason": "Frames 10-11: the 'Save this for next time ChatGPT mentions you' card seems to be missing. Frame 10 is mid-sip and frame 11 is already the end card, but the script wants a wince, a one-second flat look and then about 3 seconds on the card. A card held that long should show up in a sample, so either it was dropped or the end card comes too early. It is the only place the steps appear in writing: without it the tip in frames 04-05 is only spoken while the bird hovers. Restore the card, hold it abo",
+   "idea": "Getting cited by ChatGPT isn't the same as getting visits",
+   "style": "duo"
   }
  ]
 }
