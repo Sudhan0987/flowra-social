@@ -1,0 +1,10 @@
+{
+ "pass": false,
+ "problems": [
+  "Frames 10-11: the 'Save this for next time ChatGPT mentions you' card seems to be missing. Frame 10 is mid-sip and frame 11 is already the end card, but the script wants a wince, a one-second flat look and then about 3 seconds on the card. A card held that long should show up in a sample, so either it was dropped or the end card comes too early. It is the only place the steps appear in writing: without it the tip in frames 04-05 is only spoken while the bird hovers. Restore the card, hold it about 3 seconds and move the end card later.",
+  "Frame 09: the punchline shows the wrong character. 'Tell your mom you're famous. In 2023.' (tagged FLOEY) plays over a close-up of Maya with Floey out of shot. The script calls for a close shot of Floey on the lid with a smug head tilt on 'famous' and a dry chip. The joke has no visible speaker. Cut to Floey for the line, then to Maya for the sip.",
+  "Frames 01, 02, 08, 09, 10: in Maya's close-ups a small dark shape pokes in at the left edge around mid-height, probably Floey's beak or tail just outside the frame. It looks like a mistake on a phone. Crop or hide it.",
+  "Frame 02: Mum's message shows only 'So are you famous now?' and drops 'ChatGPT knows you!', the setup that ties Mum to the hook and the 'famous' button. The banner also sits on top of Maya's bun and pencil. Show the full text and move the banner up or shrink it.",
+  "Frame 08: on 'So I update that one' Maya is grinning with a hand on her head. The scripted moment where she turns determined, cracks her knuckles and types hard isn't there, so the 'fix it' beat doesn't land."
+ ]
+}

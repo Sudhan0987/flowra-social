@@ -1,0 +1,55 @@
+{
+ "topic": "ChatGPT cited my blog, so where are the visitors? Mentions aren't clicks, and GA4 shows which pages the AI clicks actually landed on",
+ "angle": "Maya has just screenshotted ChatGPT naming her travel guide and has already told her mum. Then she opens GA4 and the guide hasn't moved, so she decides analytics is broken. Floey points out that a mention isn't a click. Her one check: in GA4 Traffic acquisition, find the AI Assistant row and add Landing page. Maya finds that the AI visits are going to a different page, an old packing list that still says 2023. The fix is to keep that page current, and the honest catch is that answers which sent no click never show up anywhere in GA4.",
+ "whyNow": "AI citations are this month's talk. A new tool shared on Hacker News (CiteRank) tracks whether ChatGPT and Perplexity cite a site. A study run on 26 Sep 2026 found the two assistants shared only 24 of 99 top-five local picks, so citations move around and don't prove anyone visited. Since 13 May 2026 GA4 has an AI Assistant channel by default, so the check is now one row away for every site owner. Most of them haven't looked yet.",
+ "goal": "save",
+ "audience": "Solo bloggers, content site owners and small agency people who have asked ChatGPT about their own niche, seen their site named, and expected traffic to follow. Experiment label: save-ask (a short named check that stays on screen at the end, with 'save this for the next time ChatGPT mentions you').",
+ "facts": [
+  {
+   "fact": "GA4's default channel group now includes an 'AI Assistant' channel: 'the channel by which users arrive at your site from sources like ChatGPT, Gemini, Deepseek, Copilot, or Grok.' Its rule is that the medium exactly matches 'ai-assistant', which GA4 sets when the referrer matches its list of AI assistants.",
+   "source": "https://support.google.com/analytics/answer/9756891"
+  },
+  {
+   "fact": "The AI Assistant channel excludes Google's AI Overviews and AI Mode. Those count under Organic Search.",
+   "source": "https://support.google.com/analytics/answer/9756891"
+  },
+  {
+   "fact": "Google added the AI Assistant channel to GA4 in May 2026. Property owners don't need to set anything up. Before that, this traffic landed in Referral.",
+   "source": "https://www.searchenginejournal.com/google-analytics-adds-ai-assistant-as-default-channel-group/574974/"
+  },
+  {
+   "fact": "The AI Assistant channel only captures visits GA4 can identify by the referrer. Visits that arrive without one (in-app browsers, mobile apps, copied and pasted links) still land in Direct.",
+   "source": "https://www.searchenginejournal.com/google-analytics-adds-ai-assistant-as-default-channel-group/574974/"
+  },
+  {
+   "fact": "To see which pages AI tools send visitors to: Reports > Acquisition > Traffic acquisition, then add the secondary dimension 'Landing page + query string' (the guide filters by AI sources first; with the new channel you can read the AI Assistant row).",
+   "source": "https://www.semrush.com/blog/ai-referral-traffic/"
+  },
+  {
+   "fact": "AI referral traffic counts only visits from links in AI answers. An answer that uses or names your content without a click can't be measured this way, and some AI clicks show up as Direct because AI platforms don't always pass referrer information.",
+   "source": "https://www.semrush.com/blog/ai-referral-traffic/"
+  },
+  {
+   "fact": "OpenAI says ChatGPT automatically adds utm_source=chatgpt.com to referral URLs, so ChatGPT search traffic can be tracked in analytics tools like Google Analytics. Sites must not block OAI-SearchBot to appear in ChatGPT search summaries and snippets.",
+   "source": "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq (live page returned 403 to our fetcher; wording confirmed from indexed copies, so re-check before quoting word for word)"
+  },
+  {
+   "fact": "In a 26 Sep 2026 test of 20 'best {industry} in {city}, CA' searches, only 24 of the 99 businesses Perplexity named in its top fives also appeared in ChatGPT's top five, and the two picked the same #1 only once in 20 searches. The author calls it directional (each prompt was run once).",
+   "source": "https://www.clicksdynasty.com/blog-post-chatgpt-perplexity-local-recommendations.html"
+  },
+  {
+   "fact": "Demand: CiteRank, a new tool that tracks whether ChatGPT and Perplexity cite a site, was shared on Hacker News this month (from our 25 Oct social listening; the tool page was down when we checked).",
+   "source": "https://citerank.thecompound.tech"
+  },
+  {
+   "fact": "Flowra's AI traffic tracking reads visits referred by ChatGPT, Perplexity and other AI assistants from GA4 referrers. It measures visits that arrive and can't see answers that sent no click. (End card context only; the reel never mentions Flowra.)",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Day set. Hook (mayaTight): Maya holds her phone up to the camera with the screenshot, mid-brag: \"ChatGPT recommended my guide. I've told Mum.\" A notification slides down: \"Mum: so are you famous now?\" Cut to screenInsert: her guide's chart is a flat line. Maya, MY.jolt plus a \"?\" mark: \"GA4 is broken.\" Floey on the laptop (floeyTight, deadpan): \"A mention isn't a click.\" Maya pushes back once: \"So nobody came?\" Floey gives the tip in the floey shot: \"Traffic acquisition. AI Assistant row. Add landing page.\" Maya types (typing sfx). The listInsert whooshes in, titled \"Traffic acquisition: AI Assistant\", with rows of landing pages and Maya's own example session numbers: /packing-list-2023 is the top row and gets the hi ring, and the guide she screenshotted sits near the bottom. Maya: \"Wait. My packing list?\" Floey: \"It says 2023, Maya.\" Payoff: Maya realises the AI visitors are landing on a stale page. Floey adds the honest catch in one dry line: \"Answers with no click? Those, nobody sees.\" Button: three steps stay on screen as a small listInsert (\"1 Traffic acquisition / 2 AI Assistant row / 3 Add landing page\"). Maya reaches for her coffee, sips, it's cold (running joke), looks to camera: \"Save this for the next time ChatGPT loves me.\" Floey: \"You're welcome.\" Then the end card. Every number on screen is Maya's own example and shows nothing beyond what the facts above support.",
+ "pillar": "news",
+ "instinct": "If ChatGPT is citing my page, people must be clicking through to it, so if GA4 shows nothing, my analytics is broken.",
+ "flip": "A citation is not a visit: GA4's AI Assistant channel only counts people who actually clicked through (with a referrer), so the landing pages under that row show where AI visitors really go, and answers that sent no click never appear at all.",
+ "idea": "Getting cited by ChatGPT isn't the same as getting visits",
+ "style": "duo"
+}

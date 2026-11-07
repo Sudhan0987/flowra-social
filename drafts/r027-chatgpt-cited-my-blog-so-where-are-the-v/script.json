@@ -1,0 +1,109 @@
+{
+ "title": "ChatGPT Named My Guide. GA4 Says Nobody Came.",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "ChatGPT named my guide, and GA4 says nobody came.",
+   "emotion": "worried",
+   "visual": "Frame one: screenInsert of Maya's 'Portugal guide: visits' chart, the line already flat, with her line captioned over it. On 'GA4 says' cut to mayaTight: Maya, panic face, frozen over the laptop. Floey is out of shot."
+  },
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "I've told Mum. GA4 is broken.",
+   "emotion": "worried",
+   "visual": "mayaTight, day set. On 'told Mum' a phone notification slides down: 'Mum: ChatGPT knows you! So are you famous now?' (notification ding). On 'broken' Maya jolts and a '?' mark pops up over her bun (boing)."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "A mention isn't a click. GA4 only sees clicks.",
+   "emotion": "warm",
+   "visual": "wide: Floey sits on floeyLaptop on the laptop lid and says it deadpan with one slow blink. On 'click' Maya tilts her head and blinks slowly back. On 'only sees clicks' Floey gives one small preen of a wing feather."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So nobody came?",
+   "emotion": "worried",
+   "visual": "maya: Maya's shoulders drop and her face sags into worried. The pencil in her bun tips a little."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.45,
+   "say": "Some did. Traffic acquisition. AI Assistant row. Add landing page.",
+   "emotion": "playful",
+   "visual": "wide: on 'Some did' Floey takes off from the lid into floeyHover just above the laptop (wing buzz). She chips once on each step, three chip sounds panned right. Maya leans in and types fast (typing sfx, centre)."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "Wait. They're landing on my packing list?",
+   "emotion": "curious",
+   "visual": "On 'Wait.' a listInsert whooshes in, titled 'Traffic acquisition: AI Assistant + Landing page'. The rows are Maya's own example sessions: '/packing-list 38' (hi ring), '/lisbon-on-a-budget 9', '/cheap-ferries-greece 6', '/ (home) 4', '/portugal-guide 2'. On 'packing list?' cut to mayaTight: curious face, she pushes her glasses up and squints."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "The one that still says twenty twenty three.",
+   "emotion": "playful",
+   "caption": "The one that still says 2023.",
+   "visual": "floey: Floey drops back onto floeyLaptop on the lid (soft landing tap), tilts her head and gives one slow wink."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Oh. So I update that one.",
+   "emotion": "bright",
+   "visual": "maya: on 'Oh.' Maya's face goes from blank to bright, then she sets it to determined, cracks her knuckles and types hard (typing sfx). A '!' mark pops up beside her (pop)."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Tell your mom you're famous. In twenty twenty three.",
+   "emotion": "proud",
+   "caption": "Tell your mom you're famous. In 2023.",
+   "visual": "floeyTight: Floey stays on the lid, gives a smug little head tilt on 'famous', pauses, then a dry chip on 'twenty twenty three'. Cut to mayaTight with no words: Maya reaches for her mug and sips (sip sfx). It's cold: she winces (boing), lowers the mug and gives the camera a flat look, held a full second. Cut to its own short shot: a listInsert titled 'Save this for next time ChatGPT mentions you', with rows '1 Traffic acquisition: Reports > Acquisition', '2 Channel row: AI Assistant', '3 Secondary dimension: + Landing page', held about three seconds (soft whoosh in). Then the end card, with END pushed late enough for the sip, the look and the card to finish."
+  }
+ ],
+ "loopNote": "No loop. Duo reels end on the button: Floey's 'famous in twenty twenty three' callback to Mum, then Maya's silent cold coffee sip and look to camera, which finishes before the steps card. The steps card holds for the save-ask, then the end card.",
+ "caption": "ChatGPT named Maya's travel guide. She told her mum. Then GA4 showed a flat line. 🙃\n\nA mention isn't a click. GA4 only counts people who actually clicked through. To see where your AI visitors really land:\n1. Reports > Acquisition > Traffic acquisition\n2. Find the AI Assistant row (it's there by default now, no setup needed)\n3. Add Landing page + query string as a secondary dimension\n\nMaya's AI visitors skipped her shiny guide and landed on a packing list that still said 2023. That's the page to update first.\n\nTwo catches: Google's AI Overviews and AI Mode count under Organic Search, not AI Assistant. And answers that sent no click never show up in GA4 at all.\n\nSave this for the next time ChatGPT mentions you. Which page did your AI visitors land on? 👇\n\n(Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#blogging",
+  "#chatgpt",
+  "#googleanalytics",
+  "#contentmarketing"
+ ],
+ "sticky": 50,
+ "id": "r027-chatgpt-cited-my-blog-so-where-are-the-v",
+ "format": "duo-sitcom",
+ "goal": "save",
+ "topic": "ChatGPT cited my blog, so where are the visitors? Mentions aren't clicks, and GA4 shows which pages the AI clicks actually landed on",
+ "editorNotes": [
+  "Beat 2 notification text is too long. 'ChatGPT knows you! So are you famous now?' is 41 characters, and the studio limit is about 34. It will overflow or wrap. Cut it to the brief's own line, 'so are you famous now?', with 'Mum' as the sender.",
+  "Beat 6 cuts away from the reveal too early. The list insert whooshes in on 'Wait.' and the script cuts to mayaTight on 'packing list?', so the five rows and the ring on /packing-list are on screen for under a second. Nobody can read that, and the line's key number isn't beside her words when she says them. Keep the insert up through Maya's line and Floey's '2023' reply, with Maya's voice over it, then cut to her face for the reaction.",
+  "The ending buries the button and runs past the studio limit. After Floey's line, the script plays a cold-coffee sip, a held look to camera and then a separate 3-second text card before the end card. That is about 5 to 6 seconds of silent tail when the studio allows up to about 3. The last thing the viewer sees is a menu, not the joke. Bring the steps card in earlier (as Maya says 'So I update that one', or held small on screen during Floey's last line), so the order is: Floey's line, then the sip and look to camera, then the end card.",
+  "The steps card would send savers to the wrong place, and its rows are incomplete. Row 1, 'Traffic acquisition: Reports > Acquisition', puts the menu path backwards: it should read Reports > Acquisition > Traffic acquisition. Row 3 says '+ Landing page', but the sourced dimension is 'Landing page + query string'. Each row is also crammed into one long label with no value, and listInsert needs both. Write each row as a short step label plus a value, for example 'Open' / 'Reports > Acquisition > Traffic acquisition', 'Row' / 'AI Assistant', 'Add' / 'Landing page + query string'. Measure the text so none of it overflows.",
+  "Some acting can't be drawn with the studio's controls. Maya has no 'determined' or 'blank' face, no knuckle-crack, no glasses push and no squint (beats 6 and 8). Her blinks are automatic, so a 'slow blink back' (beat 3) can't be directed, and neither can 'the pencil tips' (beat 4); the bun only wobbles on its own. Floey has no 'slow blink' (beat 3). Rewrite these with real controls: expr think or surprised, then happy or proud; pose chin or type; MY.slump; F.wink; F.tilt.",
+  "The cold-coffee wince has no expression to draw. There is no wince face. Use expr annoyed or deadpan, with a short MY.jolt or tilt on the boing. Make sure DUO.mug() is on the desk before she reaches for it and is hidden while her pose is 'mug', so there is only one mug.",
+  "(polish) The button line takes a second to parse. 'Tell your mom you're famous. In twenty twenty three.' could mean she was famous back in 2023, or that she's famous for a page from 2023. Spoken, the second sentence lands as a correction rather than a punchline. It needs to say outright that the fame belongs to a stale page. Something closer to 'Tell your mom. You're famous for 2023.' (or a tighter version) would get the laugh in one beat. Keep Floey's American 'mom'; it is correct for her.",
+  "(polish) Nothing on screen shows the page says 2023, so Floey's 2023 line has no visual support. The row label is just '/packing-list', even though the brief had '/packing-list-2023'. Use '/packing-list-2023' as the ringed row so the punchline is on screen before she says it.",
+  "(polish) Beat 3's 'GA4 only sees clicks' is slightly off. GA4 counts visits, and the brief's facts say some AI clicks land in Direct, so the AI Assistant row doesn't catch every click. 'GA4 only sees visits' (or 'only counts people who clicked') is truer and just as short.",
+  "(polish) Three small mismatches in the early beats. Beat 2's emotion is 'worried', but 'GA4 is broken' is denial, so annoyed would read better. The '?' mark on 'broken' clashes with a flat statement; use '!'. The frame-one chart should clearly sit near zero with a labelled axis, because a flat line on its own can read as steady traffic rather than 'nobody came'.",
+  "(polish) Two notes for the animator in beats 5 to 7. floeyHover is at Maya's eye height on her left, not 'just above the laptop', so place her there or nudge her and check the framing. The 'soft landing tap' isn't a listed sound; use tk or flutter. Also measure the beat 6 insert title, 'Traffic acquisition: AI Assistant + Landing page', which is long enough to overflow."
+ ],
+ "style": "duo",
+ "template": "../drafts/r027-chatgpt-cited-my-blog-so-where-are-the-v/scene.html"
+}
