@@ -1,101 +1,125 @@
 {
- "date": "2026-10-25",
+ "date": "2026-11-08",
  "studied": 14,
  "captured": 0,
- "summary": "This week's set has 14 Shorts. Five are new (WT_DwIXytIU, v3stxqhq6eg, KYgBVj9rrYc, dGVP0kfXtTg, xbWO6DvxZS0). We still only have first frames and covers, with no spoken words, and two of the new five are road traffic videos that matched the word 'traffic'. The openings that hold put one readable line in frame one next to a face or character reacting, or name the outcome before showing it: a streamer arguing with his AI with the answer captioned, a short 'X, not just Y' claim over a search box being typed into, or 'TOTAL LOSS' over a shocked face. Our own reels agree. The Maya duo reels, which open on someone saying the problem out loud, hold Instagram viewers for 4.8 to 9.6 seconds, against 2.2 to 4.2 on the garden reels. Saves and shares are still close to zero, so anything beyond attention is an early signal.",
+ "summary": "This week's 14 Shorts include five new ones (KO4LHz0Pwa4, HcWARkOFjDg, UNNnlMQZTBU, FkNbN9o_WgU, z65X5U7XMIw), still only as first frames and covers with no spoken words. The openings that hold put one short readable line in frame one. That line either names the loss or quotes the belief that is about to break ('Ai will take over world they said' on a 195,000 subscriber channel), and it sits next to a face or character reacting. Our own 16 reels agree: the Maya and Floey duo reels, which open on the problem said out loud, held 9 of 11 viewers' attention for 7.3 seconds or more, against 2 to 4 seconds for the garden reels, though saves and shares are still almost zero.",
  "patterns": [
   {
    "name": "The voiced frustration",
    "formula": "A character says [the frustration your viewer has] out loud: 'You [did the work] and still can't [know or get the result].' A second voice answers, captioned.",
-   "why": "Viewers hear their own complaint from someone else in the first second, so they stay to find out whether it gets answered. This is the structure behind our Maya duo reels, which are now clearly our best at holding attention.",
-   "picture": "Frame one: Maya mid-sentence and visibly annoyed, with her line as a one-line caption and the problem object (a chart, a page) beside her. The answering voice gets its own caption, labelled with who is speaking, by 1.5 seconds. The new stranger example works the same way: a streamer mid-argument under a caption naming the test, then his AI's reply captioned under a 'Bernard (his AI)' label. Use our own characters, never fake posts or quotes.",
+   "why": "Viewers hear their own complaint from someone else in the first second, so they stay to find out whether it gets answered. This is the structure behind our Maya and Floey duo reels, which are clearly our best at holding attention.",
+   "picture": "Frame one: Maya mid-sentence and visibly annoyed, with her line as a one-line caption and the problem object (a chart, a page) beside her. Floey's answer gets its own caption by 1.5 seconds, labelled with her name. Use our own characters, never fake posts or quotes.",
    "forFlowra": "You rewrote the page and still can't tell whether it worked.",
    "examples": [
     {
-     "words": "On screen: 'Jynxzi tests his AI on Siege', then a speaker label 'Bernard (his AI)' over the caption 'America are tied'",
+     "words": "From last week's library. On screen: 'Jynxzi tests his AI on Siege', then a speaker label 'Bernard (his AI)' over the caption 'America are tied'",
      "onScreen": "First frame: a streamer in white headphones talking mid-sentence over his streaming software, with the caption at the top. Cover: the same streamer smirking as the AI's answer appears in yellow and white captions below him. A clip channel with 252 subscribers",
      "url": "https://www.youtube.com/shorts/dGVP0kfXtTg",
      "views": 19887,
      "breakout": 9.94
     },
     {
-     "words": "From last week's library. On screen, a quoted post: 'Can we please have the non-AI version of Google back? I do not want an AI summary...' with a reply above: 'Am I the only one who actually likes and appreciates the...'",
+     "words": "From an earlier library. On screen, a quoted post: 'Can we please have the non-AI version of Google back? I do not want an AI summary...' with a reply above: 'Am I the only one who actually likes and appreciates the...'",
      "onScreen": "First frame: a post screenshot floating over first-person block-game parkour. By 3s the reply post is above it and the runner is moving. Channel has 100 subscribers",
      "url": "https://www.youtube.com/shorts/teoFJLTQCUA",
      "views": 20054,
      "breakout": 10.03
     }
    ],
-   "ours": "All six Maya duo reels held Instagram viewers for 4.8 to 9.6 seconds, against 2.2 to 4.2 seconds on the garden reels, and five of the six passed 100 Instagram views. They almost never get saves or shares. The attention result is now fairly solid. Anything about saves is still an early signal."
-  },
-  {
-   "name": "The screenshot receipt",
-   "formula": "Your [tool or result you trust] says [the thing, highlighted]. [A character reacts], and here's what it hides.",
-   "why": "People can read an interface they already know in a split second, and one highlighted line tells the eye where to look, so the claim is believable before anyone speaks. A reaction face underneath tells the viewer how to feel about it. A bare dashboard with no reaction gives them nothing.",
-   "picture": "Top half: the screen, with one line highlighted. Bottom half: a reacting character. A short caption sits above both. For Floey: the garden's total line dips at the top while she squints at it below, then she zooms down to the one flower that caused the dip. Show only the shape of the line, never a made-up figure.",
-   "forFlowra": "Your traffic chart shows the drop. It won't tell you which page caused it.",
-   "examples": [
-    {
-     "words": "From last week's library. On screen: 'Google is not googling', a search 'was 1995 30 years ago' with the AI Overview line 'No, 1995 was not 30 years ago' highlighted, and 'Google:' above the reaction",
-     "onScreen": "First frame: the AI Overview screenshot on black above a sleepy cartoon squid face. By 3s the face has turned into a giant pink brain under the same 'Google:' label. 8,720 subscriber channel",
-     "url": "https://www.youtube.com/shorts/XLh4kRPm5GA",
-     "views": 1145253,
-     "breakout": 131.34
-    },
-    {
-     "words": "On screen: 'All the Bros'",
-     "onScreen": "First frame: one Google AI Overview result above a stern reaction face. Cover: two conflicting AI Overview results side by side above the same face. 1,650 subscriber channel",
-     "url": "https://www.youtube.com/shorts/ZVXetL5bpso",
-     "views": 18094,
-     "breakout": 9.05
-    }
-   ],
-   "ours": ""
+   "ours": "Our strongest result. Of the 11 Maya and Floey duo reels, 10 passed 100 Instagram views and 9 held people for 7.3 seconds or more, against 2 to 4 seconds for the garden and pro reels. They almost never get saved or shared, so this pattern wins attention but not yet saves."
   },
   {
    "name": "The aftermath first",
-   "formula": "Your [page or result] already [took the hit]. Here's [when or where] it started.",
-   "why": "Naming or showing the damage up front means the viewer has to stay for the cause. Both examples are road traffic videos, not web traffic. One opens on the injured rider. The other labels its calm ride 'TOTAL LOSS' and puts a shocked face on the cover, so every quiet second becomes suspense. We borrow the structure (outcome first, cause after) and nothing else.",
-   "picture": "The wreck or a one-line verdict is in frame one, never a calm build-up with no label. For Floey: she lands beside a flower that has already wilted flat, under the caption naming the loss, then rewinds along its stem to the week it started bending. Keep it light, never gory.",
+   "formula": "Your [page or result] already [took the hit or got the harsh verdict]. Here's [when, where or why] it happened.",
+   "why": "When the damage or the verdict comes first, the viewer has to stay for the cause. The road traffic videos open on the injured rider or label a calm ride 'TOTAL LOSS'. The peanut Short names the judge ('THE DEVS') and then tells the viewer how to feel ('THIS IS VERY HURTFUL'). Either way, the outcome lands before any detail. We borrow the outcome-first structure, never the subject. This pattern now includes last week's 'brutal report card'.",
+   "picture": "Frame one shows the wreck, the verdict line, or a character holding the bad report, never a calm build-up with no label. For Floey: she lands beside a flower that has already wilted flat, under a caption naming the loss, then rewinds along its stem to the week it started bending. Keep it light, never gory, and show no made-up figures.",
    "forFlowra": "Your best page already lost its clicks. Here is the week it started.",
    "examples": [
     {
      "words": "No text in the first frame. Title (Hindi, translated): 'Follow for part 2. What suddenly happened in the middle of traffic?'",
-     "onScreen": "First frame: a wide-angle helmet-cam shot of a young man with blood on his forehead and hand, standing by a taxi under a metro station. Cover: the rider separating two men arguing by the taxi. Off topic (road traffic), 15,300 subscriber vlog",
+     "onScreen": "First frame: a wide-angle helmet-cam shot of a young man with blood on his forehead and hand, standing by a taxi under a metro station. Cover: the rider separating two men arguing by the taxi. Off topic (road traffic), 15,600 subscriber vlog",
      "url": "https://www.youtube.com/shorts/AUZAIx0xuyY",
-     "views": 3378022,
-     "breakout": 220.79
+     "views": 3386576,
+     "breakout": 217.09
+    },
+    {
+     "words": "On screen: 'THE DEVS', then 'THIS IS VERY HURTFUL'",
+     "onScreen": "First frame: game peanut characters in beanies at a table, with the yellow caption 'THE DEVS'. Cover: the same characters over a text report card, under the huge caption. 263,000 subscriber channel, a 179 second video, so only the opening applies to us",
+     "url": "https://www.youtube.com/shorts/uSLBvyv9ib4",
+     "views": 3136192,
+     "breakout": 11.92
     },
     {
      "words": "No text in the first frame. Cover banner: 'LIVE SUZUKI CRUSH TOTAL LOSS'",
-     "onScreen": "First frame: a calm motorbike POV on a city flyover, with no caption. Cover: the dented white car beside the bike, with a shocked man's meme face inset under the red banner. Off topic (road traffic), from a 93,900 subscriber channel",
+     "onScreen": "First frame: a calm motorbike POV on a city flyover, with no caption. Cover: the dented white car beside the bike, with a shocked man's meme face inset under the red banner. Off topic (road traffic), 113,000 subscriber channel",
      "url": "https://www.youtube.com/shorts/xbWO6DvxZS0",
-     "views": 749051,
-     "breakout": 7.98
+     "views": 750337,
+     "breakout": 6.64
     }
    ],
    "ours": ""
   },
   {
-   "name": "The flat contradiction",
-   "formula": "[The thing your field swears by] doesn't [do what you think]. [The overlooked thing] does. Or: [Your thing] should [do the better job], not just [the usual one].",
-   "why": "A short, confident claim against what the viewer believes creates an itch that only the explanation can scratch, and it takes under two seconds to say. The new example puts its 'answers, not just finds' line in big type over a search box with a real question being typed, so the claim and its proof share frame one. It comes from a 589 subscriber brand channel, so its score is probably inflated, but the layout is clean.",
-   "picture": "One line of large text in frame one, with the object it is about (a search box, a page) right under it. For Floey: she flies past a shiny new flower to a drooping old one as the word 'new' fades out.",
-   "forFlowra": "Your next new post won't fix the old pages losing clicks.",
+   "name": "The screenshot receipt",
+   "formula": "Your [tool or result you trust] says [the thing, highlighted]. [A character reacts], and here's what it hides.",
+   "why": "People can read an interface they already know in a split second, and one highlighted line tells the eye where to look, so the claim feels true before anyone speaks. A reacting face underneath tells the viewer how to feel about it. A bare dashboard with no reaction gives them nothing.",
+   "picture": "Top half: the screen, with one line highlighted. Bottom half: a reacting character. A short caption sits above both. For Floey: the garden's total line dips at the top while she squints at it below, then she zooms down to the one flower that caused the dip. Show only the shape of the line, never a made-up figure.",
+   "forFlowra": "Your traffic chart shows the drop. It won't tell you which page caused it.",
    "examples": [
     {
-     "words": "On screen: 'Search that answers, not just finds.' over a search box with the query 'How do I request a parking permit?'",
-     "onScreen": "First frame: the claim in large black type on a pale lilac background, with the search box below. Cover: 'Deliver better answers with AI' and three labelled buttons. Brand channel with 589 subscribers",
-     "url": "https://www.youtube.com/shorts/WT_DwIXytIU",
-     "views": 171990,
-     "breakout": 86
+     "words": "On screen: 'All the Bros'",
+     "onScreen": "First frame: one Google AI Overview result above a stern reaction face. Cover: two conflicting AI Overview results side by side above the same face. 1,870 subscriber channel, still ranking",
+     "url": "https://www.youtube.com/shorts/ZVXetL5bpso",
+     "views": 19037,
+     "breakout": 9.52
     },
     {
-     "words": "Title: 'Keywords Don't Matter'. Cover word, repeated: 'BLANK'",
-     "onScreen": "First frame: an animated bald character grinning and gesturing at a desk, neon background, no text. Cover: the same character laughing with 'BLANK' scattered around him. 23,300 subscriber channel",
-     "url": "https://www.youtube.com/shorts/k6MpyzSnipM",
-     "views": 193375,
-     "breakout": 8.3
+     "words": "From an earlier library. On screen: 'Google is not googling', a search 'was 1995 30 years ago' with the AI Overview line 'No, 1995 was not 30 years ago' highlighted, and 'Google:' above the reaction",
+     "onScreen": "First frame: the AI Overview screenshot on black above a sleepy cartoon squid face. By 3s the face has turned into a giant pink brain under the same 'Google:' label. 8,720 subscriber channel",
+     "url": "https://www.youtube.com/shorts/XLh4kRPm5GA",
+     "views": 1145253,
+     "breakout": 131.34
+    }
+   ],
+   "ours": "r006, an AI answer reel on the same topic as these examples, got 2 of our only 4 saves. That is a signal about the topic, and we have not yet tested the highlighted-screen layout."
+  },
+  {
+   "name": "They said",
+   "formula": "[The advice everyone in your field repeats], they said. [The deflating result on your own site.]",
+   "why": "The first line is a promise the viewer has heard a hundred times, and 'they said' tells them it's about to fail, so they wait for the punchline. It is new this week and comes from a 195,000 subscriber channel, so the score is not inflated. The whole joke fits in one caption and one picture.",
+   "picture": "Frame one: the 'they said' line alone as a caption on a plain background. By 3 seconds a single picture of the letdown appears under it. For Floey: the caption 'Just publish more, they said' over a row of shiny new flowers, then the camera pulls back to the older flowers drooping behind them while she stares. Paraphrase common advice only, never an invented quote from a real person.",
+   "forFlowra": "Just publish more posts, they said. Your old pages kept losing clicks.",
+   "examples": [
+    {
+     "words": "On screen: 'Ai will take over world they said' (with a wilted rose emoji). Cover adds the caption 'I'M BRICKED UP'",
+     "onScreen": "First frame: the caption in a white bar over an almost black screen. Cover: the same caption above a meme picture of a brick wall with loose bricks and the words 'I'M BRICKED UP'. Title tags it as an AI Overview screenshot. 195,000 subscriber channel",
+     "url": "https://www.youtube.com/shorts/UNNnlMQZTBU",
+     "views": 1716997,
+     "breakout": 8.81
+    }
+   ],
+   "ours": ""
+  },
+  {
+   "name": "The pinned headline",
+   "formula": "A fixed one-line headline naming [the result you want, or a real step count] stays on screen while the speaker says: 'Your [thing] [specific claim]'.",
+   "why": "The pinned bar tells a muted viewer what the video is about in frame one and keeps it there, so anyone joining at second two still knows why to stay. Word-by-word captions under it give the eye something new each beat. This is now the best-supported layout from mid-sized channels (6,130 and 42,900 subscribers), and it includes last week's 'numbered promise' as its counting version.",
+   "picture": "A one-line bar at the top or bottom from frame one, with captions building word by word beside a talking face. For Floey: a pinned leaf banner 'Prove your rewrite worked' along the top while three seed markers light up on the path as she names each step. Use only a count Flowra's process really has: tag the change, wait out the 14 day settling window, compare before and after.",
+   "forFlowra": "Check whether your rewrite worked in three steps: tag it, wait, compare.",
+   "examples": [
+    {
+     "words": "On screen, fixed bar: 'Nonsense AI Overviews! Is Google Liable?' Cover caption: 'these false claims'",
+     "onScreen": "First frame: a man in glasses and a pale shirt talking to camera on a peach background, under the gradient title bar. Cover: the same bar over a stock photo of a young man shouting into a megaphone with a 'Stop' sign. 6,130 subscriber channel. The headline is a yes or no question, so copy the layout, not the wording",
+     "url": "https://www.youtube.com/shorts/KO4LHz0Pwa4",
+     "views": 130984,
+     "breakout": 21.37
+    },
+    {
+     "words": "On screen: 'build brand trust', then 'with 5 practical steps', under a fixed label '5 Steps to Build Brand Trust'",
+     "onScreen": "First frame: a close-up of a woman talking to camera in a dark studio, with a teal title bar at the bottom. Cover: the same woman smiling, the same bar, and the next caption above it. 42,900 subscriber channel",
+     "url": "https://www.youtube.com/shorts/RCbQYtV0TIw",
+     "views": 398519,
+     "breakout": 9.29
     }
    ],
    "ours": ""
@@ -103,74 +127,47 @@
   {
    "name": "Good news with a catch",
    "formula": "Your [gain you wanted] doesn't mean [the result you assume] until you [check the thing you skipped].",
-   "why": "It opens on something the viewer wants and then takes it away, so they stay to hear the catch. Our r006 used this shape and got 2 of the only 3 saves across all 11 of our reels. No stranger video in this week's ranking uses it, so the pattern rests on our own early signal.",
-   "picture": "Something good happening, with one warning word in a contrasting colour, in frame one. For Floey: a flower glows under a big AI lens while its nectar line drains beside it.",
+   "why": "It opens on something the viewer already has or wants, then takes it away, so they stay to hear the catch. The new Adsterra example opens on 'you have traffic, and it isn't working for you yet', from a 7,570 subscriber channel. Its first frame has no caption, though, so the hook only lives in the title.",
+   "picture": "Something good happening, with one warning word in a contrasting colour, in frame one. For Floey: a flower glows under a big AI lens while the nectar line beside it drains. Put the caption on screen from the first frame.",
    "forFlowra": "Your page showing up in AI answers doesn't mean anyone clicked it.",
    "examples": [
     {
-     "words": "From last week's library. Title: 'More visitors = more opportunities! But can your website handle the traffic?' Cover word: 'hosting'",
-     "onScreen": "First frame: a man standing calmly by a desk and a city window, no text. Cover: the same man leaning over a laptop with glowing data and the single red word 'hosting'",
+     "words": "No text in the first frame. Title: 'Have website traffic? Put it to work'. Cover caption: 'Wait, you're still here?'",
+     "onScreen": "First frame: a man in a cap mid-sentence and gesturing at a desk, with a dashboard on the monitor behind him. Cover: the same man turned to camera with the cheeky caption. 7,570 subscriber brand channel",
+     "url": "https://www.youtube.com/shorts/HcWARkOFjDg",
+     "views": 80154,
+     "breakout": 10.59
+    },
+    {
+     "words": "From an earlier library. Title: 'More visitors = more opportunities! But can your website handle the traffic?' Cover word: 'hosting'",
+     "onScreen": "First frame: a man standing calmly by a desk and a city window, with no text. Cover: the same man leaning over a laptop with glowing data and the single red word 'hosting'",
      "url": "https://www.youtube.com/shorts/DkWGbgxYmnU",
      "views": 49069,
      "breakout": 24.53
     }
    ],
-   "ours": "r006, a news reel opening on Google's AI showing your page while its clicks fall, earned 2 saves and 1 share. Across all 11 reels we have only 3 saves and 2 shares, so it is still our best saver. Viewers left within 2 to 4 seconds, though. One reel, so an early signal: pair this shape with Maya speaking it to also hold attention."
+   "ours": "r006 opened on Google's AI showing your page while its clicks fall. It earned 2 saves and 1 share, half of the 4 saves and 2 shares we have across all 16 reels. Viewers still left within 2 to 4 seconds. It is one reel, so treat it as an early signal, and pair this shape with the duo voicing it."
   },
   {
-   "name": "Called by name, chore and all",
-   "formula": "[Your exact kind of team] [does the tedious task] every [day or week]. [The fix] does it for you now.",
-   "why": "Naming one kind of worker and the dull job they repeat lets those viewers recognise themselves in under two seconds, so the relief line feels personal. The strongest example (school nurses) has left this week's ranking, and the one that remains is a 0 subscriber channel, so the evidence is thinner than last week.",
-   "picture": "Frame one shows the person or character doing the chore, with the sentence naming them as the only caption. The tool screen with the result follows. For Floey: she flits from flower to flower checking each one by hand, then the drooping ones line up in a single row.",
-   "forFlowra": "Content teams: your slipping pages are already lined up in one decay queue.",
+   "name": "The flat contradiction",
+   "formula": "[The thing your field swears by] doesn't [do what you think]. [The overlooked thing] does.",
+   "why": "A short, confident claim against what the viewer believes creates an itch that only the explanation can scratch, and it takes under two seconds to say. It works best when the claim and the object it's about share frame one.",
+   "picture": "One line of large text in frame one, with the object it is about (a search box, a page) right under it. For Floey: she flies past a shiny new flower to a drooping old one as the word 'new' fades out.",
+   "forFlowra": "Your next new post won't fix the old pages losing clicks.",
    "examples": [
     {
-     "words": "From last week's library. On screen: 'School nurses log dozens of visits a day.' Cover caption: 'visits and surfaces student trends, no more manual review of every single record, so you can'",
-     "onScreen": "First frame: a nurse in a white coat typing at a desk in a clinic office. Cover: the product screen with an AI summary of office visits. 2,170 subscriber channel",
-     "url": "https://www.youtube.com/shorts/hGrZl3ARd1E",
-     "views": 392088,
-     "breakout": 180.69
+     "words": "Title: 'Keywords Don't Matter'. Cover word, repeated: 'BLANK'",
+     "onScreen": "First frame: an animated bald character grinning and gesturing at a desk, on a neon background with no text. Cover: the same character laughing, with 'BLANK' scattered around him. 23,300 subscriber channel",
+     "url": "https://www.youtube.com/shorts/k6MpyzSnipM",
+     "views": 195721,
+     "breakout": 8.4
     },
     {
-     "words": "No text in the first frame. Title (Turkish): 'Özel Hastane SEO ve GEO Stratejisi' (Private hospital SEO and GEO strategy)",
-     "onScreen": "First frame: a young woman in a white shirt walking toward the camera through a bright glass lobby. The channel shows 0 subscribers, so the score is meaningless",
-     "url": "https://www.youtube.com/shorts/caAQu4gisjQ",
-     "views": 158361,
-     "breakout": 79.18
-    }
-   ],
-   "ours": ""
-  },
-  {
-   "name": "The animated action",
-   "formula": "[Character] panics at [the problem you have], then does [one physical action] that fixes it.",
-   "why": "Frame one is a character in shock with the problem in front of them, so the viewer feels the trouble before any words. The second beat is one big, satisfying motion that releases the tension. Of all the formats here, this is the closest to Floey's, but the only example is from a 113 subscriber channel.",
-   "picture": "Frame one: an animated character, wide-eyed, over scattered charts. Then a cut to the same character calmly slamming a glowing button. For Floey: she freezes, wide-eyed, over a wilting flower, then dives in and trims the one petal that slipped. Put her line as a caption in frame one, because our garden reels without the problem stated lose people by 2 to 4 seconds.",
-   "forFlowra": "Your rewrite keeps what works and changes only the sections that slipped.",
-   "examples": [
-    {
-     "words": "No text in the first frame. Title (dash removed): 'JOOUZSEO AI-Powered SEO Content Automation | Create, Rank & Scale Faster'",
-     "onScreen": "First frame: a 3D animated man in a suit, eyes bulging and mouth open, at a desk with charts and coffee in an underwater office. Cover: the same man smirking as he slams a glowing button. 113 subscriber channel, so the score is inflated",
-     "url": "https://www.youtube.com/shorts/1xq0DdER9_8",
-     "views": 42624,
-     "breakout": 21.31
-    }
-   ],
-   "ours": "Our garden reels (Floey animations) hold 2.2 to 4.2 seconds, but none has used this panic-then-fix shape with the problem captioned in frame one, so it is untested for us."
-  },
-  {
-   "name": "The brutal report card",
-   "formula": "Your [thing] just got [a harsh review], and [the part that failed] is [specific].",
-   "why": "Being judged is uncomfortable and funny at once, so viewers stay to hear the verdict. The example names the judge first ('THE DEVS') and then tells the viewer how to feel ('THIS IS VERY HURTFUL'), two short beats that land before any detail. It is from a 251,000 subscriber channel and is still climbing, but it runs 179 seconds, so only the opening applies to us.",
-   "picture": "A character beside a written report, with one large reaction caption and at most one figure. For Floey: she holds a tiny report card over a row of flowers, and the drooping ones line up at the front.",
-   "forFlowra": "Your content's report card is in: every page losing clicks, in one queue.",
-   "examples": [
-    {
-     "words": "On screen: 'THE DEVS', then 'THIS IS VERY HURTFUL'",
-     "onScreen": "First frame: game peanut characters in beanies at a table, yellow caption 'THE DEVS'. Cover: the same characters over a text report card with the huge caption",
-     "url": "https://www.youtube.com/shorts/uSLBvyv9ib4",
-     "views": 2648041,
-     "breakout": 10.55
+     "words": "From last week's library. On screen: 'Search that answers, not just finds.' over a search box with the query 'How do I request a parking permit?'",
+     "onScreen": "First frame: the claim in large black type on a pale lilac background, with the search box below. Cover: 'Deliver better answers with AI' and three labelled buttons. 589 subscriber brand channel, so the score is probably inflated",
+     "url": "https://www.youtube.com/shorts/WT_DwIXytIU",
+     "views": 171990,
+     "breakout": 86
     }
    ],
    "ours": ""
@@ -178,60 +175,85 @@
   {
    "name": "Side by side",
    "formula": "Your [usual view or approach] next to [what it hides], with the second one appearing beside the first.",
-   "why": "One thing on screen, then a second beside it, makes the eye compare, and the gap between them is the hook before anyone speaks. Both examples still rank, but from small channels (1,650 and 78 subscribers).",
+   "why": "One thing on screen, then a second beside it, makes the eye compare, and the gap between them is the hook before anyone speaks. This week the two counters example is the second highest score, but it comes from a 120 subscriber channel.",
    "picture": "One panel in frame one, with the second sliding in beside it by 1.5 seconds and a face or character reacting below. For Floey: one flower labelled 'before', then 'after' grows beside it. Show no figures unless they come from a real measured result.",
    "forFlowra": "Your page before and after the change, side by side, adjusted for site movement.",
    "examples": [
     {
      "words": "On screen: '1,125' and '308K', then the labels 'Hastage' and 'keyword'",
-     "onScreen": "First frame: a young man holding a mic with a finger raised, two view counters already above his head. By 1.5s the labels appear under them. 78 subscriber channel",
+     "onScreen": "First frame: a young man holding a mic with a finger raised, two view counters already above his head on a purple background. By 1.5s the yellow labels appear under them. 120 subscriber channel",
      "url": "https://www.youtube.com/shorts/j1G09YMYfgU",
-     "views": 33195,
-     "breakout": 16.6
+     "views": 65389,
+     "breakout": 32.69
     },
     {
      "words": "On screen: 'All the Bros'",
-     "onScreen": "First frame: one Google AI Overview result above a stern reaction face. Cover: two conflicting AI Overview results side by side above the same face",
+     "onScreen": "First frame: one Google AI Overview result above a stern reaction face. Cover: two conflicting AI Overview results side by side above the same face. 1,870 subscriber channel",
      "url": "https://www.youtube.com/shorts/ZVXetL5bpso",
-     "views": 18094,
-     "breakout": 9.05
-    }
-   ],
-   "ours": "r006 was an AI answer reel, the same topic as the second example, and it got most of our saves. That is a signal about the topic, not about the side by side layout."
-  },
-  {
-   "name": "The numbered promise",
-   "formula": "[Get the result you want] in [a real, small number of] steps: [step], [step], [step].",
-   "why": "A count in frame one tells viewers how much they are signing up for and that it ends, so staying feels cheap. The example keeps a title bar on screen the whole time while spoken captions build above it. It is from a 30,300 subscriber channel, so the score is not inflated, though it is a 63 second talking head.",
-   "picture": "A fixed one-line label at the bottom from frame one, with a second caption building above it word by word. For Floey: three seed markers light up in a row along the garden path as she names each step. Use only a count Flowra's process really has.",
-   "forFlowra": "Check whether your rewrite worked in three steps: tag it, wait, compare.",
-   "examples": [
-    {
-     "words": "On screen: 'build brand trust', then 'with 5 practical steps', under a fixed label '5 Steps to Build Brand Trust'",
-     "onScreen": "First frame: a close-up of a woman talking to camera in a dark studio, teal title bar at the bottom. Cover: the same woman smiling, same bar, the next caption above it",
-     "url": "https://www.youtube.com/shorts/RCbQYtV0TIw",
-     "views": 278498,
-     "breakout": 9.19
+     "views": 19037,
+     "breakout": 9.52
     }
    ],
    "ours": ""
+  },
+  {
+   "name": "Called by name",
+   "formula": "[Your exact kind of team or place]: you [do or have seen the familiar thing]. Here's [what's behind it or what does it for you now].",
+   "why": "Naming one group of viewers and something they see every day lets them recognise themselves in under two seconds, so the rest feels personal. The new Hindi example names a city ('if you're in Noida-Gurgaon') and then points at something everyone there has seen (the turquoise taxis). It comes from a 59 subscriber channel, so the structure is the evidence, not the score.",
+   "picture": "Frame one shows the familiar thing (the chore, the chart, the cars) on top, and below it the speaker naming the viewer in a caption. For Floey: she flits from flower to flower checking each one by hand under the caption 'Content teams', then the drooping ones line up in a single row.",
+   "forFlowra": "Content teams: your slipping pages are already lined up in one decay queue.",
+   "examples": [
+    {
+     "words": "On screen, fixed: 'Marketing game that disrupted the system'. Caption (Hindi, roughly): 'Bhai, agar aap Noida-Gurgaon' ('Brother, if you're in Noida-Gurgaon'). Cover caption: 'aapne yeh firozi rang' ('you've seen this turquoise colour')",
+     "onScreen": "First frame: split screen, with turquoise cars on a rainy street on top and a man in glasses talking to camera below. Cover: a finger pointing at a turquoise car on top, the same man pointing up below. 59 subscriber channel",
+     "url": "https://www.youtube.com/shorts/FkNbN9o_WgU",
+     "views": 17563,
+     "breakout": 8.78
+    },
+    {
+     "words": "From an earlier library. On screen: 'School nurses log dozens of visits a day.' Cover caption: 'visits and surfaces student trends, no more manual review of every single record, so you can'",
+     "onScreen": "First frame: a nurse in a white coat typing at a desk in a clinic office. Cover: the product screen with an AI summary of office visits. 2,170 subscriber channel",
+     "url": "https://www.youtube.com/shorts/hGrZl3ARd1E",
+     "views": 392088,
+     "breakout": 180.69
+    }
+   ],
+   "ours": ""
+  },
+  {
+   "name": "The animated action",
+   "formula": "[Character] panics at [the problem you have], then does [one physical action] that fixes it.",
+   "why": "Frame one is a character in shock with the problem in front of them, so the viewer feels the trouble before any words. The second beat is one big, satisfying motion that releases the tension. It's the closest format to Floey's, but the only example is a 12 second ad from a 120 subscriber channel.",
+   "picture": "Frame one: an animated character, wide-eyed, over scattered charts. Then a cut to the same character calmly slamming a glowing button. For Floey: she freezes, wide-eyed, over a wilting flower, then dives in and trims the one petal that slipped. Put her line as a caption in frame one.",
+   "forFlowra": "Your rewrite keeps what works and changes only the sections that slipped.",
+   "examples": [
+    {
+     "words": "No text in the first frame. Title (dash removed): 'JOOUZSEO AI-Powered SEO Content Automation | Create, Rank & Scale Faster'",
+     "onScreen": "First frame: a 3D animated man in a suit, eyes bulging and mouth open, at a desk with charts and coffee in an underwater office. Cover: the same man smirking as he slams a glowing button. 120 subscriber channel, so the score is inflated",
+     "url": "https://www.youtube.com/shorts/1xq0DdER9_8",
+     "views": 42625,
+     "breakout": 21.31
+    }
+   ],
+   "ours": "Our garden reels (Floey alone) mostly held people for 2 to 4 seconds, but none used this panic-then-fix shape with the problem captioned in frame one, so it is untested."
   }
  ],
  "avoid": [
-  "Slow garden openings: an establishing shot, a logo, or Floey flying in. Our garden reels lose viewers at 2.2 to 4.2 seconds, while the Maya duo reels that open on the problem said out loud hold 4.8 to 9.6. The problem has to be on screen and spoken in frame one.",
-  "A calm build-up with no label. The motorbike Short (xbWO6DvxZS0) opens on an ordinary ride with no caption and puts 'TOTAL LOSS' only on the cover. In the feed nobody sees the cover, so the first seconds give no reason to wait. Name the loss in frame one.",
-  "Talking heads with no caption and the hook only on the cover. The AI product review Short (v3stxqhq6eg) opens on a masked presenter at a mic with no text, while all the promise sits on a crowded cover card. Viewers watching muted get nothing.",
-  "Reading a keyword match as topic evidence. This week's top score (AUZAIx0xuyY), the motorbike crash (xbWO6DvxZS0) and an AI-generated traffic police clip (KYgBVj9rrYc) all matched the word 'traffic'. Borrow structure only, never subject.",
-  "Corporate slide decks. The Google AI Mode Short (NTFeqFAIlEs) opens on a grey product slide with a paragraph of body text. One large line, like the Cludo opening, is the most a slide can carry.",
-  "Inventing quotes, posts or testimonials. The complaint-post format works for strangers, but Flowra never invents customers or user posts. Have Maya or Floey voice the frustration instead.",
+  "Slow garden openings: an establishing shot, a logo, or Floey flying in. Our garden and pro reels mostly lose viewers at 2 to 4 seconds, while 9 of 11 Maya and Floey duo reels, which open on the problem said out loud, hold people for 7.3 seconds or more. Put the problem on screen and say it in frame one.",
+  "Corporate slides with a question as the headline. The answer hubs Short (z65X5U7XMIw) opens on 'How do you build answer hubs that rank in Google AI Overviews?' in blue type on a white slide, and the Google AI Mode Short (NTFeqFAIlEs) opens on a grey product slide with a paragraph of body text. Use one large line that makes a claim, not a slide that asks something.",
+  "Copying yes or no headlines, even when the layout works. 'Is Google Liable?' (KO4LHz0Pwa4) and 'Have website traffic?' (HcWARkOFjDg) let the viewer answer and scroll. Keep the pinned bar but turn it into a specific claim about the viewer's site.",
+  "Talking heads with no caption, where the hook is only in the title or on the cover. The Adsterra Short (HcWARkOFjDg) opens on a man mid-gesture with no text, and its only caption ('Wait, you're still here?') comes at the end. Viewers watching muted get nothing in frame one.",
+  "A calm build-up with no label. The motorbike Short (xbWO6DvxZS0) opens on an ordinary ride and puts 'TOTAL LOSS' only on the cover, which nobody sees in the feed. Name the loss in frame one.",
+  "Asking for saves as the hook or the ending. The first reel of ours that asked people to save got none, and across 16 reels we have only 4 saves and 2 shares. It's one reel, so an early signal, but asking hasn't helped.",
+  "Reading a keyword match as topic evidence. This week's top score (AUZAIx0xuyY) and the motorbike crash (xbWO6DvxZS0) matched the word 'traffic', and the taxi Short (FkNbN9o_WgU) is a marketing story about cars. Borrow structure only, never subject.",
+  "Inventing quotes, posts or testimonials. Complaint posts and 'they said' lines work for strangers, but Flowra never invents customers or user posts. Have Maya or Floey voice the frustration, and keep 'they said' to common advice, never a named person.",
   "Greetings and self-introductions ('Hi, I'm Floey'). Earlier 'Hi!' openings scored among the lowest, and greetings break the house rules.",
-  "A mascot that only appears on the cover. Floey or Maya has to be in frame one, reacting to the problem.",
-  "Unedited screen recordings as the opening. A plain browser, analytics or tool screen with no caption, face or highlight gives the viewer nothing. The AI Overview Shorts that work highlight one line and put a reaction under it.",
-  "Yes or no questions copied from strangers' titles ('Can your website handle the traffic?'). The viewer can answer and scroll away. Restate them as a specific claim about the viewer's site.",
-  "Hype numbers and invented counters ('Rank and scale faster', made-up before and after figures). A step count is fine only if Flowra's process really has that many steps.",
-  "Calling the before and after comparison a split test or A/B test, or promising indexing. Flowra compares before and after with a settling window, asks Google to recrawl, and never guarantees reindexing.",
+  "A mascot who only appears on the cover. Floey or Maya has to be in frame one, reacting to the problem.",
+  "Unedited screen recordings as the opening. A plain analytics or tool screen with no caption, face or highlight gives the viewer nothing to look at. The AI Overview Shorts that work highlight one line and put a reaction under it.",
+  "Hype numbers and invented counters ('Rank and scale faster', made-up before and after figures). A step count is fine only when Flowra's process really has that many steps.",
+  "Calling the before and after comparison a split test or A/B test, or promising indexing. Flowra compares before and after with a 14 day settling window, asks Google to recrawl, and never guarantees reindexing.",
   "Walls of text and stat collages. Nobody can read that much in the first seconds. Use one line, at most two.",
-  "Long tutorial setups (the 50 to 179 second videos). They promise lessons that don't fit Flowra's 25 to 45 second reels. Open on the single loss, not the course outline.",
-  "Treating the ranking as exact. There are still no spoken openings, and many top scores come from channels with 0 to 600 subscribers (some likely paid ads). The steadiest evidence comes from the 1,650 to 251,000 subscriber channels and from our own 11 reels."
+  "Long tutorial setups (the 62 to 179 second videos). They promise lessons that don't fit a 25 to 45 second reel. Open on the single loss, not the course outline.",
+  "Treating the ranking as exact. There are still no spoken openings, and several top scores come from channels with 14 to 120 subscribers (some likely paid ads). The steadiest evidence comes from the 1,870 to 263,000 subscriber channels and from our own 16 reels."
  ]
 }

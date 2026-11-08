@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-25",
+ "updated": "2026-11-08",
  "reels": [
   {
    "id": "r002-find-the-pages-quietly-losing-traffic-in",
@@ -16,8 +16,8 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-10-25",
-    "ageDays": 18.7,
+    "date": "2026-11-08",
+    "ageDays": 32.8,
     "instagram": {
      "views": 89,
      "reach": 79,
@@ -130,6 +130,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-08",
+     "ageDays": 32.8,
+     "instagram": {
+      "views": 89,
+      "reach": 79,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 4207,
+      "ig_reels_video_view_total_time": 370285
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 16,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -148,8 +171,8 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-10-25",
-    "ageDays": 17.7,
+    "date": "2026-11-08",
+    "ageDays": 31.8,
     "instagram": {
      "views": 18,
      "reach": 19,
@@ -163,7 +186,7 @@
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 54,
+     "viewCount": 58,
      "likeCount": 1,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -262,6 +285,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-08",
+     "ageDays": 31.8,
+     "instagram": {
+      "views": 18,
+      "reach": 19,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2240,
+      "ig_reels_video_view_total_time": 42561
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 58,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -280,8 +326,8 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-10-25",
-    "ageDays": 17.4,
+    "date": "2026-11-08",
+    "ageDays": 31.5,
     "instagram": {
      "views": 5,
      "reach": 5,
@@ -295,7 +341,7 @@
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 135,
+     "viewCount": 136,
      "likeCount": 1,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -394,6 +440,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-08",
+     "ageDays": 31.5,
+     "instagram": {
+      "views": 5,
+      "reach": 5,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 9861,
+      "ig_reels_video_view_total_time": 59166
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 136,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -412,8 +481,8 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-10-25",
-    "ageDays": 15.6,
+    "date": "2026-11-08",
+    "ageDays": 29.7,
     "instagram": {
      "views": 117,
      "reach": 104,
@@ -427,7 +496,7 @@
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 26,
+     "viewCount": 28,
      "likeCount": 0,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -526,6 +595,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-08",
+     "ageDays": 29.7,
+     "instagram": {
+      "views": 117,
+      "reach": 104,
+      "saved": 2,
+      "shares": 1,
+      "likes": 3,
+      "comments": 0,
+      "total_interactions": 6,
+      "ig_reels_avg_watch_time": 3031,
+      "ig_reels_video_view_total_time": 324342
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 28,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -544,8 +636,8 @@
    "experiment": "short-first-frame",
    "style": "pro",
    "latest": {
-    "date": "2026-10-25",
-    "ageDays": 12.7,
+    "date": "2026-11-08",
+    "ageDays": 26.8,
     "instagram": {
      "views": 15,
      "reach": 12,
@@ -559,7 +651,7 @@
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 8,
+     "viewCount": 10,
      "likeCount": 0,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -612,6 +704,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-08",
+     "ageDays": 26.8,
+     "instagram": {
+      "views": 15,
+      "reach": 12,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2676,
+      "ig_reels_video_view_total_time": 37465
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 10,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -630,8 +745,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-10-25",
-    "ageDays": 10.7,
+    "date": "2026-11-08",
+    "ageDays": 24.7,
     "instagram": {
      "views": 12,
      "reach": 10,
@@ -645,7 +760,7 @@
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 19,
+     "viewCount": 20,
      "likeCount": 2,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -698,6 +813,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-08",
+     "ageDays": 24.7,
+     "instagram": {
+      "views": 12,
+      "reach": 10,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 8333,
+      "ig_reels_video_view_total_time": 91669
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 20,
+      "likeCount": 2,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -716,8 +854,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-10-25",
-    "ageDays": 8.7,
+    "date": "2026-11-08",
+    "ageDays": 22.8,
     "instagram": {
      "views": 117,
      "reach": 101,
@@ -731,7 +869,7 @@
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 506,
+     "viewCount": 508,
      "likeCount": 8,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -784,6 +922,29 @@
       "favoriteCount": 0,
       "commentCount": 1
      }
+    },
+    {
+     "date": "2026-11-08",
+     "ageDays": 22.8,
+     "instagram": {
+      "views": 117,
+      "reach": 101,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 7268,
+      "ig_reels_video_view_total_time": 748623
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 508,
+      "likeCount": 8,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 1
+     }
     }
    ]
   },
@@ -802,8 +963,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-10-25",
-    "ageDays": 7.7,
+    "date": "2026-11-08",
+    "ageDays": 21.8,
     "instagram": {
      "views": 193,
      "reach": 162,
@@ -817,7 +978,7 @@
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 142,
+     "viewCount": 143,
      "likeCount": 4,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -870,6 +1031,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-08",
+     "ageDays": 21.8,
+     "instagram": {
+      "views": 193,
+      "reach": 162,
+      "saved": 0,
+      "shares": 1,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 9642,
+      "ig_reels_video_view_total_time": 1571686
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 143,
+      "likeCount": 4,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -888,8 +1072,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-10-25",
-    "ageDays": 5.6,
+    "date": "2026-11-08",
+    "ageDays": 19.7,
     "instagram": {
      "views": 113,
      "reach": 101,
@@ -903,7 +1087,7 @@
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 22,
+     "viewCount": 23,
      "likeCount": 0,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -933,6 +1117,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-08",
+     "ageDays": 19.7,
+     "instagram": {
+      "views": 113,
+      "reach": 101,
+      "saved": 1,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 5216,
+      "ig_reels_video_view_total_time": 537332
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 23,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -951,8 +1158,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-10-25",
-    "ageDays": 4.7,
+    "date": "2026-11-08",
+    "ageDays": 18.8,
     "instagram": {
      "views": 118,
      "reach": 109,
@@ -966,7 +1173,7 @@
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 39,
+     "viewCount": 43,
      "likeCount": 0,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -996,6 +1203,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-08",
+     "ageDays": 18.8,
+     "instagram": {
+      "views": 118,
+      "reach": 109,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 4769,
+      "ig_reels_video_view_total_time": 515104
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 43,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -1014,22 +1244,22 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-10-25",
-    "ageDays": 3.7,
+    "date": "2026-11-08",
+    "ageDays": 17.7,
     "instagram": {
-     "views": 140,
-     "reach": 123,
+     "views": 141,
+     "reach": 124,
      "saved": 0,
      "shares": 0,
      "likes": 1,
      "comments": 0,
      "total_interactions": 1,
-     "ig_reels_avg_watch_time": 8817,
-     "ig_reels_video_view_total_time": 1084564
+     "ig_reels_avg_watch_time": 8770,
+     "ig_reels_video_view_total_time": 1087483
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 44,
+     "viewCount": 45,
      "likeCount": 0,
      "dislikeCount": 0,
      "favoriteCount": 0,
@@ -1055,6 +1285,344 @@
      "youtube": {
       "viewCount": 44,
       "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    },
+    {
+     "date": "2026-11-08",
+     "ageDays": 17.7,
+     "instagram": {
+      "views": 141,
+      "reach": 124,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 8770,
+      "ig_reels_video_view_total_time": 1087483
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 45,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r015-myth-google-buries-ai-drafts-google-s-ac",
+   "title": "The Line She Never Reads",
+   "hook": "A chatbot wrote my draft. Google's going to bury it.",
+   "hookPattern": "The voiced frustration",
+   "format": "duo-sitcom",
+   "pillar": "myth",
+   "goal": "send",
+   "topic": "Myth: \"Google buries AI drafts.\" Google's actual ask is to fact-check every AI line before publishing, including the title and meta description.",
+   "postedAt": "2026-10-26T16:52:48+0000",
+   "seconds": 30,
+   "idea": "Google doesn't ban AI drafts. It says to fact-check them (myth, about 32 seconds)",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-11-08",
+    "ageDays": 12.7,
+    "instagram": {
+     "views": 136,
+     "reach": 115,
+     "saved": 0,
+     "shares": 0,
+     "likes": 2,
+     "comments": 0,
+     "total_interactions": 2,
+     "ig_reels_avg_watch_time": 9543,
+     "ig_reels_video_view_total_time": 1107041
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 188,
+     "likeCount": 3,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-11-08",
+     "ageDays": 12.7,
+     "instagram": {
+      "views": 136,
+      "reach": 115,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 9543,
+      "ig_reels_video_view_total_time": 1107041
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 188,
+      "likeCount": 3,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r016-maya-has-nothing-left-to-write-but-her-r",
+   "title": "Nothing Left to Write",
+   "hook": "I've written about everything, Floey. The blog is done.",
+   "hookPattern": "The voiced frustration",
+   "format": "duo-sitcom",
+   "pillar": "problem",
+   "goal": "save",
+   "topic": "Maya has \"nothing left to write\", but her readers' unanswered questions are already sitting in her Search Console",
+   "postedAt": "2026-10-28T14:48:07+0000",
+   "seconds": 32,
+   "idea": "Your customers' questions are already in your Search Console",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-11-08",
+    "ageDays": 10.8,
+    "instagram": {
+     "views": 118,
+     "reach": 108,
+     "saved": 0,
+     "shares": 0,
+     "likes": 1,
+     "comments": 0,
+     "total_interactions": 1,
+     "ig_reels_avg_watch_time": 8706,
+     "ig_reels_video_view_total_time": 948999
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 4,
+     "likeCount": 0,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-11-08",
+     "ageDays": 10.8,
+     "instagram": {
+      "views": 118,
+      "reach": 108,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 8706,
+      "ig_reels_video_view_total_time": 948999
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 4,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r017-stop-writing-post-number-31-the-page-tha",
+   "title": "Post thirty-one",
+   "hook": "Thirty posts in thirty days, and Google sent me twelve people.",
+   "hookPattern": "The voiced frustration",
+   "format": "duo-sitcom",
+   "pillar": "myth",
+   "goal": "save",
+   "topic": "Stop writing post number 31: the page that is already one step below the top ten",
+   "postedAt": "2026-11-02T12:45:23+0000",
+   "seconds": 31,
+   "idea": "Floey and the flower one shelf below the top (short-first-frame retest)",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-11-08",
+    "ageDays": 5.9,
+    "instagram": {
+     "views": 148,
+     "reach": 137,
+     "saved": 1,
+     "shares": 0,
+     "likes": 2,
+     "comments": 0,
+     "total_interactions": 3,
+     "ig_reels_avg_watch_time": 8224,
+     "ig_reels_video_view_total_time": 1126805
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 10,
+     "likeCount": 0,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-11-08",
+     "ageDays": 5.9,
+     "instagram": {
+      "views": 148,
+      "reach": 137,
+      "saved": 1,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 8224,
+      "ig_reels_video_view_total_time": 1126805
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 10,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r019-my-robots-txt-lets-gptbot-in-so-why-is-m",
+   "title": "The note on the door (save-ask)",
+   "hook": "I've allowed gee pee tee bot in my robots dot text. Still bounced!",
+   "hookPattern": "The voiced frustration",
+   "format": "duo-sitcom",
+   "pillar": "problem",
+   "goal": "save",
+   "topic": "My robots.txt lets GPTBot in, so why is my host turning it away? (save-ask duo reel)",
+   "postedAt": "2026-11-05T12:39:12+0000",
+   "seconds": 27,
+   "idea": "My robots.txt lets GPTBot in, so why is my host turning it away?",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-11-08",
+    "ageDays": 2.9,
+    "instagram": {
+     "views": 122,
+     "reach": 107,
+     "saved": 0,
+     "shares": 0,
+     "likes": 0,
+     "comments": 0,
+     "total_interactions": 0,
+     "ig_reels_avg_watch_time": 7882,
+     "ig_reels_video_view_total_time": 835592
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 102,
+     "likeCount": 2,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-11-08",
+     "ageDays": 2.9,
+     "instagram": {
+      "views": 122,
+      "reach": 107,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 7882,
+      "ig_reels_video_view_total_time": 835592
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 102,
+      "likeCount": 2,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r024-your-host-s-traffic-spike-isn-t-readers-",
+   "title": "It Went Viral (Three Hundred Times)",
+   "hook": "Fourteen thousand visits overnight! I'm telling my sponsor it went viral.",
+   "hookPattern": "Good news with a catch",
+   "format": "duo-sitcom",
+   "pillar": "problem",
+   "goal": "send",
+   "topic": "Your host's traffic spike isn't readers: check GA4 to see who actually arrived",
+   "postedAt": "2026-11-07T17:25:26+0000",
+   "seconds": 30,
+   "idea": "Your traffic spike isn't readers until you check who actually arrived",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-11-08",
+    "ageDays": 0.7,
+    "instagram": {
+     "views": 150,
+     "reach": 134,
+     "saved": 0,
+     "shares": 0,
+     "likes": 1,
+     "comments": 0,
+     "total_interactions": 1,
+     "ig_reels_avg_watch_time": 7466,
+     "ig_reels_video_view_total_time": 1037859
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 1113,
+     "likeCount": 9,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-11-08",
+     "ageDays": 0.7,
+     "instagram": {
+      "views": 150,
+      "reach": 134,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 7466,
+      "ig_reels_video_view_total_time": 1037859
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 1113,
+      "likeCount": 9,
       "dislikeCount": 0,
       "favoriteCount": 0,
       "commentCount": 0
