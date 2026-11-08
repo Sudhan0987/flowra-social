@@ -1,0 +1,130 @@
+{
+ "title": "Just publish more (send-ask)",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Thirty new posts. My clicks still dropped.",
+   "emotion": "worried",
+   "caption": "30 new posts. My clicks still dropped.",
+   "visual": "Wide, day. Frame one: Maya at her desk mid-sentence in pose 'panic', expr worried, delivering the line fast and high. Two DUO.stat pills sit well apart so they don't stack: '+30 posts' to the left of her head (about x 700, y 560) and a red '-18% clicks' to the right of it (about x 1060, y 560). Both are her own example numbers. Each pill pops in with a pop sfx, 0.4 s apart, panned to its side. Floey is perched on the back of the laptop lid beside the spark sticker. She slowly tilts her head at Maya."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.6,
+   "say": "Great. Who's checking the old ones?",
+   "emotion": "curious",
+   "visual": "floey. Floey stays perched on the lid, gives one slow blink and tilts her head the other way. As the line ends, a phone notification slides down from the top of the frame with a buzz sfx: 'Group chat: just publish more lol AI does it'. It stays up for about three seconds, into the next beat, so it can be read."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Nobody. I'll publish faster.",
+   "emotion": "determined",
+   "visual": "maya. Pose 'phone', expr determined. The group chat notification is still on screen. Maya reads it and nods hard, as if the chat has a point. On 'faster' she blends from 'phone' to 'type' over about a second, and a fast typing sfx starts."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "That's why nobody's checking.",
+   "emotion": "playful",
+   "visual": "Wide. Floey doesn't move a feather and gives one tiny tongue flick, completely deadpan. Maya is in pose 'type'. Her typing sfx slows, then stops, and her expr drops to deadpan as the jab lands."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Fine. I'll change the dates.",
+   "emotion": "playful",
+   "visual": "mayaTight. Pose 'point', one finger up as if she has a clever idea, expr smug. A soft click sfx when the finger goes up. This is her scheme, and she thinks she has outsmarted everyone."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Google's own guide flags that. New date, same post.",
+   "emotion": "playful",
+   "visual": "Wide. Floey takes off from the lid to floeyHover by Maya's head with a wing whirr sfx panned there, then turns to face her. On 'New date, same post' Maya's pointing finger sinks and her expr goes from smug to worried. The scheme dies on her face."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Then what?",
+   "emotion": "determined",
+   "visual": "maya. Pose 'crossed', expr annoyed. She says it flat and clipped and stares at Floey hovering beside her. No mug in this shot."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "Search Console. Compare the last three months, sort by Clicks Difference. Biggest losers go first.",
+   "emotion": "warm",
+   "visual": "floey, hovering, then a DUO.listInsert opens with a whoosh sfx. Its title is 'Last 3 months vs previous period' and its sub is 'Pages, by Clicks Difference', with one tick sfx when the title lands and one when the sub lands, 0.5 s apart. On 'Biggest losers go first' the rows slide in one by one with rowsK and a soft tick each, at least 0.4 s apart. These are Maya's example rows: 'Lisbon on a budget, -240' on top as hi (no ring yet), 'Porto in two days, -95', 'Cheap eats in Seville, -60', 'Packing for a city break, -35', 'Madrid metro guide, -20'. All are old posts. Her thirty new posts gained clicks, so they sit further down and aren't shown."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Oh. Lisbon. Down two hundred and forty.",
+   "emotion": "bright",
+   "caption": "Oh. Lisbon. Down 240.",
+   "visual": "The listInsert holds, and on 'Oh.' a ring draws itself round the top row, 'Lisbon on a budget, -240', with a tick sfx. Cut to mayaTight: expr bright, mouth open, leaning in. The realisation lands: it's an old post, not a new one."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.45,
+   "say": "Old prices. Not thirty new posts.",
+   "emotion": "bright",
+   "visual": "A DUO.listInsert of the post opens with a whoosh. Title 'Lisbon on a budget', sub 'Sections' (her example). Rows: 'Intro, kept', 'Where to stay, kept', 'Prices, out of date' as hi, 'Getting around, kept', 'Day trips, kept'. The ring draws round the Prices row on 'Old prices' with a tick. Cut to wide: Maya in pose 'type' with a short, calm burst of typing sfx on 'Not thirty new posts'. Then she blends to pose 'mug' and takes a sip with a sip sfx. She freezes, her expr goes annoyed and she holds the mug away from her face. It's cold. Floey, back on the lid, gives one smug preen."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Send this to your group chat.",
+   "emotion": "proud",
+   "visual": "floeyTight. Floey turns to camera, chest puffed, and gives one slow wink. Cut to wide: Maya is still in pose 'mug' with the cold coffee. Her phone buzzes (buzz sfx, panned to the phone) and a second notification slides down: 'Group chat: new plan, publish twice as much'. Maya slowly turns to camera, expr deadpan, and gives it a long flat look. Hold the look and the notification for about two seconds (push END) before the end card."
+  }
+ ],
+ "loopNote": "The last thing on screen is the group chat doubling down ('new plan, publish twice as much') while Maya stares flatly at the camera. The first frame is Maya panicking over her '+30 posts' and '-18% clicks' pills. On a replay it looks like she took the chat's advice again and ended up right back where she started.",
+ "caption": "AI made posting fast. So I posted a lot. My clicks dropped anyway 🙃\n\nThe group chat says \"just publish more\". Google's own helpful content guide asks if you're making lots of content hoping some of it performs, and if you change dates to make pages look fresh when nothing really changed. So that isn't the answer.\n\nDo this instead: in Search Console, go to the Performance report, open the Date filter, then Compare, and pick \"last 3 months to previous period\". Open the Pages table and sort by Clicks Difference. The posts losing the most clicks go straight to the top. Often it's an old one.\n\nWhose group chat keeps saying \"just publish more\"? Send them this 👇\n\n(Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#blogging",
+  "#contentmarketing",
+  "#searchconsole",
+  "#aiwriting"
+ ],
+ "sticky": 51,
+ "id": "r028-ai-made-publishing-fast-so-maya-publishe",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "AI made publishing fast, so Maya published more, and now her old posts are slipping. Is the answer really \"just publish more\"?",
+ "editorNotes": [
+  "The tip leaves out the Pages tab. Search Console's table under the chart opens on Queries by default. A viewer who does 'Compare the last three months, sort by Clicks Difference' gets a list of search queries, not posts, so the tip doesn't work as spoken. The brief's fact says 'Review the Pages table'. Floey has to say Pages, e.g. 'Search Console. Compare last three months. Pages tab. Sort by Clicks Difference.' The last clause also has a problem: 'Biggest losers go first' plays as a fourth instruction. Cut it, or merge it in, so the spoken tip stays one clean path.",
+  "The payoff line 'Old prices. Not thirty new posts.' sounds written, not spoken, and it's ambiguous. It can mean 'the new posts weren't the problem' or 'the fix is old prices, not more posts'. Neither lands in 2 seconds. Nothing on screen shows how Maya finds out the prices are old either: Search Console only tells her Lisbon lost 240 clicks, not why. Add a visible step where she opens the Lisbon post and sees the old prices, then give her a short spoken realisation that says plainly she fixes the one old section instead of writing a new post.",
+  "The second listInsert ('Lisbon on a budget' / 'Sections' with rows marked 'kept' / 'out of date') reads like a tool's report that has already sorted her post. It isn't Search Console, and nothing in the story produces it. It also hints at the Rework Queue, which belongs in the end card only. Show it as Maya's own post (e.g. a screenInsert or list titled as her draft, with a Prices row showing an old price as her example), not as an automated section verdict.",
+  "Maya's expression 'bright' (the check beat) doesn't exist. Her faces are neutral, happy, proud, panic, worried, annoyed, smug, surprised, think, deadpan, sad. Use 'surprised' or 'think'. 'bright' is also the wrong voice for 'Down two hundred and forty'. That's a loss she has just found, so 'curious' or 'worried' fits better than an upbeat read.",
+  "The payoff beat never sets Maya's expression at the start of her line. It's only set later, to annoyed, when the coffee turns out cold. The frame test will catch the face left over from the check beat. Give her an expression at the start of 'Old prices...' that matches the line.",
+  "The payoff beat is overloaded for one line plus a 0.45 s pause: whoosh, insert, ring, cut to wide, typing, a blend to mug, a sip, a freeze, the cold reaction and Floey's preen. The cold-coffee joke will be crushed or cut off. Give the mug and sip their own silent beat with more time, or move it after the button line by pushing END. Also note: Maya has no 'sip' control, and 'holds the mug away' isn't a pose. Use pose 'mug' plus a jolt or expression change and say so.",
+  "The '-18% clicks' pill at x 1060 sits outside the safe area (x 60 to 1020), so it will be cut at the frame edge. Move it inside, e.g. stack the two pills vertically near x 880. The script also never says when either pill fades out, even though the shot cuts to 'floey' on the next line. Fade both before that cut.",
+  "Pose 'phone' means on a call (phone at her ear), but the visual has her reading a text and nodding at it. The viewer would see her holding the phone to her ear while 'reading'. The notification is also screen-space, so she can't look at it in the world. Use a look (MY.look) or a different pose, and drop 'reads it'.",
+  "Pose 'point' points to screen right. There's no 'one finger up' pose, and in mayaTight her face fills the frame, so her hands are out of shot anyway. The next beat ('her pointing finger sinks', in Wide) then has nothing to pick up. Act the scheme with expression (smug) and a tilt or lean in mayaTight, or play the point in a wider shot.",
+  "(polish) Floey flies to floeyHover during the dates beat and is 'back on the lid' in the payoff, but nothing ever flies her back. Add a flutter back to floeyLaptop (with its sfx) before the payoff wide. Also, 'wing whirr' isn't a sound kind: use flutter.",
+  "(polish) The cold coffee won't read as cold to a stranger. Nothing shows the coffee was hot earlier or that time has passed, so a grimace after a sip could just mean bad coffee. A mug with steam early on, a sweat or '?' mark, or a two-word reaction would make the running joke land. Otherwise cut it and let the group-chat notification be the only button.",
+  "(polish) AI, the whole whyNow, appears only in the notification text 'lol AI does it'. Nobody says it or shows it. The hook 'Thirty new posts' could be any blogger. Consider having Maya's hook or her 'publish faster' line show she uses AI (e.g. the typing burst being prompts), so the people who'd share this recognise themselves.",
+  "(polish) Floey's button 'Send this to your group chat.' is a plain request, not a punchline. The real laugh is the chat's 'new plan, publish twice as much' and Maya's flat look. Make sure the notification and the look get the final beat and the full hold. Better still, give Floey a dry line that ties back to the chat (the brief's 'whoever keeps saying just publish more' is sharper).",
+  "(polish) In the 'Then what?' beat the shot is 'maya', and Floey is fully out of that frame, yet the visual has Maya staring at Floey hovering beside her. Either nudge to a shot where Floey is visible or just have her look left (MY.look -1) off-frame.",
+  "(polish) In the button beat, the buzz is 'panned to the phone', but Maya is holding the mug and no phone is in the world at that point. Pan it to the side the notification drops from, or skip the panning.",
+  "(polish) Sound density in the tip beat: whoosh, title tick, sub tick and five row ticks crowd the tip line under Floey's voice. Drop the title and sub ticks and keep one whoosh plus soft row ticks, so the most important line stays clear."
+ ],
+ "style": "duo",
+ "template": "../drafts/r028-ai-made-publishing-fast-so-maya-publishe/scene.html"
+}

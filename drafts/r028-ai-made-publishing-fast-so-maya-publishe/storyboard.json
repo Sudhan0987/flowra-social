@@ -1,0 +1,292 @@
+{
+ "style": "Day set in Maya's room (DUO.room, day sky with a drifting cloud): Maya, the panicking solo blogger, sits behind the desk with her laptop (spark sticker on the back). Floey, the dry hummingbird, perches on the laptop lid facing Maya. Stat pills are the only red and green. Captions are tagged MAYA in amber and FLOEY in pink. The reel uses one cutaway insert (the Search Console list) and one notification (the group chat in the button). All numbers are Maya's example numbers. Flowra appears only in the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk, mid-sentence, with Floey perched on the laptop lid beside the spark sticker. Example stat pills sit to the right of Maya's head, one above the other with a clear gap: red '-18% clicks' at about (880, 640) and '+30 posts' at about (860, 520). Both are inside x 1020.",
+   "action": "Frame one: Maya is already in pose panic (hands by her head), expr worried, and she says the line fast and high. The red '-18% clicks' pill is already popping in at frame one. '+30 posts' pops in 0.4 s later. Floey slowly tilts her head at Maya. Both pills fade out at 2.2 s, before the cut.",
+   "onScreenData": "-18% clicks",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "pop"
+    },
+    {
+     "at": 0.4,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: the closer two-shot favouring Floey on the lid. Maya is soft at the frame edge.",
+   "action": "Floey says 'Great.' dry, gives one slow blink, then tilts her head the other way on 'Who's checking the old ones?'. Maya listens: her hands slowly come down from her head and her expr goes from worried to think. The beat 1 notification is cut so the reel has only one, and the button keeps it.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, with Floey out of frame.",
+   "action": "'Nobody.': Maya does a quick guilty shrug, expr worried. On 'I'll publish faster' her expr flips to proud and she nods hard, as if she has solved it. On 'faster' she blends from shrug to type over about 1 s and starts typing fast. The typing cue runs about 1.8 s, into beat 3.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya typing and Floey on the lid, with both in frame for the jab.",
+   "action": "Floey doesn't move a feather. One tiny tongue flick at 0.3 s, completely deadpan, as she says the line. Maya's typing slows and stops at about 0.9 s (the typing cue ends there). Her hands freeze over the keys and her expr drops to deadpan as the jab lands.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face fills the frame.",
+   "action": "Maya's expr goes smug. At 0.3 s her pose snaps to point, finger up as if she has a clever idea, and she glances sideways as if she has outsmarted everyone. Her bun wobbles.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Floey lifts off the laptop lid to floeyHover at Maya's eye height on her left. Maya still holds her point.",
+   "action": "At 0.2 s Floey takes off with a wing whirr panned left. She arrives at floeyHover by about 0.8 s, turns to face Maya and starts 'Google's own guide flags that.' Maya's smug smile tightens.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 1.8,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face. Floey is off frame, still speaking.",
+   "action": "On 'New date, same post' Maya's pointing finger sinks (pose blends to rest over 0.6 s) and her expr goes from smug to worried. The scheme dies on her face.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, staring at screen left where Floey hovers off frame. No mug.",
+   "action": "Pose crossed, expr annoyed, look x -1. She says 'Then what?' flat and clipped.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: Floey hovering by Maya's head, favoured in the two-shot. Maya's crossed arms soften at the edge.",
+   "action": "Floey, mood determined, says 'Search Console.' Maya uncrosses her arms and looks down at the laptop (look y 1).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 1.6,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "DUO.listInsert, the reel's only cutaway: Maya's Search Console screen. Title 'Last 3 months vs previous period', sub 'Example pages, by Clicks Difference'.",
+   "action": "The insert swings in. The title lands at 2.0 s and the sub at 2.5 s. On 'Biggest losers go first' the example rows slide in one by one with rowsK, 0.4 s apart: 'Lisbon on a budget -240' (hi, no ring yet), 'Porto in two days -95', 'Cheap eats in Seville -60', 'Packing for a city break -35', 'Madrid metro guide -20'. All of them are old posts.",
+   "onScreenData": "-240",
+   "sfx": [
+    {
+     "at": 1.6,
+     "kind": "whoosh"
+    },
+    {
+     "at": 2,
+     "kind": "pop"
+    },
+    {
+     "at": 2.5,
+     "kind": "pop"
+    },
+    {
+     "at": 4.2,
+     "kind": "pop"
+    },
+    {
+     "at": 4.6,
+     "kind": "pop"
+    },
+    {
+     "at": 5,
+     "kind": "pop"
+    },
+    {
+     "at": 5.4,
+     "kind": "pop"
+    },
+    {
+     "at": 5.8,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The same listInsert holds. The top row is 'Lisbon on a budget -240'.",
+   "action": "On 'Oh.' hiK grows a ring that draws itself round the Lisbon row.",
+   "onScreenData": "-240",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0.8,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face, lit by the screen. Floey is off frame.",
+   "action": "The insert closes on the cut. Maya's expr goes surprised, then happy (bright) on 'Lisbon', with her mouth open. She leans in (leanTo forward) on 'Down two hundred and forty': it's an old post, not a new one. Off frame, Floey flutters back to the laptop lid at 1.6 s.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.6,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone at the laptop. A comic '!' mark by her head.",
+   "action": "On 'Old prices' Maya points at the screen (pose point), expr think turning knowing, and a '!' mark pops beside her head. The second insert is cut so the reel has one cutaway, and the pointing acts out the find.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 0.9,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya typing, with Floey back on the laptop lid.",
+   "action": "On 'Not thirty new posts' Maya blends to pose type, expr neutral and calm, with a short calm burst of typing (cue about 0.8 s). At 1.4 s Floey gives one smug preen.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.9,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 1.9,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya holding her mug (pose mug, so DUO.mug() is not drawn), with Floey on the lid.",
+   "action": "Silent acting in the pause after the line: Maya blends to pose mug and sips at 2.3 s. She freezes, her expr goes annoyed at 2.6 s and she holds the mug away from her face. It's cold.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.3,
+     "kind": "pop"
+    },
+    {
+     "at": 2.8,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid.",
+   "action": "F.pivot to front: Floey turns to camera with her chest puffed, mood happy, and says 'Send this to your group chat.' One slow wink at 1.0 s.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 1.5,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya still holding the cold mug, with Floey on the lid. The notification slides down near the top of the safe area (screen space, below y 220).",
+   "action": "Maya's phone buzzes (panned to her side) and the reel's only notification slides down: from 'Group chat', text 'new plan: publish twice as much'. Maya reads it, mug frozen in her hand.",
+   "onScreenData": "new plan: publish twice as much",
+   "sfx": [
+    {
+     "at": 1.6,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 2.4,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face, with the notification still up in screen space above her.",
+   "action": "Maya slowly turns to camera, expr deadpan, and gives it a long flat look. Hold the look and the notification for about 2 s (push END to about 4.4 s after the line starts).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 4.4,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "The end card: the Flowra logo intact, 'Maya & Floey, every day', with Floey perched in front on the spark's left arm.",
+   "action": "The captions and the notification clear and the end card lands.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.4,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}

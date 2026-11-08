@@ -1,0 +1,79 @@
+{
+ "topic": "AI made publishing fast, so Maya published more, and now her old posts are slipping. Is the answer really \"just publish more\"?",
+ "angle": "Maya used AI to double her posting rate, and her group chat keeps saying \"just publish more\". Then she sees her clicks went down. Her first instinct is to publish even faster, or to change the dates on old posts so they look fresh. Floey points out that Google's own helpful content checklist asks about both of those habits. Her tip is one Search Console view that shows which posts are actually losing clicks: Performance, Compare last 3 months to previous period, Pages tab, sort by Clicks Difference. Maya then fixes only the part of the top post that slipped, and her coffee has gone cold.",
+ "whyNow": "On Hacker News, \"AI promised less work. I've never worked more\" (oioannou.com, posted 27 Oct 2026) got 689 points and 665 comments. Commenters say faster output only creates more work (\"Everything is solved faster, and that makes more problems to come\"). Content teams live the same thing: AI makes posts cheap, so there are more pages that can slip. Reddit SEO threads this year keep saying that updating old posts sometimes beats publishing new ones.",
+ "goal": "send",
+ "audience": "Solo bloggers, content marketers and small agency people who started using AI to publish faster and feel pressure (from a boss, a client, a group chat or themselves) to \"just publish more\". They now have a growing pile of old posts they never get time to check.",
+ "facts": [
+  {
+   "fact": "The Hacker News post \"AI promised less work. I've never worked more\" got 689 points and 665 comments. It was posted on 27 Oct 2026 and links to oioannou.com.",
+   "source": "https://hn.algolia.com/api/v1/search?tags=story_50257325"
+  },
+  {
+   "fact": "The essay's author writes: \"Agents did not just make my existing workload faster to finish. They made it easy to give myself a much bigger one.\" and \"being able to do more keeps turning into doing more.\"",
+   "source": "https://oioannou.com/blog/ai-promised-less-work/"
+  },
+  {
+   "fact": "A top comment in the HN thread: \"Everything is solved faster, and that makes more problems to come.\"",
+   "source": "https://hn.algolia.com/api/v1/items/50257325"
+  },
+  {
+   "fact": "Google's helpful content self-assessment asks: \"Are you producing lots of content on many different topics in hopes that some of it might perform well in search results?\"",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "The same Google page asks: \"Are you adding a lot of new content or removing a lot of older content primarily because you believe it will help your search rankings overall\"",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "The same Google page asks: \"Are you changing the date of pages to make them seem fresh when the content has not substantially changed?\" (so bumping the date is not a fix).",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "The same Google page asks: \"Are you using extensive automation to produce content on many topics?\"",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "Google says using generative AI tools \"to generate many pages without adding value for users may violate\" its spam policy on scaled content abuse. It advises focusing on \"accuracy, quality, and relevance\".",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "Google's traffic drop guide: in the Search Console Performance report, open the Date filter, select the Compare tab, then \"Compare last 3 months to previous period\".",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "The same guide: \"Review the Pages table below the chart\" and \"Select Clicks Difference to order it based on pages that lost the most traffic.\" It shows whether the drop hits the whole site, a group of pages or one key page.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "The same guide: \"Small fluctuations in position can happen at any time\" and \"we recommend avoiding making radical changes if your page is already performing well.\" This supports fixing only the part that slipped and keeping the rest.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "The same guide says improvements \"may take time\" (re-check in a few weeks) and that there is \"no guarantee\" changes will have a noticeable impact.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google: \"Our ranking systems are designed to work on the page level\", and site-wide signals and classifiers are also used.",
+   "source": "https://developers.google.com/search/docs/appearance/ranking-systems-guide"
+  },
+  {
+   "fact": "In Reddit SEO threads this year, a poster says updating old content sometimes works better than publishing new posts. Another, after 3 to 4 months of consistent AI posts, saw barely any movement. These are anecdotes and are used only as evidence of demand.",
+   "source": "https://reddit.sentinel-team.org/subreddits/SEO/snapshots/2026-05-14T21%3A36%3A01.334043Z"
+  },
+  {
+   "fact": "Any numbers on Maya's screen (for example \"30 new posts this month\", \"clicks -18%\", or one old post at -240 clicks) are Maya's own example numbers, not statistics.",
+   "source": "Flowra finding"
+  },
+  {
+   "fact": "End card context only, never spoken: Flowra's content decay report finds pages whose clicks and impressions are falling. The Rework Queue (Pro) rewrites only the sections that need it, keeps what already works, and shows the changes before publishing.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Day set, wide two-shot. Maya is typing fast and proud, and a \"+30 posts\" number pill pops up by her head (\"30 new posts this month\" is her own example). A phone notification slides down from the group chat: \"just publish more lol AI does it\". Then a screenInsert cutaway: her clicks chart draws itself going gently down, with a \"-18%\" pill (her example). Cut to mayaTight on the panic: \"Fine. I'll publish faster.\" Floey, deadpan on the laptop: \"That's how you got here.\" Maya pushes back: \"Then I'll just change the dates on the old ones.\" Floey: \"Google literally asks about that.\" The central image is the listInsert, Search Console's Pages table under \"Compare: last 3 months vs previous period\", sorted by Clicks Difference. Its rows are Maya's real-sounding post titles with negative differences. The top row (an old post, say \"Lisbon on a budget\", -240) gets the ring. Maya realises (\"Oh.\") and fixes one section rather than writing a new post. The button: she reaches for her mug, it's cold, she looks to camera. Floey: \"Send this to whoever keeps saying just publish more.\" Experiment field: send-ask.",
+ "pillar": "myth",
+ "instinct": "AI makes posts cheap, so when Maya's traffic slips she thinks the fix is to publish even more new posts, or to bump the dates on the old ones.",
+ "flip": "Google's own helpful content checklist flags making lots of content in the hope some performs, and changing dates without real changes. Its traffic drop guide says to start with Search Console's Pages table sorted by Clicks Difference, which shows exactly which old posts are losing clicks.",
+ "idea": "AI was supposed to save Maya time. Now she has more old posts to look after.",
+ "style": "duo"
+}

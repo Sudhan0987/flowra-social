@@ -1,0 +1,10 @@
+{
+ "pass": true,
+ "problems": [
+  "Frame 02 (minor, not blocking): on 'I'll publish faster' Maya's face reads as alarm (wide eyes, mouth wide open) rather than a determined nod. It may just be the lip-sync caught mid-word. Worth a glance at full speed to make sure the nod reads.",
+  "Frame 04 (minor): on 'flags that. New date,' Maya is still smug with her finger up. The finger should sink and her face should go worried on 'New date, same post'. If that only happens after the line ends, the reaction lands late. Check the timing.",
+  "Frame 08 (minor): the bottom edge of the Search Console card sits on top of Maya's bun and pencil. It's readable, but moving the card up about 20 px would clear her head.",
+  "Frame 09 (minor): on 'Not thirty new posts' Maya is already holding the mug and grinning. The script has a calm burst of typing on this line before she picks up the mug. Not something a viewer would flag.",
+  "Frames 10–11 (unverified, not a fail): none of the sampled frames show the button: Floey's wink, the second group-chat notification ('new plan, publish twice as much') and Maya's long flat look to camera. Frame 10 is still the cold-coffee beat and frame 11 is already the end card. Scrub that stretch once to confirm the notification can be read and that the roughly 2 s hold happens before the end card cuts in."
+ ]
+}
