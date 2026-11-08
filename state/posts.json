@@ -454,6 +454,17 @@
    "reason": "Frames 10-11: the 'Save this for next time ChatGPT mentions you' card seems to be missing. Frame 10 is mid-sip and frame 11 is already the end card, but the script wants a wince, a one-second flat look and then about 3 seconds on the card. A card held that long should show up in a sample, so either it was dropped or the end card comes too early. It is the only place the steps appear in writing: without it the tip in frames 04-05 is only spoken while the bird hovers. Restore the card, hold it abo",
    "idea": "Getting cited by ChatGPT isn't the same as getting visits",
    "style": "duo"
+  },
+  {
+   "id": "r028-ai-made-publishing-fast-so-maya-publishe",
+   "status": "draft",
+   "topic": "AI made publishing fast, so Maya published more, and now her old posts are slipping. Is the answer really \"just publish more\"?",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-08T12:27:06.976Z",
+   "seconds": 33,
+   "idea": "AI was supposed to save Maya time. Now she has more old posts to look after.",
+   "style": "duo",
+   "run": 42477758234
   }
  ]
 }
