@@ -1,0 +1,18 @@
+{
+ "title": "Content Pruning: What to Update, Merge, Redirect or Delete",
+ "description": "Should you delete that old blog post? Usually not. This video gives you five questions to ask about any page, in order, so each one ends up with a clear action: merge, update, noindex, redirect or delete. You'll also see how to build the list in Search Console, the pages you should never remove, and how to clean up afterwards.\n\nWritten guide: https://useflowra.com/blog/content-pruning?utm_source=youtube&utm_medium=video&utm_campaign=t003\n\nChapters\n0:00 The sheet you'll have by the end\n0:22 Build your list in Search Console\n1:01 Six kinds of page to protect\n1:36 The five questions\n1:44 Question 1: merge\n2:09 Question 2: update\n2:27 Question 3: noindex\n2:48 Question 4: redirect\n3:09 Question 5: delete\n3:39 Do it in small batches\n3:53 Clean up and measure\n4:17 Doing this without the spreadsheet\n\nEvery number in the video is example data.\n\nFlowra connects Search Console, GA4 and WordPress and finds the pages losing traffic. Free to start: https://useflowra.com?utm_source=youtube&utm_medium=video&utm_campaign=t003\n\n#seo #contentpruning #contentaudit",
+ "tags": [
+  "content pruning",
+  "content pruning seo",
+  "delete old blog posts",
+  "should i delete old blog posts",
+  "content audit",
+  "301 redirect or delete",
+  "noindex vs delete",
+  "update old blog posts"
+ ],
+ "categoryId": "28",
+ "publishAt": "2026-11-19T13:30:00Z",
+ "thumbnail": "thumbnail.png",
+ "pinnedComment": "Which page on your site are you least sure about? Tell us what it's about and how much traffic it gets, and we'll say which of the five questions it stops at."
+}
