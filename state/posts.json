@@ -465,6 +465,17 @@
    "idea": "AI was supposed to save Maya time. Now she has more old posts to look after.",
    "style": "duo",
    "run": 42477758234
+  },
+  {
+   "id": "r029-your-comparison-post-is-going-sour-fix-t",
+   "status": "failed",
+   "topic": "Your comparison post is going sour: fix the three parts that went stale before you touch the year in the title",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-09T14:19:25.179Z",
+   "seconds": 31,
+   "reason": "Frame 07: The picture contradicts the voice. Maya is saying \"...the new model's not in the table\" while the insert already shows the Feature table row as 'new model added' with a green ring. The fix is on screen before she has finished spotting the problem. Hold the 'last year' (red) state until she has finished the line and typed, then show the change. Frame 08: The picture is ahead of the voice and spoils the payoff. Floey is still giving the instruction (\"Now the year. And the last updated da",
+   "idea": "Your comparison post is going sour: the three sections that go stale first",
+   "style": "duo"
   }
  ]
 }
