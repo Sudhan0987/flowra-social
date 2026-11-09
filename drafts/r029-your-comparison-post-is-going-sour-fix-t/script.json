@@ -1,0 +1,125 @@
+{
+ "title": "The year isn't the stale bit",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "My best post still says twenty twenty six. It's ancient!",
+   "emotion": "worried",
+   "caption": "My best post still says 2026. It's ancient!",
+   "visual": "Frame one, wide, day set. Maya at the laptop in the panic pose with a worried face, typing fast (typing sfx). A red stat pill reading '2026' sits over the laptop, so the problem is on screen before she finishes the word. Floey is perched on the laptop lid. She turns sharply to Maya and chips, and a '!' mark pops above her."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Changing just the date does nothing. Google says so.",
+   "emotion": "curious",
+   "visual": "Wide. Floey stays perched, tilts her head at Maya, flat mood, one slow blink. Maya stops typing mid-word and holds still with a worried face. The red '2026' pill stays up."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.15,
+   "say": "But a new year looks fresh!",
+   "emotion": "worried",
+   "visual": "Wide. Maya in the point pose, jabbing a finger at the laptop, worried face. Floey tilts her head the other way, unmoved, and gives a tiny tk."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Prices first. Then the feature table. Then the year.",
+   "emotion": "playful",
+   "visual": "Cut to the listInsert of Maya's own post: 'Best travel backpacks 2026, compared', sub 'sections', six rows: Intro 'fine' (good), How I tested 'fine' (good), Prices '£79' (bad), Feature table 'last year' (bad), Verdict 'fine' (good), Title year '2026' (bad). As Floey names each one, that row rings (hiK) with a tick sfx: Prices, then Feature table, then Title year."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Seventy nine... it's ninety five now. I'm lying to readers!",
+   "emotion": "worried",
+   "caption": "£79... it's £95 now. I'm lying to readers!",
+   "visual": "The insert stays up. Maya types (typing sfx) and the Prices row value changes from '£79' to '£95' and turns good with a tick. Cut to wide: Maya in the panic pose, worried face, hands up. Floey, perched, watches her without moving."
+  },
+  {
+   "role": "check",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "They think it's a bargain.",
+   "emotion": "playful",
+   "visual": "floeyTight. Floey keeps it deadpan and preens one wing feather while she says it, then looks up with a slow blink."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Wait. The new model's not in the table.",
+   "emotion": "curious",
+   "visual": "Wide. Maya in the chin pose, leaning toward the screen, then typing (typing sfx). Floey turns to watch. Cut to the insert: the Feature table row value changes from 'last year' to 'new model added' and turns good with a tick. The Intro, How I tested and Verdict rows don't change."
+  },
+  {
+   "role": "check",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Now the year. And the last updated date.",
+   "emotion": "warm",
+   "visual": "Wide. Floey turns to Maya, tk, her mood changes to pleased. Maya sits up and types again (typing sfx)."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Oh.",
+   "emotion": "bright",
+   "visual": "Insert: the Title year row changes from '2026' to '2027, updated Nov 2026' and turns good with a tick. All six rows are green now, and only the three stale ones ever changed. Cut to mayaTight: her face goes from worried to bright."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.7,
+   "say": "I nearly did that to every post.",
+   "emotion": "warm",
+   "visual": "Cut to the second listInsert, full frame: 'Before you change the year', three numbered rows: 1 Prices 'first', 2 Feature table 'next', 3 The year and date 'last'. It holds through Maya's flat, sheepish voice over the shot and the pause after it, about three seconds in all, with no room shots on top."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "You're welcome.",
+   "emotion": "proud",
+   "visual": "Back to wide in the room. Floey, perched on the laptop lid, turns to camera with a proud mood, chest puffed, one slow blink. Maya in the crossed pose with a deadpan face gives the camera a long flat look. Hold, then the end card."
+  }
+ ],
+ "loopNote": "No loop, because this is a duo reel. The last frame is the wide room shot with Floey proud and Maya's flat look to camera, then the end card. A replay opens on the same wide room with the red '2026' pill, so the cut back still feels smooth.",
+ "caption": "It's November, so my best comparison post was about to look a year old. My plan: change 2026 to 2027 and hit Update. Floey stopped me. Google says changing a page's date when the content hasn't really changed won't help it rank.\n\nSo here's the order:\n1. Check every price against the shop. Mine was £79 in the post and £95 in real life.\n2. Update the feature table, new models included.\n3. Only then change the year and the \"Last updated\" date. By then the date is telling the truth.\n\nKeep this for your next audit. Who else was about to swap the year and nothing else? 👀",
+ "hashtags": [
+  "#seo",
+  "#blogging",
+  "#contentmarketing",
+  "#affiliatemarketing",
+  "#bloggingtips"
+ ],
+ "sticky": 50,
+ "id": "r029-your-comparison-post-is-going-sour-fix-t",
+ "format": "duo-sitcom",
+ "goal": "save",
+ "topic": "Your comparison post is going sour: fix the three parts that went stale before you touch the year in the title",
+ "editorNotes": [
+  "The hook isn't true, and a stranger won't get it in 2 seconds. It is November 2026, so a post that 'still says twenty twenty six' is current, not 'ancient'. A viewer hears Maya being wrong in a way that makes no sense, which reads as dumb, not panicked. The hook also leaves out what she is about to do. The brief's moment is Maya about to change 2026 to 2027 because January is coming. Without that, Floey's 'Changing just the date does nothing' answers an action nobody has mentioned. Rewrite the first line so it carries both the problem and her quick fix: the post is about to look a year old, and she is changing the year. Keep it true to the calendar.",
+  "Hook visual: Maya can't be in the panic pose (hands up by her head) and 'typing fast' at the same moment. Those are two different poses. Pick one for frame one, for example type with the cursor on the year as the brief says, then jolt or panic on the chip. Also, the stat pill is placed 'over the laptop', which is where Floey is perched. Put the pill near Maya's head (about x 880, y 610) so it doesn't collide with Floey.",
+  "Floey moods the animator can't set: 'flat mood' (reframe), 'pleased' (beat 8), 'proud mood, chest puffed' (button). Her moods are hello, happy, worried, think, surprised, determined, sad and party. Name real moods and behaviours, for example think plus a slow blink, happy, or pivot front plus a wink. Leave 'proud' as the voice emotion only.",
+  "The payoff 'Oh.' has nothing to realise. It comes after Maya has already done all three steps Floey dictated, so there is no flip left. The 'it wasn't what I thought' moment needs to land on the insert: only three rows were stale, and the year was the last of them. Give Maya a reaction to that, not a free-standing 'Oh.'",
+  "The save ending from the brief is gone, and goal is 'save'. The brief wants the 'Before you change the year' checklist on screen for 3 or more seconds while Maya says 'save this for your next audit'. Here the checklist holds for about 2.2 seconds (a short line plus a 0.7 pause), then cuts back to wide before the button. Restore a save cue that Maya says to Floey or to herself, not to the viewer, and keep the checklist up through it. Also, 'I nearly did that to every post' is vague. Just before it, the year was changed the right way, so 'that' could mean either the wrong fix or the right one. Make it clear she means bumping the year alone.",
+  "Beat 10's emotion is 'warm', but its visual asks for a 'flat, sheepish voice'. The face and voice must match the line on every sampled frame, so pick one. Note that there is no Maya face during the full-frame insert, so the delivery has to carry it.",
+  "(polish) Floey's reframe 'Changing just the date does nothing. Google says so.' is marked 'curious', which will make a flat fact sound like a question. Deadpan is her register here: use warm or determined, or mark it as dry and flat in the delivery notes.",
+  "(polish) Maya's emotions run worried, worried, worried in three of her first four lines (beats 1, 3 and 5), so bf_emma will sound the same every time. Vary them: beat 3 should be insistent and defiant ('But a new year looks fresh!'), and beat 5 is a real escalation, so make it excited or panicked rather than worried again.",
+  "(polish) The Title year row's new value, '2027, updated Nov 2026', is long for a value column and may overflow or crowd the label. Measure it with PROPS.measure, or split it: the year in the row value and 'Last updated Nov 2026' shown somewhere else. Also, the insert title still reads 'Best travel backpacks 2026, compared' after the change. Decide whether the title updates too, so the screen doesn't contradict the row.",
+  "(polish) Beat 4 rings three rows in turn during a line of about 3 seconds. listInsert has one 'hi' row with one hiK ring, so the animator has to swap 'hi' per segment. Spell that out with timings for each name (Prices, Feature table, Title year) and one tick each, keeping them more than 0.4 seconds apart.",
+  "(polish) The button holds on 'long flat look' and silent acting after 'You're welcome.', so END has to be pushed out (about 2 to 3 seconds) before the end card or the look gets cut. The brief's cold-coffee beat was dropped. That's fine, since one running joke per reel is plenty, but say so in the notes so nobody adds both."
+ ],
+ "style": "duo",
+ "template": "../drafts/r029-your-comparison-post-is-going-sour-fix-t/scene.html"
+}

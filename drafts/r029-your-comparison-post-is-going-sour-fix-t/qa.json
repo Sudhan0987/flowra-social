@@ -1,0 +1,13 @@
+{
+ "pass": false,
+ "problems": [
+  "Frame 07: The picture contradicts the voice. Maya is saying \"...the new model's not in the table\" while the insert already shows the Feature table row as 'new model added' with a green ring. The fix is on screen before she has finished spotting the problem. Hold the 'last year' (red) state until she has finished the line and typed, then show the change.",
+  "Frame 08: The picture is ahead of the voice and spoils the payoff. Floey is still giving the instruction (\"Now the year. And the last updated date.\"), but the insert already shows the title as 2027, the Title year row as 2027 in green and 'Last updated: Nov 2026'. The script says this shot should be wide, with Floey turning to Maya and Maya typing, and the Title year change should land on Maya's \"Oh.\" As rendered, \"Oh.\" has nothing left to react to.",
+  "Frame 02: The script says the red '2026' pill stays up during Floey's reframe, but it is gone, so the problem leaves the screen while Floey is still talking about it.",
+  "Frame 00: Floey faces away from Maya, with her beak pointing left, and there is no '!' above her. The script's beat (she turns sharply to Maya and chirps, '!' pops) does not read in the first frame. It may be mid-turn; check that it lands within the hook.",
+  "Frame 06: The floeyTight framing leaves the whole top half of the frame as empty lavender, with Floey pushed into the bottom-right corner. On a phone this reads as an empty, badly framed shot. Centre her or tighten the shot.",
+  "Frame 05: Floey is grinning with her eyes closed, but the script asks for her to watch Maya without moving, and her character is deadpan. The smile undercuts Floey's dry delivery of the next line (\"They think it's a bargain.\").",
+  "Frames 03, 04, 07, 08, 09: Behind the insert card, Maya shows only as a dark, faceless round blob with a pencil sticking out over the top edge of the card. It looks like a stray artifact. Either dim the room fully or crop so her head isn't peeking over the card. In frame 09, her dimmed hoodie and the laptop also show below a card that only fills part of the frame, but the script asks for a full-frame insert with no room shots on top.",
+  "Frame 00/01 (hook logic, minor): The reel posts in Nov 2026, so a post that 'still says 2026' is current, not 'ancient'. The reminder card ('Refresh posts before 2027') helps, but some viewers may read the line as a mistake rather than Maya exaggerating."
+ ]
+}

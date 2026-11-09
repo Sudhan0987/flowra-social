@@ -1,0 +1,51 @@
+{
+ "topic": "Your comparison post is going sour: fix the three parts that went stale before you touch the year in the title",
+ "angle": "Maya finds her best comparison post (\"Best travel backpacks 2026, compared\", an example) still showing last year's prices, and her quick fix is to bump the year and the date and hit Update. Floey stops her: Google says changing a date without really changing the page does nothing, so they work through three checks in order: prices and plans, the feature table, and only then the year and the 'last updated' date. It ends on a three-step checklist that stays on screen while Maya says 'save this for your next audit'.",
+ "whyNow": "PostHog published \"How to write comparison content that doesn't age like milk\" on 27 Oct 2026, and it reached the Hacker News front page (modest numbers: 31 points, 5 comments, mostly about the page design). The bigger reason is the calendar. It is November, so every \"2026\" in a title is about seven weeks from looking a year old, and bloggers are about to change \"2026\" to \"2027\" without touching anything else. Google's John Mueller has been asked the same date question again and again (2017, 2019, 2021, 2022), so the demand keeps coming back. Note: I could not open Reddit from here, so this brief has no Reddit thread as evidence. If the gate needs one, someone should pull a \"year in title\" thread from r/SEO or r/juststart by hand.",
+ "goal": "save",
+ "audience": "Solo bloggers, affiliate and niche site owners, and content marketers who keep 'best X', 'X vs Y' or 'compared' posts with prices and feature tables, and who are about to change last year's year in the title.",
+ "facts": [
+  {
+   "fact": "Google's own self-assessment questions for helpful content ask: \"Are you changing the date of pages to make them seem fresh when the content has not substantially changed?\" and say that kind of freshening won't help rankings.",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "John Mueller of Google (Feb 2022): \"When you write something new, or significantly change something existing, then change the date.\" and \"Changing the date without doing anything else is just noise & useless.\"",
+   "source": "https://www.seroundtable.com/google-update-content-date-32878.html"
+  },
+  {
+   "fact": "John Mueller (Search Central hangout, April 2021): \"we definitely wouldn't rank those pages differently in search just because you're changing the date and time on a page.\"",
+   "source": "https://www.searchenginejournal.com/googles-john-mueller-changing-dates-on-pages-wont-improve-rankings/401734/"
+  },
+  {
+   "fact": "Google's date guidance: label dates with text like \"Published\" or \"Last updated\", and the date must describe when the page was published or updated.",
+   "source": "https://developers.google.com/search/docs/appearance/publication-dates"
+  },
+  {
+   "fact": "PostHog's guide (Natalia Amorim, 27 Oct 2026) says comparison pages drift because the companies they compare \"ship things, change their pricing, get acquired\", and calls the upkeep \"a feature table and pricing that changes every quarter.\"",
+   "source": "https://posthog.com/blog/comparison-content-guide"
+  },
+  {
+   "fact": "The same guide warns that your own claims can go stale too: understating your own product is another way a comparison goes wrong.",
+   "source": "https://posthog.com/blog/comparison-content-guide"
+  },
+  {
+   "fact": "The PostHog guide was posted on Hacker News as \"How to write comparison content that doesn't age like milk\" (31 points, 5 comments when checked).",
+   "source": "https://news.ycombinator.com/item?id=50355365"
+  },
+  {
+   "fact": "Maya's post, its prices and its year are her own example, not real data (for example: the post says £79, the shop now says £95). No real brands are named.",
+   "source": "Example, framed as Maya's own"
+  },
+  {
+   "fact": "Background only, never said in the reel: Flowra's Rework Queue (Pro) rewrites the sections of an existing page that need it, keeps what already works, and shows the changes before publishing.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "The main image is a DUO.listInsert of Maya's own post, titled \"Best travel backpacks 2026, compared\" with the sub \"sections\". It has six rows: Intro (fine, good), How I tested (fine, good), Prices (£79, last year, bad), Feature table (missing new model, bad), Verdict (fine, good), Title year (2026, bad). In the hook, Maya has her cursor on the year, about to type 2027 (typing sfx, with a \"!\" mark from Floey's chip). Floey says something like \"Changing the date alone does nothing. Google says so.\" The countdown then rings each bad row in turn (hiK) with a tick, and each one turns good as Maya types: prices first, then the feature table, then the year and 'Last updated' last. The Intro, How I tested and Verdict rows never change, which shows that only three parts went off. The button is a second listInsert, \"Before you change the year\", with three numbered rows: 1 Prices and plans, 2 Feature table, 3 Then the year and date. It stays up for 3 or more seconds while Maya says \"Save this for your next audit.\" She reaches for her coffee, finds it cold (the running joke), and Floey says \"You're welcome.\" Day set, Floey perched on the laptop.",
+ "pillar": "myth",
+ "instinct": "Maya thinks that changing the year in the title and hitting Update will make her old comparison post look fresh to Google.",
+ "flip": "Google says changing a page's date without really changing the content won't help, so update the prices and the feature table first, then change the year and the 'last updated' date.",
+ "idea": "Your comparison post is going sour: the three sections that go stale first",
+ "style": "duo"
+}
