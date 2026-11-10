@@ -1,0 +1,329 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<script src="lines.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../../reel/assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../../reel/assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r030 "Put the year down, Maya". Duo style, day. The shape of reel/duo/template.html.
+// Frame one: Maya typing in a panic, a red "2025 prices" pill by her head. Floey, facing away, preens,
+// then turns to her on "last year's prices". "Quick, change the year": push in on Maya.
+// "Put the year down, Maya.": Floey, close; cut to Maya's face on "Maya": a jolt, hands off the keys, a "?".
+// "Why? A new year looks fresh!": Maya pleads with a shrug; Floey tilts her head, unconvinced.
+// "Google's own guide...": Floey takes off and hovers by Maya's head; Maya pulls back, thinking. Floey lands.
+// "Fine. What first?": arms crossed, then she leans in. Floey nods.
+// The tip: her post's three checks swing in on her screen, one row per phrase, the ring on "Year last".
+// The check: she types; each row fills in as she says it. "I'm deleting the blog": her face, hands up, a shake.
+// "Or fix them.": Floey, deadpan, a wink; Maya is already typing off screen. Both rows turn green, a ding each.
+// "Oh.": her face, surprised, then relieved. The checklist, saved, held on her screen.
+// The button: "Now you can pick the year up." She types, one slow defiant key, the year pops on her laptop
+// in green, and she gives the camera a smug look. End card.
+const M = window.MOUTHS || {};
+const LINES = window.LINES;
+// the pause after each line, from the story
+const GAP = { hook0: 0.2, reframe1: 0.25, doubt2: 0.2, reframe3: 0.35, doubt4: 0.3, tip5: 0.4, check6: 0.2, reframe7: 1.2, payoff8: 0.4, payoff9: 1.4, button10: 0.7 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+const b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+const st = (id, s) => b[id].start + s;               // s seconds into a line
+// after the last line: her typing, the one slow key and her look to camera, before the end card
+const END = Math.max(SPOKEN + 0.6, b.button10.end + 3.0), DUR = END + 1.6;
+
+// ---------- shots for this reel (named shots, nudged so nobody is sliced) ----------
+const TIGHT = { camX: 232, camY: 1000, zoom: 2.8 };   // floeyTight, closer: Floey fills the frame, Maya out at the right
+const LOOK = { camX: 655, camY: 820, zoom: 2.0 };     // Maya's look to camera, her face centred, Floey out of frame
+const OH = { camX: 640, camY: 830, zoom: 2.05 };      // mayaTight, raised so Floey (off screen) stays clear of the captions
+const INS = { camX: 560, camY: 880, zoom: 1.12 };     // the wide under an insert, framed so her head sits behind the card, not over its top
+
+// ---------- the cast ----------
+const F = FLOEY.create({ ...SP.floeyLaptop, facing: 1, mood: "hello", perched: true, view: "side" });
+const MY = MAYA.create({ ...SP.maya, expr: "panic", pose: "type", floey: F });
+// "determined": brows down and level, a firm mouth (no grin)
+MAYA.EXPR.determined = { brow: [-20, 6], eye: 0.72, smile: -0.1, w: 0.75, blush: 0 };
+const W = { ...SH.wide, sh: 0, pill: 1, src: 0, q: 0, sweat: 0, end: 0, yr: 0,
+  post: 0, rows: 0, hiRow: -1, hiK: 0, r1: 0, r2: 0,
+  list: 0, listRows: 0, listHi: 0, saved: 0 };
+const wt = gsap.timeline({ paused: true });
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => wt.to(W, { ...s, duration: d, ease }, t);
+const cut = (t, s) => wt.set(W, { ...s }, t);
+const shake = (t, d = 0.45) => wt.to(W, { sh: 1, duration: 0.05 }, t).to(W, { sh: 0, duration: d, ease: "power2.out" }, t + 0.05);
+const blink = (t) => { F.tl.to(F.S, { squint: 1, duration: 0.14, ease: "power2.in" }, t); F.tl.to(F.S, { squint: 0, duration: 0.2 }, t + 0.36); };
+const ring = (t, row) => { wt.set(W, { hiRow: row, hiK: 0 }, t).to(W, { hiK: 1, duration: 0.3, ease: "back.out(1.8)" }, t); };
+const nodF = (t) => { F.tiltTo(t, -12, 0.12); F.tiltTo(t + 0.14, 0, 0.18); };
+// a preen with the beak down in the chest feathers, quiet (the landing already has its own sounds)
+const preenDown = (t, d) => {
+  F.tl.to(F.S, { tilt: -28, lookY: 1, duration: 0.18 }, t);
+  for (let i = 0; i < 2; i++) {
+    const s = t + 0.2 + (i * (d - 0.4)) / 2;
+    F.tl.to(F.S, { tilt: -40, puff: 0.5, duration: 0.09, ease: "power1.in" }, s);
+    F.tl.to(F.S, { tilt: -28, puff: 0.2, duration: 0.14 }, s + 0.09);
+  }
+  F.tl.to(F.S, { tilt: 0, lookY: 0, puff: 0, duration: 0.2, ease: "back.out(2)" }, t + d - 0.15);
+};
+const AT_LAPTOP = [-0.5, 0.8], AT_FLOEY = [-1, 0];
+
+// HOOK0: frame one is the problem already happening. Wide, the red "2025 prices" pill by her head,
+// Maya typing in a panic. Floey faces away, preening, unbothered.
+F.sfx(0.02, "typing", { d: 1.8 });
+MY.look(0, ...AT_LAPTOP).say(b.hook0.start, M.hook0 || [], "hook0");
+preenDown(0.15, 1.0);
+// "last year's prices": Floey turns round to her (the turn's own tk) and blinks once, slowly
+const turn = st("hook0", 1.2);
+F.face(turn, -1).look(turn, 0.3, -0.2).tiltTo(turn, -6, 0.15);
+blink(turn + 0.3);
+MY.look(st("hook0", 1.0), -0.3, -0.1, 0.15).look(st("hook0", 1.6), ...AT_LAPTOP, 0.15);
+// "Quick, change the year": the pill goes, push in on Maya; she leans in to the laptop and types faster
+const quick = st("hook0", 1.85);
+wt.to(W, { pill: 0, duration: 0.2, ease: "power2.in" }, quick - 0.1);
+shot(quick, SH.maya, 0.55);
+MY.leanTo(quick, -4, 0.35).expr(quick, "worried");
+F.sfx(quick + 0.25, "typing", { d: 1.45 });
+F.tiltTo(quick, 0, 0.2);
+
+// REFRAME1: cut to Floey, close. A slow lean, a slow blink: "Put the year down," with a chip on "down".
+cut(b.reframe1.start - 0.12, TIGHT);
+F.mood(b.reframe1.start - 0.15, "hello").tiltTo(b.reframe1.start, 9, 0.5).say(b.reframe1.start, M.reframe1 || [], "reframe1");
+blink(st("reframe1", 0.1));
+F.chips(st("reframe1", 0.6), 1);
+// off screen she stops typing at once, hands frozen over the keys
+MY.pose(b.reframe1.start, { L: [252, 650], R: [348, 650] }, 0.15).expr(b.reframe1.start, "surprised").leanTo(b.reframe1.start, 0, 0.2);
+// "Maya": cut to her face. A jolt, hands off the keys, a "?" pops by her head
+const caught = st("reframe1", 0.85);
+cut(caught, OH);
+MY.look(caught, -0.8, 0).pose(caught + 0.02, "rest", 0.2).jolt(caught + 0.05);
+wt.to(W, { q: 1, duration: 0.25, ease: "back.out(2)" }, caught + 0.1);
+
+// DOUBT2: pull back to Maya. She shrugs, worried, leaning towards Floey to plead.
+shot(b.doubt2.start - 0.15, SH.maya, 0.5);
+MY.expr(b.doubt2.start - 0.1, "worried").pose(b.doubt2.start - 0.1, "shrug", 0.25).leanTo(b.doubt2.start, -4, 0.3)
+  .look(b.doubt2.start, ...AT_FLOEY).say(b.doubt2.start, M.doubt2 || [], "doubt2").nod(st("doubt2", 0.9), 1);
+wt.to(W, { q: 0, duration: 0.2 }, st("doubt2", 0.5));
+F.tiltTo(b.doubt2.start, 0, 0.1);
+// the listener: cut to the two-shot, Floey tilts her head the other way, not convinced
+const unsure = b.doubt2.end - 0.05;
+cut(unsure, SH.floey);
+F.tiltTo(unsure + 0.02, -14, 0.2).sfx(unsure + 0.05, "tk");
+MY.pose(unsure, "rest", 0.3).leanTo(unsure, 0, 0.3);
+
+// REFRAME3: Floey takes off and hovers at Maya's eye height, wings a blur: "Google's own guide calls that a warning sign."
+F.mood(b.reframe3.start - 0.1, "hello").tiltTo(b.reframe3.start, 0, 0.15).say(b.reframe3.start, M.reframe3 || [], "reframe3");
+// the source slides in on "Google's own guide" (a tick) and stays until she lands
+const srcIn = Math.max(unsure + 0.45, st("reframe3", 0.05));   // 0.4 s clear of her head-tilt tk
+wt.to(W, { src: 1, duration: 0.3, ease: "back.out(1.6)" }, srcIn);
+F.sfx(srcIn, "tick");
+wt.to(W, { src: 0, duration: 0.2, ease: "power2.in" }, b.doubt4.start - 0.3);
+F.takeoff(st("reframe3", 0.7)).move(st("reframe3", 0.95), 335, 780, 0.5);
+F.sfx(st("reframe3", 1.65), "tk");
+// Maya, on "Google's own guide": pulls her chin back, thinking; on "warning sign" her face drops to a grudging frown
+MY.expr(st("reframe3", 0.3), "think").pose(st("reframe3", 0.3), "chin", 0.35).leanTo(st("reframe3", 0.3), 3, 0.4)
+  .look(st("reframe3", 0.6), -0.9, -0.2, 0.2);
+MY.expr(st("reframe3", 1.9), "annoyed").pose(st("reframe3", 1.9), "crossed", 0.35);
+// after the line she flutters back down to the lid
+F.land(b.reframe3.end + 0.05, SP.floeyLaptop.x, SP.floeyLaptop.y, 0.45);
+MY.look(b.reframe3.end + 0.1, -0.7, 0.3, 0.3);
+
+// DOUBT4: wide. "Fine." arms crossed, annoyed; then she uncrosses, determined, and leans in: "What first?"
+cut(b.doubt4.start - 0.08, SH.wide);
+MY.say(b.doubt4.start, M.doubt4 || [], "doubt4");
+const ready = st("doubt4", 0.5);
+MY.expr(ready, "determined").pose(ready, "rest", 0.3).leanTo(ready, -4, 0.35).look(ready, ...AT_LAPTOP);
+preenDown(b.doubt4.start + 0.25, 0.55);
+nodF(st("doubt4", 0.9));
+
+// TIP5: her post's three checks swing in on her screen; one row per phrase, a tk each, the ring on "Year last"
+const tipIn = b.doubt4.end + 0.02;
+wt.to(W, { post: 1, duration: 0.15, ease: "power3.out" }, tipIn);
+F.sfx(tipIn, "whoosh");
+cut(tipIn + 0.05, INS);
+F.mood(b.tip5.start - 0.1, "happy").say(b.tip5.start, M.tip5 || [], "tip5");
+MY.pose(b.tip5.start, "type", 0.3).expr(b.tip5.start, "think").leanTo(b.tip5.start, -3, 0.3);
+[[0.1, 1 / 3], [0.98, 2 / 3], [2.15, 1]].forEach(([s, k]) => {
+  wt.to(W, { rows: k, duration: 0.3, ease: "power2.out" }, st("tip5", s));
+  F.sfx(st("tip5", s), "tk");
+});
+ring(st("tip5", 2.4), 2);
+
+// CHECK6: the insert holds. She types; each row fills in as she says it, the ring moves with her.
+// she checks while Floey finishes; row 1 fills in as her line starts, row 2 a beat later, so the screen
+// already shows what she reads out ("3 prices changed", "2 rows out of date")
+F.sfx(st("tip5", 2.6), "typing", { d: 0.6 });
+ring(b.check6.start - 0.3, 0);
+MY.expr(b.check6.start - 0.1, "worried").say(b.check6.start, M.check6 || [], "check6");
+wt.set(W, { r1: 1 }, b.check6.start - 0.3); F.sfx(b.check6.start - 0.3, "tick");
+ring(st("check6", 0.15), 1);
+wt.set(W, { r2: 1 }, st("check6", 0.15)); F.sfx(st("check6", 0.15), "tick");
+// "I'm deleting the blog": hard cut to her face, hands up, a jolt and a little shake
+const del = st("check6", 2.3);
+wt.set(W, { post: 0 }, del);
+cut(del, OH);
+MY.expr(del, "panic").pose(del, "panic", 0.18).look(del, 0.1, -0.3).jolt(del + 0.1);
+shake(del + 0.12);
+wt.to(W, { sweat: 1, duration: 0.2 }, del + 0.1).to(W, { sweat: 0, duration: 0.2 }, b.check6.end + 0.1);
+
+// REFRAME7: Floey, close and deadpan: "Or fix them." A wink. Off screen, Maya is already typing.
+cut(b.reframe7.start - 0.12, TIGHT);
+F.mood(b.reframe7.start - 0.15, "hello").look(b.reframe7.start, 0.4, -0.3, 0.1).say(b.reframe7.start, M.reframe7 || [], "reframe7");
+F.wink(b.reframe7.end + 0.02);
+MY.pose(st("reframe7", 0.35), "type", 0.25).expr(st("reframe7", 0.35), "determined").look(st("reframe7", 0.35), ...AT_LAPTOP);
+F.sfx(st("reframe7", 0.45), "typing", { d: 0.7 });
+// her screen: both rows turn green, one ding each, then the ring goes back to "last, not first"
+const fixIn = b.reframe7.end + 0.24;
+ring(fixIn, 0);
+wt.set(W, { post: 1 }, fixIn);
+cut(fixIn, INS);
+wt.set(W, { r1: 2 }, fixIn + 0.12); F.sfx(fixIn + 0.12, "ding");
+ring(fixIn + 0.4, 1);
+wt.set(W, { r2: 2 }, fixIn + 0.57); F.sfx(fixIn + 0.57, "ding");
+ring(fixIn + 0.75, 2);
+F.sfx(fixIn + 0.98, "rise");
+
+// PAYOFF8: hard cut to her face. "Oh." surprised; then relief, and she leans back from the laptop.
+const oh = b.payoff8.start - 0.1;
+wt.set(W, { post: 0 }, oh);
+cut(oh, OH);
+shot(b.payoff8.start, { camX: 640, camY: 835, zoom: 2.15 }, 2.2, "sine.out");
+MY.pose(oh, "rest", 0.25).expr(oh, "surprised").look(oh, -0.2, 0.3).say(b.payoff8.start, M.payoff8 || [], "payoff8");
+const relief = st("payoff8", 0.8);
+MY.expr(relief, "happy").leanTo(relief, 4, 0.6).look(relief, 0, 0, 0.3).tiltTo(relief, 3, 0.5);
+
+// PAYOFF9: the checklist, saved, held on her screen through the line and the long pause
+const listIn = b.payoff8.end + 0.12;
+wt.to(W, { list: 1, duration: 0.15, ease: "power3.out" }, listIn).to(W, { listRows: 1, duration: 0.6, ease: "none" }, listIn + 0.1);
+F.sfx(listIn, "whoosh");
+cut(listIn + 0.15, INS);
+MY.leanTo(listIn + 0.15, 0, 0.1).tiltTo(listIn + 0.15, 0, 0.1).pose(listIn + 0.15, "type", 0.2).look(listIn + 0.15, ...AT_LAPTOP)
+  .expr(b.payoff9.start - 0.1, "happy").say(b.payoff9.start, M.payoff9 || [], "payoff9");
+const save = st("payoff9", 0.12);
+wt.set(W, { saved: 1 }, save); F.sfx(save, "click");
+wt.to(W, { listHi: 1, duration: 0.3, ease: "back.out(1.8)" }, save + 0.8);
+F.sfx(save + 0.8, "tick");
+
+// BUTTON10: back in the room, wide. Floey, a smug little tilt: "Now you can pick the year up." A chip on "up".
+const back = b.button10.start - 0.2;
+wt.set(W, { list: 0 }, back);
+cut(back, SH.wide);
+MY.pose(back, "rest", 0.3).expr(back, "happy").look(back, ...AT_FLOEY);
+F.mood(back, "hello").look(back, 0.4, -0.3).tiltTo(b.button10.start, 12, 0.25).say(b.button10.start, M.button10 || [], "button10");
+F.chips(b.button10.end - 0.2, 1);
+F.tiltTo(b.button10.end + 0.3, 0, 0.25).look(b.button10.end + 0.4, 0.5, 0.5, 0.2);
+MY.nod(st("button10", 0.9), 1);
+// she types, then one slow, defiant key: the year pops on her laptop, in green
+const go = b.button10.end + 0.1;
+MY.expr(go, "determined").pose(go, "type", 0.25).look(go, ...AT_LAPTOP);
+F.sfx(go + 0.1, "typing", { d: 0.55 });
+const key = go + 0.95;
+MY.pose(key - 0.3, { L: [252, 690], R: [372, 560], kR: "point" }, 0.25).pose(key, { L: [252, 690], R: [348, 690], kR: "point" }, 0.08);
+F.sfx(key, "click");
+wt.to(W, { yr: 1, duration: 0.3, ease: "back.out(2)" }, key + 0.02);
+// her look to camera: the pill goes, push in on her face, arms crossed, smug
+const toCam = key + 0.35;
+wt.to(W, { yr: 0, duration: 0.15 }, toCam - 0.05);
+shot(toCam, LOOK, 0.6, "power3.out");
+MY.look(toCam, 0, 0, 0.2).expr(toCam + 0.1, "smug").pose(toCam + 0.1, "crossed", 0.35).tiltTo(toCam + 0.3, -4, 0.5);
+
+// END: the logo card drops in
+wt.to(W, { end: 1, duration: 0.18, ease: "power2.out" }, END);
+F.sfx(END + 0.05, "thump");
+wt.set({}, {}, DUR);
+
+// ---------- what is on her screen (Maya's own example post) ----------
+function postCard() {
+  const full = "My post: travel cards compared";
+  const title = PROPS.measure(full, "700 44px 'Space Grotesk'") <= 790 ? full : "Travel cards compared";
+  const v1 = [{ value: "not checked", tone: "bad" }, { value: "3 prices changed", tone: "bad" }, { value: "3 prices fixed", tone: "good" }][Math.round(W.r1)];
+  const v2 = [{ value: "not checked", tone: "bad" }, { value: "2 rows out of date", tone: "bad" }, { value: "2 rows fixed", tone: "good" }][Math.round(W.r2)];
+  const rows = [
+    { label: "1. Prices & plans", ...v1 },
+    { label: "2. Feature table", ...v2 },
+    { label: "3. Year and date", value: "last, not first", tone: "ink" },
+  ].map((r, i) => ({ ...r, hi: i === Math.round(W.hiRow) }));
+  return DUO.listInsert(1, W.rows, { title, sub: "what's still true?", cols: ["Check", "Status"], rows, hiK: W.hiK });
+}
+function checklist() {
+  return DUO.listInsert(1, W.listRows, { title: "Before you change the year", sub: W.saved > 0.5 ? "Saved: my audit checklist" : "my audit checklist",
+    cols: ["Step", "When"], hiK: W.listHi,
+    rows: [{ label: "1. Prices & plans", value: "first", tone: "good" }, { label: "2. Feature table", value: "next", tone: "good" },
+      { label: "3. Year and date", value: "last, not first", tone: "ink", hi: true }] });
+}
+// an insert popped in place: a strong dim over the whole room (it never moves), the card scales up a touch
+const DIM_RE = '<rect width="1080" height="1920" fill="#2d2f45" opacity=".55"/>';
+function popIn(k, html) {
+  if (k <= 0.01 || !html) return "";
+  const a = Math.min(1, k * 1.4), s = 0.92 + 0.08 * Math.min(1, k);
+  return `<rect width="1080" height="1920" fill="#2d2f45" opacity="${(0.86 * a).toFixed(3)}"/>`
+    + `<g opacity="${a.toFixed(3)}" transform="translate(540 860) scale(${s.toFixed(4)}) translate(-540 -860)">${html.replace(DIM_RE, "")}</g>`;
+}
+// the rig draws every open mouth as a grin. On her upset faces, turn the open mouth over (arched top,
+// flat bottom) so a panicked line reads as panic, not delight. (Same fix as r027 to r029.)
+const UPSET = new Set(["panic", "worried", "annoyed", "sad", "determined", "surprised"]);   // surprised: a gasp, not a grin
+const MOUTH_RE = /<path d="(M[^"]+Z)" fill="#5a1f22"[^>]*\/>\s*<clipPath id="mq\d+"><path d="[^"]+"\/><\/clipPath>\s*<g clip-path="url\(#mq\d+\)">(<ellipse[^>]*\/>)<rect[^>]*\/><\/g>/;
+function frown(s, t) {
+  if (!UPSET.has(MY.state(t).expr)) return s;
+  return s.replace(MOUTH_RE, (all, d, tongue) => {
+    const ys = d.match(/-?\d+(\.\d+)?/g).map(Number).filter((_, i) => i % 2);
+    return `<g transform="translate(0 ${(Math.min(...ys) + Math.max(...ys)).toFixed(1)}) scale(1 -1)">${all.replace(tongue, "")}</g>`;
+  });
+}
+// frame one's problem card, in the room above her head (over the window), never on her bun: her own example
+function hookCard(k) {
+  if (k <= 0.01) return "";
+  const a = "My prices: last checked", c = "a year ago";
+  const fa = "700 34px 'Public Sans'", fc = "700 58px 'Space Grotesk'";
+  const w = Math.max(PROPS.measure(a, fa), PROPS.measure(c, fc)) + 60, h = 148, cx = 790, cy = 420;
+  const s = 0.6 + 0.4 * Math.min(1, k);
+  return `<g transform="translate(${cx} ${cy}) scale(${s.toFixed(3)})" opacity="${Math.min(1, k * 1.5).toFixed(3)}">`
+    + `<rect x="${(-w / 2).toFixed(1)}" y="${-h / 2}" width="${w.toFixed(1)}" height="${h}" rx="26" fill="#d24b4b" stroke="${HUM.colors.ink}" stroke-width="6"/>`
+    + `<text x="0" y="-18" text-anchor="middle" font-family="Public Sans" font-weight="700" font-size="34" fill="#fff" opacity=".92">${PROPS.esc(a)}</text>`
+    + `<text x="0" y="46" text-anchor="middle" font-family="Space Grotesk" font-weight="700" font-size="58" fill="#fff">${PROPS.esc(c)}</text></g>`;
+}
+// the source for Floey's claim, on screen while she says it (screen space, top left, clear of both heads)
+function sourceChip(k) {
+  if (k <= 0.01) return "";
+  const l0 = "SOURCE", l1 = "Google Search Central:", l2 = "helpful, people-first content";
+  const f0 = "800 26px 'Public Sans'", f1 = "700 42px 'Space Grotesk'", f2 = "600 35px 'Public Sans'";
+  const w = Math.max(PROPS.measure(l1, f1), PROPS.measure(l2, f2)) + 56, h = 176, x = 76, y = 232;
+  const dx = (1 - Math.min(1, k)) * -60, INK = HUM.colors.ink;
+  const tw = PROPS.measure(l0, f0) + 28;
+  return `<g transform="translate(${dx.toFixed(1)} 0)" opacity="${Math.min(1, k * 1.6).toFixed(3)}">`
+    + `<rect x="${x}" y="${y}" width="${w.toFixed(1)}" height="${h}" rx="22" fill="#fffaf2" stroke="${INK}" stroke-width="6"/>`
+    + `<rect x="${x + 24}" y="${y + 18}" width="${tw.toFixed(1)}" height="38" rx="10" fill="${HUM.colors.magenta}"/>`
+    + `<text x="${(x + 24 + tw / 2).toFixed(1)}" y="${y + 46}" text-anchor="middle" font-family="Public Sans" font-weight="800" font-size="26" fill="#fff">${l0}</text>`
+    + `<text x="${x + 28}" y="${y + 106}" font-family="Space Grotesk" font-weight="700" font-size="42" fill="${INK}">${PROPS.esc(l1)}</text>`
+    + `<text x="${x + 28}" y="${y + 154}" font-family="Public Sans" font-weight="600" font-size="35" fill="${INK}" opacity=".8">${PROPS.esc(l2)}</text></g>`;
+}
+// the year on her post, on the laptop lid under Floey's feet, a little smaller than a stat pill
+const lidPill = (k, text, tone) => k > 0.01 ? `<g transform="translate(305 1138) scale(.92) translate(-305 -1138)">${DUO.stat(305, 1138, k, text, tone)}</g>` : "";
+// the camera with its little panic shake (a pure function of t)
+const camAt = (t) => ({ camX: W.camX + Math.sin(t * 71) * 9 * W.sh, camY: W.camY + Math.cos(t * 53) * 6 * W.sh, zoom: W.zoom });
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  const world = DUO.room(t) + frown(MY.svg(t), t) + DUO.deskFront() + DUO.laptop() + F.svg(t)
+    + hookCard(W.pill) + lidPill(W.yr, "2026", "good")
+    + DUO.mark("?", 790, 640, W.q, t) + DUO.mark("sweat", 800, 650, W.sweat, t);
+  document.getElementById("stage").innerHTML = DUO.cam(world, camAt(t))
+    + sourceChip(W.src)
+    + popIn(W.post, W.post > 0.01 ? postCard() : "")
+    + popIn(W.list, W.list > 0.01 ? checklist() : "")
+    + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")
+    + DUO.endCard(W.end, t);
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>

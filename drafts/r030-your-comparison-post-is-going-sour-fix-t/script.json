@@ -1,0 +1,125 @@
+{
+ "title": "Put the year down, Maya",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "My best post has last year's prices! Quick, change the year.",
+   "emotion": "worried",
+   "visual": "Wide two-shot, day. Frame one: Maya at the laptop, expr worried, pose type, with a pill by her head reading 'Prices: last checked a year ago (my example)'. Floey sits on the laptop lid (floeyLaptop) and turns her head to Maya. Typing sound starts on 'change the year'."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "Put the year down, Maya.",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey turns to face Maya, one slow blink, chip sound on 'down'. In the pause, cut to mayaTight: Maya does MY.jolt and drops to pose rest, expr surprised, with a '?' mark by her head."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Why? A new year looks fresh!",
+   "emotion": "worried",
+   "visual": "maya: Maya in pose shrug, expr worried, leaning towards Floey to plead. At the edge of frame Floey tilts her head, not convinced."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Google's own guide calls that a warning sign.",
+   "emotion": "playful",
+   "visual": "floey: Floey takes off from the lid and hovers, wings a blur, with a tk sound on 'warning sign'. After the line she flutters back down to floeyLaptop and preens once."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Fine. What first?",
+   "emotion": "determined",
+   "visual": "maya: Maya in pose rest, expr annoyed on 'Fine.', then expr neutral as she leans in to the laptop, ready. Floey on the lid gives a small nod."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Prices first. Feature table next. Year last.",
+   "emotion": "warm",
+   "visual": "Laptop screen insert (listInsert): title 'My post: budget travel cards compared', sub 'what's still true?'. Rows, all Maya's own example values: '1. Prices & plans' / 'last checked a year ago' (tone bad); '2. Feature table' / '2 rows out of date' (tone bad); '3. Year in title + Last updated' / 'last, not first' (tone neutral, hi ring). One tk sound on 'Prices', 'Feature table' and 'Year last', each at least 0.4 seconds apart."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Three prices changed. Two rows wrong. I'm deleting the blog.",
+   "emotion": "worried",
+   "caption": "3 prices changed. 2 rows wrong. I'm deleting the blog.",
+   "visual": "Starts on the listInsert while typing sound plays. Row 1's value updates to '3 prices changed (my example)', still tone bad, on 'Three prices changed'. Cut to mayaTight on 'I'm deleting the blog': expr worried, a sweat mark, both hands off the keys in pose rest."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 1.2,
+   "say": "Or fix them.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey, deadpan, gives one wink with a chip sound. In the long pause, cut to wide: Maya in pose type with typing sound, and Floey tilts her head to watch. Then cut to the listInsert: row 1 turns good with a ding, value '3 prices fixed'. At least 0.4 seconds later row 2 turns good with a second ding, value '2 rows fixed'. Row 3 stays neutral with its hi ring, 'last, not first'. A rise sound plays to set up the payoff."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Oh. I nearly stamped this year on wrong prices.",
+   "emotion": "bright",
+   "visual": "mayaTight: Maya, expr surprised on 'Oh.', then a slow relieved expr happy, and she leans back from the laptop. No insert on screen, so her face and the captions stay clear."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 1.4,
+   "say": "Saving this for my next audit.",
+   "emotion": "bright",
+   "visual": "Full listInsert checklist, held on screen for at least 3.2 seconds (the line plus the long pause): title 'Before you change the year', sub 'my audit checklist'. Rows: '1. Prices & plans' / 'first' (good); '2. Feature table' / 'next' (good); '3. Year in title + Last updated' / 'last, not first' (neutral, hi ring). A click sound on the laptop on 'Saving'. The room is hidden while this is up, and no acting happens under it."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Now you can pick the year up.",
+   "emotion": "proud",
+   "visual": "Cut to wide, no insert. Floey on floeyLaptop turns to Maya and says it with a smug little tilt and a chip sound on 'up'. Maya, expr happy, goes to pose type: typing sound, then a rise sound as she changes the year. She turns to camera and gives it a flat, satisfied look. END is pushed back so the line, the typing and her look all play before the end card."
+  }
+ ],
+ "loopNote": "No loop. This is a duo reel, so it ends on the button (Floey's 'pick the year up' calling back to 'put the year down', then Maya's look to camera) and then the end card.",
+ "caption": "Maya's best comparison post still had last year's prices, so she went straight for the year in the title. Floey stopped her.\n\nGoogle's own helpful content guide lists this as a warning sign: changing a page's date to make it look fresh when the content hasn't really changed.\n\nSo do it in this order:\n1. Prices and plan names\n2. The feature table\n3. Only then the year in the title and the Last updated date\n\nJanuary re-dating season is coming. Save this for your next audit.\n\nWhich of your comparison posts is still quoting last year's prices? (Maya and Floey are from the Flowra team.)",
+ "hashtags": [
+  "#seo",
+  "#blogging",
+  "#contentmarketing",
+  "#bloggingtips",
+  "#contentrefresh"
+ ],
+ "sticky": 50,
+ "id": "r030-your-comparison-post-is-going-sour-fix-t",
+ "format": "duo-sitcom",
+ "goal": "save",
+ "topic": "Your comparison post is going sour: fix the prices and the feature table first, and change the year in the title last",
+ "editorNotes": [
+  "The hook makes Maya look dumb and spoils the payoff. In 'My best post has last year's prices! Quick, change the year.' she knows the prices are wrong and still chooses to just change the date. That is not an instinct, it is covering it up. It also means 'Three prices changed' and 'I nearly stamped this year on wrong prices' tell us nothing new, because she said it in line one. Have her react to what the viewer really notices, the old year on her best post (for example, she sees last year in the title and panics that it looks dead), and let the stale prices be what the check finds. 'Quick, change the year' is also unclear about which year until the title is on screen.",
+  "Beat 8's 1.2 second pause cannot hold everything written for it: a cut to wide, Maya typing with its sound, Floey's tilt, a cut to the listInsert, row 1 turning good with a ding, row 2 a ding 0.4 seconds later, and a rise. That is two cuts and four sounds in about a second, which breaks the one-sound-every-0.4-seconds rule and would flash past. Make the pause about 2.8 to 3.2 seconds, or move the typing to the end of Maya's line 7, so each cut and each ding gets its own beat.",
+  "Beat 3 asks for the 'maya' shot and also for Floey at the edge of frame tilting her head. In the 'maya' shot Floey is fully out of frame, so the animator cannot draw this. Either use 'wide' (or nudge the shot so Floey is fully in, not sliced) or drop Floey's tilt and put her reaction on the next cut.",
+  "The hook pill 'Prices: last checked a year ago (my example)' is a sentence. DUO.stat is a short number pill by her head ('-40%'), so this will overflow or crowd her face in frame one. Use something short like 'Prices: 1 yr old', or put the stale year in the title on the laptop. Leave '(my example)' off the screen in the pill and in row 1's '3 prices changed (my example)': the post is already framed as Maya's own ('My post: ...'), and the extra words read as a legal note and make the value too long.",
+  "Beat 2 puts a cut to mayaTight, a jolt, a pose change to rest, a surprised face and a '?' mark into a 0.25 second pause. That is a one-frame flash, and Maya's next line starts on top of her jolt. Lengthen the pause to about 0.7 seconds so her reaction to 'Put the year down' lands. It is the first laugh.",
+  "Beat 9, 'I nearly stamped this year on wrong prices', sounds written, not said, and 'on wrong prices' trips in bf_emma's fast delivery. Say it the way a person would, for example 'Oh. I nearly put this year on last year's prices.' That is also the clearer twist line and goes with the fixed hook.",
+  "(polish) Row 2 already reads '2 rows out of date' during Floey's tip, before Maya has checked anything. Her 'Two rows wrong' then repeats the screen instead of finding something. Start rows 1 and 2 as 'not checked yet' (bad) and fill in '3 prices changed' and '2 rows out of date' as she says them, so the check visibly happens.",
+  "(polish) The brief asks for the reel to end with the three-step checklist on screen. The script holds it for 3.2 seconds and then cuts back to wide for the button. That is fine under the duo rules, but think about bringing the checklist back small behind the end card, or holding it under Floey's button line, since saving is the goal.",
+  "(polish) The button 'Now you can pick the year up.' is a neat callback, but it is gentle. It gets a smile, not a send. Maya's 'flat, satisfied look' also clashes with expr happy (pick one: deadpan, or a smug grin). Consider ending on something with more snap, such as the cold coffee joke from the brief (Floey sips, 'You're welcome.'), or Maya changing the year with a defiant, slow single keypress.",
+  "(polish) Sound and acting mismatches. In the hook Maya is in pose type from frame one, but the typing sound only starts on 'change the year', so her hands move silently. Start the sound at frame one. The listInsert's first entrance in beat 6 has no whoosh. The rise is used twice (before the payoff and again in the button). Use a click or ding for the year change in the button so the rise stays a single setup.",
+  "(polish) Frame one has Maya at expr worried in pose type. The rule asks for her mid-panic in frame one, so use expr panic (or pose panic or cheeks for a beat before she types) to make the hook read in under 2 seconds.",
+  "(polish) Small staging points. Beat 2 says Floey 'turns to face Maya', but she is already facing her (facing -1, head turned in the hook), so give her a different move such as a slow lean or a tail flick. In beat 4 Floey takes off and hovers inside the 'floey' shot. floeyHover is by Maya's head, so check she is not sliced at the frame edge, or nudge the shot."
+ ],
+ "style": "duo",
+ "template": "../drafts/r030-your-comparison-post-is-going-sour-fix-t/scene.html"
+}

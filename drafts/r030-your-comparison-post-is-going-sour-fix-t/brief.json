@@ -1,0 +1,59 @@
+{
+ "topic": "Your comparison post is going sour: fix the prices and the feature table first, and change the year in the title last",
+ "angle": "Maya sees that her best comparison post is quoting last year's prices, and her first move is the one every blogger makes: change the year in the title and call it fresh. Floey stops her. Google's own guide lists changing a page's date to make it look fresh, when the content hasn't really changed, as a warning sign. So they work through three checks as a countdown (duo-countdown or save-ask): 1. prices and plan names, 2. the feature table, 3. only then the year in the title and the \"Last updated\" date. The twist that makes it stick is that the year goes last, not first, and the reel ends on that three-step checklist staying on screen.",
+ "whyNow": "January's \"change the year in every title\" routine is about seven weeks away, and comparison and \"best of\" posts are the ones people re-date first. PostHog's \"How to write comparison content that doesn't age like milk\" reached the Hacker News front page this month (31 points). It says pricing and feature availability are what go stale, because competitors \"ship things, change their pricing, get acquired.\" Changing only the year is an old argument that keeps coming back. Google's John Mueller mocked it in January 2020 and again in December 2022, and SEO blogs still argue both sides in 2026.",
+ "goal": "save",
+ "audience": "Solo bloggers and small content teams with \"X vs Y\", \"best [thing] [year]\" or price-quoting posts (travel cards, budget gear, software, meal kits), who refresh them by changing the year. Also agency writers who get asked to \"just update the date\" on a client's comparison page.",
+ "facts": [
+  {
+   "fact": "Google's helpful content guide lists this question among the warning signs of search-engine-first content: \"Are you changing the date of pages to make them seem fresh when the content has not substantially changed?\"",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "The same Google guide asks whether you are adding or removing a lot of content to make your site seem \"fresh\", and answers its own question: \"(No, it won't)\".",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "Google's documentation on dates says you can give a publication date and/or a last updated date, and should label them with text like \"Publish\" or \"Last updated\". The date must describe when the page was published or updated, not the events in it.",
+   "source": "https://developers.google.com/search/docs/appearance/publication-dates"
+  },
+  {
+   "fact": "Google's John Mueller (December 2022): \"Is there significantly new content? Then update the dates.\" Otherwise leave them as they are. \"Just tweaking, and saying 'oh, still valid in 2023' is not a significant update.\"",
+   "source": "https://www.seroundtable.com/google-ai-overviews-changes-34521.html"
+  },
+  {
+   "fact": "Mueller on changing the date and time on a page (April 2021): \"I don't think it would change anything with regards to search.\"",
+   "source": "https://www.searchenginejournal.com/googles-john-mueller-changing-dates-on-pages-wont-improve-rankings/401734/"
+  },
+  {
+   "fact": "In January 2020, Mueller mocked the habit of re-dating titles with the headline \"Top ways to recognize low-quality content in 2020.\"",
+   "source": "https://www.seroundtable.com/google-mocks-seo-strategy-2020-content-28787.html"
+  },
+  {
+   "fact": "PostHog says the parts of a comparison that go stale are the competitor claims, mainly pricing and feature availability, because competitors \"ship things, change their pricing, get acquired.\" A comparison written in spring can be wrong by summer.",
+   "source": "https://posthog.com/blog/comparison-content-guide"
+  },
+  {
+   "fact": "PostHog's fix is a single source of truth: one competitor file holds the pricing and feature details, and \"someone changes one line in one file and every page that mentions them updates on the next deploy.\" A person still decides on and ships each fix.",
+   "source": "https://posthog.com/blog/comparison-content-guide"
+  },
+  {
+   "fact": "The Hacker News thread for PostHog's comparison content guide had 31 points and 5 comments (modest but real demand).",
+   "source": "https://news.ycombinator.com/item?id=50355365"
+  },
+  {
+   "fact": "Keyword.com notes that most top results for \"best CRM software\" have the year in the title. It says a stale year can make a comparison look outdated and cost clicks, and advises changing the title's year only after a measurable improvement to the content.",
+   "source": "https://keyword.com/blog/why-software-comparison-pages-have-the-year-in-the-title/"
+  },
+  {
+   "fact": "Google's guidance for review content asks writers to \"Cover comparable things to consider, or explain which might be best for certain uses or circumstances\", which is the job of a comparison's feature table.",
+   "source": "https://developers.google.com/search/docs/specialty/ecommerce/write-high-quality-reviews"
+  }
+ ],
+ "visualIdea": "Wide two-shot at day. Maya's cursor hovers over the title on her screen, ready to change the year, and Floey on the laptop lid says \"Put the year down, Maya.\" The centre of the reel is a DUO.listInsert of her post titled \"My post: budget travel cards compared\" (sub: \"what's still true?\"). It has three rows, all Maya's own example values: \"Prices & plans: last checked a year ago\" (bad), \"Feature table: 2 rows out of date\" (bad), \"Year in title + Last updated\" (neutral, hi ring). The countdown works down the rows in order. Maya types (typing sfx) and each row turns good with a ding. The year row stays locked until last, then flips good, and the rise sfx plays before the payoff. For the button, the same insert comes back as a numbered checklist (1 prices, 2 feature table, 3 then the date) and stays up for at least 3 seconds while Maya says \"save this for your next audit\". Running joke: her coffee has gone cold. Floey sips it anyway and says \"You're welcome.\" Optional comic mark: a \"?\" by Maya's head when Floey stops her editing the title.",
+ "pillar": "myth",
+ "instinct": "My comparison post is out of date, so I'll change last year to this year in the title and it will look fresh again.",
+ "flip": "Google's own guide calls out changing a page's date to make it seem fresh when the content hasn't really changed, so fix the prices and the feature table first and change the year and \"Last updated\" date last.",
+ "idea": "Your comparison post is going sour: the three sections that go stale first",
+ "style": "duo"
+}

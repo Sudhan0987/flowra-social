@@ -1,0 +1,315 @@
+{
+ "style": "Duo sitcom, daytime in Maya's room (window with a drifting cloud, shelf, plant, spark poster). Maya is the panicking solo blogger behind her desk and Floey is the calm, dry hummingbird perched on the laptop lid (floeyLaptop, facing Maya). Warm amber light, Floey and Maya are the brightest things in frame. Stat pills show Maya's own example values only. There is one laptop list insert (beats 5 to 6) and no notification. Flowra appears only in the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk, expr worried, pose type, with an amber/red stat pill by her head (x 880, y 610). Floey perched on the laptop lid (floeyLaptop).",
+   "action": "Frame one is already the problem: Maya is typing hard, eyes down at the laptop. On 'last year's prices' Floey turns her head slowly to Maya and blinks once.",
+   "onScreenData": "Prices: checked a year ago (example)",
+   "sfx": []
+  },
+  {
+   "beat": 0,
+   "at": 2,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone, Floey out of frame. The pill fades out before the push so the frame edge doesn't cut it.",
+   "action": "Push-in on 'Quick, change the year' as Maya leans into the laptop and types even faster. Her bun wobbles.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.2,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid, deadpan.",
+   "action": "Cut to Floey. She turns fully to face Maya, gives one slow blink and says 'Put the year down, Maya.' She chips on 'down'.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 1.5,
+   "shot": "extreme-close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face fills the frame, with a '?' mark by her head.",
+   "action": "In the pause Maya jolts (the jolt's own pop), lifts her hands off the keys into pose rest, expr surprised, and the '?' mark pops in.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.5,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "drift",
+   "subject": "maya: Maya alone, pleading towards screen left where Floey is.",
+   "action": "Maya goes into pose shrug, expr worried, leanTo towards Floey with her eyes left (look x -1) on 'Why? A new year looks fresh!' The '?' mark fades.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: closer two-shot favouring Floey, with Maya listening at frame left (both whole, nobody sliced).",
+   "action": "Floey first tilts her head, not convinced, then takes off from the lid and hovers at Maya's eye height (floeyHover), wings a blur. She does a tk on 'warning sign'. Maya reacts on 'Google's own guide': her face goes from worried to think, and she pulls her chin back.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 2.4,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: the same two-shot. Floey back on the laptop lid, Maya listening.",
+   "action": "Floey flutters back down to floeyLaptop and preens one wing. Maya folds her arms (pose crossed) and gives her a grudging look.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.5,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya at the desk, Floey on the lid.",
+   "action": "Maya says 'Fine.' with expr annoyed, then at 0.5 drops to pose rest, expr neutral, and leans in to the laptop: 'What first?' Floey gives a small nod.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop listInsert (the reel's only insert). Title 'My post: budget travel cards compared', sub 'what's still true?'. Row 1: '1. Prices & plans' / 'last checked a year ago' (bad). Row 2: '2. Feature table' / '2 rows out of date' (bad). Row 3: '3. Year in title + Last updated' / 'last, not first' (neutral, hi). All values are Maya's own example.",
+   "action": "The insert swings in. The rows slide in one per phrase (tk sounds): 'Prices first' brings in row 1, 'Feature table next' row 2, 'Year last' row 3, and the hi ring grows around row 3.",
+   "onScreenData": "last, not first",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.5,
+     "kind": "pop"
+    },
+    {
+     "at": 1.3,
+     "kind": "pop"
+    },
+    {
+     "at": 2.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The same listInsert, still up. Row 1 changes.",
+   "action": "Maya's typing is heard under the insert. On 'Three prices changed' row 1's value swaps to '3 prices changed (my example)', still bad. On 'Two rows wrong' the ring flicks over row 2 for a moment, then the insert swings out.",
+   "onScreenData": "3 prices changed (my example)",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 2.4,
+   "shot": "extreme-close",
+   "camera": "shake",
+   "subject": "mayaTight: Maya's face with a sweat mark.",
+   "action": "Cut to her face on 'I'm deleting the blog': expr worried, a sweat mark pops in, both hands off the keys (pose rest), and a small panic shake.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.4,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the lid, deadpan.",
+   "action": "Floey says 'Or fix them.' flat, then gives one wink with a chip.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 1.3,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya typing, Floey on the lid. A good-tone pill by Maya's head (x 880, y 610).",
+   "action": "Maya, back in pose type with expr think, types steadily. Floey tilts her head to watch. A green pill pops in on a ding.",
+   "onScreenData": "3 prices fixed",
+   "sfx": [
+    {
+     "at": 1.4,
+     "kind": "type"
+    },
+    {
+     "at": 2.1,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 2.7,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone, the good pill still inside the frame by her head.",
+   "action": "The pill's text swaps on a second ding. Maya's eyebrows lift, and a rise cue sets up the payoff as the camera pushes in. The pill fades out before the cut to mayaTight.",
+   "onScreenData": "2 rows fixed",
+   "sfx": [
+    {
+     "at": 2.9,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "extreme-close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face, no pill, no insert. The captions stay clear.",
+   "action": "'Oh.' with expr surprised. At 0.8 a slow relieved expr happy as she leans back from the laptop on 'I nearly stamped this year on wrong prices.'",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "medium",
+   "camera": "pull-out",
+   "subject": "maya: Maya at the laptop with a good-tone pill by her head.",
+   "action": "Maya, expr proud, does a quick type and clicks Save on 'Saving'. A green pill pops in, then she pats the laptop (pose point at the screen).",
+   "onScreenData": "Saved: my audit checklist",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "pop"
+    },
+    {
+     "at": 0.9,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 1.9,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: the two-shot favouring Floey on the lid, Maya at frame left. The pill fades out.",
+   "action": "In the pause Floey gives one approving preen and a slow blink. Maya sits up, pleased, eyes on Floey (look x -1).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya, expr happy, and Floey on the lid. No insert.",
+   "action": "Floey turns to Maya with a smug little tilt: 'Now you can pick the year up.' She chips on 'up'.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 1.6,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya typing, Floey out of frame.",
+   "action": "Maya goes into pose type with expr happy and finally changes the year. A rise cue plays as she hits the last key with a little flourish.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.7,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 3,
+   "shot": "extreme-close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face, looking straight down the lens.",
+   "action": "The button: Maya turns to camera and holds a flat, satisfied look (expr deadpan, a slight smug lip) with no words, about 1.5 seconds. END is pushed back so this plays out in full.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 4.6,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo intact, with Floey perched on the spark's left arm in front, facing camera.",
+   "action": "The end card lands with a thump and the captions hide.",
+   "onScreenData": "Maya & Floey, every day",
+   "sfx": [
+    {
+     "at": 4.6,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1.2
+}
