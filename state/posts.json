@@ -485,6 +485,17 @@
    "reason": "Frame 07: The picture contradicts the voice. Maya is saying \"...the new model's not in the table\" while the insert already shows the Feature table row as 'new model added' with a green ring. The fix is on screen before she has finished spotting the problem. Hold the 'last year' (red) state until she has finished the line and typed, then show the change. Frame 08: The picture is ahead of the voice and spoils the payoff. Floey is still giving the instruction (\"Now the year. And the last updated da",
    "idea": "Your comparison post is going sour: the three sections that go stale first",
    "style": "duo"
+  },
+  {
+   "id": "r030-your-comparison-post-is-going-sour-fix-t",
+   "status": "draft",
+   "topic": "Your comparison post is going sour: fix the prices and the feature table first, and change the year in the title last",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-10T13:51:54.629Z",
+   "seconds": 33,
+   "idea": "Your comparison post is going sour: the three sections that go stale first",
+   "style": "duo",
+   "run": 42824461461
   }
  ]
 }
