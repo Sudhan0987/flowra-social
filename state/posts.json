@@ -496,6 +496,17 @@
    "idea": "Your comparison post is going sour: the three sections that go stale first",
    "style": "duo",
    "run": 42824461461
+  },
+  {
+   "id": "r031-nearly-every-click-comes-from-one-post-a",
+   "status": "draft",
+   "topic": "Nearly every click comes from one post. Ask that post what Google already likes.",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-11T13:03:24.625Z",
+   "seconds": 28,
+   "idea": "Five sites, and only one gets clicks. Ask the one that works what it ranks for.",
+   "style": "duo",
+   "run": 43022431115
   }
  ]
 }
