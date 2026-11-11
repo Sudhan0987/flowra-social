@@ -1,0 +1,43 @@
+{
+ "topic": "Nearly every click comes from one post. Ask that post what Google already likes.",
+ "angle": "Maya has written post after post, and nearly all her Google clicks come from one she doesn't even rate (her own example: a packing cubes guide). She thinks she needs a keyword tool or a new niche. Floey sends her to the Search Console Performance report, filtered to that one page. The Queries tab shows every search it gets clicks for share one word (\"carry-on\"), so the next post writes itself. We moved the r/juststart 'five sites, one gets the clicks' thread down to a single blog, because far more people have one post carrying the whole site than run five sites.",
+ "whyNow": "Social listening on 2026-11-08 flagged this r/juststart thread as the busiest SEO thread of the month (14 comments): a solo builder with five new tool sites says 45 of 48 Google clicks in a month came from one of them, and asks how a new site finds keywords it can actually rank for (https://www.reddit.com/r/juststart/comments/1xpaf4h/5_small_tool_sites_48_google_clicks_in_a_month_45/). Note: Reddit blocked my fetch, so these numbers come from the listening data. They are demand evidence only and must not be spoken in the reel. The same question ('which page works, and what do I write next') runs through blogging advice generally. Evergreen otherwise.",
+ "goal": "send",
+ "audience": "Solo bloggers and small content-site owners who keep publishing new posts while one old post quietly brings in most of their search traffic, and who guess what to write next instead of reading the data they already have. Also juniors at small agencies planning the next post for a client.",
+ "facts": [
+  {
+   "fact": "Google's own guide says the Search Console Performance report's queries tab 'shows terms you're already ranking for and terms people click when visiting your website.'",
+   "source": "https://developers.google.com/search/docs/monitor-debug/trends-start"
+  },
+  {
+   "fact": "In the Performance report you can click '+ Add filter', choose Pages and enter the URL to see data for just that page. Clicking any row in a table also filters the report by that row.",
+   "source": "https://support.google.com/webmasters/answer/17011165"
+  },
+  {
+   "fact": "Filtering the Performance report by query or URL can change the report totals, because of data truncation and because anonymized queries are left out. The page's query list may not add up to the page's total clicks, so the reel should never claim it does.",
+   "source": "https://support.google.com/webmasters/answer/17011165"
+  },
+  {
+   "fact": "In the Performance report, Clicks is 'the number of times a user clicked your site from Google Search results', Impressions is how many times your site appeared in Search results, and average position is given per URL or per row.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "Google's Search Console Insights report shows which pages attract the most clicks and the top queries leading users to the site, and Google calls 'trending up' queries 'a great source for new content ideas.'",
+   "source": "https://developers.google.com/search/blog/2025/06/search-console-insights"
+  },
+  {
+   "fact": "Search Console is free, and every number it shows comes from Google's own data, so Maya needs no paid keyword tool to see what her working page ranks for.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "EXAMPLE ONLY (Maya's own numbers, framed as hers, not a statistic): the query rows on her screen could read 'packing cubes carry on' 31 clicks, 'how to pack carry on 10 days' 12, 'carry on packing list europe' 9, 'best packing cubes carry on' 6, 'carry on only tips' 4.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "The day room. Hook in a mayaTight shot: Maya slumps beside a red number pill, \"1 post\", while a second pill reads \"all the clicks\" (her own example). Floey on the laptop, floeyTight: \"Then ask that one what Google likes.\" Maya pushes back (\"It's the packing cubes one. It's not even good.\") and types. Whoosh into the central image, a DUO.listInsert titled \"Search Console · Queries\" with sub \"Page: /packing-cubes-guide\". Five example query rows slide in, each with a clicks value, and every label contains \"carry on\". The ring (hiK) grows round the top row. Back to mayaTight: \"Wait. They all say carry-on.\" Floey: \"So does your next post.\" Button: Maya: \"I've been writing about castles.\" Floey: \"Your mum likes the castles.\" (the running joke about Maya's mum). Maya looks to camera, and her cold coffee mug is optional. For the send-ask test, Maya adds a line, also on screen: \"Send this to the friend still guessing what to write next.\"",
+ "pillar": "problem",
+ "instinct": "Nearly every click comes from one post and the rest are flopping, so Maya thinks she needs a paid keyword tool or a brand-new topic to work out what to write next.",
+ "flip": "Filter Search Console's Performance report to the one page that works, and the Queries tab already lists the searches Google ranks it for and people click, so the next post can follow that same pattern.",
+ "idea": "Five sites, and only one gets clicks. Ask the one that works what it ranks for.",
+ "style": "duo"
+}

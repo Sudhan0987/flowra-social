@@ -1,0 +1,9 @@
+{
+ "pass": true,
+ "problems": [
+  "Frame 03 (minor, does not fail the reel): the script calls for a Maya-only shot with Floey out of frame, with Maya pointing at the laptop. What rendered is the wide shot with Floey in it, and Maya's hand gesture isn't clearly a point at the laptop. The line still reads fine.",
+  "Frames 04–05 (minor, does not fail the reel): the script says Floey points her beak at the laptop and Maya pulls it closer and types. In the frames, Floey is laughing towards Maya and Maya's hands are resting still on the desk. If the typing sound effect is in the mix, check that it plays over a visible typing action, because the rules say no silent actions and the reverse (a sound with no action) is just as wrong.",
+  "Frame 08 (minor, does not fail the reel): the script asks for a 'flat, hollow' look, but Maya is wide-eyed with her mouth open, much like her surprised face in frame 07. The grey 'castles' pill hasn't appeared yet at this frame. Make sure it does appear before the cut.",
+  "Frames 02–09 (watch item, not counted as a failure): the coral spark logo is on the laptop lid, the poster and Maya's hoodie. That is the standing set design, and Floey sits beside the logo without covering it. But the rule is 'Flowra only in the end card', so confirm with Sudhan that this set dressing is approved."
+ ]
+}

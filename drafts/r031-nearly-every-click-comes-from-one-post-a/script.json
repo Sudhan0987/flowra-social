@@ -1,0 +1,116 @@
+{
+ "title": "The packing cubes post knows",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "One post gets all my clicks. The castle posts are dead.",
+   "emotion": "worried",
+   "visual": "mayaTight, day room. First frame: Maya slumped over the desk, chin on her fist, expr worried, her line as a one-line caption. A red stat pill beside her reads '1 post' and a second pill pops in under it, 'all the clicks' (her own example, no totals shown). Pill pop sfx on each."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Then ask that one what Google likes.",
+   "emotion": "playful",
+   "visual": "wide: Floey perched on the laptop lid gives one wing flick and a tongue flick, unbothered, her caption labelled 'Floey'. Maya sits up from her slump and frowns at her."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "The packing cubes one? It's not even good.",
+   "emotion": "determined",
+   "visual": "maya: Maya says it flat with a deadpan stare, pose point at the laptop, as if the post has let her down. Floey is out of frame."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Google disagrees.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey turns her head slowly towards Maya, a slow head tilt, then holds the look. A tiny chime plays on the tilt."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Search Console. Filter to that page. Read the searches.",
+   "emotion": "warm",
+   "visual": "wide: Floey points her beak at the laptop and gives a little chip. Maya pulls the laptop closer, pose type, and the keys click (typing sfx panned right, where the laptop sits)."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.6,
+   "say": "Okay. Just that page...",
+   "emotion": "curious",
+   "visual": "maya: Maya keeps typing, pose type, eyes on the screen, leaning in. On the last word, a whoosh into the laptop screen insert."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Wait. They all say carry on.",
+   "emotion": "bright",
+   "caption": "Wait. They all say carry-on.",
+   "visual": "Laptop screen insert (DUO.listInsert) titled 'Search Console · Queries', sub 'Page: /packing-cubes-guide (Maya's example)'. Five rows slide in one by one with their clicks: 'packing cubes carry on' 31, 'how to pack carry on 10 days' 12, 'carry on packing list europe' 9, 'best packing cubes carry on' 6, 'carry on only tips' 4. The top row is the hi row and the ring grows round it. Row slide ticks on each. On 'carry on', cut to mayaTight: expr surprised with a jolt."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "So does your next post.",
+   "emotion": "proud",
+   "visual": "wide: Floey puffs her chest and does one smug little hover off the lid, wing buzz panned left, then settles back. Maya nods fast, still facing the screen."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "I've spent a month writing about castles.",
+   "emotion": "worried",
+   "visual": "mayaTight: the realisation lands on her flat, hollow face, expr worried, staring into the middle distance. A small grey stat pill drifts in beside her: 'castles'. Soft deflate sfx."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Your mom likes the castles.",
+   "emotion": "warm",
+   "visual": "wide: Floey says it to camera with a kind, smug slow blink. Maya turns slowly and gives the camera a long, flat look without a word. Hold, then cut to the end card."
+  }
+ ],
+ "loopNote": "No loop needed: this is a duo reel. It ends on Floey's button and Maya's silent look to camera, holds for 0.7 seconds, then cuts to the end card.",
+ "caption": "Maya wrote post after post, and Google sends nearly all her clicks to the one she likes least.\n\nBefore you buy a keyword tool or switch niche, try this. It's free: open Search Console, go to the Performance report, add a filter for that one page, then open the Queries tab. That list shows the searches your page already ranks for and the ones people click. Find the word they all share. That's your next post. (The numbers on Maya's screen are her own example.)\n\nWhich post you don't even rate is carrying your whole blog? Send this to the friend who's still guessing what to write next.",
+ "hashtags": [
+  "#seo",
+  "#blogging",
+  "#searchconsole",
+  "#bloggingtips",
+  "#contentmarketing"
+ ],
+ "sticky": 50,
+ "id": "r031-nearly-every-click-comes-from-one-post-a",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Nearly every click comes from one post. Ask that post what Google already likes.",
+ "editorNotes": [
+  "The hook uses up the button's setup. Maya says 'The castle posts are dead' in line 1, so line 9 ('I've spent a month writing about castles') isn't a realisation any more. It only repeats what we already know, with 'a month' as the one new detail, and 'Your mom likes the castles' lands on a reveal that has already happened. The hook still has to show the problem, because 'one post gets all my clicks' can sound like good news on its own. So keep the dead-posts half and drop the word castles, something like 'One post gets all my clicks. Everything else is dead.' Then 'castles' is first heard in line 9, where Maya realises it.",
+  "The key visual is on screen too briefly to read. The whoosh lands on the last word of line 6, then five rows slide in one by one (ticks are limited to one every 0.4 s, so that takes about 2 s), the ring grows, and the script cuts to mayaTight on 'carry on', which is the last word of line 7. So the full list is never on screen still and readable, and the viewer is looking at Maya's face when the payoff word lands. Finish the rows during the pause after line 6, keep the insert up through 'Wait. They all say carry on.', and cut to her surprised face with the jolt just after the line. Or play 'Wait.' over the finished list and cut on the next words. The viewer has to read 'carry on' in every row before Maya says it.",
+  "The button isn't given time to land. The script asks for Maya's 'long, flat look' to camera after Floey's last line, but gives it only the 0.7 s pause before the end card. That is a glance, so the ending fizzles. As the template allows, push END later so the silent look lasts about 1.5 to 2 s: Floey's slow blink, Maya slowly turning, the deadpan held, and only then the thump into the end card.",
+  "(polish) The staging puts the laptop on the wrong side. In the studio, Floey on the laptop is screen left: pointL points at her and the laptop, and look x -1 means towards her. Line 3 says 'pose point at the laptop', but point aims screen right; use pointL. Line 5 pans the typing sound right 'where the laptop sits', which contradicts line 8's wing sound panned left. Pan the typing left, where the laptop is.",
+  "(polish) Line 5's visual can't be drawn as written. 'Maya pulls the laptop closer' isn't a pose, and Floey is perched on the lid, so moving the laptop would carry her with it. Drop it and just use pose type. Floey 'pointing her beak at the laptop' she is standing on reads as looking at her own feet. A tilt towards the screen side, or a look at Maya and then a nod down, is clearer.",
+  "(polish) Several sounds aren't in the studio's list. 'A tiny chime' (line 4) should be ding or Floey's tk. 'Soft deflate sfx' (line 9) doesn't exist; use a quiet boing or no sound. 'Wing buzz' (line 8) is flutter. Choose from the listed kinds so the mixer can play them.",
+  "(polish) Line 3's emotion is 'determined', but the visual says she says it 'flat with a deadpan stare, as if the post has let her down'. A determined read makes 'It's not even good' sound fired up instead of dismissive. Pick the delivery that matches a flat put-down. 'Worried' read low works better than determined, or play it as a dry 'playful'.",
+  "(polish) The ring points at the wrong thing. The joke is that every row says 'carry on', but listInsert's hi ring goes round only the top row, which tells the viewer that one row is what matters. Either grow the ring late, after Maya's 'Wait.', so it reads as her eye landing on the biggest one, or make sure 'carry on' sits at the same place in each label so the repeat is visible without the ring doing the work.",
+  "(polish) The insert sub 'Page: /packing-cubes-guide (Maya's example)' is long and may overflow the listInsert header. Measure it with PROPS.measure. On her own screen the numbers are already clearly hers. If the example framing must stay on screen, make it short, such as 'Page: /packing-cubes-guide'.",
+  "(polish) Check the stat pills fit the shot. DUO.stat sits about x 880, y 610 in room coordinates, and the hook and line 9 are both mayaTight shots, where the face fills the frame. Check at phone size that '1 post', 'all the clicks' and 'castles' stay inside x 60 to 1020 and don't cover her face. Also, DUO.stat only has bad and good tones, so the 'grey' castles pill has no matching tone. A bare word pill reading 'castles' adds little; consider dropping it and letting her face carry line 9.",
+  "(polish) Line 7 is spoken 'carry on' in bf_emma, so 'They all say carry on' can be heard as 'they all tell me to carry on'. The hyphenated caption and the list fix it on screen, but the voice needs the list visible at that moment, which is another reason to keep the insert up through the line (see the timing problem above)."
+ ],
+ "style": "duo",
+ "template": "../drafts/r031-nearly-every-click-comes-from-one-post-a/scene.html"
+}

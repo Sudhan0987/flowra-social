@@ -1,0 +1,221 @@
+{
+ "style": "Day room in warm daylight with a drifting cloud in the window, shelf, plant and spark poster kept soft. Maya (amber caption) sits behind the desk with Floey (pink caption) perched on the laptop lid at screen left, facing her (DUO.SPOT.floeyLaptop, facing -1). Red pills mean the problem and grey means glum. There is one laptop list insert and no notification. Running joke: Maya's castle posts.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya alone, slumped low over the desk with her chin on her fist (pose chin, MY.slump), expr worried, eyes down at the laptop. A red stat pill is already up beside her head, inside the frame.",
+   "action": "Frame one shows the problem already happening. She sighs into her fist on 'One post gets all my clicks' and her bun wobbles.",
+   "onScreenData": "1 post",
+   "sfx": []
+  },
+  {
+   "beat": 0,
+   "at": 1.2,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya slumped, expr worried, with a second red pill under the first.",
+   "action": "On 'all my clicks' a second red pill pops in under '1 post'. On 'The castle posts are dead' she sinks lower and her eyes roll up in despair. Both pills fade out before the cut.",
+   "onScreenData": "all the clicks",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey perched on the laptop lid at screen left with Maya behind the desk. Two-shot.",
+   "action": "Floey gives one unbothered wing flick and a tongue flick, then says 'Then ask that one what Google likes'. On 'ask', Maya sits up out of her slump (MY.sit), expr annoyed, frowning at her with eyes left (look -1, 0).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, Floey fully out of frame.",
+   "action": "Maya points flatly at the laptop (pose pointL, since the laptop is at screen left), expr deadpan, as if the post has let her down. On 'It's not even good' she drops the hand and her head tilts (tiltTo -6).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid.",
+   "action": "Floey turns her head slowly towards Maya, then does a slow head tilt and holds the look on 'Google disagrees.' She does not blink until the cut.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.35,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: a closer two-shot favouring Floey on the lid, with Maya listening on the edge of frame.",
+   "action": "Floey points her beak down at the laptop and gives a little chip on 'Search Console'. Maya's eyes follow down to the screen (look -0.4, 1) and her face moves from annoyed to think.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1.5,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them, Floey on the lid and Maya behind the desk.",
+   "action": "On 'Filter to that page', Maya pulls the laptop closer and starts typing (pose type), expr think. Floey watches her with a small nod on 'Read the searches'.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.6,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone, leaning in towards the screen (leanTo 6).",
+   "action": "She keeps typing (pose type), expr think, eyes down on the screen (look -0.3, 1), muttering 'Okay. Just that page...'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 1.1,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop screen insert, the reel's only cutaway: DUO.listInsert titled 'Search Console · Queries', sub 'Page: /packing-cubes-guide (Maya's example)'. Rows: 'packing cubes carry on' 31, 'how to pack carry on 10 days' 12, 'carry on packing list europe' 9, 'best packing cubes carry on' 6, 'carry on only tips' 4.",
+   "action": "The insert swings in on her last word and the five rows slide in one by one, top to bottom (rowsK).",
+   "onScreenData": "/packing-cubes-guide",
+   "sfx": [
+    {
+     "at": 1.1,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The same list insert, all five rows in place. The top row 'packing cubes carry on' is the hi row.",
+   "action": "On 'Wait.' the ring grows round the top row (hiK). Every row shows 'carry on' as Maya reads it.",
+   "onScreenData": "packing cubes carry on: 31",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 1,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face fills the frame. Quick cut from the insert.",
+   "action": "On 'carry on' she jolts (MY.jolt), expr surprised, eyes wide on the screen. A '!' mark pops by her head.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them, Floey on the lid and Maya behind the desk.",
+   "action": "Floey puffs her chest, does one smug little hover off the lid and settles back, saying 'So does your next post.' Maya nods fast (MY.nod 3), expr happy, still facing the screen.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "buzz"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya alone, staring into the middle distance (look 0, 0).",
+   "action": "The realisation lands. Her face falls flat and hollow (expr worried, then sad on 'castles'), her shoulders drop and her hands go still on the keys. A small grey pill drifts in beside her head, shrinks a little and fades before the cut.",
+   "onScreenData": "castles",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey on the lid turns to the camera (F.pivot front, mood happy). Maya behind the desk still looks glum.",
+   "action": "Floey says 'Your mom likes the castles.' to camera with a kind, smug slow blink. On 'castles', Maya's eyes slide towards her, expr deadpan.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 1.6,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya alone. The button.",
+   "action": "Maya turns slowly to the camera and holds a long, flat look without a word (expr deadpan, one slow blink). The silent hold lasts about 2.4 seconds (END pushed later).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 4,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo kept whole and its original colour, with Floey perched on the spark's left arm facing the camera and the line 'Maya & Floey, every day'.",
+   "action": "The end card slams in and Floey settles on the left arm.",
+   "onScreenData": "Maya & Floey, every day",
+   "sfx": [
+    {
+     "at": 4,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1.6
+}
