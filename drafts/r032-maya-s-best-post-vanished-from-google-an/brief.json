@@ -1,0 +1,79 @@
+{
+ "topic": "Maya's best post vanished from Google, and she's sure the AI-content cleanup took it. Search Console names the real reason: she noindexed it herself.",
+ "angle": "Maya searches her best post, can't find it, and decides Google's rumoured AI-slop purge got her (\"They took mine!\"). Floey's dry reply is \"Did you ask why?\". She gets Maya to paste the link into URL Inspection, which reads \"URL is not on Google\" with the reason \"URL marked 'noindex'\". Maya flipped the \"show in search results\" switch herself last week. The reel works because Maya blames the scary news when the real cause sits in a report she never opened, and the tip (inspect the URL and read the reason before you panic) applies to every kind of drop.",
+ "whyNow": "Pages falling out of the index has been an SEO worry all year. Since late April 2026, SEJ has reported pages leaving Google's index with no manual action (June 20, 2026), and Marie Haynes wrote about pages stuck in \"crawled, currently not indexed\" (SEJ, July 20, 2026). On October 27, 2026, SEJ covered an r/TechSEO post from a site owner worried that their Page indexing report had stalled, and John Mueller replied. An Ask HN thread from early November asks whether Google is \"cleaning their search results from AI slop\" after a poster's clicks fell to almost zero. That thread is small (4 points, 3 comments), so it adds flavour but is not the main demand evidence. Our published indexing reel covered new posts. This one covers a page that was indexed and then dropped.",
+ "goal": "send",
+ "audience": "Solo bloggers and small content-site owners on WordPress, plus content marketers who look after client sites. Many of them have heard this year's deindexing and AI-cleanup talk and now take any missing page as a penalty.",
+ "facts": [
+  {
+   "fact": "Since late April 2026, site owners and SEOs have reported pages leaving Google's index with no clear explanation, often with no manual action or crawl error, moving into 'crawled, currently not indexed'. Google said it saw nothing unusual. SEJ's advice is to diagnose before acting and to check index status with URL Inspection, not with site: searches.",
+   "source": "https://searchenginejournal.com/deindexing-reports-keep-coming-google-sees-nothing-unusual/579847/"
+  },
+  {
+   "fact": "SEJ lists the causes to sort a drop into: real deindexing, a ranking loss, canonical consolidation, technical blocking (such as a stray noindex, a robots rule or a server error), or a reporting artifact. It warns that rushed fixes can make a temporary problem permanent.",
+   "source": "https://searchenginejournal.com/deindexing-reports-keep-coming-google-sees-nothing-unusual/579847/"
+  },
+  {
+   "fact": "Google's Page indexing report help: 'To find the index status of a specific page, use the URL Inspection tool.'",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "Google's Page indexing report help: if you see a drop in total indexed pages without a matching rise in errors, you may be blocking existing pages through robots.txt, noindex or a required login.",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "The reasons Search Console gives for a page not being indexed include 'URL marked noindex', 'Crawled - currently not indexed', 'Duplicate, Google chose different canonical than user', 'Not found (404)', 'Page with redirect' and 'URL blocked by robots.txt'.",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "Google's description of 'URL marked noindex': 'When Google tried to index the page it encountered a noindex directive and therefore did not index it.'",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "Google's Page indexing report help: 'Don't expect every URL on your site to be indexed.' Just make sure the key pages are.",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "URL Inspection shows 'URL is on Google' or 'URL is not on Google' ('the URL can't appear in Search results'), plus a Page indexing section and the date of the last crawl.",
+   "source": "https://support.google.com/webmasters/answer/9012289"
+  },
+  {
+   "fact": "In URL Inspection you can request indexing, but there is a daily limit, and 'Submitting a request does not guarantee that the page will appear in the Google Index.'",
+   "source": "https://support.google.com/webmasters/answer/9012289"
+  },
+  {
+   "fact": "When Googlebot recrawls a page and finds a noindex rule, 'Google will drop that page entirely from Google Search results.' A CMS may set it through a search engine settings page, not the HTML.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/block-indexing"
+  },
+  {
+   "fact": "In a common WordPress SEO plugin, a per-post switch (labelled something like 'Allow search engines to show this post in search results?', or a 'Show in search results' toggle in newer versions) sets the post to noindex when it is turned off. Don't name the plugin on screen.",
+   "source": "https://yoast.com/wordpress-noindex/"
+  },
+  {
+   "fact": "Google's own documentation: 'Indexing isn't guaranteed; not every page that Google processes will be indexed.'",
+   "source": "https://developers.google.com/search/docs/fundamentals/how-search-works"
+  },
+  {
+   "fact": "John Mueller, replying to an r/TechSEO post on Oct 2026: 'Indexing doesn't change quickly, and when it does, you see that reflected in the performance reports first.'",
+   "source": "https://www.searchenginejournal.com/google-responds-to-concern-over-search-console-indexing-reports/594494/"
+  },
+  {
+   "fact": "Demand: an Ask HN thread, 'Has Google started cleaning their search results from AI slop?', where the poster says impressions and clicks fell to almost zero in one day around Oct 26. It is a small thread (4 points, 3 comments). The Graphite AI-content percentages a commenter quotes are not verified, so keep them out of the reel.",
+   "source": "https://news.ycombinator.com/item?id=50318869"
+  },
+  {
+   "fact": "Pages that were crawled but not indexed are usually a quality matter (often 'commodity content'). Technical causes are rarer, so a live URL test is the first check.",
+   "source": "https://searchenginejournal.com/why-your-pages-are-stuck-in-crawled-currently-not-indexed-what-to-do-about-it/582585"
+  },
+  {
+   "fact": "Flowra's Index Coverage Monitor (Pro) checks whether pages are indexed in Google and records when that changes. Use this for the end card or caption only. Never in dialogue.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Night set, desk lamp on. Hook in mayaTight: Maya with both hands on her cheeks, a \"!\" mark, and a \"0 clicks\" stat pill framed as her own example. Line: \"My best post is gone from Google. They're purging AI pages and they took mine!\" Cut to wide. Floey on the laptop, deadpan: \"Did you ask why?\" Maya: \"Google doesn't explain things, Floey.\" Floey: \"It does. Paste the link into URL Inspection.\" Maya types (typing sfx), then whoosh into the central image. A DUO.listInsert titled \"URL Inspection\" with the sub-line \"/lisbon-on-a-budget (example)\". Rows: \"Status: URL is not on Google\" (bad), \"Page fetch: Successful\" (good), \"Last crawl: 3 days ago\" (example), and the hi row \"Page indexing: URL marked 'noindex'\", whose ring grows on the rise sfx. Back to mayaTight: \"Noindex? Who did that?\" Floey, floeyTight: \"You did. Tuesday. The 'show in search' switch.\" Maya: \"...Oh.\" Floey's tip with the caption \"Switch it back. Then Request indexing.\" Maya clicks (click sfx, ding). Button: Maya looks up at the ceiling: \"Google, I'm so sorry.\" Floey: \"Google says you're welcome.\" Two running jokes, so only these two. Maya picks up her mug, sips, grimaces: cold. End card. Optional send-ask variant: Maya says \"Send this to whoever blames Google first\", shown on screen too.",
+ "pillar": "problem",
+ "instinct": "My page vanished from Google because Google's rumoured AI-content cleanup wiped it, and there's nothing I can do.",
+ "flip": "Search Console records the reason a page isn't indexed: paste the URL into URL Inspection, and the line it shows (here 'URL marked noindex', which you can undo in a minute) tells you whether Google dropped it or you did.",
+ "idea": "Maya's page was on Google last month. Now it isn't indexed at all.",
+ "style": "duo"
+}

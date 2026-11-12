@@ -1,0 +1,10 @@
+{
+ "pass": false,
+ "problems": [
+  "Frame 08 (and the line before it): the claim is untrue. Maya asks 'So it just... tells you why?' and Floey answers 'Every time, Maya.' URL Inspection does not always tell you why. Statuses like 'Crawled – currently not indexed' and 'Discovered – currently not indexed' give no reason at all. This is the reel's one tip, so stating it as an absolute is a false claim, and SEO-savvy viewers will call it out in the comments. Change the line to something true, e.g. 'Usually, Maya.' or 'More often than you'd think.', or reword Maya's question so the answer is about this case only.",
+  "Frame 06: the 'Post settings' insert slides up under Floey's caption, and the caption box ('One little switch.') covers the insert's title, so it reads as 'Post se…'. The insert is also cut off at the bottom of the frame. Either land the insert before the caption sits over it, or move the caption so it doesn't cover the title while the insert moves in.",
+  "Frame 10: the button doesn't land. The script calls for a long, flat look straight at the camera over her glasses. Instead Maya's eyes are turned off to screen-left, so she isn't looking at the viewer for the ~2.5 s hold, and that look is the joke. Turn her eyes to the camera.",
+  "Frame 08: the script asks for a Floey-only shot with Maya out of frame on 'Every time, Maya.', but this is the wide shot with Maya visible. This is minor, but the fond close-up beat is lost.",
+  "Frame 05: on 'noindex... Who did that?' the script wants Maya annoyed, leaning in with narrowed eyes. She is wide-eyed and open-mouthed (the same worried face as the hook), so the shift from panic to suspicion doesn't show. This is minor."
+ ]
+}

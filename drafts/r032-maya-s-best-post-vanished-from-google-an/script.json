@@ -1,0 +1,127 @@
+{
+ "title": "The purge that wasn't",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Best post, gone from Google! They're purging AI pages. They took mine!",
+   "emotion": "worried",
+   "visual": "Night set, desk lamp on. mayaTight from frame one: Maya in the cheeks pose (both hands on her cheeks), worried face, wide eyes behind her round glasses, with a '!' mark popping above her bun. A small '0 clicks' stat pill sits inside the tight frame, just beside her shoulder (soft pop sfx as it appears). Floey is out of frame."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Did you ask why?",
+   "emotion": "playful",
+   "visual": "Cut to wide: Floey perched on the laptop lid (floeyLaptop), deadpan, with a slow blink and a small head tilt. Maya is frozen in the cheeks pose, and her eyes slide sideways to Floey (MY.look toward Floey)."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Google doesn't explain things, Floey.",
+   "emotion": "determined",
+   "visual": "maya shot: Maya drops her hands into the rest pose, annoyed face, and gives a flat, defiant stare off-frame toward Floey. Floey is out of frame."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.6,
+   "say": "It does. Paste the link into URL Inspection.",
+   "emotion": "warm",
+   "visual": "floey shot: Floey on the laptop lid gives a short chip on 'It does' (chip sfx), then a knowing head tilt. Cut to wide: Maya in the type pose pastes the link (keyboard tap sfx) and hits enter (enter-key clack). Whoosh into the laptop screen insert during the pause: a DUO.listInsert titled 'URL Inspection' with the sub-line '/lisbon-on-a-budget (example)'. Its rows tick in one by one before Maya speaks: 'Status' / 'URL is not on Google' (bad), 'Page fetch' / 'Successful' (good), 'Last crawl' / '1 day ago (example)', then the hi row 'Page indexing' / 'URL marked noindex', whose ring grows on a rising sfx."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "Not on Google. Marked no index... Who did that?",
+   "emotion": "worried",
+   "caption": "Not on Google. Marked noindex... Who did that?",
+   "visual": "The URL Inspection insert holds while Maya reads the two rows out (ring still on 'URL marked noindex'). On 'Who did that?' cut to mayaTight: Maya, annoyed face, leaning toward the screen with narrowed eyes. Floey is out of frame."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "You did. Last Tuesday. One little switch.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey, smug, turns and tilts her head toward the laptop. Whoosh to a DUO.listInsert titled 'Post settings' with one hi row, 'Show in search results' / 'Off' (tone bad). The ring grows on a click sfx. No plugin name anywhere."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Oh.",
+   "emotion": "worried",
+   "visual": "mayaTight: Maya's face goes surprised, then sad, as she slumps into the facepalm pose. Floey is out of frame."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "So it just... tells you why?",
+   "emotion": "bright",
+   "visual": "Opens on the 'Post settings' insert again: without a word, Maya's fix lands as the row changes from 'Off' (bad) to 'On' (good), with a click sfx and a soft ding. Cut to wide: Maya in the rest pose, bright face as it dawns on her, looking at Floey. Floey stays on the laptop lid and gives a slow, satisfied blink."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Every time, Maya.",
+   "emotion": "warm",
+   "visual": "floey shot: Floey on the laptop lid, chin up, with a tiny tongue flick and a fond half-blink. Maya is out of frame."
+  },
+  {
+   "role": "button",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Google, I'm so sorry.",
+   "emotion": "warm",
+   "visual": "maya shot: Maya looks up at the ceiling (MY.look(t, 0, -1)), tilts her head back (tiltTo back) and goes into the shrug pose. Sheepish, sad face. Floey is out of frame."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Google says you're welcome.",
+   "emotion": "proud",
+   "visual": "floeyTight: Floey turns to the camera, puffs her chest and delivers the line perfectly dry, then preens one feather (preen rustle sfx). Cut to mayaTight under the same lamp light: Maya, deadpan face, gives the camera a long, flat look over her glasses that holds for about two and a half seconds before the end card."
+  }
+ ],
+ "loopNote": "The reel ends in mayaTight: Maya at the same desk, in the same lamp light, giving the camera a flat, deadpan look. The first frame is the same mayaTight framing with her hands flying to her cheeks in panic. On a replay the cut plays as her next panic starting straight after she swore she would check first.",
+ "caption": "Maya's best post vanished from Google, and she was sure the big AI cleanup had taken it. Then she actually checked.\n\nBefore you blame Google, open Search Console, paste the page's link into URL Inspection and read the reason it gives. If it says \"URL is not on Google\" with \"URL marked noindex\", a setting on your own site is hiding the page. It's often a \"show in search results\" switch on the post. Turn it back on. Other reasons, like \"Crawled, currently not indexed\", need a different fix, so read the line before you change anything. You can also click Request indexing, but that only asks Google to look again. It doesn't promise anything.\n\nWho's the friend who blames Google before checking anything? Send them this. (Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#searchconsole",
+  "#bloggingtips",
+  "#wordpress",
+  "#contentmarketing"
+ ],
+ "sticky": 52,
+ "id": "r032-maya-s-best-post-vanished-from-google-an",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Maya's best post vanished from Google, and she's sure the AI-content cleanup took it. Search Console names the real reason: she noindexed it herself.",
+ "editorNotes": [
+  "Hook: \"They're purging AI pages. They took mine!\" sounds like Maya admitting her best post is an AI page. That makes her the slop blogger, not the viewer on a bad day. The joke only works if she believes the purge hit her human post by mistake. Change the line so it says so (for example, add \"...and I wrote mine myself!\"), keeping the problem in the first two seconds.",
+  "Tip: \"Paste the link into URL Inspection\" is a tool name with no plain version, and Search Console is never mentioned anywhere in the reel. A blogger who has never opened it can't do this today. Name Search Console in Floey's line, or at least put \"Search Console\" in the insert title (for example \"Search Console: URL Inspection\"), so the viewer knows where to go.",
+  "The timing can't work. After Floey's tip line, a 0.6 s pause has to hold the cut to wide, Maya pasting and pressing enter, the whoosh, four rows ticking in one by one and the ring growing on the rise. That is about 3 s of action and five or more sounds, and the rule is at most one sound every 0.4 s. Either set this gap to about 2.5 to 3 s (pushing Maya's read), or start the typing during Floey's line. The same problem hits the 0.4 s gap after \"Oh.\": the Post settings insert, the Off to On click and the ding can't fit before \"So it just...\". Give the fix its own silent gap of about 1.5 s.",
+  "\"Every time, Maya.\" is untrue. URL Inspection doesn't always give a usable reason. 'Crawled - currently not indexed' gives no why, and the brief says it is usually a quality matter. If the page is indexed but has lost ranking, it just says 'URL is on Google'. The brief also notes that indexing isn't guaranteed. Floey is always right, so she can't overclaim. Use a line that is true, such as one about it telling you where to look first, or cut this exchange (see the polish note).",
+  "The button doesn't follow. Maya says \"Google, I'm so sorry\" and Floey answers \"Google says you're welcome\", but \"you're welcome\" answers a thank you, not an apology. Viewers will hear it as a mistake, not a punchline, so the ending fizzles. Either Maya thanks Google (and Floey takes the credit for Google), or Floey gives an answer that fits a sorry (for example, Google forgives her and Floey doesn't). Keep it to the two running jokes.",
+  "(polish) \"So it just... tells you why?\" / \"Every time, Maya.\" is the writer's moral in the characters' mouths, and it sags between the realisation (\"Oh.\") and the button. Maya already read the reason two lines earlier, so the question rings false. Think about cutting both lines and going from the silent fix straight to the button. That also shortens the reel.",
+  "(polish) Faces and voices don't match. In the check beat the voice is 'worried' but the face on \"Who did that?\" is annoyed, so pick one (the indignant read fits better, with 'determined' as the voice). In the button the voice is 'warm' but the face is sheepish and sad. Also, the doubt line is voiced 'determined' over an annoyed face, while the cast says Maya goes flat when annoyed. Make each face match its line's feeling.",
+  "(polish) Some sound and behaviour names aren't in the kit. 'keyboard tap' should be typing {d}, 'enter-key clack' should be click, and 'preen rustle' should be Floey's own preen or swish. 'Puffs her chest' isn't a listed Floey behaviour, so use pivot front plus a tilt or a preen. Floey 'turns toward the laptop' while she is perched on it, so describe a look down at the screen instead. A chip sfx on top of her spoken 'It does' will muddy the line, so put it just before.",
+  "(polish) Post settings insert: the ring grows on a 'click' sfx, but nobody clicks there. Use tick or rise, and keep click for Maya's real Off to On fix so each sound stays one real event.",
+  "(polish) Hook frame: on frame one the '0 clicks' pill and the '!' should already be up, not popping in, because the problem is already happening. In mayaTight the stat spot (about x 880, y 610) and the '!' above her bun may land off frame or above y 220. Place both by hand inside the safe area and check the still at phone size.",
+  "(polish) Insert row 'Last crawl' / '1 day ago (example)': the sub-line already marks this as an example, so the extra '(example)' clutters the value. Measure it so it fits the value column. The brief had '3 days ago'; either works with 'last Tuesday', but keep one.",
+  "(polish) The loop note says the replay reads as her next panic 'straight after she swore she would check first', but she never swears that in the script. Duo reels don't need a loop note anyway. Fix it or drop it.",
+  "(polish) The reframe beat says Maya is 'frozen' in the cheeks pose. The listener is never frozen, so add a small move on Floey's 'why' (a blink, a slow lowering of her hands) as well as the eye slide.",
+  "(polish) \"Best post, gone from Google!\" is clipped and sounds written. \"My best post is gone from Google!\" (as in the brief) is how a panicking person talks and costs almost nothing in time."
+ ],
+ "style": "duo",
+ "template": "../drafts/r032-maya-s-best-post-vanished-from-google-an/scene.html"
+}
