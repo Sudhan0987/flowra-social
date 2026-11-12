@@ -465,7 +465,7 @@
   },
   {
    "id": "r028-ai-made-publishing-fast-so-maya-publishe",
-   "status": "approved",
+   "status": "published",
    "topic": "AI made publishing fast, so Maya published more, and now her old posts are slipping. Is the answer really \"just publish more\"?",
    "format": "duo-sitcom",
    "madeAt": "2026-11-08T12:27:06.976Z",
@@ -473,7 +473,14 @@
    "idea": "AI was supposed to save Maya time. Now she has more old posts to look after.",
    "style": "duo",
    "run": 42477758234,
-   "note": "Approved by the founder in chat, 10 Nov 2026 (\"approve both\")"
+   "note": "Approved by the founder in chat, 10 Nov 2026 (\"approve both\")",
+   "published": {
+    "at": "2026-11-12",
+    "instagram": "18126343705936603",
+    "facebook": "1168998862336542",
+    "youtube": "Y_e1k_IZpsk",
+    "youtubePrivacy": "public"
+   }
   },
   {
    "id": "r029-your-comparison-post-is-going-sour-fix-t",
