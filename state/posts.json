@@ -514,6 +514,17 @@
    "idea": "Five sites, and only one gets clicks. Ask the one that works what it ranks for.",
    "style": "duo",
    "run": 43022431115
+  },
+  {
+   "id": "r032-maya-s-best-post-vanished-from-google-an",
+   "status": "failed",
+   "topic": "Maya's best post vanished from Google, and she's sure the AI-content cleanup took it. Search Console names the real reason: she noindexed it herself.",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-12T14:07:39.126Z",
+   "seconds": 30,
+   "reason": "Frame 08 (and the line before it): the claim is untrue. Maya asks 'So it just... tells you why?' and Floey answers 'Every time, Maya.' URL Inspection does not always tell you why. Statuses like 'Crawled – currently not indexed' and 'Discovered – currently not indexed' give no reason at all. This is the reel's one tip, so stating it as an absolute is a false claim, and SEO-savvy viewers will call it out in the comments. Change the line to something true, e.g. 'Usually, Maya.' or 'More often than ",
+   "idea": "Maya's page was on Google last month. Now it isn't indexed at all.",
+   "style": "duo"
   }
  ]
 }
