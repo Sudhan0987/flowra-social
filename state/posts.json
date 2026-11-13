@@ -525,6 +525,17 @@
    "reason": "Frame 08 (and the line before it): the claim is untrue. Maya asks 'So it just... tells you why?' and Floey answers 'Every time, Maya.' URL Inspection does not always tell you why. Statuses like 'Crawled – currently not indexed' and 'Discovered – currently not indexed' give no reason at all. This is the reel's one tip, so stating it as an absolute is a false claim, and SEO-savvy viewers will call it out in the comments. Change the line to something true, e.g. 'Usually, Maya.' or 'More often than ",
    "idea": "Maya's page was on Google last month. Now it isn't indexed at all.",
    "style": "duo"
+  },
+  {
+   "id": "r033-maya-s-post-was-on-google-last-month-and",
+   "status": "draft",
+   "topic": "Maya's post was on Google last month and now it isn't indexed. She is sure the new \"AI filter\" has caught her. Floey has her read the one line Search Console gives as the reason.",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-13T13:22:43.190Z",
+   "seconds": 32,
+   "idea": "Maya's page was on Google last month. Now it isn't indexed at all.",
+   "style": "duo",
+   "run": 43430347690
   }
  ]
 }
