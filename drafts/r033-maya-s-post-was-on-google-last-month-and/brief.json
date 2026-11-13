@@ -1,0 +1,71 @@
+{
+ "topic": "Maya's post was on Google last month and now it isn't indexed. She is sure the new \"AI filter\" has caught her. Floey has her read the one line Search Console gives as the reason.",
+ "angle": "Maya searches for her own post, it's gone, and she decides Google's rumoured AI-slop clean-up has penalised her real, human blog. Floey has her paste the URL into URL Inspection. The reason line reads \"Crawled - currently not indexed\" and the Manual actions report is clean, so it isn't a penalty. Google read the page and didn't keep it, and Google says that is common and that its index changes over time. What makes it worth watching is that panic over a rumour is replaced by one line on a real screen, plus a dry button: \"It's not a ban, Maya. It's a review.\" \"A bad one?\" \"A meh one.\"",
+ "whyNow": "Since late April 2026, site owners have been reporting pages leaving Google's index with no manual action or crawl error. The pages sit in \"crawled, currently not indexed\", including one site that had been indexed for six years. John Mueller said he saw nothing exceptional (SEJ, 20 June 2026). In July, SEJ ran a long piece on pages stuck in that status. This month an Ask HN thread asked whether Google has started cleaning AI slop from results, and a commenter warned that any such filter will catch real sites too. The HN thread itself is small (4 points). The demand evidence is the run of deindexing reports and the coverage that followed. Our earlier indexing reel was about new posts. This one is about pages that were indexed and then dropped.",
+ "goal": "send",
+ "audience": "Solo bloggers and small content-site owners, and the content marketers and agency people who look after client blogs. They have searched for their own post, found it gone, and assumed a penalty or an algorithm \"hating\" them. Many saw this year's deindexing chatter and the talk of an \"AI filter\" and wonder whether it's them.",
+ "facts": [
+  {
+   "fact": "Google's Page indexing report help says of 'Crawled - currently not indexed': 'The page was crawled by Google but not indexed.' It also says 'Google doesn't index all pages across the web, so this is a common message for many sites' and that it 'doesn't necessarily indicate an issue that needs attention.' For important pages it says to use the URL Inspection tool.",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "Google's help says 'Google doesn't guarantee that all pages everywhere will make it into the Google index' and 'Don't expect every URL on your site to be indexed.'",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "In Search Console, the reason each URL isn't indexed is listed in the 'Why pages aren't indexed' table of the Pages report. The report also shows the history of your indexed page count over time.",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "If the total number of indexed pages drops without a matching rise in errors, Google's help says you might be blocking existing pages with robots.txt, noindex or a required login.",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "URL Inspection shows either 'URL is on Google' or 'URL is not on Google', plus the last time Google crawled the page. 'Test live URL' checks the page as it is right now.",
+   "source": "https://support.google.com/webmasters/answer/9012289"
+  },
+  {
+   "fact": "Google says that requesting indexing in URL Inspection 'does not guarantee that the page will appear in the Google Index', and that there is a daily limit on index requests.",
+   "source": "https://support.google.com/webmasters/answer/9012289"
+  },
+  {
+   "fact": "A manual action means a human reviewer at Google decided pages on the site don't comply with Google's spam policies. Google notifies you in the Manual actions report and in the Search Console message center. A site with no manual actions sees a green check in that report.",
+   "source": "https://support.google.com/webmasters/answer/9044175"
+  },
+  {
+   "fact": "John Mueller (Google), June 2025: 'We don't index all content, and what we index can change over time.'",
+   "source": "https://www.seroundtable.com/google-indexing-less-may-39538.html"
+  },
+  {
+   "fact": "Since late April 2026, business owners and SEOs have reported pages leaving Google's index with no manual action or crawl error. The pages moved into 'crawled, currently not indexed' and stayed there. One site that had been indexed for six years saw every page move to that status. John Mueller said he saw nothing exceptional, and Google has not announced any change to how it indexes.",
+   "source": "https://searchenginejournal.com/deindexing-reports-keep-coming-google-sees-nothing-unusual/579847/"
+  },
+  {
+   "fact": "SEJ's advice on suspected deindexing: confirm each URL in URL Inspection (a site: search is only a rough check), and find the cause before acting, because rushed fixes such as adding noindex or restructuring URLs can make a temporary problem permanent.",
+   "source": "https://searchenginejournal.com/deindexing-reports-keep-coming-google-sees-nothing-unusual/579847/"
+  },
+  {
+   "fact": "Gary Illyes (Google) has said a high number of 'crawled, currently not indexed' URLs 'could hint at general quality issues.'",
+   "source": "https://searchenginejournal.com/deindexing-reports-keep-coming-google-sees-nothing-unusual/579847/"
+  },
+  {
+   "fact": "Marie Haynes (SEJ, July 2026) says pages stuck in 'crawled - currently not indexed' usually have quality problems, often 'commodity content' that repeats what is already online. Her first step is Test Live URL, to rule out a technical block.",
+   "source": "https://searchenginejournal.com/why-your-pages-are-stuck-in-crawled-currently-not-indexed-what-to-do-about-it/582585"
+  },
+  {
+   "fact": "Ask HN, 'Has Google started cleaning their search results from AI slop?' (4 points). A commenter cites Graphite's Common Crawl sample: about 5% of new articles were mostly AI-written when ChatGPT launched, and about 50% from late 2024 through May 2026. The commenter warns 'Any filter aimed at that half of the web is going to catch some real sites too.' This is context only; the reel must not claim a cleanup is happening.",
+   "source": "https://news.ycombinator.com/item?id=50318869"
+  },
+  {
+   "fact": "Flowra's Index Coverage Monitor (Pro) checks whether pages are indexed in Google and records when that changes. It needs a WordPress site. End card context only; never said in the reel.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Day set. Hook in mayaTight: Maya has just searched for her own post, with a \"?\" mark by her head and an example \"0 results\" number pill. She says: \"My best post is gone from Google. The AI filter got me, and I wrote every word myself!\" Wide: Floey on the laptop, deadpan: \"Paste the URL in URL Inspection.\" Typing sound, then a whoosh into a DUO.listInsert titled \"URL Inspection\" with example rows: \"Status: URL is not on Google\", \"Reason: Crawled - currently not indexed\" (the hi row, ring grows), \"Last crawl: 2 Nov\" (example), then \"Manual actions: None\" in a good tone. Maya: \"So... not a penalty?\" Floey: \"Google read it and didn't keep it. That's a review, not a ban.\" Maya: \"A bad review?\" Floey: \"A meh one. Make it the best answer, not another one.\" Button: Maya picks up her mug, sips, grimaces because it's cold (running joke), and looks to camera. Floey: \"You're welcome.\" Then the end card.",
+ "pillar": "problem",
+ "instinct": "My post vanished from Google, so Google's new AI-slop filter must have penalised my site even though I write every word myself.",
+ "flip": "A dropped page usually isn't a penalty: Google says it doesn't index every page and what it indexes changes over time, and URL Inspection gives the exact reason. A real penalty from a human reviewer would show in the Manual actions report.",
+ "idea": "Maya's page was on Google last month. Now it isn't indexed at all.",
+ "style": "duo"
+}

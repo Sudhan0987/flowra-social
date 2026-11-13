@@ -1,0 +1,119 @@
+{
+ "title": "Gone from Google, not banned",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "My best post is gone from Google. The AI filter got me.",
+   "emotion": "worried",
+   "visual": "Day set, mayaTight. Frame one: Maya at the laptop in the panic pose with a worried face, eyes wide. A '?' mark pops by her head, and an example '0 results' number pill floats by the screen glow. Floey is out of frame in this shot."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Did Google say that?",
+   "emotion": "curious",
+   "visual": "floeyTight: Floey perched on the back of the laptop lid, very still. She tilts her head and does one slow blink. Deadpan."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "It caught a human! I wrote every word. Google doesn't say anything!",
+   "emotion": "worried",
+   "visual": "wide: Maya in the panic pose on 'It caught a human!', then switches to the cheeks pose on 'Google doesn't say anything!' with a worried face. Floey, on the laptop lid, preens one wing and doesn't look up."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "It says one line. Paste the link into URL Inspection.",
+   "emotion": "playful",
+   "visual": "wide: on 'It says one line', Floey stops preening and turns to face Maya, then gives a short chip. Maya switches to the type pose and types fast (key clicks panned left), then hits enter. Whoosh into the laptop screen insert (DUO.listInsert) titled 'URL Inspection' with rows: Status / URL is not on Google; Reason / Crawled - currently not indexed (hi row); Last crawl / 2 Nov (example)."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Crawled, currently not indexed... Is that the penalty?",
+   "emotion": "curious",
+   "visual": "The URL Inspection insert stays on screen while Maya reads the reason aloud; the ring around the Reason row grows as she reads it. On 'Is that the penalty?' cut to mayaTight: worried face, eyebrows up, still in the type pose."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "A human reviewer's penalty shows in Manual actions. Yours says none.",
+   "emotion": "warm",
+   "visual": "floey: Floey turns toward the screen and tilts her head. Maya clicks (click sound, panned left), the URL Inspection insert closes, and on the words 'Manual actions' a second DUO.listInsert titled 'Manual actions' whooshes in with one good-tone row: Manual actions / None. The ding lands on that row before Floey says 'Yours says none', and the insert stays up while she says it."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "Oh.",
+   "emotion": "bright",
+   "visual": "mayaTight: Maya with a surprised face in the slump pose, shoulders dropping. The desk mug (DUO.mug) sits beside the laptop."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "No ban. Google read it and didn't keep it.",
+   "emotion": "warm",
+   "visual": "wide: Floey on the laptop lid gives Maya a wink on 'No ban'. On 'didn't keep it', Maya's pose switches to mug; the desk mug stops being drawn on that same frame, so there is only ever one mug."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Because it's bad?",
+   "emotion": "curious",
+   "visual": "maya: Maya holds the mug pose, mug halfway to her mouth, with a worried face, wincing in advance."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Because it's meh.",
+   "emotion": "proud",
+   "visual": "wide: Floey turns to Maya and says it straight to her, then gives a small, smug chip. Then about three seconds of silent acting before the end card: Maya sips (mug pose, cold slurp sound) and her face goes flat in a grimace because the coffee is cold. She sets it down: her pose leaves mug and the desk mug is drawn again on that same frame. Then she gives the camera a flat look. Hold on the look, then the end card. END comes after all of this, so nothing cuts off the cold-coffee joke."
+  }
+ ],
+ "loopNote": "It ends on Maya's flat look to camera beside the laptop, with the cold mug back on the desk. The first frame is the same laptop and the same face in mayaTight, now panicking, so on a replay it looks like she has searched for her post again and is panicking all over again.",
+ "caption": "Searched for your own post and it's gone? Before you blame a rumoured AI filter, paste the link into URL Inspection in Search Console and read the reason line. \"Crawled, currently not indexed\" means Google read the page and chose not to keep it. Google's own help calls that a common message, and what Google indexes changes over time. A penalty from a human reviewer would show in the Manual actions report, so if yours says none, nobody banned you. Send this to the friend who googles their own blog every morning. What did you check first when a post went missing?",
+ "hashtags": [
+  "#seo",
+  "#blogging",
+  "#googlesearchconsole",
+  "#bloggingtips",
+  "#contentmarketing"
+ ],
+ "sticky": 50,
+ "id": "r033-maya-s-post-was-on-google-last-month-and",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Maya's post was on Google last month and now it isn't indexed. She is sure the new \"AI filter\" has caught her. Floey has her read the one line Search Console gives as the reason.",
+ "editorNotes": [
+  "Beat 3 (Maya): \"It caught a human!\" doesn't sound spoken. In bf_emma it comes out like a news headline, and \"caught a human\" sounds like a trap catching a person. It also crowds three sentences into one burst, and the line Floey answers (\"Google doesn't say anything!\") comes last. Bring back the brief's line, which is clearer: an indignant \"I wrote every word myself!\" Then give \"Google doesn't say anything!\" its own clear beat so \"It says one line\" can answer it.",
+  "Beat 6 (Floey): \"A human reviewer's penalty shows in Manual actions. Yours says none.\" is the longest and stiffest line she has. Read aloud it is a lecture, and Kokoro will stumble over the possessive \"reviewer's\". Floey speaks in the fewest words. Split it into short spoken pieces: real penalties come from a person, they show up in Manual actions, and yours is clear. Keep each piece to a few words.",
+  "The tip says \"URL Inspection\" and never says where it is. Many solo bloggers don't know it is a Search Console tool, so a viewer who tries the tip today can't find it. Floey can't use jargon without the plain version. Have Floey's line or Maya's reply say \"Search Console\" once (for example, Maya: \"In Search Console?\" and Floey: \"Mm.\"), or make the insert title read \"Search Console · URL Inspection\" so the screen shows it.",
+  "Beats 4 and 5 can't be animated as timed. (a) Maya starts typing on \"It says one line\", before Floey has told her what to do, so she acts on a tip she hasn't heard yet. (b) The 0.4 s pause after Floey's line is too short for typing, enter, the whoosh and the rows sliding in, yet Maya reads the Reason row as soon as that pause ends. Start the typing on \"Paste the link\" and stretch the pause to about 1.2 to 1.5 s, so the rows are on screen before she reads them. (c) Beat 5 cuts to mayaTight while the insert is still up, and the insert is screen space so it would cover her face. Beat 6 then says the insert \"closes\", which contradicts that. Say exactly when the URL Inspection insert closes. It should close before the mayaTight cut on \"Is that the penalty?\"",
+  "(polish) Beat 6 staging: the shot is \"floey\" (favouring Floey), but a full-screen Manual actions insert sits over most of her line, so her tilt and turn are hidden. Maya also clicks over to Manual actions before Floey has said the words. Either hold the insert until \"Manual actions\" is spoken and cut away on \"Yours says none\", or play the line over the insert and skip the Floey acting. Keep the click, whoosh and ding at least 0.4 s apart.",
+  "(polish) The Manual actions row says \"None\" and Floey says \"Yours says none\". The brief's fact is that a clean report shows a green check, so a viewer who checks won't see the word \"None\". Make the row and the line match the fact, for example a good-tone row with a green check and Floey saying it's clear or green.",
+  "(polish) The flip is only half there. The script uses the Manual actions half but leaves out the part that actually answers Maya's \"AI filter\" fear: Google says this is a common message, it doesn't index every page, and what it indexes changes over time. Manual actions only rules out a human penalty. A sharp SEO viewer will point out that an algorithmic filter wouldn't show up there either. One short dry Floey clause like \"Google drops pages all the time\" closes that gap without claiming anything about a filter.",
+  "(polish) The button \"Because it's meh.\" has Floey state the cause as fact. The sources only say quality \"could hint\" (Illyes) or is \"usually\" the cause (Haynes), and Haynes's first step is to rule out a technical block. The brief's version is funnier and truer because it is Google's verdict: \"It's not a ban, Maya. It's a review.\" / \"A bad one?\" / \"A meh one.\" The script dropped the review metaphor, which is the shareable line. Consider bringing back \"review\" in beat 8 so the bad/meh pair pays it off.",
+  "(polish) Manual actions works as a second place to check on top of the URL Inspection tip. It is fine as a payoff fact, but keep it as something Floey reveals, not an instruction, so the viewer leaves with one tip.",
+  "(polish) The cold-coffee button needs the mug on the desk from frame one (DUO.mug drawn in every shot that shows the desk). Otherwise it seems to appear at \"Oh.\", and the loop note's \"mug back on the desk\" doesn't hold. The setting-down action also needs its own sound (a small tk or click). Don't use thump, which belongs to the end card.",
+  "(polish) \"Grimace\" (beat 10) and \"wincing\" (beat 9) aren't in Maya's expression list. Name the face to use: deadpan or annoyed for the cold sip, worried for the wince. Otherwise the animator will guess and the frame test may flag it.",
+  "(polish) Hook: frame one should be mid-panic. Use Maya's panic expression, not worried, together with the panic pose. Also check that the \"0 results\" pill (about x 880, y 610) and the \"?\" mark both fit inside mayaTight's frame without overlapping each other or getting cut off at the edge.",
+  "(polish) Example framing on the URL Inspection insert: putting \"(example)\" inside the Last crawl value clutters the row. Use the listInsert sub line (for example, \"Example page\") so the whole screen is clearly an example. The rows don't show which URL was inspected, and the sub line could carry a made-up example slug for that too.",
+  "(polish) Voice emotions: \"Oh.\" marked bright doesn't fit a surprised, slumping, relieved beat. Warm or curious would read better. \"Because it's bad?\" marked curious goes with a worried wince, so make the voice worried. Floey's two warm payoff lines in a row flatten her dry tone. One of them could be playful.",
+  "(polish) The loop note doesn't match the script. The button is in the wide shot and the hook is in mayaTight, and the end card sits between them anyway. Duo reels don't need a loop, so drop the claim or match the shots."
+ ],
+ "style": "duo",
+ "template": "../drafts/r033-maya-s-post-was-on-google-last-month-and/scene.html"
+}

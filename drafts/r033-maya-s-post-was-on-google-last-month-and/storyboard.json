@@ -1,0 +1,285 @@
+{
+ "style": "Day set in Maya's room (soft sky window with a drifting cloud, shelf, plant, spark poster). Warm amber for Maya, pink for Floey. Maya (pencil bun, panicky solo blogger) sits behind the desk. Floey (calm, dry hummingbird) perches on the laptop lid facing her (facing -1, side view). There is one mug: it is drawn on the desk only when it is not in Maya's hand. The reel has one cutaway insert (URL Inspection), no notification, and Flowra appears only in the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "close",
+   "camera": "shake",
+   "subject": "mayaTight: Maya at the laptop in the panic pose (hands up by her head), worried face, eyes wide, lit by the screen glow. A '?' mark sits by her head and a bad-tone stat pill by the screen glow is marked as an example. Floey is out of frame.",
+   "action": "The problem is already happening on frame one: Maya is mid-panic on 'My best post is gone from Google', and the '?' mark pops in beside her bun. The small shake is for real panic.",
+   "onScreenData": "0 results (example)",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 2,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya, worried, in the panic pose, eyes darting to screen left toward the Floey we can't see. The stat pill fades out before the next cut.",
+   "action": "On 'The AI filter got me' she leans into the laptop and her bun wobbles. A slow push in sells that she is sure she's right.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone, perched on the laptop lid, very still.",
+   "action": "A hard cut for the comic reversal. Deadpan, she tilts her head and does one slow blink on 'Did Google say that?'",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk in the panic pose with a worried face, and Floey on the laptop lid.",
+   "action": "Maya throws her hands up on 'It caught a human! I wrote every word.' Floey turns away and preens one wing without looking up.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 1.9,
+   "shot": "wide",
+   "camera": "drift",
+   "subject": "wide: Maya switches to the cheeks pose with a worried face, and Floey keeps preening.",
+   "action": "On 'Google doesn't say anything!' Maya's hands land on her cheeks. A slow drift keeps both of them in frame for the listener gag.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.9,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: a closer two-shot favouring Floey on the lid. Maya, worried, sits at frame left with her eyes on Floey.",
+   "action": "On 'It says one line' Floey stops preening, turns to face Maya and gives a short chip. Push in on the tip.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 1.4,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya in the type pose with a think face, eyes down at the laptop.",
+   "action": "On 'Paste the link into URL Inspection' Maya types fast (sound panned left), then hits enter hard.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.5,
+     "kind": "type"
+    },
+    {
+     "at": 2.4,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 2.9,
+   "shot": "insert",
+   "camera": "push-in",
+   "subject": "The laptop screen insert (DUO.listInsert, the reel's only cutaway), titled 'URL Inspection'. Rows: Status / URL is not on Google (bad); Reason / Crawled - currently not indexed (hi); Last crawl / 2 Nov (example).",
+   "action": "The insert whooshes in and the three rows slide in one by one.",
+   "onScreenData": "Crawled - currently not indexed",
+   "sfx": [
+    {
+     "at": 2.9,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "push-in",
+   "subject": "The URL Inspection insert holds. The ring around the Reason row grows.",
+   "action": "Maya reads 'Crawled, currently not indexed...' aloud as the ring grows around that row, timed to her words.",
+   "onScreenData": "Crawled - currently not indexed",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 1.8,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya, worried, eyebrows up, still in the type pose. The insert has closed.",
+   "action": "A cut to her face on 'Is that the penalty?' She winces and her eyes flick toward Floey on screen left.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: Floey on the lid, favoured in the two-shot, with Maya in the type pose at frame left.",
+   "action": "Floey turns toward the screen and tilts her head on 'A human reviewer's penalty shows in Manual actions.' Maya clicks over to that report (sound panned left).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.4,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 1.9,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Maya and Floey. A good-tone stat pill in the room by Maya's head (x 880, y 610) shows the Manual actions result. It stands in for a second cutaway, because the reel is capped at one insert.",
+   "action": "On 'Manual actions' the camera pulls out and the pill pops up. The ding lands on the pill before Floey says 'Yours says none', and Floey gives a small nod at the pill. The pill fades out before the next cut.",
+   "onScreenData": "Manual actions: None",
+   "sfx": [
+    {
+     "at": 2.2,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya in the slump pose with a surprised face. The desk mug is drawn beside the laptop.",
+   "action": "On 'Oh.' her shoulders drop as the realisation lands. This is the listener's reaction beat.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Floey on the lid and Maya, surprised, with the desk mug beside the laptop.",
+   "action": "The camera pulls out to show both of them as Floey winks at Maya on 'No ban'.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 1.3,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya switches to the mug pose with a think face. The desk mug stops being drawn on that same frame, so there is only one mug.",
+   "action": "On 'didn't keep it' Maya picks up the mug, which gives a new prop for this panel.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.3,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya holds the mug halfway to her mouth with a worried face. Floey is out of frame.",
+   "action": "On 'Because it's bad?' she winces in advance. A small push in sets up the button.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey on the lid and Maya, worried, in the mug pose.",
+   "action": "Floey turns to Maya and says 'Because it's meh.' straight to her, then gives a small, smug chip.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.7,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 1.1,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya in the mug pose, sipping.",
+   "action": "Silent acting. She sips, freezes, and her face goes flat in a grimace because the coffee is cold.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 2.3,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya leaves the mug pose for rest with a deadpan face. The desk mug is drawn again on that same frame.",
+   "action": "She sets the mug down on the desk without a word.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.3,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 2.8,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya, deadpan, eyes straight into the lens.",
+   "action": "She gives the camera a flat look and holds it for about 1.5 seconds. END comes after this hold, so the cold-coffee joke plays out in full.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 4.4,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo intact, with Floey perched on the spark's left arm in front, facing the camera.",
+   "action": "The end card lands with a thump and holds about 1.6 seconds. There are no captions and no spoken line.",
+   "onScreenData": "Maya & Floey, every day",
+   "sfx": [
+    {
+     "at": 4.4,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}
