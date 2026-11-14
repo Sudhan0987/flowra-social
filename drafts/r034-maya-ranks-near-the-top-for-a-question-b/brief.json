@@ -1,0 +1,67 @@
+{
+ "topic": "Maya ranks near the top for a question, but someone else's answer sits in the box on top, because her answer is buried in paragraph nine",
+ "angle": "Maya, a recipe blogger, is third for \"how long to let pizza dough rest\" (her own example), and the answer box on top shows another site's answer. She decides Google prefers bigger sites. Floey points out that nobody can mark a page for the box. Google picks it automatically and favours text that matches the question closely, and Maya's post answers it after eight paragraphs about her nan's kitchen. Floey's tip, taken from Google's own Search Console example, is to filter your queries with what|how|when|why, find the questions you already rank near the top for, and put the plain one-line answer right under a heading that asks that question. The send moment is the recipe-blog life-story joke everyone knows. End with a spoken and on-screen send-ask: \"send this to the friend whose answer is in paragraph nine\".",
+ "whyNow": "Content marketers on r/content_marketing are debating how to brief writers so AI answers and skimmers pick up their pages. The common answer is structure: a clear claim near the top that can be lifted. Both threads were found by our 2026-11-08 social listening. AI Overviews are also back in the news, and Seer Interactive's May 2026 study says AI Overviews now appear on nearly 65% of question searches and that winners tend to be \"quotable\" rather than exhaustive. That makes \"your answer is buried\" a live worry this week. Note for story: Ahrefs' August 2026 data shows classic featured snippets have mostly been replaced by AI Overviews in its sample. So the script should say \"the answer on top\" or \"the box\", never \"featured snippet\" by name, and must never promise Maya wins the box.",
+ "goal": "send",
+ "audience": "Solo bloggers (recipes, how-to, travel) and content writers who rank on page one for question searches but watch another site's answer get the spot on top, especially anyone who writes a long intro before the answer.",
+ "facts": [
+  {
+   "fact": "Google: you cannot mark your page as a featured snippet. Google's systems decide whether a page would make a good featured snippet for a search.",
+   "source": "https://developers.google.com/search/docs/appearance/featured-snippets"
+  },
+  {
+   "fact": "Clicking a featured snippet takes the user directly to the section of the page shown in the snippet.",
+   "source": "https://developers.google.com/search/docs/appearance/featured-snippets"
+  },
+  {
+   "fact": "Google's Search Liaison wrote that featured snippets favour content that is strongly aligned with what was asked (Google blog, 30 Jan 2018).",
+   "source": "https://blog.google/products/search/reintroduction-googles-featured-snippets/"
+  },
+  {
+   "fact": "In Search Console, a featured snippet typically counts as position 1, because it links to the source page. So if your average position for a query is 3, the box is not yours.",
+   "source": "https://support.google.com/webmasters/answer/7042828"
+  },
+  {
+   "fact": "Search Console's Performance report has a Custom (regex) filter for queries. Google's own example is the filter what|how|when|why, which shows question queries and where your content should answer questions.",
+   "source": "https://developers.google.com/search/blog/2021/06/regex-negative-match"
+  },
+  {
+   "fact": "Regex filters for queries and pages were added to Search Console's Performance report in April 2021.",
+   "source": "https://developers.google.com/search/blog/2021/04/performance-report-data-filtering"
+  },
+  {
+   "fact": "Google: there are no additional requirements or special optimisations needed to appear in AI Overviews or AI Mode. A page must be indexed and eligible to be shown with a snippet, and important content should be available as text.",
+   "source": "https://developers.google.com/search/docs/appearance/ai-features"
+  },
+  {
+   "fact": "Seer Interactive (May 2026, US/English, 8,500-keyword sample): AI Overviews appear on nearly 65% of question-based searches. Its takeaway for definition-style queries is 'be quotable', not 'be comprehensive'. 5,000+ word guides won only 4.4% of definitional first-citation slots.",
+   "source": "https://www.seerinteractive.com/insights/what-it-takes-to-rank-in-googles-ai-overviews-in-2026-is-not-what-you-think"
+  },
+  {
+   "fact": "Ahrefs (Aug 2026, German data): featured snippets and AI Overviews almost never show on the same search, and in a 150-keyword sample snippets fell from 12.7% (June 2024) to 0% (Sept 2025) as AI Overviews took over. Context for wording only: say 'the box' or 'the answer on top', not 'featured snippet'.",
+   "source": "https://ahrefs.com/de/blog/featured-snippet-ai-overview/"
+  },
+  {
+   "fact": "Ahrefs' 2017 study found only 30.9% of featured snippets came from the page ranking first, and about 99.58% came from pages already in the top 10. Old data: background for the brief only, do not state it on screen.",
+   "source": "https://ahrefs.com/blog/featured-snippets-study/"
+  },
+  {
+   "fact": "Demand: r/content_marketing threads this month ask whether writers should be briefed for AI citation and argue that structure (a clear claim near the top) is what gets pages picked up. Found by our social listening on 2026-11-08; Reddit could not be opened directly to quote them.",
+   "source": "https://www.reddit.com/r/content_marketing/comments/1xqqi9b/are_you_briefing_writers_for_ai_citation_or_just/ and https://www.reddit.com/r/content_marketing/comments/1xqqj3w/a_keywordstuffed_brief_is_the_wrong_way_to_earn/"
+  },
+  {
+   "fact": "Flowra finds featured snippet opportunities: question queries where a page already ranks near the top and could win the snippet. End card context only; the reel never mentions Flowra.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "Maya's numbers are her own example: she is position 3 for 'how long to let pizza dough rest', her post is long, and the answer ('2 hours') sits in paragraph nine. Framed as hers, not a statistic.",
+   "source": "Example (invented for the scene, framed as Maya's own)"
+  }
+ ],
+ "visualIdea": "The cutaway to Maya's laptop is a DUO.listInsert titled \"My pizza dough post\", with the subtitle \"paragraph by paragraph\". Rows slide in: \"Para 1: Nan's kitchen, 1994\", \"Para 2: Our trip to Naples\", \"Para 4: Why I love flour\", ... and the last highlighted row, \"Para 9: Rest it 2 hours\", gets the growing ring as Floey says \"There it is.\" Before that, a hook notification or a first listInsert of Search Console (filter what|how|when|why) puts her query at \"Pos 3\" with a \"?\" mark by her head. Then Maya types (typing sfx) and the list redraws with a new top row: \"H2: How long to rest pizza dough? Two hours.\" Button: Maya picks up her mug, and it's cold. Floey: \"Your nan can stay. Just not first.\" Maya looks to camera, and the send-ask caption stays on screen.",
+ "pillar": "problem",
+ "instinct": "Maya thinks she's third and someone else has the box on top because Google prefers bigger sites, so she needs to write even more.",
+ "flip": "Nobody can mark their page for the box, and Google says it favours content that closely matches what was asked, so a page that answers in one line under the question beats a page that answers it in paragraph nine.",
+ "idea": "Maya ranks near the top for the question, and someone else's answer sits in the box",
+ "style": "duo"
+}

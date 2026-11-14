@@ -1,0 +1,109 @@
+{
+ "title": "Paragraph nine",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Third for resting pizza dough, and some giant site nicked the box!",
+   "emotion": "worried",
+   "visual": "wide: Maya in the panic pose at her desk, a '?' mark popping by her head; Floey at floeyHover beside the laptop, calm, one blink. By 0.3 s a listInsert slides over the top half of the frame: title 'how long to let pizza dough rest', subtitle 'Search results'. Rows: 'Answer box' | 'Another site' (top row, bright), '1' | 'A recipe site', '2' | 'A baking site', '3' | 'My pizza dough post' with the growing ring. Soft tick as each row lands."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "Nobody can claim it. Google picks the best match.",
+   "emotion": "warm",
+   "visual": "wide (insert gone): Floey glides from floeyHover down to floeyLaptop with a small wing whir, settles, and tilts her head toward Maya with a soft chip. Maya stays in the panic pose, the '?' fading."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So bigger sites win. I need a longer post?",
+   "emotion": "worried",
+   "visual": "maya: Maya drops into the type pose, hands on the keyboard, ready to write more (a few typing clicks, panned left). Floey is out of frame."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.6,
+   "say": "Where's your answer?",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey on floeyLaptop does a leanTo toward Maya, a quick tk tongue flick and a slow tilt. As her last word ends, the laptop listInsert starts sliding in, so the rows fill the 0.6 s gap."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Oh. Paragraph nine. After Nan's kitchen.",
+   "emotion": "curious",
+   "visual": "Cutaway, laptop listInsert titled 'My pizza dough post', subtitle 'paragraph by paragraph'. Rows slide in during the gap with soft ticks: 'Para 1: Nan's kitchen' | '180 words', 'Para 2: Our trip to Naples' | '210 words', 'Para 4: Why I love flour' | '150 words', 'Para 6: My first oven' | '170 words', 'Para 8: Mum's tips' | '120 words', 'Para 9: Rest it two hours' | 'the answer'. The insert holds through 'Oh. Paragraph nine.' and the ring grows on the Para 9 row as she says 'Paragraph nine'. Cut to mayaTight on 'After Nan's kitchen.': Maya's face drops to a flat, guilty look."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Ask the question in a heading. Answer it in one line underneath.",
+   "emotion": "warm",
+   "visual": "wide: Floey on floeyLaptop pivots toward Maya and gives a chip on 'heading'. Maya does a leanTo toward the laptop, nodding slowly."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Top of the post: two hours.",
+   "emotion": "determined",
+   "visual": "maya, then the insert: Maya in the type pose, typing fast (typing sound, panned left). Cut to the laptop listInsert: the subtitle changes to 'New heading first', a new top row slides in with a ring, 'How long to let pizza dough rest?' | 'Two hours', and the paragraph rows shift down one (Para 8 drops off, so there are still six rows). The label is measured to fit the row. It uses the searcher's exact words."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 1.6,
+   "say": "Your nan can stay. Just not first.",
+   "emotion": "proud",
+   "visual": "wide: Floey on floeyLaptop puffs up, smug, pivots to Maya and gives a pleased chip. Then silent acting in the 1.6 s gap: Maya sits back and picks up her mug (cup tap sound), sips, freezes, lowers it slowly. Her face goes flat, and she turns her head to give the camera a look."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Send this to the friend whose answer is in paragraph nine.",
+   "emotion": "playful",
+   "caption": "Send this to the friend whose answer is in paragraph nine",
+   "visual": "wide: Floey pivots front to the camera with a small wing flick; beside her, Maya still holds the flat look with the cold mug. The send-ask caption sits on two measured lines inside the caption band ('Send this to the friend whose' / 'answer is in paragraph nine') and holds three seconds. END is pushed out about three seconds, and the caption hides before the end card comes in."
+  }
+ ],
+ "loopNote": "Floey's last words, 'paragraph nine', lead back to frame one: the results list with the other site in the answer box and Maya's post at third, ringed, while she panics. On a replay Maya is the friend whose answer is in paragraph nine, so the opening plays as the setup to the send-ask that just ended.",
+ "caption": "Maya ranks third for \"how long to let pizza dough rest\". The answer on top? Another site's. Hers? Paragraph nine, right after her nan's kitchen.\n\nNobody can mark a page for that box. Google decides, and it favors text that closely matches what was asked. So ask the question in a heading, in the searcher's own words, and put a plain one-line answer right under it. The story can stay. Just not first.\n\nTo find your other paragraph nine posts: in Search Console, open Performance, add a Query filter, choose Custom (regex) and type what|how|when|why. Look for questions where you already sit near the top.\n\nNo promises on the box. But your answer is finally where people look.\n\nWhose recipe intro is the longest you've ever scrolled past? 🍕",
+ "hashtags": [
+  "#seo",
+  "#foodblogger",
+  "#bloggingtips",
+  "#contentwriting",
+  "#searchconsole"
+ ],
+ "sticky": 49,
+ "id": "r034-maya-ranks-near-the-top-for-a-question-b",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Maya ranks near the top for a question, but someone else's answer sits in the box on top, because her answer is buried in paragraph nine",
+ "editorNotes": [
+  "Hook doesn't make sense to a stranger in 2 seconds. Heard aloud, \"Third for resting pizza dough\" sounds like she came third in a dough contest: nothing says Google or search. \"Nicked the box\" assumes the viewer knows what \"the box\" is. Rewrite her first line so it names Google and says plainly that another site's answer sits on top of her result. Keep \"the box\" or \"the answer on top\" (never \"featured snippet\"). Example shape: \"I'm third on Google for pizza dough and someone else's answer is sitting on top!\"",
+  "Frame one isn't the problem yet. The insert only arrives by 0.3 s and its four rows land one by one, so the first frames show a woman with a '?' and no reason why. Have the results insert (or the Search Console row) fully on screen at t=0 with her row ringed. Use '!' or 'sweat' for the panic, not '?', which reads as confusion.",
+  "Half of the brief's tip is missing. The brief's tip, sourced to Google's own Search Console example, is: filter your queries with what|how|when|why, find the questions you already rank near the top for, then put the one-line answer under a heading that asks the question. The script keeps only the heading half, so a viewer can't find which of their own posts need it. The made-up SERP list also replaces the sourced Search Console view. Fix without adding a tip line: make the hook insert the brief's Search Console listInsert, with the subtitle showing the filter what|how|when|why and the row 'how long to let pizza dough rest | Pos 3' ringed. If needed, Floey can add a few words (\"Your question searches. Ranking near the top.\"). This also fixes the SERP list putting 'Answer box' above position '1', which clashes with the fact that the box counts as position 1.",
+  "The send moment can't be read and breaks the sound rule. The life-story joke lives in the six paragraph rows, which slide in during a 0.6 s gap with a tick each, and the insert cuts away after about 1.5 s of Maya's line. Six ticks in 0.6 s breaks the 'one sound every 0.4 s' rule, and nobody can read six rows in that time. Start the insert earlier (during \"Where's your answer?\"), space the rows about 0.4 s apart, and hold the insert through her whole line. Or cut to four rows. Also consider letting Maya list more of it aloud (\"After Nan's kitchen. And Naples. And flour.\") so the joke lands by ear too.",
+  "The ending fizzles. You can't tell the coffee is cold: a silent sip, a freeze and a flat face don't show 'cold' to anyone who hasn't seen the running joke. That beat is squeezed into 1.6 s for six actions (sit back, pick up, sip, freeze, lower, turn to camera), then it's stepped on by the spoken send-ask, so the reel ends on an instruction, not a punchline. Reorder: Floey's \"Your nan can stay. Just not first.\" goes to the send-ask to camera, then Maya's cold-mug sip and look to camera as the last silent button before the end card. Give that beat about 2.5 to 3 s. Make 'cold' readable: a one-word Maya line (\"...Cold.\"), a shiver, or a sweat/'!' mark.",
+  "Some of Floey's directions can't be animated with her controls. 'leanTo' is a Maya control, not Floey's. 'Puffs up' and a 'smug' mood aren't Floey behaviours (her moods: hello, happy, worried, think, surprised, determined, sad, party). 'Pivots toward Maya' is meaningless: she already faces Maya on the laptop (facing -1), and pivot is for turning front. Swap in her real behaviours: tilt, turn, chip, preen, wink, mood happy or determined.",
+  "(polish) \"So bigger sites win. I need a longer post?\" jumps logic. Going from \"Google picks the best match\" to \"bigger sites win\" to \"longer post\" makes her sound like she wasn't listening. Join the doubt to what Floey just said (e.g. \"Best match? Theirs is huge. I'll just write more.\") so it's the viewer's own doubt, not a non sequitur.",
+  "(polish) \"Top of the post: two hours.\" sounds like a note she's writing, not something she'd say out loud. It also doesn't echo the tip (a question heading). Give Maya a spoken version that covers both, e.g. \"Right. The actual question. Then: two hours.\"",
+  "(polish) Wrong voice emotion on \"Oh. Paragraph nine. After Nan's kitchen.\" 'curious' makes it rise like a question, but this is the guilty realisation. Use 'worried' (or another flat, falling delivery from the list).",
+  "(polish) The check insert 'redraw' (rows shift down one, Para 8 drops off, a new top row slides in) isn't a listInsert animation. Spec it as a second listInsert with the new rows sliding in and the ring on the new top row. Measure 'How long to let pizza dough rest?' against the label column before rendering.",
+  "(polish) The listener's faces are missing in places. During Floey's tip Maya leans and nods, but no expression is set (the 'flat, guilty' face from mayaTight would carry over). Set 'think' there. Floey's first line says she is 'warm' and 'tilts with a chip' while Maya stays in panic. Give Maya a small reaction on 'Nobody can claim it' (a look to Floey, eyebrows) so she isn't frozen.",
+  "(polish) Hook placement: 'floeyHover' is at Maya's eye height on her left, not 'beside the laptop'. Also, 'slides over the top half of the frame' risks covering Maya's face and the top 200 px Instagram band. Let the studio place the insert, and check nobody's face is hidden by it."
+ ],
+ "style": "duo",
+ "template": "../drafts/r034-maya-ranks-near-the-top-for-a-question-b/scene.html"
+}

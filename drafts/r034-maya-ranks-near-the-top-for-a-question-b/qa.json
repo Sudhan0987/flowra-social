@@ -1,0 +1,8 @@
+{
+ "pass": true,
+ "problems": [
+  "Minor, not blocking. Frame 04: the paragraph list is still sliding in (Para 7 is half-faded and Para 9 hasn't appeared) while Maya's 'Oh. Paragraph nine.' caption is already up. The script wanted the rows filled during the 0.6 s gap before she speaks. Check in the full render that the Para 9 row and its ring land by the time she says 'paragraph nine'. If they come after, start the insert earlier.",
+  "Minor, not blocking. Frame 07: the new heading row puts '2 hours' under the 'Length' column, where every other row shows a word count. It still reads clearly as the answer, but a blank or different column label would be cleaner.",
+  "Minor, not blocking. Frames 00/02: Floey is already sitting on the laptop in the hook, where the script had her hovering and then gliding down. There's no visible glide, but nothing reads as wrong."
+ ]
+}

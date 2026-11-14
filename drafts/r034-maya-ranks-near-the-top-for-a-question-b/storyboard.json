@@ -1,0 +1,264 @@
+{
+ "style": "Maya's room by day (DUO.room, day sky with one drifting cloud, shelf, plant, spark poster). Warm amber for Maya, pink for Floey, red pills only for bad numbers and green for good ones. Maya is the panicking pizza-dough blogger behind the desk. Floey is the calm, dry hummingbird who hovers and then perches on the laptop lid facing Maya. The running prop is a mug that goes cold. There is one laptop cutaway insert, kept for the check, no notification, and Flowra appears only in the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "shake",
+   "subject": "wide: Maya behind the desk in the panic pose (hands up by her head), panic face, eyes on the laptop. A red stat pill reading '3rd' is already up by her head (x 880, y 610), with a '?' mark beside it. Floey is at floeyHover by the laptop, calm.",
+   "action": "The problem is already happening on frame one. A small 0.3 s panic shake as she blurts 'Third for resting pizza dough'. The '?' pops and Floey does one slow blink. The '3rd' pill fades out by 1.7 s, before the push.",
+   "onScreenData": "3rd",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.9,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame, hands on her cheeks.",
+   "action": "She pushes in on 'some giant site nicked the box!', switches from the panic pose to the cheeks pose, and her eyes go wide (surprised to panic). Her pencil bun wobbles on 'nicked'.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.9,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: a closer two-shot favouring Floey, with Maya at the frame's left edge still in the cheeks pose.",
+   "action": "Floey glides down from floeyHover and lands on the laptop lid (floeyLaptop, facing Maya). She settles, then tilts her head toward Maya with a soft chip on 'Nobody can claim it'. Her mood is calm and knowing.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 1.5,
+   "shot": "medium",
+   "camera": "drift",
+   "subject": "floey two-shot, same framing: this time the reaction is Maya's.",
+   "action": "On 'Google picks the best match' Maya lowers her hands to rest, the '?' fades, and her face goes from panic to think. She glances left at Floey. The camera drifts slightly toward her.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone behind the laptop (Floey out of frame).",
+   "action": "Hard cut on the speaker change. Maya drops into the type pose and starts writing more, determined but worried, on 'So bigger sites win.'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 1.4,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya, hands frozen over the keys.",
+   "action": "On 'I need a longer post?' she stops typing and turns her eyes left toward Floey (look x -1), worried, with a hopeful little head tilt. A slow push.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid.",
+   "action": "A deadpan line: Floey leans toward Maya, flicks her tongue once (tk), then does a slow head tilt on 'answer?'. She holds the tilt into the gap.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya looking down at the laptop. A red stat pill reading 'Para 9' sits by her head.",
+   "action": "On 'Oh.' she does a small jolt and her face goes to surprised as she scrolls (eyes down). The 'Para 9' pill pops in as she says 'Paragraph nine', and a slow realisation push begins. The pill fades out by 1.2 s, before the cut.",
+   "onScreenData": "Para 9",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "pop"
+    },
+    {
+     "at": 0.7,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1.3,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face.",
+   "action": "On 'After Nan's kitchen.' her face drops to a flat, guilty deadpan, her shoulders slump and her eyes slide sideways.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: a two-shot favouring Floey on floeyLaptop, with Maya at frame left.",
+   "action": "Floey turns to Maya with a determined mood and gives a crisp chip on 'heading'. Maya leans toward the laptop and her face moves from guilty to think.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 1.9,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them, Floey on the laptop and Maya behind the desk.",
+   "action": "Pull out as the tip lands on 'Answer it in one line underneath.' Maya rests her chin in her hand (chin pose) and nods slowly twice. Floey holds still, satisfied.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya typing fast, Floey out of frame.",
+   "action": "She snaps into the type pose with a focused, happy face as she starts 'Top of the post', and her hands hammer the keys.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0.5,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The single laptop cutaway, DUO.listInsert. Title 'My pizza dough post', subtitle 'New heading first'. Rows: 'How long to let pizza dough rest?' | 'Two hours' (hi, top), 'Para 1: Nan's kitchen' | '180 words', 'Para 2: Our trip to Naples' | '210 words', 'Para 4: Why I love flour' | '150 words', 'Para 6: My first oven' | '170 words', 'Para 9: Rest it two hours' | 'the answer'. Word counts are illustrative. Every label is measured to fit its row.",
+   "action": "The insert swings in while typing is still heard and the rows slide in. On 'two hours' the new heading row slides into the top spot and its ring grows. Para 9 sits at the bottom, now repeated at the top. The insert holds through the gap after the line.",
+   "onScreenData": "Two hours",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.3,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: the insert is gone. Floey is on floeyLaptop and Maya is behind the desk.",
+   "action": "Floey puffs up, smug and happy, turns to Maya and gives a pleased chip on 'Your nan can stay.' On 'Just not first.' Maya gives a small proud nod and her hands go back to rest.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 2.1,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya sits back with the mug (mug pose, so no desk mug is drawn).",
+   "action": "Silent acting: Maya sits back, picks up her mug and sips, looking pleased with herself.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 2.9,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face over the mug rim.",
+   "action": "Mid-sip she freezes (the coffee went cold during all the Nan paragraphs), lowers the mug slowly, her face goes flat (deadpan) and she turns her eyes to the camera. A slow push into the look.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey on the laptop, with Maya still holding the cold mug and the flat look to camera.",
+   "action": "Quick cut back to the two-shot. Floey pivots front to the camera with a small wing flick and delivers the button. The send-ask caption sits on two measured lines in the caption band ('Send this to the friend whose' / 'answer is in paragraph nine').",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 2,
+   "shot": "wide",
+   "camera": "drift",
+   "subject": "wide: both of them facing the camera.",
+   "action": "A slow drift in. On 'paragraph nine' Floey winks, and Maya raises the cold mug a little toward the lens, still deadpan.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 3.7,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya and Floey, both holding the look to camera.",
+   "action": "Silent button, pushed out by END: without breaking eye contact, Maya takes one more slow sip of the cold coffee and grimaces slightly. Floey preens once. The caption has held for three seconds and hides before the end card.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 6.4,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo intact with 'Maya & Floey, every day'. Floey perches on the spark's left arm, facing the camera.",
+   "action": "The end card lands with a thump and Floey settles sideways onto the spark's arm, then turns front.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 6.4,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 0.8
+}
