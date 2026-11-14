@@ -536,6 +536,17 @@
    "idea": "Maya's page was on Google last month. Now it isn't indexed at all.",
    "style": "duo",
    "run": 43430347690
+  },
+  {
+   "id": "r034-maya-ranks-near-the-top-for-a-question-b",
+   "status": "draft",
+   "topic": "Maya ranks near the top for a question, but someone else's answer sits in the box on top, because her answer is buried in paragraph nine",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-14T12:31:57.481Z",
+   "seconds": 32,
+   "idea": "Maya ranks near the top for the question, and someone else's answer sits in the box",
+   "style": "duo",
+   "run": 43593287970
   }
  ]
 }
