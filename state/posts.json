@@ -547,6 +547,17 @@
    "idea": "Maya ranks near the top for the question, and someone else's answer sits in the box",
    "style": "duo",
    "run": 43593287970
+  },
+  {
+   "id": "r035-ai-wrote-maya-s-draft-in-seconds-and-fix",
+   "status": "draft",
+   "topic": "AI wrote Maya's draft in seconds, and fixing it took all afternoon. Fix the outline before there's a draft.",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-15T13:08:54.879Z",
+   "seconds": 32,
+   "idea": "AI wrote Maya's draft in seconds, and fixing it took all afternoon. Fix the outline before the draft exists.",
+   "style": "duo",
+   "run": 43715129942
   }
  ]
 }
