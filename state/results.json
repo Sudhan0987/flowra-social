@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08",
+ "updated": "2026-11-15",
  "reels": [
   {
    "id": "r002-find-the-pages-quietly-losing-traffic-in",
@@ -16,8 +16,8 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 32.8,
+    "date": "2026-11-15",
+    "ageDays": 39.8,
     "instagram": {
      "views": 89,
      "reach": 79,
@@ -153,6 +153,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 39.8,
+     "instagram": {
+      "views": 89,
+      "reach": 79,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 4207,
+      "ig_reels_video_view_total_time": 370285
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 16,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -171,8 +194,8 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 31.8,
+    "date": "2026-11-15",
+    "ageDays": 38.8,
     "instagram": {
      "views": 18,
      "reach": 19,
@@ -308,6 +331,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 38.8,
+     "instagram": {
+      "views": 18,
+      "reach": 19,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 2240,
+      "ig_reels_video_view_total_time": 42561
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 58,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -326,8 +372,8 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 31.5,
+    "date": "2026-11-15",
+    "ageDays": 38.5,
     "instagram": {
      "views": 5,
      "reach": 5,
@@ -463,6 +509,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 38.5,
+     "instagram": {
+      "views": 5,
+      "reach": 5,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 9861,
+      "ig_reels_video_view_total_time": 59166
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 136,
+      "likeCount": 1,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -481,8 +550,8 @@
    "experiment": "",
    "style": "floey-garden",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 29.7,
+    "date": "2026-11-15",
+    "ageDays": 36.7,
     "instagram": {
      "views": 117,
      "reach": 104,
@@ -618,6 +687,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 36.7,
+     "instagram": {
+      "views": 117,
+      "reach": 104,
+      "saved": 2,
+      "shares": 1,
+      "likes": 3,
+      "comments": 0,
+      "total_interactions": 6,
+      "ig_reels_avg_watch_time": 3031,
+      "ig_reels_video_view_total_time": 324342
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 28,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -636,8 +728,8 @@
    "experiment": "short-first-frame",
    "style": "pro",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 26.8,
+    "date": "2026-11-15",
+    "ageDays": 33.8,
     "instagram": {
      "views": 15,
      "reach": 12,
@@ -727,6 +819,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 33.8,
+     "instagram": {
+      "views": 15,
+      "reach": 12,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 2676,
+      "ig_reels_video_view_total_time": 37465
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 10,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -745,8 +860,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 24.7,
+    "date": "2026-11-15",
+    "ageDays": 31.7,
     "instagram": {
      "views": 12,
      "reach": 10,
@@ -836,6 +951,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 31.7,
+     "instagram": {
+      "views": 12,
+      "reach": 10,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 8333,
+      "ig_reels_video_view_total_time": 91669
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 20,
+      "likeCount": 2,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -854,8 +992,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 22.8,
+    "date": "2026-11-15",
+    "ageDays": 29.8,
     "instagram": {
      "views": 117,
      "reach": 101,
@@ -945,6 +1083,29 @@
       "favoriteCount": 0,
       "commentCount": 1
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 29.8,
+     "instagram": {
+      "views": 117,
+      "reach": 101,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 7268,
+      "ig_reels_video_view_total_time": 748623
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 508,
+      "likeCount": 8,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 1
+     }
     }
    ]
   },
@@ -963,8 +1124,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 21.8,
+    "date": "2026-11-15",
+    "ageDays": 28.8,
     "instagram": {
      "views": 193,
      "reach": 162,
@@ -1054,6 +1215,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 28.8,
+     "instagram": {
+      "views": 193,
+      "reach": 162,
+      "saved": 0,
+      "shares": 1,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 9642,
+      "ig_reels_video_view_total_time": 1571686
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 143,
+      "likeCount": 4,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -1072,8 +1256,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 19.7,
+    "date": "2026-11-15",
+    "ageDays": 26.7,
     "instagram": {
      "views": 113,
      "reach": 101,
@@ -1140,6 +1324,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 26.7,
+     "instagram": {
+      "views": 113,
+      "reach": 101,
+      "saved": 1,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 5216,
+      "ig_reels_video_view_total_time": 537332
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 23,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -1158,8 +1365,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 18.8,
+    "date": "2026-11-15",
+    "ageDays": 25.8,
     "instagram": {
      "views": 118,
      "reach": 109,
@@ -1226,6 +1433,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 25.8,
+     "instagram": {
+      "views": 118,
+      "reach": 109,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 4769,
+      "ig_reels_video_view_total_time": 515104
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 43,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -1244,8 +1474,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 17.7,
+    "date": "2026-11-15",
+    "ageDays": 24.8,
     "instagram": {
      "views": 141,
      "reach": 124,
@@ -1312,6 +1542,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 24.8,
+     "instagram": {
+      "views": 141,
+      "reach": 124,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 8770,
+      "ig_reels_video_view_total_time": 1087483
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 45,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -1330,8 +1583,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 12.7,
+    "date": "2026-11-15",
+    "ageDays": 19.7,
     "instagram": {
      "views": 136,
      "reach": 115,
@@ -1375,6 +1628,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 19.7,
+     "instagram": {
+      "views": 136,
+      "reach": 115,
+      "saved": 0,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 9543,
+      "ig_reels_video_view_total_time": 1107041
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 188,
+      "likeCount": 3,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -1393,8 +1669,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 10.8,
+    "date": "2026-11-15",
+    "ageDays": 17.8,
     "instagram": {
      "views": 118,
      "reach": 108,
@@ -1438,6 +1714,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 17.8,
+     "instagram": {
+      "views": 118,
+      "reach": 108,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 8706,
+      "ig_reels_video_view_total_time": 948999
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 4,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -1456,8 +1755,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 5.9,
+    "date": "2026-11-15",
+    "ageDays": 12.9,
     "instagram": {
      "views": 148,
      "reach": 137,
@@ -1501,6 +1800,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 12.9,
+     "instagram": {
+      "views": 148,
+      "reach": 137,
+      "saved": 1,
+      "shares": 0,
+      "likes": 2,
+      "comments": 0,
+      "total_interactions": 3,
+      "ig_reels_avg_watch_time": 8224,
+      "ig_reels_video_view_total_time": 1126805
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 10,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -1519,8 +1841,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 2.9,
+    "date": "2026-11-15",
+    "ageDays": 9.9,
     "instagram": {
      "views": 122,
      "reach": 107,
@@ -1564,6 +1886,29 @@
       "favoriteCount": 0,
       "commentCount": 0
      }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 9.9,
+     "instagram": {
+      "views": 122,
+      "reach": 107,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 7882,
+      "ig_reels_video_view_total_time": 835592
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 102,
+      "likeCount": 2,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
     }
    ]
   },
@@ -1582,8 +1927,8 @@
    "experiment": "",
    "style": "duo",
    "latest": {
-    "date": "2026-11-08",
-    "ageDays": 0.7,
+    "date": "2026-11-15",
+    "ageDays": 7.7,
     "instagram": {
      "views": 150,
      "reach": 134,
@@ -1597,8 +1942,8 @@
     },
     "facebook": {},
     "youtube": {
-     "viewCount": 1113,
-     "likeCount": 9,
+     "viewCount": 1233,
+     "likeCount": 12,
      "dislikeCount": 0,
      "favoriteCount": 0,
      "commentCount": 0
@@ -1623,6 +1968,155 @@
      "youtube": {
       "viewCount": 1113,
       "likeCount": 9,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    },
+    {
+     "date": "2026-11-15",
+     "ageDays": 7.7,
+     "instagram": {
+      "views": 150,
+      "reach": 134,
+      "saved": 0,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 1,
+      "ig_reels_avg_watch_time": 7466,
+      "ig_reels_video_view_total_time": 1037859
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 1233,
+      "likeCount": 12,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r026-did-my-rewrite-work-three-steps-in-searc",
+   "title": "A... Tuesday?",
+   "hook": "Three weeks since my rewrite. The chart's still a squiggle!",
+   "hookPattern": "The voiced frustration",
+   "format": "duo-sitcom",
+   "pillar": "problem",
+   "goal": "save",
+   "topic": "Did my rewrite work? Three steps in Search Console: tag it, wait, compare (save-ask)",
+   "postedAt": "2026-11-10T12:52:59+0000",
+   "seconds": 35,
+   "idea": "Did my rewrite work? Three steps: tag it, wait, compare",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-11-15",
+    "ageDays": 4.9,
+    "instagram": {
+     "views": 126,
+     "reach": 118,
+     "saved": 0,
+     "shares": 0,
+     "likes": 0,
+     "comments": 0,
+     "total_interactions": 0,
+     "ig_reels_avg_watch_time": 6524,
+     "ig_reels_video_view_total_time": 769883
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 139,
+     "likeCount": 0,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-11-15",
+     "ageDays": 4.9,
+     "instagram": {
+      "views": 126,
+      "reach": 118,
+      "saved": 0,
+      "shares": 0,
+      "likes": 0,
+      "comments": 0,
+      "total_interactions": 0,
+      "ig_reels_avg_watch_time": 6524,
+      "ig_reels_video_view_total_time": 769883
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 139,
+      "likeCount": 0,
+      "dislikeCount": 0,
+      "favoriteCount": 0,
+      "commentCount": 0
+     }
+    }
+   ]
+  },
+  {
+   "id": "r028-ai-made-publishing-fast-so-maya-publishe",
+   "title": "Just publish more (send-ask)",
+   "hook": "Thirty new posts. My clicks still dropped.",
+   "hookPattern": "The voiced frustration",
+   "format": "duo-sitcom",
+   "pillar": "myth",
+   "goal": "send",
+   "topic": "AI made publishing fast, so Maya published more, and now her old posts are slipping. Is the answer really \"just publish more\"?",
+   "postedAt": "2026-11-12T13:04:44+0000",
+   "seconds": 33,
+   "idea": "AI was supposed to save Maya time. Now she has more old posts to look after.",
+   "experiment": "",
+   "style": "duo",
+   "latest": {
+    "date": "2026-11-15",
+    "ageDays": 2.9,
+    "instagram": {
+     "views": 139,
+     "reach": 125,
+     "saved": 1,
+     "shares": 0,
+     "likes": 1,
+     "comments": 0,
+     "total_interactions": 2,
+     "ig_reels_avg_watch_time": 6404,
+     "ig_reels_video_view_total_time": 806929
+    },
+    "facebook": {},
+    "youtube": {
+     "viewCount": 499,
+     "likeCount": 3,
+     "dislikeCount": 0,
+     "favoriteCount": 0,
+     "commentCount": 0
+    }
+   },
+   "history": [
+    {
+     "date": "2026-11-15",
+     "ageDays": 2.9,
+     "instagram": {
+      "views": 139,
+      "reach": 125,
+      "saved": 1,
+      "shares": 0,
+      "likes": 1,
+      "comments": 0,
+      "total_interactions": 2,
+      "ig_reels_avg_watch_time": 6404,
+      "ig_reels_video_view_total_time": 806929
+     },
+     "facebook": {},
+     "youtube": {
+      "viewCount": 499,
+      "likeCount": 3,
       "dislikeCount": 0,
       "favoriteCount": 0,
       "commentCount": 0
