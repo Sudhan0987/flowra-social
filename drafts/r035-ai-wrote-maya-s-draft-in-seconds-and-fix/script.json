@@ -1,0 +1,107 @@
+{
+ "title": "A brief history of bread",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "The chatbot wrote this in seconds. I've been fixing it all afternoon.",
+   "emotion": "determined",
+   "visual": "mayaTight, day set, late afternoon light. Frame one: Maya in the typing pose, hitting the keys hard (typing sfx), with a sweat mark popping by her head. Her pencil-bun leans and her face is annoyed and flat. Only Maya is in frame, and no draft is drawn: the pose, the sweat mark and her face carry the problem."
+  },
+  {
+   "role": "body",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Fixing what?",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey alone on the laptop lid, deadpan. She does one slow blink, then a small head tilt toward the typing (tk sfx)."
+  },
+  {
+   "role": "body",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "It wandered off into a brief history of bread!",
+   "emotion": "worried",
+   "visual": "wide: Maya throws both hands up at the screen with her eyes wide behind her round glasses, and her gold hoops swing. Floey, on the lid above, tilts down to peek over the edge at the screen, then does a small turn back toward Maya (chip sfx)."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "It didn't wander. It followed the outline it wrote.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey alone, calm and a little smug. A small turn to face Maya's direction on 'outline', then one slow blink on 'wrote'."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "I skimmed it. The draft's the fast bit.",
+   "emotion": "curious",
+   "visual": "wide: Maya crosses her arms and leans back in her chair, eyebrows up, sceptical. Floey stays on the lid and preens one wing, unbothered, then looks back at her."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Fast to write. Slow to check. Fix the outline first.",
+   "emotion": "warm",
+   "visual": "floey: Floey lifts off the lid and hovers at eye level (flutter sfx), wings blurred. A small nod on 'first'. Maya is out of this shot."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 2,
+   "say": "Ingredients. Mix and rest. Bake. A brief history of bread...",
+   "emotion": "curious",
+   "visual": "Cutaway, DUO.listInsert (whoosh sfx), titled 'Outline: quick no-knead bread'. Four rows slide in one by one, each timed with rowsK to the word Maya reads, and each is tagged 'Keep': 'Ingredients', 'Mix and rest', 'Bake', 'A brief history of bread' (the hi row). On her trailing 'bread...' the ring grows around that row. About 0.4 s after the line ends, the rows re-render with that row's tag swapped to 'Cut' in bad tone. At about 0.9 s the click sfx plays, and at about 1.1 s the list re-renders with only the three recipe rows. The insert holds for about 0.5 s, then cuts back. While we are on the insert, off screen: Floey lands back on the laptop lid, and Maya switches to the mug pose (hand-held mug, no desk mug drawn)."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 1.6,
+   "say": "Oh. One line. My whole afternoon.",
+   "emotion": "curious",
+   "visual": "maya: Maya in the mug pose, staring at the screen as it sinks in, with a small 'oh' mouth. In the pause after the line, she takes a slow sip (about 1 s, sip sfx), then her face goes annoyed (about 0.6 s, boing sfx) because the coffee is cold."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Want a brief history of cold coffee?",
+   "emotion": "proud",
+   "visual": "wide: Floey on the lid, chest puffed, says it to camera and ends on a wink (tk sfx). Maya lowers the mug, her face goes from annoyed to deadpan, and she turns slowly to camera. Her flat look holds for about 2.5 s. END sits about 3 s after the line, then the end card."
+  }
+ ],
+ "loopNote": "Maya's deadpan look to camera, holding the cold coffee, cuts back to frame one, where she is typing furiously with the sweat mark. A replay plays like the same lost afternoon starting over.",
+ "caption": "The chatbot wrote Maya's bread recipe in seconds. Then she spent the afternoon cutting out \"a brief history of bread\".\n\nThe draft didn't wander. It followed the outline the chatbot wrote, the one she skimmed. Google's own guidance says to fact-check and review all AI-written content by hand before you publish, so a long draft means a long check. Before the AI writes a word, read the outline and cut any heading that doesn't belong. There it's one line. In the draft it's a whole section.\n\nSend this to the friend who says AI saves them hours.\n\nWhat's the strangest tangent an AI draft has ever gone off on for you?",
+ "hashtags": [
+  "#blogging",
+  "#contentwriting",
+  "#aiwriting",
+  "#bloggerlife",
+  "#seo"
+ ],
+ "sticky": 51,
+ "id": "r035-ai-wrote-maya-s-draft-in-seconds-and-fix",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "AI wrote Maya's draft in seconds, and fixing it took all afternoon. Fix the outline before there's a draft.",
+ "editorNotes": [
+  "Doubt line, \"I skimmed it. The draft's the fast bit.\": this is two different thoughts stuck together, and it doesn't sound like speech. \"It\" could mean the outline or the draft. \"I skimmed it\" also gives away the payoff early: she admits she never really read the outline, so finding the stray heading later is less of a surprise. The doubt should be the viewer's own pushback, said once. Use the brief's version: \"But the draft's the fast bit.\"",
+  "Tip visual can't be drawn as written. It asks for the `floey` shot with Floey hovering and says \"Maya is out of this shot\". But `floey` is a two-shot that favours Floey, so Maya is in it, and floeyHover is next to Maya's head. Pick one. Option 1: floeyTight with Floey staying on the lid. Option 2: keep the `floey` shot with the hover and give Maya a reaction on \"Slow to check\" (her arms come uncrossed, her face changes to think), so the listener isn't frozen.",
+  "Payoff emotion is set to \"curious\". That reading rises like a question, and the line needs to drop flat: \"Oh. One line. My whole afternoon.\" This is the realisation the whole reel builds to. Tag it so the voice falls and deflates (for example ominous or worried), and say \"My whole afternoon.\" slowly and flat.",
+  "Button delivery: Floey says \"Want a brief history of cold coffee?\" to camera, but she's teasing Maya, and the viewer has no cold coffee. Said to camera it sounds like an offer to the viewer and the callback gets lost. Then Maya also turns to camera, so both are looking out at once. Floey should say it to Maya (side view, wink on \"coffee\"), and Maya alone gives the camera the flat look.",
+  "(polish) Button line: the callback is right, but the line is a bit long and writerly for Floey, who uses the fewest words in the room. Try a shorter, drier version that keeps the bread callback, for example \"Brief history of your coffee: it's cold.\" Also, \"proud\" reads as self-satisfied, not teasing. Use playful.",
+  "(polish) Hook emotion is \"determined\". That sounds resolved and on a mission. This is exasperation, and the cast notes say Maya goes flat when annoyed. Use a tag that lands fast and flat, or worried for the panic, so the first two seconds sound fed up and not like a pep talk.",
+  "(polish) Hook: \"The chatbot wrote this\" points at a draft the viewer never sees. Either change \"this\" to \"it\" or briefly show a long draft on the laptop screen. Typing plus the sweat mark mostly carries it, so this is polish.",
+  "(polish) Length: added up, the beats come to about 34 to 35 seconds. The brief asks for about 28. To trim: cut the check pause from 2.0 s to about 1.4 s by doing the Cut tag swap and the click closer together, shorten the payoff sip pause, and hold Maya's final look for about 2 s, not 2.5 to 3 s. For a reel people send, every extra second costs completion.",
+  "(polish) Floey actions not in her behaviour list: \"a small nod on 'first'\" (tip) and \"chest puffed\" (button). Swap them for things she can do: a tilt or a chip on 'first', and mood happy or a wink for the button.",
+  "(polish) Check insert: the angle is hindsight. The bread section was already in the draft, so deleting the outline row doesn't remove it. The payoff line explains this. Still, the click deleting the row could read as \"fixed\". Keep the payoff right after the insert so the realisation lands as \"this is where it should have been fixed\".",
+  "(polish) The \"wide\" beat for \"It wandered off...\" asks for \"both hands up at the screen\". The panic pose puts her hands up by her head. Say panic pose, or point (towards the screen), so the animator knows which one."
+ ],
+ "style": "duo",
+ "template": "../drafts/r035-ai-wrote-maya-s-draft-in-seconds-and-fix/scene.html"
+}

@@ -1,0 +1,55 @@
+{
+ "topic": "AI wrote Maya's draft in seconds, and fixing it took all afternoon. Fix the outline before there's a draft.",
+ "angle": "Maya has spent the afternoon untangling an AI draft of a quick recipe post that wandered off into \"a brief history of bread\". Floey points out that the mistake was there in the plan before a word was written, and that every line of a draft needs checking by hand. On screen, Maya opens the outline, finds the stray heading and deletes it with one click: a fix that took one line, where the draft cost her a whole section of editing. Every blogger who has \"saved time\" with AI will recognise it.",
+ "whyNow": "\"AI promised less work. I've never worked more\" is the biggest conversation this month (Hacker News, 689 points, 666 comments). This month HubSpot's blog team also wrote that AI drafting sometimes took longer than writing by hand because writers had to check what the AI got wrong (updated 19 Oct 2026). On 21 Oct 2026 IEEE Spectrum covered Wikipedia volunteers cleaning up AI writing. Tag: 'no-number-open' in the experiment field. The first line opens on the feeling and has no number.",
+ "goal": "send",
+ "audience": "Solo bloggers, content marketers and small agency writers who use AI to draft posts and then lose hours editing, checking and restructuring what it wrote.",
+ "facts": [
+  {
+   "fact": "The Hacker News thread for the essay \"AI promised less work. I've never worked more\" has 689 points and 666 comments (demand evidence).",
+   "source": "https://hn.algolia.com/api/v1/search?query=AI%20promised%20less%20work&tags=story"
+  },
+  {
+   "fact": "In the essay, the author says agents did not just make his work faster to finish: \"They made it easy to give myself a much bigger one.\" He also writes that each agent \"eventually comes back with a question, a plan to approve, a diff to read or a result to make sense of.\"",
+   "source": "https://oioannou.com/blog/ai-promised-less-work/"
+  },
+  {
+   "fact": "Google: \"It is critical to manually factcheck and review all AI-generated content\" before publishing. Google says this also applies to titles, meta descriptions, structured data and image alt text.",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "Google: \"Generative AI can be particularly useful when researching a topic, and to add structure to original content.\"",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "Google: using generative AI to \"generate many pages without adding value for users\" may break its spam policy on scaled content abuse. Using AI is not the problem in itself.",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "One of Google's self-check questions for helpful content: \"Does the content provide original information, reporting, research, or analysis?\"",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "HubSpot's blog team reports that AI drafting sometimes took longer than writing by hand \"because writers had to spend time verifying what the AI got wrong\". They say fact-checking went from a light final step to one of the most time-consuming parts of the process.",
+   "source": "https://blog.hubspot.com/marketing/how-ai-changed-our-editorial-process"
+  },
+  {
+   "fact": "Wikipedia volunteers in WikiProject AI Cleanup look for signs of AI writing, including several multi-thousand-word articles appearing within a few minutes (IEEE Spectrum, 21 Oct 2026).",
+   "source": "https://spectrum.ieee.org/wikipedia-wikiproject-ai-writing-cleanup"
+  },
+  {
+   "fact": "Example only, not a statistic: Maya's outline is a handful of headings. The stray heading \"A brief history of bread\" is one line in the outline but a whole section in the draft.",
+   "source": "Flowra finding"
+  },
+  {
+   "fact": "For the end card and team context only (the reel never says it): Flowra's writer works outline first. You approve or edit the outline, then it writes the article.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Day set, late afternoon, with Maya slumped at the laptop and Floey perched on the lid. Hook in a mayaTight shot: Maya says, annoyed, \"AI wrote this in seconds, and I've spent all afternoon fixing it.\" She types furiously (typing sfx), with a sweat mark by her head. Floey (floeyTight, deadpan): \"What were you fixing?\" Maya: \"It wandered off into the history of bread!\" Floey's captioned reframe: \"So fix the outline before there's a draft.\" Maya pushes back once: \"But the draft is the fast bit.\" Floey's tip, in the floey shot: \"Every line of a draft needs checking. An outline is a few lines.\" The check moment is a DUO.listInsert cutaway titled \"Outline: quick no-knead bread\" (whoosh), with rows sliding in as headings, each with a real value such as \"Keep\", for example \"Ingredients\", \"Mix and rest\", \"Bake\", \"A brief history of bread\" and \"Storing it\". The ring grows on \"A brief history of bread\", tagged \"Cut\" in bad tone. Maya clicks (click sfx) and the row is gone. Back in mayaTight, she says the realisation: \"Oh. That's one line.\" The button: Floey says \"You're welcome.\" Maya, in the mug pose (no desk mug drawn), sips and grimaces because the coffee's cold (a running joke), then looks to camera. End card. About 28 seconds.",
+ "pillar": "story",
+ "instinct": "Letting AI write the whole draft straight away is the fastest way to a finished post, and the editing afterwards is just a quick polish.",
+ "flip": "Google's own guidance says every piece of AI-written content has to be fact-checked and reviewed by hand before it goes live, so a long draft built on a wrong plan means a long review. The cheap moment to fix it is the outline, where a wrong section is one line.",
+ "idea": "AI wrote Maya's draft in seconds, and fixing it took all afternoon. Fix the outline before the draft exists.",
+ "style": "duo"
+}

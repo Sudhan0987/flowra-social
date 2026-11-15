@@ -1,0 +1,284 @@
+{
+ "style": "Duo sitcom, day set in late afternoon light: Maya's room (window with drifting cloud, shelf, plant, spark poster, desk). Maya (round glasses, gold hoops, pencil bun) sits behind the desk and Floey perches on the laptop lid facing her. From beat 6 on Maya holds the only mug, so no desk mug is drawn. Captions are MAYA amber and FLOEY pink. There is one listInsert cutaway, no notification, and Flowra appears only in the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya alone at the laptop, Floey out of frame. No draft on screen.",
+   "action": "Frame one, already happening: Maya in the type pose, hitting the keys hard with an annoyed, flat face. Her pencil bun leans with each stab. A sweat mark pops by her head at 0.5 s. She says 'The chatbot wrote this in seconds.'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "type"
+    },
+    {
+     "at": 0.5,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 2,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya, same frame, with a slow push-in as the pressure rises.",
+   "action": "The typing stops. Her shoulders slump (MY.slump) and her head tilts towards the screen on 'all afternoon'. The face stays annoyed and her eyes stay on the laptop (look 0, 1).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid, deadpan (mood think).",
+   "action": "Hard cut to Floey. One slow blink, then a small head tilt towards the typing (tk cue) as she says 'Fixing what?'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: the two-shot, with Maya behind the desk and Floey on the lid.",
+   "action": "Quick cut to wide. Maya's expression switches to panic and her pose to panic (both hands up by her head, gesturing at the screen). Her eyes go wide behind her glasses and her hoops swing. She says 'It wandered off into a brief history of bread!'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 1,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: same two-shot, with the focus on Floey reacting as the listener.",
+   "action": "Floey tilts down to peek over the lid edge at the screen. On 'bread' she does a small turn back towards Maya (chip cue). Maya keeps her hands up, and her bun wobbles.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.4,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the lid, calm and a little smug (mood happy).",
+   "action": "Cut to the speaker. Floey says 'It didn't wander.' and holds still.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 1.1,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floeyTight: Floey, with a gentle push-in on the reframe.",
+   "action": "On 'outline' she does a small turn to face Maya's direction (swish cue). On 'wrote' she gives one slow blink.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.1,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: the two-shot, pulled out after the reframe lands.",
+   "action": "Maya's pose changes to crossed, she leans back (leanTo -6) and her expression goes smug, brows up and sceptical. She says 'I skimmed it.' Floey stays on the lid.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0.9,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: same two-shot, with Floey as the unbothered listener.",
+   "action": "On 'The draft's the fast bit.' Floey preens one wing (swish cue), unbothered. At 1.6 s she looks back at Maya. Maya gives a small nod on 'fast'.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.9,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "close",
+   "camera": "drift",
+   "subject": "floeyTight, nudged up: Floey lifts off the lid and hovers just above it at eye-line height (mood determined). Maya is out of frame.",
+   "action": "Floey takes off (flutter cue) with her wings blurred and holds the hover. She says 'Fast to write. Slow to check.'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 1.8,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floeyTight: Floey hovering, with a push-in for the one real tip.",
+   "action": "She says 'Fix the outline first.' and gives a small, firm nod on 'first' (tk cue at 2.8 s).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.8,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop screen: DUO.listInsert titled 'Outline: quick no-knead bread', with cols Section and Tag.",
+   "action": "The insert swings in. The rows slide in one at a time with rowsK, each timed to the word Maya reads and each tagged 'Keep': 'Ingredients' (0.1 s), 'Mix and rest' (0.9 s), 'Bake' (1.7 s), then 'A brief history of bread' (2.2 s, the hi row). Off screen, Floey lands back on the lid and Maya switches to the mug pose (no desk mug drawn).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 2.8,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop screen: the same listInsert, with the ring on the bread row.",
+   "action": "On her trailing 'bread...' the hiK ring grows around 'A brief history of bread'. At 3.7 s (0.4 s after the line ends) that row's tag swaps from 'Keep' to 'Cut' in bad tone.",
+   "onScreenData": "Cut",
+   "sfx": [
+    {
+     "at": 2.8,
+     "kind": "pop"
+    },
+    {
+     "at": 3.7,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 4.2,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop screen: the listInsert with only the three recipe rows left.",
+   "action": "A delete click at 4.2 s. At 4.4 s the list re-renders with only 'Ingredients', 'Mix and rest' and 'Bake', all tagged 'Keep'. It holds about 0.5 s, then cuts back to the room.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.2,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone in the mug pose, holding the mug (no desk mug). Floey is out of frame.",
+   "action": "A slow push-in for the realisation. Her expression is surprised with a small 'oh' mouth and her eyes are fixed on the screen (look 0, 1). She says 'Oh. One line. My whole afternoon.'",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 2.1,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya with the mug, in the silent pause after her line.",
+   "action": "She lifts the mug and takes a slow sip lasting about 1 s, with the sip cue from Floey's list at 2.1 s. Her face stays blank and dazed.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 3.1,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face over the mug rim.",
+   "action": "A quick comic cut. The coffee is cold, so her expression snaps to annoyed and she freezes mid-sip for about 0.6 s.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 3.1,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: the two-shot, with Floey on the lid (mood happy, chest puffed) and Maya holding the mug.",
+   "action": "Floey pivots to the front (F.pivot 'front') and says 'Want a brief history of cold coffee?' to camera, ending on a wink at 1.9 s (tk cue). Maya lowers the mug at 0.4 s and her face goes from annoyed to deadpan at 1.0 s.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 2.3,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya, deadpan, mug lowered.",
+   "action": "Silent button. Maya turns slowly to camera (look 0, 0) and holds a flat look for about 2.5 s while the camera creeps in very slightly. There are no words and her bun gives a tiny wobble.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 4.9,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo, 'Maya & Floey, every day', and Floey perched in front without covering the spark.",
+   "action": "END is about 3 s after the line. The end card lands with a thump cue, and the captions are hidden.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.9,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1.2
+}
