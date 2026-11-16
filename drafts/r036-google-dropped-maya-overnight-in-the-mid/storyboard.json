@@ -1,0 +1,241 @@
+{
+ "style": "Night set in Maya's room: moon and stars in the window, warm desk-lamp glow, spark poster and shelf soft in the back. Maya (amber captions) behind the desk, Floey (pink captions) perched on the spark-stickered laptop lid facing her, mug on the desk's right end except while Maya holds it. Brand palette, characters brightest, everything inside x 60 to 1020, y 220 to 1420.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "shake",
+   "subject": "wide: Maya behind the desk in pose panic (hands up by her head), expr panic, look(0, 1) down at the laptop; Floey perched on the laptop lid (floeyLaptop, facing -1) looking down at her; DUO.mug() on the desk; phone notification already down at the top, y about 260, clear of Maya's bun and of the caption band",
+   "action": "Frame one is the problem already happening: the notification is already on screen, Maya is mid-panic, small panic shake for 0.4 s. A sweat mark pops by her temple. Floey blinks once, unbothered. No chart insert here, so the check insert in beat 4 stays the reel's only cutaway.",
+   "onScreenData": "Google: core update rolling out",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.9,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone, Floey out of frame; notification slides back up and away as the push starts",
+   "action": "On 'core update' Maya grabs her cheeks (pose cheeks), expr still panic, leans in towards the laptop (leanTo forward) as the camera pushes in on her.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: closer two-shot favouring Floey on the lid, Maya at frame left",
+   "action": "Floey tilts her head at Maya with one slow blink and a quick tongue flick, mood think. Maya jolts at 0.3 s (MY.jolt) and turns her eyes to Floey (look(-1, 0)), expr panic softening into worried at 0.8 s.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya and Floey, mug on the desk",
+   "action": "Maya throws her hands up again (pose panic, 0.3 s blend), expr panic, looking at Floey. Floey answers with a slow head tilt.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 1.2,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya and Floey",
+   "action": "On 'Google hates me' Maya jabs pose pointL at the laptop like Google wronged her personally, expr annoyed. Floey gives her a long, slow blink, still aimed at Maya.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya typing, Floey on the lid",
+   "action": "Maya drops into pose type, expr think, eyes down at the laptop (look(0, 1)). Floey leans over the lid to peer down at the screen with small head bobs as she gives the steps. Typing runs under 'Compare the last two weeks with the two before'.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 2.8,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: closer two-shot favouring Floey, Maya still typing at frame left",
+   "action": "Push in on Floey for the key part of the tip, 'Then Queries, not Pages.' Floey turns her head from the screen to Maya and nods once on 'Queries'. Maya stops typing and glances at her (look(-1, 0)), expr think.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 4.6,
+   "shot": "insert",
+   "camera": "whip",
+   "subject": "listInsert cutaway (screen space, no characters): header only, title 'Queries, last 14 days vs previous', sub 'Example data', columns Query / Difference",
+   "action": "On 'not Pages' the laptop screen insert swings in, empty table header settling into place with follow-through.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.6,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "listInsert: rows 'pumpkin cupcakes' -412 (bad, hi), 'halloween cupcake ideas' -268 (bad), 'spooky bakes for kids' -151 (bad), 'easy banana bread' +6 (good), 'lemon drizzle cake' +3 (good); sub reads 'Example data'",
+   "action": "Rows slide in one by one, 0.4 s apart, each with a soft tick sound (the director uses F.sfx tick). As Maya reads 'Pumpkin cupcakes, down' a bright ring grows round the pumpkin cupcakes row (hiK 0.2 to 1.2 s).",
+   "onScreenData": "-412",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    },
+    {
+     "at": 0.5,
+     "kind": "pop"
+    },
+    {
+     "at": 0.9,
+     "kind": "pop"
+    },
+    {
+     "at": 1.3,
+     "kind": "pop"
+    },
+    {
+     "at": 1.7,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 2.3,
+   "shot": "insert",
+   "camera": "push-in",
+   "subject": "listInsert: the three falling Halloween rows",
+   "action": "Slow push in on the top three rows while she reads 'Halloween cupcakes, down. Spooky bakes, down...', her voice slowing as the pattern sinks in. The ring holds on the pumpkin row.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face fills the frame, look(0, 1) at the laptop",
+   "action": "Hard cut out of the insert. expr surprised, a small '!' mark pops above her head, then at 0.4 s her face settles into deadpan.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid",
+   "action": "Floey preens one wing, not even looking up, as she says it. On 'Maya' (about 1.5 s) she pivots her head towards Maya, mood happy, with a tiny satisfied chip.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 2.1,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, Floey out of frame; DUO.mug() no longer drawn on the desk",
+   "action": "In the 1.5 s pause Maya picks up her coffee (pose mug), sips at 2.5 s (sip sound via F.sfx sip), stops mid-sip and stares into the mug, expr deadpan.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya holding the mug, still staring into it",
+   "action": "Slow push in as she says it flat, eyes never leaving the mug, expr deadpan, a tiny slump on 'cold' (MY.slump).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Floey hovering just above the lid, turned towards Maya; Maya with the mug",
+   "action": "Pull out to the two-shot as Floey lifts off the lid with a soft wing buzz and says it to Maya, mood happy. At 0.6 s Maya lowers the mug back to the desk (pose rest, DUO.mug() drawn again) with a little clunk. At 1.8 s Floey settles back on the lid with a flutter.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.7,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 2.2,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya looking straight down the lens",
+   "action": "Button: Maya turns her head and gives the camera a long, flat look with no words, expr deadpan, one slow blink at 3.2 s. Hold until the end card. END pushed about 2.5 s past the last line so the look fully plays out.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 4.4,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "DUO.endCard: Flowra logo intact, Floey perched in front on the spark's left arm, captions hidden",
+   "action": "End card lands, Floey arrives sideways and turns to face the camera once seated.",
+   "onScreenData": "Maya & Floey, every day",
+   "sfx": [
+    {
+     "at": 4.4,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}

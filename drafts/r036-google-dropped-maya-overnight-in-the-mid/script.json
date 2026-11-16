@@ -1,0 +1,106 @@
+{
+ "title": "Halloween Ended (no-number-open)",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Google buried my blog. Right in the middle of the core update.",
+   "emotion": "worried",
+   "visual": "Night set, desk lamp glowing, DUO.mug() drawn on the desk beside the laptop from frame one. Wide: Maya at her laptop in pose panic (hands up by her head), expr panic, look(0, 1) down at the laptop. Floey perches on the laptop lid, looking down at her. Already on screen at t=0: a screenInsert chart titled 'Clicks from Google' (tone bad) showing only the shape of a tall spike that drops off a cliff at the end of October, and the phone notification 'Google: core update rolling out' already slid down (ding in the first frames, panned left). Place the chart, the notification and the caption band so none of them overlap in the wide shot."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "What did people stop searching for?",
+   "emotion": "warm",
+   "visual": "floey two-shot: Floey on the lid tilts her head at Maya with one slow blink, totally unbothered, and a quick tongue flick. Maya jolts and looks over at Floey (look toward Floey), expr panic softening into confusion."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Nothing! It's the update. Google hates me.",
+   "emotion": "worried",
+   "visual": "wide: Maya in pose panic, then pointL at the laptop as if Google wronged her personally, expr panic. On the lid, Floey answers with a slow head tilt and a long slow blink, aimed at Maya."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Search Console. Compare the last two weeks with the two before. Then Queries, not Pages.",
+   "emotion": "playful",
+   "visual": "wide: Maya in pose type with expr think, typing sfx under the line. Floey watches from the lid, leaning over to peer down at the screen with small head bobs. On 'not Pages' a whoosh carries us into the listInsert."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.55,
+   "say": "Pumpkin cupcakes, down. Halloween cupcakes, down. Spooky bakes, down...",
+   "emotion": "curious",
+   "visual": "listInsert cutaway (screen space, no characters), titled 'Queries, last 14 days vs previous', columns Query / Difference. Rows slide in one by one with a soft tick each: 'pumpkin cupcakes' -412, 'halloween cupcake ideas' -268, 'spooky bakes for kids' -151, 'easy banana bread' +6, 'lemon drizzle cake' +3 (all Maya's own example click differences). 'pumpkin cupcakes' is the hi row: a bright ring grows around it as she reads it first."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "Oh.",
+   "emotion": "curious",
+   "visual": "mayaTight: Maya with look(0, 1) at the laptop, expr surprised, then settling into deadpan. A small '!' mark pops above her head with a soft pop sound."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 1.5,
+   "say": "Halloween was two weeks ago, Maya.",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey preens one wing, not even looking up, then pivots her head toward Maya on 'Maya', mood happy. Hold through the long pause while we cut for the mug."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "My coffee's cold.",
+   "emotion": "worried",
+   "visual": "maya: during the 1.5 s gap before the line, Maya switches to pose mug (stop drawing DUO.mug() on the desk), sips (sip sfx), stops, and stares into the mug, expr deadpan. Only then she says the line, flat, still staring into the mug."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Same panic, next October.",
+   "emotion": "proud",
+   "visual": "wide: Floey, hovering up off the lid with a soft wing buzz, says it to Maya, turned toward her, mood happy, then settles back on the lid. Maya lowers the mug back to the desk (draw DUO.mug() again) and gives the camera a long, flat look without words, expr deadpan. Hold, then end card."
+  }
+ ],
+ "loopNote": "Maya's flat look to camera cuts straight back to frame one: the same 'Clicks from Google' spike falling off its cliff, the core update notification already down and Maya in panic again. On replay, 'Same panic, next October' runs right into the panic it predicted.",
+ "caption": "Your traffic dropped during the core update, so it must be the update. Right? 🎃\n\nBefore you blame Google, check which searches left. In Search Console, open Performance, choose Compare in the date filter at the top, pick the last two weeks against the two before, and click the Queries tab (not Pages). If every search that lost clicks is a seasonal one, like Halloween cupcakes, people simply stopped searching for it. Google's own guide lists seasonality as one of the main causes of a traffic drop. Want to be sure? Set the date range to 16 months and see if the same dip happens every year.\n\nSend this to the friend who blames every drop on the update.\n\nWhat seasonal post fooled you this year? (Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#searchconsole",
+  "#bloggingtips",
+  "#googleupdate",
+  "#foodblogger"
+ ],
+ "sticky": 50,
+ "id": "r036-google-dropped-maya-overnight-in-the-mid",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Google dropped Maya overnight in the middle of the core update. The update didn't do it: Halloween ended.",
+ "editorNotes": [
+  "The hook frame can't be drawn as written. It asks for a wide shot of Maya panicking, a full screenInsert chart and the phone notification all on screen at t=0, with none of them overlapping. screenInsert is a screen-space cutaway with a fixed layout, so the animator can't shrink it into a corner of a wide shot. Pick one opening frame. Either open on the chart insert already falling, with the notification down, and cut to wide/mayaTight panic by the end of the first sentence. Or open wide on Maya with a bad number pill by her head, with the notification down, and drop the chart.",
+  "The button line 'Same panic, next October.' sounds like a tagline, not something Floey would say out loud. It also lands right after the real laugh ('My coffee's cold.') and doesn't top it, so the ending fizzles. Floey needs a spoken, smug-warm last line that clearly caps the scene. The brief's 'See you next October.' is the kind of line that works. Or end on the coffee and Maya's look, and give Floey a short callback like 'You're welcome.'",
+  "(polish) The delivery notes contradict each other on the coffee line. 'My coffee's cold.' is tagged worried, but the visual says flat and deadpan, staring into the mug. A worried read kills the joke. Change the emotion so the voice comes out flat (or as close to flat as the emotion set allows), or drop 'worried' from the direction.",
+  "(polish) Some of the tip isn't backed by the brief. 'Then Queries, not Pages.' tells viewers to ignore Pages, but the brief's source says to click all the tabs (queries, URLs, countries, devices). 'Then check Queries.' or 'Then look at Queries.' stays true and is still one tip. Read aloud, 'Compare the last two weeks with the two before' is fine for Floey.",
+  "(polish) The notification 'Google: core update rolling out' shows Google itself pushing an alert to Maya's phone, which Google doesn't do. Use a sender like 'SEO news' or 'Search Status' so the joke doesn't rest on a false detail. It also says the notification is 'already slid down' at t=0 but plays a 'ding in the first frames'. Either it slides in during the first half second with the ding, or it's already down and stays silent.",
+  "(polish) In the doubt beat, Maya uses pointL 'at the laptop'. pointL points screen left, which is where Floey sits on the lid, so it will read as Maya blaming Floey. Use facepalm, panic or shrug, or point if the screen is meant.",
+  "(polish) Floey's listening acting repeats: a slow blink and head tilt in the reframe, then 'a slow head tilt and a long slow blink' again in the doubt beat. Give her a different reaction the second time (a tongue flick, a turn away to preen, a tiny chip).",
+  "(polish) Maya reads the three falling rows, but nobody notices the banana bread and lemon drizzle rows holding steady. Those rows are what proves Google didn't punish the whole blog. Either let the hi ring or a quick look land on '+6' before 'Oh.', or give Maya a two-word aside so the viewer gets the proof as well as the pattern. The spoken 'Halloween cupcakes' also differs slightly from the row label 'halloween cupcake ideas'. That's fine if the caption matches what she says.",
+  "(polish) Check the mayaTight frame for 'Oh.'. With her face filling the frame, a '!' mark above her head may sit outside the safe area (y 220 or below the top 200 px covered by Instagram) or get cut off. Nudge the shot or put the mark beside her head.",
+  "(polish) The brief's best relatable detail, 'and Bing still loves me', has been dropped. It's what made the drop feel personal, and it's the exact situation from the forum thread. Consider bringing it back into Maya's doubt line instead of 'Google hates me' (or alongside it, kept short)."
+ ],
+ "style": "duo",
+ "template": "../drafts/r036-google-dropped-maya-overnight-in-the-mid/scene.html"
+}

@@ -1,0 +1,349 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<script src="lines.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../../reel/assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../../reel/assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r036 "Halloween Ended". Duo style, night (desk lamp on). The shape of reel/duo/template.html.
+// Frame one: wide, Maya mid-panic at the laptop, hands up by her head, sweat running, the "Core update
+// rolling out" notification already down and her "Clicks from Google" chart beside her head, the October
+// spike already fallen off its cliff. A small panic shake. On "core update" we push in on her, hands
+// to her cheeks. Floey's two-shot: a tilt, a slow blink: "What did people stop searching for?" Maya jolts.
+// Wide: "Nothing! It's the update." hands up; "Google hates me." a facepalm and a slump. Floey looks
+// around, unbothered, then a small chip. Wide: the tip, Maya types, Floey peeks over the lid; in on Floey
+// for "Then Queries, not Pages." and the Search Console queries swing in. Rows slide in as she reads the
+// falling Halloween searches; the ring lands on pumpkin cupcakes, then jumps to the banana bread still
+// holding steady. "Oh." her face, a "!". Floey, tight, preening: "Halloween was two weeks ago, Maya."
+// Maya, silent: picks up the coffee, sips, freezes. "My coffee's cold." Wide: Floey lifts off the lid,
+// "Same panic, next October.", the mug goes down, Floey settles. Maya's long flat look to camera. End card.
+const M = window.MOUTHS || {};
+const LINES = window.LINES;
+// the pause after each line, from the story
+const GAP = { hook0: 0.35, reframe1: 0.2, doubt2: 0.3, tip3: 0.4, check4: 0.55, payoff5: 0.5, payoff6: 1.5, payoff7: 0.25, button8: 0.7 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+const b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+const at = (id, k) => b[id].start + k * b[id].len;     // k of the way through a line
+// the button needs its silent beat after the line: Maya's long flat look to camera
+const END = Math.max(SPOKEN + 0.6, b.button8.end + 2.6), DUR = END + 1.6;
+
+// ---------- shots for this reel (named shots, nudged so nobody is sliced) ----------
+const HOOK = { ...SH.wide, camX: 480, camY: 942, zoom: 1.0 };    // frame one: the two-shot pulled back, Maya right of centre,
+                                                                 // so the chart sits clear at the left and the notification above
+const PUSH = { camX: 722, camY: 830, zoom: 1.7 };               // "core update": in on Maya, Floey out at the left
+const WIDE2 = { ...SH.wide, camX: 575, camY: 995, zoom: 1.16 };  // a touch inside the wide, nobody sliced
+const TWO = { ...SH.floey };                                     // the closer two-shot favouring Floey
+const TWO2 = { ...SH.floey, camX: 455, camY: 1000, zoom: 1.4 };  // "Then Queries, not Pages": in on Floey
+const OH = { camX: 650, camY: 832, zoom: 2.0 };                // mayaTight for "Oh." (room for the "!")
+const TIGHT = { camX: 290, camY: 1080, zoom: 2.25 };             // floeyTight: Floey centred, the lid's spark sits above the captions
+const PAY = { ...SH.maya, camX: 712, camY: 812, zoom: 1.66 };    // Maya with her coffee, Floey out
+const PAY2 = { camX: 700, camY: 814, zoom: 1.85 };              // the slow push-in on "My coffee's cold."
+const LOOK = { camX: 650, camY: 790, zoom: 1.95 };               // the silent look to camera
+const LOOK2 = { camX: 650, camY: 785, zoom: 2.05 };
+
+// ---------- the cast ----------
+const F = FLOEY.create({ ...SP.floeyLaptop, facing: -1, mood: "hello", perched: true, view: "side" });
+const MY = MAYA.create({ ...SP.maya, expr: "panic", pose: "panic", floey: F });
+const W = { ...HOOK, note: 1, chart: 1, sweat: 1, list: 0, rows: 0, ring: 0, ring2: 0, swap: 0, bang: 0, end: 0 };
+const wt = gsap.timeline({ paused: true });
+// Every camera move and prop change is a fromTo that starts exactly where the last one on that value
+// ended, and they never overlap, so any frame seeked in any order gives the same picture.
+const last = {}, lastEnd = {};
+function key(t, vals, d = 0.3, ease = "power2.out") {
+  const from = {}, ks = Object.keys(vals);
+  let t0 = t;
+  for (const k of ks) { from[k] = k in last ? last[k] : W[k]; t0 = Math.max(t0, lastEnd[k] ?? 0); }
+  wt.fromTo(W, from, { ...vals, duration: d, ease, immediateRender: false }, t0);
+  for (const k of ks) { last[k] = vals[k]; lastEnd[k] = t0 + d; }
+}
+const cam = (s) => ({ camX: s.camX, camY: s.camY, zoom: s.zoom });
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => key(t, cam(s), d, ease);
+const cutTo = (t, s) => key(t, cam(s), 0.001, "none");
+const setW = (t, vals) => key(t, vals, 0.001, "none");
+// Floey's slow, unbothered blink: the lids close and open slowly (a real blink, not the squint, which
+// reads as a stern frown on her face)
+const F_BLINKS = [];
+const slowBlink = (t, hold = 0.2) => F_BLINKS.push([t, 0.48 + hold]);
+const floeyPose = F.pose;
+F.pose = (t) => {
+  const p = floeyPose(t);
+  for (const [a, d] of F_BLINKS) if (t >= a && t <= a + d) p.blink = Math.min(1, Math.sin((t - a) / d * Math.PI) * 1.6);
+  return p;
+};
+const AT_LAPTOP = [-0.4, 0.9], AT_FLOEY = [-1, 0.4], AT_MAYA = [0.7, -0.3];
+// the mug lifted to her lips (the elbow and the tilted mug are set in sipFix below)
+const SIP = { L: [262, 640], R: [356, 364], hold: "mug" };
+// still hands over the keys (the type pose without the typing)
+const FROZEN = { L: [252, 676], R: [348, 676] };
+const KEYS_X = 470, MUG_X = 900;
+
+// Acting on Maya's face the rig can't do from outside: held stares with no stray blink, one slow blink.
+const STARE = [];
+let SLOW_BLINK = null;
+const mayaState = MY.state;
+MY.state = (t) => {
+  const s = mayaState(t);
+  if (STARE.some(([a, z]) => t >= a && t <= z)) s.blink = 0;
+  if (SLOW_BLINK && t >= SLOW_BLINK[0] && t <= SLOW_BLINK[0] + SLOW_BLINK[1]) s.blink = Math.sin((t - SLOW_BLINK[0]) / SLOW_BLINK[1] * Math.PI);
+  // a flat line is said through a barely open mouth: deadpan never gapes
+  if (s.expr === "deadpan") s.mouth = Math.min(s.mouth, 0.22);
+  return s;
+};
+// is the mug in her hand at t? (then the desk mug is not drawn: one mug only)
+const mugInHand = (t) => { const p = MY.state(t).pose; return (typeof p === "string" ? MAYA.POSES[p].hold : p.hold) === "mug"; };
+
+// HOOK0: frame one is the problem already happening. Wide: hands up by her head, eyes on the laptop,
+// sweat running, the core update notification already down. A small panic shake that settles.
+MY.look(0, ...AT_LAPTOP, 0.01).say(b.hook0.start, M.hook0 || [], "hook0");
+F.sfx(0.05, "buzz", { x: 540 });
+[[9, 0.05], [-8, 0.05], [6, 0.05], [-4, 0.06], [2, 0.06], [0, 0.08]].reduce((t0, [dx, d]) => { key(t0, { camX: HOOK.camX + dx }, d, "none"); return t0 + d; }, 0.02);
+[3, -3, 2.5, -2, 0].forEach((d, i) => MY.tiltTo(0.04 + i * 0.09, d, 0.07));
+slowBlink(0.9, 0.1);
+F.tiltTo(0.2, 18, 0.25).look(0.2, 0, 0.8, 0.1);
+// "...the core update": the notification slides away, hands to her cheeks, she leans in, we push in on her
+const core = at("hook0", 0.62);
+key(core - 0.35, { note: 0, chart: 0 }, 0.3, "power2.in");
+MY.pose(core, "cheeks", 0.25).leanTo(core, 5, 0.4).look(core, -0.2, 0.6, 0.15);
+shot(core - 0.15, PUSH, 0.75, "power3.inOut");
+F.lookAround(at("hook0", 0.4), 0.9);
+
+// REFRAME1: hard cut to the two-shot favouring Floey. A head tilt, one slow blink, a tongue flick, unbothered.
+// Maya jolts, her eyes snap to Floey; the panic softens into confusion.
+cutTo(b.reframe1.start - 0.12, TWO);
+setW(b.reframe1.start - 0.12, { sweat: 0 });
+F.mood(b.reframe1.start - 0.15, "think").tiltTo(b.reframe1.start - 0.1, -12, 0.35).look(b.reframe1.start - 0.1, ...AT_MAYA, 0.1)
+  .say(b.reframe1.start, M.reframe1 || [], "reframe1");
+slowBlink(at("reframe1", 0.55), 0.2);
+F.tongue(b.reframe1.end + 0.05, 1);
+MY.leanTo(b.reframe1.start, 0, 0.3).pose(b.reframe1.start, "rest", 0.35);
+MY.jolt(b.reframe1.start + 0.3).expr(b.reframe1.start + 0.3, "surprised").look(b.reframe1.start + 0.3, ...AT_FLOEY, 0.12);
+MY.expr(b.reframe1.start + 1.0, "think").tiltTo(b.reframe1.start + 1.0, -5, 0.35);
+STARE.push([b.reframe1.start + 0.3, b.reframe1.end]);
+
+// DOUBT2: wide. "Nothing! It's the update." hands up, panic. "Google hates me." a facepalm and a slump.
+// Floey, unbothered, looks around the room, then a tiny chip at her.
+cutTo(b.doubt2.start - 0.12, WIDE2);
+MY.pose(b.doubt2.start - 0.12, "panic", 0.22).expr(b.doubt2.start - 0.12, "panic").tiltTo(b.doubt2.start - 0.12, 0, 0.15)
+  .look(b.doubt2.start - 0.1, ...AT_FLOEY, 0.12).say(b.doubt2.start, M.doubt2 || [], "doubt2");
+F.tiltTo(b.doubt2.start - 0.1, 0, 0.15).mood(b.doubt2.start, "hello").lookAround(at("doubt2", 0.2), 0.8);
+const hates = at("doubt2", 0.6);
+MY.pose(hates, "facepalm", 0.25).expr(hates, "sad").slump(hates, 0.45);
+F.sfx(hates + 0.1, "boing");
+F.look(b.doubt2.end - 0.1, ...AT_MAYA, 0.1).chips(b.doubt2.end + 0.05, 1);
+
+// TIP3: wide. "Search Console." Maya sits up and types; Floey leans over the lid to peer down at the
+// screen with small head bobs. In on Floey for "Then Queries, not Pages.": she turns to Maya and nods.
+MY.sit(b.tip3.start - 0.1, 0.35).pose(b.tip3.start - 0.05, "type", 0.3).expr(b.tip3.start - 0.05, "think").look(b.tip3.start, ...AT_LAPTOP, 0.15);
+F.mood(b.tip3.start - 0.1, "happy").tiltTo(b.tip3.start, 26, 0.3).look(b.tip3.start, 0, 1, 0.12).say(b.tip3.start, M.tip3 || [], "tip3");
+F.sfx(b.tip3.start + 0.3, "typing", { d: 2.6, x: KEYS_X });
+[0.32, 0.45, 0.58].forEach((k) => F.tiltTo(at("tip3", k), 32, 0.08).tiltTo(at("tip3", k) + 0.1, 24, 0.12));
+shot(b.tip3.start + 0.2, { ...WIDE2, camX: 560, zoom: 1.2 }, at("tip3", 0.6) - b.tip3.start - 0.25, "sine.inOut");
+const then = at("tip3", 0.7);
+shot(then - 0.05, TWO2, 0.6, "power3.inOut");
+F.tiltTo(then, -6, 0.2).look(then, ...AT_MAYA, 0.1);
+const queries = at("tip3", 0.78);
+F.tiltTo(queries, 10, 0.1).tiltTo(queries + 0.12, -6, 0.15);
+MY.pose(then, FROZEN, 0.15).look(then + 0.05, ...AT_FLOEY, 0.12).nod(queries + 0.1, 1);
+// "...not Pages": the Search Console queries swing in, and the first row (pumpkin cupcakes) lands as the
+// card settles, so the screen is never an empty table
+const listIn = at("tip3", 0.88);
+key(listIn, { list: 1 }, 0.35, "power3.out");
+F.sfx(listIn, "whoosh");
+key(listIn + 0.2, { rows: 0.2 }, 0.18, "power2.out");
+F.sfx(listIn + 0.24, "tick");
+// off screen, under the insert: she types again, the camera waits on her face
+MY.pose(b.tip3.end + 0.1, "type", 0.25).look(b.tip3.end + 0.1, ...AT_LAPTOP, 0.12);
+cutTo(b.tip3.end + 0.3, OH);
+
+// CHECK4: the cutaway. One row slides in as she reads each falling search (a soft tick each); the ring
+// grows round pumpkin cupcakes. The two baking rows that held steady slide in under the trailing "down...",
+// and the ring jumps to banana bread: the proof the blog wasn't punished. She reads it off screen.
+MY.expr(b.check4.start - 0.1, "think").say(b.check4.start, M.check4 || [], "check4");
+[[at("check4", 0.3) - b.check4.start, 0.4], [at("check4", 0.62) - b.check4.start, 0.6], [b.check4.len - 0.45, 0.8], [b.check4.len - 0.05, 1]]
+  .forEach(([dt, k]) => { key(b.check4.start + dt, { rows: k }, 0.18, "power2.out"); F.sfx(b.check4.start + dt + 0.02, "tick"); });
+key(b.check4.start + 0.2, { ring: 1 }, 1.0, "power2.out");
+const swap = b.check4.end + 0.38;
+setW(swap, { swap: 1 });
+key(swap, { ring2: 1 }, 0.3, "back.out(2)");
+F.sfx(swap + 0.02, "ding");
+MY.expr(b.check4.end, "surprised");
+
+// PAYOFF5: "Oh." Out of the screen onto her face. Surprised, a "!" pops by her head, then deadpan.
+key(b.payoff5.start - 0.16, { list: 0 }, 0.14, "power2.in");
+MY.expr(b.payoff5.start - 0.1, "surprised").look(b.payoff5.start - 0.1, ...AT_LAPTOP, 0.1).say(b.payoff5.start, M.payoff5 || [], "payoff5");
+STARE.push([b.payoff5.start - 0.1, b.payoff5.end + 0.4]);
+key(b.payoff5.start + 0.02, { bang: 1 }, 0.25, "back.out(2.5)");
+F.sfx(b.payoff5.start + 0.05, "pop");
+MY.expr(b.payoff5.start + 0.4, "deadpan");
+shot(b.payoff5.start, { ...OH, zoom: 2.08, camY: 842 }, b.payoff5.len + GAP.payoff5, "sine.inOut");
+
+// PAYOFF6: floeyTight. Floey preens one wing, not even looking up; on "Maya" she turns her head to her,
+// pleased. A fond little chip after the line.
+cutTo(b.payoff6.start - 0.12, TIGHT);
+setW(b.payoff6.start - 0.12, { bang: 0 });
+F.mood(b.payoff6.start - 0.12, "happy").say(b.payoff6.start, M.payoff6 || [], "payoff6");
+F.preen(b.payoff6.start - 0.05, 0.95);
+const maya = at("payoff6", 0.8);
+F.look(maya, ...AT_MAYA, 0.1).tiltTo(maya, -10, 0.2);
+F.chips(b.payoff6.end + 0.15, 1);
+shot(b.payoff6.start, { camX: 292, camY: 1082, zoom: 2.35 }, b.payoff6.len, "sine.inOut");
+
+// the long pause: Maya alone. She picks up her coffee, a slow sip... she stops mid-sip, stares into it.
+const pick = b.payoff6.end + 0.45;
+cutTo(pick - 0.05, PAY);
+MY.expr(pick - 0.1, "deadpan").look(pick - 0.1, 0.1, 0.5, 0.15).pose(pick, "mug", 0.3);
+const sipT = pick + 0.35;
+MY.pose(sipT, SIP, 0.35);
+F.sfx(sipT + 0.38, "sip", { x: 640 });
+STARE.push([sipT, b.payoff7.end + 0.3]);
+const freeze = sipT + 0.75;
+MY.pose(freeze, "mug", 0.3).look(freeze, 0.25, 0.9, 0.2);
+
+// PAYOFF7: flat, still staring into the mug. A slow push-in, a tiny slump on "cold".
+MY.say(b.payoff7.start, M.payoff7 || [], "payoff7");
+shot(b.payoff7.start - 0.2, PAY2, b.payoff7.len + 0.3, "sine.inOut");
+MY.slump(at("payoff7", 0.65), 0.45);
+
+// BUTTON8: wide. Floey lifts off the lid with a buzz of wings and says it to Maya, smug and warm.
+// Maya puts the mug down (a tap on the desk), deadpan at Floey. Floey settles back on the lid.
+cutTo(b.button8.start - 0.15, WIDE2);
+F.takeoff(b.button8.start - 0.15).mood(b.button8.start - 0.15, "happy").tiltTo(b.button8.start - 0.15, -8, 0.2).look(b.button8.start - 0.1, ...AT_MAYA, 0.1)
+  .say(b.button8.start, M.button8 || [], "button8");
+// she drifts up to hover by Maya's face, turned to her, for the whole line
+F.move(b.button8.start + 0.2, 372, 905, 0.5, "power2.inOut");
+F.tiltTo(at("button8", 0.7), 6, 0.1).tiltTo(at("button8", 0.7) + 0.12, -8, 0.15);
+MY.sit(b.button8.start - 0.1, 0.35).look(b.button8.start, -1, -0.1, 0.15).expr(b.button8.start, "deadpan");
+const down = b.button8.start + 0.55;
+MY.pose(down, "rest", 0.3);
+F.sfx(down + 0.3, "tap", { x: MUG_X });
+shot(b.button8.start, { ...SH.wide }, b.button8.len, "sine.inOut");
+// silent button: the moment the line ends her eyes slide off Floey to the lens, we cut in on her face, and
+// she holds the long flat look. Floey settles back on the lid off screen.
+const look = b.button8.end + 0.1;
+MY.look(b.button8.end + 0.02, 0, 0, 0.2).tiltTo(b.button8.end + 0.02, 0, 0.25);
+cutTo(look, LOOK);
+shot(look + 0.05, LOOK2, END - look - 0.05, "sine.inOut");
+F.land(look + 0.35, SP.floeyLaptop.x, SP.floeyLaptop.y, 0.4).tiltTo(look + 0.35, 0, 0.2);
+STARE.push([b.button8.end, END + 0.6]);
+SLOW_BLINK = [look + 1.1, 0.5];
+
+// END: the logo card drops in
+key(END, { end: 1 }, 0.5, "back.out(1.6)");
+F.sfx(END + 0.05, "thump");
+wt.set({}, {}, DUR);
+
+// ---------- what is on her screen (Search Console queries, Maya's own example numbers) ----------
+function QUERIES() {
+  const banana = W.swap > 0.5;
+  const rows = [
+    { label: "pumpkin cupcakes", value: "-412", tone: "bad", hi: !banana },
+    { label: "halloween cupcake ideas", value: "-268", tone: "bad" },
+    { label: "spooky bakes for kids", value: "-151", tone: "bad" },
+    { label: "easy banana bread", value: "+6", tone: "good", hi: banana },
+    { label: "lemon drizzle cake", value: "+3", tone: "good" },
+  ];
+  return DUO.listInsert(1, W.rows, {
+    title: "Queries, last 14 days vs previous", sub: "Search Console, example data", cols: ["Query", "Clicks change"],
+    hiK: banana ? W.ring2 : W.ring, rows,
+  });
+}
+const DIM_RE = '<rect width="1080" height="1920" fill="#2d2f45" opacity=".55"/>';
+// an insert whooshes up from below: the room dims, the card itself is always fully opaque
+function popIn(k, html) {
+  if (k <= 0.01 || !html) return "";
+  const dim = Math.min(1, k * 2.5), dy = (1 - k) * 1250;
+  return `<rect width="1080" height="1920" fill="#2d2f45" opacity="${(0.86 * dim).toFixed(3)}"/>`
+    + `<g transform="translate(0 ${dy.toFixed(1)})">${html.replace(DIM_RE, "")}</g>`;
+}
+// the rig draws every open mouth as a grin. On her upset faces, turn the open mouth over (arched top,
+// flat bottom) so a worried line reads as worry, not delight. (Same fix as r027 to r035.)
+const UPSET = new Set(["panic", "worried", "annoyed", "sad", "surprised", "deadpan"]);
+const MOUTH_RE = /<path d="(M[^"]+Z)" fill="#5a1f22"[^>]*\/>\s*<clipPath id="mq\d+"><path d="[^"]+"\/><\/clipPath>\s*<g clip-path="url\(#mq\d+\)">(<ellipse[^>]*\/>)<rect[^>]*\/><\/g>/;
+function frown(s, e) {
+  if (!UPSET.has(e)) return s;
+  const sy = e === "deadpan" ? 0.5 : e === "annoyed" ? 0.42 : 1;
+  return s.replace(MOUTH_RE, (all, d, tongue) => {
+    const ys = d.match(/-?\d+(\.\d+)?/g).map(Number).filter((_, i) => i % 2);
+    const lo = Math.min(...ys), hi = Math.max(...ys), mid = (lo + hi) / 2;
+    return `<g transform="translate(0 ${mid.toFixed(1)}) scale(1 ${(-sy).toFixed(2)}) translate(0 ${(-mid).toFixed(1)})">${all.replace(tongue, "")}</g>`;
+  });
+}
+// the sip: the rig folds her elbow up past her ear when the hand reaches her face. Keep the elbow down
+// by her side, and tip the mug so its rim sits on her lips (the hand stays on its handle side). (From r035.)
+const MUG_R = MAYA.POSES.mug.R, ELB = [508, 566];
+const lerp = (a, z, k) => a + (z - a) * k;
+const SLEEVE_RE = /M410,470 L(-?[\d.]+),(-?[\d.]+) L(-?[\d.]+),(-?[\d.]+)/;
+const PROP_RE = /<g transform="translate\((-?[\d.]+) (-?[\d.]+)\)"><path d="M28,18 q30,0 30,26/;
+function sipFix(s) {
+  const m = s.match(SLEEVE_RE); if (!m) return s;
+  const hx = +m[3], hy = +m[4];
+  const k = Math.max(0, Math.min(1, (MUG_R[1] - hy) / (MUG_R[1] - SIP.R[1])));
+  if (k <= 0.001) return s;
+  const w = Math.min(1, k * 3), ex = lerp(+m[1], ELB[0], w), ey = lerp(+m[2], ELB[1], w);
+  s = s.split(`M410,470 L${m[1]},${m[2]} L`).join(`M410,470 L${ex.toFixed(1)},${ey.toFixed(1)} L`);
+  const mx = hx + lerp(8, -44, k), my = hy + lerp(-52, -66, k), rot = -16 * k;
+  return s.replace(PROP_RE, `<g transform="translate(${mx.toFixed(1)} ${my.toFixed(1)}) rotate(${rot.toFixed(1)})"><path d="M28,18 q30,0 30,26`);
+}
+// her coffee went cold hours ago: no steam over the mug in her hand
+const STEAM_RE = /<path d="M-12,-12 q-8,-12 0,-24 M8,-12 q-8,-12 0,-24"[^>]*\/>/;
+const mayaSvg = (t) => sipFix(frown(MY.svg(t), MY.state(t).expr)).replace(STEAM_RE, "");
+// Floey is drawn only when some of her is in the frame (in Maya's close-ups a stray tail tip would poke in)
+// the phone notification, with a little more room at the right end of its card than the default
+const NOTE_RE = /translate\((-?[\d.]+) (-?[\d.]+)\)"([^>]*)><rect x="0" y="0" width="(-?[\d.]+)"/;
+// (from Google's Search Status Dashboard, which really does post "rolling out" when a core update starts)
+const note = (k) => DUO.notification(k, "Google Search Status", "Core update rolling out", 236)
+  .replace(NOTE_RE, (all, x, y, rest, w) => `translate(${(+x - 20).toFixed(1)} ${y})"${rest}><rect x="0" y="0" width="${(+w + 40).toFixed(1)}"`);
+// The hook's chart: the approved DUO.screenInsert card (complete: title, grid, the line, its end dot), shrunk
+// to sit beside Maya's head in the wide shot, left of her raised hand and below the notification. Its title and
+// month labels are set larger so they still read at phone size. Clicks rise to a tall late October spike, then
+// fall off a cliff into November.
+const CH = { x: 62, y: 404, s: 0.43 };      // on screen: x 62..449, y 404..731
+const CLICKS = [0.18, 0.22, 0.34, 0.58, 0.9, 0.97, 0.1];
+function chart(k) {
+  if (k <= 0.01) return "";
+  const title = "Clicks from Google";
+  // the title fills the card's 800 units at most (measured each frame, so it is right once the fonts load)
+  const chartTitleFs = Math.min(82, Math.floor(800 / PROPS.measure(title, "700 10px 'Space Grotesk'") * 10));
+  let card = DUO.screenInsert(1, 1, { title, points: CLICKS, tone: "bad" }).replace(DIM_RE, "")
+    .replace('font-size="46"', `font-size="${chartTitleFs}"`).replace('y="718"', 'y="730"')
+    .replace(/stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/, 'stroke-width="16" stroke-linecap="round" stroke-linejoin="round"');
+  const lab = (x, anchor, s) => `<text x="${x}" y="1262" text-anchor="${anchor}" font-family="Public Sans" font-weight="800" font-size="58" fill="#2d2f45" opacity=".6">${s}</text>`;
+  card = card.replace(/<\/g>$/, lab(150, "start", "Oct") + lab(930, "end", "Nov") + "</g>");
+  const dx = (1 - k) * -520;
+  return `<g opacity="${Math.min(1, k * 1.5).toFixed(3)}" transform="translate(${(CH.x - 90 * CH.s + dx).toFixed(1)} ${(CH.y - 560 * CH.s).toFixed(1)}) scale(${CH.s})">${card}</g>`;
+}
+const floeyVisible =(t) => { const p = F.pose(t); return 540 + (p.x - W.camX) * W.zoom > 40; };
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  const world = DUO.room(t, { night: true }) + mayaSvg(t) + DUO.deskFront() + DUO.laptop() + (mugInHand(t) ? "" : DUO.mug(MUG_X))
+    + (floeyVisible(t) ? F.svg(t) : "")
+    + DUO.mark("sweat", 806, 712, W.sweat, t)
+    + DUO.mark("!", 800, 650, W.bang, t);
+  document.getElementById("stage").innerHTML = DUO.cam(world, W)
+    + chart(W.chart)
+    + note(W.note)
+    + popIn(W.list, W.list > 0.01 ? QUERIES() : "")
+    + (W.end < 0.5 ? DUO.captions(LINES, B, t) : "")
+    + DUO.endCard(W.end, t);
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>

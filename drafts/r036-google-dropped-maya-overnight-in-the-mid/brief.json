@@ -1,0 +1,71 @@
+{
+ "topic": "Google dropped Maya overnight in the middle of the core update. The update didn't do it: Halloween ended.",
+ "angle": "Maya's chart has crashed in the same week as Google's November 2026 core update, so she's sure the update has punished her, and Bing still sending people only makes it feel personal. Floey has her open Search Console, compare the two periods and look at the Queries tab, not the Pages tab. Every search she lost is a Halloween search (her pumpkin cupcakes, as an example), and Halloween was two weeks ago. The reel shows the check most people skip: work out which searches left before blaming the update, and that is Google's own first step for a traffic drop.",
+ "whyNow": "Google started rolling out the November 2026 core update on 10 November, and Google says it may take up to two weeks. That means every drop this week gets blamed on the update. Forums are full of this right now. In r/bigseo, a site's traffic peaked around Election Day and then fell on Google while Bing held (22 comments). In r/TechSEO, a new site owner asks whether their drop is the honeymoon ending, an update, or something they broke. Another r/bigseo thread groans about Google dropping an update right before the holidays. Halloween (31 October) is the event nearly every content site touched, and its searches have just faded.",
+ "goal": "send",
+ "audience": "Solo bloggers, recipe, lifestyle and niche content site owners, and small agency people who look at Search Console during an update week and see a drop. Anyone who has ever had a seasonal or event post spike and fall (holidays, elections, product launches, sports events).",
+ "facts": [
+  {
+   "fact": "Google's debugging guide lists the main causes to investigate in a traffic drop: algorithmic update, technical issues, security issues, spam issues, seasonality and changing interests, and site moves and migrations.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google: \"Sometimes changes in user behavior will change the demand for certain queries, either due to a new trend, or seasonality throughout the year.\"",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google's guide says to use the Compare tab in the Performance report (for example, last 3 months against the previous period or year over year), then click all the tabs to see whether the change happened only for specific queries, URLs, countries or devices.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google suggests finding the queries that lost clicks and impressions in the Performance report, then checking them in Google Trends to see whether the drop was only for your site or happened across the web.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "To compare dates in Search Console: open the date filter, choose Compare, pick the two periods and apply. The results table then shows a Difference column for each row.",
+   "source": "https://support.google.com/webmasters/answer/17011165?hl=en"
+  },
+  {
+   "fact": "In Search Console, impressions means how many times your site appeared in Search results.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "Google's Search Central blog says food queries are very seasonal: people search for diets in January, turkey in November and champagne in December. It also advises setting the date range to 16 months to make sure a drop isn't one that happens every year because of a holiday or a trend.",
+   "source": "https://developers.google.com/search/blog/2021/07/search-traffic-drops"
+  },
+  {
+   "fact": "Google's November 2026 core update began rolling out on 10 November 2026 at 10:06 a.m. PT, and Google says the rollout may take up to 2 weeks.",
+   "source": "https://www.searchenginejournal.com/google-november-2026-core-update/596614/"
+  },
+  {
+   "fact": "For core updates, Google advises confirming the update has finished rolling out, waiting at least a full week after it completes, and then comparing that week with a week before the rollout began.",
+   "source": "https://developers.google.com/search/docs/appearance/core-updates"
+  },
+  {
+   "fact": "Halloween is observed in many countries on 31 October.",
+   "source": "https://en.wikipedia.org/wiki/Halloween"
+  },
+  {
+   "fact": "Demand evidence: an r/bigseo thread (22 comments) is about a site whose Google impressions peaked around Election Day and then dropped overnight while Bing held. (From the 2026-11-15 social listening; Reddit couldn't be opened directly to re-check it.)",
+   "source": "https://www.reddit.com/r/bigseo/comments/1xviisx/google_impressions_dropped_overnight_while_bing/"
+  },
+  {
+   "fact": "Demand evidence: a new site owner in r/TechSEO asks whether their Google impressions drop is the honeymoon ending, an update, or something they broke. (From the 2026-11-15 social listening; not opened directly.)",
+   "source": "https://www.reddit.com/r/TechSEO/comments/1xwpdf8/new_site_google_impressions_dropped_from_150day/"
+  },
+  {
+   "fact": "Demand evidence: an r/bigseo thread reacts to Google releasing an update right before a busy period. (From the 2026-11-15 social listening; not opened directly.)",
+   "source": "https://www.reddit.com/r/bigseo/comments/1xwq3yd/oh_perfect_google_dropping_an_update_right_before/"
+  },
+  {
+   "fact": "Maya's numbers are only an example and must be framed as her own: her 'pumpkin cupcakes' Halloween post, the Queries table rows and any percent pills are made up for the scene. They are not real data or a statistic.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "Night set, the desk lamp glowing. Maya grips her laptop with Floey perched on the lid, and a screenInsert chart draws a tall spike that drops off a cliff (title \"Clicks from Google\", tone bad). A notification slides down: \"Google: core update rolling out\" (ding). Maya says \"Google dropped me overnight, and Bing still loves me.\" Floey, deadpan: \"Look at which searches left, not which page.\" The beat that carries the reel is a listInsert of Search Console's Queries tab in Compare mode (title \"Queries, last 7 days vs previous\", cols Query / Difference). The rows slide in: \"pumpkin cupcakes\" -96%, \"halloween cupcake ideas\" -94%, \"spooky bakes for kids\" -91%, \"easy banana bread\" +2%, \"lemon drizzle cake\" +1% (every value is Maya's example). The hi ring grows around the Halloween rows. Cut to mayaTight for \"...Oh.\" Floey, in floeyTight: \"Halloween was two weeks ago, Maya.\" For the button, Maya sips from her mug and finds it cold (the running joke) while Floey adds \"See you next October.\" Maya looks to camera. End card.",
+ "pillar": "problem",
+ "instinct": "My traffic fell off a cliff the same week as Google's core update and Bing still sends people, so Google has punished my site.",
+ "flip": "Google lists seasonality and changing interests as one of the main causes of traffic drops, and tells you to compare periods and check which queries dropped. If every lost search is about Halloween, people stopped searching for it and Google didn't punish you.",
+ "idea": "Google dropped Maya overnight and Bing still sends visitors. The page didn't fail. The event it was about ended.",
+ "style": "duo"
+}
