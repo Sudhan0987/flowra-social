@@ -570,6 +570,17 @@
    "style": "duo",
    "run": 43715129942,
    "note": "Approved by the founder in chat, 16 Nov 2026 (\"approve all\")"
+  },
+  {
+   "id": "r036-google-dropped-maya-overnight-in-the-mid",
+   "status": "draft",
+   "topic": "Google dropped Maya overnight in the middle of the core update. The update didn't do it: Halloween ended.",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-16T14:02:44.780Z",
+   "seconds": 31,
+   "idea": "Google dropped Maya overnight and Bing still sends visitors. The page didn't fail. The event it was about ended.",
+   "style": "duo",
+   "run": 43877147706
   }
  ]
 }
