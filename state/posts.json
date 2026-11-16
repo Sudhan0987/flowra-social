@@ -495,7 +495,7 @@
   },
   {
    "id": "r030-your-comparison-post-is-going-sour-fix-t",
-   "status": "approved",
+   "status": "published",
    "topic": "Your comparison post is going sour: fix the prices and the feature table first, and change the year in the title last",
    "format": "duo-sitcom",
    "madeAt": "2026-11-10T13:51:54.629Z",
@@ -503,7 +503,14 @@
    "idea": "Your comparison post is going sour: the three sections that go stale first",
    "style": "duo",
    "run": 42824461461,
-   "note": "Approved by the founder in chat, 16 Nov 2026 (\"approve all\")"
+   "note": "Approved by the founder in chat, 16 Nov 2026 (\"approve all\")",
+   "published": {
+    "at": "2026-11-16",
+    "instagram": "17942514906391349",
+    "facebook": "1434949688754666",
+    "youtube": "Y5lhDEN9rNM",
+    "youtubePrivacy": "public"
+   }
   },
   {
    "id": "r031-nearly-every-click-comes-from-one-post-a",
