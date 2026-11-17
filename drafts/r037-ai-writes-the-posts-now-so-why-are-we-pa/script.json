@@ -1,0 +1,119 @@
+{
+ "title": "The AI discount (send-ask test)",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "A discount? Because of AI? Why are they even paying me?",
+   "emotion": "worried",
+   "visual": "Wide, day set. Frame one: Maya at the desk in the mug pose, coffee in hand. Floey is perched on the open laptop lid. A phone notification is already sliding down from \"Client\": \"AI writes posts now. Lower rate?\" Phone buzz sfx, panned left. On \"A discount?\" Maya jolts into the panic pose, expression panic. The mug is now drawn on the desk (DUO.mug()) with a clunk sfx, so there is only ever one mug. Floey reacts with one slow blink."
+  },
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Fine. I'll write twice as many.",
+   "emotion": "determined",
+   "visual": "Maya shot. She switches to the type pose with expression panic and types fast. Typing sfx, panned to the laptop. Only Maya is in this shot, and no reply text is shown."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Does AI know which old pages are slipping?",
+   "emotion": "playful",
+   "visual": "Wide, so both are in frame. Floey stays on the laptop lid and turns to Maya with a quick tongue flick. Maya stops mid-type: the typing sfx cuts out, she holds the type pose, and her expression goes to think."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "But they want new posts.",
+   "emotion": "curious",
+   "visual": "Maya tight, expression annoyed, still in the type pose. Only Maya is in this shot."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "More posts won't stop old ones slipping.",
+   "emotion": "warm",
+   "visual": "Floey tight. Floey alone, deadpan, with one slow blink after the last word."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "Search Console. Compare last three months. Sort pages by clicks difference...",
+   "emotion": "warm",
+   "visual": "Cutaway: the list insert of the Search Console Pages tab. Title: \"Pages, last 3 months vs previous\". Sub line: \"example figures\". Columns: Page and Clicks diff. The rows are already sorted worst first and slide in one at a time, each with a tick sfx: \"/best-budget-blenders -212\", \"/meal-prep-guide -96\", \"/air-fryer-tips -41\", \"/pantry-staples -18\". These are the client's example pages with made-up example figures, not real data. On \"clicks difference\" a ring grows around the top row with a soft chime. Floey's voice plays over the cutaway."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Oh. Their blender guide's slipping.",
+   "emotion": "curious",
+   "visual": "Maya tight. On \"Oh.\" her expression goes to surprised, then think on \"Their blender guide's slipping.\" She is still in the type pose, facing the laptop. Only Maya is in this shot."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Here are the pages I'm fixing.",
+   "emotion": "determined",
+   "visual": "Wide. Maya is in the type pose with expression proud and types one short burst (typing sfx), then a send whoosh. A notification slides down as her sent reply: \"Here are the pages I'm fixing.\" Floey stays on the laptop lid, preens one wing and gives a tongue flick."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Send this to the agency friend whose client wants a discount because of AI.",
+   "emotion": "playful",
+   "caption": "send this to the agency friend whose client wants a discount because of AI",
+   "visual": "Floey shot. Floey turns on the laptop lid to face the camera and says the line straight to the viewer. The line is captioned. Only Floey is in this shot."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.6,
+   "say": "Charge for that.",
+   "emotion": "proud",
+   "visual": "Wide. Floey turns back to Maya and says it deadpan, ending on a tongue flick. Maya picks the mug up off the desk (DUO.mug() is removed) and goes back to the mug pose, coffee in hand. Her expression is proud as she gives the camera a short look without words. Hold for the pause, then the end card."
+  }
+ ],
+ "loopNote": "The last frame is the wide shot: Maya in the mug pose with coffee in hand looking pleased, and Floey on the laptop lid. Frame one is that same wide shot and pose, and the client notification buzzes in again. On a replay it plays like the next client texting the same thing just as she relaxes.",
+ "caption": "Client: \"AI writes posts now. Can we lower your rate?\" Maya's first instinct was to write twice as many posts. Floey's was to show them what no AI is checking.\n\nThe tip, straight from Google's own traffic-drop guide: open Search Console, go to the Performance report and compare the last 3 months with the previous period. On the Pages tab, sort by Clicks Difference. The pages at the top are the ones losing the most clicks. Fixing them properly (a real update, not just a new date) is work worth paying for.\n\nThe value was never the word count.\n\nHas a client asked you this yet? What did you say back? (Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#freelancewriter",
+  "#contentmarketing",
+  "#seotips",
+  "#googlesearchconsole",
+  "#agencylife"
+ ],
+ "sticky": 50,
+ "id": "r037-ai-writes-the-posts-now-so-why-are-we-pa",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "\"AI writes the posts now, so why are we paying you?\" Maya's client wants a discount, and Floey shows her the answer is the old pages that are losing clicks, not how many new posts she writes.",
+ "editorNotes": [
+  "The last two beats are in the wrong order, which breaks the best joke. \"Charge for that.\" now comes straight after the send-ask line, so \"that\" sounds like it means sending the video, not fixing the slipping pages. It also puts Floey's look to camera mid-button, but the studio only allows that on the final button line. Fix: play \"Charge for that.\" right after Maya's reply \"Here are the pages I'm fixing.\", as the brief does, and make the send-ask line the final button.",
+  "The brief makes this a labelled test: put \"send-ask\" in the experiment field. The script has no experiment field. \"(send-ask test)\" appears only in the title, so the test will not be tracked. Add the field.",
+  "It will probably run over the brief's 31-second cap. I read it aloud in the two voices: about 25 s of speech plus 3.3 s of pauses gives SPOKEN of about 28.4 s. END adds 0.6 s and the end card 1.6 s, so DUR is about 30.6 s before any silent button acting. The mug pickup and look to camera (or the cold-coffee sip) push it past 31 s. Cut about 2 seconds. Options: drop \"Because of AI?\" from the hook, since the notification already says it; trim the long send-ask line's pause; or shorten beat 5 so the doubt and answer are tighter. Then re-time it against the real mouth data before rendering.",
+  "Beat 8 shows Maya's sent reply as a phone notification sliding down. DUO.notification is how incoming messages appear, and the hook already used it for the client. A viewer will read \"Here are the pages I'm fixing.\" as the client texting back, which muddles the payoff. Set the 'from' field so it clearly reads as sent, for example \"You to Client\" or \"Sent\". Or keep the reply in the type-and-whoosh acting and leave the notification for incoming messages only.",
+  "(polish) The button is weaker than the brief's. The brief ends on the cold-coffee running joke: Maya sips, pulls a face, looks to camera. The script swaps that for a plain proud look, so the reel ends on a smile, not a laugh. Bring back the sip (sip sfx) and the face (annoyed or deadpan, then a look to camera) after the final line. Watch the 31-second cap.",
+  "(polish) Beat 9 says \"Floey shot... Only Floey is in this shot\", but DUO.SHOT.floey is a two-shot favouring Floey, so Maya is visible. Use floeyTight if Floey should be alone, or keep floey and give Maya a reaction to the line.",
+  "(polish) Beat 1 asks for a \"clunk\" sfx when the mug lands on the desk, but clunk is not one of the studio's sound kinds. Use tk, click or pop. The mug also jumps from her hand to the desk on the jolt. Time DUO.mug() to appear when the panic pose blend starts so it does not pop in a frame late.",
+  "(polish) Beat 4: \"But they want new posts.\" is Maya's flat pushback, and the visual gives her the annoyed face. Curious delivery will make it sound like a question and not match the face. Use determined, or worried if you want the doubt to sound nervous.",
+  "(polish) The tip line ends in \"...\", which Kokoro may drop or say oddly, and it leaves Floey's tip trailing off. End it with a full stop. The brief's \"That's your list.\" gave the tip a landing, so bring it back if there is time.",
+  "(polish) The tip is never shown being done, which breaks the studio's 'show the tip happening' rule. The rows arrive already sorted while Floey speaks over a cutaway, so nobody compares or sorts on screen. Add a click sfx on \"Compare\" and on \"Sort\", and slide the rows in only after \"sort\", so the sort visibly causes the list. Keep the four ticks and the ding at least 0.4 s apart.",
+  "(polish) Beats 3, 4 and 7 say Maya \"holds\" or stays in the type pose while she stops, argues and has her \"Oh.\" moment. The type pose keeps her hands moving, so she will seem to keep typing through her realisation. Switch to rest or chin on beat 3, then back to type on beat 8.",
+  "(polish) \"Slipping\" comes three times in four lines (beats 3, 5 and 7) and starts to sound written. Swap one, for example beat 5: \"More posts won't save the old ones.\"",
+  "(polish) The loop note says the last frame is the wide shot, but the end card is the last frame. Duo reels don't need a loop. Drop the claim, or write the loop as end card to the frame-one notification.",
+  "(polish) The caption field for the send-ask line repeats the spoken words, but starts lowercase with no full stop, unlike every other caption. Either remove the field (captions already show the line) or make it match the sentence case and punctuation of the others."
+ ],
+ "style": "duo",
+ "template": "../drafts/r037-ai-writes-the-posts-now-so-why-are-we-pa/scene.html"
+}

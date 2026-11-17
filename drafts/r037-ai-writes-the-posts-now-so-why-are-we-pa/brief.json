@@ -1,0 +1,51 @@
+{
+ "topic": "\"AI writes the posts now, so why are we paying you?\" Maya's client wants a discount, and Floey shows her the answer is the old pages that are losing clicks, not how many new posts she writes.",
+ "angle": "A client texts Maya that AI writes posts now and asks for a lower rate. She panics and offers to write twice as many posts. Floey stops her: nobody's AI is checking which of the client's old pages are quietly losing clicks. Floey has Maya open Search Console, compare the last 3 months with the period before, open the Pages tab and sort by Clicks Difference. The list of slipping pages becomes her reply: \"these are the pages I'm fixing.\" The point lands because the client's question really is unfair: the value was never the word count.",
+ "whyNow": "This month's top conversation is AI making work faster but not lighter. An r/marketing thread from the 2026-11-15 social listening (18 comments; we could not open Reddit directly, so this rests on the listening data) asks whether AI has pushed marketing service prices down, and content people say they feel it. The same objection shows up word for word on copywriter blogs (\"Why should I pay you £500 for content when I can get ChatGPT to write it for £20?\"). This is the labelled 'send-ask' test from our insights: put 'send-ask' in the experiment field, keep it under 31 seconds, and have the line \"send this to the agency friend whose client wants a discount because of AI\" both spoken and on screen.",
+ "goal": "send",
+ "audience": "Freelance writers, small agency people and solo bloggers who also do client work (content, SEO, site upkeep) and have been asked, or fear being asked, why the client still pays them now that AI can write.",
+ "facts": [
+  {
+   "fact": "Google's traffic-drop guide says to open the Date filter in the Search Console Performance report, use the Compare tab (for example 'Compare last 3 months to previous period'), and on the Pages table 'Select Clicks Difference to order it based on pages that lost the most traffic.' This is Floey's tip.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "The same Google guide says to check every tab (queries, pages and so on) to see whether the change hit only specific queries or URLs, and suggests setting the range to the last 16 months to see the drop in context.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google's spam policies list scaled content abuse, and one example is 'Using generative AI tools or other similar tools to generate many pages without adding value for users.'",
+   "source": "https://developers.google.com/search/docs/essentials/spam-policies"
+  },
+  {
+   "fact": "Google says it focuses on 'the quality of content, rather than how content is produced', and that using AI 'doesn't give content any special gains.'",
+   "source": "https://developers.google.com/search/blog/2023/02/google-search-and-ai-content"
+  },
+  {
+   "fact": "Google's helpful content guide lists warning signs including 'producing lots of content on many different topics in hopes that some of it might perform well' and 'changing the date of pages to make them seem fresh when the content has not substantially changed.' This supports Floey's point that fixing a page means really changing it, not just bumping the date.",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "Demand: a potential client asked a copywriter, 'Why should I pay you £500 for content when I can get ChatGPT to write it for £20?' (Adrie van der Luijt, 15 May 2025).",
+   "source": "https://www.procopywriters.co.uk/2025/05/managing-client-expectations-in-an-era-of-automated-creativity/"
+  },
+  {
+   "fact": "Demand: an r/marketing thread (18 comments in the 2026-11-15 listening data) asks whether AI has pushed marketing service prices down. Content people in it say they feel the pressure. Mention it only as a conversation and do not quote numbers from it.",
+   "source": "https://www.reddit.com/r/marketing/comments/1xwcwaf/have_your_marketing_service_prices_been_affected/"
+  },
+  {
+   "fact": "End card context only (never spoken or shown in the reel): Flowra's client reports rebuild every week and can be shared as a link that always shows the current report, with the agency's name, logo and colour on Starter and above. Nothing emails reports to clients.",
+   "source": "Flowra facts file"
+  },
+  {
+   "fact": "End card context only: Flowra's content decay report finds pages whose clicks and impressions are falling, using Search Console data, and puts them in a queue to fix.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Day set, wide shot. Floey is on the laptop and Maya's coffee is in her hand. Her phone buzzes, and a DUO.notification slides down from \"Client\" saying \"AI writes posts now. Lower rate?\" Maya jolts into the panic pose and cries, \"So why are they still paying me?\" She begins typing, \"I'll write twice as many!\" Floey gives a dry chip from the laptop: \"Does the AI know which old pages are slipping?\" Maya: \"...What?\" The central image is a DUO.listInsert of the Search Console Pages tab. Its title is \"Pages, last 3 months vs previous\" and its columns are Page and Clicks diff. Rows of Maya's own example pages slide in with negative values (for example \"/best-budget-blenders -212\", \"/meal-prep-guide -96\"). Make clear these are her example numbers and not statistics. A ring grows around the worst row while Floey says, \"Sort by clicks difference. That's your list.\" Cut to mayaTight for \"Oh.\" Then wide: Maya deletes \"twice as many\" and types \"Here are the pages I'm fixing.\" Floey: \"Charge for that.\" For the button, Floey pivots to the front and says the send-ask line, captioned \"send this to the agency friend whose client wants a discount because of AI.\" Maya sips, pulls a face because her coffee is cold, and looks at the camera. Then the end card.",
+ "pillar": "problem",
+ "instinct": "AI has made posts cheap, so the only way to justify Maya's fee is to write more of them, faster.",
+ "flip": "Google warns that using AI to mass-produce pages that add no value is spam. Its own traffic-drop guide tells you to sort Search Console pages by Clicks Difference to find the ones losing the most traffic, so the work worth paying for is finding and fixing those pages, not adding more posts.",
+ "idea": "\"AI writes the posts now, so why do we pay you?\" Show the client which old pages you fixed, not how many posts you wrote.",
+ "style": "duo"
+}

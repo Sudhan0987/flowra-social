@@ -1,0 +1,224 @@
+{
+ "style": "Duo sitcom, Maya's room, day set (window with a drifting cloud, shelf, plant, spark poster). Maya is the panicking solo blogger behind the desk and Floey is the dry hummingbird perched on the laptop lid facing her. Warm daylight palette: Maya's caption amber, Floey's pink. One notification only (the client's message, in the hook) and one cutaway only (the Search Console list insert, example figures). Flowra appears only on the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya at the desk in the mug pose, coffee in hand, worried. Floey perched on the laptop lid (floeyLaptop, facing Maya). The 'Client' phone notification is already sliding down at the top of the frame.",
+   "action": "The notification lands as the phone buzzes (panned left). On 'A discount?' Maya jolts into the panic pose, face panic, and puts the mug down on the desk with a clunk (DUO.mug() drawn from here, so there is only one mug). Floey gives one slow blink.",
+   "onScreenData": "AI writes posts now. Lower rate?",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "buzz"
+    },
+    {
+     "at": 0.4,
+     "kind": "pop"
+    },
+    {
+     "at": 0.85,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.7,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "wide pushing towards maya: Maya in the panic pose with her hands up by her head, Floey just in at the frame edge. The notification slides away.",
+   "action": "Maya says 'Why are they even paying me?' with her hands up and her head shaking. The push-in follows the rising pressure.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone (Floey out of frame), type pose, face panic.",
+   "action": "Hard cut. She snaps into the type pose and hammers the keys fast with a determined, panicky lean. No reply text is shown.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: both of them. Floey on the laptop lid, Maya frozen mid-type.",
+   "action": "The typing stops dead. Floey turns to Maya and flicks her tongue as she asks the question. Maya holds the type pose with her fingers in the air, her face goes to think and her eyes slide left to Floey.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face fills the frame, still in the type pose, face annoyed.",
+   "action": "Maya pushes back with a small head tilt and narrowed eyes: 'But they want new posts.'",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid, deadpan.",
+   "action": "Floey delivers the line without moving her body, then gives one slow, heavy blink after 'slipping'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The Search Console list insert on Maya's laptop screen. Title 'Pages, last 3 months vs previous', sub line 'example figures', columns Page and Clicks diff.",
+   "action": "The insert swings in. Rows sorted worst first slide in one at a time: '/best-budget-blenders -212', '/meal-prep-guide -96', '/air-fryer-tips -41', '/pantry-staples -18'. Floey's voice plays over it.",
+   "onScreenData": "-212",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.6,
+     "kind": "pop"
+    },
+    {
+     "at": 1.1,
+     "kind": "pop"
+    },
+    {
+     "at": 1.6,
+     "kind": "pop"
+    },
+    {
+     "at": 2.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 2.8,
+   "shot": "insert",
+   "camera": "push-in",
+   "subject": "The same list insert, pushing slightly towards the top row '/best-budget-blenders -212'.",
+   "action": "On 'clicks difference' a ring grows around the top row.",
+   "onScreenData": "-212",
+   "sfx": [
+    {
+     "at": 3.3,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya alone in the type pose, facing the laptop with her eyes down at the screen.",
+   "action": "On 'Oh.' her face flips to surprised with raised brows. A slow push-in for the realisation as her face settles into think on 'Their blender guide's slipping.'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them. Maya in the type pose, face proud. Floey on the laptop lid.",
+   "action": "A small pull-out to show both as the turn lands. Maya types one short, confident burst and hits send with a flourish (no notification and no reply text on screen). Floey preens one wing, then gives an approving tongue flick.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "type"
+    },
+    {
+     "at": 1.3,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid.",
+   "action": "Floey pivots on the lid to face the camera (pivot front) and starts the button line straight to the viewer.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 2.3,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floeyTight pushing in on Floey, who is still facing the camera.",
+   "action": "A slow push-in on 'whose client wants a discount because of AI', with a knowing head tilt from Floey.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them. Floey turns back to Maya on the lid. Maya at the desk with the mug on the desktop.",
+   "action": "Floey says 'Charge for that.' deadpan and ends on a tongue flick. Maya lifts the mug off the desk (DUO.mug() removed) and settles into the mug pose with coffee in hand, face proud.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 1.6,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya alone, mug pose, face proud.",
+   "action": "Hard cut. Maya sips, then gives the camera a short, smug, proud look without words. Hold through the pause, then the end card thumps in.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 3,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 0.6
+}
