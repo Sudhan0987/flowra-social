@@ -514,7 +514,7 @@
   },
   {
    "id": "r031-nearly-every-click-comes-from-one-post-a",
-   "status": "approved",
+   "status": "published",
    "topic": "Nearly every click comes from one post. Ask that post what Google already likes.",
    "format": "duo-sitcom",
    "madeAt": "2026-11-11T13:03:24.625Z",
@@ -522,7 +522,14 @@
    "idea": "Five sites, and only one gets clicks. Ask the one that works what it ranks for.",
    "style": "duo",
    "run": 43022431115,
-   "note": "Approved by the founder in chat, 16 Nov 2026 (\"approve all\")"
+   "note": "Approved by the founder in chat, 16 Nov 2026 (\"approve all\")",
+   "published": {
+    "at": "2026-11-17",
+    "instagram": "18116936771602006",
+    "facebook": "1107748742302909",
+    "youtube": "jC1EtcQ0Gjo",
+    "youtubePrivacy": "public"
+   }
   },
   {
    "id": "r032-maya-s-best-post-vanished-from-google-an",
