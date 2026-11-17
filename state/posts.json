@@ -588,6 +588,17 @@
    "idea": "Google dropped Maya overnight and Bing still sends visitors. The page didn't fail. The event it was about ended.",
    "style": "duo",
    "run": 43877147706
+  },
+  {
+   "id": "r037-ai-writes-the-posts-now-so-why-are-we-pa",
+   "status": "failed",
+   "topic": "\"AI writes the posts now, so why are we paying you?\" Maya's client wants a discount, and Floey shows her the answer is the old pages that are losing clicks, not how many new posts she writes.",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-17T14:45:39.688Z",
+   "seconds": 31,
+   "reason": "Frame 01 (Maya tight, 'Fine. I'll write twice as many'): the open panic mouth hangs below her chin and onto her neck. In a close-up that fills the phone screen this looks like a broken rig, and a viewer will spot it. Frame 00 has the same overlap, only smaller. Keep the panic mouth inside the jaw line. Frames 04, 08 and 09 (Floey tight shots): the caption bar sits right across the Flowra spark on the laptop lid, so the logo's points stick out above and below the box. This partly hides the logo, ",
+   "idea": "\"AI writes the posts now, so why do we pay you?\" Show the client which old pages you fixed, not how many posts you wrote.",
+   "style": "duo"
   }
  ]
 }
