@@ -1,0 +1,47 @@
+{
+ "topic": "A client says \"AI writes the posts now, so why do we pay you?\" and asks for a discount. Floey's answer: show them which old pages lost clicks and which ones you fixed, not how many posts you wrote.",
+ "angle": "Maya gets a client message asking for a discount because \"AI writes posts now\" and panics that her work is worth nothing. Floey flips it with something Google says itself: lots of pages were never the value, and its spam policy calls mass-made pages that help nobody scaled content abuse, however they were made. The value is knowing which old pages are losing clicks. Maya opens Search Console, compares the last 3 months with the period before, sorts Pages by Clicks Difference, and finds the list she should have been sending all along.",
+ "whyNow": "This month's social listening says AI makes work faster but not lighter, and an 18-comment r/marketing thread (social listening, 2026-11-15) asks whether AI has pushed marketing service prices down. Content people in it say they feel the pressure. Industry writing on agency pricing makes the same point: AI cuts the hours you can bill, so you have to be paid for results instead. This is the labelled 'send-ask' test our own learnings asked for: one named recipient, said aloud and shown on screen, under 31 seconds.",
+ "goal": "send",
+ "audience": "Freelance content writers, SEO freelancers and small agency people who run blogs or client sites on a monthly retainer and are being asked, or are afraid of being asked, to charge less because \"AI can write it\". Also solo bloggers who take a client or two on the side.",
+ "facts": [
+  {
+   "fact": "An 18-comment r/marketing thread asks whether AI has pushed marketing service prices down, and content people in it say they feel the pressure. (Taken from the 2026-11-15 social listening; our fetcher could not open Reddit to re-check it, so use it only as evidence of demand. Never quote it or put a number from it on screen.)",
+   "source": "https://www.reddit.com/r/marketing/comments/1xwcwaf/have_your_marketing_service_prices_been_affected/"
+  },
+  {
+   "fact": "Industry commentary on agency pricing says AI is cutting billable hours while overheads stay the same, and that 'You can't just charge your clients less, especially if your results keep improving.' It argues for pricing by deliverable or outcome instead of by the hour.",
+   "source": "https://chiefmarketer.com/marketing-agencies-pricing-and-ai-why-somethings-got-to-give"
+  },
+  {
+   "fact": "Google's spam policies define scaled content abuse as 'when many pages are generated for the primary purpose of manipulating search rankings and not helping users', content 'that provides little to no value to users, no matter how it's created.'",
+   "source": "https://developers.google.com/search/docs/essentials/spam-policies"
+  },
+  {
+   "fact": "Google's guidance on generative AI content says using 'generative AI tools or other similar tools to generate many pages without adding value for users may violate' its scaled content abuse policy.",
+   "source": "https://developers.google.com/search/docs/fundamentals/using-gen-ai-content"
+  },
+  {
+   "fact": "Google's guide to debugging traffic drops says to use Compare in the Search Console Performance report's date filter (for example 'Compare last 3 months to previous period'), then in the Pages table 'Select Clicks Difference to order it based on pages that lost the most traffic.'",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "The same Google guide says to 'click all tabs to find out if the change happened only for specific queries' or pages, so the Queries tab shows which searches a page lost.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Search Console's Performance report has a date filter (the default view is the last three months) and dimension tabs, including Pages, that group the table's rows.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "Every page name and click change in the Search Console cutaway is Maya's own made-up example (for instance '/budget-lisbon-guide  -212 clicks'), shown as her client's dashboard. It is not real data and not a statistic.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "Daytime room. A phone notification slides down: \"Client: AI writes posts now. Discount?\" Maya jolts, then sits with her hands on her cheeks while a \"!\" pops by her head. Floey, perched on the laptop lid, turns her head slowly. At the check, a DUO.listInsert cutaway swings in, titled \"Search Console: Pages, last 3 months vs previous\", sorted by Clicks Difference. There are five rows of example old posts with red minus numbers, and the hi ring grows around the top one. Then Maya's moment: the two rows she already fixed tick to green \"+\" values in the same table. The show-don't-say image is a list of old pages and what happened to them, not a stack of new posts. Button: Maya types the reply, Floey hops to her shoulder, and on the send-ask line Floey pivots to camera while the caption says \"send this to the agency friend whose client wants a discount because of AI\".",
+ "pillar": "problem",
+ "instinct": "AI can write posts in seconds now, so the client is right: my work is worth less and I should take the discount.",
+ "flip": "Google's own spam policy says lots of pages that help nobody are scaled content abuse \"no matter how it's created\", so the number of posts was never the value. The value is knowing which old pages are losing clicks, and Search Console shows that when you compare the last 3 months with the period before and sort Pages by Clicks Difference.",
+ "idea": "\"AI writes the posts now, so why do we pay you?\" Show the client which old pages you fixed, not how many posts you wrote.",
+ "style": "duo"
+}

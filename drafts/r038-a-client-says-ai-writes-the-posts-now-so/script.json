@@ -1,0 +1,107 @@
+{
+ "title": "The chatbot discount (send-ask)",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Client wants a discount. Says chatbots write posts now.",
+   "emotion": "worried",
+   "visual": "Frame one, daytime, wide shot slowly pushing in toward maya: a phone notification is already sliding down beside the laptop reading 'Client: a chatbot writes posts now. Discount?' (notification sfx). Maya jolts, then freezes in her panic pose, hands on her cheeks, eyes wide, while a small '!' pops by her bun. Floey sits perched on the laptop lid facing Maya and tilts her head toward her."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Piles of posts just to rank? Google calls that spam. Chatbot or not.",
+   "emotion": "warm",
+   "visual": "Shot floey: Floey stays perched on the lid, deadpan, one slow blink, then a small tilt. In the soft background Maya lowers her hands from her cheeks, frozen halfway."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So what's she paying for?",
+   "emotion": "warm",
+   "visual": "Shot wide: Maya, flat and annoyed, throws both palms up in a shrug and leans toward Floey. Floey tilts her head the other way, unbothered."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Knowing which old pages lose clicks. Search Console, compare three months with the three before.",
+   "emotion": "playful",
+   "visual": "Shot floeyTight: Floey on the lid gives a sharp chip (tk sound, panned left) on 'Knowing', then a wink on 'three before'. On 'Search Console' cut to shot maya: Maya in her type pose, eyebrows down, concentrating, with typing sfx."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Sorted by clicks difference... Lisbon guide, down two hundred.",
+   "emotion": "worried",
+   "visual": "Cutaway, DUO.listInsert swings in already sorted, titled 'Search Console: Pages, last 3 months vs previous, by Clicks Difference'. Six rows slide in one by one (rowsK, a soft tick per row): four example old posts in red, '/budget-lisbon-guide  -200 clicks', '/porto-on-a-budget  -140', '/cheap-flights-tips  -95', '/packing-list  -60', then two rows tagged as fixed, '/porto-food-tour  fixed' and '/cheap-trains-spain  fixed', in a neutral tone with their values not filled in yet. On 'Lisbon guide' the highlight ring grows around the top row (hiK, rise sfx). On 'down two hundred' cut back to shot maya: she leans in, mouth open."
+  },
+  {
+   "role": "check",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Now the two you fixed.",
+   "emotion": "playful",
+   "visual": "Shot floey for 'Now the two': Floey on the lid gives a chip toward the screen (tk sound) and tilts. Maya in the soft background points at the laptop. On 'fixed' cut to the insert: the '/porto-food-tour  fixed' row swaps its value and tone to green '+48 clicks' (ding), and 0.45 s later '/cheap-trains-spain  fixed' swaps to green '+31 clicks' (ding, panned right)."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.6,
+   "say": "Wait. Both up. That's what she pays for.",
+   "emotion": "bright",
+   "visual": "Shot maya: Maya sits up in her point pose, grinning at the screen, on 'Wait. Both up.' and holds it through 'That's what she pays for.' END is pushed 0.6 s for the cold coffee beat: she switches to her mug pose (the DUO.mug() desk draw is swapped out while she holds it), takes a sip (sip sfx), and her face drops to deadpan. The coffee is cold. Floey, still on the lid, gives one slow blink."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.6,
+   "say": "Discount declined. Send this to your friend's client.",
+   "emotion": "proud",
+   "visual": "Shot wide, holding both: Floey takes off from the lid and lands on Maya's shoulder (flutter sfx) as Maya goes back to her type pose (typing sfx). On 'declined' Maya hits send (whoosh). On 'Send this to your friend's client' Floey pivots to face the camera and gives one slow, smug blink, and the caption band reads 'send this to your friend's client'. In the 0.6 s hold Maya gives the camera a deadpan, eyebrow-up look. End card follows."
+  }
+ ],
+ "loopNote": "No loop: this is a duo reel, so it ends on Floey's button and Maya's look to camera, then the end card. No new notification after the send, so the win stands.",
+ "caption": "A client wants a discount because \"a chatbot writes posts now.\" Maya nearly said yes.\n\nBut Google's own spam rules say that lots of pages made mainly to game rankings, not to help people, count as scaled content abuse, however they were made. So the number of posts was never what you were paid for.\n\nYou get paid for knowing which old pages are losing clicks, and for fixing them. In Search Console, open Performance, compare the last 3 months with the previous period, go to the Pages tab and sort by Clicks Difference. The pages that lost the most come first. Send that list with your monthly report, along with the pages you fixed that went back up.\n\nHas a client asked you for a chatbot discount yet? What did you tell them?\n\n(Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#freelancewriter",
+  "#seotips",
+  "#contentmarketing",
+  "#googlesearchconsole",
+  "#agencylife"
+ ],
+ "sticky": 50,
+ "id": "r038-a-client-says-ai-writes-the-posts-now-so",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "A client says \"AI writes the posts now, so why do we pay you?\" and asks for a discount. Floey's answer: show them which old pages lost clicks and which ones you fixed, not how many posts you wrote.",
+ "editorNotes": [
+  "The send-ask names the wrong person. 'Send this to your friend's client' asks the viewer to forward a reel to a client they don't know, and it reads like a jab at someone's client. The brief wants one clear recipient, said aloud and shown in the caption: the agency or freelance friend whose client is asking for a discount because of AI. Name that friend in both the spoken line and the caption, and let 'Discount declined.' land on its own before the ask instead of running into it in one breath.",
+  "The reframe doesn't answer the client and sounds like an accusation. The client is saying 'the same posts cost less to make now.' Floey's 'Piles of posts just to rank? Google calls that spam' answers a different point, and her question sounds like she is asking whether Maya makes spam. The missing step is that the number of posts was never the value. Keep the Google fact ('help nobody', 'no matter how it's made') but aim it at post count being the job, not at Maya.",
+  "The doubt line's voice emotion fights the action. 'So what's she paying for?' is Maya pushing back, flat and annoyed in the visual, but it is tagged 'warm'. A warm read makes the pushback sound sweet. Use a delivery that fits a flat pushback, such as curious or worried.",
+  "Floey acts where nobody can see her. In the tip, the wink on 'three before' happens after the cut to shot maya on 'Search Console'. In the payoff, Floey's slow blink is also in shot maya. In shot maya, Floey is fully out of frame. Move these actions into shots where she is visible, or drop them.",
+  "Two table rows are blank. The '/porto-food-tour' and '/cheap-trains-spain' rows have 'values not filled in yet'. DUO.listInsert requires a real label and value on every row, with nothing blank, so the animator can't draw this as written. Give those rows a real value from the start, or keep them off the table until the reveal.",
+  "The table is gone when Maya says the number. On 'down two hundred' the script cuts back to shot maya, so the -200 is off screen exactly when she says it. A number the voice says must be on screen beside its row. Hold the insert through the number and cut to her face after.",
+  "The cold coffee beat doesn't fit in 0.6 seconds. It needs a pose change into mug, a sip, and her face dropping to deadpan, all inside the 0.6 s gap after the payoff. The button then starts straight away, with Maya leaving the mug pose to type. The visual also calls this 'END is pushed', but END only applies after the last line. Either give the beat a real gap (about 1.5 s) or cut it.",
+  "The button tries to do too much in about a second. Floey flies to the shoulder and Maya types and hits send on the second word ('declined'), right after she was holding the mug. Then the look to camera gets only 0.6 s. Spread these out: the takeoff and typing in the gap before the line, and END pushed 1.5 to 2.5 s so the look to camera plays out.",
+  "The notification text is too long. With 'Client' as the sender, 'a chatbot writes posts now. Discount?' is 37 characters, over the limit of about 34, so it risks overflowing. Shorten it, for example 'Chatbots write posts now. Discount?'",
+  "The runtime is probably over 31 seconds. There are about 72 spoken words, plus pauses, the coffee beat, the button hold and 2.2 s of end card. The brief's send-ask test requires under 31 seconds. Trim words (the tip and the payoff are the easiest places) and check the measured timing.",
+  "The hook pose is ambiguous. 'Freezes in her panic pose, hands on her cheeks' mixes two different poses: panic puts her hands by her head, cheeks puts them on her cheeks. Pick one.",
+  "(polish) The hook is a calm report, not a mid-panic line. Maya is meant to exaggerate. The brief's fear is 'my work is worth nothing', and she never says it. One dramatic, very Maya fragment would make strangers stop scrolling.",
+  "(polish) 'That's what she pays for' is a bit tidy. It spells out the moral. 'Wait. Both up.' plus a short realisation in Maya's style might land harder, with the callback kept shorter.",
+  "(polish) The viewer never sees what Maya sends. The brief's image is her finally sending the list. As written she types something unseen and Floey says 'declined'. Show the list going out, for example a short shot of the insert or an outgoing message, so the win is the list and not just a refusal.",
+  "(polish) The mug appears from nowhere. It is never placed earlier. Draw DUO.mug() from frame one so the cold coffee pays off, and make the coldness readable: a sweat mark or a stronger face. A deadpan face alone may not say 'cold'.",
+  "(polish) The rise sound is on the wrong moment. It is placed on the bad Lisbon number, but it belongs just before the payoff. Use a tick on the bad row, or move the rise to just before the green swaps.",
+  "(polish) The table's order is slightly off. Sorted by Clicks Difference, the gaining rows would sit far below the losers. Showing them as rows five and six makes the site look like it has six pages. Also, 'fixed' is not a Search Console field. Put it in the row label, and consider labelling the insert as Maya's example dashboard.",
+  "(polish) The insert title will likely overflow. 'Search Console: Pages, last 3 months vs previous, by Clicks Difference' is long. Measure it, or move 'by Clicks Difference' into the subtitle.",
+  "(polish) Two mislabelled sounds and one emotion tag. 'Chip (tk sound)' names two different sounds; pick one. Floey's reframe is tagged 'warm' where her character calls for dry. That is fine, but 'playful' or 'proud' may suit her better."
+ ],
+ "style": "duo",
+ "template": "../drafts/r038-a-client-says-ai-writes-the-posts-now-so/scene.html"
+}

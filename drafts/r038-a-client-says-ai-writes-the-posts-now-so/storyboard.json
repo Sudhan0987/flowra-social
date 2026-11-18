@@ -1,0 +1,294 @@
+{
+ "style": "Duo sitcom, daytime in Maya's room: the window has a pale sky and one drifting cloud, a soft shelf, plant and spark poster, the warm desk with the laptop (spark sticker on the back) and a mug at the right end. Maya, the panicky solo blogger with the pencil bun, sits behind the desk. Floey the hummingbird perches on the laptop lid facing her (facing -1, side view) until the button. One notification (hook) and one continuous listInsert cutaway (beats 4 to 5). All list values are example data and are labelled that way. Running joke: Maya's coffee is always cold.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "Shot wide pushing slowly toward maya: Maya behind the desk, Floey perched on the laptop lid facing her, and the phone notification already down at the top of the frame beside the laptop. From: Client, text: 'A chatbot writes posts. Discount?' (33 characters).",
+   "action": "Frame one is already the problem: the notification is on screen. Maya jolts (MY.jolt), then freezes in the cheeks pose with her panic face and wide eyes, eyes flicking to the phone. A '!' mark pops by her bun. Floey tilts her head toward her (mood worried). Maya starts 'Client wants a discount.'",
+   "onScreenData": "A chatbot writes posts. Discount?",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "ding"
+    },
+    {
+     "at": 0.45,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.9,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "Shot mayaTight: Maya's face fills the frame, hands still on her cheeks, the bun wobbling. The notification slides back up and away as we cut.",
+   "action": "On 'Says chatbots write posts now' she keeps the panic face and her eyes dart left toward Floey, pleading. A small push-in keeps the pressure rising.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Shot floey: a closer two-shot favouring Floey on the laptop lid, with Maya soft in the background.",
+   "action": "Floey, deadpan (mood think), gives one slow blink on 'Piles of posts just to rank?' Behind her, Maya starts lowering her hands from her cheeks and freezes halfway, expression worried.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 2.3,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "Shot floeyTight: Floey alone on the laptop lid.",
+   "action": "On 'Google calls that spam.' Floey gives a small, firm tilt of her head, dry and certain. The push-in lands on the word 'spam'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 3.6,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Shot maya: Maya alone, hands frozen halfway down from her cheeks.",
+   "action": "Listener reaction on 'Chatbot or not.': Maya's face goes from worried to surprised. She blinks twice and her mouth goes small.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "Shot wide: the two-shot, Maya behind the desk and Floey on the lid.",
+   "action": "Quick cut for the comic turn. Maya's face goes annoyed and flat, she throws both palms up (shrug pose) and leans toward Floey (leanTo) on 'So what's she paying for?' Floey tilts her head the other way, unbothered.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "Shot floeyTight: Floey alone on the laptop lid.",
+   "action": "Floey gives a sharp chip on 'Knowing' (mood determined), and a crisp head turn on 'which old pages lose clicks.'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 2.1,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Shot maya: Maya alone behind the desk, lit by the laptop.",
+   "action": "On 'Search Console' she snaps into the type pose with her think face, eyebrows down, concentrating, eyes down at the laptop (look 0, 1). Her hands move as she types.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.15,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 4,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "Shot floey: the two-shot favouring Floey, with Maya soft in the background still typing.",
+   "action": "On 'three before' Floey winks at Maya. Maya keeps typing and gives one small nod without looking up.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 4.5,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Cutaway, the reel's only insert: DUO.listInsert of her laptop screen. Title 'Search Console: Pages'. Subtitle 'Last 3 months vs previous 3, example site'. Columns: Page, Clicks difference. Rows: /budget-lisbon-guide -200 (bad), /porto-on-a-budget -140 (bad), /cheap-flights-tips -95 (bad), /packing-list -60 (bad), /porto-food-tour 'fixed' (neutral), /cheap-trains-spain 'fixed' (neutral).",
+   "action": "The insert swings in already sorted, and the rows slide in two at a time (rowsK 0 to 1 by 1.5 s) as Maya reads 'Sorted by clicks difference...' Every row has a label and a value: the two fixed rows say 'fixed' in a neutral tone for now.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.5,
+     "kind": "pop"
+    },
+    {
+     "at": 0.95,
+     "kind": "pop"
+    },
+    {
+     "at": 1.4,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1.9,
+   "shot": "insert",
+   "camera": "push-in",
+   "subject": "The same listInsert, held. The top row /budget-lisbon-guide -200 is highlighted.",
+   "action": "On 'Lisbon guide' the highlight ring grows around the top row (hiK 0 to 1). On 'down two hundred' the -200 value pulses once. A gentle push-in on the card builds the pressure.",
+   "onScreenData": "-200",
+   "sfx": [
+    {
+     "at": 1.9,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The same listInsert, still up. Floey is heard over it. Focus moves down to the two 'fixed' rows at the bottom.",
+   "action": "On 'Now the two you fixed.' the ring slides off the Lisbon row. At 0.35 s /porto-food-tour swaps 'fixed' for a green '+48' (example). At 0.8 s /cheap-trains-spain swaps to a green '+31' (example).",
+   "onScreenData": "+48",
+   "sfx": [
+    {
+     "at": 0.35,
+     "kind": "ding"
+    },
+    {
+     "at": 0.8,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "Shot maya: the cut back from the insert. Maya alone behind the desk.",
+   "action": "On 'Wait.' Maya sits up sharply (MY.sit) with her surprised face, mouth open. On 'Both up.' she goes into the point pose at the screen with a happy grin.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 1.1,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "Shot mayaTight: Maya's face fills the frame, still pointing at the screen.",
+   "action": "Push-in for the realisation on 'That's what she pays for.' Her face turns proud, chin up, and she gives one firm nod.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 2.1,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "Shot wide: both characters. DUO.mug() is not drawn because Maya now holds the mug.",
+   "action": "In the silent gap after her line (GAP about 0.9 s), the cold coffee joke: Maya picks up the mug (mug pose) and takes a proud sip. Her face drops to deadpan because the coffee is cold. Floey, on the lid, gives one slow blink.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "Shot wide: the two-shot. Floey leaves the laptop lid for floeyShoulder (Maya's left shoulder, screen right). The mug is back on the desk.",
+   "action": "Floey takes off from the lid and lands on Maya's shoulder. Maya sets the mug down, goes back to the type pose with a smug face and types. On 'declined' she hits send with one sharp tap.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.55,
+     "kind": "type"
+    },
+    {
+     "at": 1.05,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 1.5,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "Shot wide, nudged into a slow push-in that keeps both Maya and Floey on her shoulder fully in frame, inside x 60 to 1020.",
+   "action": "On 'Send this to your friend's client' Floey pivots to face the camera (F.pivot front, mood happy) and gives one slow, smug blink. The caption band carries the line.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.55,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 2.9,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "The same framing, held: Maya with Floey on her shoulder, both facing the camera.",
+   "action": "The button, in the silent hold (END pushed so it plays out): Maya stops typing, turns her eyes to the camera and gives a deadpan look with one eyebrow up. Floey stays still and smug beside her.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 3.6,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: DUO.endCard with the Flowra logo intact, the line 'Maya & Floey, every day', and Floey perched in front without covering the spark. Captions are hidden.",
+   "action": "The end card lands with a thump and Floey settles into place.",
+   "onScreenData": "useflowra.com",
+   "sfx": [
+    {
+     "at": 3.6,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}
