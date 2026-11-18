@@ -544,7 +544,7 @@
   },
   {
    "id": "r033-maya-s-post-was-on-google-last-month-and",
-   "status": "approved",
+   "status": "published",
    "topic": "Maya's post was on Google last month and now it isn't indexed. She is sure the new \"AI filter\" has caught her. Floey has her read the one line Search Console gives as the reason.",
    "format": "duo-sitcom",
    "madeAt": "2026-11-13T13:22:43.190Z",
@@ -552,7 +552,14 @@
    "idea": "Maya's page was on Google last month. Now it isn't indexed at all.",
    "style": "duo",
    "run": 43430347690,
-   "note": "Approved by the founder in chat, 16 Nov 2026 (\"approve all\")"
+   "note": "Approved by the founder in chat, 16 Nov 2026 (\"approve all\")",
+   "published": {
+    "at": "2026-11-18",
+    "instagram": "18101205242411926",
+    "facebook": "1546999447187926",
+    "youtube": "efEgKEK6V0k",
+    "youtubePrivacy": "public"
+   }
   },
   {
    "id": "r034-maya-ranks-near-the-top-for-a-question-b",
