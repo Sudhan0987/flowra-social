@@ -606,6 +606,17 @@
    "reason": "Frame 01 (Maya tight, 'Fine. I'll write twice as many'): the open panic mouth hangs below her chin and onto her neck. In a close-up that fills the phone screen this looks like a broken rig, and a viewer will spot it. Frame 00 has the same overlap, only smaller. Keep the panic mouth inside the jaw line. Frames 04, 08 and 09 (Floey tight shots): the caption bar sits right across the Flowra spark on the laptop lid, so the logo's points stick out above and below the box. This partly hides the logo, ",
    "idea": "\"AI writes the posts now, so why do we pay you?\" Show the client which old pages you fixed, not how many posts you wrote.",
    "style": "duo"
+  },
+  {
+   "id": "r038-a-client-says-ai-writes-the-posts-now-so",
+   "status": "draft",
+   "topic": "A client says \"AI writes the posts now, so why do we pay you?\" and asks for a discount. Floey's answer: show them which old pages lost clicks and which ones you fixed, not how many posts you wrote.",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-18T14:21:51.272Z",
+   "seconds": 31,
+   "idea": "\"AI writes the posts now, so why do we pay you?\" Show the client which old pages you fixed, not how many posts you wrote.",
+   "style": "duo",
+   "run": 44318473185
   }
  ]
 }
