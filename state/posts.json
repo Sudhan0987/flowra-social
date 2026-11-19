@@ -624,6 +624,17 @@
    "idea": "\"AI writes the posts now, so why do we pay you?\" Show the client which old pages you fixed, not how many posts you wrote.",
    "style": "duo",
    "run": 44318473185
+  },
+  {
+   "id": "r039-maya-spent-the-afternoon-on-a-geo-checkl",
+   "status": "draft",
+   "topic": "Maya spent the afternoon on a GEO checklist for a new post (an llms file, chopping it into chunks, \"AI schema\"), and Google's AI Overview still quoted her plain old post that already ranks.",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-19T14:55:57.670Z",
+   "seconds": 30,
+   "idea": "Follow the GEO checklist, they said. The AI still quoted the page that already ranked.",
+   "style": "duo",
+   "run": 44543050012
   }
  ]
 }
