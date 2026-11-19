@@ -563,7 +563,7 @@
   },
   {
    "id": "r034-maya-ranks-near-the-top-for-a-question-b",
-   "status": "approved",
+   "status": "published",
    "topic": "Maya ranks near the top for a question, but someone else's answer sits in the box on top, because her answer is buried in paragraph nine",
    "format": "duo-sitcom",
    "madeAt": "2026-11-14T12:31:57.481Z",
@@ -571,7 +571,14 @@
    "idea": "Maya ranks near the top for the question, and someone else's answer sits in the box",
    "style": "duo",
    "run": 43593287970,
-   "note": "Approved by the founder in chat, 16 Nov 2026 (\"approve all\")"
+   "note": "Approved by the founder in chat, 16 Nov 2026 (\"approve all\")",
+   "published": {
+    "at": "2026-11-19",
+    "instagram": "18121640485787014",
+    "facebook": "1508848834419658",
+    "youtube": "ZH1P5u_M2CQ",
+    "youtubePrivacy": "public"
+   }
   },
   {
    "id": "r035-ai-wrote-maya-s-draft-in-seconds-and-fix",
