@@ -1,0 +1,100 @@
+{
+ "title": "The AI-ready post nobody quoted",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "My new post is AI-ready, and Google's AI quoted my old one!",
+   "emotion": "worried",
+   "visual": "Frame one, wide, day set. The problem is already on screen: the notification card from Jess is down over the top of the frame, 'AI Overview quoted your OLD post' (32 characters, no emoji; the caps on OLD do the work). Maya at the desk is already annoyed, staring at her phone on the desk. Beside the laptop is her mug (DUO.mug(), no steam): untouched, ignored, plainly cold. Floey is perched on the laptop lid. The buzz lands in the first frames and the phone screen lights up. Cut to mayaTight on 'and Google's AI': Maya goes from annoyed to panic, with a small jolt on 'old one'."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "The one that already ranks?",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey on the laptop lid, deadpan, one slow blink, then a tiny tongue flick. Only Floey is in the shot."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "But I made an AI text file! I cut it into chunks! AI schema!",
+   "emotion": "worried",
+   "visual": "wide, so both are visible: Maya does pointL at the laptop on 'AI text file', then panic with one jolt on each item ('chunks', 'schema'), getting bigger each time. A sweat mark pops by her bun on 'schema'. Floey stays perched on the lid, watches each jolt, is unimpressed and preens one wing."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Google says you need none of that. Its AI answers run on normal ranking.",
+   "emotion": "playful",
+   "visual": "wide: on 'Google says', Floey takes off from the lid (flutter sound, panned centre) and hovers at Maya's eye level, calm and a little smug, wings humming. Maya goes from panic to surprised and leans back a little in her chair."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So what do I check?",
+   "emotion": "curious",
+   "visual": "mayaTight: Maya in the think expression, leaning in toward where Floey hovers off frame. Only Maya is in the shot."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "Search Console. Is your new post even showing for that question?",
+   "emotion": "warm",
+   "visual": "wide: Floey flutters back down and lands on the laptop lid (flutter, then a soft landing tick). Cut to the floey shot of her perched there, beak pointing down at the screen. Maya types; key clicks panned left. Whoosh: the laptop screen insert (DUO.listInsert) swings in. Title 'Search Console · Pages', sub-line 'Query: how long to rest a roast chicken'. Row one: 'OLD  /easy-roast-chicken', 'avg position 4'. Row two: 'NEW  /roast-chicken-ai-ready', 'avg position 38'. A small footer tag on the insert reads 'Maya's example'."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 1.2,
+   "say": "Oh. My whole afternoon.",
+   "emotion": "warm",
+   "visual": "The insert holds. A rising sound, then a bright ring (hi) lands around the OLD row while the NEW row dims to grey. Cut to mayaTight on 'Oh.': Maya, flat and deflated, goes into a slump. In the long gap after the line, cut to wide. Maya reaches for the mug (DUO.mug() is not drawn while she holds it), takes a comfort sip, grimaces, boing. She puts the mug back down (DUO.mug() returns). Floey watches from the lid. All of this happens before Floey speaks."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Help the new one rank first. Then decorate. You're welcome.",
+   "emotion": "proud",
+   "visual": "wide: Floey, perched on the lid, turns to camera for the last word and gives a tiny smug head bob on 'You're welcome.' After the line, Maya turns to the camera and gives it a slow deadpan look. END is pushed back about 1.2 seconds so the look lands before the end card."
+  }
+ ],
+ "loopNote": "The reel ends on the same wide layout as frame one: Maya at the desk, the cold mug back beside the laptop, Floey on the lid. On replay, Jess's notification is down and the phone buzzes into that exact pose, so it feels like the text has just landed again and Maya's afternoon starts over.",
+ "caption": "Maya spent a whole afternoon making her new post \"AI-ready\". Google's AI answer quoted her plain old post instead. The one she never touched. 🙃\n\nGoogle's own guide says you don't need AI text files, chopped-up chunks or special schema to appear in AI Overviews or AI Mode. Those features are rooted in Google's normal ranking systems, so SEO basics still apply.\n\nThe check: in Search Console, open the Performance report, filter by the question you care about, then click the Pages tab. You'll see which of your posts actually shows up for it, and where.\n\nSend this to the friend who sent you a very long GEO checklist this year. How many boxes did you tick? 👇\n\n(Maya and Floey are from the Flowra team.)",
+ "hashtags": [
+  "#seo",
+  "#aioverviews",
+  "#blogging",
+  "#searchconsole",
+  "#contentmarketing"
+ ],
+ "sticky": 49,
+ "id": "r039-maya-spent-the-afternoon-on-a-geo-checkl",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Maya spent the afternoon on a GEO checklist for a new post (an llms file, chopping it into chunks, \"AI schema\"), and Google's AI Overview still quoted her plain old post that already ranks.",
+ "editorNotes": [
+  "The hook drops the stake. 'My new post is AI-ready, and Google's AI quoted my old one!' doesn't say she spent the whole afternoon on it, so a stranger hears 'Google quoted me' and takes it as good news. Two seconds in, the problem isn't clear. It also leaves the payoff 'Oh. My whole afternoon.' calling back to something no one ever said; a cold mug can't show 'an afternoon'. Put the wasted afternoon back into Maya's first line, as the brief had it, and keep the line short and spoken.",
+  "The button gives a second tip and slightly undercuts the true one. 'Help the new one rank first. Then decorate.' is new advice and vague; nobody can check it today. 'Then decorate' also suggests the llms file, chunks and AI schema pay off once a page ranks, but the brief's facts say no special optimisations are needed at all. Pushing the new post up for the same question as the old one also sets Maya against her own page, which already wins. Floey's last line should be a punchline, not a plan: a smug or warm callback that turns the reveal around (her plain post already got quoted, so she won), then 'You're welcome.' Keep it to Floey's few words, not three sentences.",
+  "Frame one: 'staring at her phone on the desk... the phone screen lights up.' The studio has no phone lying on the desk with a screen that lights. There is only the screen-space DUO.notification and the 'phone' pose (on a call). Use the notification sliding down with the buzz, and have Maya react with look/expr (or the phone pose if she picks it up).",
+  "The tip's insert has 'A small footer tag on the insert reads Maya's example'. DUO.listInsert has title, sub, cols and rows but no footer field, and the studio says not to draw your own cards. The rules require the example label, so it has to go inside the component, e.g. in the sub-line. Then check the length: 'Query: how long to rest a roast chicken' is already about 39 characters, so shorten the query so the sub-line fits its box once '(Maya's example)' is added.",
+  "The reveal has no room. The tip line's 0.5 s gap has to fit the whoosh, two rows sliding in, the rise and the ring growing on OLD, all before 'Oh.'. That is the reel's central image, and viewers need time to read 'avg position 4' against '38'. Give the insert about 1.5 s after the tip line. Also say when the insert closes: it's in screen space, so the cut to mayaTight on 'Oh.' has to follow the insert going away, not sit under it.",
+  "The cold-coffee button gets a 1.2 s gap to do this: mayaTight slump, cut to wide, reach, pose blend to mug, sip, grimace, boing, put the mug back. That's at least 2.5 to 3 s of acting, and squeezed in it reads as a twitch and the running joke dies. Lengthen the payoff gap, and drop either the slump or the mug going back down.",
+  "'So what do I check?' is shot on mayaTight while Floey is at floeyHover, which is at Maya's eye height right beside her head. A tight face shot will very likely cut Floey off at the frame edge, which breaks the 'nobody sliced at the frame edge' rule. Frame it so Floey is fully in or fully out (shot 'maya' nudged, or a wide two-shot), or have her already back on the lid.",
+  "(polish) The payoff's voice emotion is 'warm', but the line is deflated ('Oh. My whole afternoon.'). A warm read softens the punch. 'worried' is the closest flat or low option in the list. The hook's 'worried' also reads as fear when the angle is annoyed and wounded. Make sure the delivery sounds put out, not scared.",
+  "(polish) The doubt beat asks for jolts 'getting bigger each time'. MY.jolt has no size control, and three pop-sound jolts in about 3 s read as startle, not counting. Swap in pose changes (pointL, then shrug, then panic) with a single jolt on 'AI schema!'.",
+  "(polish) Floey takes off on the reframe and lands again on the tip. Inside one ~3 s tip line the visual has a wide shot, the landing, a cut to the floey shot, typing and the insert swinging in. That's crowded. Bring the insert in after 'Search Console.', or keep Floey hovering instead of landing.",
+  "(polish) 'the NEW row dims to grey': listInsert has no dim. Use the row's 'bad' tone and let the hi ring on OLD carry the contrast. Also, Floey's 'tiny smug head bob' isn't one of her listed behaviours. Use a tilt, wink or chip on 'You're welcome.'",
+  "(polish) 'Its AI answers run on normal ranking' is slightly clipped when spoken. 'run on its normal ranking' (the brief's wording) sounds more natural and is the approved safe phrasing."
+ ],
+ "style": "duo",
+ "template": "../drafts/r039-maya-spent-the-afternoon-on-a-geo-checkl/scene.html"
+}

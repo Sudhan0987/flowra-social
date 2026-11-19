@@ -1,0 +1,63 @@
+{
+ "topic": "Maya spent the afternoon on a GEO checklist for a new post (an llms file, chopping it into chunks, \"AI schema\"), and Google's AI Overview still quoted her plain old post that already ranks.",
+ "angle": "Maya is annoyed and a bit wounded. A friend texts that Google's AI answer quoted her old post. That is the plain one she never touched, not the new one she spent all afternoon \"optimising for AI\". Floey flips it with Google's own guide: you don't need llms files, chunked content or special schema, because Google's AI features are built on its normal ranking systems. The one check is in Search Console, where Maya sees that the old post already shows near the top for that question and the dressed-up one barely shows at all. It is funny because nearly everyone has bought or bookmarked a GEO checklist this year. It is true because Google wrote it down.",
+ "whyNow": "Our 15 Nov social listening found that site owners doubt GEO checklists more and more. In a 17 comment r/juststart post, a consultant who tracked which of his own pages AI assistants cited for over a year says the cited pages were the ones that already ranked. That is one person's experience on his own sites, and we could not open the thread ourselves (Reddit blocks our fetcher), so the reel never quotes it. Also in r/SEO, people are asking whether DA/DR matters for AI search visibility. Meanwhile Google published its own guide to optimizing for generative AI (Search Central blog, 15 May 2026), which says this is still SEO. On 3 June 2026 it added Generative AI performance reports to Search Console, and by 31 August they had reached every site. So the debate is live, and the answer is now in Google's own documentation.",
+ "goal": "send",
+ "audience": "Solo bloggers, content marketers and small agency people who have bookmarked, bought or been sent a GEO or AEO checklist this year. They spent hours on llms.txt, \"AI schema\" or rewriting posts into chunks, and they are quietly wondering whether any of it worked. They would send it to the friend who just made them read a 40-point GEO checklist.",
+ "facts": [
+  {
+   "fact": "Google: \"There are no additional requirements to appear in AI Overviews or AI Mode, nor other special optimizations necessary.\" The best practices for SEO remain relevant for AI features.",
+   "source": "https://developers.google.com/search/docs/appearance/ai-features"
+  },
+  {
+   "fact": "Google: \"You don't need to create new machine readable files, AI text files, or markup to appear in these features.\" and \"There's also no special schema.org structured data that you need to add.\"",
+   "source": "https://developers.google.com/search/docs/appearance/ai-features"
+  },
+  {
+   "fact": "Google's guide to optimizing for generative AI says its generative AI features on Google Search \"are rooted in our core Search ranking and quality systems\", so SEO best practices still apply.",
+   "source": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+  },
+  {
+   "fact": "The same guide says: \"There's no requirement to break your content into tiny pieces for AI to better understand it.\" It also says you don't need new machine-readable files, AI text files, markup or Markdown to appear in Google Search.",
+   "source": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+  },
+  {
+   "fact": "To be shown as a supporting link in AI Overviews or AI Mode, a page must be indexed and eligible to be shown in Google Search with a snippet. Meeting that does not guarantee it will be shown.",
+   "source": "https://developers.google.com/search/docs/appearance/ai-features"
+  },
+  {
+   "fact": "Google announced the guide on the Search Central blog on 15 May 2026 (by John Mueller). It explains why SEO best practices remain foundational and busts common AEO/GEO myths.",
+   "source": "https://developers.google.com/search/blog/2026/05/a-new-resource-for-optimizing"
+  },
+  {
+   "fact": "Traffic from AI Overviews and AI Mode counts in the normal Search Console Performance report, under the \"Web\" search type.",
+   "source": "https://developers.google.com/search/docs/appearance/ai-features"
+  },
+  {
+   "fact": "Search Console has had Generative AI performance reports since 3 June 2026. They show impressions only (how often your URLs appeared in AI Overviews, AI Mode and Discover AI features), by page, country, device and date, with no clicks or queries. Google's note says they reached all websites worldwide as of 31 August 2026.",
+   "source": "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports"
+  },
+  {
+   "fact": "Caveat for the writer: ranking helps, but it does not guarantee being cited. Ahrefs' March 2026 update found about 38% of URLs cited in AI Overviews also ranked in the top 10 for the same query (down from 76% in its July 2025 study, with changed methods). Ahrefs links this to query fan-out: Google splits a question into related searches and cites pages that show up across them. So the reel must NOT say 'AI only quotes top 10 pages'. Say 'Google's AI answers run on its normal ranking' and 'is the page even showing for that question?'",
+   "source": "https://ahrefs.com/blog/ai-overview-citations-top-10/"
+  },
+  {
+   "fact": "Demand evidence only, never on screen: in a 17 comment r/juststart post, a consultant who tracked which of his own pages AI assistants cited for over a year says the cited pages were the ones that already ranked and the tricks barely mattered. One person's experience; we could not open the thread ourselves.",
+   "source": "https://www.reddit.com/r/juststart/comments/1xvaa37/i_tracked_which_of_my_own_pages_ai_assistants/"
+  },
+  {
+   "fact": "Demand evidence only: an r/SEO thread asks whether DA/DR matters for AI search visibility. People are unsure what actually drives AI citations.",
+   "source": "https://www.reddit.com/r/SEO/comments/1xwjryy/does_da_dr_matter_for_ai_search_visibility/"
+  },
+  {
+   "fact": "Scope note: Google's guide covers Google's own AI features (AI Overviews, AI Mode), not ChatGPT or Perplexity. The script should name 'Google's AI answer' or 'the AI Overview', not 'every AI'.",
+   "source": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+  }
+ ],
+ "visualIdea": "Day set; Maya's coffee is already cold from an afternoon of \"GEO\". Hook: wide shot. Floey is perched on the laptop and the phone buzzes. DUO.notification from \"Jess\": \"AI Overview quoted your OLD post 😂\" (under 34 characters). Maya, mayaTight, annoyed (no number): \"I spent all afternoon making my new post AI-ready, and Google's AI quoted my boring old one.\" Floey, floeyTight, deadpan: \"The one that already ranks?\" Maya pushes back with pointL and counts on her fingers: \"I added an llms file! I cut it into chunks! I added AI schema!\" (a \"sweat\" mark). Floey, the flip: \"Google says you need none of that. Its AI answers run on its normal ranking.\" Maya: \"So what do I check?\" Floey's tip: \"Search Console. Is your new post even showing for that question?\" Cutaway, the central image: a DUO.listInsert titled \"Search Console · Queries\" with the sub-line \"for: (her question, an example)\". Rows: her old plain post, avg position 4 (good, ringed with hi); her new GEO post, avg position 38 (bad). Both numbers are clearly Maya's own example. Back on mayaTight, Maya: \"Oh.\" The button is a running joke: Maya lifts the mug, sips and grimaces because it's cold. Floey: \"Help the new one rank first. Then decorate. You're welcome.\" Maya looks at the camera, then the end card. Sounds: buzz on the notification, whoosh as the insert swings in, rise before the ring, sip and boing on the cold coffee.",
+ "pillar": "myth",
+ "instinct": "The AI skipped my new post because I didn't do enough GEO tricks (an llms file, chunked content, special AI schema), so I need to add more.",
+ "flip": "Google's own guide says you don't need llms or AI text files, chunked content or special schema to appear in its AI features, because they are built on its normal ranking systems. So first check in Search Console whether the page even shows for that question.",
+ "idea": "Follow the GEO checklist, they said. The AI still quoted the page that already ranked.",
+ "style": "duo"
+}

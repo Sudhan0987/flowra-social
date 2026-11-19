@@ -1,0 +1,12 @@
+{
+ "pass": true,
+ "problems": [
+  "Minor, frame 08: on 'Oh. My whole afternoon.' Maya has a gaping, open-mouthed shocked face with knitted brows. The script asks for 'flat and deflated, goes into a slump'. It still reads as a realisation beat, but the slump or deflated face should arrive by 'afternoon' so the picture matches the flat delivery.",
+  "Minor, frame 07: the insert's header row ('Page' / 'Avg position') and the grey footer ('Query: rest a roast chicken (Maya's example)') are very small for a phone. The query is the 'that question' Floey refers to, and 'Maya's example' is the honesty label, so both should be a size or two bigger. The OLD/NEW rows and the 4 vs 38 positions read fine. The footer also merges the script's sub-line and tag ('how long to rest a roast chicken' became 'rest a roast chicken'), which is acceptable.",
+  "Minor, frame 00: the script has Maya staring at her phone and the phone screen lighting up, but no phone is drawn. She looks down-left at nothing in particular. The Jess notification card carries the hook, so it still works.",
+  "Minor, frame 03: Maya's off-hand rests on top of the mug during 'chunks!' and reads like she's grabbing it. This slightly pre-empts the cold-mug sip gag later. Her pointing arm also passes behind Floey's beak.",
+  "Minor, frames 05 and 10: the push-in crops the mug at the right edge of the frame. It's not distracting, but it's worth a check so the mug gag prop isn't half off-screen.",
+  "Not verifiable from the 12 samples: the ring on the OLD row and NEW row greying (payoff), and the comfort-sip, grimace and boing gag in the gap before Floey's button. Please spot-check these in the full render before it goes to Sudhan.",
+  "Checked and OK: the hook frame has the problem on screen (notification plus a worried Maya). Captions stay inside their boxes and carry speaker tags. Voices and characters match the duo rules. Flowra appears only on the end card, with the spark logo intact and Floey separate from it, and there is no spoken address. Floey's claim matches Google's published guidance: no special AI files, chunking or schema are needed, and AI features use its core ranking systems. The button pays off the opening problem."
+ ]
+}
