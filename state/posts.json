@@ -642,6 +642,17 @@
    "idea": "Follow the GEO checklist, they said. The AI still quoted the page that already ranked.",
    "style": "duo",
    "run": 44543050012
+  },
+  {
+   "id": "r040-maya-searches-her-brand-new-site-s-name-",
+   "status": "draft",
+   "topic": "Maya searches her brand new site's name and finds every site but hers. Is Google ignoring her, or does it simply not know she exists yet?",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-20T14:27:12.862Z",
+   "seconds": 28,
+   "idea": "Maya searches her own brand new site's name and Google shows everyone but her",
+   "style": "duo",
+   "run": 44749003162
   }
  ]
 }
