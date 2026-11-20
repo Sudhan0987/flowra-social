@@ -582,7 +582,7 @@
   },
   {
    "id": "r035-ai-wrote-maya-s-draft-in-seconds-and-fix",
-   "status": "approved",
+   "status": "published",
    "topic": "AI wrote Maya's draft in seconds, and fixing it took all afternoon. Fix the outline before there's a draft.",
    "format": "duo-sitcom",
    "madeAt": "2026-11-15T13:08:54.879Z",
@@ -590,7 +590,14 @@
    "idea": "AI wrote Maya's draft in seconds, and fixing it took all afternoon. Fix the outline before the draft exists.",
    "style": "duo",
    "run": 43715129942,
-   "note": "Approved by the founder in chat, 16 Nov 2026 (\"approve all\")"
+   "note": "Approved by the founder in chat, 16 Nov 2026 (\"approve all\")",
+   "published": {
+    "at": "2026-11-20",
+    "instagram": "18434637190158532",
+    "facebook": "1133149476395026",
+    "youtube": "CJsG9cL7bGw",
+    "youtubePrivacy": "public"
+   }
   },
   {
    "id": "r036-google-dropped-maya-overnight-in-the-mid",
