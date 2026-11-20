@@ -1,0 +1,231 @@
+{
+ "style": "Day set in Maya's room: soft daylight window with a drifting cloud, shelf, plant, spark poster. Maya (amber captions) sits behind the desk with the laptop. Floey (pink captions) perches on the laptop lid facing her (facing -1). A full desk mug sits untouched at the desk's right end from frame one, set up for the cold-coffee button. Only one cutaway insert (the Sitemaps check) and one notification (Quota exceeded) in the whole reel.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk in pose panic, expr worried, hands up by her head at the laptop. Floey on the laptop lid. A red stat pill 'not found' already up beside Maya's head (x 880, y 610). Desk mug at the right end.",
+   "action": "Problem already happening on frame one: Maya stares at the screen, hands frozen up, and starts her line mid-panic. Floey sits still on the lid, eyes on the screen.",
+   "onScreenData": "not found",
+   "sfx": []
+  },
+  {
+   "beat": 0,
+   "at": 1.7,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone (Floey out of frame), the 'not found' pill still in frame by her head.",
+   "action": "Push in on 'Google showed everyone but me'. Her pose blends to cheeks and her expr goes to panic. In the pause after the line she does MY.jolt, and a '!' mark pops above her head on the side away from the pill.",
+   "onScreenData": "not found",
+   "sfx": [
+    {
+     "at": 3.55,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: closer two-shot favouring Floey on the lid. The 'not found' pill has faded out on the cut.",
+   "action": "Floey, unbothered, preens one wing first, then speaks: 'You launched yesterday. Google hasn't noticed you yet.' At the end of the line she gives one slow blink toward Maya.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 2,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya reacting, Floey off frame.",
+   "action": "Listener reaction on 'noticed you yet': Maya's jaw sets, expr annoyed, and her arms blend to crossed. She doesn't buy it.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: both in frame. Maya in pose type, expr annoyed. Floey on the lid.",
+   "action": "'No. It's blocking me.' Maya uncrosses her arms and grabs the trackpad. One hard click on 'Request indexing'. Floey's head follows her hand and nothing else moves.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 1.6,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: slow push toward Maya as the pressure rises. Floey slides out of frame.",
+   "action": "Two more clicks, one on each 'Again', each harder than the last, and she leans in. On the last one a single Search Console notification slides down at y 220: 'Quota exceeded' in the bad tone. Maya freezes mid-click.",
+   "onScreenData": "Quota exceeded",
+   "sfx": [
+    {
+     "at": 1.8,
+     "kind": "type"
+    },
+    {
+     "at": 2.4,
+     "kind": "type"
+    },
+    {
+     "at": 2.85,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the lid.",
+   "action": "Floey slowly turns her head toward Maya, deadpan: 'Clicking won't speed it up.' The notification slides back up and fades out.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 1.6,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: both. Maya in pose type, expr worried. Floey on the lid.",
+   "action": "Cut on 'Submit your sitemap in Search Console'. Floey dips her beak at the screen, and Maya leans in and types, the typing panned with her hands. On the last word she hits enter and Floey gives one small nod.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.8,
+     "kind": "type"
+    },
+    {
+     "at": 3.5,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop screen insert (DUO.listInsert), title 'Sitemaps', sub 'Search Console'. One row only: 'sitemap.xml' with the value 'Success' in the good tone, marked hi. This is the reel's only cutaway.",
+   "action": "The insert swings in on 'Done...'. The row slides in, and on 'it says success' the hi ring grows around 'Success'.",
+   "onScreenData": "Success",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.9,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1.3,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone.",
+   "action": "Back from the insert: MY.sit, expr happy, and she sinks back in the chair with a relieved little exhale.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: both. Floey on the lid, Maya leaning back, expr happy. Desk mug at the right end.",
+   "action": "Floey preens on the lid, pleased with herself: 'Now give it a few days.' Maya nods along, still smiling.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 1.2,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "wide pushing in toward mayaTight on Maya's face.",
+   "action": "On 'Maybe weeks' Maya freezes mid-smile and her expr drops to deadpan. This push-in is the realisation.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face fills the frame.",
+   "action": "expr annoyed, flat and indignant: 'Weeks? I wanted seconds.' MY.look(-1): she slowly turns her head toward Floey off frame.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the lid.",
+   "action": "Floey says it to Maya, dry: 'Your coffee waited. Look how that went.' After the line she pivots front and gives the camera one slow, smug blink.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 2.5,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya in pose mug, holding the coffee. The desk mug is no longer drawn, so there is only one mug.",
+   "action": "Maya takes a sip and freezes mid-sip at the cold coffee, expr deadpan. She lowers the mug slowly and gives the camera a long, silent look. Hold on the look for about 1.5 s.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.7,
+     "kind": "pop"
+    },
+    {
+     "at": 3.3,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 5.2,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: Flowra logo intact, 'Maya & Floey, every day', Floey perched on the spark's left arm in front, captions hidden.",
+   "action": "The end card lands after the held look.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 5.2,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}

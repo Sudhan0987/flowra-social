@@ -1,0 +1,55 @@
+{
+ "topic": "Maya searches her brand new site's name and finds every site but hers. Is Google ignoring her, or does it simply not know she exists yet?",
+ "angle": "Maya launches her blog, types its exact name into Google and gets a page of strangers, so she decides Google has blocked her and starts hitting Request Indexing again and again. Floey flips it: by Google's own docs it can take a few weeks to notice a new site, and asking again doesn't make the crawl any faster. Step one is adding and verifying the site in Search Console and submitting a sitemap. The reel shows the panic on screen (a results list with no Maya in it, then her frantic clicks) and then the calm fix (the Sitemaps report reading \"Success\"). It ends on the joke that the wait is now days, not seconds.",
+ "whyNow": "This came up in the 2026-11-15 social listening. In r/bigseo, a beginner can't find their first site even when they search its exact name (https://www.reddit.com/r/bigseo/comments/1xvqgme/launched_my_first_website_but_i_cant_even_find_it/). In r/TechSEO, a new site owner was surprised to get impressions and a first click within a day of adding the site to Search Console (https://www.reddit.com/r/TechSEO/comments/1xw5j9o/got_104_impressions_and_1_click_in_first_24_hours/). The same question keeps coming up on Indie Hackers (\"google indexed exactly zero of my pages after 2 weeks, is this normal\": https://www.indiehackers.com/post/google-indexed-exactly-zero-of-my-pages-after-2-weeks-is-this-normal-or-am-i-doing-something-stupid-8fed9e8d9b) and in many \"why isn't my new site on Google\" guides. Note: Reddit and Indie Hackers blocked direct fetching, so the thread details come from the listening file and search listings. The reel states none of them; it only uses the Google facts below. Planned as one of the two 'no-number-open' test reels (about 28 seconds, hook opens on the action with no number). Put 'no-number-open' in the experiment field.",
+ "goal": "send",
+ "audience": "People who just launched their first blog or content site, plus freelancers and small agencies who launch client sites and get the panicked \"I can't find us on Google\" message the next day. Anyone who has ever searched their own site's name the day after launch.",
+ "facts": [
+  {
+   "fact": "It can take a few weeks for Google to notice a new site, or changes to an existing site.",
+   "source": "https://developers.google.com/search/docs/fundamentals/get-on-google"
+  },
+  {
+   "fact": "Usually you don't need to submit your site at all: Google finds most sites on its own once they are on the web.",
+   "source": "https://developers.google.com/search/docs/fundamentals/get-on-google"
+  },
+  {
+   "fact": "Google mainly finds pages through links from other pages it has already crawled.",
+   "source": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+  },
+  {
+   "fact": "To check whether you're in Google's index, search site:yourdomain.com. If results from your site show up, you're in the index. It doesn't always list every indexed URL.",
+   "source": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide ; https://developers.google.com/search/docs/monitor-debug/search-operators/all-search-site"
+  },
+  {
+   "fact": "Asking Google to recrawl the same URL several times won't get it crawled any faster, and individual URL submissions have a quota.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl"
+  },
+  {
+   "fact": "Crawling can take anywhere from a few days to a few weeks, and requesting a crawl doesn't guarantee the page will be included in search results quickly, or at all.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl"
+  },
+  {
+   "fact": "To add a site to Search Console, you first prove you own it by choosing a verification method.",
+   "source": "https://support.google.com/webmasters/answer/34592"
+  },
+  {
+   "fact": "Once you add a property, data should start to appear in Search Console within a few days.",
+   "source": "https://support.google.com/webmasters/answer/34592"
+  },
+  {
+   "fact": "You submit a sitemap in Search Console's Sitemaps report, which then shows when Googlebot read it and any processing errors. A sitemap is only a hint and doesn't guarantee Google will use it.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+  },
+  {
+   "fact": "A sitemap isn't required. Google's starter guide says to focus first on making sure people know about your site.",
+   "source": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+  }
+ ],
+ "visualIdea": "Day set, wide shot. Maya types (typing sfx), and a DUO.listInsert cuts away to her screen: the title is her site's name in quotes and the sub reads \"Google results\". Six rows slide in, all made-up generic sites (\"a cookbook shop\", \"a recipe forum\", \"a food magazine\", \"a video page\", \"a map listing\", \"a dictionary\"), each with a real position value from 1 to 6. The hi ring circles an empty slot at the bottom labelled \"your site: not found\" in bad tone. Back in the room she jolts, with a \"!\" mark. In the middle beat she hammers the trackpad in pose type: click, click, click, each at least 0.4 s apart, with a \"Request indexing\" notification sliding down each time. Floey, perched on the laptop and deadpan in a floeyTight shot, stops her: clicking again won't make it faster. For the tip, a second listInsert shows the Search Console \"Sitemaps\" report: one row, \"sitemap.xml\" with the value \"Success\", which gets the hi ring and a ding. The button: Floey says data shows up \"in a few days\". Maya, in mayaTight, sips from the mug (pose mug, so no desk mug is drawn) and finds the coffee cold. Then she looks to camera.",
+ "pillar": "problem",
+ "instinct": "Maya searches her own site's name, can't find it, and decides Google has blocked her. She thinks hitting Request Indexing over and over will force her in.",
+ "flip": "Google says it can take a few weeks to notice a new site, and asking it to recrawl again and again won't make it any faster. The first step is to add and verify the site in Search Console and submit your sitemap.",
+ "idea": "Maya searches her own brand new site's name and Google shows everyone but her",
+ "style": "duo"
+}

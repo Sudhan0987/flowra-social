@@ -1,0 +1,100 @@
+{
+ "title": "Everyone but me (experiment: no-number-open)",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.45,
+   "say": "I searched my own blog's name. Google showed everyone but me.",
+   "emotion": "worried",
+   "visual": "Day set, wide shot. Frame one: Maya in pose panic, expr worried, hands up at the laptop. Floey sits on the laptop lid. On 'Google showed' it cuts to the laptop screen insert (DUO.listInsert) with title 'Google results' and sub 'search: my blog's name'. Six rows slide in quickly with no sound: 'a cookbook shop' 1, 'a recipe forum' 2, 'a food magazine' 3, 'a video page' 4, 'a map listing' 5, then a sixth row labelled 'your site' with the value 'not found' in the bad tone. That row carries hi, and the ring closes on it with a boing. In the pause it cuts back to wide: MY.jolt, and a '!' pops over Maya's head inside the frame with a pop sound. Floey turns her head toward her."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "You launched yesterday. Google hasn't noticed you yet.",
+   "emotion": "warm",
+   "visual": "floey shot: Floey sits on the lid, unbothered, and preens one wing before she speaks. Then she gives one slow blink toward where Maya sits, off frame."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "No. It's blocking me. Request indexing. Again. Again.",
+   "emotion": "worried",
+   "visual": "Wide shot so both are seen. Maya in pose type, expr annoyed, jaw set, clicks three times, one click each on 'Request indexing', 'Again' and 'Again', at least 0.4 s apart, each with its own click sfx. With every click a notification from 'Search Console' slides in with a whoosh. They stack at y 220, 300 and 380, below the top 200 px Instagram covers. The first two read 'Indexing requested' and the third reads 'Quota exceeded' in the bad tone. On the lid, Floey watches each one land and doesn't move."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Clicking won't speed it up. Submit your sitemap in Search Console.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey stays on the lid and turns her head slowly toward Maya, deadpan, while the three stacked notifications fade out behind her. On 'Submit your sitemap' it cuts to wide: Floey dips her beak at the screen, Maya leans in and types (pose type, expr worried), and the typing sfx pans with her hands. On the last word she hits enter with a soft click, and Floey gives one small nod."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Done... it says success.",
+   "emotion": "bright",
+   "visual": "Laptop screen insert (DUO.listInsert) with title 'Sitemaps' and sub 'Search Console'. One row slides in, label 'sitemap.xml' and value 'Success' in the good tone, and nothing else on the insert. The hi ring circles 'Success' with a bright ding. It cuts back to the maya shot: MY.sit, expr happy, as she sinks back in the chair."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Now give it a few days. Maybe weeks.",
+   "emotion": "warm",
+   "visual": "Wide shot: Floey preens on the lid, pleased with herself. Maya's expr is happy on 'a few days', then drops to deadpan on 'Maybe weeks', and she freezes mid-smile."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Weeks? I wanted seconds.",
+   "emotion": "playful",
+   "visual": "mayaTight: expr annoyed, flat and indignant. MY.look(-1) as she slowly turns her head toward where Floey sits."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Your coffee waited. Look how that went.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey says it to Maya, then gives the camera one slow, smug blink. Cut to mayaTight in pose mug, so no desk mug is drawn: Maya takes a sip (sip sfx), freezes and goes expr deadpan at the cold coffee. She lowers the mug and gives the camera a long, silent look. Hold on the look, then the end card with a thump."
+  }
+ ],
+ "loopNote": "No loop, as the duo style asks. The reel ends on the button: Floey's line, the cold-coffee sip and Maya's silent look to camera. We hold on the look for a beat, then cut to the end card with a thump.",
+ "caption": "Launched the blog. Searched its exact name. Got a cookbook shop, a recipe forum and everyone except you.\n\nGoogle hasn't blocked you. Google's own docs say it can take a few weeks to notice a new site, and asking it to recrawl the same page again and again won't make it any faster. Those requests have a quota, too.\n\nWhat to do instead: submit your sitemap in the Sitemaps report in Search Console. The report shows when Google read it. Then give it a few days, maybe weeks. (If you've been hitting Request Indexing, you're already in Search Console.)\n\nWho else searched their own site the morning after launch? Send this to the friend who launched yesterday.",
+ "hashtags": [
+  "#seo",
+  "#blogging",
+  "#newblog",
+  "#searchconsole",
+  "#bloggingtips"
+ ],
+ "sticky": 51,
+ "id": "r040-maya-searches-her-brand-new-site-s-name-",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Maya searches her brand new site's name and finds every site but hers. Is Google ignoring her, or does it simply not know she exists yet?",
+ "editorNotes": [
+  "The button doesn't land. Read aloud in Floey's voice, \"Your coffee waited. Look how that went.\" sounds written, not said, and the logic is backwards. Coffee doesn't wait; Maya left it. And \"look how that went\" says waiting turns out badly, while Floey's whole advice is to wait. The viewer also hears it before the sip, so it points at a cold coffee nobody has seen. The reel's real punchline is already Maya's \"Weeks? I wanted seconds.\" Write a short, dry Floey callback that builds on that, a real 'You're welcome' or 'it's Sunday' kind of line. If you keep the cold coffee, it is Maya's silent reaction after Floey's line, not the subject of the line.",
+  "The coffee is never set up. No desk mug is drawn in any earlier shot, then Maya has one in her hand (pose mug) for the last gag. Draw DUO.mug() in the wide shots from the hook on, then switch to pose mug and stop drawing the desk mug at the button, so the sip pays off something the viewer has seen.",
+  "The third notification, \"Quota exceeded\" after three clicks, is untrue as shown. The brief only says single-URL requests have a quota. It doesn't say the quota is that small, and three clicks won't hit it. Use the fact that's actually in the brief (asking again doesn't speed anything up): make all three read \"Indexing requested\", which also makes the clicking funnier. Also, DUO.notification(k, from, text, y) has no tone setting, so the 'bad tone' can't be drawn anyway.",
+  "Frame one isn't the problem yet. The script opens on Maya panicking at a laptop we can't see, and the results list only arrives on \"Google showed\", about 1.5 s in. The duo rule says the problem is already on screen in frame one. For a no-number open, start inside the results insert with the rows in and the ring closing on the not-found row, or have the insert already swinging in on frame one, then cut to the jolt.",
+  "Maya does nothing while Floey says the reframe, and the floey shot keeps part of her in frame. The listener is never frozen. Give her a reaction on \"yesterday\" or \"noticed\": a look left at Floey, worried to annoyed, a head tilt. The note \"toward where Maya sits, off frame\" is also wrong for the floey shot. Maya is only out of frame in floeyTight. Pick one shot.",
+  "(polish) Sounds pile up. In the doubt beat each click comes with a whoosh at the same moment, which breaks the one-sound-per-0.4 s rule. Keep the clicks and cue each notification on the next free slot, or drop the whoosh. In the hook, the ring's boing, MY.jolt (which already pops) and a second pop for the '!' mark land within the 0.45 s pause. Use one pop and keep the boing at least 0.4 s earlier.",
+  "(polish) Three notifications stacked at y 220, 300 and 380 may overlap. Measure the notification height and space them so no text touches, or have each new one replace the last.",
+  "(polish) The insert text is off. The sub 'search: my blog's name' reads like an unfilled placeholder, and the row 'your site' talks to the viewer on Maya's own screen. Use 'my blog' or a made-up quoted name, though the cast rules say the site is never named, so a plain 'my blog' is safest. Give the not-found row's value a plain word (for example the label 'my blog' with the value 'not found'). That matches the brief's visual better.",
+  "(polish) The doubt line is voiced 'worried' while the face is annoyed with a set jaw. \"It's blocking me. Again. Again.\" fits 'determined' better and matches the face. Otherwise set the face to worried.",
+  "(polish) Some of Floey's moves are outside her listed behaviours. 'Floey dips her beak at the screen' doesn't work: she sits on the lid facing Maya, and the screen faces the other way. 'One small nod' isn't a listed Floey behaviour either. Use a tilt, a chip or a pivot instead.",
+  "(polish) In the check beat, 'MY.sit ... as she sinks back in the chair': MY.sit looks like the upright pose and MY.slump is the sinking. Use slump for relief, or say she settles upright.",
+  "(polish) The tip could be heard as 'the sitemap is the fast lane', which goes against the brief (a sitemap is only a hint). \"Now give it a few days. Maybe weeks.\" mostly covers it. Make sure the 'Success' insert reads as 'Google read your sitemap', not 'you're on Google', for example a column header 'Status' over 'Success'."
+ ],
+ "style": "duo",
+ "template": "../drafts/r040-maya-searches-her-brand-new-site-s-name-/scene.html"
+}
