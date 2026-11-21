@@ -1,0 +1,10 @@
+{
+ "pass": true,
+ "problems": [
+  "Minor, frame 00: the word-count pill is missing from the first frame. The script asks for it 'from frame one' and the duo rules want the problem already showing. The panic face, the sweat mark and the 'Core update rolling out' notification still make a strong hook, so this doesn't block.",
+  "Minor, frames 03-04: Floey's 'Google's own guide…' line holds on one floeyTight shot of the back of the laptop with little change. Floey never leans toward a screen, and nothing on screen shows the guide. The claim is true: Google's 'Creating helpful, reliable, people-first content' page asks whether you write to a word count because you heard Google has a preferred one, and answers '(No, we don't.)'. The voice credits it to Google, so it isn't unsourced, just not shown.",
+  "Minor, frame 09: Maya holds the mug in one hand while the other rests on the desk. The script says she hugs it to her chest with a sad face, but her face reads worried or shocked. The mug in her hand also has a pink-red stripe, while the desk mug had a purple one, so it doesn't match.",
+  "Minor, frame 10: in the button hold, Maya's eyes look down and to the left, toward Floey and the laptop, not straight into the camera as the script asks. She also holds the mug in one hand instead of two. The flat look still lands as a reaction.",
+  "Can't check from the samples, frames 07-08: none of the 12 frames shows the three dimmed rows being removed one by one, and none shows the pill shrinking from 1,640 to 530. The pill is still red at 1,640 on 'how to keep it' (frame 08) and green at 530 by frame 09. Confirm in the full render that both actually play."
+ ]
+}

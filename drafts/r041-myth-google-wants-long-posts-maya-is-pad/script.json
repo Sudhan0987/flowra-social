@@ -1,0 +1,124 @@
+{
+ "title": "The banana bread word count",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "I'm padding my banana bread post so Google takes it seriously.",
+   "emotion": "determined",
+   "visual": "Wide, daytime, from frame one: Maya typing hard (pose type, fast typing sfx). Floey sits on the laptop lid and slowly tilts her head to watch. A mug sits on the desk beside the laptop (DUO.mug). A word count pill by Maya's head shows only a bar filling up in bad tone, with no number, and ticks with every burst of typing. A sweat mark pops up beside her glasses. Her phone on the desk lights up with a notification: 'Core update rolling out' (small ding sfx)."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Says who, Maya?",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey looks down at the screen, then up at Maya, deadpan, with one slow blink. Off-shot, the typing sfx stops mid-word."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "Everyone says two thousand words!",
+   "emotion": "worried",
+   "caption": "Everyone says 2,000 words!",
+   "visual": "mayaTight: Maya throws both hands up off the keys (pose panic), eyebrows high. On 'two thousand', the pill by her head flips from the bare bar to a number for the first time: '1,640 words', still in bad tone (her own example)."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Google's own guide asks if Google has a preferred word count.",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey turns side-on to the screen and leans toward it as if reading aloud, flat and official. One tongue flick at the end of the line."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "And?",
+   "emotion": "curious",
+   "visual": "mayaTight: Maya, hands still half up from the panic pose, goes still and stares (MY.expr(surprised))."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "It answers itself. No, we don't.",
+   "emotion": "playful",
+   "caption": "It answers itself. \"No, we don't.\"",
+   "visual": "Wide: Floey on the lid swivels from the screen to Maya on 'No, we don't', then blinks once, smug. Maya freezes with her mouth half open. The red '1,640 words' pill still glows by her head."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "So what do I cut?",
+   "emotion": "curious",
+   "visual": "maya: Maya leans toward the laptop (MY.leanTo) and looks from the screen up toward where Floey sits (look)."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Answer what they searched. Cut the rest.",
+   "emotion": "warm",
+   "visual": "Cutaway, laptop screen insert (DUO.listInsert) titled 'My draft: banana bread'. The rows slide in: 'My childhood kitchen 420 words', 'A history of bananas 380 words', 'Why baking is self-care 310 words', 'The recipe 290 words', 'Storage tips 240 words'. On 'what they searched', a bright ring grows around 'The recipe' (ding sfx) and the three rows above it dim."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Oh. The recipe, and how to keep it.",
+   "emotion": "bright",
+   "visual": "Hold the listInsert: the three dimmed rows go one at a time, childhood kitchen, then history of bananas, then self-care, with one click sfx each, at least 0.4 s apart. Only 'The recipe 290 words' and 'Storage tips 240 words' are left. Note for the animator: if listInsert can't remove rows, hard-cut on each click to a redrawn insert with one row fewer, ending on the two-row version. Then cut to wide: Maya (MY.expr(surprised), then pose type) taps once more, and the pill shrinks and turns good tone at '530 words'. Floey chips on the lid."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "But my childhood kitchen story...",
+   "emotion": "worried",
+   "visual": "Wide: Maya picks up the mug from the desk (the desk mug goes, and she switches to pose mug, never both at once) and hugs it to her chest with a sad face (expr sad). Floey, still on the lid, turns her head and watches her sideways. The green '530 words' pill stays by Maya's head."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Send it to your mom.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey says it to Maya, deadpan, then pivots front to camera for a beat and winks. Cut to wide: Maya slowly turns and gives the camera a flat look, mug in both hands, with the green '530 words' pill glowing by her head. Hold the look for about 1.8 seconds before the end card, so the end card comes later."
+  }
+ ],
+ "loopNote": "The last frame holds Maya's flat look to camera, mug in hand, beside the small green '530 words' pill. On replay, frame one has the mug back on the desk and the bar filling up again in red while she types hard, with no number on it. The loop plays the joke backwards: you just watched the post shrink and get better, and now you see her padding it all over again.",
+ "caption": "Maya was padding her banana bread post with her childhood kitchen and a history of bananas, because everyone says two thousand words.\n\nGoogle's own helpful content guide asks if you're writing to a word count because you've heard Google prefers one. Its answer, in brackets: \"No, we don't.\" The SEO Starter Guide adds that length alone doesn't matter for ranking.\n\nSo while the core update rolls out this week, don't add paragraphs. Open the post, find the part the searcher actually came for, answer it well, and cut the rest.\n\nWho else has written a whole backstory to hit a number? Be honest. 🍌",
+ "hashtags": [
+  "#seo",
+  "#blogging",
+  "#foodblogger",
+  "#contentwriting",
+  "#googlecoreupdate"
+ ],
+ "sticky": 51,
+ "id": "r041-myth-google-wants-long-posts-maya-is-pad",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Myth: \"Google wants long posts.\" Maya is padding her banana bread post to hit a word count, and Google's own guide answers that question in four words: \"No, we don't.\"",
+ "editorNotes": [
+  "Hook and loop: 'a word count pill that shows only a bar filling up, no number' can't be drawn. DUO.stat is a text pill (x, y, k, text, tone); it has no progress bar. The whole loop note depends on that bar too. Instead, keep the stat off screen until 'two thousand' and carry frame one with the hard typing, the sweat mark and Floey's slow head tilt. Or give the pill short text with no number (e.g. 'more words', bad tone) and flip it to '1,640 words' on line 3. Rewrite the loop note to match.",
+  "Hook: 'her phone on the desk lights up' can't be drawn. The studio has no phone on the desk, only Maya's phone pose and the screen-space DUO.notification that slides down. If you keep the notification, write it as a slide-down with a named sender and text under 34 characters. Also decide whether it earns its place: it lands during the busiest 3 seconds (typing, ticks, sweat pop, Floey's tilt, the spoken hook) and no line ever mentions it. Cutting it, or bringing it in after the hook line ends, would make frame one easier to read.",
+  "Floey's line 'Google's own guide asks if Google has a preferred word count.' misquotes the source. The guide doesn't ask whether Google has a preferred count. It asks the writer: 'Are you writing to a particular word count because you've heard or read that Google has a preferred word count?' and then answers '(No, we don't.)'. Floey is always right, and anyone who checks the guide will correct her in the comments. The line also sounds written ('Google's... Google' in one breath, 11 words from the character with the fewest words). Make it something spoken and accurate, e.g. 'Google's own guide asks if you write to a word count.' Then 'And?' and 'It answers itself. No, we don't.' still work as they are.",
+  "Line 3: the pill shows a number for the first time ('1,640 words') in mayaTight. In that shot her face fills the frame, and a stat near her head (about x 880, y 610 in the room) is likely cut off or pushed out of frame. The studio says to fade stats out before such shots. This is the first number in a no-number-open reel, so the viewer has to see it. Either put line 3 in the 'maya' shot, or nudge mayaTight and confirm on a phone-size still that the pill is fully inside x 60 to 1020.",
+  "(polish) Hook sound is overbooked: continuous typing, plus a tick on 'every burst of typing', plus the sweat-mark pop, plus a notification ding. Together they break the one-sound-every-0.4-seconds rule. Use one typing cue (with { d }) and at most one more sound in the first 3 seconds.",
+  "(polish) Check line visual is crowded. During one ~3-second line plus a 0.35 s pause it has three row deletions (each at least 0.4 s apart), a cut to wide, a tap, the pill shrinking and changing tone, and a chip, all on separate sounds. Give it a longer pause or move the pill shrink and chip into the pause. Also: listInsert has no 'dim'. To fade the three rows on the tip line, use each row's tone (or drop the dimming); the hard cuts to redrawn inserts with fewer rows are fine. And the line's emotion is 'bright' but the face is set to surprised. After 'Oh.' switch her to happy so the face matches the line on sampled frames.",
+  "(polish) 'Oh. The recipe, and how to keep it.' reads slightly written, and 'keep it' could mean keep the recipe rather than store the bread. Something like 'Oh. Just the recipe. And storage.' is clearer out loud and still points at the two rows left on screen.",
+  "(polish) Turning the '530 words' pill to good tone suggests 530 is the new right number, which goes against the reel's own point (Google doesn't count words). The brief asks for the shrink, so keep it. But consider making the green moment about the content ('just the recipe') or letting the pill fade once the post is fixed, so nobody screenshots '530' as the new target.",
+  "(polish) The button has two looks to camera in a row: Floey pivots front and winks, then Maya turns and gives the camera a flat look. Two looks dilute the punchline. Let Floey say 'Send it to your mom.' to Maya (a dry head turn, no wink), then hold Maya's flat look to camera as the single final beat.",
+  "(polish) Running time: 11 lines (about 65 words) plus about 4 s of pauses, the 1.8 s silent hold and the 1.6 s end card. That comes to about 31 to 33 s against the brief's ~28. The flip ('No, we don't.') lands around 10 s. Shorten Floey's line 4 (see the misquote note) and trim the pauses after lines 6 and 8 so the payoff comes sooner."
+ ],
+ "style": "duo",
+ "template": "../drafts/r041-myth-google-wants-long-posts-maya-is-pad/scene.html"
+}

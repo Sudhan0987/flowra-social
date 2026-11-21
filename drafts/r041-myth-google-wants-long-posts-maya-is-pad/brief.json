@@ -1,0 +1,50 @@
+{
+ "topic": "Myth: \"Google wants long posts.\" Maya is padding her banana bread post to hit a word count, and Google's own guide answers that question in four words: \"No, we don't.\"",
+ "angle": "Mid core update, Maya is stretching a recipe post with a childhood story and a history of bananas because \"everyone says two thousand words\". Floey reads her the line in Google's own helpful content guide, which asks whether you write to a word count because you heard Google prefers one and then answers \"(No, we don't.)\". Then she has Maya cut everything the searcher didn't ask for. The joke is the word count pill climbing and then shrinking while the post gets better. This is a 'no-number-open' duo sitcom of about 28 seconds: the hook opens on the action (padding), and no number comes in until Maya's pushback.",
+ "whyNow": "Google's November 2026 core update started on 10 November and can take up to two weeks to roll out, so it should finish around 24 November. Site owners are rewriting posts in a panic this week. Google's core update page sends people with drops to its helpful content self-check, and that self-check holds the word count question. Demand is old and keeps coming back: a r/bigseo user once asked for a tool to compare word counts across the top results, and John Mueller replied, \"Word count is not a ranking factor. Save yourself the trouble.\" The question still drives a whole genre of \"ideal blog post length\" guides that give 1,500 to 2,500 word targets.",
+ "goal": "send",
+ "audience": "Solo bloggers and content writers (recipe, travel, hobby sites) and small agency writers who have padded a post, or been told to, to hit a word count from a guide, an SEO tool or a client brief. Almost everyone who runs a content site has done it at least once.",
+ "facts": [
+  {
+   "fact": "Google's helpful content self-assessment asks: \"Are you writing to a particular word count because you've heard or read that Google has a preferred word count?\" and answers \"(No, we don't.)\"",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "Google's SEO Starter Guide: \"The length of the content alone doesn't matter for ranking purposes\" and \"there's no magical word count target, minimum or maximum, though you probably want to have at least one word\".",
+   "source": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+  },
+  {
+   "fact": "The same Starter Guide says excessively repeating the same words is tiring for users and that keyword stuffing is against Google's spam policies.",
+   "source": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+  },
+  {
+   "fact": "The same helpful content guide also asks whether you change the date on pages to make them seem fresh when the content has not substantially changed (a possible extra line for Floey; optional).",
+   "source": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+  },
+  {
+   "fact": "Demand: on r/bigseo, a user asked for a tool to compare word counts of the top Google results for a query, and Google's John Mueller replied: \"Word count is not a ranking factor. Save yourself the trouble.\" (reported 5 August 2019)",
+   "source": "https://www.seroundtable.com/google-word-count-is-not-a-ranking-factor-27994.html"
+  },
+  {
+   "fact": "Demand: popular guides still give word count targets. For example, Bluehost says the best length for ranking is 1,500 to 2,500 words, which is where the 'everyone says two thousand' belief comes from.",
+   "source": "https://www.bluehost.com/blog/how-long-should-a-blog-post-be/"
+  },
+  {
+   "fact": "Google's November 2026 core update began rolling out on 10 November 2026. Google said the rollout may take up to 2 weeks and called it \"a regular update designed to better surface relevant, satisfying content for searchers from all types of sites.\"",
+   "source": "https://www.seroundtable.com/google-november-2026-core-update-42504.html"
+  },
+  {
+   "fact": "Google's core updates page points site owners with a large, lasting drop to a self-assessment that checks whether their content is helpful, reliable and people-first.",
+   "source": "https://developers.google.com/search/docs/appearance/core-updates"
+  },
+  {
+   "fact": "Any word counts shown on Maya's screen (for example her post at 1,640 words, or a section called 'My childhood kitchen' at 420 words) are her own example numbers, not data.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "Daytime, wide two-shot: Maya typing hard (pose type, typing sfx) with Floey on the laptop lid. A DUO.stat word count pill by Maya's head ticks up as she types (\"1,210 words\", then \"1,640 words\", bad tone), and a \"sweat\" mark pops up. Hook, Maya mid-action: \"I'm padding my banana bread post until Google takes it seriously.\" Floey, floeyTight, deadpan: \"Google doesn't count words, Maya.\" Maya pushes back: \"Everyone says two thousand!\" Floey: \"Google's own guide asks if you write to a word count. Then it answers: no, we don't.\" Cutaway DUO.listInsert titled \"My draft: banana bread\" with her sections as rows: \"My childhood kitchen 420 words\", \"A history of bananas 380 words\", \"Why baking is self-care 310 words\", \"The recipe 290 words\" (hi), \"Storage tips 240 words\". Floey: \"Which bit did they search for?\" The ring grows on \"The recipe\". Maya: \"Oh.\" Back to wide: Maya deletes (click sfx per cut, never closer than 0.4 s apart), the pill shrinks to a good-tone \"530 words\", and Floey chips. Tip line, Floey: \"Answer what they searched. Then stop.\" Button: Maya reaches for her mug, sips and winces because it's cold (the running joke), and Floey adds \"You're welcome.\" End card.",
+ "pillar": "myth",
+ "instinct": "If my post is shorter than the long ones, Google won't take it seriously, so I have to pad it to about two thousand words.",
+ "flip": "Google's own helpful content guide asks \"Are you writing to a particular word count because you've heard or read that Google has a preferred word count?\" and answers \"(No, we don't.)\"; its SEO Starter Guide adds that length alone doesn't matter for ranking.",
+ "style": "duo"
+}
