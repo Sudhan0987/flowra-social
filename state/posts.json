@@ -663,6 +663,17 @@
    "seconds": 29,
    "style": "duo",
    "run": 44908796657
+  },
+  {
+   "id": "r042-my-ranking-held-and-my-clicks-still-fell",
+   "status": "failed",
+   "topic": "My ranking held and my clicks still fell: three checks before you blame your page (duo-countdown)",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-22T13:54:52.446Z",
+   "seconds": 31,
+   "reason": "Frame 00 (hook): the red stat pill 'Clicks 410 → 260' is already on screen during Maya's first line. The script says the hook has no figures, and the pill belongs to the payoff (frame 08). Showing it here gives away the numbers early. It also sits across the poster and the window frame, so it looks pasted on rather than placed in the room. Frame 02 (doubt, 'So I rewrite it. Tonight. All of it.'): Maya is not in the type pose and is not hitting the keys. One hand rests at her chest and her face i",
+   "idea": "My ranking held and my clicks still fell: three checks before you blame your page",
+   "style": "duo"
   }
  ]
 }
