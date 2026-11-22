@@ -1,0 +1,282 @@
+{
+ "style": "Duo sitcom in Maya's room by day: soft day sky with a drifting cloud, shelf, plant and spark poster kept pale. Maya (amber caption, pencil bun) sits behind the desk with the laptop (spark sticker) and one mug at the desk's right end. Floey (pink caption) moves between the laptop lid and the mug rim. Running joke: Maya never says thank you. One cutaway only, the 'Before you rewrite it' list on her screen, built up row by row across the three checks. No notification. Red stat pill for Maya's own example numbers.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "medium",
+   "camera": "shake",
+   "subject": "maya shot: Maya behind the desk in the panic pose (hands up by her head), worried face, eyes down at the laptop. The red stat pill is already up by her head (x 880, y 610). A sweat mark is on her temple. Floey is out of frame on the laptop lid.",
+   "action": "Frame one, the problem is already happening: Maya says 'My best post has gone bad' with a small panic shake. Her bun wobbles. The pill pulses once.",
+   "onScreenData": "clicks 410 → 260",
+   "sfx": []
+  },
+  {
+   "beat": 0,
+   "at": 1.4,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame, hands on her cheeks. The stat pill fades out before the push so the frame does not slice it.",
+   "action": "On 'Clicks keep falling' she slides her hands down to her cheeks and the push tightens on her face. A '!' mark pops up by her head.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.5,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "wide",
+   "camera": "whip",
+   "subject": "wide: Floey perched on the laptop lid facing Maya, deadpan. Maya behind the desk.",
+   "action": "Whip to the two-shot for the reversal. Floey gives one slow blink and turns her head to Maya: 'It's not milk, Maya.' Maya's hands drop to rest and her face falls to annoyed on 'milk'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya shot: Maya alone at the desk, panic face set hard, now in the type pose. Floey is out of frame.",
+   "action": "Maya jolts upright and hammers the keys: 'So I rewrite it. Tonight. All of it.' She hits harder on each short sentence, with a slow push to sell the overreaction.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "pop"
+    },
+    {
+     "at": 0.5,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey takes off from the laptop lid to floeyHover at Maya's eye height. Maya stops typing.",
+   "action": "'Not yet.' Floey lifts off and hovers in front of Maya's face. Maya freezes mid-keystroke and her eyes go left to Floey, surprised.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 1.4,
+   "shot": "wide",
+   "camera": "drift",
+   "subject": "wide: Floey lands on the mug rim at the desk's right end (DUO.mug drawn). Maya sits back in the chin pose with a thinking face.",
+   "action": "'Three checks. Did the position move?' Floey lands on the mug rim with a small wobble and steadies herself. Maya leans back with her chin on her hand.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.5,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Cutaway, the one insert: listInsert titled 'Before you rewrite it' on Maya's laptop. Row one: 'Did the position move?' / 'No, still 3'. Maya's face is set to think off screen.",
+   "action": "The list swings in. Row one slides in already filled, and the ring grows around it as Maya says 'Still third. Same impressions too.'",
+   "onScreenData": "Position: still 3",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.9,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey shot: a closer two-shot favouring Floey as she hops from the mug rim back to the laptop lid. Maya is at the edge of frame, fully in.",
+   "action": "Floey hops back to the lid and tilts her head at Maya, deadpan: 'One page, or every page?'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0.9,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot: Maya with a thinking face, eyes on the laptop. Floey is out of frame.",
+   "action": "Maya looks down at the screen, then goes into the point pose and points at it as Floey's question lands.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Same list insert: row one stays ringed lightly. Row two: 'One page or every page?' / 'Just this one'. Maya's face is set to surprised off screen.",
+   "action": "Back to the list. Row two slides in already filled and takes the ring: 'Just this one.'",
+   "onScreenData": "Just this one",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.6,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey hops from the laptop lid to the mug rim. Maya leans in with a thinking face, eyes on the screen.",
+   "action": "'Only you, or the whole topic?' Floey hops onto the mug rim. Maya leans towards the laptop, curious.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "step"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 1.5,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey shot: favouring Floey on the mug rim, with Maya leaning in beside her.",
+   "action": "On 'Google Trends' Floey gives a nod towards the screen. Maya's eyes follow her nod down to the laptop.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Same list insert: rows one and two stay. Row three: 'Only me or the whole topic?' / 'Trends flat, so just me'. All three checks are now on the list. Maya's face is set to sad off screen.",
+   "action": "Row three slides in already filled and takes the ring as Maya says, deflating, 'Flat. So it's just me...'",
+   "onScreenData": "Trends: flat",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.7,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey on the mug rim pivots to Maya. Maya in the chin pose with a thinking face. The red stat pill comes back near her head (x 880, y 610).",
+   "action": "Floey gives one calm nod: 'Seen, not clicked.' The pill pops back in and Maya's eyes go up to it.",
+   "onScreenData": "clicks 410 → 260",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 9,
+   "at": 1.5,
+   "shot": "wide",
+   "camera": "drift",
+   "subject": "wide: the same two-shot with the pill still up. Maya looks from the pill to Floey.",
+   "action": "'Start with your title and snippet.' Maya's eyes move from the pill to Floey on the mug, and her head tilts slowly as it sinks in.",
+   "onScreenData": "clicks 410 → 260",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya shot: Maya alone, happy face. The pill fades out before the push. Floey is out of frame on the mug.",
+   "action": "The realisation lands. Maya sits up bright: 'Oh. The title.' The push-in rides her realisation.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 1,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot: Maya in the type pose with a happy, calm face.",
+   "action": "'Not the whole post.' She types small and steady, a calm mirror of her frantic typing in beat 2.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 11,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey shot: Floey on the mug rim, happy mood, with Maya typing at the edge of frame.",
+   "action": "Floey pivots to the front and looks straight at camera: 'You're welcome.' Maya keeps typing and does not look up.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 11,
+   "at": 1.1,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face fills the frame, deadpan.",
+   "action": "The button, with no words: Maya, who never said thank you, stops typing, lifts her eyes and gives the camera a flat look. She holds it, then blinks once.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 11,
+   "at": 2.7,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo with 'Maya & Floey, every day', and Floey perched in front on the spark's left arm.",
+   "action": "The end card slams in. Floey lands sideways on the spark's left arm and turns to face camera.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.7,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}

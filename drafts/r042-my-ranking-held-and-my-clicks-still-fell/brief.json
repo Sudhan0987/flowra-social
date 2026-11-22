@@ -1,0 +1,67 @@
+{
+ "topic": "My ranking held and my clicks still fell: three checks before you blame your page (duo-countdown)",
+ "angle": "Maya opens her Search Console. Her best post shows the same position as last month, but its clicks are falling, and she is sure the post has \"gone bad\". Floey tells her the page didn't get worse, the results page around it changed, and takes her through three checks one at a time, the same way r006 did: did the position actually move, is it one page or every page, and is it only her site or the whole topic. Each check is a real step in Google's own guide to traffic drops. The viewer ends up with a short list they can run before rewriting anything.",
+ "whyNow": "On 18 November 2026 a Hacker News thread discussed a randomized study finding that Google's AI Overviews cut clicks to outside websites by about 40% (daily.dev's summary of the HN thread). On 12 November Business Insider reported Similarweb data showing Reddit's global visits down 13% year over year, with the drop linked to AI Overviews and lower Google traffic. Site owners everywhere are seeing positions hold while clicks fall. It also fits our only saving topic so far ('Google shows you but nobody clicks'), and this is the duo-countdown save test. Put 'duo-countdown' in the experiment field.",
+ "goal": "save",
+ "audience": "Solo bloggers, content marketers and small agency people who check Search Console each week and have seen a post keep its position while its clicks fall.",
+ "facts": [
+  {
+   "fact": "Google's guide to traffic drops lists these causes: algorithmic updates, technical issues, security issues, spam issues, seasonality and changing interests, and site moves. For updates it says there might not be anything fundamentally wrong with your content.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Check 1 (did the position move): Google suggests using the Compare tab in the Search Console Performance report to compare two periods, saying it 'will help you review what exactly changed'.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google: 'If your impressions remain the same but your clicks drop, you might not be generating the best page title' and snippet. The same passage says competing sites may have a more appealing rich result.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google: 'In general, you shouldn't focus too much on your absolute position.' And: 'Impressions and clicks are ultimately the measure of success for your site.'",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Check 2 (one page or every page): Google says that for a site-wide drop you check the Page indexing report, and if the drop only affects a group of pages you use the URL Inspection tool on a few of them.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Check 3 (only you, or the whole topic): Google suggests setting the date filter to 'Last 16 months' to see whether the drop happens every year, and looking up your queries in Google Trends to see whether it is a wider trend.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Search Console's position is the topmost position your link held, averaged across the queries where it appeared.",
+   "source": "https://support.google.com/webmasters/answer/7042828?hl=en"
+  },
+  {
+   "fact": "An AI Overview takes up a single position in Google's results, and every link inside it shares that position. Clicking a link in an AI Overview counts as a click.",
+   "source": "https://support.google.com/webmasters/answer/7042828?hl=en"
+  },
+  {
+   "fact": "Traffic from AI Overviews and AI Mode is counted in Search Console's overall Performance report under the 'Web' search type, so you cannot filter it out as a separate line.",
+   "source": "https://developers.google.com/search/docs/appearance/ai-features"
+  },
+  {
+   "fact": "A randomized experiment by Agarwal and Sen (an SSRN working paper from June 2026, not yet peer reviewed) found that showing an AI Overview cuts clicks to outside websites by about 40%. It covered only US desktop Chrome users over two weeks.",
+   "source": "https://revscope.co/blog/search-seo-geo-2026/"
+  },
+  {
+   "fact": "Demand: a Hacker News thread titled 'Google's AI answers reducing search traffic by 40%' was discussed on 18 November 2026 (daily.dev summary of the HN thread).",
+   "source": "https://daily.dev/posts/google-s-ai-answers-reducing-search-traffic-by-40--sdlnyb9pd"
+  },
+  {
+   "fact": "Demand: Business Insider reported on 12 November 2026 that Similarweb estimates Reddit's global visits fell 13% from October 2025 to October 2026, linking it to Google's AI Overviews and lower search traffic. Reddit says it measures active uniques, not visits. (BI blocked fetching, so this comes from secondary coverage.)",
+   "source": "https://www.tikr.com/blog/reddit-sinks-6-as-traffic-falls-13-on-googles-ai-overviews-not-traffic-drivers"
+  },
+  {
+   "fact": "Example only (Maya's own numbers, framed as hers): her post sits at position 3 in both months, impressions are about the same, and clicks fall from 410 to 260.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "The cutaway is the star. DUO.screenInsert shows Maya's Search Console chart with two lines drawing themselves: the position line stays dead flat while the clicks line slides down underneath it. A stat pill \"position 3 → 3\" (good) sits next to \"clicks 410 → 260\" (bad). After that comes the countdown: a DUO.listInsert titled \"Before you rewrite it\" with three rows that slide in one per beat, each ringed (hi) as Maya runs it. The rows are: \"Did the position move? No, still 3\", \"One page or every page? Just this one\", \"Only me or the whole topic? Trends flat, so just me\". Floey hops from the laptop to the mug for each check. Maya's look goes from panic to think to \"Oh.\" For the button, Maya reaches for her coffee to celebrate, finds it cold, and looks to camera. Floey says \"You're welcome.\"",
+ "pillar": "problem",
+ "instinct": "My position didn't move but my clicks fell, so my post must have got worse and I need to rewrite it (or Google hates me).",
+ "flip": "Google's own guide says that if impressions hold but clicks drop, the cause can be your title and snippet, or other results on the page looking more appealing. It also says not to focus too much on absolute position, because impressions and clicks are the real measure. So run three checks before you touch the page: did the position move, is it one page or all of them, and is the drop only yours or the whole topic's?",
+ "idea": "My ranking held and my clicks still fell: three checks before you blame your page",
+ "style": "duo"
+}

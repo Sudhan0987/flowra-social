@@ -1,0 +1,131 @@
+{
+ "title": "Same spot, fewer clicks: three checks before you rewrite",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "My best post has gone bad. Clicks keep falling.",
+   "emotion": "worried",
+   "visual": "Shot: maya, frame one. Maya at the laptop in the panic pose with a worried expression. Her mug sits on the desk beside the laptop. Floey is perched on the laptop lid, out of this frame. On 'Clicks keep falling' we cut to the screenInsert: her Search Console chart with one clicks line drawing itself and sliding down. No figures on the chart."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "It's not milk, Maya.",
+   "emotion": "warm",
+   "visual": "Shot: wide. Floey sits on the laptop lid, deadpan. She gives one slow blink and turns her head to Maya. Maya stops panicking and her expression drops to annoyed."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "So I rewrite it. Tonight. All of it.",
+   "emotion": "determined",
+   "visual": "Shot: maya. Maya switches to the type pose with MY.jolt and a determined expression, hitting the keys hard. Floey is out of frame on the laptop lid."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.45,
+   "say": "Not yet. Three checks. Did the position move?",
+   "emotion": "playful",
+   "visual": "Shot: wide. Floey takes off from the laptop lid to floeyHover in front of Maya, then lands on the rim of the mug on the desk with a small wobble. Maya stops typing and sits back into the chin pose, thinking."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Still third. Same impressions too.",
+   "emotion": "curious",
+   "visual": "Cutaway: listInsert titled 'Before you rewrite it'. Row one slides in already filled, 'Did the position move? No, still 3', and gets ringed (hi). Maya's voice plays over the insert."
+  },
+  {
+   "role": "check",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "One page, or every page?",
+   "emotion": "playful",
+   "visual": "Shot: wide. Floey hops from the mug rim back to the laptop lid and tilts her head at Maya, deadpan. Maya, in the look pose, eyes the screen and then points at it."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Just this one.",
+   "emotion": "curious",
+   "visual": "Cutaway: listInsert. Row one stays. Row two slides in already filled, 'One page or every page? Just this one', and gets ringed (hi)."
+  },
+  {
+   "role": "check",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Only you, or the whole topic? Google Trends.",
+   "emotion": "playful",
+   "visual": "Shot: wide. Floey hops from the laptop lid to the mug rim and nods toward the screen. Maya leans in, in the look pose, with a curious expression."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "Flat. So it's just me...",
+   "emotion": "worried",
+   "visual": "Cutaway: listInsert. Rows one and two stay. Row three slides in already filled, 'Only me or the whole topic? Trends flat, so just me', and gets ringed (hi). All three checks are now on the list."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Seen, not clicked. Start with your title and snippet.",
+   "emotion": "warm",
+   "visual": "Shot: wide. Floey, still on the mug rim, pivots toward Maya and gives one calm nod. A red stat pill, 'clicks 410 → 260' (Maya's own example numbers), appears in room space near Maya's head. Maya looks from the pill to Floey in the chin pose."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Oh. The title. Not the whole post.",
+   "emotion": "bright",
+   "visual": "Shot: maya. Maya sits up with a bright expression as it lands, then goes into the type pose and types calmly, small and steady. Floey is out of frame on the mug."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "You're welcome.",
+   "emotion": "proud",
+   "visual": "Shot: floey. Floey on the mug rim does F.pivot front with a happy expression and looks straight at camera. Cut to mayaTight: Maya, who never said thank you, gives the camera a deadpan look with no words. Then the end card."
+  }
+ ],
+ "loopNote": "This is a duo reel, so there's no loop. It ends on the button: Floey's 'You're welcome.', Maya's silent deadpan look to camera, then the end card. Experiment: duo-countdown. The output schema has no experiment field, so this label has to be set by hand when the reel is logged.",
+ "caption": "Maya's best post kept its spot on Google. Her clicks still fell, and she was ready to rewrite the whole thing tonight.\n\nThree checks before you touch yours:\n1. Did the position move? Open the Compare tab in Search Console's Performance report and put this month next to last month.\n2. One page or every page? If it's every page, look at the Page indexing report. If it's a few pages, run URL Inspection on some of them.\n3. Only you or the whole topic? Set the date to Last 16 months to see if the drop comes back every year, and look up your queries in Google Trends.\n\nIf your position and impressions held but clicks fell, Google's own guide to traffic drops points to your page title and snippet first, or to a nearby result that looks more appealing.\n\nWhich check would have saved you a rewrite?",
+ "hashtags": [
+  "#seo",
+  "#searchconsole",
+  "#blogging",
+  "#contentmarketing",
+  "#bloggingtips"
+ ],
+ "sticky": 50,
+ "id": "r042-my-ranking-held-and-my-clicks-still-fell",
+ "format": "duo-sitcom",
+ "goal": "save",
+ "topic": "My ranking held and my clicks still fell: three checks before you blame your page (duo-countdown)",
+ "editorNotes": [
+  "Check 3 leads the viewer to the wrong conclusion. Google Trends shows how many people search a topic. It does not show whether other sites are losing clicks. So 'Flat. So it's just me...' plus the row 'Trends flat, so just me' is a false inference. It also contradicts the brief's angle that the page didn't get worse and the results page around it changed. Something new above her result, like an AI Overview or a richer result, would hit everyone on that query and would never show in Trends. A viewer who follows this, decides it's 'just me' and rewrites the title may see nothing change. Fix the row and Maya's line so they only claim what Trends shows (people still search for it). The payoff then has to come from 'same spot, same impressions, fewer clicks': people still see the result but click something else on the page.",
+  "There are two tips. The three checks are the one tip, and they're the list the viewer saves. 'Start with your title and snippet' is a second, separate fix. It isn't on the 'Before you rewrite it' list either, so the saved list doesn't hold the action the reel ends on. Pick one. Either make the checklist the whole tip and let Floey's payoff be the reframe (the page around you changed, not your post), or make the title the final row of the list so it reads as one runnable checklist, not a bonus tip in dialogue.",
+  "The hook and frame one miss the topic's paradox. 'My best post has gone bad. Clicks keep falling.' is any traffic-drop reel. The thing this audience will recognise and send on is 'my ranking held and my clicks still fell', and the viewer doesn't hear 'Still third' until line 5, around 8 seconds in. Frame one is also just Maya in the panic pose. The chart only arrives on the second sentence, with one line and 'no figures'. The brief's star visual, a flat position line over a falling clicks line plus pills ('position 3 → 3' good, 'clicks 410 → 260' bad), has been cut. Put the same-spot, fewer-clicks contrast in Maya's first line and on screen from frame one.",
+  "Visual cues the animator can't execute as written. (1) 'the look pose' is used twice (beats 6 and 8), and no such pose exists. MY.look only moves the eyes. Name a real pose (rest, chin, lean via MY.leanTo) plus a MY.look direction. (2) Floey 'nods toward the screen' and gives 'one calm nod'. Nod isn't one of Floey's listed behaviours (turn, tilt, wink, chip, preen, sip, hover), so use a tilt or a chip, unless brand/studio/README.md confirms a nod. (3) 'points at it [the screen]': the point pose aims at screen right, and her laptop screen faces her, not the camera. Use 'type' or a lean toward the laptop.",
+  "(polish) The middle sags, so it isn't send-to-a-friend yet. Between the milk joke and the button come five plain question-and-answer lines ('Did the position move?' / 'Still third...' / 'One page, or every page?' / 'Just this one.' / 'Only you...'). None has a laugh or a human beat, and Floey's three 'playful' questions sound like a form being read out. Give Maya one in-character reaction inside the countdown (relief that turns to fresh worry, or a line to Google) so the countdown has some rhythm.",
+  "(polish) The button is thin. 'You're welcome.' comes right after Maya's realisation, so there's nothing for it to undercut. It's the running line used flat, and Maya's deadpan look is the only reaction. The brief's physical gag (she reaches for her coffee to celebrate and finds it cold) was dropped. Floey is already perched on that mug, which hands you a free visual. Make Maya's last action or look earn Floey's line rather than just following it.",
+  "(polish) The saved list isn't runnable. The rows give Maya's answers ('No, still 3') but not where each check is done: the Compare tab in the Performance report, one page vs all pages, Google Trends or the 'Last 16 months' filter (all in the brief's facts). Maya also never types or clicks to run a check, so 'show the tip happening' is only implied. Since the goal is saves, put the tool on each row. Measure the long rows ('Only me or the whole topic? Trends flat, so just me') with PROPS.measure. Row 3's text has to change anyway (see the first problem).",
+  "(polish) 'Seen, not clicked' only lands if the viewer knows that 'seen' means impressions held. The only number on screen then is the clicks pill, which arrives late, at the payoff, after the reveal it supports. Show impressions holding beside clicks falling, ideally from the hook. 'Snippet' is jargon without the plain version (the text under your title in Google). Floey's rule is to give the plain words.",
+  "(polish) Floey's 'It's not milk, Maya.' is marked 'warm'. The joke works best dry. 'playful' or a flatter read would suit her deadpan better than warm, which can make it sound sweet instead of smug.",
+  "(polish) Button framing: DUO.SHOT.floey is built around the laptop spot, but here Floey is on the mug at the desk's right end. Nudge the shot and check she isn't cut off at the frame edge, and that the payoff stat pill (x about 880, y about 610) doesn't overlap her in the wide shot. Push END so Maya's silent look to camera plays out before the end card.",
+  "(polish) The brief asked for 'duo-countdown' in the experiment field. It's only mentioned in loopNote, so make sure it's set by hand when the reel is logged or the save test can't be read."
+ ],
+ "style": "duo",
+ "template": "../drafts/r042-my-ranking-held-and-my-clicks-still-fell/scene.html"
+}

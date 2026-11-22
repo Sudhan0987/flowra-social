@@ -1,0 +1,10 @@
+{
+ "pass": false,
+ "problems": [
+  "Frame 00 (hook): the red stat pill 'Clicks 410 → 260' is already on screen during Maya's first line. The script says the hook has no figures, and the pill belongs to the payoff (frame 08). Showing it here gives away the numbers early. It also sits across the poster and the window frame, so it looks pasted on rather than placed in the room.",
+  "Frame 02 (doubt, 'So I rewrite it. Tonight. All of it.'): Maya is not in the type pose and is not hitting the keys. One hand rests at her chest and her face is fairly blank. The picture doesn't show what the line says (her rushing to rewrite). The script also calls for a Maya close shot with Floey out of frame, but this is a wide shot with Floey on the lid.",
+  "Frame 09 (Maya's 'Oh. The title.'): the mug is in the bottom-right of the shot and Floey is not on it. The script says Floey is out of frame on the mug, so it reads as if she has vanished. It is a continuity break.",
+  "Frame 10 (button, 'You're welcome.'): Floey is perched on the laptop lid, not the mug rim. She was on the mug in frames 06–08, so she jumps position between cuts. The script says she does the front pivot on the mug rim.",
+  "Frame 10: the top ~40% of the frame is plain empty wall. Floey sits low and to the right, and the laptop runs off the right edge. The punchline shot looks badly framed and empty on a phone. Recompose it so Floey and the set fill the frame."
+ ]
+}
