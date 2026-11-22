@@ -1,71 +1,86 @@
 {
-  "date": "2026-11-15",
-  "summary": "This month's biggest conversation is about AI making work faster but not lighter: people say they have never worked more, Wikipedia is cleaning up AI writing, and marketers are asking whether AI is pushing their prices down. SEO forums are full of sudden drops on young sites, like a page that peaked around an event and then fell on Google while Bing held, or a brand new site that doesn't come up when you search its own name. People also doubt the GEO checklists: one site owner who tracked AI citations for over a year found the cited pages were simply the ones that already ranked.",
+  "date": "2026-11-22",
+  "summary": "This month the biggest conversation is Google's AI answers eating clicks: a 565-comment Hacker News thread and reports that Reddit is losing traffic to AI Overviews. Practical threads keep asking the same few questions: how to move a site without losing traffic, why near-identical pages won't index, and what to check first when traffic slides even though the backlinks look strong. Underneath it all, people are still asking how to split the week between updating old posts and writing new ones, and whether GEO tricks matter when the pages AI cites are the ones that already rank.",
   "ideas": [
     {
-      "title": "AI wrote Maya's draft in seconds, and fixing it took all afternoon. Fix the outline before the draft exists.",
+      "title": "My ranking held and my clicks still fell: three checks before you blame your page",
       "channel": "reel",
-      "pillar": "product",
-      "hook": "Maya, annoyed at a long draft: \"AI wrote this in seconds, and I've spent all afternoon fixing it.\" Floey, captioned: \"So fix the outline before there's a draft.\"",
-      "why": "\"AI promised less work. I've never worked more\" is the biggest thread in the evidence (689 points, 666 comments), and commenters describe the whole machine speeding up while the human doesn't. It shows a step we haven't posted yet: Flowra writes outline first, so Maya approves or edits the outline before any article is written. Make it a duo sitcom reel of about 28 seconds, tagged 'no-number-open'.",
+      "pillar": "news",
+      "hook": "My position didn't move, and my clicks still fell. (Floey: \"Then your page didn't get worse. The page above it changed.\")",
+      "why": "The Hacker News thread on Google's AI answers cutting search traffic has 565 comments, and Reddit's own traffic drop is being blamed partly on AI Overviews. This is our countdown save test on the 'Google shows you but nobody clicks' topic, and it teaches new checks: did the position move, is it one page or every page, and did it start the same week everywhere. Label it duo-countdown.",
       "sources": [
-        "https://oioannou.com/blog/ai-promised-less-work/",
-        "https://spectrum.ieee.org/wikipedia-wikiproject-ai-writing-cleanup"
+        "https://revscope.co/blog/search-seo-geo-2026/",
+        "https://www.businessinsider.com/reddit-traffic-down-13-percent-similarweb-google-ai-overviews-2026-11"
       ]
     },
     {
-      "title": "Google dropped Maya overnight and Bing still sends visitors. The page didn't fail. The event it was about ended.",
-      "channel": "reel",
-      "pillar": "problem",
-      "hook": "Maya, holding a chart that has crashed: \"Google dropped me overnight, and Bing still loves me.\" Floey, captioned: \"Look at which searches left, not which page.\"",
-      "why": "A 22 comment r/bigseo thread is about a site whose traffic peaked around Election Day and then fell on Google, and another poster asks whether their own drop is the honeymoon ending, an update, or something they broke. The new step: in Search Console, compare periods on the Queries tab. If the impressions you lost are all searches about an event that is over, demand faded and Google didn't punish you.",
-      "sources": [
-        "https://www.reddit.com/r/bigseo/comments/1xviisx/google_impressions_dropped_overnight_while_bing/",
-        "https://www.reddit.com/r/TechSEO/comments/1xwpdf8/new_site_google_impressions_dropped_from_150day/",
-        "https://www.reddit.com/r/bigseo/comments/1xwq3yd/oh_perfect_google_dropping_an_update_right_before/"
-      ]
-    },
-    {
-      "title": "\"AI writes the posts now, so why do we pay you?\" Show the client which old pages you fixed, not how many posts you wrote.",
+      "title": "The boss wants a site move with no traffic drop: list the pages that earn clicks before you write a single redirect",
       "channel": "reel",
       "pillar": "problem",
-      "hook": "Caption: \"AI writes the posts now, they said.\" Maya, staring at a client email: \"So why are they still paying me?\" Floey: \"Because nobody told the AI which old pages were wilting.\"",
-      "why": "An 18 comment r/marketing thread asks whether AI has pushed marketing service prices down, and content people say they feel the pressure. Floey turns the share link from Flowra's client report into the answer: the report rebuilds every week and carries the agency's name and logo on Starter and up. Make it the labelled 'send-ask' duo reel, under 31 seconds, with the spoken and on-screen line \"send this to the agency friend whose client wants a discount because of AI\".",
+      "hook": "My boss wants us on the new platform with no traffic drop at all.",
+      "why": "The replatform thread (11 comments) is about a store where organic is close to half of revenue and every category URL is changing. Our earlier post covered how long a move takes, so this one teaches the step before it: pull the pages that actually get clicks and redirect those first. It is our send-ask test, so say it out loud and on screen: 'send this to whoever is planning your site move.' Label it send-ask.",
       "sources": [
-        "https://www.reddit.com/r/marketing/comments/1xwcwaf/have_your_marketing_service_prices_been_affected/"
+        "https://www.reddit.com/r/TechSEO/comments/1y22q4d/how_do_we_replatform_without_losing_organic/"
       ]
     },
     {
-      "title": "Follow the GEO checklist, they said. The AI still quoted the page that already ranked.",
+      "title": "Strong backlinks, falling traffic: first check whether it's every page or just a few",
       "channel": "reel",
       "pillar": "myth",
-      "hook": "Caption over Floey decorating a flower with tags and ribbons: \"Follow the GEO checklist, they said.\" The camera pulls back to the AI lens landing on the plain flower that was already near the top.",
-      "why": "In a 17 comment r/juststart post, a consultant who tracked which of his pages AI assistants cited for over a year says the cited pages were the ones that already ranked, and the tricks barely mattered. It's one site, so present it as his experience, not a study. The step: before adding any trick, check in Search Console whether the page actually shows near the top for that question.",
+      "hook": "My backlinks are great, so why is my traffic sliding?",
+      "why": "In r/bigseo someone asked what to check first when a site with strong backlinks keeps losing organic traffic: technical, content, updates or links. Splitting the drop into 'every page at once' versus 'a few pages' answers that before anyone opens a backlink tool. Run it as a short-25s duo reel.",
       "sources": [
-        "https://www.reddit.com/r/juststart/comments/1xvaa37/i_tracked_which_of_my_own_pages_ai_assistants/",
-        "https://www.reddit.com/r/SEO/comments/1xwjryy/does_da_dr_matter_for_ai_search_visibility/"
+        "https://www.reddit.com/r/bigseo/comments/1y1z1fq/regarding_seo/"
       ]
     },
     {
-      "title": "Maya searches her own brand new site's name and Google shows everyone but her",
+      "title": "Google indexed every service page except the ones that look like copies",
       "channel": "reel",
       "pillar": "problem",
-      "hook": "Maya, typing into a search box: \"I searched my own site's name and I'm not even there.\" Floey, captioned: \"Does Google know your site exists yet?\"",
-      "why": "In r/bigseo, a beginner can't find their new site even when searching its exact name. In r/TechSEO, another new site owner was surprised to see impressions and a first click within a day of adding it to Search Console. The step for beginners: add and verify the site in Search Console and submit the sitemap. That's the first thing to do, and it's different from clicking Request Indexing over and over.",
+      "hook": "Google took every service page except the ones I actually need.",
+      "why": "The r/TechSEO poster (9 comments) submitted the URLs again and again, and only a few service pages with nearly the same layout stay out. We already covered pressing Request Indexing and reading the reason line, so this one teaches a new step. Put the skipped pages next to the indexed ones and give each page something only it says.",
       "sources": [
-        "https://www.reddit.com/r/bigseo/comments/1xvqgme/launched_my_first_website_but_i_cant_even_find_it/",
-        "https://www.reddit.com/r/TechSEO/comments/1xw5j9o/got_104_impressions_and_1_click_in_first_24_hours/"
+        "https://www.reddit.com/r/TechSEO/comments/1y22meb/google_wont_index_some_of_my_service_pages/"
       ]
     },
     {
-      "title": "Wikipedia is cleaning AI writing out of its pages. Another AI post won't set your blog apart. What only you saw will.",
-      "channel": "x",
-      "pillar": "news",
-      "hook": "Another AI post won't set your blog apart. The thing only you saw, tested or measured will.",
-      "why": "Wikipedia's cleanup of AI-generated content drew 524 points and 240 comments on HN. In a separate HN thread, a commenter cites Graphite's Common Crawl sample, which puts new articles that are mostly AI-written at about half from late 2024 through May 2026. Credit that figure to Graphite as the commenter quoted it. The step to share is adding first-hand detail to a draft, which is a different step from the fact-checking post we already published.",
+      "title": "Old posts or new ones this week? Let the list of pages losing clicks set the split, not a fixed ratio",
+      "channel": "linkedin",
+      "pillar": "problem",
+      "hook": "At some point you're polishing posts nobody reads anymore. So how much of the week goes to old content?",
+      "why": "The r/content_marketing thread (12 comments) asks exactly this: what decides between updating a post and leaving it alone, and how much of the week goes to old work versus new. Our answer is to let the weekly list of pages losing clicks size the old-content work. Flowra's content decay report puts those pages in a queue, and it is on the Free plan.",
       "sources": [
-        "https://spectrum.ieee.org/wikipedia-wikiproject-ai-writing-cleanup",
-        "https://news.ycombinator.com/item?id=50318869"
+        "https://www.reddit.com/r/content_marketing/comments/1y1lfvu/updating_old_content_vs_writing_new_how_do_you/"
+      ]
+    },
+    {
+      "title": "Want to know which of your pages AI answers cite? Bing already has a report for that",
+      "channel": "linkedin",
+      "pillar": "news",
+      "hook": "Most of the GEO checklist did nothing for one consultant who watched AI citations for over a year.",
+      "why": "The r/juststart post (36 comments) found that the pages AI answers cite are the ones that already rank, and it measured this with Bing Webmaster Tools' AI Performance report. Our GEO draft covered the 'already ranks' lesson, so this one teaches where to look it up. Then check in GA4 whether those cited pages get visits.",
+      "sources": [
+        "https://www.reddit.com/r/juststart/comments/1xvaa37/i_tracked_which_of_my_own_pages_ai_assistants/"
+      ]
+    },
+    {
+      "title": "Just block every cloud server, they said. Then check which visitors you blocked too",
+      "channel": "x",
+      "pillar": "fun",
+      "hook": "Just block all of AWS, they said. Then nobody checked which bots they'd shut out along with it.",
+      "why": "The Roblox scraping thread (486 points, 281 comments) is full of people suggesting you block all traffic from the big cloud providers. Our own check found a host blocking GPTBot at the edge with HTTP 429 even though robots.txt allowed it. So test that the crawlers you want still get through before you turn on a blanket block, and watch your AI referral visits in GA4 afterwards.",
+      "sources": [
+        "https://open3dlab.com/news/roblox-downloaded-145-gb-of-models-from-our-sites/"
+      ]
+    },
+    {
+      "title": "Is AI traffic catching up with Google on your site? Put the two side by side in GA4",
+      "channel": "carousel",
+      "pillar": "product",
+      "hook": "Someone says AI visits now match Google on one store. Your own GA4 can show whether that's true for you.",
+      "why": "An r/juststart title says AI traffic on one store is now almost 1 to 1 with Google. The post was removed, so treat it as a claim, not a finding. Flowra reads visits from ChatGPT, Perplexity and other assistants out of GA4 referrers, next to Search Console clicks. Be clear that it only counts visits that arrive, not answers that sent no click.",
+      "sources": [
+        "https://www.reddit.com/r/juststart/comments/1y170cc/has_ai_traffic_caught_up_with_google_on_your/"
       ]
     }
   ]
