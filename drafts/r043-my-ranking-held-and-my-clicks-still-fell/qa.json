@@ -1,0 +1,8 @@
+{
+ "pass": true,
+ "problems": [
+  "Frames 07 and 09 (minor, not blocking): with Floey on Maya's shoulder, her long beak crosses Maya's cheek outline, so she looks like she is pecking Maya's face. Moving Floey a few pixels right or turning her slightly would fix it.",
+  "Frames 01 and 03 (minor): the mug is cut off at the right edge in the two-shot framing. It sets up the cold-coffee button, so it would be better kept fully in frame.",
+  "Frame 02 (minor): only one of the three question marks has appeared on the doubt line. They read as a full row of three by frame 03, so this is only timing."
+ ]
+}

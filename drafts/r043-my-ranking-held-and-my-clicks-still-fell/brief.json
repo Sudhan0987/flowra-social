@@ -1,0 +1,71 @@
+{
+ "topic": "My ranking held and my clicks still fell: three checks before you blame your page (duo-countdown)",
+ "angle": "Maya's best page still sits in the same spot on Google, but its clicks have nearly halved, and she's sure the page \"broke\". Floey walks her through three checks on screen, one at a time, in Search Console: did the position move (no), is it every page or one (one), and are the same people still seeing it (yes, impressions are flat). That leaves one answer, straight from Google's own help page: people still see her and click something else, so the results page around her changed, not her page. Maya searches her own query and finds a new answer box sitting above her. Viewers can save it as a checklist they'll use the next time their clicks drop.",
+ "whyNow": "AI answers eating clicks is the biggest SEO talking point this month. Business Insider reported (15 Nov 2026, also posted to Hacker News) that Similarweb puts Reddit's visits down 13% year over year, and Reddit's CEO says AI Overviews are part of the reason. Search Engine Journal's \"Ask an SEO\" column took the reader question \"How do I know if AI Overviews are taking clicks from my site?\", and r/bigseo is asking what to check first when traffic slides. Google also confirmed that Search Console over-reported impressions from May 2025 to April 2026, so plenty of site owners are now reading confusing impressions-versus-clicks charts. Note: the 565-comment Hacker News thread from social listening could NOT be verified (HN search only found the BI story with 3 comments), so the reel and caption must not mention it. This is the countdown save test on the 'Google shows you but nobody clicks' topic. Label: duo-countdown (experiment field).",
+ "goal": "save",
+ "audience": "Solo bloggers, content marketers and small agency people who open Search Console, see clicks going down on a page that still \"ranks the same\" and assume the page is broken or penalised. Most of them have lived this in the last year as AI answers spread through the results.",
+ "facts": [
+  {
+   "fact": "Google's guide to debugging traffic drops: if your impressions stay the same but your clicks drop, your page title and snippet may not be the best they could be, or other sites may have a more appealing rich result that users click instead.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "The same Google guide says to use the Compare tab in the Performance report (for example, the last 3 months against the previous period) and click every tab to see whether the change happened only for specific queries, URLs, countries, devices or search appearances.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google's guide: sort the Pages table by clicks difference to find the pages that lost the most. If the drop is site-wide, check the Page indexing report. If only a group of pages is affected, use the URL Inspection tool on a few of them.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google's guide suggests checking the last 16 months to rule out a drop that happens every year (seasonality), and checking Google Trends to see whether interest in the query fell across the web.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Search Console defines CTR as clicks divided by impressions. An impression is counted when a link to your site appears on the current page of results.",
+   "source": "https://support.google.com/webmasters/answer/7042828"
+  },
+  {
+   "fact": "In Search Console, the position shown is the topmost position your link held, averaged across queries. An AI Overview takes up a single position in the results, and all the links inside it share that position.",
+   "source": "https://support.google.com/webmasters/answer/7042828"
+  },
+  {
+   "fact": "Google says traffic from AI features (AI Overviews, AI Mode) is included in the overall search traffic in Search Console and reported in the Performance report under the 'Web' search type. There is no separate AI Overview filter.",
+   "source": "https://developers.google.com/search/docs/appearance/ai-features"
+  },
+  {
+   "fact": "Google confirmed that a logging error kept Search Console from accurately reporting impressions from May 13, 2025 until April 27, 2026. Clicks were not affected; impressions and related metrics were. So compare recent weeks with recent weeks, not with last year.",
+   "source": "https://support.google.com/webmasters/answer/6211453?hl=en"
+  },
+  {
+   "fact": "Pew Research Center (March 2025 browsing data, 900 US adults): users clicked a traditional search result on 8% of visits when an AI summary appeared, against 15% when none appeared.",
+   "source": "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/"
+  },
+  {
+   "fact": "Ahrefs (300,000 keywords, December 2025 data): an AI Overview correlates with a 58% lower average clickthrough rate for the top-ranking page.",
+   "source": "https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/"
+  },
+  {
+   "fact": "Search Engine Journal: the telltale sign of AI Overview click loss is that rankings and impressions stay steady while click-through rate falls. To find out which queries show an AI Overview, search them yourself.",
+   "source": "https://searchenginejournal.com/how-do-i-know-if-ai-overviews-are-taking-clicks-from-my-site-and-what-can-i-do-about-it-ask-an-seo/583417"
+  },
+  {
+   "fact": "Similarweb estimates Reddit's visits fell 13% from October 2025 to October 2026 (Business Insider report). Reddit's CEO partly blamed AI Overviews; Reddit says its own user counts rose. Use only as why-now context, never in the reel.",
+   "source": "https://finance.yahoo.com/technology/ai/articles/reddits-traffic-down-13-thanks-105201931.html"
+  },
+  {
+   "fact": "Demand: an r/bigseo poster asked what to check first when a site with strong backlinks keeps losing organic traffic.",
+   "source": "https://www.reddit.com/r/bigseo/comments/1y1z1fq/regarding_seo/"
+  },
+  {
+   "fact": "Any Search Console numbers on Maya's screen are her own made-up example (for instance position 3.1 then 3.0, impressions about 4,200 then 4,150, clicks 310 then 170). They are framed as hers, not as a statistic.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "A countdown on Maya's laptop: three DUO.listInsert cutaways of her Search Console comparing the last 28 days with the previous 28 days. Each check shows one row ringed with hi: CHECK 1 \"Position 3.1 → 3.0\" (good tone), CHECK 2 the Pages table with only one page in red, \"Best post -45% clicks\", and CHECK 3 \"Impressions 4,200 → 4,150\" (flat) next to \"Clicks 310 → 170\" (bad). As each check clears, Floey chips from the laptop lid and a \"?\" mark over Maya's head turns to \"!\". Payoff: a DUO.screenInsert of the results page where a new answer box slides in above her result, and Maya says \"Oh.\" The day set has her coffee mug, and the button is her taking a sip of cold coffee. Hook line (no number first): \"My ranking didn't move and my clicks still fell!\" Floey: \"Then your page didn't get worse. The page above it changed.\"",
+ "pillar": "problem",
+ "instinct": "My position didn't move but my clicks fell, so something must be wrong with my page and I need to rewrite it (or delete the blog).",
+ "flip": "Google's own guide says that when impressions stay the same and clicks drop, people still see your result and click something else on the page, like a better title or a more appealing result. So check what now sits above you before you touch the page.",
+ "idea": "My ranking held and my clicks still fell: three checks before you blame your page",
+ "style": "duo"
+}

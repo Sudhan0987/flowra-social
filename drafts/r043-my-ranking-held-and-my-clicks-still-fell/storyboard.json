@@ -1,0 +1,247 @@
+{
+ "style": "Duo style, day set: Maya's sunny room (window with a drifting cloud, shelf, plant, spark poster), with Maya (amber captions) behind the desk and the back of her laptop, and Floey (pink captions) in her usual look. Status pills use good and bad tones only. The numbers are Maya's own example ('Clicks -45%'), and the reel has no real data. One cutaway insert (her search, beat 8), no notification, and Flowra appears in the end card only.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "shake",
+   "subject": "wide: Maya behind the desk in the panic pose with her hands by her head, wearing the panic face. Two DUO.stat pills sit by her head: 'Ranking: same' (good) above 'Clicks -45%' (bad, her own example). Her mug sits by the laptop with no steam. Floey is perched on the laptop lid, facing Maya.",
+   "action": "The problem is already happening on frame one. Maya jolts in the panic pose and shouts her line at the laptop. On 'clicks' her eyes flick up at the red pill. Floey slowly tilts her head toward her. There is a small shake only for the jolt, then it settles.",
+   "onScreenData": "Clicks -45%",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey (two-shot favouring Floey): Floey on the lid with her eyes half shut. Maya is at the left edge, hands still up. Both pills fade out as we cut.",
+   "action": "Floey delivers 'Then your page is fine' deadpan with one slow tilt. Maya's hands start to come down.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 1.4,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone, as the listener.",
+   "action": "A reaction cut on 'Its neighbors changed'. Maya drops into the chin (think) pose with the think face. Her eyes swing hard left toward Floey (look -1) and she stares blankly while the camera pushes in a little.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya in the cheeks pose with the sad face. There is headroom above her bun for the marks.",
+   "action": "On 'It's broken' she squashes her face in both palms. Three grey '?' marks pop up in a row over her bun, one after another. On 'deleting the blog' she switches to the point pose and jabs at the laptop.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "pop"
+    },
+    {
+     "at": 0.75,
+     "kind": "pop"
+    },
+    {
+     "at": 1.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "medium",
+   "camera": "whip",
+   "subject": "floey (two-shot favouring Floey): Floey lifts off the lid and hovers just above it. Maya's pointing hand is frozen halfway to the laptop, and the three '?' stay over her head.",
+   "action": "A comic reversal: whip to Floey as she rises into a flat, unbothered hover and chips once before saying 'Three Search Console checks'. Maya stops mid-reach with the surprised face.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 1.6,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both characters, with Floey hovering over the lid and the '?' marks over Maya.",
+   "action": "On 'before you delete anything' Maya lowers her hand, moves into the chin pose with the think face and pulls the laptop closer. Floey sinks back toward the lid.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya in the type pose with the think face and her eyes down at the laptop. The 'Ranking: same' pill (good) fades in by her head.",
+   "action": "She types the first check. On 'same ranking' the first '?' over her bun flips to '!'.",
+   "onScreenData": "Ranking: same",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "type"
+    },
+    {
+     "at": 0.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1.4,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya in the point pose toward the screen. The ranking pill fades and a 'Best post -45%' pill (bad, her own example) takes its place.",
+   "action": "On 'only this post dropped' she points at the screen and her face goes surprised, then thoughtful. The second '?' flips to '!' and the camera pushes in a little.",
+   "onScreenData": "Best post -45%",
+   "sfx": [
+    {
+     "at": 0.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey (two-shot favouring Floey): Floey lands back on the lid, facing Maya. Maya leans toward the laptop at the left of the frame. The pill fades out.",
+   "action": "Floey settles, tilts her head toward Maya and chips once, then asks 'Are people still seeing it?'. Maya leans in with the think face and starts typing.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.7,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya leans in with the chin pose and think face. Two pills sit by her head: 'Seen: same' (good) and 'Clicks -45%' (bad, her own example).",
+   "action": "On 'Still seen' the third '?' flips to '!'. On 'Not clicked' she looks up from the screen, puzzled, and tilts her head. The push-in is for the realisation building.",
+   "onScreenData": "Seen: same",
+   "sfx": [
+    {
+     "at": 0.5,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey flies from the laptop lid to floeyShoulder, Maya's left shoulder at screen right. Maya is in the type pose. The pills and the three '!' marks fade out.",
+   "action": "Floey takes off, lands on the shoulder and chips once, watching the screen as she says 'So search it'. Maya leans in and types her own search fast with the determined think face.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.8,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The single cutaway insert: DUO.listInsert titled 'Her search, today', with the subtitle 'example'. It has three rows: 'AI answer' with 'bigger', 'Top result' with '1st', and 'Best post' with 'still 3rd' (hi). This is the check Floey asked for, shown happening.",
+   "action": "The insert swings in and the rows slide in top to bottom. The AI answer row is visibly the tallest. The ring grows around 'Best post: still 3rd' while Maya says 'The AI answer up top got huge': her spot did not move, but the answer above her grew.",
+   "onScreenData": "Best post: still 3rd",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 1.3,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame with the surprised face.",
+   "action": "She finishes the line with her mouth open in a small 'oh' and her eyes wide on the screen. The push-in is for the realisation.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Maya with Floey on her shoulder. The desk mug is no longer drawn because Maya now has it in the mug pose.",
+   "action": "On 'So I keep the blog?' Maya sags with relief, smiles hopefully and picks up her mug. Floey turns her head to watch her.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey (two-shot nudged right to frame the shoulder): Floey on Maya's shoulder, with Maya and her mug beside her. Nobody is sliced at the edge.",
+   "action": "Floey pivots to the camera with a smug face and says 'Keep the blog'. Behind her, Maya takes a big sip and freezes mid-swallow because the coffee is cold. On 'Toss the coffee' Floey preens one wing.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 2,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya with the deadpan face, still holding the mug in the mug pose.",
+   "action": "The button: Maya lowers the cold mug slowly and gives the camera a flat stare over her glasses. Hold it with no words.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 3.4,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo intact and 'Maya & Floey, every day', with Floey perched on the spark's left arm.",
+   "action": "The end card slams in and Floey settles on the spark's left arm, facing the camera.",
+   "onScreenData": "Maya & Floey, every day",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 0.6
+}

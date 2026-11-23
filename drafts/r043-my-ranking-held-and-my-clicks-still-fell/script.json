@@ -1,0 +1,126 @@
+{
+ "title": "Same ranking, fewer clicks: three checks before you delete anything",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "My ranking didn't move and my clicks still fell!",
+   "emotion": "worried",
+   "visual": "Frame one, wide, day set: Maya at her desk in the panic pose behind the back of her laptop. Two DUO.stat pills float by her head: 'Ranking: same' (good tone) and 'Clicks -45%' (bad tone, her own example). Her mug sits beside the laptop with no steam, already forgotten. Floey is perched on the laptop lid and tilts her head toward Maya."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Then your page is fine. Its neighbors changed.",
+   "emotion": "warm",
+   "visual": "floey two-shot: Floey stays perched on the lid, eyes half shut, deadpan, with one slow tilt. Beside her, Maya stops panicking and turns to stare at her in the think pose."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "It's broken. I'm deleting the blog.",
+   "emotion": "worried",
+   "visual": "mayaTight: Maya does the cheeks pose, squashing her face in both palms, then points at the laptop. Three small grey question marks pop up in a row over her bun."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Three Search Console checks before you delete anything.",
+   "emotion": "warm",
+   "visual": "floey two-shot: Floey lifts off the lid into a hover, flat and unbothered, then chips once. Maya stops with her hand halfway to the laptop, switches to the think pose and pulls the laptop closer."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "One, same ranking. Two, only this post dropped.",
+   "emotion": "curious",
+   "visual": "Cutaway, DUO.listInsert titled 'CHECK 1 · Last 28 days vs previous 28 days'. The row 'Position 3.1 → 3.0' is ringed in the good tone (her own example numbers). Cut to a second DUO.listInsert, 'CHECK 2 · Pages', with three rows: 'Recipe page: steady', 'Holiday page: steady' and 'Best post: -45% clicks' ringed in the bad tone. Back on maya: the first two question marks over her head flip to exclamation marks, one after the other."
+  },
+  {
+   "role": "check",
+   "speaker": "floey",
+   "pause": 0.2,
+   "say": "Three. Are people still seeing it?",
+   "emotion": "warm",
+   "visual": "floey two-shot: Floey lands back on the lid, tilts her head toward Maya and chips once. Maya leans in to the laptop in the think pose, typing."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Still seen. Not clicked.",
+   "emotion": "curious",
+   "visual": "Cutaway, DUO.listInsert titled 'CHECK 3 · Last 28 days vs previous 28 days' with two rows: 'Impressions 4,200 → 4,150' ringed as flat, and 'Clicks 310 → 170' below it in the bad tone (her own example). Cut to maya: the third question mark over her bun flips to an exclamation mark and she looks up from the screen, puzzled, in the think pose."
+  },
+  {
+   "role": "check",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "So search it. What's above you...",
+   "emotion": "playful",
+   "visual": "wide: Floey flies from the lid to floeyShoulder and chips once, watching the screen. Maya types her own search fast, leaning in."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Oh. The AI answer up top got huge.",
+   "emotion": "curious",
+   "visual": "Cutaway, DUO.listInsert titled 'Her search, today' with three rows: 'AI answer: bigger, more links' at the top, then 'Top result', then 'Best post: still 3rd' ringed. Her spot hasn't changed; the answer above her has grown. Cut to mayaTight: Maya in the surprised pose, mouth open in a small 'oh'."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.6,
+   "say": "So I keep the blog?",
+   "emotion": "bright",
+   "visual": "wide: Maya sags with relief, picks up her mug and takes a big sip, then freezes mid-swallow because it's cold. She lowers the mug slowly and gives the camera a flat look over her glasses. Floey watches from her shoulder."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Keep the blog. Toss the coffee.",
+   "emotion": "proud",
+   "visual": "floey two-shot: still on Maya's shoulder, Floey turns to the camera looking smug and preens one wing. Maya still holds the cold mug and keeps her flat stare on the camera. Hold, then the end card."
+  }
+ ],
+ "loopNote": "The last frame is Maya at her desk holding the cold mug and staring flat into the camera, with the 'Clicks -45%' pill still by her head. The first frame is the same desk, the same cold, untouched mug and the same pills, with Maya mid-panic. On a replay it plays as the moment just before she found out, and the coffee was cold all along.",
+ "caption": "Maya's best post kept its spot on Google and still lost clicks. She was one click away from deleting the blog.\n\nBefore you touch a page, run three checks in Search Console. Compare the last 28 days with the 28 days before, not with last year, because Google says impressions weren't reported accurately until April 2026.\n1. Did your position move?\n2. Is it every page, or just one?\n3. Are impressions flat while clicks fell?\n\nIf your answers are no, one and yes, people still see your result but click something else. Google's own guide to traffic drops says your title and snippet could be better, or a more appealing result nearby is getting the click. Search the query yourself and look at what sits above you.\n\nWhat did you find sitting above yours?",
+ "hashtags": [
+  "#seo",
+  "#searchconsole",
+  "#blogging",
+  "#contentmarketing",
+  "#aioverviews"
+ ],
+ "sticky": 50,
+ "id": "r043-my-ranking-held-and-my-clicks-still-fell",
+ "format": "duo-sitcom",
+ "goal": "save",
+ "topic": "My ranking held and my clicks still fell: three checks before you blame your page (duo-countdown)",
+ "editorNotes": [
+  "Beat 2 (Floey): \"Then your page is fine. Its neighbors changed.\" is not true at this point, and it gives away the ending. Google's guide gives two causes when impressions hold and clicks drop: your title and snippet may not be the best they could be, OR another result is more appealing. Floey can't call the page fine before any check. Her line also hands over the answer, so Maya's \"Oh.\" in beat 9 has nothing left to reveal and the countdown loses its point. \"Neighbors\" is also too vague for someone scrolling past. Use a reframe that doesn't give the answer away (the brief's \"your page didn't get worse\" is the safe version) and save \"what's above you\" for the reveal.",
+  "Floey never actually gives the tip. She says \"Three Search Console checks\" and then Maya runs checks one and two by herself, as if she already knew them. The one real tip should be Floey's (cast rule step 4: Floey gives the tip, Maya does it). As written, Maya knows the method and Floey just counts along. Floey needs to name each check in plain words (did your position move, is it one page or all of them, are people still seeing it), and Maya does each one on screen.",
+  "Beat 5 squeezes checks one and two into a single line of about 3 seconds: two listInsert cutaways and a cut back for the ?→! flips. Nobody can read two Search Console tables in 3 seconds, and the whole goal of this reel is a checklist people save. Each check needs its own line and its own insert held long enough to read. Check one also adds nothing new, because Maya already said \"My ranking didn't move\" in the hook. Either reword the hook or make check one actually show something (the position row next to the clicks row).",
+  "Beat 8: \"So search it.\" doesn't say what to search. It could mean the post, the blog or Google itself. This is the step that cracks the case and the one SEJ recommends (search the query yourself), so it must be plain: search your own keyword and look at what sits above you. The trailing \"...\" also won't read naturally in Kokoro. It will drag or clip. End on a full stop or a real question.",
+  "The payoff insert can't be drawn as written. The listInsert row 'Top result' has no value, which breaks the studio rule that every row has a real label and value and nothing is blank. 'Her spot hasn't changed; the answer above her has grown' can't be shown in a ranked list either, because a list has no before and after and no size, so the viewer never sees anything get \"huge\". Show the comparison the line describes: a screenInsert of the results page where the answer box grows or slides in, or a list with a clear before and after. Also check that it stays true. Google says an AI Overview takes up one position, so a brand-new one above her would usually push her number down. The \"existing one got bigger\" version is consistent but needs to be visible.",
+  "Beat 4's visual can't be drawn: 'hand halfway to the laptop' and 'pulls the laptop closer' aren't in Maya's pose set, and the laptop is a fixed prop. Use a pose she has (point, type, chin) or a lean (MY.leanTo).",
+  "(polish) Several visuals use expression names as poses. 'think pose' in beats 2, 4, 6 and 7 and 'surprised pose' in beat 9 aren't poses: think and surprised are expressions, and the thinking pose is 'chin'. Beat 6 asks for 'think pose, typing' together, which can't happen because chin and type are different arm poses. Name the expression and the pose separately (for example expr think + pose type).",
+  "(polish) Beat 2's emotion is 'warm', but the visual and Floey's character call for a dry, deadpan delivery. Warm on a flip line softens the snap. 'playful' or a flatter read fits her better.",
+  "(polish) Beat 3 puts three '?' marks over her bun on a line where Maya is completely sure (\"It's broken.\"). Question marks belong to puzzlement, not certainty. Also, in mayaTight her face fills the frame, so marks above the bun may land above y 220 (under Instagram's top bar). Bring the marks in when she's actually unsure, or after the tip, and check the frame.",
+  "(polish) Beat 10 asks for a lot of silent acting after a short line with a 0.6 s pause: she sags, picks up the mug, takes a big sip, freezes, lowers the mug slowly and looks flat at the camera. That won't fit. Make the pause longer (about 2 s) so the cold-sip reaction lands before Floey's button, or the sight gag gets cut off.",
+  "(polish) The button shot is 'floey two-shot', but by then Floey is on Maya's shoulder and the floey shot frames the laptop lid. Floey or Maya's face would get cut off at the edge. Use wide or a nudged maya shot so both the preen and Maya's flat stare are in frame.",
+  "(polish) Two running jokes are stacked (deleting the blog and the cold coffee). The cast notes say use one every few reels. The coffee one carries the button, so think about dropping 'I'm deleting the blog' from beat 3 and having Maya push back with the viewer's real doubt (\"But the page is broken!\" or similar).",
+  "(polish) Frame one puts two stat pills by her head while she's in the panic pose (hands up by her head). Two pills at the suggested spot, plus her hands, can overlap. Space the pills apart and measure them. Fade them out before the mayaTight and cutaway shots, then bring them back only if the loop needs them.",
+  "(polish) Check two (\"only this post dropped\") never says why it matters. The viewer saving the checklist doesn't learn that one page dropping, rather than the whole site, rules out a site-wide problem. A few words from Floey would make the check something people can use."
+ ],
+ "style": "duo",
+ "template": "../drafts/r043-my-ranking-held-and-my-clicks-still-fell/scene.html"
+}
