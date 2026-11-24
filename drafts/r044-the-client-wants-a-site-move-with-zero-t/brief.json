@@ -1,0 +1,71 @@
+{
+ "topic": "The client wants a site move with zero traffic drop: pull the pages that earn clicks before you write a single redirect",
+ "angle": "A client texts Maya that the new site goes live Friday with zero traffic drop. She panics that she has to perfectly redirect every URL on the site by then. Floey flips it with Google's own advice: expect a short wobble, and start with the URLs that get the most traffic. Maya opens Search Console's Pages list sorted by clicks and finds the short list that really matters, which gives the viewer a step they can use on their next move. Send-ask test: Maya says it to camera and it shows on screen: 'Send this to whoever is planning your site move.'",
+ "whyNow": "The social listening for 22 Nov 2026 picked up an r/TechSEO thread (11 comments, https://www.reddit.com/r/TechSEO/comments/1y22q4d/how_do_we_replatform_without_losing_organic/) from a store where organic is close to half of revenue and every category URL is changing. The question is 'how do we replatform without losing organic?' Reddit blocked our fetch, so the thread's details come from the listening summary only, and the reel quotes nothing from it. This month everyone is worried about AI answers taking clicks, so the clicks a site still earns feel more valuable during a move. Experiment label: send-ask.",
+ "goal": "send",
+ "audience": "Bloggers, freelancers and small agency people who have to move a site to a new theme, platform, permalink structure or domain (or whose client is about to), and the boss or client asking for 'no drop'.",
+ "facts": [
+  {
+   "fact": "Google tells site movers to 'Expect temporary fluctuation in site ranking during the move' and says rankings may fluctuate 'while Google recrawls and reindexes your site.'",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "Google's site move guide says to 'Start with your important URLs' and to 'Check your server logs or analytics software for the URLs that get the most traffic.'",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "Google says to map the old site's URLs to the new site's URLs: 'Create a mapping of old to new URLs' and decide where each one should redirect.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "Google warns that redirecting many old URLs to one irrelevant page, such as the new site's home page, can confuse users and might be treated as a soft 404.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "Google recommends server-side permanent redirects such as 301 or 308 where possible, and says '301 and other permanent redirects don't cause a loss in PageRank.'",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "Google says to keep redirects as long as possible, generally at least 1 year.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "For medium-sized sites, Google says it can take a few weeks or more before it starts showing the new URLs instead of the old ones.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "Google says to pick a time period that fits the site's traffic patterns and to keep seasonal variation in mind when listing old URLs. That is why the reel uses a long date range rather than last week.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes"
+  },
+  {
+   "fact": "Search Console's Performance report has a Pages tab that groups search data by page.",
+   "source": "https://support.google.com/webmasters/answer/7576553"
+  },
+  {
+   "fact": "Search Console keeps 16 months of performance data 'to make analyzing longer-term trends easier and enable year-over-year comparisons.'",
+   "source": "https://developers.google.com/search/blog/2018/01/introducing-new-search-console"
+  },
+  {
+   "fact": "A Search Console report can be exported to Google Sheets, Excel or CSV. The export from the interface is cut off at 1,000 rows.",
+   "source": "https://support.google.com/webmasters/answer/12919797?hl=en"
+  },
+  {
+   "fact": "Kevin Gibbons in Search Engine Journal (29 July 2025): 'Missing or incorrect redirects are one of the top causes of traffic loss after a migration.'",
+   "source": "https://www.searchenginejournal.com/ask-an-seo-how-can-we-recover-drop-in-organic-traffic-from-site-migration/550915"
+  },
+  {
+   "fact": "Demand: an r/TechSEO thread asks how to replatform without losing organic, from a store where organic is close to half of revenue and every category URL changes (11 comments, from the 22 Nov 2026 listening summary; the thread could not be fetched directly).",
+   "source": "https://www.reddit.com/r/TechSEO/comments/1y22q4d/how_do_we_replatform_without_losing_organic/"
+  },
+  {
+   "fact": "Any page names and click counts on Maya's screen are examples from her own made-up site, not real data or a statistic.",
+   "source": "Flowra finding"
+  }
+ ],
+ "visualIdea": "Day set, wide shot. Floey perches on the laptop and Maya holds a mug. A phone notification slides down from 'Client': 'New site live Friday. Zero drop, ok?' Maya jolts (pop) and the shot cuts to mayaTight in panic, with an '!' mark. Floey answers from floeyTight. The central image is a DUO.listInsert cutaway (whoosh) to her laptop. It is titled 'Search Console · Pages', subtitled 'Last 16 months · sorted by clicks', with columns Page and Clicks. Five example rows slide in, for example /sourdough-starter/ 4,210, /no-knead-bread/ 2,980, /banana-bread/ 1,640, /about/ 310, /tag/flour/ 12. The top three are her money pages. The ring (hiK) grows around the top row, and a small 'redirect first' label is the payoff. Then the wide two-shot: Maya types (typing sfx) and lets out a small 'fist'. For the button she turns to camera (mayaTight) and the on-screen caption plus her spoken line read 'Send this to whoever is planning your site move.' Floey pivots front: 'Or your client.' Optional running joke: her coffee has gone cold, so she sips and pulls a face.",
+ "pillar": "problem",
+ "instinct": "Maya thinks a 'zero drop' move means she has to redirect every single URL perfectly by Friday, or the traffic is gone.",
+ "flip": "Google's own site move guide says to expect a temporary wobble and to start with your important URLs: the ones your analytics show get the most traffic, each sent one to one to its matching new page, not to the homepage.",
+ "idea": "The boss wants a site move with no traffic drop: list the pages that earn clicks before you write a single redirect",
+ "style": "duo"
+}

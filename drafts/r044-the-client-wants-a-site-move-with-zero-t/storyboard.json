@@ -1,0 +1,266 @@
+{
+ "style": "Day set in Maya's room (window with a drifting cloud, shelf, plant, spark poster). Maya sits behind the desk with her pencil bun and glasses. Floey perches on the laptop lid facing her (facing -1, side view). One mug sits on the desk at the right end and is hidden while Maya holds it. Captions are speaker-tagged (MAYA amber, FLOEY pink) at y 1540. There is one cutaway insert (the Search Console list, held from beat 4 to beat 6) and one notification (the client's reply at the button). Flowra appears only in the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk in the panic pose (hands up by her head), expr panic, eyes on the laptop. The mug sits on the desk (DUO.mug). Floey perches on the laptop lid facing her, mood worried. A red DUO.stat pill sits by Maya's head (x 880, y 610).",
+   "action": "Frame one is already the panic. Maya's hands are up and she is mid-word. At 0.6 the '!' mark pops over her bun with a small follow-through bounce. Floey's head snaps toward her on the pop.",
+   "onScreenData": "0% drop",
+   "sfx": [
+    {
+     "at": 0.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.9,
+   "shot": "close",
+   "camera": "shake",
+   "subject": "mayaTight: Maya's face fills the frame, expr panic, still in the panic pose. The stat pill fades out before the cut. Floey is out of frame.",
+   "action": "Hard cut on 'New site's live Friday!'. Her voice speeds up and goes higher, her head bobs forward on 'Friday' and her bun wobbles. A small shake sells the real panic.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: Floey in front on the laptop lid, mood think. Maya sits behind her in the cheeks pose (hands on her cheeks), expr worried, eyes left on Floey (look -1, 0).",
+   "action": "Floey answers for Google, deadpan. She gives a slow blink on 'wobble' and a small head tilt on 'Love, Google.' Behind her, Maya stares with her hands pressed to her cheeks and gives one slow worried blink.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya fills the frame in the panic pose, expr panic, eyes wide on the laptop (look 0, 0.6). Floey is out of frame.",
+   "action": "Maya jolts on the cut (MY.jolt) and her hands fly back up to her head. She talks fast while the camera creeps in under her rising pressure.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: Floey on the lid turns toward Maya, mood determined. Maya is still in the panic pose behind her, expr worried.",
+   "action": "Floey turns to face Maya and chips once on 'Start' (Floey's chip). On 'most clicked pages' Maya's hands start to come down.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 2.2,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey (slow push): Floey tilts her head on each screen name. Maya drops into the rest pose, expr think, and leans toward the laptop (leanTo forward, look 0, 0.8).",
+   "action": "Floey gives one head tilt each on 'Search Console', 'Performance' and 'Pages tab'. Behind her, Maya lowers her arms and leans in to the laptop with a small nod.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya in the type pose, expr think, eyes on the laptop. Floey watches her from the lid, head following her hands.",
+   "action": "Maya types fast and Floey's head tracks the keyboard.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 1,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop insert (DUO.listInsert), the reel's only cutaway: title 'Search Console · Performance', sub 'Pages tab · last 16 months · sorted by clicks', columns Page and Clicks. These are example rows from Maya's made-up site: /sourdough-starter/ 4,210, /no-knead-bread/ 2,980, /banana-bread/ 1,640, /about/ 310, /tag/flour/ 12.",
+   "action": "The insert swings in and the rows slide in one by one from the top, as Maya finishes 'sorted by clicks...'.",
+   "onScreenData": "/sourdough-starter/ 4,210",
+   "sfx": [
+    {
+     "at": 1,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The same laptop insert holds. Floey's 'And?' plays over it as voice-over, so the reel keeps a single cutaway.",
+   "action": "The last row (/tag/flour/ 12) settles into place. Floey's one-word prompt hangs over the list while it waits.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "insert",
+   "camera": "push-in",
+   "subject": "The same laptop insert, top row /sourdough-starter/ marked hi.",
+   "action": "On 'Oh.' the hiK ring grows around /sourdough-starter/ and nothing else changes. A gentle push toward the ringed row.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0.75,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya in the rest pose, expr surprised turning happy. Floey is out of frame.",
+   "action": "Cut out of the insert on 'three bread recipes'. Her panic melts into a surprised half smile, her eyebrows drop and her shoulders let go. The push-in sells the realisation.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Floey on the lid turns to Maya, mood happy. Maya is in the type pose, expr happy, eyes on the screen.",
+   "action": "Pull out to show both. Floey gives one small nod on 'first'. Maya types, and that is her only action in the line.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.8,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya stops typing and drops to the rest pose, expr think, then looks up and left toward Floey over her glasses (look -0.8, -0.4) with a small head tilt.",
+   "action": "Her hands freeze over the keys. Her eyes lift over her glasses, half suspicious, and her head tilts a few degrees.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: Floey in front, mood think, with Maya behind her still giving the suspicious look (expr think).",
+   "action": "Floey gives a dry head tilt on 'Never.' and a wink on 'Then the rest.' Behind her, Maya's eyebrows lift a little on the wink.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 1.4,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya switches to the mug pose (desk mug hidden, one mug only). Floey sits on the lid, mood happy.",
+   "action": "In the silent pause Maya picks up the mug and sips. At about 0.7 seconds in she pulls a face because the coffee is cold (expr annoyed) and holds the mug away from her. At 1.0 Floey chips once, smug. That is the cold coffee's only beat.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.4,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 0,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "wide, slow push: Maya puts the mug down (the desk mug is drawn again) and goes to the type pose, expr proud. Floey watches from the lid, head tracking her hands.",
+   "action": "Mug down, then fast purposeful typing. As she finishes she gives a small fist (pose fist) with a tiny nod.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 11,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "floeyTight: Floey alone on the laptop lid pivots to the front (F.pivot 'front'), mood think, deadpan.",
+   "action": "Floey swishes around to face the camera and delivers the line flat, straight down the lens, with one slow blink at the end.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 11,
+   "at": 2.4,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: the reel's only notification (DUO.notification, from 'Client') slides down into the top slot (y about 260, inside the safe area). Maya is in the rest pose, expr surprised, eyes on it. Floey is on the lid.",
+   "action": "The notification drops in. Maya's fist sags and her smile drains as she reads it. Floey turns her head slowly toward Maya.",
+   "onScreenData": "Thanks! Still zero traffic drop?",
+   "sfx": [
+    {
+     "at": 2.4,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 11,
+   "at": 3.7,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya, expr deadpan, looking straight at the camera over her glasses (look 0, 0). Floey is out of frame.",
+   "action": "Without a word, Maya slowly turns and gives the camera a long flat look over her glasses. One slow blink as the camera creeps in, and her bun gives one tiny wobble.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 11,
+   "at": 5.1,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card (DUO.endCard): the Flowra logo intact with 'Maya & Floey, every day', and Floey perched on the spark's left arm facing the camera.",
+   "action": "The end card lands. Floey arrives sideways onto the left arm of the spark, settles and turns to the camera. Captions are hidden.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 5.1,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}

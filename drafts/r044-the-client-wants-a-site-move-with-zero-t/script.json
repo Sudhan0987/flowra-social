@@ -1,0 +1,134 @@
+{
+ "title": "Zero Traffic Drop by Friday",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "My client wants zero traffic drop. New site's live Friday!",
+   "emotion": "worried",
+   "visual": "Day set, wide shot. Frame one already shows the panic: the DUO.notification from 'Client' is down at the top of the screen, 'New site live Friday. Zero traffic drop, ok?', with a ding on frame one. Maya is already in her panic pose with her mug in one hand. Floey sits on the back of the laptop lid, facing her. At 0.6 seconds the '!' mark pops over Maya's bun (pop sfx, well clear of the ding). Cut to mayaTight for the second sentence, where her voice gets faster and higher."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "Expect a short wobble. Love, Google.",
+   "emotion": "playful",
+   "visual": "floey shot (Floey in front, Maya visible behind her): Floey answers for Google with a slow blink and a small head tilt, deadpan. Behind her, Maya holds the cheeks pose and stares at her."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "But I can't redirect every page by Friday!",
+   "emotion": "worried",
+   "visual": "mayaTight: Maya in the panic pose, eyes wide, talking fast. Floey is out of frame."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Start with your most clicked pages. Search Console, Performance, Pages tab.",
+   "emotion": "playful",
+   "visual": "floey shot: Floey turns toward Maya and chips once (chip sfx) on 'Start', then tilts her head as she names each screen. Behind her, Maya drops the panic pose and leans in toward the laptop."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Sixteen months, sorted by clicks...",
+   "emotion": "curious",
+   "visual": "Wide two-shot: Maya types (typing sfx) while Floey watches her from the lid. Then a whoosh to the DUO.listInsert of her laptop screen, titled 'Search Console · Performance' and subtitled 'Pages tab · last 16 months · sorted by clicks', with the columns Page and Clicks. Example rows from Maya's own made-up site slide in one by one: /sourdough-starter/ 4,210, /no-knead-bread/ 2,980, /banana-bread/ 1,640, /about/ 310, /tag/flour/ 12."
+  },
+  {
+   "role": "check",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "And?",
+   "emotion": "playful",
+   "visual": "floey shot: Floey leans forward on the lid with one eyebrow-tilt of the head, waiting. Behind her, Maya squints at the screen and pushes her glasses up."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Oh. It's three bread recipes.",
+   "emotion": "bright",
+   "visual": "Cut back to the laptop insert: the hiK ring grows around the top row, /sourdough-starter/, and nothing else changes. On 'three bread recipes', cut to mayaTight, where her panic melts into a surprised half smile."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Those three first. Each to its matching new page.",
+   "emotion": "warm",
+   "visual": "Wide two-shot: Floey turns to Maya and gives one small nod on 'first'. Maya types (typing sfx). That is her only action in this line."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Not the homepage?",
+   "emotion": "curious",
+   "visual": "mayaTight: Maya stops typing and looks up over her glasses, half suspicious. Floey is out of frame."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.6,
+   "say": "Never. Then the rest.",
+   "emotion": "playful",
+   "visual": "floey shot: Floey gives a dry head tilt and a wink, with Maya behind her. In the silent pause after the line, cut to wide: Maya picks up her mug, sips and pulls a face because the coffee has gone cold. Floey chips once (chip sfx), smug. That is the cold coffee's only beat."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Right. Telling my client.",
+   "emotion": "determined",
+   "visual": "Wide two-shot: Maya puts the mug down and types fast and with purpose (typing sfx), and gives a small 'fist' as she finishes. Floey watches her from the lid."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Send this to whoever's planning your site move.",
+   "emotion": "proud",
+   "visual": "floeyTight: Floey pivots to face the camera with a swish (swish sfx) and delivers the line flat and deadpan, straight down the lens. In the pause, cut to wide: the same DUO.notification from 'Client' slides into the same top slot as in frame one (ding): 'Thanks! So still zero traffic drop?' Cut to mayaTight: without a word, Maya gives the camera a long flat look over her glasses. End card."
+  }
+ ],
+ "loopNote": "The lines now alternate Maya, Floey, Maya the whole way through, so no speaker has two lines in a row. The reel ends on a new 'Client' notification that slides into the same top slot with the same ding as frame one, still asking for zero traffic drop. On a replay, the opening notification reads as the client asking again, and Maya's panic starts over. Experiment label: send-ask. The brief had Maya say the send line to camera. Floey says it here, because under the studio rule only Floey speaks to the camera and Maya just looks. Record the speaker change. Maya's own line ('Right. Telling my client.') sets up the client's reply that lands the joke.",
+ "caption": "Client: \"New site live Friday. Zero traffic drop, ok?\" Maya: instant panic about redirecting every single page by Friday.\n\nGoogle's own site move guide has a calmer plan. Expect a short wobble while Google recrawls, and start with your important URLs. In Search Console, open Performance, then the Pages tab. Pick a long date range so seasonal pages show up, and sort by clicks. Redirect the top pages first, each to its matching new page (never the homepage). Then map the rest.\n\nSend this to whoever is planning your site move. What's the scariest thing a client has said to you about a relaunch? (Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#sitemigration",
+  "#searchconsole",
+  "#redirects",
+  "#bloggingtips"
+ ],
+ "sticky": 50,
+ "id": "r044-the-client-wants-a-site-move-with-zero-t",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "The client wants a site move with zero traffic drop: pull the pages that earn clicks before you write a single redirect",
+ "editorNotes": [
+  "There is more than one tip. Floey gives the tip in line 4: start with your most clicked pages. Lines 8 to 10 add a second one: each to its matching new page, not the homepage (Maya asks 'Not the homepage?', Floey answers 'Never.'). Cut the homepage exchange (lines 9 and 10) so there is one tip. This also takes about 4 seconds off a reel that runs about 40 seconds. Keep the cold coffee moment by moving it into the pause after line 8.",
+  "'Never.' is untrue. Google warns against sending many old URLs to one unrelated page such as the home page. It does not say never: the old homepage should redirect to the new homepage. If you keep the exchange anyway, Floey needs a true line, for example 'Not all of them.' Cutting the exchange is better.",
+  "The tip could tell viewers to launch with most redirects missing. Maya says 'I can't redirect every page by Friday', Floey says 'Those three first... Then the rest.' That sounds like going live Friday with only three redirects and doing the rest later. The brief's own facts say missing redirects are one of the top causes of traffic loss after a move, and Google says to map old URLs to new ones. Google's 'start with your important URLs' means do them first, not do only them. Make it clear the rest are still mapped before launch, for example 'Then the rest, before Friday.', or change Maya's doubt line so it is about what to do first, not about missing the deadline.",
+  "The payoff isn't on screen. Maya says 'It's three bread recipes', but the ring grows around only one row (/sourdough-starter/). listInsert has only one `hi` ring, so the voice and the picture disagree. Set the top three rows to the good tone and the last two to muted, and ring the top row. Then the 'three' can be seen.",
+  "The surprise in the payoff doesn't land. The joke is 'I thought it was every page; it's three.' The insert shows only five rows, so the viewer never sees 'every page'. Show the size of the site. For example, put the page count in the subtitle or add a stat pill such as '212 pages' (labelled as her example), so three out of hundreds reads in one glance.",
+  "Frame one can't be drawn. The script says Maya is 'in her panic pose with her mug in one hand', but panic (hands by her head) and mug are separate poses, and only one can be active at a time. It also clashes with line 10, where she 'picks up her mug' from the desk. Choose one. For example, frame one: panic pose with DUO.mug() on the desk. Line 10: switch to the mug pose and stop drawing DUO.mug().",
+  "Both notifications are too long. The limit is about 34 characters. 'New site live Friday. Zero traffic drop, ok?' is 44 and 'Thanks! So still zero traffic drop?' is 35. Shorten them, for example 'Live Friday. Zero drop, ok?' and 'Thanks! Still zero drop?'. The last one still lands the joke. Both must sit inside the safe area (y 220 or below), not under Instagram's top 200 px.",
+  "The studio can't draw some of the actions. Maya 'pushes her glasses up' and 'looks up over her glasses' (line 9 and the button), and Floey 'leans forward on the lid with one eyebrow-tilt'. None of these is a Maya pose or a Floey behaviour. Use what exists: Maya in the chin or think pose with MY.look(t, 0, 1) at the laptop, MY.look up with the deadpan face, and Floey's tilt.",
+  "The silent moments don't fit their pauses. After 'Never. Then the rest.' the 0.6 s pause has to hold a cut to wide, Maya picking up the mug, a sip, a face and a Floey chip. After the send line, the 0.7 s pause has to hold a cut, the notification sliding in with a ding, a cut to mayaTight and 'a long flat look'. Give the coffee beat about 1.5 s (a gap or a later start) and push END about 2.5 to 3 s past the last line so the closing look plays before the end card. Also, Maya has no sip action. Use the mug pose, a small head tilt and the annoyed face.",
+  "(polish) 'Expect a short wobble' says more than the fact does. Google says 'temporary', and for medium sites 'a few weeks or more' before the new URLs show. A client told 'short' who then sees weeks of dip will be unhappy. 'Expect a wobble. Love, Google.' is just as punchy and fully true.",
+  "(polish) The voice tag and the direction disagree on the send line. Its emotion is 'proud', but the visual says 'flat and deadpan, straight down the lens'. Choose one; dry and deadpan suits Floey. Also, Floey's lines 2, 4, 6 and 10 are all tagged 'playful'. Vary them (curious on 'And?', warm or determined on the tip) so her reads don't all sound the same.",
+  "(polish) Maya's face doesn't carry over. Line 7 says 'her panic melts into a surprised half smile', but she has not panicked since line 4. By lines 5 and 6 she is curious and squinting. Start line 7 from the think face and move to surprised then happy, so the sampled frames match.",
+  "(polish) In lines 4 and 8 Floey 'turns toward Maya', but she starts the reel facing Maya (facing -1). Give her a real move on those lines instead, such as a tilt, a chip or a hop on the lid, so the listener isn't frozen and the direction isn't a no-op.",
+  "(polish) Check the listInsert subtitle 'Pages tab · last 16 months · sorted by clicks' with PROPS.measure. It is long and may overflow. 'Pages · 16 months · by clicks' says the same thing."
+ ],
+ "style": "duo",
+ "template": "../drafts/r044-the-client-wants-a-site-move-with-zero-t/scene.html"
+}
