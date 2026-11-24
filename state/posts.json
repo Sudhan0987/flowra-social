@@ -685,6 +685,17 @@
    "idea": "My ranking held and my clicks still fell: three checks before you blame your page",
    "style": "duo",
    "run": 45210441343
+  },
+  {
+   "id": "r044-the-client-wants-a-site-move-with-zero-t",
+   "status": "draft",
+   "topic": "The client wants a site move with zero traffic drop: pull the pages that earn clicks before you write a single redirect",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-24T16:12:18.288Z",
+   "seconds": 36,
+   "idea": "The boss wants a site move with no traffic drop: list the pages that earn clicks before you write a single redirect",
+   "style": "duo",
+   "run": 45429766345
   }
  ]
 }
