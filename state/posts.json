@@ -696,6 +696,17 @@
    "idea": "The boss wants a site move with no traffic drop: list the pages that earn clicks before you write a single redirect",
    "style": "duo",
    "run": 45429766345
+  },
+  {
+   "id": "r045-strong-backlinks-falling-traffic-before-",
+   "status": "draft",
+   "topic": "Strong backlinks, falling traffic: before blaming the links, check whether it's every page or just a few",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-25T15:58:19.758Z",
+   "seconds": 24,
+   "idea": "Strong backlinks, falling traffic: first check whether it's every page or just a few",
+   "style": "duo",
+   "run": 45646349539
   }
  ]
 }
