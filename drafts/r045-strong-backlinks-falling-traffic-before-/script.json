@@ -1,0 +1,107 @@
+{
+ "title": "Not your links",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "My traffic's sliding. It has to be my backlinks!",
+   "emotion": "worried",
+   "visual": "maya shot, night set, desk lamp on. Frame one: Maya in the panic pose (hands by her head), worried face, a '!' mark pops above her bun with a thump. The laptop (back view) and DUO.mug() sit on the desk from frame one. Floey is out of frame in this shot, so she gets no business here."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.25,
+   "say": "All of it? Or just a few pages?",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey perched on the laptop lid, head tilt, deadpan, a small chip at the end of the line."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Does that matter?",
+   "emotion": "curious",
+   "visual": "maya shot: Maya drops her hands into the think face, then goes to crossed arms, sceptical. Floey is out of frame here."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Search Console. Compare this month with last. Sort by the difference.",
+   "emotion": "warm",
+   "visual": "wide: Floey turns from Maya towards the laptop. Maya switches to the type pose; the typing sound is panned right, then a whoosh into the screen cutaway."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.5,
+   "say": "Most pages barely moved...",
+   "emotion": "curious",
+   "visual": "Cutaway: DUO.listInsert titled 'Search Console: Pages', subtitle 'Last 28 days vs previous 28 days', column 'Clicks change', sorted from highest change to lowest. rowsK reveals the first four rows with a tick each: 'Packed lunch ideas +2', 'Five minute oats 0', 'Budget pasta bake -1', 'Sunday roast guide -3'. These are Maya's own made-up example numbers, in grey. The bottom two rows are not revealed yet."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Oh. It's two posts.",
+   "emotion": "bright",
+   "visual": "Same listInsert: rowsK reveals the last two rows in red, 'One pot chilli -140' and 'Banana bread -180' (example figures), so the two drops land at the bottom of the sort. hiK rings those two rows with a ding. Cut to mayaTight: Maya goes from the surprised face to happy, relieved."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Then inspect those two. Not your links.",
+   "emotion": "warm",
+   "visual": "wide: Floey turns to Maya, calm and a little smug, and preens at the end of the line. Maya nods in the happy face, then goes to the mug pose (DUO.mug() leaves the desk while she holds it)."
+  },
+  {
+   "role": "button",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Cold.",
+   "emotion": "ominous",
+   "visual": "mayaTight: Maya in the mug pose with the annoyed face from the first frame of the line, sipping, then lowering it flatly. Her mug pose ends and DUO.mug() reappears on the desk with a thump."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Also not your links.",
+   "emotion": "proud",
+   "visual": "wide: Floey pivots to face the camera, deadpan, and winks on 'links'. Beside her, Maya stays in the annoyed face with crossed arms and gives the camera a long flat look, mug back on the desk. Hold on both of them, then the end card."
+  }
+ ],
+ "loopNote": "The reel ends on a wide shot of Maya at her desk under the night lamp: arms crossed, flat look, mug on the desk next to her laptop. Frame one is the same desk, lamp and mug, with Maya back in the panic pose and blaming her backlinks, so a replay plays like her panicking all over again.",
+ "caption": "Traffic is sliding, so Maya blamed her backlinks. Floey asked one question: is it all of it, or just a few pages?\n\nBefore you blame links or an update, find out how far the drop spreads. In Search Console, open the Performance report, compare this month with the one before, go to the Pages tab and sort by the Difference column.\n\nGoogle's guide says that if the whole site dropped, start with the Page indexing report. If only a few pages dropped, look at those with the URL Inspection tool. For Maya it was two posts. (Her numbers are a made-up example.)\n\nWhat do you blame first when traffic dips: links, updates or the pages themselves?",
+ "hashtags": [
+  "#seo",
+  "#searchconsole",
+  "#bloggingtips",
+  "#contentmarketing",
+  "#organictraffic"
+ ],
+ "sticky": 50,
+ "id": "r045-strong-backlinks-falling-traffic-before-",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Strong backlinks, falling traffic: before blaming the links, check whether it's every page or just a few",
+ "editorNotes": [
+  "'Not your links.' (Floey, line 7) is stated as a diagnosis, and no fact in the brief backs it. Two posts losing clicks does not rule out links: those two posts could have lost their own backlinks. The facts only say the scope tells you which check comes next (URL Inspection for a few pages, Page indexing for the whole site). Because the hook now blames the links outright, Floey's reply reads as 'links are cleared', which she can't support. Keep the callback, but make line 7 tell Maya where to look, not what the cause is. For example, point her at those two posts and away from her link numbers or the whole site. The button 'Also not your links.' still lands after that.",
+  "The payoff beat is overloaded. 'Oh. It's two posts.' takes about 1.3 seconds, and the script fits all of this into it: the two red rows sliding in, the hiK ring, a ding, a cut to mayaTight, and a surprised-to-happy face change. That's the reel's central image (one list, only two red rows), and here it flashes past. Reveal the two red rows in the 0.5 second pause after 'Most pages barely moved...'. Hold the insert with the ring through 'Oh.'. Cut to mayaTight only on 'It's two posts.' or on Floey's next line. That way the viewer reads the list before Maya reacts to it.",
+  "The brief asks for 'short-25s' in the experiment field, and the script has no experiment field. Add it, or the 25-second, no-number-hook test can't be tracked.",
+  "(polish) What Floey says and what the screen shows don't match. Floey says 'Compare this month with last', but the insert subtitle reads 'Last 28 days vs previous 28 days'. She says 'Sort by the difference', but the column is labelled 'Clicks change'. Search Console's own column is 'Difference' (the brief's fact). Use one period in both the line and the subtitle, and label the column 'Clicks difference' so the viewer can find it in their own account.",
+  "(polish) 'Then inspect those two.' 'Inspect' is a hidden reference to the URL Inspection tool. Viewers won't hear it as plain advice, and it half-adds a second tool next to the one real tip (compare and sort). 'Check' or 'look at' those two is plainer and keeps the reel to one tip.",
+  "(polish) The hook drops the irony that makes the brief shareable: 'my backlinks are great and traffic is still falling', which is exactly the r/bigseo question. 'It has to be my backlinks!' is a common thought and fine for Maya. But the friend who is Maya is the one staring at good link numbers, and the 'whole site is broken' fear that Floey's 'All of it?' answers never gets said. Think about getting 'my links are fine' and the slide into the first line together, while keeping it under about 2 seconds.",
+  "(polish) Sound: the hook's '!' mark and the mug going back on the desk both use 'thump', which is the end card's sound. Use pop for the mark and click or tk for the mug, so the thump stays the end card's.",
+  "(polish) Maya has no sip action. Her 'mug' pose only holds the coffee. Describe the sip with tools that exist: the mug pose blended in, a small tiltTo back, then the annoyed face on 'Cold.'. The desk mug coming back should happen while she's in mayaTight (the desk is out of frame), so the swap from mug in hand to mug on the desk never shows in the wide shot.",
+  "(polish) In the tip line, 'Floey turns from Maya towards the laptop' can't be drawn. She's sitting on the laptop lid, and the screen is on Maya's side. Have her tilt her head down towards the screen side, or chip and keep facing Maya while Maya types.",
+  "(polish) Frame one shows a panicking Maya and a '!' mark, but nothing on screen shows traffic falling. With the sound off, only the caption carries the problem. Keep the no-number hook, but add something that shows a drop with no figure on it, for example a falling-line screenInsert or a phone notification. That meets the studio's 'problem already happening' rule.",
+  "(polish) 'Cold.' is set to 'ominous'. Check it in bf_emma before rendering. The cast says Maya goes flat when she's annoyed. A horror-movie reading could be funny, but if it comes out too theatrical it steps on Floey's dry 'Also not your links.' The same goes for 'All of it? Or just a few pages?' set to 'playful'. Floey's reframe lands best dry, so make sure the playful reading doesn't come out sing-song."
+ ],
+ "style": "duo",
+ "template": "../drafts/r045-strong-backlinks-falling-traffic-before-/scene.html"
+}

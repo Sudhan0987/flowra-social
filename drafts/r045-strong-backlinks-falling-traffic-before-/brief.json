@@ -1,0 +1,51 @@
+{
+ "topic": "Strong backlinks, falling traffic: before blaming the links, check whether it's every page or just a few",
+ "angle": "Maya's backlinks look great, her traffic is sliding anyway, and she assumes something big has gone wrong with the whole site. Floey asks one question, \"All of it, or a few pages?\", and Maya compares two date ranges in Search Console and sorts her pages by the change in clicks. Most rows have barely moved and two posts carry the whole drop, so now she knows where to look. The turn is easy to see and act out: one list where only two rows are red. It answers the r/bigseo question (technical, content, updates or links?) with the step Google's own guide gives first.",
+ "whyNow": "This week's social listening (22 Nov 2026) flagged an r/bigseo thread asking what to check first when a site with strong backlinks keeps losing organic traffic: technical, content, updates or links. It sits in a month where \"my traffic is sliding\" threads are the main conversation, next to the 565-comment Hacker News thread about AI answers cutting clicks. This is also the 'short-25s' test: a duo reel of about 25 seconds with a no-number hook. Put 'short-25s' in the experiment field.",
+ "goal": "send",
+ "audience": "Solo bloggers, content marketers and small-agency people who look at their backlink numbers, see organic traffic falling anyway, and don't know whether to blame links, a Google update or their pages.",
+ "facts": [
+  {
+   "fact": "Demand: in r/bigseo someone asked what to check first when a site with strong backlinks keeps losing organic traffic: technical, content, updates or links. (From the 22 Nov 2026 social-listening report. The thread could not be opened directly during research, so state it only as 'people ask this', with no quotes from it.)",
+   "source": "https://www.reddit.com/r/bigseo/comments/1y1z1fq/regarding_seo/"
+  },
+  {
+   "fact": "Google says a drop in organic Search traffic can happen for several reasons, and lists algorithmic updates, technical issues, security issues, spam issues, seasonality and changing interests, and site moves.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google's guide splits the next step by scope: 'If it's a site-wide issue, check the Page indexing report. If the drop only affects a group of pages, use the URL inspection tool to investigate a few pages.'",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Google says to use the Compare tab in the Performance report to 'review what exactly changed' and to click every tab to see whether the change happened only for specific queries, URLs, countries or devices.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Search Console Help: 'Sort by the Difference column to see queries or pages with significant change from a previous period.'",
+   "source": "https://support.google.com/webmasters/answer/17010961"
+  },
+  {
+   "fact": "Google notes that technical issues 'can be site-wide (for example, your website is down) or page-wide'.",
+   "source": "https://developers.google.com/search/blog/2021/07/search-traffic-drops"
+  },
+  {
+   "fact": "Google says to select 'Last 16 months' to make sure a drop is not one that happens every year because of a festivity or a trend.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "After a ranking shift from an algorithmic update, Google says 'there might not be anything fundamentally wrong with your content'.",
+   "source": "https://developers.google.com/search/docs/monitor-debug/debugging-search-traffic-drops"
+  },
+  {
+   "fact": "Any click numbers on Maya's screen (for example, two posts down and the rest roughly flat) are her own made-up example, not real data or a statistic.",
+   "source": "Example (not a statistic)"
+  }
+ ],
+ "visualIdea": "Night set, desk lamp on, Floey on the laptop lid. Hook in mayaTight: Maya with her hands by her head says \"My backlinks are amazing and my traffic is still sliding!\" with a \"!\" mark. Floey in floeyTight, deadpan: \"All of it? Or a few pages?\" Maya: \"Does that matter?\" Floey: \"Compare the two months. Sort by the drop.\" Typing sound, a whoosh, and the central image: a DUO.listInsert titled \"Search Console: Pages\", subtitled \"Last 3 months vs previous\". Six rows slide in, four small grey changes (+2, -1, 0, -3) and two red rows (her two recipe posts, for example -180 and -140). The hiK ring grows around those two. Back to mayaTight: \"Oh. It's two posts.\" Floey: \"Then check those two. Not your links.\" Button: Maya reaches for her mug, sips, winces (\"Cold.\") and looks to camera. Floey: \"Also not your links.\" End card. About 25 seconds.",
+ "pillar": "problem",
+ "instinct": "My backlinks are strong, so if traffic is sliding anyway, something big is wrong with the whole site.",
+ "flip": "Google's own guide says to first find out whether the drop hit the whole site or just a group of pages, because each points to a different check (Page indexing for site-wide, URL Inspection for a few pages).",
+ "idea": "Strong backlinks, falling traffic: first check whether it's every page or just a few",
+ "style": "duo"
+}

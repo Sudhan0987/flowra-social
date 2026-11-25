@@ -1,0 +1,238 @@
+{
+ "style": "Night set in Maya's room with the desk lamp glowing, moon and stars in the window. Maya (amber, solo blogger, pencil bun) behind the desk, Floey (pink hummingbird) perched on the laptop lid facing her (facing -1), the mug on the desk's right end from frame one. One Search Console list cutaway, no notification, all numbers framed as Maya's example figures.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "medium",
+   "camera": "shake",
+   "subject": "maya shot: Maya behind the desk, back of the laptop (spark sticker) and the mug on the desk, night window and lamp glow behind her. Floey out of frame.",
+   "action": "Frame one is already mid-panic: hands up by her head (panic pose), worried face, eyes darting at the laptop (look 0.2, 0.8). A '!' mark pops above her bun, and a small panic shake settles by 0.6s.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.5,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame, '!' mark fading by her bun.",
+   "action": "Push-in as she leans towards the screen on 'It has to be my backlinks!', head tilting, bun wobbling, hands still by her head. Pure conviction.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone, perched on the laptop lid, lamp glow on her feathers.",
+   "action": "Quick cut. A slow head tilt towards Maya, deadpan eyes, one blink on 'All of it?', a tiny chip at the end of 'just a few pages?'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya shot: Maya behind the desk, mug beside the laptop. Floey out of frame.",
+   "action": "Cut back as she drops her hands into the chin pose with the think face, eyes flicking left to Floey (look -1, 0), then folds into crossed arms with a sceptical squint on 'matter?'",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: the two-shot, Maya behind the desk, Floey on the laptop lid, mug at the right end.",
+   "action": "Floey turns from Maya to face the laptop on 'Search Console.' Maya uncrosses her arms and goes to the type pose on 'Compare', hands tapping, eyes down at the screen (look 0, 1).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.3,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 2.3,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: closer two-shot favouring Floey on the laptop lid, Maya typing behind her.",
+   "action": "Slow push-in as Floey nods at the screen on 'Sort by the difference.' Maya keeps typing, then hits one final key with a little flourish.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.8,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop screen cutaway (DUO.listInsert): 'Search Console: Pages', sub 'Last 28 days vs previous 28 days', column 'Clicks change', sorted highest to lowest. Example figures in grey.",
+   "action": "The insert swings in. Rows slide in one by one with a tick: 'Packed lunch ideas +2', 'Five minute oats 0', 'Budget pasta bake -1', 'Sunday roast guide -3'. The bottom two slots stay empty. Maya's voice is unsure: 'Most pages barely moved...'",
+   "onScreenData": "-3",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.4,
+     "kind": "pop"
+    },
+    {
+     "at": 0.8,
+     "kind": "pop"
+    },
+    {
+     "at": 1.2,
+     "kind": "pop"
+    },
+    {
+     "at": 1.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Same listInsert, bottom of the sort.",
+   "action": "On 'Oh.' the last two rows slide in red: 'One pot chilli -140' and 'Banana bread -180' (example figures). The hiK ring grows around both rows with a ding.",
+   "onScreenData": "-180",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "pop"
+    },
+    {
+     "at": 0.6,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0.8,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face, laptop glow under her chin.",
+   "action": "Cut to the reaction: surprised face, eyebrows up, then it melts into happy relief on 'It's two posts.' Her shoulders drop a little.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: both of them, Floey on the laptop lid, mug on the desk.",
+   "action": "Pull-out to the two-shot once the line lands. Floey turns back to Maya, calm and a little smug, on 'Then inspect those two.' Maya nods twice in the happy face on 'Not your links.'",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 1.1,
+   "shot": "wide",
+   "camera": "drift",
+   "subject": "wide: Maya reaching for the mug, Floey on the laptop.",
+   "action": "Maya picks the mug up off the desk into the mug pose (DUO.mug() leaves the desk, one mug only), pleased with herself. Floey preens a wing at the end of the line.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "pop"
+    },
+    {
+     "at": 1.6,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya holding the mug at her lips, annoyed face from the first frame.",
+   "action": "A sip, a pause, then a flat 'Cold.' She lowers the mug out of the bottom of the frame and sets it down on the desk with a bonk.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.05,
+     "kind": "pop"
+    },
+    {
+     "at": 0.8,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey on the laptop lid, Maya behind the desk with the mug back on the desk.",
+   "action": "Cut wide. Floey pivots to face the camera, deadpan, on 'Also not your links' and winks on 'links'. Beside her, Maya folds into crossed arms, still annoyed.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.9,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 1.4,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "wide, slowly tightening on both: Maya and Floey framed together, nobody cut off at the edges.",
+   "action": "Silent button. Maya slowly turns her head and gives the camera a long, flat look (look 0, 0), arms crossed. Floey holds her front pose and blinks once. Hold for about 1.6 seconds.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 8,
+   "at": 3,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo intact, 'Maya & Floey, every day', Floey perched in front on the spark's left arm.",
+   "action": "The end card slams in over the room and the captions hide.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 3,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 0.8
+}
