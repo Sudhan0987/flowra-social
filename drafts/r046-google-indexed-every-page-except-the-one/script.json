@@ -1,0 +1,125 @@
+{
+ "title": "The page Google picked instead",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "Google indexed every page except the ones I actually need!",
+   "emotion": "worried",
+   "visual": "Night set, wide, from t=0. Desk lamp on, laptop glowing on screen left. Maya: pose cheeks, expression worried, looking at the laptop. A bad-tone pill '2 pages not indexed' sits by her head from the first frame. Floey sits on the laptop lid and does a slow head turn toward Maya, with one blink. On 'except', cut to the laptop screen insert (listInsert, title 'Pages'), rows with the URL as the title and the status as the label: /about 'Indexed' (good), /recipe-development 'Indexed' (good), /food-photography 'Duplicate without user-selected canonical' (bad), /recipe-testing 'Duplicate without user-selected canonical' (bad, hi ring). Measure the label with PROPS.measure; if it overflows, use 'Duplicate, no canonical'."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "It didn't lose them. It picked a favorite.",
+   "emotion": "warm",
+   "visual": "floey two-shot. Floey on the laptop lid, deadpan, one slow blink and a quick preen. Maya goes from pose cheeks to pose rest, and her expression changes from worried to annoyed on the word 'favorite'."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "But I've pressed Request Indexing six times!",
+   "emotion": "worried",
+   "visual": "maya shot. Maya: pose type, expression annoyed, eyes on the laptop. Two click sfx at least 0.4s apart, panned left where the laptop sits. A '!' mark (DUO.mark) pops by her head on the second click."
+  },
+  {
+   "role": "check",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Open URL Inspection. See who Google picked.",
+   "emotion": "playful",
+   "visual": "wide. Floey stays on the lid, does a tilt toward the screen, then a tk sfx as she turns back to Maya. Maya: pose type, looking at the laptop, typing sfx panned left. Cut to the screen insert (listInsert, title 'URL Inspection: /recipe-testing'), row 'Google-selected canonical' with the label '/recipe-development' under a hi ring. Back on the wide, a '?' mark (DUO.mark) appears by Maya's head."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "My recipe development page? That's a different page!",
+   "emotion": "determined",
+   "visual": "maya shot. Maya: pose rest, expression annoyed, turned toward screen left where Floey is, pushing back. Floey is out of frame in this shot."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.6,
+   "say": "Is it? Side by side.",
+   "emotion": "playful",
+   "visual": "floey two-shot. Floey does a tongue flick, then a wink at Maya. Maya: expression think, leaning toward the laptop. Swish sfx into the screen insert (listInsert, title 'Same page?', sub-line '/recipe-testing vs /recipe-development'). The rows are the whole page: Intro 'Same', What I do 'Same', Process 'Same', Contact 'Same'. All are bad tone, landing one after another with a tk sfx each, and a hi ring goes round the whole list."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.4,
+   "say": "Oh. Word for word.",
+   "emotion": "curious",
+   "visual": "mayaTight. Said flat and small. Maya's expression goes from surprised to worried, then her eyes slide to screen left toward Floey: a guilty glance. Floey is out of frame."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Google thinks they're one page. Give each one something only it says, top to bottom.",
+   "emotion": "warm",
+   "visual": "wide. Floey leaves the lid and hovers by Maya's head with a flutter sfx. Maya: pose type, looking at the laptop, typing sfx panned left. Cut to the 'Same page?' insert: on /recipe-testing, Intro, What I do and Process flip one by one from 'Same' (bad) to 'Its own' (good), each with a tk sfx, while Contact stays 'Same' (neutral). Swish to the same insert for '/food-photography vs /recipe-development', where those three rows also flip to 'Its own', so both duplicate pages are rewritten."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "So it's back tomorrow?",
+   "emotion": "curious",
+   "visual": "maya shot. Maya: pose rest, expression think, hopeful, looking up at Floey hovering out of frame to the left."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "Up to two weeks.",
+   "emotion": "playful",
+   "visual": "wide. Floey lands back on the laptop lid, deadpan, with one slow blink. Maya slumps: pose rest, expression deadpan, shoulders down."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "You're welcome.",
+   "emotion": "proud",
+   "visual": "floeyTight. Floey pivots to face the camera, a little smug, with one slow blink. Then cut to the maya shot: Maya, expression deadpan, gives the camera a flat look without words. End card follows."
+  }
+ ],
+ "loopNote": "No loop needed for a duo reel. The last frame is Maya's flat look to camera at the night desk. The first frame is the same desk and laptop with Maya's hands on her cheeks, so a replay reads as her next panic.",
+ "caption": "Built three \"work with me\" pages from one template. Google indexed one of them. 🙃\n\nIt isn't a penalty. When pages read almost the same, Google groups them and picks one to show. To see which one, open URL Inspection in Search Console for the missing page and read the \"Google-selected canonical\" line. If it names your other page, a new first line won't fix it. Give each page main content only it says: its own intro, what you do and how you work. Then be patient, because Google can keep pages grouped for up to two weeks after you fix them.\n\nSend this to whoever builds your service pages from one template.\n\nBe honest: how many of your pages are the same page with a different title?\n\n(Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#searchconsole",
+  "#bloggingtips",
+  "#freelancelife",
+  "#contentmarketing"
+ ],
+ "sticky": 50,
+ "id": "r046-google-indexed-every-page-except-the-one",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Google indexed every page except the ones that read like copies of each other",
+ "editorNotes": [
+  "The gag is gone. The brief's joke is the two pages' first lines side by side, both saying \"I make recipes that work in real kitchens.\" word for word. The script swaps that for a table that just says 'Same' four times (Intro, What I do, Process, Contact). A viewer sees a label telling them the pages match, not the sentence itself, so there's nothing to laugh at. Maya's \"Word for word.\" then points at words that aren't on screen. Use a two-row listInsert: label /recipe-testing and /recipe-development, value the identical sentence. Measure it with PROPS.measure and trim it to fit the value column if needed.",
+  "The 'Same page?' insert asks for 'a hi ring that goes round the whole list'. DUO.listInsert only rings one row (hi on one row, grown by hiK), so the animator can't draw this. Ring a single row, ideally the duplicated sentence.",
+  "The 'Same page?' table claims the whole page is identical in every section. The brief's example fact only says the pages open with the same sentence. Don't stretch an example past what the brief says. Keep it to the first line.",
+  "The tip says \"Give each one something only it says, top to bottom.\" On screen, Contact stays 'Same'. The line and the picture contradict each other, and a viewer will notice. \"top to bottom\" also reads as written, not spoken, and blurs a clean tip: Google's advice is a clear, significant difference, not a rewrite of every section. Cut \"top to bottom\". End on \"Give each one something only it says.\"",
+  "The tip happening is shown as abstract 'Same' to 'Its own' labels, so the viewer never sees what a fix looks like. The brief's version shows it: Maya types and the /recipe-testing row changes to \"I test your recipe three times before you print it.\" Show the real new sentence replacing the copied one, on the typing sfx.",
+  "The tip beat is overloaded and makes an unshown claim. In about 5 seconds it packs Floey taking off and hovering, Maya typing, an insert with three timed row flips, a swish, and a second insert for /food-photography vs /recipe-development. The reel only ever inspected /recipe-testing, so it never showed that /food-photography's Google-selected canonical is /recipe-development. Either follow the brief's hook list (only /recipe-testing a duplicate, pill '1 page not indexed') or keep two duplicates but rewrite only the one you inspected. Drop the second insert.",
+  "(polish) Payoff \"Oh. Word for word.\" has emotion curious, but the visual says 'flat and small'. A curious read rises in pitch and turns \"Word for word.\" into a question. Use worried for a small, sinking realisation.",
+  "(polish) The doubt line \"But I've pressed Request Indexing six times!\" has a worried voice over an annoyed face. The line is exasperated, so make them agree. Either set the expression to worried or panic, or keep annoyed and pick a voice that fits. A face left over from the reframe beat would also fail the frame sampler.",
+  "(polish) The hook is Maya mid-panic with hands on cheeks, but the emotion is plain worried. Maya's panic voice is meant to be faster and higher, so excited or a hotter worried read would sell the hook better in the first second.",
+  "(polish) URL Inspection insert: the script says the row has 'the label /recipe-development'. In listInsert, 'Google-selected canonical' is the label and '/recipe-development' is the value. Spell that out so the animator doesn't leave the value blank. The check beat also crams in a tilt, a tk, typing, the insert, a cut back to wide and a '?' mark during a roughly 2.5 second line. Let the '?' land on Maya's next shot instead.",
+  "(polish) \"So it's back tomorrow?\" has Maya looking up at Floey 'hovering out of frame to the left'. floeyHover sits at Maya's eye height, so she should look left, not up. Also check that Floey at floeyHover really is out of the maya shot, or nudge the shot. Nobody should be sliced at the frame edge.",
+  "(polish) After \"Up to two weeks.\" the script says 'pose rest, shoulders down'. Use MY.slump so the deflation actually reads. For the button, push END back about 1.5 to 2 seconds so the cut to Maya's flat look to camera plays out before the end card. Without that, the end card swallows the real punchline. If you want the brief's cold-coffee sip and grimace, keep it in this held moment (pose mug, and don't draw DUO.mug).",
+  "(polish) Hook insert: 'Duplicate without user-selected canonical' will almost certainly overflow the value column at phone size. Commit to 'Duplicate, no canonical' now rather than leaving it to a measurement step."
+ ],
+ "style": "duo",
+ "template": "../drafts/r046-google-indexed-every-page-except-the-one/scene.html"
+}

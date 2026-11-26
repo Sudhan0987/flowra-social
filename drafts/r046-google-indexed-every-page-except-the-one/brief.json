@@ -1,0 +1,63 @@
+{
+ "topic": "Google indexed every page except the ones that read like copies of each other",
+ "angle": "Maya built three \"Work with me\" pages from one template, and Search Console shows two of them as not indexed. She's sure Google has lost them or is punishing her. Floey opens URL Inspection to show the line that matters: next to \"Google-selected canonical\" is Maya's OTHER page, so Google thinks they are all one page. The gag on screen is the first lines of the two pages side by side, and they say the same sentence word for word. The tip: give each page something only it says. Then wait, because Google can keep pages grouped for up to two weeks.",
+ "whyNow": "This month an r/TechSEO poster asked why Google won't index some of their service pages. They submitted the URLs again and again, and the only pages left out are the ones with nearly the same layout (https://www.reddit.com/r/TechSEO/comments/1y22meb/google_wont_index_some_of_my_service_pages/). The same question runs on BlackHatWorld (\"Google isn't indexing my service pages, I need help\"). Our earlier reel covered Request Indexing and the reason line. This one teaches the next step: who Google picked instead, and why.",
+ "goal": "send",
+ "audience": "Solo bloggers and freelancers with a few templated pages (\"work with me\", services, city or category pages), plus small agency people who build client service pages from one template and get asked why two of them never show up.",
+ "facts": [
+  {
+   "fact": "Demand: an r/TechSEO post (9 comments) says Google won't index some service pages even after the URLs were submitted again and again, and the pages left out are the ones with nearly the same layout.",
+   "source": "https://www.reddit.com/r/TechSEO/comments/1y22meb/google_wont_index_some_of_my_service_pages/"
+  },
+  {
+   "fact": "Demand: the same question also appears as a BlackHatWorld thread titled 'Google isn't indexing my service pages, I need help.'",
+   "source": "https://www.blackhatworld.com/seo/google-isnt-indexing-my-service-pages-i-need-help.1812514/"
+  },
+  {
+   "fact": "If Google finds several pages that look the same, or whose main content is very similar, it clusters them together and chooses one as the canonical: the one it sees as the most complete and useful for searchers.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/canonicalization"
+  },
+  {
+   "fact": "Google's docs say some duplicate content on a site is normal and does not break its spam policies. It is not a penalty.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/canonicalization"
+  },
+  {
+   "fact": "Google decides which pages (if any) are duplicates based on how similar their content is.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+  },
+  {
+   "fact": "In the Search Console Page indexing report, 'Duplicate without user-selected canonical' means the page is a duplicate of another page and doesn't name a preferred one. Google picks the canonical itself and doesn't show this page in Search. Google says it is not an error, and you can inspect the URL to see which page Google chose.",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "The URL Inspection tool shows a 'Google-selected canonical' line: the page Google picked as the main one among similar pages. If it isn't the page you expected, Google thinks that page is the better one to show.",
+   "source": "https://support.google.com/webmasters/answer/9012289"
+  },
+  {
+   "fact": "Declaring your own canonical doesn't guarantee that Google will choose it, though Google takes it into account.",
+   "source": "https://support.google.com/webmasters/answer/9012289"
+  },
+  {
+   "fact": "Google's troubleshooting steps: use URL Inspection to see which page Google treats as canonical, then make sure the pages clustered together are sufficiently different. They separate faster when the difference is clear and significant.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/canonicalization-troubleshooting"
+  },
+  {
+   "fact": "Even after you fix the content, Google might keep pages in a duplicate cluster for up to two weeks.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/canonicalization-troubleshooting"
+  },
+  {
+   "fact": "After you fix the content, you can use Request Indexing in URL Inspection to ask Google to look again. It has a quota, so Google says to save it for your most important URLs.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/canonicalization-troubleshooting"
+  },
+  {
+   "fact": "Example only, not data: Maya's three pages are /recipe-development, /food-photography and /recipe-testing, all built from one template and all opening with the same sentence.",
+   "source": "Example for the reel (not a statistic)"
+  }
+ ],
+ "visualIdea": "A night set, with Floey on the laptop. The hook: Maya mid-panic, hands on cheeks: \"Google took every page except the ones I actually need!\" Cutaway 1 (DUO.listInsert, Search Console Pages): /about Indexed (good), /food-photography Indexed (good), /recipe-development Indexed (good), /recipe-testing \"Duplicate, no canonical\" (bad, hi ring). Maya pushes back (\"I've pressed Request Indexing six times!\"). Floey: \"Inspect it. Read who Google picked.\" Cutaway 2 (listInsert, URL Inspection for /recipe-testing): \"Google-selected canonical: /recipe-development\" (hi ring), with a \"?\" mark by Maya. Cutaway 3 is the gag and the payoff: a two-row listInsert titled \"First line\", where /recipe-testing and /recipe-development show the identical sentence \"I make recipes that work in real kitchens.\" Maya: \"Oh.\" Floey's tip: \"Google thinks it's one page. Give each one something only it says.\" Maya types (typing sfx), and the row changes to \"I test your recipe three times before you print it.\" The button: Maya: \"So it's back tomorrow?\" Floey: \"Up to two weeks.\" Maya slumps, sips her coffee, and grimaces (it's cold, the running joke). Floey pivots to the front: \"You're welcome.\"",
+ "pillar": "problem",
+ "instinct": "Google is ignoring or punishing my pages, so I'll keep pressing Request Indexing until it takes them.",
+ "flip": "Google didn't lose those pages: it grouped them with a near-identical page of yours and picked that one to show (URL Inspection names it as the \"Google-selected canonical\"), so they come back only when each page clearly says something different.",
+ "idea": "Google indexed every service page except the ones that look like copies",
+ "style": "duo"
+}

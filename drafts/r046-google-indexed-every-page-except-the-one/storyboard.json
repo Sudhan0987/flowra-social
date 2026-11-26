@@ -1,0 +1,296 @@
+{
+ "style": "Night set in Maya's room: moon and stars in the window, warm desk-lamp glow, laptop on screen left with Floey perched on the lid facing Maya (facing -1, side view), Maya behind the desk in her pencil bun; captions MAYA amber, FLOEY pink at y 1540; one 'Same page?' screen insert in the whole reel, no notification; a status pill by Maya's head that is red in the hook and green at the tip; Flowra only on the end card.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk, pose cheeks, expr worried, look (−0.2, 0.8) at the laptop; Floey perched on the laptop lid; bad-tone DUO.stat pill by Maya's head (x 880, y 610), visible from frame one",
+   "action": "The problem is already on screen: Maya's hands are on her cheeks as she stares at the laptop. Floey slowly turns her head toward Maya and gives one slow blink at 0.6s.",
+   "onScreenData": "2 pages not indexed",
+   "sfx": [
+    {
+     "at": 0.7,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 1.6,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone, Floey out of frame (the pill fades out by 1.4s, before the push, so the push never slices it)",
+   "action": "The camera pushes in on 'except' as the pressure rises. Maya's hands fly up into pose panic and she does MY.jolt at 2.4s on 'actually need', with her bun wobbling.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 2.4,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: closer two-shot favouring Floey on the lid, Maya at the frame edge, fully in frame",
+   "action": "Floey, deadpan, gives one slow blink at 0.3s and a quick preen at 1.2s. Maya drops from cheeks to rest and her face turns from worried to annoyed on 'favorite' (about 1.6s).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 1.2,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone, Floey out of frame",
+   "action": "A slow push-in as her frustration builds. Maya goes into pose type with expr annoyed, eyes down on the laptop, and stabs the Request Indexing key twice (sound panned left). A '!' DUO.mark pops by her head on the second press.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "type"
+    },
+    {
+     "at": 1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Floey on the lid, Maya in pose type, look at the laptop",
+   "action": "The camera pulls out to the two of them. Floey tilts toward the screen as if reading it, then turns back to Maya at 1.3s. Maya types the URL into URL Inspection (sound panned left).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.3,
+     "kind": "type"
+    },
+    {
+     "at": 1.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 3,
+   "at": 1.7,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya alone; neutral DUO.stat pill by her head (x 880, y 610) and a '?' DUO.mark on the other side of her head so the two never overlap",
+   "action": "The camera pushes in as Maya reads Google's answer. The pill fades in at 1.9s with what Google picked (check it with PROPS.measure and drop to 'Canonical' only if it fits better). The '?' mark boings up at 2.5s and Maya's brow drops into confusion.",
+   "onScreenData": "Picked: /recipe-development",
+   "sfx": [
+    {
+     "at": 1.9,
+     "kind": "pop"
+    },
+    {
+     "at": 2.5,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, Floey out of frame to screen left; the pill stays up while she says the page's name, then fades out at 1.6s",
+   "action": "Maya, pose rest and expr annoyed, turns her head to screen left (look −1, 0) toward Floey and pushes back with MY.tiltTo. On 'That's a different page!' she leans in (MY.leanTo) and gives an indignant MY.nod.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "floey: closer two-shot favouring Floey on the lid, Maya leaning in at the frame edge",
+   "action": "Floey flicks her tongue at 0.2s and then gives Maya a slow wink at 0.5s on 'Is it?'. Maya changes to expr think and leans toward the laptop.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0.7,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop screen insert (DUO.listInsert), the reel's only cutaway: title 'Same page?', sub '/recipe-testing vs /recipe-development', columns section and match",
+   "action": "The insert swings in. The first row, Intro 'Same' (bad), slides in at 1.1s.",
+   "onScreenData": "Same page?",
+   "sfx": [
+    {
+     "at": 0.7,
+     "kind": "whoosh"
+    },
+    {
+     "at": 1.1,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Same 'Same page?' insert, still on screen while Maya's voice plays over it",
+   "action": "Over Maya's flat little 'Oh. Word for word.', the remaining rows land one by one, all bad tone: What I do 'Same', Process 'Same', Contact 'Same'. Then a hi ring grows around the whole list just as 'word for word' lands.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.15,
+     "kind": "pop"
+    },
+    {
+     "at": 0.55,
+     "kind": "pop"
+    },
+    {
+     "at": 0.95,
+     "kind": "pop"
+    },
+    {
+     "at": 1.35,
+     "kind": "bonk"
+    }
+   ]
+  },
+  {
+   "beat": 6,
+   "at": 1.5,
+   "shot": "close",
+   "camera": "static",
+   "subject": "mayaTight: Maya's face fills the frame, Floey out of frame",
+   "action": "The reaction cut. Maya goes from surprised to worried, then her eyes slide slowly to screen left toward Floey (look −1, 0): a guilty glance, held in the line's gap.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Floey takes off from the lid to floeyHover by Maya's head; Maya in pose type, look at the laptop",
+   "action": "Floey flutters up to hover at Maya's eye height while she gives the tip. Maya types hard (sound panned left). The same pill comes back by her head in good tone at 2.0s as the first page gets its own copy.",
+   "onScreenData": "1 of 2 rewritten",
+   "sfx": [
+    {
+     "at": 0.2,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.8,
+     "kind": "type"
+    },
+    {
+     "at": 2,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 2.6,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "wide nudged in slightly: Floey hovering, Maya typing, the pill fully in frame",
+   "action": "A gentle push-in as the work comes together. On 'top to bottom' Maya keeps typing, and at 3.6s the pill ticks to its good state as both duplicate pages are rewritten. It fades out at 4.6s, before the next cut.",
+   "onScreenData": "2 of 2 rewritten",
+   "sfx": [
+    {
+     "at": 3.6,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, with Floey hovering just out of frame to the left",
+   "action": "Maya, pose rest and expr think (hopeful), looks up and to the left (look −1, −0.6) at Floey with a small hopeful MY.tiltTo.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "wide",
+   "camera": "pull-out",
+   "subject": "wide: Floey lands back on the laptop lid, Maya behind the desk",
+   "action": "Floey lands on the lid and delivers the line deadpan, with one slow blink. At 0.6s Maya does MY.slump: shoulders down, pose rest, expr deadpan.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.6,
+     "kind": "boing"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid",
+   "action": "Floey pivots to face the camera (F.pivot front), a little smug, and gives one slow blink at 0.6s after 'You're welcome.'",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 10,
+   "at": 1.1,
+   "shot": "medium",
+   "camera": "static",
+   "subject": "maya: Maya alone, Floey out of frame",
+   "action": "The button: Maya, expr deadpan, turns her eyes slowly to the lens and gives the camera a flat, silent look, held for about 1.6s (push END later so it plays out before the end card).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 10,
+   "at": 2.9,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card (DUO.endCard): the Flowra logo intact with Floey perched in front, and the line 'Maya & Floey, every day'",
+   "action": "The end card slams in and the captions hide.",
+   "onScreenData": "Maya & Floey, every day",
+   "sfx": [
+    {
+     "at": 2.9,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 1
+}

@@ -1,0 +1,11 @@
+{
+ "pass": false,
+ "problems": [
+  "Frame 06: The comparison screen doesn't back up the dialogue, and it teaches the wrong thing. The script asks for a 'Same page?' screen with whole-page rows (Intro, What I do, Process, Contact, all 'Same', with a ring around the list). The render shows 'Opening lines, side by side' with one row per page and one matching sentence, 'Recipes that work.' Right after it, Maya says 'Word for word' and Floey says 'Google thinks they're one page.' Viewers will take this to mean one shared opening line makes Google treat two pages as duplicates, which is untrue. The evidence has to show the whole page matching.",
+  "Frame 08: The 'Rewrite: /food-photography' screen has section rows (Intro, What I do… 'Same'), but this section breakdown was never set up. Frame 06 compared only one opening line, and /food-photography was never compared against anything. The fix looks like it comes from nowhere. This follows from the frame 06 deviation, and both screens need to match the script's 'Same page?' screen.",
+  "Frame 09: Maya is looking the wrong way. The script has her 'looking up at Floey hovering out of frame to the left' (in frame 07 Floey hovers on the left), but her pupils point screen-right toward the window, away from Floey. Viewers will notice she isn't talking to Floey.",
+  "Frame 10 (claim): 'Up to two weeks.' is stated as a firm upper limit with no source. Google's own guidance says recrawling can take anywhere from a few days to a few weeks, so promising 'up to two weeks' overstates it. Reword it (e.g. 'Days. Maybe weeks.') or source it.",
+  "Frames 02 and 05: In the Maya close shot, the end of her hoodie drawstring pokes out just left of the caption box and looks like a stray bullet dot in front of 'But I've pressed' and 'different page!'. Move the caption or the framing so they don't touch.",
+  "Frame 05: The Maya shot is framed so tight on the left that her ear touches the frame edge, while the right half is mostly empty window. Re-centre the shot a little so she isn't clipped."
+ ]
+}
