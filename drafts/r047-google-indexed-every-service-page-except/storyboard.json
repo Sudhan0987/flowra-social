@@ -1,0 +1,225 @@
+{
+ "style": "Day set in Maya's room (pale sky window with a drifting cloud, shelf, plant, spark poster, desk). Maya sits behind the desk at DUO.SPOT.maya and Floey perches on the laptop lid at DUO.SPOT.floeyLaptop facing her for the whole reel. One phone notification (Client) in the hook and one laptop insert (the Brighton vs Hove listInsert, example page text), which comes back once for the fix. Captions are MAYA amber and FLOEY pink at y 1540. The site is an example oven cleaning client and is never named as real.",
+ "panels": [
+  {
+   "beat": 0,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya behind the desk in the type pose with a worried face, hitting the trackpad fast. Floey perched at floeyLaptop facing her. The DUO.notification (screen space, y about 260, inside the safe area) is already fully on screen in frame one.",
+   "action": "Problem already happening: the phone buzzes as the notification sits on screen and Maya clicks again and again while Floey blinks slowly at her. On 'isn't on Google' the notification slides up and away.",
+   "onScreenData": "Client: Why isn't Hove on Google?",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "buzz"
+    },
+    {
+     "at": 0.45,
+     "kind": "type"
+    },
+    {
+     "at": 0.9,
+     "kind": "type"
+    },
+    {
+     "at": 1.4,
+     "kind": "whoosh"
+    }
+   ]
+  },
+  {
+   "beat": 0,
+   "at": 2,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face fills the frame. Floey is out of frame.",
+   "action": "Rising pressure: the camera pushes in as she throws her hands up into the panic pose with a panic face, and on 'begged' she jolts in her seat, bun wobbling, then her eyes dart left towards Floey (look x -1).",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.6,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 1,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid, calm and dry.",
+   "action": "Speaker change, so we cut to her. One dry chip, then she tilts her head towards the screen on 'It's not ignoring Hove'.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 1,
+   "at": 1.2,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "maya: Maya behind the desk, hands coming down from her head. Floey is out of frame.",
+   "action": "Listener reaction on 'It picked Brighton': her face snaps from panic to surprised and her eyes drop to the laptop (look y 1). A small push-in for the realisation.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 2,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya sitting back, Floey on the laptop lid.",
+   "action": "Maya sits back into the crossed pose with an annoyed face, offended, looking at Floey (look x -1) as she says 'Duplicate?'. On 'never copied' Floey gives one slow head tilt, the look of a bird who knows about the template. Only the voice is heard.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: a closer two-shot favouring Floey on the laptop lid, with Maya's arms still crossed at the edge of the frame (not sliced).",
+   "action": "Floey turns from the screen to Maya and back again on 'next to Brighton', then preens one wing on 'only Hove has'. On 'next to Brighton' Maya's face moves from annoyed to think and her hand goes to her chin.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 3,
+   "at": 2.4,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya and Floey, the laptop between them.",
+   "action": "Show the tip happening: Maya uncrosses into the type pose with a think face and types to open the two pages side by side. Floey watches from the lid and turns her head with Maya's eyes.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 4,
+   "at": 0,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "Laptop insert, the reel's one cutaway: DUO.listInsert titled 'Brighton vs Hove', cols ['Brighton','Hove'], label = Brighton text and value = Hove text. Example page text, measured with PROPS.measure so every cell fits at phone size, inside x 60 to 1020 and y 220 to 1420.",
+   "action": "The insert swings in. The rows land one at a time, paced by her full stops: 'Oven cleaning in Brighton' | 'Oven cleaning in Hove', then 'Same-day cleans, call today' | 'Same-day cleans, call today' (hi, the only ringed row, ring grows on 'Same intro'), then 'Spotless in an hour!' | 'Spotless in an hour!' sliding in quietly on 'Same review'.",
+   "onScreenData": "Brighton vs Hove",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.45,
+     "kind": "ding"
+    }
+   ]
+  },
+  {
+   "beat": 5,
+   "at": 0,
+   "shot": "close",
+   "camera": "push-in",
+   "subject": "mayaTight: Maya's face, insert gone. Floey is out of frame.",
+   "action": "Realisation push-in. She sinks into the slump pose looking down at the laptop with a think frown, which turns to a sheepish sad face on 'Oh.'. On 'swapped the town' her eyes flick guiltily left to Floey (look x -1).",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 6,
+   "at": 0,
+   "shot": "close",
+   "camera": "static",
+   "subject": "floeyTight: Floey alone on the laptop lid.",
+   "action": "One slow blink on 'Twins', then a small satisfied preen on 'kept one'. Nothing else moves, so the line lands clean.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 7,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya sitting up, Floey on the laptop lid.",
+   "action": "Maya sits up into the type pose, her face moving from sheepish to think, and types hard on 'Hove streets we cover'. Floey leans in to watch the screen.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0.1,
+     "kind": "type"
+    }
+   ]
+  },
+  {
+   "beat": 7,
+   "at": 0.7,
+   "shot": "insert",
+   "camera": "static",
+   "subject": "The same 'Brighton vs Hove' listInsert returns for the fix. The Brighton column stays as it was and the headline row already names Hove. Example text, measured so it fits at phone size.",
+   "action": "The Hove intro cell rewrites itself to 'From Church Road to the seafront' on 'Hove streets we cover', and the ring moves off that row. Then the Hove review cell rewrites to 'Saved my Hove flat's oven!' on 'A Hove customer's review'. END is pushed (GAP about 1.0 s) so the finished table holds for about one second.",
+   "onScreenData": "Saved my Hove flat's oven!",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "whoosh"
+    },
+    {
+     "at": 0.45,
+     "kind": "pop"
+    },
+    {
+     "at": 1.3,
+     "kind": "pop"
+    }
+   ]
+  },
+  {
+   "beat": 8,
+   "at": 0,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "wide: Maya and Floey, insert gone.",
+   "action": "Maya slumps back with a deadpan face and looks up at the ceiling (look y -1), saying 'Why, Google?' flat. Floey tilts her head and then puffs up slightly, ready to answer for Google.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 0,
+   "shot": "medium",
+   "camera": "push-in",
+   "subject": "floey: a closer two-shot favouring Floey, with Maya still slumped at the frame edge (not sliced).",
+   "action": "Floey pivots to face the camera (F.pivot front) and answers for Google, deadpan, with a slow push-in. She holds on the full stop before 'Six times', then winks.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 2.2,
+   "shot": "wide",
+   "camera": "push-in",
+   "subject": "wide pushing slowly towards mayaTight: Maya, with Floey on the lid at the frame edge.",
+   "action": "Silent button: Maya slowly turns her head from the ceiling to the lens and gives the camera a long, wordless deadpan look while the camera creeps in. END is pushed about 2.4 s after the last line so the look plays out in full.",
+   "onScreenData": "",
+   "sfx": []
+  },
+  {
+   "beat": 9,
+   "at": 4.6,
+   "shot": "wide",
+   "camera": "static",
+   "subject": "End card: the Flowra logo intact, 'Maya & Floey, every day', Floey perched in front on the spark's left arm. Captions hidden.",
+   "action": "The end card lands with a thump and Floey settles on the spark's left arm, facing the camera.",
+   "onScreenData": "",
+   "sfx": [
+    {
+     "at": 0,
+     "kind": "slam"
+    }
+   ]
+  }
+ ],
+ "posterAt": 0.4
+}

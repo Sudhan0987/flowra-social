@@ -1,0 +1,55 @@
+{
+ "topic": "Google indexed every service page except the near-copies: they're twins, so Google kept one",
+ "angle": "Maya built a small client site from one template. A text from the client says the page for one town isn't on Google, and Maya has already pressed Request Indexing again and again. Floey opens Search Console. The missing page says \"Duplicate without user-selected canonical\", and URL Inspection shows Google picked the other town's page as the canonical. The two pages say the same thing word for word, so Google grouped them and kept one. The tip: put the skipped page next to the indexed one and give each page something only it says. Pressing the button again changes nothing.",
+ "whyNow": "Social listening on 22 Nov 2026 flagged an r/TechSEO thread (\"Google won't index some of my service pages\", 9 comments). The poster kept resubmitting, and only the service pages with nearly the same layout stayed out (https://www.reddit.com/r/TechSEO/comments/1y22meb/google_wont_index_some_of_my_service_pages/). Reddit blocked our fetch, so those details come from the listening note, not from reading the thread. The same question also gets asked on other forums, such as the BlackHatWorld thread \"Google isn't indexing my service pages, I need help\" (https://www.blackhatworld.com/seo/google-isnt-indexing-my-service-pages-i-need-help.1812514/). We already covered pressing Request Indexing and reading the reason line, so this reel teaches the next step: compare the pages and make them different. It is evergreen, but people are asking about it right now.",
+ "goal": "send",
+ "audience": "Freelancers, small agency people and bloggers who build sites from one template: service pages per town, per service, or near-identical posts. Anyone who has pressed Request Indexing on the same page five times. The person they send it to is the friend who copies a page and only swaps the town name.",
+ "facts": [
+  {
+   "fact": "If Google finds several pages that look the same or have very similar main content, it groups them together and picks the one it thinks is the most complete and useful as the canonical.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/canonicalization"
+  },
+  {
+   "fact": "Search Console's page indexing report has the status 'Duplicate without user-selected canonical': the page is a duplicate of another page, Google chose the canonical itself, and this page won't appear in Search.",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "URL Inspection shows the 'Google-selected canonical', which Google describes as the page it chose as the canonical when it found similar pages on your site.",
+   "source": "https://support.google.com/webmasters/answer/9012289"
+  },
+  {
+   "fact": "A canonical tag is a hint, not a rule. Google may still choose a different page.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/canonicalization"
+  },
+  {
+   "fact": "Some duplicate content on a site is normal and does not break Google's spam policies. It is not a penalty.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/canonicalization"
+  },
+  {
+   "fact": "Google says not to bother asking for a recrawl unless there is an important change, and that indexing is never instant, even when you submit a request.",
+   "source": "https://support.google.com/webmasters/answer/7440203"
+  },
+  {
+   "fact": "Google says submitting an indexing request does not guarantee the page will appear in the index, and that requests have a daily limit.",
+   "source": "https://support.google.com/webmasters/answer/9012289"
+  },
+  {
+   "fact": "Duplicates are crawled less often than the canonical page.",
+   "source": "https://developers.google.com/search/docs/crawling-indexing/canonicalization"
+  },
+  {
+   "fact": "Google's John Mueller said localized content is not considered duplicate content. The same write-up says service area pages should describe how the service meets the needs of customers in that area, and city pages need local details such as nearby places and local customer feedback.",
+   "source": "https://www.searchenginejournal.com/when-is-duplicate-content-acceptable-for-local-seo-google-explains/519562/"
+  },
+  {
+   "fact": "Demand: an r/TechSEO poster (9 comments) kept resubmitting service page URLs, and only the pages with nearly the same layout stayed unindexed. These details come from the 22 Nov social listening note; the thread could not be fetched.",
+   "source": "https://www.reddit.com/r/TechSEO/comments/1y22meb/google_wont_index_some_of_my_service_pages/"
+  }
+ ],
+ "visualIdea": "Day set, wide shot. Maya's phone buzzes with a notification from her client: \"Why isn't the Hove page on Google?\" (under 34 characters). Maya jolts and clicks hard and fast on the laptop: click, click, click (\"I've pressed Request Indexing six times!\"). Cutaway with DUO.listInsert, titled \"Search Console: Pages\" with columns Page and Status. The rows slide in: /brighton-oven-cleaning Indexed (good), /lewes-oven-cleaning Indexed (good), /worthing-oven-cleaning Indexed (good), /hove-oven-cleaning \"Duplicate, no user canonical\" (bad, hi ring). Back to the room: Floey says \"Read the next line.\" A second listInsert titled \"URL Inspection: /hove\" shows the rows \"Google-selected canonical: /brighton\" (hi ring) and \"User-declared canonical: None\". Then the payoff: a third listInsert titled \"Brighton vs Hove\", with columns Brighton and Hove, row by row: Headline \"Oven cleaning you'll love\" | \"Oven cleaning you'll love\", Intro \"Same-day, call today\" | \"Same-day, call today\", Reviews \"Same 3\" | \"Same 3\". Every row matches, and the ring grows around the whole table. Maya: \"Oh. They're twins.\" Floey: \"So Google kept one.\" Maya types (typing sfx), and the Hove column rows change to things only Hove has: \"Hove streets we cover\", \"Hove customer review\", \"Hove prices\". The button uses the running joke: Maya, to the ceiling, \"Why, Google?\" Floey pivots front and answers for Google, deadpan: \"You sent me the same page twice.\" Maya looks to camera, then the end card. Every row is clearly an example client site; the site and the client are never named as real.",
+ "pillar": "problem",
+ "instinct": "Google is ignoring my client's page, and if I keep pressing Request Indexing it will eventually go in.",
+ "flip": "When two pages say nearly the same thing, Google groups them and indexes only the one it picks as the canonical (\"Duplicate without user-selected canonical\"), so asking again changes nothing until the page says something only it says.",
+ "idea": "Google indexed every service page except the ones that look like copies",
+ "style": "duo"
+}

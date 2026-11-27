@@ -1,0 +1,116 @@
+{
+ "title": "The Twins",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.3,
+   "say": "My client's Hove page isn't on Google. I've begged six times!",
+   "emotion": "worried",
+   "visual": "Day set, wide. Frame one already shows the problem: DUO.notification is on screen in screen space (sender 'Client', message 'Why isn't Hove on Google?', 25 characters), and Maya is mid-click in the typing pose with a worried face, hitting the trackpad fast: click, click, click, each a short click panned to the laptop. Floey sits at DUO.SPOT.floeyLaptop and blinks slowly at her. On 'isn't on Google' the notification slides away. Cutaway on 'begged': laptop screen insert DUO.listInsert, title 'Search Console: Pages', cols ['Page','Status'], one whoosh as it swings in. The rows slide in quietly: '/brighton-oven-cleaning' Indexed (good), '/lewes-oven-cleaning' Indexed (good), '/worthing-oven-cleaning' Indexed (good), '/hove-oven-cleaning' 'Duplicate without user-selected canonical' (bad, hi: true), with one ding as the red row lands. The status uses Search Console's exact wording. Measure it with PROPS.measure and widen the Status column until it fits at phone size, wrapping to two lines inside the row if it still doesn't fit. Never shorten it. This is an example client site and is never named as real."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "It's not ignoring Hove. It picked Brighton.",
+   "emotion": "warm",
+   "visual": "floey: Floey at DUO.SPOT.floeyLaptop gives one dry chip and a tilt toward the screen. Cutaway on 'It picked Brighton': a second DUO.listInsert, title 'URL Inspection: /hove-oven-cleaning' (measured to fit the title bar), cols ['Field','Value'], one whoosh. Rows: 'Google-selected canonical' | '/brighton-oven-cleaning' (hi: true, with a ding as it lands), then 'User-declared canonical' | 'None', fading in quietly below. No spoken instruction. The insert simply appears because Maya is already in Search Console."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Duplicate? I never copied anything!",
+   "emotion": "determined",
+   "visual": "wide: Maya sits back in the crossed pose, offended, looking at Floey. Floey stays at DUO.SPOT.floeyLaptop and gives a slow tilt of the head, the look of a bird who knows about the template. No sound apart from the voice."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.35,
+   "say": "Put Hove next to Brighton. Then give it what only Hove has.",
+   "emotion": "playful",
+   "visual": "floey: Floey at DUO.SPOT.floeyLaptop turns from the screen to Maya and back again on 'next to Brighton', then preens one wing on 'only Hove has'. Cut to wide as the line ends: Maya uncrosses into the typing pose and types (typing sound, panned to the laptop) to open the two pages side by side. Floey watches from the laptop."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.55,
+   "say": "Same intro. Same review...",
+   "emotion": "curious",
+   "visual": "Cutaway: third DUO.listInsert, title 'Brighton vs Hove', cols ['Brighton','Hove'], with no row names (label = Brighton text, value = Hove text), one whoosh. Rows land quietly one by one, timed to the full stops so the read slows down: 'Oven cleaning in Brighton' | 'Oven cleaning in Hove'; then 'Same-day cleans, call today' | 'Same-day cleans, call today' (hi: true, the only ringed row, with a ding on 'Same intro'); then 'Spotless in an hour!' | 'Spotless in an hour!' landing on 'Same review'. All of this is example page text, the same word for word except for the town."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Oh. I only swapped the town.",
+   "emotion": "curious",
+   "visual": "maya: Maya drops into the slump pose and looks at the laptop. Her expression turns from a frown to sheepish on 'Oh.', and her eyes flick to Floey on 'swapped the town'. Floey is out of frame."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "Twins. So Google kept one.",
+   "emotion": "warm",
+   "visual": "floeyTight: Floey at DUO.SPOT.floeyLaptop gives one slow blink on 'Twins', then a small satisfied preen on 'kept one'. No other action, so the line lands clean."
+  },
+  {
+   "role": "payoff",
+   "speaker": "maya",
+   "pause": 0.7,
+   "say": "Hove streets we cover. A Hove customer's review.",
+   "emotion": "determined",
+   "visual": "Cut to wide for a beat: Maya sits up in the typing pose and types hard (typing sound), while Floey watches from the laptop. Cutaway: the 'Brighton vs Hove' insert again. On 'Hove streets we cover' the Hove intro row rewrites itself with one pop: 'From Church Road to the seafront'. On 'A Hove customer's review' the Hove review row rewrites with one pop: 'Saved my Hove flat's oven!' (example text). The ring moves off, the Brighton column stays as it was, and the headline row already names Hove. END is pushed so the finished table holds for about one second and both changed rows can be read at phone size."
+  },
+  {
+   "role": "button",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Why, Google?",
+   "emotion": "determined",
+   "visual": "wide: Maya slumps back and looks up, saying it flat to the ceiling. Floey at DUO.SPOT.floeyLaptop tilts, then gets ready to answer for Google."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "You sent me Brighton. Six times.",
+   "emotion": "warm",
+   "visual": "floey: Floey at DUO.SPOT.floeyLaptop turns to face the camera and answers for Google, deadpan, pausing on the full stop before 'Six times'. Then she winks. Cut to wide: Maya slowly turns her head and gives the camera a long, wordless look. Then the end card."
+  }
+ ],
+ "loopNote": "Floey's 'Six times' calls back to the hook. The end card cuts away on Maya's look, and the replay opens with her clicking Request Indexing again over the client's text, so a rewatch feels like she still hasn't learned. The callback and the loop make the same joke.",
+ "caption": "Four town pages from one template. Three are on Google. The fourth? Missing, however many times you press Request Indexing.\n\nHere's what's going on: when two pages say almost the same thing, Google groups them and keeps the one it picks. Search Console marks the other one \"Duplicate without user-selected canonical\", and URL Inspection shows which twin Google chose instead.\n\nPressing the button again changes nothing. Put the skipped page next to the one that got in, then give it things only it has: the areas you actually cover there, and a review from a local customer. Some duplicate content is normal, and it isn't a penalty.\n\nEveryone knows someone who copies a page and only swaps the town name. Who's yours? 👀\n\n(Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#searchconsole",
+  "#localseo",
+  "#webdesign",
+  "#freelancelife"
+ ],
+ "sticky": 51,
+ "id": "r047-google-indexed-every-service-page-except",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Google indexed every service page except the near-copies: they're twins, so Google kept one",
+ "editorNotes": [
+  "The button is in the wrong place. Maya has just worked out why Hove was skipped ('I only swapped the town'), Floey has told her ('So Google kept one'), and she has fixed the page. Then she asks the ceiling 'Why, Google?' She already knows why, so the question makes no sense and the punchline lands on a solved problem. Either move the Google exchange to before the fix, while she still doesn't understand, or give the button a question she could really ask after the fix, like whether to press the button again. Fact 6 supports one request after an important change. Keep Floey's dry callback to 'six times'.",
+  "The fix has Maya writing a customer review herself. She says 'A Hove customer's review' while she types, and the row rewrites to 'Saved my Hove flat's oven!' On screen she is making up a testimonial for her client, which is the opposite of the local customer feedback the brief means (the SEJ fact) and is a fake review. Show her pasting a real one in: a click, the client's review appearing, and a line like 'Paste the Hove review'. Never show her typing one.",
+  "The hook hides the behaviour the whole reel is about. 'I've begged six times!' never says what she pressed, and the insert that comes in on 'begged' is the Pages list, not Request Indexing. A stranger doesn't see that she kept resubmitting, so the flip (asking again changes nothing) and the 'Six times' callback both go soft. Name the button in her line, as the brief's visual idea does ('I've pressed Request Indexing six times!'). It reads aloud fast and panicky in bf_emma.",
+  "The first two inserts are on screen too briefly to read. Insert 1 swings in on 'begged', the last word of the hook. Then four rows slide in, one of them the two-line 'Duplicate without user-selected canonical', and only 0.3 s of pause follows before insert 2 replaces it on 'It picked Brighton'. Insert 2 then gets the last word of a short Floey line plus 0.35 s before the doubt line cuts back to wide. Maya's 'Duplicate?' depends on the viewer having read that red row. Bring insert 1 in earlier (on 'isn't on Google') and hold it through Floey's 'It's not ignoring Hove'. Keep insert 2 up through Maya's 'Duplicate?' or lengthen the pauses, so each ringed row is on screen long enough to read at phone size (about 1.5 s or more).",
+  "Line 8 says 'END is pushed so the finished table holds for about one second'. END is the time the end card starts, after the last line, so pushing it does nothing in the middle of the reel. Hold the rewritten table with this line's pause (GAP 0.7 is too short to read two changed rows; use about 1.2 or more) or keep the insert up into the next line. Separately, the last beat needs END pushed: Floey's wink plus Maya's 'long, wordless look' to camera have to play out before the end card (up to about 3 s), and the visual only says 'Then the end card'.",
+  "The payoff line asks for an expression Maya doesn't have. She has no 'sheepish' or 'frown' face. Name real ones: for example think while she reads, then surprised on 'Oh.', then sad or deadpan on 'I only swapped the town'. Several Maya lines also don't set a face at all: the doubt line (use annoyed, which matches 'offended'), the check line (think), and the fix line (maybe determined, then proud). The final test samples frames, and a face left over from the last line fails it.",
+  "(polish) Voice emotions that don't fit how the lines should sound. 'Why, Google?' is meant to be flat at the ceiling, but its emotion is determined, which will sound rallying. Worried or curious fits the deflated delivery better. Floey's answer as Google is marked warm but the visual says deadpan, so playful is closer. Maya's 'Oh. I only swapped the town.' as curious will sound bright. Worried fits the small 'oh no' better.",
+  "(polish) 'Hove streets we cover. A Hove customer's review.' sounds like a to-do list being read out, not something a person says while typing. It also doesn't match the screen: the row says 'From Church Road to the seafront', not 'streets we cover'. Have her say what she is actually typing, or a natural mutter. Once the fake review is fixed, the second half changes anyway.",
+  "(polish) The hook's 'click, click, click' is described as fast, hard clicks, but the studio allows at most one sound every 0.4 s. Space the clicks at least 0.4 s apart (three across the line is enough) and let her hands show the frenzy.",
+  "(polish) Floey preens in the tip ('only Hove has') and again in the payoff ('kept one'), and blinks or tilts in four beats. Swap one preen for another behaviour, like a tk, a turn to Maya or a sip, so each Floey beat looks different.",
+  "(polish) Outside the UK, 'Hove' in 'My client's Hove page' doesn't read as a town in the first 2 seconds. The notification says 'Why isn't Hove on Google?' on frame one, which helps. Consider 'the Hove page' with the town clearer on screen, or let the first insert's /hove-oven-cleaning row land sooner so the viewer sees it is a town page.",
+  "(polish) 'You sent me Brighton. Six times.' only lands if the viewer remembers that Hove is a copy of Brighton and connects it to 'six times' from the hook. Once the button is moved before the fix, check that this joke reads in one go. Otherwise use the brief's simpler 'You sent me the same page twice.'"
+ ],
+ "style": "duo",
+ "template": "../drafts/r047-google-indexed-every-service-page-except/scene.html"
+}

@@ -1,0 +1,361 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<script src="../../node_modules/gsap/dist/gsap.min.js"></script>
+<script src="../../node_modules/gsap/dist/CustomEase.min.js"></script>
+<script src="../../brand/mascot/hum.js"></script>
+<script src="../../brand/mascot/floey.js"></script>
+<script src="../../brand/studio/props.js"></script>
+<script src="../../brand/cast/maya.js"></script>
+<script src="../../brand/cast/duo.js"></script>
+<script src="lines.js"></script>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("../../reel/assets/SpaceGrotesk.woff2") format("woff2");font-weight:300 700}
+@font-face{font-family:"Public Sans";src:url("../../reel/assets/PublicSans.woff2") format("woff2");font-weight:100 900}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#efe6f3}svg{display:block}
+</style>
+</head><body>
+<svg id="stage" width="1080" height="1920" viewBox="0 0 1080 1920"></svg>
+<script>
+// r047 "The Twins". Duo style, day. The shape of reel/duo/template.html.
+// Frame one: the client's text is on screen and Maya is hammering the trackpad (Request Indexing, again).
+// A push into her panic, then her screen: Search Console, Pages, Hove is the one red row with
+// Search Console's exact wording. Floey, deadpan on the lid: "It's not ignoring Hove." URL Inspection:
+// Google picked /brighton-oven-cleaning. Maya, arms crossed: "I never copied anything!" Floey's tip; Maya
+// opens the two pages side by side: word for word the same except the town. Her guilty face. Floey: "Twins."
+// Maya fixes Hove: its own streets (typed) and a real Hove customer's review (pasted in, not typed).
+// "Why, Google?" to the ceiling. Floey answers for Google to camera, winks. Maya's long look down the lens.
+["700 44px 'Space Grotesk'", "700 34px 'Space Grotesk'", "700 34px 'Public Sans'", "800 52px 'Public Sans'", "600 40px 'Public Sans'"].forEach((ft) => document.fonts.load(ft));
+const M = window.MOUTHS || {};
+const LINES = window.LINES;
+// the pause after each line, from the story
+const GAP = { hook0: 0.3, reframe1: 0.35, doubt2: 0.2, tip3: 0.35, check4: 0.55, payoff5: 0.2, payoff6: 0.4, payoff7: 0.7, button8: 0.2, button9: 0.7 };
+const { B, DUR: SPOKEN } = DUO.timing(LINES, M, GAP);
+const b = B, SH = DUO.SHOT, SP = DUO.SPOT;
+const at = (id, k) => b[id].start + k * b[id].len;      // a fraction k of the way through a line
+// Floey's wink and Maya's long look to camera play out before the end card
+const END = Math.max(SPOKEN + 0.6, b.button9.end + 2.4), DUR = END + 1.6;
+
+// ---------- shots (the named shots, nudged so nobody is sliced) ----------
+const WIDE = { ...SH.wide };
+const MAYA_S = { camX: 750, camY: 820, zoom: 1.55 };
+const MAYA_IN = { camX: 735, camY: 812, zoom: 1.72 };
+const TIGHT = { camX: 640, camY: 845, zoom: 2.1 };
+const TIGHT_IN = { camX: 640, camY: 850, zoom: 2.22 };
+const FL = { ...SH.floey };
+const FL_IN = { camX: 476, camY: 998, zoom: 1.36 };
+const FT = { camX: 285, camY: 1075, zoom: 2.25 };       // Floey alone, the lid's spark whole, Maya out of frame
+
+// ---------- the cast ----------
+const F = FLOEY.create({ ...SP.floeyLaptop, facing: -1, mood: "hello", perched: true, view: "side" });
+const MY = MAYA.create({ ...SP.maya, expr: "worried", pose: "type", floey: F });
+const W = { ...WIDE, note: 1, pages: 0, pRows: 0, pRing: 0, url: 0, uRows: 0, uRing: 0,
+  cmp: 0, cRows: 0, cRing: 0, fix: 0, f1: 0, f2: 0, fRing: 0, end: 0 };
+const wt = gsap.timeline({ paused: true });
+// every change is a fromTo from where the last one on that value ended, so any frame seeks the same (from r040)
+const last = {}, lastEnd = {};
+function key(t, vals, d = 0.3, ease = "power2.out") {
+  const from = {}, ks = Object.keys(vals);
+  let t0 = t;
+  for (const k of ks) { from[k] = k in last ? last[k] : W[k]; t0 = Math.max(t0, lastEnd[k] ?? 0); }
+  wt.fromTo(W, from, { ...vals, duration: d, ease, immediateRender: false }, t0);
+  for (const k of ks) { last[k] = vals[k]; lastEnd[k] = t0 + d; }
+}
+const cam = (s) => ({ camX: s.camX, camY: s.camY, zoom: s.zoom });
+const shot = (t, s, d = 0.6, ease = "power3.inOut") => key(t, cam(s), d, ease);
+const cutTo = (t, s) => key(t, cam(s), 0.001, "none");
+// Floey's eyes half shut (deadpan) and open again
+const lids = (t, v, d = 0.2) => F.tl.to(F.S, { squint: v, duration: d, ease: "power2.out" }, t);
+const slowBlink = (t) => { lids(t, 1, 0.16); lids(t + 0.34, 0.35, 0.22); };
+const F_MAYA = [0.7, -0.3], F_SCREEN = [0.3, 0.9], F_CAM = [0, 0];
+const M_LAPTOP = [-0.5, 0.9], M_FLOEY = [-1, 0.3], M_UP = [0.2, -1];
+const KEYS_X = 420, SCREEN_X = 540;
+// Maya's held stares, with no stray blink
+const STARE = [];
+const mayaState = MY.state;
+MY.state = (t) => {
+  const s = mayaState(t);
+  if (STARE.some(([a, z]) => t >= a && t <= z)) s.blink = 0;
+  if (s.expr === "panic") s.mouth = Math.min(s.mouth, 0.55);
+  return s;
+};
+
+// HOOK0: frame one, the problem already happening. Wide: the client's text is up, Maya's worried face, her
+// hands on the trackpad: click, click, click (Request Indexing again). Floey turns to her and blinks slowly.
+// The text slides away on "isn't on Google"; push into her face, hands up, a jolt. On "I've begged" the
+// Pages report swings in: three towns Indexed, Hove the one red row.
+const h = b.hook0.start;
+MY.look(0, ...M_LAPTOP, 0.01).say(h, M.hook0 || [], "hook0");
+F.look(0, ...F_MAYA, 0.01).mood(0, "think");
+lids(0, 0.35, 0.01);
+F.sfx(0.05, "buzz", { x: 540 });
+[0.35, 0.8, 1.25].forEach((c) => { F.sfx(c, "click", { x: KEYS_X }); MY.tiltTo(c, 3.5, 0.06).tiltTo(c + 0.08, 0, 0.12); });
+slowBlink(0.7);
+F.tiltTo(1.2, -10, 0.3);
+key(1.5, { note: 0 }, 0.3, "power2.in");
+shot(1.45, TIGHT, 0.4, "power3.out");
+MY.expr(1.5, "panic").pose(1.5, "panic", 0.22).jolt(1.62);
+shot(1.85, TIGHT_IN, 0.5, "sine.out");
+MY.look(1.9, -1, 0.1, 0.15);
+STARE.push([1.5, 2.4]);
+const pg = 2.38;
+key(pg, { pages: 1 }, 0.32, "power3.out");
+F.sfx(pg, "whoosh");
+key(pg + 0.22, { pRows: 1 }, 0.5, "power1.out");
+key(3.25, { pRing: 1 }, 0.3, "power2.out");
+F.sfx(3.25, "ding", { x: SCREEN_X });
+
+// REFRAME1: Floey alone on the lid, deadpan: a dry chip, a tilt towards the screen on "Hove".
+// On "It picked Brighton" URL Inspection swings in; the ring lands on Google's choice on "Brighton".
+const r1 = b.reframe1.start;
+key(r1 - 0.25, { pages: 0 }, 0.25, "power2.in");
+cutTo(r1 - 0.05, FT);
+F.mood(r1 - 0.1, "think").look(r1 - 0.1, ...F_MAYA, 0.08).tiltTo(r1 - 0.1, 0, 0.1).say(r1, M.reframe1 || [], "reframe1");
+F.chips(r1 + 0.05, 1);
+F.tiltTo(at("reframe1", 0.38), 18, 0.3).look(at("reframe1", 0.38), ...F_SCREEN, 0.15);
+// Maya, unseen: hands down, still worried (she is seen again in the wide)
+MY.expr(r1, "worried").pose(r1, "rest", 0.4).sit(r1, 0.3);
+const ui = at("reframe1", 0.6);
+key(ui, { url: 1 }, 0.32, "power3.out");
+F.sfx(ui, "whoosh");
+key(ui + 0.22, { uRows: 1 }, 0.45, "power1.out");
+const picked = at("reframe1", 0.84);
+key(picked, { uRing: 1 }, 0.3, "power2.out");
+F.sfx(picked, "ding", { x: SCREEN_X });
+
+// DOUBT2: "Duplicate?" read off the screen (the status row says it), then the wide: Maya sits back, arms
+// crossed, offended, glaring at Floey. Floey's one slow head tilt on "never copied". Only the voice.
+const d2 = b.doubt2.start;
+MY.expr(d2 - 0.1, "annoyed").say(d2, M.doubt2 || [], "doubt2");
+F.tiltTo(d2, 0, 0.2).look(d2, ...F_MAYA, 0.1);
+const back2 = at("doubt2", 0.4);
+key(back2 - 0.05, { url: 0 }, 0.25, "power2.in");
+cutTo(back2 + 0.15, WIDE);
+MY.pose(back2 - 0.2, "crossed", 0.35).leanTo(back2 - 0.2, -4, 0.35).look(back2, ...M_FLOEY, 0.12).tiltTo(back2, -5, 0.3);
+F.tiltTo(at("doubt2", 0.62), 22, 0.7);
+slowBlink(at("doubt2", 0.8));
+
+// TIP3: the closer two-shot, a slow push. Floey looks from the screen to Maya and back on "next to
+// Brighton", then preens on "only Hove has". Maya, arms still crossed, softens to thinking, chin in hand.
+// Cut to the wide as the line ends: she types, opening the two pages side by side.
+const t3 = b.tip3.start;
+cutTo(t3 - 0.12, FL);
+shot(t3, FL_IN, 2.2, "sine.inOut");
+F.mood(t3 - 0.1, "happy").tiltTo(t3 - 0.1, 8, 0.2).look(t3 - 0.1, ...F_SCREEN, 0.1).say(t3, M.tip3 || [], "tip3");
+lids(t3, 0.15, 0.15);
+F.look(at("tip3", 0.2), ...F_MAYA, 0.1).tiltTo(at("tip3", 0.2), -6, 0.15);
+F.look(at("tip3", 0.34), ...F_SCREEN, 0.1).tiltTo(at("tip3", 0.34), 10, 0.15).sfx(at("tip3", 0.34), "tk");
+F.look(at("tip3", 0.52), ...F_MAYA, 0.1).tiltTo(at("tip3", 0.52), 0, 0.15);
+MY.expr(at("tip3", 0.25), "think").pose(at("tip3", 0.25), "chin", 0.45).leanTo(at("tip3", 0.25), 2, 0.4).tiltTo(at("tip3", 0.25), 4, 0.3).look(at("tip3", 0.3), -0.9, 0.2, 0.15);
+const wd3 = at("tip3", 0.7);
+cutTo(wd3, WIDE);
+F.preen(at("tip3", 0.76), 0.8);
+MY.pose(wd3 + 0.05, "type", 0.3).expr(wd3 + 0.05, "think").leanTo(wd3, 0, 0.3).tiltTo(wd3, 0, 0.2).look(wd3 + 0.05, ...M_LAPTOP, 0.12);
+F.sfx(wd3 + 0.2, "typing", { d: 0.8, x: KEYS_X });
+
+// CHECK4: her screen, the reel's comparison: Brighton vs Hove, row by row, timed to her full stops.
+// The intro row is the ringed one ("Same intro.", a ding); the review row lands quietly on "Same review".
+const c4 = b.check4.start;
+key(c4 - 0.2, { cmp: 1 }, 0.32, "power3.out");
+F.sfx(c4 - 0.2, "whoosh");
+MY.expr(c4 - 0.1, "think").say(c4, M.check4 || [], "check4");
+key(c4 + 0.05, { cRows: 1 / 3 }, 0.22, "power2.out");
+key(at("check4", 0.22), { cRows: 2 / 3 }, 0.22, "power2.out");
+key(at("check4", 0.3), { cRing: 1 }, 0.3, "power2.out");
+F.sfx(at("check4", 0.3), "ding", { x: SCREEN_X });
+key(at("check4", 0.62), { cRows: 1 }, 0.22, "power2.out");
+F.look(c4, ...F_SCREEN, 0.1).tiltTo(c4, 14, 0.2);
+
+// PAYOFF5: the reaction close-up. She sinks; "Oh." surprised, then sad on "I only swapped the town",
+// the eyes sliding guiltily to Floey on "swapped".
+const p5 = b.payoff5.start;
+key(p5 - 0.15, { cmp: 0 }, 0.22, "power2.in");
+cutTo(p5 - 0.02, TIGHT);
+shot(p5, TIGHT_IN, b.payoff5.len + 0.2, "sine.inOut");
+MY.pose(p5 - 0.1, "rest", 0.4).slump(p5, 0.5).look(p5, ...M_LAPTOP, 0.01);
+MY.expr(p5, "surprised").say(p5, M.payoff5 || [], "payoff5");
+MY.expr(at("payoff5", 0.24), "sad");
+MY.look(at("payoff5", 0.48), -1, 0.15, 0.3).tiltTo(at("payoff5", 0.48), -4, 0.3);
+STARE.push([p5, b.payoff5.end + 0.2]);
+
+// PAYOFF6: Floey alone, deadpan. One slow blink on "Twins.", a satisfied tongue flick after "kept one".
+const p6 = b.payoff6.start;
+cutTo(p6 - 0.1, FT);
+F.mood(p6 - 0.1, "think").tiltTo(p6 - 0.1, 0, 0.15).look(p6 - 0.1, ...F_MAYA, 0.08).say(p6, M.payoff6 || [], "payoff6");
+lids(p6 - 0.1, 0.4, 0.15);
+slowBlink(p6 + 0.1);
+F.tongue(b.payoff6.end + 0.05, 1);
+lids(b.payoff6.end + 0.2, 0.2, 0.2);
+
+// PAYOFF7: the wide: she sits up and types hard, Floey leans in to watch. Her screen, the same table:
+// the Hove intro rewrites to its own streets (typed), then a real Hove customer's review is pasted in
+// (a click, no typing). The Brighton column stays as it was. The finished table holds into the pause.
+const p7 = b.payoff7.start;
+cutTo(p7 - 0.15, WIDE);
+MY.expr(p7 - 0.15, "annoyed").sit(p7 - 0.15, 0.3).pose(p7 - 0.15, "type", 0.25).look(p7 - 0.1, ...M_LAPTOP, 0.1).say(p7, M.payoff7 || [], "payoff7");
+F.mood(p7 - 0.1, "happy").look(p7 - 0.1, ...F_SCREEN, 0.1).tiltTo(p7 - 0.1, 16, 0.25);
+lids(p7, 0, 0.1);
+F.sfx(p7 + 0.05, "typing", { d: 0.5, x: KEYS_X });
+const fx = p7 + 0.6;
+key(fx, { fix: 1 }, 0.3, "power3.out");
+F.sfx(fx, "whoosh");
+key(fx + 0.15, { fRing: 1 }, 0.25, "power2.out");        // the ring on the copied intro, the row she fixes first
+const w1 = at("payoff7", 0.37);
+key(w1, { f1: 1 }, 0.35, "power2.out");
+F.sfx(w1, "pop", { x: SCREEN_X });
+key(w1 + 0.01, { fRing: 0 }, 0.001, "none");
+key(w1 + 0.1, { fRing: 1 }, 0.3, "power2.out");          // the ring moves down to the review row
+const paste = at("payoff7", 0.55);
+F.sfx(paste, "click", { x: KEYS_X });
+const w2 = at("payoff7", 0.72);
+key(w2, { f2: 1 }, 0.35, "power2.out");
+F.sfx(w2, "pop", { x: SCREEN_X });
+key(w2 + 0.05, { fRing: 0 }, 0.3, "power2.in");          // and moves off: nothing left the same
+MY.expr(at("payoff7", 0.95), "proud");
+
+// BUTTON8: the wide, insert gone. She slumps back and says it flat to the ceiling. Floey tilts, then
+// turns her head up as if she is about to answer for Google.
+const b8 = b.button8.start;
+key(b8 - 0.3, { fix: 0 }, 0.25, "power2.in");
+cutTo(b8 - 0.05, WIDE);
+MY.expr(b8 - 0.05, "deadpan").pose(b8 - 0.1, "rest", 0.4).slump(b8 - 0.05, 0.5).look(b8, ...M_UP, 0.3).tiltTo(b8, -6, 0.4).say(b8, M.button8 || [], "button8");
+F.look(b8, ...F_MAYA, 0.1).tiltTo(b8 + 0.1, 0, 0.2);
+F.tiltTo(at("button8", 0.55), 20, 0.25);
+lids(at("button8", 0.55), 0.45, 0.2);
+STARE.push([b8 + 0.2, b.button8.end + 0.3]);
+
+// BUTTON9: the closer two-shot. Floey pivots to the camera and answers for Google, deadpan, holding the
+// full stop before "Six times.", then winks. Cut to Maya: her slow head turn from the ceiling to the lens,
+// a long wordless look while the camera creeps in. Then the end card.
+const b9 = b.button9.start;
+cutTo(b9 - 0.22, FL);
+shot(b9, FL_IN, b.button9.len + 0.2, "sine.inOut");
+F.pivot(b9 - 0.15, "front").mood(b9 - 0.15, "think").tiltTo(b9 - 0.15, 0, 0.1).look(b9 - 0.1, ...F_CAM, 0.08).say(b9, M.button9 || [], "button9");
+F.tiltTo(at("button9", 0.5), -8, 0.2).tiltTo(at("button9", 0.62), 0, 0.2);
+MY.look(at("button9", 0.6), -0.6, -0.4, 0.4);
+F.wink(b.button9.end + 0.1);
+const stare = b.button9.end + 0.5;
+cutTo(stare, MAYA_S);
+shot(stare + 0.001, MAYA_IN, END - stare, "sine.inOut");
+MY.pose(stare - 0.2, "crossed", 0.4).tiltTo(stare + 0.2, 0, 0.6).look(stare + 0.3, 0, 0, 0.6);
+STARE.push([stare, END]);
+
+// END: the logo card drops in
+key(END, { end: 1 }, 0.5, "back.out(1.6)");
+F.sfx(END + 0.05, "thump");
+wt.set({}, {}, DUR);
+
+// ---------- screen inserts: DUO.listInsert draws the card, the ring and the rows' slide; the cell text is
+// fitted here (measured, one line or wrapped to two inside the row, never shortened) ----------
+const INK = HUM.colors.ink, TONE = { good: "#2f9e62", bad: "#d24b4b" };
+const esc = PROPS.esc, ms = PROPS.measure, fx1 = (n) => Math.round(n * 10) / 10;
+function wrap2(text, font, w) {
+  const words = text.split(" "); let best = null;
+  for (let i = 1; i < words.length; i++) {
+    const a = words.slice(0, i).join(" "), z = words.slice(i).join(" "), m = Math.max(ms(a, font), ms(z, font));
+    const score = m - (a.endsWith(",") ? 120 : 0);        // break after a comma where there is one
+    if (m <= w && (!best || score < best.score)) best = { lines: [a, z], score };
+  }
+  return best && best.lines;
+}
+function fit(text, w, fam, big = 36) {
+  for (const s of [big, big - 2, big - 4, big - 6]) if (ms(text, `700 ${s}px '${fam}'`) <= w) return { s, lines: [text] };
+  for (const s of [32, 30, 28, 26, 24]) { const l = wrap2(text, `700 ${s}px '${fam}'`, w); if (l) return { s, lines: l }; }
+  return { s: 24, lines: [text] };
+}
+function cell(c, x, y, anchor, fam, fill) {
+  const { s, lines } = c;
+  const ys = lines.length === 1 ? [y + 61] : [y + 42, y + 42 + s * 1.15];
+  return lines.map((l, i) => `<text x="${x}" y="${fx1(ys[i])}" text-anchor="${anchor}" font-family="${fam}" font-weight="700" font-size="${s}" fill="${fill}">${esc(l)}</text>`).join("");
+}
+// opts { title, cols, rows: [{ label, value, tone, labelTone, hi, pop }], hiK, split (left column share), valueFam }
+function table(k, rowsK, o) {
+  if (k <= 0.01) return "";
+  const rows = o.rows, n = rows.length, x0 = 150, x1 = 930, inner = x1 - x0, gap = 30;
+  const lw = inner * o.split - gap / 2, rw = inner * (1 - o.split) - gap / 2, vf = o.valueFam || "Space Grotesk";
+  let s = DUO.listInsert(k, rowsK, { title: "", cols: o.cols, rows: rows.map((r) => ({ label: "", value: "", tone: r.tone, hi: r.hi })), hiK: o.hiK });
+  const ty = 1920 * (1 - Math.min(1, k)) * 0.6;
+  let ts = 44; while (ts > 30 && ms(o.title, `700 ${ts}px 'Space Grotesk'`) > inner) ts -= 2;
+  s += `<g transform="translate(0 ${fx1(ty)})" opacity="${fx1(Math.min(1, k * 2))}"><text x="${x0}" y="712" font-family="Space Grotesk" font-weight="700" font-size="${ts}" fill="${INK}">${esc(o.title)}</text>`;
+  rows.forEach((r, i) => {
+    const rk = Math.max(0, Math.min(1, rowsK * n - i)); if (rk <= 0) return;
+    const y = 780 + i * 96, p = r.pop || 0, sc = 1 + 0.12 * Math.sin(Math.PI * Math.min(1, p));
+    s += `<g opacity="${fx1(rk)}" transform="translate(${fx1((1 - rk) * 40)} 0)">`;
+    let cl = fit(r.label, lw, "Public Sans", 34), cv = r.value && fit(r.value, rw, vf, 34);
+    // side by side text (o.same): both cells of a row at one size, so neither page looks smaller
+    const fitAt = (text, w, fam, sz) => ms(text, `700 ${sz}px '${fam}'`) <= w ? { s: sz, lines: [text] } : (wrap2(text, `700 ${sz}px '${fam}'`, w) ? { s: sz, lines: wrap2(text, `700 ${sz}px '${fam}'`, w) } : fit(text, w, fam, sz));
+    if (o.same && cv && cl.s !== cv.s) { const m = Math.min(cl.s, cv.s); cl = fitAt(r.label, lw, "Public Sans", m); cv = fitAt(r.value, rw, vf, m); }
+    s += cell(cl, x0, y, "start", "Public Sans", TONE[r.labelTone] || INK);
+    if (r.value) s += `<g transform="translate(${x1} ${y + 48}) scale(${fx1(sc * 100) / 100}) translate(${-x1} ${-(y + 48)})">${cell(cv, x1, y, "end", vf, TONE[r.tone] || INK)}</g>`;
+    s += `</g>`;
+  });
+  return s + `</g>`;
+}
+const pages = () => table(W.pages, W.pRows, { title: "Search Console: Pages", cols: ["Page", "Status"], split: 0.52, hiK: W.pRing, rows: [
+  { label: "/brighton-oven-cleaning", value: "Indexed", tone: "good" },
+  { label: "/lewes-oven-cleaning", value: "Indexed", tone: "good" },
+  { label: "/worthing-oven-cleaning", value: "Indexed", tone: "good" },
+  { label: "/hove-oven-cleaning", value: "Duplicate without user-selected canonical", tone: "bad", hi: true },
+] });
+const url = () => table(W.url, W.uRows, { title: "URL Inspection: /hove-oven-cleaning", cols: ["Field", "Value"], split: 0.36, hiK: W.uRing, rows: [
+  { label: "Page indexing", value: "Duplicate without user-selected canonical", tone: "bad" },
+  { label: "Google-selected canonical", value: "/brighton-oven-cleaning", tone: "bad", hi: true },
+  { label: "User-declared canonical", value: "None" },
+] });
+// the two pages side by side (example page text): word for word the same except the town
+const cmp = () => table(W.cmp, W.cRows, { title: "Brighton vs Hove", cols: ["Brighton", "Hove"], split: 0.5, same: true, hiK: W.cRing, valueFam: "Public Sans", rows: [
+  { label: "Oven cleaning in Brighton", value: "Oven cleaning in Hove" },
+  { label: "Same-day cleans, call today", value: "Same-day cleans, call today", tone: "bad", hi: true },
+  { label: "“Spotless in an hour!”", value: "“Spotless in an hour!”", tone: "bad" },
+] });
+// the fix: Hove gets its own streets and its own customer's review; Brighton's column is untouched
+const fix = () => table(W.fix, 1, { title: "Brighton vs Hove", cols: ["Brighton", "Hove"], split: 0.5, same: true, hiK: W.fRing, valueFam: "Public Sans", rows: [
+  { label: "Oven cleaning in Brighton", value: "Oven cleaning in Hove" },
+  W.f1 > 0.02 ? { label: "Same-day cleans, call today", value: "From Church Road to the seafront", tone: "good", pop: W.f1 }
+    : { label: "Same-day cleans, call today", value: "Same-day cleans, call today", tone: "bad", hi: true },
+  W.f2 > 0.02 ? { label: "“Spotless in an hour!”", value: "“Saved my Hove flat's oven!”", tone: "good", pop: W.f2 }
+    : { label: "“Spotless in an hour!”", value: "“Spotless in an hour!”", tone: "bad", hi: W.f1 > 0.02 },
+] });
+
+// ---------- world parts ----------
+// the rig draws every open mouth as a grin. On her upset faces, turn the open mouth over (arched top,
+// flat bottom) so a worried line reads as worry, not delight. (Same fix as r027 to r046.)
+const UPSET = new Set(["panic", "worried", "annoyed", "sad", "surprised", "deadpan", "think"]);
+const MOUTH_RE = /<path d="(M[^"]+Z)" fill="#5a1f22"[^>]*\/>\s*<clipPath id="mq\d+"><path d="[^"]+"\/><\/clipPath>\s*<g clip-path="url\(#mq\d+\)">(<ellipse[^>]*\/>)<rect[^>]*\/><\/g>/;
+function frown(s, e) {
+  if (!UPSET.has(e)) return s;
+  const sy = e === "deadpan" ? 0.5 : e === "annoyed" ? 0.42 : e === "think" ? 0.6 : 1;
+  return s.replace(MOUTH_RE, (all, d, tongue) => {
+    const ys = d.match(/-?\d+(\.\d+)?/g).map(Number).filter((_, i) => i % 2);
+    const lo = Math.min(...ys), hi = Math.max(...ys), mid = (lo + hi) / 2;
+    return `<g transform="translate(0 ${mid.toFixed(1)}) scale(1 ${(-sy).toFixed(2)}) translate(0 ${(-mid).toFixed(1)})">${all.replace(tongue, "")}</g>`;
+  });
+}
+const mayaSvg = (t) => `<g data-maya="1">${frown(MY.svg(t), MY.state(t).expr)}</g>`;
+// Floey is drawn only when her body is in the frame (no stray beak tip in Maya's close-ups),
+// and Maya only when more than a sliver of her is (none in Floey's close shot)
+const floeyVisible = (t) => { const p = F.pose(t), x = 540 + (p.x - W.camX) * W.zoom; return x > -60 && x < 1140; };
+const mayaVisible = () => W.camX + 540 / W.zoom > 560;
+
+window.render = function (t) {
+  wt.seek(Math.min(DUR, t), false);
+  const world = DUO.room(t) + (mayaVisible() ? mayaSvg(t) : "") + DUO.deskFront() + DUO.laptop()
+    + (floeyVisible(t) ? F.svg(t) : "");
+  // captions wait while a screen cutaway is travelling, so a caption never sits on its title
+  const moving = [W.pages, W.url, W.cmp, W.fix].some((k) => k > 0.01 && k < 0.99);
+  document.getElementById("stage").innerHTML = DUO.cam(world, W)
+    + DUO.notification(W.note, "Client", "Why isn't Hove on Google?", 260)
+    + pages() + url() + cmp() + fix()
+    + (W.end < 0.5 && !moving ? DUO.captions(LINES, B, t) : "")
+    // a quick opaque wash first, so the end card never sits over a faded room
+    + (W.end > 0.01 ? `<rect width="1080" height="1920" fill="#fffaf2" opacity="${Math.min(1, W.end * 4).toFixed(2)}"/>` : "")
+    + DUO.endCard(W.end, t);
+};
+window.DURATION = DUR;
+window.SOUND = () => ({ ...F.sound(DUR), style: "duo", musicFile: "assets/music/mk162.mp3" });
+window.CAMERA = (t) => { wt.seek(Math.min(DUR, t), false); return { camX: W.camX, camY: W.camY, zoom: W.zoom }; };
+window.FLOEY = F;
+window.BEATS = B;
+window.STYLE = "duo";
+window.render(0);
+document.fonts.ready.then(() => window.render(0));
+</script></body></html>
