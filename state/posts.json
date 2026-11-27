@@ -718,6 +718,17 @@
    "reason": "Frame 06: The comparison screen doesn't back up the dialogue, and it teaches the wrong thing. The script asks for a 'Same page?' screen with whole-page rows (Intro, What I do, Process, Contact, all 'Same', with a ring around the list). The render shows 'Opening lines, side by side' with one row per page and one matching sentence, 'Recipes that work.' Right after it, Maya says 'Word for word' and Floey says 'Google thinks they're one page.' Viewers will take this to mean one shared opening line m",
    "idea": "Google indexed every service page except the ones that look like copies",
    "style": "duo"
+  },
+  {
+   "id": "r047-google-indexed-every-service-page-except",
+   "status": "draft",
+   "topic": "Google indexed every service page except the near-copies: they're twins, so Google kept one",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-27T15:19:21.500Z",
+   "seconds": 31,
+   "idea": "Google indexed every service page except the ones that look like copies",
+   "style": "duo",
+   "run": 46020720413
   }
  ]
 }
