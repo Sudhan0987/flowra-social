@@ -1,0 +1,55 @@
+{
+ "topic": "Is AI traffic catching up with Google on your site? Put the two side by side in GA4",
+ "angle": "A friend texts Maya that AI now sends her shop as many visitors as Google, and Maya spirals: everyone is getting ChatGPT traffic except her. Floey points out that one deleted Reddit post is not her site. GA4 now has its own AI Assistant row, so Maya opens the channel report and puts it next to Organic Search. The tiny AI row (her own example numbers) and one more fact, that clicks from Google's AI Overviews are counted as Google search anyway, turn the panic into a check anyone can do in ten seconds.",
+ "whyNow": "AI answers eating clicks is this month's biggest conversation (a 565-comment Hacker News thread, and reports blaming AI Overviews for Reddit's traffic drop). An r/juststart post titled 'Has AI traffic caught up with Google on your site?' claimed one store's AI visits were almost 1 to 1 with Google. The post was removed, so the reel treats it as a rumour to check, not a finding. GA4's AI Assistant channel (added 13 May 2026) means anyone can check it now.",
+ "goal": "send",
+ "audience": "Solo bloggers, content site owners and small agency people who keep reading 'AI is replacing Google' posts, have GA4 installed, and quietly wonder whether they are behind on AI traffic.",
+ "facts": [
+  {
+   "fact": "An r/juststart post titled 'Has AI traffic caught up with Google on your site?' claimed AI traffic on one store was almost 1 to 1 with Google. The post was removed, so it is only a claim and must never be shown as a finding. On screen it reaches Maya as a friend's text, not a statistic.",
+   "source": "https://www.reddit.com/r/juststart/comments/1y170cc/has_ai_traffic_caught_up_with_google_on_your/"
+  },
+  {
+   "fact": "Demand: a 565-comment Hacker News thread on Google's AI answers cutting search traffic, and reports that Reddit's traffic drop is partly blamed on AI Overviews (Similarweb data, Nov 2026).",
+   "source": "https://www.businessinsider.com/reddit-traffic-down-13-percent-similarweb-google-ai-overviews-2026-11"
+  },
+  {
+   "fact": "On 13 May 2026 Google Analytics added 'New AI Assistant traffic measurement': an AI Assistant channel in the Default Channel Group reports, so visits from AI chatbots show up separately from other traffic.",
+   "source": "https://support.google.com/analytics/answer/9164320"
+  },
+  {
+   "fact": "When the referrer is a recognised AI assistant, GA4 sets the medium to 'ai-assistant' and the campaign to '(ai-assistant)'. No setup is needed. Google gives ChatGPT, Gemini and Claude as examples but has not published the full list.",
+   "source": "https://www.searchenginejournal.com/google-analytics-adds-ai-assistant-as-default-channel-group/574974/"
+  },
+  {
+   "fact": "AI assistant visits with no referrer (in-app browsers, mobile apps, copied links) still land in Direct, so the AI Assistant row is a floor, not the whole picture.",
+   "source": "https://www.searchenginejournal.com/google-analytics-adds-ai-assistant-as-default-channel-group/574974/"
+  },
+  {
+   "fact": "SE Ranking's study of 101,574 websites (January 2025 to April 2026): AI platforms made up 0.32% of all website traffic in 2026 and organic search made up 42.75%, so Google sent about 134 times more visitors than AI platforms. This is an average across the sample; Floey can say 'most sites' but never 'your site'.",
+   "source": "https://seranking.com/blog/ai-traffic-research-study/"
+  },
+  {
+   "fact": "In the same SE Ranking study, AI traffic grew from 0.02% (2024) to 0.24% (2025) to 0.32% (2026) of all website traffic, and ChatGPT sent 74.78% of AI referral traffic. So it is growing, just from a very small base.",
+   "source": "https://seranking.com/blog/ai-traffic-research-study/"
+  },
+  {
+   "fact": "Google: sites that appear in AI features such as AI Overviews and AI Mode are counted in the overall search traffic in Search Console (Performance report, 'Web' search type). So clicks from Google's AI answers are not in GA4's AI Assistant row; they count as Google search.",
+   "source": "https://developers.google.com/search/docs/appearance/ai-features"
+  },
+  {
+   "fact": "Any numbers in Maya's GA4 insert (for example Organic Search 4,210, Direct 1,380, Referral 240, AI Assistant 31) are her own made-up example and must be framed as hers. They are not a statistic.",
+   "source": "Flowra finding"
+  },
+  {
+   "fact": "For the end card only, never spoken: Flowra reads visits from ChatGPT, Perplexity and other AI assistants out of GA4 referrers, next to Search Console clicks. It counts visits that arrive and cannot see answers that sent no click.",
+   "source": "Flowra facts file"
+  }
+ ],
+ "visualIdea": "Hook (mayaTight): the phone notification slides down, 'Priya: AI sends my shop as much as Google now', and Maya jolts. Her first line opens on the feeling, no number: 'Everyone's getting robot traffic except me. The robots don't even know I exist.' Floey, perched on the laptop and deadpan: 'Did you check, or did you read it?' Maya: 'It was a Reddit post.' Floey: 'That got deleted.' Floey's tip: 'Open GA4. There's a row just for AI now. Put it next to Google.' Maya types, and the central image is a DUO.listInsert cutaway with the title 'GA4 · Traffic by channel', the sub 'last 28 days (Maya's site)' and rows sliding in: Organic Search 4,210 (good), Direct 1,380, Referral 240, Organic Social 190, AI Assistant 31 (hi). The ring grows round the tiny AI Assistant row at the bottom, under the huge Google row. Back on the wide shot a DUO.stat pill '31' floats by Maya's head. Maya: 'Oh.' Then her push-back: 'But Google's AI answers...' Floey: 'Get counted as Google.' Button: Maya reaches for her mug, sips and pulls a face because her coffee has gone cold (running joke). Floey: 'Still Google's world. You're welcome.' Maya looks to camera. Day set, desk with laptop and mug.",
+ "pillar": "myth",
+ "instinct": "Maya believes AI assistants now send sites as many visitors as Google, so if her ChatGPT traffic is tiny she is already falling behind.",
+ "flip": "GA4 has its own AI Assistant channel that you can put right next to Organic Search, and across 101,574 sites SE Ranking found AI platforms sent 0.32% of traffic while organic search sent 42.75%. So check your own report before you believe someone else's screenshot.",
+ "idea": "Is AI traffic catching up with Google on your site? Put the two side by side in GA4",
+ "style": "duo"
+}

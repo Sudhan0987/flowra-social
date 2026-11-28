@@ -1,0 +1,117 @@
+{
+ "title": "Even the chatbots hate me",
+ "hookPattern": "The voiced frustration",
+ "beats": [
+  {
+   "role": "hook",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Everyone's getting chatbot traffic but me. Even the chatbots hate me.",
+   "emotion": "worried",
+   "visual": "mayaTight, day set. Frame one: a DUO.notification slides down in screen space with a buzz sound, 'Priya: saw AI matches Google now!' (33 characters). Maya does MY.jolt on the buzz, then talks fast and high with a worried expression, eyes on the notification. Floey is not in this shot."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.3,
+   "say": "Did you check, or did you read it?",
+   "emotion": "playful",
+   "visual": "wide: Floey sits on floeyLaptop, stops preening, tilts her head slowly and gives a deadpan half-blink. Maya, still worried, blinks on 'read' and switches to annoyed, turning her head toward Floey."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "Priya saw it on Reddit.",
+   "emotion": "determined",
+   "visual": "maya: Maya, annoyed and defensive, leans in toward the laptop as if that settles it. Off her line, Floey (heard as a small chip sound, panned right) is unimpressed."
+  },
+  {
+   "role": "reframe",
+   "speaker": "floey",
+   "pause": 0.4,
+   "say": "That post got deleted.",
+   "emotion": "playful",
+   "visual": "wide: Floey on floeyLaptop doesn't even turn her head, one slow blink. Maya's face drops: her expression switches to sad and she slumps in her chair."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.25,
+   "say": "So how do I check?",
+   "emotion": "curious",
+   "visual": "maya: Maya sits up out of the slump, expression think, hands go to the keyboard in the type pose, looking across at Floey."
+  },
+  {
+   "role": "tip",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "Google Analytics has an AI Assistant row now. Put it next to Organic Search.",
+   "emotion": "warm",
+   "visual": "floey: Floey on floeyLaptop turns toward the screen, tilts her head and gives a short chip on 'AI Assistant'. On 'Organic Search' cut to wide: Maya types fast in the type pose, key clicks panned right, and the laptop screen insert begins to open."
+  },
+  {
+   "role": "check",
+   "speaker": "maya",
+   "pause": 0.35,
+   "say": "Oh. Thirty one. Search sent over four thousand.",
+   "emotion": "bright",
+   "caption": "Oh. 31. Search sent over 4,000.",
+   "visual": "Laptop screen insert (DUO.listInsert) during the tip's pause: title 'GA4 · Traffic by channel', sub 'last 28 days (Maya's site)'. Rows slide in one by one with soft ticks: Organic Search 4,210 (good), Direct 1,380, Referral 240, Organic Social 190, AI Assistant 31 (hi). The AI Assistant row and the ring round it are fully in before Maya speaks; she says 'Oh. Thirty one.' over the ringed row. On 'Search sent' cut to wide: a DUO.stat pill '31' floats by Maya's head, her shoulders drop and her expression turns happy with relief; Floey blinks and preens once. The pill fades out at the end of the line, before the next cut."
+  },
+  {
+   "role": "doubt",
+   "speaker": "maya",
+   "pause": 0.2,
+   "say": "But Google's AI answers...",
+   "emotion": "worried",
+   "visual": "mayaTight: the relief wobbles; Maya's expression switches to think, then worried, eyes narrowing at the screen, ready to panic again."
+  },
+  {
+   "role": "payoff",
+   "speaker": "floey",
+   "pause": 0.5,
+   "say": "Count as Google search.",
+   "emotion": "playful",
+   "visual": "floeyTight: Floey on the laptop cuts in without blinking, one small head tilt on 'Google'. Nothing else moves; the line lands clean."
+  },
+  {
+   "role": "button",
+   "speaker": "floey",
+   "pause": 0.7,
+   "say": "Still Google's world, Maya. You're welcome.",
+   "emotion": "proud",
+   "visual": "wide: Floey turns to the camera, chest puffed, a quick smug tongue flick on 'welcome'. Maya, expression deadpan, gives the camera a long flat look. In the held pause a second DUO.notification slides down with a buzz, 'Priya: wait, did you see this?' (30 characters); Maya's eyes flick to it and her expression goes worried. Then the end card lands on its thump."
+  }
+ ],
+ "loopNote": "The last shot ends on a second notification from Priya sliding down with a buzz and Maya's face going worried. The replay opens on the first notification sliding down with the same buzz and Maya jolting, so it plays like Priya's next text starting the same panic again.",
+ "caption": "A friend says she saw that AI now sends sites as much as Google. Maya decides she's officially behind. 🙃\n\nBefore you spiral, check your own numbers. Google Analytics now has an AI Assistant channel built in, with no setup. Open the traffic by channel report and put that row next to Organic Search.\n\nTwo things to know. Clicks from Google's AI Overviews count as Google search, not AI Assistant. And some chatbot visits arrive with no referrer and land in Direct, so read that row as the least you're getting, not the full count.\n\nWhat does your AI Assistant row look like next to Organic Search? Tell us below. And if you've got a friend who keeps forwarding \"AI is replacing Google\" posts, this one's for them. (Maya and Floey are from Flowra.)",
+ "hashtags": [
+  "#seo",
+  "#googleanalytics",
+  "#blogging",
+  "#contentmarketing",
+  "#aitraffic"
+ ],
+ "sticky": 49,
+ "id": "r048-is-ai-traffic-catching-up-with-google-on",
+ "format": "duo-sitcom",
+ "goal": "send",
+ "topic": "Is AI traffic catching up with Google on your site? Put the two side by side in GA4",
+ "editorNotes": [
+  "The insert can't fit in its window. The visual opens the listInsert on 'Organic Search' at the end of the tip, then needs five rows sliding in with a tick each, plus the ring fully grown round AI Assistant, all inside the tip's 0.5 s pause before Maya says 'Oh.' Ticks can't come closer than one every 0.4 s, so the rows alone need about 2 s. The same moment also asks for a cut to wide with Maya typing, then the cutaway on top of that. Fix: start the insert swinging in on 'AI Assistant row' (or right after the tip ends), stretch the tip's pause to about 2.2 s so the rows and the ring land, and drop the extra cut to wide in between.",
+  "The number Maya says isn't on screen when she says it. She says 'Search sent over four thousand', but on 'Search sent' the script cuts back to wide and floats a '31' pill by her head. So her number has left the screen, and the pill shows the other number. The rule is that a spoken number sits on screen beside the thing it belongs to. Fix: hold the insert through the whole line (the ring on AI Assistant for 'Thirty one', with the 4,210 Organic Search row visible above it for 'four thousand'). Bring in the wide shot with the '31' pill only after the line ends. Or cut the second sentence (see the polish note on the check line).",
+  "Frame one isn't the problem already happening. The hook has the notification sliding down, and Maya only jolts on the buzz, so the first frames show a calm Maya and no notification. The studio rule says the notification is already on screen and Maya is mid-panic at frame one. Fix: start with the notification almost fully in (k around 0.8 at t=0) and Maya already on her worried face with her hands up, and put the jolt and buzz in the first 0.1 to 0.2 s. The loop still works, because the replay opens on the buzz.",
+  "The button doesn't fit in a 0.7 s pause. After 'You're welcome' it needs a tongue flick, Maya's 'long flat look' to camera, a second notification with a buzz, her eyes flicking to it and her face going worried, and then the end card thump. That's at least 2.5 s of silent acting. Fix: push END to about 2.5 to 3 s after the last line (the studio allows up to about 3) and give the order with times: flat look for about 1 s, buzz and the notification sliding in, eyes flick up, worried face, hold 0.5 s, then the thump. Otherwise the relapse, which is the real laugh, gets cut off by the end card.",
+  "On 'But Google's AI answers...' Maya's face starts on think and only then turns worried. The line is worried, and the rule is that her face is set to the line's feeling at the line's start. The final test samples frames, so a think face on a worried line can fail it. Fix: put her on worried on the line's first frame. If you want the relief to wobble first, do it as a narrowing look or a tilt, not a different expression.",
+  "(polish) Facts: the brief says the Reddit post was removed, not deleted. 'Deleted' suggests the author took it down, which we don't know. 'That post got taken down.' keeps the joke and stays accurate.",
+  "(polish) Maya's reaction to 'That post got deleted' is 'sad' with a slump. That's the wrong feeling: the post going away is good news for her, and what she's actually lost is the argument. Annoyed or deadpan, with a small slump and a sideways look at Floey, reads as 'fine, you win'. It also sets up 'So how do I check?' better.",
+  "(polish) The tip line is long for Floey and slightly off. In GA4's channel report, AI Assistant and Organic Search are already rows in the same table, so 'Put it next to Organic Search' asks the viewer to do something that's already done. It also doesn't say where to look. Something closer to the brief's 'opens the channel report' says it in fewer, more spoken words, for example: 'Open your channel report. AI has its own row now. Look what's above it.' Stay within the facts and don't name any report beyond the Default Channel Group.",
+  "(polish) The check line says the same thing twice. 'Oh.' is the realisation, and 'Thirty one' over the ringed row lands it. 'Search sent over four thousand' just narrates numbers already on screen, so it sounds written. Think about ending the line on 'Oh. Thirty one.' and letting the 4,210 row do the comparison. That also fixes the blocking problem with the spoken number.",
+  "(polish) The listInsert doesn't say what the numbers count. Set cols, for example ['Channel', 'Sessions'], so 4,210 and 31 have a unit. Keep the sub 'last 28 days (Maya's site)' so they stay framed as her own example.",
+  "(polish) The notification is hard to read in 2 seconds. In 'saw AI matches Google now!', it's not clear what 'matches' refers to. Put Priya in the from field instead of the text and say traffic outright, for example from 'Priya', text 'AI sends as much traffic as Google!' (about 34 characters). Also give a y below 220 px of the top so Instagram's top bar doesn't cover it.",
+  "(polish) Some of the staging can't be drawn as written. In the 'maya' shot Floey is out of frame, so 'Floey is unimpressed' can't be seen; keep just the off-screen chip. 'Floey turns toward the screen' doesn't work either: from the camera you see the back of the lid, and the screen faces Maya, so it should be a head tilt down toward Maya's side. 'Her shoulders drop' has no control; use MY.slump then MY.sit, or the rest pose."
+ ],
+ "style": "duo",
+ "template": "../drafts/r048-is-ai-traffic-catching-up-with-google-on/scene.html"
+}
