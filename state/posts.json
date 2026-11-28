@@ -729,6 +729,17 @@
    "idea": "Google indexed every service page except the ones that look like copies",
    "style": "duo",
    "run": 46020720413
+  },
+  {
+   "id": "r048-is-ai-traffic-catching-up-with-google-on",
+   "status": "draft",
+   "topic": "Is AI traffic catching up with Google on your site? Put the two side by side in GA4",
+   "format": "duo-sitcom",
+   "madeAt": "2026-11-28T14:22:10.420Z",
+   "seconds": 30,
+   "idea": "Is AI traffic catching up with Google on your site? Put the two side by side in GA4",
+   "style": "duo",
+   "run": 46153089137
   }
  ]
 }
